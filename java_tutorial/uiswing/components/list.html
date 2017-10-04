@@ -1,0 +1,866 @@
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>How to Use Lists</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="layeredpane.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#components" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="menu.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Creating a GUI with JFC/Swing
+<br>
+<b>Lesson</b>: Using Swing Components
+</font>
+
+<h2>
+How to Use Lists
+</h2>
+<blockquote>
+
+A
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JList.html"><font color="#8800bb"><code>JList</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JList.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> presents the user with a group of items,
+displayed in one or more columns, to choose from.
+Lists can have many items,
+so they are often put in
+<a href="scrollpane.html">scroll panes</a>.
+
+<p>
+
+In addition to lists,
+the following Swing components present
+multiple selectable items to the user:
+<a href="combobox.html">combo boxes</a>,
+<a href="menu.html">menus</a>,
+<a href="table.html">tables</a>,
+and
+groups of <a href="button.html#checkbox">check boxes</a> or
+<a href="button.html#radiobutton">radio buttons</a>.
+To display hierarchical data, use a
+<a href="tree.html">tree</a>.
+
+<p>
+
+The following figures shows two applications that
+use lists.
+This section uses these examples as a basis for
+the discussions that follow.
+
+<p align=center>
+<table summary="layout">
+<tr valign=bottom>
+<td>
+<IMG SRC="../../figures/uiswing/components/14ListDialog.gif" WIDTH="280" HEIGHT="190" ALT="A snapshot of ListDialog, which displays a simple list"><td>
+<IMG SRC="../../figures/uiswing/components/14ListDemo.gif" WIDTH="254" HEIGHT="162" ALT="A snapshot of ListDemo, which lets you add and remove list items"><tr valign=top>
+<td align=center>
+<b>ListDialog
+<br>(used by ListDialogRunner)</b>
+<td align=center>
+<b>ListDemo</b>
+</table>
+</p>
+
+<blockquote><hr><strong>Try this:</strong>&nbsp;
+<ol>
+<li>
+Run <a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/components/example-1dot4/ListDialogRunner.jnlp">ListDialogRunner</a> and
+<a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/components/example-1dot4/ListDemo.jnlp">ListDemo</a>
+using
+<a target="_top" href="../../information/javawebstart.html">Java<sup><font size=-2>TM</font></sup> Web Start</a><a target="_top" href="../../information/javawebstart.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.    Or, to compile and run the examples yourself,
+     consult the
+     <a href="example-1dot4/index.html">example index</a>.
+
+
+<li> To bring up the ListDialog,
+     click the Pick a new name... button
+     in the window titled Name That Baby.
+     <br>
+     The resulting dialog is a ListDialog instance
+     that's been customized to have the title Name Chooser.
+<li> In ListDemo,
+     try adding (hiring) and removing (firing) a few items.
+</ol>
+<hr></blockquote>
+
+
+This rest of this section discusses the following topics:
+
+<p>
+<ul>
+<li> <a href="#init">Initializing a List</a>
+<li> <a href="#selection">Selecting Items in a List</a>
+<li> <a href="#mutable">Adding Items to and Removing Items from a List</a>
+<li> <a href="#renderer">Writing a Custom Cell Renderer</a>
+<li> <a href="#api">The List API</a>
+<li> <a href="#eg">Examples that Use Lists</a>
+</ul>
+
+<a name="init">
+</blockquote>
+<h3>Initializing a List</h3>
+</a>
+<blockquote>
+Here is the code from
+
+<a target="_blank" href="example-1dot4/ListDialog.java"><font color="#bb000f"><code>ListDialog.java</code></font></a><a target="_blank" href="example-1dot4/ListDialog.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>
+that creates and sets up its list:
+<blockquote><pre>
+list = new JList(data); //data has type Object[]
+list.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+list.setLayoutOrientation(JList.HORIZONTAL_WRAP);
+list.setVisibleRowCount(-1);
+...
+JScrollPane listScroller = new JScrollPane(list);
+listScroller.setPreferredSize(new Dimension(250, 80));
+</pre></blockquote>
+
+The code passes an array to the list's constructor.
+The array is filled with strings
+that were passed in from another object.
+In our example, the strings happen to be boys' names.
+
+<p>
+Other <code>JList</code> constructors let you initialize
+a list from a <code>Vector</code> or from an
+object that adheres to the
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/ListModel.html"><font color="#8800bb"><code>ListModel</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/ListModel.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> interface.
+If you initialize a list with an array or vector,
+the constructor implicitly creates a default list model.
+The default list model is immutable &#151; you cannot add,
+remove, or replace items in the list.
+To create a list whose items can be changed individually,
+set the list's model to an instance of a mutable list model
+class, such as an instance of
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/DefaultListModel.html"><font color="#8800bb"><code>DefaultListModel</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/DefaultListModel.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>.
+You can set a list's model when you create the list
+or by calling the <code>setModel</code> method.
+See
+<a href="#mutable">Adding Items to and Removing Items from a List</a>
+for an example.
+
+<p>
+
+The call to <code>setSelectionMode</code>
+specifies how many items the user can select,
+and whether they must be contiguous;
+the next section tells you more about selection modes.
+
+<p>
+
+The call to
+<code>setLayoutOrientation</code>
+lets the list display its data in multiple columns.
+The value <code>JList.HORIZONTAL_WRAP</code>
+specifies that the list should display its items from left to right
+before wrapping to a new row.
+Another possible value is <code>JList.VERTICAL_WRAP</code>,
+which specifies that the data be displayed from top to bottom
+(as usual) before wrapping to a new column.
+The following figures show these two wrapping possibilities,
+together with the default, <code>JList.VERTICAL</code>.
+
+<p>
+<table>
+<tr>
+<td>
+<IMG SRC="../../figures/uiswing/components/14ListDialog-hwrap.gif" WIDTH="173" HEIGHT="61" ALT="HORIZONTAL_WRAP"><td>
+<IMG SRC="../../figures/uiswing/components/14ListDialog-vwrap.gif" WIDTH="148" HEIGHT="73" ALT="VERTICAL_WRAP"><td>
+<IMG SRC="../../figures/uiswing/components/14ListDialog-nowrap.gif" WIDTH="178" HEIGHT="56" ALT="VERTICAL"></tr>
+<tr>
+<td>
+<code>HORIZONTAL_WRAP</code>
+</td>
+<td>
+<code>VERTICAL_WRAP</code>
+</td>
+<td>
+<code>VERTICAL</code>
+</td>
+</tr>
+</table>
+
+<p>
+
+In combination with the call to <code>setLayoutOrientation</code>,
+invoking <code>setVisibleRowCount(-1)</code>
+makes the list display the maximum number of items
+possible in the available space onscreen.
+Another common use of <code>setVisibleRowCount</code>
+is to specify to the lists's scroll pane
+how many rows the list prefers to display.
+</blockquote>
+
+<a name="selection">
+<h3>Selecting Items in a List</h3>
+</a>
+<blockquote>
+A list uses an instance of
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/ListSelectionModel.html"><font color="#8800bb"><code>ListSelectionModel</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/ListSelectionModel.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> to manage its selection.
+By default, a list selection model allows any combination of items
+to be selected at a time.
+You can specify a different selection mode by calling the
+<code>setSelectionMode</code> method on the list.
+For example, both <code>ListDialog</code> and <code>ListDemo</code>
+set the selection mode to <code>SINGLE_SELECTION</code>
+(a constant defined by <code>ListSelectionModel</code>)
+so that only one item in the list can be selected.
+The following table describes the three list selection modes:
+<p>
+
+<blockquote>
+<table>
+<tr>
+<th align=left>Mode</th><th align=left>Description</th>
+</tr>
+<tr>
+<td valign=top><code>SINGLE_SELECTION</code>
+<br>
+<IMG SRC="../../figures/uiswing/components/SingleSelection.gif" WIDTH="80" HEIGHT="82" ALT="Single selection means only one item can be selected at once"><br>
+<br>
+</td>
+<td valign=top>Only one item can be selected at a time.
+    When the user selects an item,
+    any previously selected item is deselected first.
+</td>
+</tr>
+<tr>
+<td valign=top><code>SINGLE_INTERVAL_SELECTION</code>
+<br>
+<IMG SRC="../../figures/uiswing/components/SingleIntervalSelection.gif" WIDTH="80" HEIGHT="82" ALT="Single interval selection means multiple, contiguous items can be selected at once"><br>
+<br>
+</td>
+<td valign=top>Multiple, contiguous items can be selected.
+    When the user begins a new selection range,
+    any previously selected items are deselected first.
+</td>
+</tr>
+
+<tr>
+<td valign=top><code>MULTIPLE_INTERVAL_SELECTION&nbsp;</code>
+<br>
+<IMG SRC="../../figures/uiswing/components/MultipleIntervalSelection.gif" WIDTH="80" HEIGHT="82" ALT="Multiple interval selection means any combination of items can be selected at once"><br>
+<br>
+</td>
+<td valign=top>The default. Any combination of items can be selected.
+    The user must explicitly deselect items.
+</td>
+</tr>
+</table>
+</blockquote>
+
+<p>
+No matter which selection mode your list uses,
+the list fires list selection events whenever the selection changes.
+You can process these events by adding a
+<a href="../events/listselectionlistener.html">
+list selection listener</a>
+to the list with the <code>addListSelectionListener</code> method.
+A list selection listener must implement one method: <code>valueChanged</code>.
+Here's the <code>valueChanged</code> method for
+the listener in <code>ListDemo</code>:
+<blockquote><pre>
+public void valueChanged(ListSelectionEvent e) {
+    if (e.getValueIsAdjusting() == false) {
+
+        if (list.getSelectedIndex() == -1) {
+        //No selection, disable fire button.
+            fireButton.setEnabled(false);
+
+        } else {
+        //Selection, enable the fire button.
+            fireButton.setEnabled(true);
+        }
+    }
+}
+</pre></blockquote>
+
+Many list selection events can be
+generated from a single user action such as a mouse click.
+The <code>getValueIsAdjusting</code> method returns <code>true</code>
+if the user is still manipulating the selection.
+This particular program is interested only in the final result
+of the user's action,
+so the <code>valueChanged</code> method
+does something only if <code>getValueIsAdjusting</code> returns
+<code>false</code>.
+
+<p>
+Because the list is in single-selection mode,
+this code can use <code>getSelectedIndex</code> to
+get the index of the just-selected item.
+<code>JList</code> provides other methods for
+<a href="#selectionapi">setting or getting the selection</a>
+when the selection mode allows more than one item to be selected.
+If you want, you can listen for events on the
+list's list selection model
+rather than on the list itself.
+<a target="_top" href="../events/example-1dot4/index.html#ListSelectionDemo">ListSelectionDemo</a><a target="_top" href="../events/example-1dot4/index.html#ListSelectionDemo"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a> is an example that
+shows how to listen for list selection events on the list selection model
+and lets you change the selection mode of a list dynamically.
+</blockquote>
+
+<a name="mutable">
+<h3>Adding Items to and Removing Items from a List</h3>
+</a>
+<blockquote>
+The ListDemo example that we showed previously
+features a list whose contents can change.
+You can find the source code for ListDemo in
+<a target="_blank" href="example-1dot4/ListDemo.java"><font color="#bb000f"><code>ListDemo.java</code></font></a><a target="_blank" href="example-1dot4/ListDemo.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>.
+Here's the ListDemo code
+that creates a mutable list model object,
+puts the initial items in it,
+and uses the list model to create a list:
+<blockquote><pre>
+listModel = new DefaultListModel();
+listModel.addElement("Alison Huml");
+listModel.addElement("Kathy Walrath");
+listModel.addElement("Lisa Friendly");
+listModel.addElement("Mary Campione");
+listModel.addElement("Sharon Zakhour");
+listModel.addElement("Alan Sommerer");
+
+list = new JList(listModel);
+</pre></blockquote>
+This particular program uses an instance
+of <code>DefaultListModel</code>,
+a class provided by Swing.
+In spite of the class name, a list does not have a
+<code>DefaultListModel</code> unless your
+program explicitly makes it so.
+If <code>DefaultListModel</code> doesn't suit your needs,
+you can write a custom list model,
+which must adhere to the <code>ListModel</code> interface.
+
+<p>
+The following code snippet
+shows the <code>actionPerformed</code> method
+for the action listener registered on
+the <strong>Fire</strong> button.
+The bold line of code removes the selected item in the list.
+The remaining lines in the method
+disable the fire button if the list is now empty,
+and make another selection if it's not.
+
+<blockquote><pre>
+public void actionPerformed(ActionEvent e) {
+    int index = list.getSelectedIndex();
+    <strong>listModel.remove(index);</strong>
+
+    int size = listModel.getSize();
+
+    if (size == 0) { //Nobody's left, disable firing.
+        fireButton.setEnabled(false);
+
+    } else { //Select an index.
+        if (index == listModel.getSize()) {
+            //removed item in last position
+            index--;
+        }
+
+        list.setSelectedIndex(index);
+        list.ensureIndexIsVisible(index);
+    }
+}
+</pre></blockquote>
+
+<p>
+Here's the <code>actionPerformed</code> method
+for the action listener shared by the <strong>Hire</strong>
+button and the text field:
+
+<blockquote><pre>
+public void actionPerformed(ActionEvent e) {
+    String name = employeeName.getText();
+
+    //User didn't type in a unique name...
+    if (name.equals("") || alreadyInList(name)) {
+        Toolkit.getDefaultToolkit().beep();
+        employeeName.requestFocusInWindow();
+        employeeName.selectAll();
+        return;
+    }
+
+    int index = list.getSelectedIndex(); //get selected index
+    if (index == -1) { //no selection, so insert at beginning
+        index = 0;
+    } else {           //add after the selected item
+        index++;
+    }
+
+    <b>listModel.insertElementAt(employeeName.getText(), index);</b>
+
+    //Reset the text field.
+    employeeName.requestFocusInWindow();
+    employeeName.setText("");
+
+    //Select the new item and make it visible.
+    list.setSelectedIndex(index);
+    list.ensureIndexIsVisible(index);
+}
+</pre></blockquote>
+
+This code uses the list model's
+<code>insertElementAt</code> method
+to insert the new name after the current selection
+or, if no selection exists, at the beginning of the list.
+If you just wish to add to the end of the list,
+you can use
+<code>DefaultListModel</code>'s
+<code>addElement</code> method instead.
+
+<p>
+Whenever items are added to, removed from,
+or modified in a list,
+the list model fires list data events.
+Refer to
+<a target="_top" href="../events/listdatalistener.html">How to Write a List Data Listener</a><a target="_top" href="../events/listdatalistener.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a> for information about listening for these events.
+That section contains
+an example that is similar to <code>ListDemo</code>,
+but adds buttons that move items up or down in the list.
+</blockquote>
+
+<a name="renderer">
+<h3>Writing a Custom Cell Renderer</h3>
+</a>
+<blockquote>
+A list uses an object called a cell renderer
+to display each of its items.
+The default cell renderer knows how to display strings and icons.
+If you want to put any other <code>Object</code> in a list
+or if you want to change the way the default renderer display icons
+or strings, you can implement a custom cell renderer.
+Take these steps to provide a custom cell renderer for a list:
+<ul>
+<li> Write a class that implements the
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/ListCellRenderer.html"><font color="#8800bb"><code>ListCellRenderer</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/ListCellRenderer.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>     interface.
+<li> Create an instance of your class and
+     call the list's <code>setCellRenderer</code> using
+     the instance as an argument.
+</ul>
+We don't provide an example of a list
+with a custom cell renderer,
+but we do have an example of a combo box with a custom renderer &#151;
+and combo boxes use the same type of renderer as lists.
+See the example described in
+<a href="combobox.html#renderer">Providing a Custom Renderer</a>.
+</blockquote>
+
+<h3>
+<a name="api">The List API</a>
+</h3>
+<blockquote>
+The following tables list the commonly used
+<code>JList</code> constructors and methods.
+Other methods you are most likely to invoke on
+a <code>JList</code> object are those
+such as <code>setPreferredSize</code>
+that its superclasses provide.
+See
+<a href="jcomponent.html#api">The JComponent API</a>
+for tables of commonly used inherited methods.
+<p>
+Much of the operation of a list is managed by other objects.
+The items in the list are managed by a list model object,
+the selection is managed by a list selection model object,
+and most programs put a list in a scroll pane to handle scrolling.
+For the most part, you don't need to worry about the models
+because <code>JList</code> creates them as necessary and
+you interact with them implicitly with <code>JList</code>'s convenience methods.
+
+<P>
+
+That said, the API for using lists falls into these categories:
+
+<ul>
+<li><a href="#itemsapi">Initializing List Data</a>
+<li><a href="#scrollingapi">Displaying the List</a>
+<li><a href="#selectionapi">Managing the List's Selection</a>
+<li><a href="#dataapi">Managing List Data</a>
+</ul>
+
+<p>
+
+<table border=1>
+<caption><a name="itemsapi">Initializing List Data</a></caption>
+<tr>
+<th>Method or Constructor</th>
+<th>Purpose
+
+</th>
+</tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JList.html#JList(javax.swing.ListModel)"><font color="#8800bb"><font size=2><code>JList(ListModel)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JList.html#JList(javax.swing.ListModel)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JList.html#JList(java.lang.Object[])"><font color="#8800bb"><font size=2><code>JList(Object[])</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JList.html#JList(java.lang.Object[])"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JList.html#JList(java.util.Vector)"><font color="#8800bb"><font size=2><code>JList(Vector)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JList.html#JList(java.util.Vector)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JList.html#JList()"><font color="#8800bb"><font size=2><code>JList()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JList.html#JList()"></a>    </td>
+    <td>Create a list with the initial list items specified.
+        The second and third constructors implicitly
+        create an immutable <code>ListModel</code>;
+	you should not subsequently modify the passed-in
+	array or <code>Vector</code>.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JList.html#setModel(javax.swing.ListModel)"><font color="#8800bb"><font size=2><code>void setModel(ListModel)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JList.html#setModel(javax.swing.ListModel)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JList.html#getModel()"><font color="#8800bb"><font size=2><code>ListModel getModel()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JList.html#getModel()"></a>    </td>
+    <td>Set or get the model that contains the contents of the list.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JList.html#setListData(java.lang.Object[])"><font color="#8800bb"><font size=2><code>void setListData(Object[])</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JList.html#setListData(java.lang.Object[])"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JList.html#setListData(java.util.Vector)"><font color="#8800bb"><font size=2><code>void setListData(Vector)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JList.html#setListData(java.util.Vector)"></a>    </td>
+    <td>Set the items in the list.
+        These methods implicitly create an immutable <code>ListModel</code>.
+
+    </td>
+  </tr>
+</table>
+
+<p>
+
+<table border=1>
+<caption><a name="scrollingapi">Displaying the List</a></caption>
+<tr>
+<th>Method
+</th>
+<th>Purpose
+
+</th>
+</tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JList.html#setVisibleRowCount(int)"><font color="#8800bb"><font size=2><code>void setVisibleRowCount(int)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JList.html#setVisibleRowCount(int)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JList.html#getVisibleRowCount()"><font color="#8800bb"><font size=2><code>int getVisibleRowCount()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JList.html#getVisibleRowCount()"></a>    </td>
+    <td>Set or get how many rows of the list should be visible.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JList.html#setLayoutOrientation(int)"><font color="#8800bb"><font size=2><code>void setLayoutOrientation(int)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JList.html#setLayoutOrientation(int)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JList.html#getLayoutOrientation()"><font color="#8800bb"><font size=2><code>int getLayoutOrientation()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JList.html#getLayoutOrientation()"></a>    </td>
+    <td>Set or get the way list cells are laid out.  The possible layout
+        formats are specified by the <code>JList</code>-defined values
+        <code>VERTICAL</code> (a single column of cells; the default),
+        <code>HORIZONTAL_WRAP</code> ("newspaper" style with the content
+        flowing horizontally then vertically), and <code>VERTICAL_WRAP</code>
+        ("newspaper" style with the content flowing vertically then horizontally).
+        Introduced in 1.4.
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JList.html#getFirstVisibleIndex()"><font color="#8800bb"><font size=2><code>int getFirstVisibleIndex()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JList.html#getFirstVisibleIndex()"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JList.html#getLastVisibleIndex()"><font color="#8800bb"><font size=2><code>int getLastVisibleIndex()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JList.html#getLastVisibleIndex()"></a>    </td>
+    <td>Get the index of the first or last visible item.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JList.html#ensureIndexIsVisible(int)"><font color="#8800bb"><font size=2><code>void ensureIndexIsVisible(int)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JList.html#ensureIndexIsVisible(int)"></a>    </td>
+    <td>Scroll so that the specified index is visible within the viewport
+        that this list is in.
+
+    </td>
+  </tr>
+</table>
+
+<p>
+
+<table border=1>
+<caption><a name="selectionapi">Managing the List's Selection</a></caption>
+<tr>
+<th>Method
+</th>
+<th>Purpose
+
+</th>
+</tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JList.html#addListSelectionListener(javax.swing.event.ListSelectionListener)"><font color="#8800bb"><font size=2><code>void addListSelectionListener(ListSelectionListener)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JList.html#addListSelectionListener(javax.swing.event.ListSelectionListener)"></a>    </td>
+    <td>Register to receive notification of selection changes.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JList.html#setSelectedIndex(int)"><font color="#8800bb"><font size=2><code>void setSelectedIndex(int)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JList.html#setSelectedIndex(int)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JList.html#setSelectedIndices(int[])"><font color="#8800bb"><font size=2><code>void setSelectedIndices(int[])</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JList.html#setSelectedIndices(int[])"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JList.html#setSelectedValue(java.lang.Object, boolean)"><font color="#8800bb"><font size=2><code>void setSelectedValue(Object, boolean)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JList.html#setSelectedValue(java.lang.Object, boolean)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JList.html#setSelectionInterval(int, int)"><font color="#8800bb"><font size=2><code>void setSelectionInterval(int, int)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JList.html#setSelectionInterval(int, int)"></a>    </td>
+    <td>Set the current selection as indicated.
+        Use <code>setSelectionMode</code>
+        to set what ranges of selections are acceptable.
+        The boolean argument
+        specifies whether the list
+        should attempt to scroll itself
+        so that the selected item is visible.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JList.html#getSelectedIndex()"><font color="#8800bb"><font size=2><code>int getSelectedIndex()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JList.html#getSelectedIndex()"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JList.html#getMinSelectionIndex()"><font color="#8800bb"><font size=2><code>int getMinSelectionIndex()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JList.html#getMinSelectionIndex()"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JList.html#getMaxSelectionIndex()"><font color="#8800bb"><font size=2><code>int getMaxSelectionIndex()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JList.html#getMaxSelectionIndex()"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JList.html#getSelectedIndices()"><font color="#8800bb"><font size=2><code>int[] getSelectedIndices()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JList.html#getSelectedIndices()"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JList.html#getSelectedValue()"><font color="#8800bb"><font size=2><code>Object getSelectedValue()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JList.html#getSelectedValue()"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JList.html#getSelectedValues()"><font color="#8800bb"><font size=2><code>Object[] getSelectedValues()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JList.html#getSelectedValues()"></a>    </td>
+    <td>Get information about the current selection as indicated.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JList.html#setSelectionMode(int)"><font color="#8800bb"><font size=2><code>void setSelectionMode(int)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JList.html#setSelectionMode(int)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JList.html#getSelectionMode()"><font color="#8800bb"><font size=2><code>int getSelectionMode()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JList.html#getSelectionMode()"></a>    </td>
+    <td>Set or get the selection mode. Acceptable values are:
+        <code>SINGLE_SELECTION</code>,
+        <code>SINGLE_INTERVAL_SELECTION</code>,
+        or <code>MULTIPLE_INTERVAL_SELECTION</code> (the default),
+        which are defined in <code>ListSelectionModel</code>.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JList.html#clearSelection()"><font color="#8800bb"><font size=2><code>void clearSelection()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JList.html#clearSelection()"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JList.html#isSelectionEmpty()"><font color="#8800bb"><font size=2><code>boolean isSelectionEmpty()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JList.html#isSelectionEmpty()"></a>    </td>
+    <td>Set or get whether any items are selected.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JList.html#isSelectedIndex(int)"><font color="#8800bb"><font size=2><code>boolean isSelectedIndex(int)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JList.html#isSelectedIndex(int)"></a>    </td>
+    <td>Determine whether the specified index is selected.
+    </td>
+  </tr>
+</table>
+
+
+<p>
+<table border=1>
+<caption><a name="dataapi">Managing List Data</a></caption>
+<tr>
+<th>Class or Method</th>
+<th>Purpose
+
+</th>
+</tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JList.html#getNextMatch(java.lang.String, int, javax.swing.text.Position.Bias)"><font color="#8800bb"><font size=2><code>int getNextMatch(String, int, javax.swing.text.Position.Bias)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JList.html#getNextMatch(java.lang.String, int, javax.swing.text.Position.Bias)"></a>    </td>
+    <td>Given the starting index, search through the list for an item
+        that starts with the specified string and return that index
+        (or -1 if the string isn't found).
+        The third argument, which specifies the search direction,
+        can be either
+        <code>Position.Bias.Forward</code> or
+        <code>Position.Bias.Backward</code>.
+        For example, if you have a 6-item list,
+        <code>getNextMatch("Matisse", 5, javax.swing.text.Position.Bias.Forward)</code>
+        searches for the string "Matisse" in the item at index 5,
+        then (if necessary) at index 0, index 1, and so on.
+        Introduced in 1.4.
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JList.html#setDragEnabled(boolean)"><font color="#8800bb"><font size=2><code>void setDragEnabled(boolean)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JList.html#setDragEnabled(boolean)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JList.html#getDragEnabled()"><font color="#8800bb"><font size=2><code>boolean getDragEnabled()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JList.html#getDragEnabled()"></a>    </td>
+    <td>Set or get the property that determines whether automatic drag
+        handling is enabled. See
+<a target="_top" href="../../dnd/index.html">Drag and Drop</a><a target="_top" href="../../dnd/index.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>        for more details. Introduced in 1.4.
+    </td>
+  </tr>
+</table>
+
+
+</blockquote>
+
+<h3>
+<a name="eg">Examples that Use Lists</a>
+</h3>
+<blockquote>
+This table shows the examples that use <code>JList</code>
+and where those examples are described.
+<p>
+<table>
+<tr>
+<th align=left> Example
+</th>
+<th align=left> Where Described
+</th>
+<th align=left> Notes
+
+</th>
+</tr>
+<tr valign=top>
+<td> <a href="example-1dot4/index.html#SplitPaneDemo"><code>SplitPaneDemo</code></a>
+</td>
+<td> <a href="splitpane.html">How to Use Split Panes</a>
+</td>
+<td> Contains a single-selection, immutable list.
+
+</td>
+</tr>
+<tr valign=top>
+<td> <a href="example-1dot4/index.html#ListDemo"><code>ListDemo</code></a>
+</td>
+<td> This section
+</td>
+<td> Demonstrates how to add and remove items from a list at runtime.
+
+</td>
+</tr>
+<tr valign=top>
+<td> <a href="example-1dot4/index.html#ListDialog"><code>ListDialog</code></a>
+</td>
+<td> This section, <a href="../layout/box.html">How to Use BoxLayout</a>
+</td>
+<td> Implements a modal dialog with a single-selection list.
+
+</td>
+</tr>
+<tr valign=top>
+<td> <a href="../events/example-1dot4/index.html#ListDataEventDemo"><code>ListDataEventDemo</code></a>
+</td>
+<td> <a href="../events/listdatalistener.html">
+     How to Write a List Data Listener</a>
+</td>
+<td> Demonstrates listening for list data events on a list model.
+
+</td>
+</tr>
+<tr valign=top>
+<td> <a href="../events/example-1dot4/index.html#ListSelectionDemo"><code>ListSelectionDemo</code></a>
+</td>
+<td> <a href="../events/listselectionlistener.html">
+     How to Write a List Selection Listener</a>
+</td>
+<td> Contains a list
+     and a table that share
+     the same selection model.
+     You can dynamically choose the selection mode.
+
+</td>
+</tr>
+<tr valign=top>
+<td> <a href="example-1dot4/index.html#SharedModelDemo"><code>SharedModelDemo</code></a>
+</td>
+<td> <a href="model.html">Using Models</a>
+</td>
+<td> Modifies <code>ListSelectionDemo</code>
+     so that the list and table share the same data model.
+
+</td>
+</tr>
+<tr valign=top>
+<td> <a href="example-1dot4/index.html#CustomComboBoxDemo">
+     <code>CustomComboBoxDemo</code></a>
+</td>
+<td> <a href="combobox.html#renderer">Providing a Custom Renderer</a>
+</td>
+<td> Shows how to provide a custom renderer for a combo box.
+     Because lists and combo boxes use the same type of renderer,
+     you can use what you learn there an apply it to lists.
+     In fact, a list and a combo box can share a renderer.
+
+</td>
+</tr>
+</table>
+
+</blockquote>
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="layeredpane.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#components" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="menu.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

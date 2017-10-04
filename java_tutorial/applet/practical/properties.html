@@ -1,0 +1,191 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Getting System Properties</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="stdout.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#practical" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="threads.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Writing Applets
+<br>
+<b>Lesson</b>: Practical Considerations when Writing Applets
+</font>
+
+<h2>
+Getting System Properties
+</h2>
+<blockquote>
+To find out about the current working environment,
+applets can read system properties.
+System properties are key/value pairs 
+that contain information such as 
+the operating system that the applet is running under.
+System properties are covered in detail in the
+<a target="_top" href="../../essential/system/properties.html">System Properties</a><a target="_top" href="../../essential/system/properties.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Writing Applets trail)"></a> page.
+
+<p>
+
+Applets can read some, but not all, system properties.
+This page lists the system properties that Netscape Navigator 2.0
+and the Applet Viewer
+allow applets to read,
+followed by a list of properties that applets can't read.
+
+
+</blockquote>
+<h3>System Properties that Applets Can Read</h3>
+<blockquote>
+Applets can read the following system properties:
+<p>
+
+<! ---- TABLE >
+<table border cellpadding=5>
+<th>Key</th>
+<th>Meaning</th>
+<tr>
+     <td><code>"file.separator"</code></td><td>File separator (for example, "/")</td>
+<tr>
+     <td><code>"java.class.version"</code></td><td>Java class version number</td>
+<tr>
+     <td><code>"java.vendor"</code></td><td>Java vendor-specific string</td>
+<tr>
+     <td><code>"java.vendor.url"</code></td><td>Java vendor URL</td>
+<tr>
+     <td><code>"java.version"</code></td><td>Java version number</td>
+<tr>
+     <td><code>"line.separator"</code></td><td>Line separator</td>
+<tr>
+     <td><code>"os.arch"</code></td><td>Operating system architecture</td>
+<tr>
+     <td><code>"os.name"</code></td><td>Operating system name</td>
+<tr>
+     <td><code>"path.separator"</code></td><td>Path separator (for example, ":")</td>
+</table>
+
+<p>
+To read a system property from within an applet,
+the applet uses the <code>System</code> class method <code>getProperty</code>.
+For example:
+
+<blockquote><pre>
+String newline = System.getProperty("line.separator");
+</pre></blockquote>
+
+The following applet reads all of the properties 
+that are available to all applets:
+<blockquote>
+<applet code="GetOpenProperties.class"
+	codebase="example/"
+	width=400 height=250>
+	
+<p><center><IMG SRC="../../figures/applet/17brows.gif" WIDTH="418" HEIGHT="256" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p>	
+</applet>
+</blockquote>
+
+You can find the source code 
+(which is the same in both 1.0 and 1.1) in 
+
+<a target="_blank" href="example/GetOpenProperties.java"><font color="#bb000f"><code>GetOpenProperties.java</code></font></a><a target="_blank" href="example/GetOpenProperties.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>.
+
+</blockquote>
+<h3>Forbidden System Properties</h3>
+<blockquote>
+For security reasons,
+no existing browsers or applet viewers
+let applets read the following system properties.
+<p>
+
+<table border cellpadding = 5>
+<th>Key</th>
+<th>Meaning</th>
+<tr>
+     <td><code>"java.class.path"</td><td>Java classpath</td>
+<tr>
+     <td><code>"java.home"</td><td>Java installation directory</td>
+<tr>
+
+     <td><code>"user.dir"</td><td>User's current working directory</td>
+<tr>
+     <td><code>"user.home"</td><td>User home directory</td>
+<tr>
+     <td><code>"user.name"</td><td>User account name</td>
+</table>
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="stdout.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#practical" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="threads.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

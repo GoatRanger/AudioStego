@@ -1,0 +1,592 @@
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>How to Make Applets</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="componentlist.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#components" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="button.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Creating a GUI with JFC/Swing
+<br>
+<b>Lesson</b>: Using Swing Components
+</font>
+
+<h2>
+How to Make Applets
+</h2>
+<blockquote>
+
+This section covers <code>JApplet</code> &#151;
+a class that enables applets to use Swing components.
+<code>JApplet</code> is a subclass of 
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/applet/Applet.html"><font color="#8800bb"><code>java.applet.Applet</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/applet/Applet.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>, which is covered in the 
+<a target="_top" href="../../applet/index.html">Writing Applets</a><a target="_top" href="../../applet/index.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a> trail. If you've never written a regular applet before,
+we urge you to read that trail
+before proceeding with this section.
+The information provided in that trail 
+applies to Swing applets,
+with a few exceptions that this section explains.
+
+<p>
+<a name="applet">
+Any applet that contains Swing components must be
+implemented with a subclass of 
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JApplet.html"><font color="#8800bb"><code>JApplet</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JApplet.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>.
+Here's a Swing version of one of the applets that helped make Java famous
+&#151;
+an animation applet that (in its most well known configuration)
+shows our mascot Duke doing cartwheels:
+
+<applet code="TumbleItem.class" 
+	codebase="example-1dot4"
+	archive="tumbleClasses.jar, tumbleImages.jar" 
+	width="600" height="95">
+    <param name="maxwidth" value="120">
+    <param name="nimgs" value="17">
+    <param name="offset" value="-57">
+    <param name="img" value="images/tumble">
+
+Your browser is completely ignoring the &lt;APPLET&gt; tag!
+
+</applet>
+</a>
+
+<blockquote><hr><strong>Note:</strong> If you don't see the applet running above, you need to install Java Plug-in, which happens automatically when you <a href="http://java.sun.com/j2se/downloads.html" target="_blank">install the J2SE JRE or SDK</a>. We strongly recommend that you install the latest version; at least 1.3.1 is required for all our applets. You can find more information in the <a href="http://java.sun.com/products/plugin" target="_blank">Java Plug-in home page.</a><hr></blockquote>
+You can find the main source code for this applet in
+<a target="_blank" href="example-1dot4/TumbleItem.java"><font color="#bb000f"><code>TumbleItem.java</code></font></a><a target="_blank" href="example-1dot4/TumbleItem.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>.
+See the <a href="example-1dot4/index.html#TumbleItem" target="_top">examples index</a> for links to all the files required by this example.
+
+<p>
+
+This section discusses the following topics:
+
+<ul>
+<li> <a href="#features">Features Provided by JApplet</a>
+<li> <a href="#thread">Threads in Applets</a>
+<li> <a href="#images">Using Images in a Swing Applet</a>
+<li> <a href="#plugin">Embedding an Applet in an HTML Page</a>
+<li> <a href="#api">The JApplet API</a>
+<li> <a href="#eg">Applet Examples</a>
+</ul>
+
+
+</blockquote>
+<h3>
+<a name="features">Features Provided by JApplet</a>
+</h3>
+<blockquote>
+Because <code>JApplet</code> is a top-level Swing container,
+each Swing applet has a root pane.
+The most noticeable effects of the root pane's presence
+are support for adding a <a href="menu.html">menu bar</a>
+and the need to use a content pane.
+
+<p>
+
+As described in
+<a href="toplevel.html">Using Top-Level Containers</a>,
+each top-level container such as a <code>JApplet</code> 
+has a single content pane.
+The content pane makes Swing applets
+different from regular applets in the following ways:
+<ul>
+<li> You add components to a Swing applet's content pane,
+     not directly to the applet.
+     <a href="toplevel.html#contentpane">Adding Components to the Content Pane</a>
+     shows you how.
+<li> You set the layout manager on a Swing applet's content pane,
+     not directly on the applet.
+<li> The default layout manager for a Swing applet's content pane is
+     <code>BorderLayout</code>.
+     This differs from the default layout manager for
+     <code>Applet</code>, which is <code>FlowLayout</code>.
+<li> You should not put painting code directly in a <code>JApplet</code>
+     object.
+     See 
+<a target="_top" href="../14painting/index.html">Performing Custom Painting</a><a target="_top" href="../14painting/index.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>     for examples of how to perform custom painting in applets.
+</ul>
+
+
+</blockquote>
+<h3>
+<a name="thread">Threads in Applets</a>
+</h3>
+<blockquote>
+Swing components should be created, queried, and manipulated
+on the event-dispatching thread,
+but browsers don't invoke applet "milestone" methods
+from that thread.
+For this reason,
+the milestone methods &#151;
+<code>init</code>,
+<code>start</code>,
+<code>stop</code>,
+and <code>destroy</code> &#151;
+should use the <code>SwingUtilities</code> method
+<code>invokeAndWait</code>
+(or, if appropriate, <code>invokeLater</code>)
+so that code that refers to the Swing components
+is executed on the event-dispatching thread.
+More information about these methods and the event-dispatching thread
+is in 
+<a target="_top" href="../misc/threads.html">How to Use Threads</a><a target="_top" href="../misc/threads.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.
+
+
+<p>
+Here is an example of an <code>init</code> method:
+
+<blockquote><pre>
+public void init() {
+    //Execute a job on the event-dispatching thread:
+    //creating this applet's GUI.
+    try {
+        javax.swing.SwingUtilities.invokeAndWait(new Runnable() {
+            public void run() {
+                createGUI();
+            }
+        });
+    } catch (Exception e) {
+        System.err.println("createGUI didn't successfully complete");
+    }
+}
+
+private void createGUI() {
+    JLabel label = new JLabel(
+                       "You are successfully running a Swing applet!");
+    label.setHorizontalAlignment(JLabel.CENTER);
+    label.setBorder(BorderFactory.createMatteBorder(1,1,1,1,Color.black));
+    getContentPane().add(label, BorderLayout.CENTER);
+}
+</pre></blockquote>
+
+
+<p>
+The <code>invokeLater</code> method 
+is not appropriate for this implementation
+because it allows <code>init</code>
+to return before initialization is complete,
+which can cause applet problems
+that are difficult to debug.
+
+<p>
+The <code>init</code> method in <code>TumbleItem</code>
+is more complex, 
+as the
+following code shows.
+Like the first example, 
+this <code>init</code> method implementation
+uses <code>SwingUtilities.invokeAndWait</code>
+to execute the GUI creation code 
+on the event-dispatching thread.
+This <code>init</code> method
+also sets up two background threads
+to perform GUI-related tasks.
+First, it uses a 
+<a target="_top" href="../misc/timer.html">Swing timer</a><a target="_top" href="../misc/timer.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a> (which uses a shared thread)
+to fire action events whenever the 
+animation needs to be updated.
+Second, it uses a 
+<a target="_top" href="../misc/threads.html#SwingWorker"><code>SwingWorker</code> object</a><a target="_top" href="../misc/threads.html#SwingWorker"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a> to create a background thread
+that loads the animation image files,
+letting the applet present a GUI
+before all its resources are available.
+
+<blockquote><pre>
+private void createGUI() {
+    ...
+    animator = new Animator();
+    animator.setOpaque(true);
+    animator.setBackground(Color.white);
+    setContentPane(animator);
+    ...
+}
+
+public void init() {
+    loadAppletParameters();
+
+    try {
+        <b>javax.swing.SwingUtilities.invokeAndWait(new Runnable() {
+            public void run() {
+                createGUI();
+            }
+        });</b>
+    } catch (Exception e) { 
+        System.err.println("createGUI didn't successfully complete");
+    }
+
+    //Set up the timer that will perform the animation.
+    timer = new javax.swing.Timer(speed, this);
+    timer.setInitialDelay(pause);
+    timer.setCoalesce(false);
+    timer.start(); //Start the animation.
+
+    //Loading the images can take quite a while, so to
+    //avoid staying in init() (and thus not being able
+    //to show the "Loading Images..." label) we'll
+    //load the images in a SwingWorker thread.
+    imgs = new ImageIcon[nimgs];
+    final SwingWorker worker = new SwingWorker() {
+        public Object construct() {
+            <em>...//Load all the images...</em>
+            finishedLoading = true;
+            return imgs;
+        }
+
+        //Executes in the event-dispatching thread.
+        public void finished() {
+            //Remove the "Loading images" label.
+            animator.removeAll();
+            loopslot = -1;
+            animator.repaint();
+        }
+    };
+    worker.start();
+}
+</pre></blockquote>
+
+<p>
+You can find the applet's source code in
+<a target="_blank" href="example-1dot4/TumbleItem.java"><font color="#bb000f"><code>TumbleItem.java</code></font></a><a target="_blank" href="example-1dot4/TumbleItem.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>.
+To find all the files required for the applet,
+including a link to a JNLP file
+that lets you run it using Java Web Start, see the
+<a href="example-1dot4/index.html#TumbleItem">example index</a>.
+
+
+</blockquote>
+<h3>
+<a name="images">Using Images in a Swing Applet</a>
+</h3>
+<blockquote>
+The <code>Applet</code> class provides the
+<code>getImage</code> method for
+loading images into an applet.
+The <code>getImage</code> method creates
+and returns an <code>Image</code> object
+that represents the loaded image.
+Because Swing components use <code>Icon</code>s
+rather than <code>Image</code>s to refer to pictures,
+Swing applets tend not to use <code>getImage</code>.
+Instead Swing applets create instances of
+<code>ImageIcon</code> &#151; an icon loaded from an image file.
+<code>ImageIcon</code> comes with a code-saving benefit:
+it handles image tracking automatically.
+Refer to 
+<a target="_top" href="../misc/icon.html">How to Use Icons</a><a target="_top" href="../misc/icon.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a> for more information.
+
+<p>
+The animation of Duke doing cartwheels
+requires 17 different pictures.
+The applet uses one <code>ImageIcon</code> per picture
+and loads them in its <code>init</code> method.
+Because images can take a long time to load,
+the icons are loaded in a separate thread
+implemented by a 
+<a target="_top" href="../misc/threads.html"><code>SwingWorker</code> object</a><a target="_top" href="../misc/threads.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.
+Here's the code:
+
+<blockquote><pre>
+public void init() {
+    ...
+    imgs = new ImageIcon[nimgs];
+    ...
+    final SwingWorker worker = new SwingWorker() {
+        public Object construct() {
+            //Images are numbered 1 to nimgs,
+            //but fill array from 0 to nimgs-1.
+            for (int i = 0; i &lt; nimgs; i++) {
+                imgs[i] = loadImage(i+1);
+            }
+            finishedLoading = true;
+            return imgs;
+        }
+        ...
+    };
+    worker.start();
+}
+...
+protected ImageIcon loadImage(int imageNum) {
+    String path = dir + "/T" + imageNum + ".gif";
+    int MAX_IMAGE_SIZE = 2400;  //Change this to the size of
+                                 //your biggest image, in bytes.
+    int count = 0;
+    BufferedInputStream imgStream = new BufferedInputStream(
+       this.getClass().getResourceAsStream(path));
+    if (imgStream != null) {
+        byte buf[] = new byte[MAX_IMAGE_SIZE];
+        try {
+            count = imgStream.read(buf);
+            imgStream.close();
+        } catch (java.io.IOException ioe) {
+            System.err.println("Couldn't read stream from file: " + path);
+            return null;
+        }
+        if (count &lt;= 0) {
+            System.err.println("Empty file: " + path);
+            return null;
+        }
+        return new ImageIcon(Toolkit.getDefaultToolkit().createImage(buf));
+    } else {
+        System.err.println("Couldn't find file: " + path);
+        return null;
+    }
+}
+</pre></blockquote>
+
+The <code>loadImage</code> method
+loads the image for the specified frame of animation.
+It uses
+the <code>getResourceAsStream</code> method
+rather than the usual <code>getResource</code> method
+to get the images.
+The resulting code isn't pretty,
+but <code>getResourceAsStream</code>
+is more efficient than <code>getResource</code>
+for loading images from JAR files into applets that are executed
+using Java Plug-in<sup><font size=-2>TM</font></sup> software.
+Moreover,
+for pre-1.4 versions of Java Plug-in,
+<code>getResource</code> <em>can't</em>
+be used to load resources from JAR files.
+For further details, see
+<a target="_top" href="../misc/icon.html#applet">Loading Images Into Applets</a><a target="_top" href="../misc/icon.html#applet"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.
+
+</blockquote>
+<h3>
+<a name="plugin">Embedding an Applet in an HTML Page</a>
+</h3>
+<blockquote>
+
+The recommended way to include an applet in an HTML page is
+using the APPLET tag.
+Here's the APPLET tag for the cartwheeling Duke applet:
+
+<blockquote><pre>
+&lt;applet code="TumbleItem.class" 
+        codebase="example-1dot4/"
+        archive="tumbleClasses.jar tumbleImages.jar"
+        width="600" height="95"&gt;
+    &lt;param name="maxwidth" value="120"&gt;
+    &lt;param name="nimgs" value="17"&gt;
+    &lt;param name="offset" value="-57"&gt;
+    &lt;param name="img" value="images/tumble"&gt;
+
+Your browser is completely ignoring the &amp;lt;APPLET&amp;gt; tag!
+&lt;/applet>
+</pre></blockquote>
+
+<blockquote><hr><strong>Version note:</strong>&nbsp;Before version 1.3.1_01a, Java Plug-in required the OBJECT or EMBED tag
+instead of the APPLET tag.
+Details are available through the
+<a target="_blank" href="http://java.sun.com/products/plugin/"><font color="#009bbb">Java Plug-in home page</font></a><a target="_blank" href="http://java.sun.com/products/plugin/"><img src="../../images/otherIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (outside of the tutorial)"></a>.
+<hr></blockquote>
+
+To find out about the various &lt;APPLET&gt; tag parameters, refer to
+<a target="_top" href="../../applet/overview/test.html">Test Driving an Applet</a><a target="_top" href="../../applet/overview/test.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a> and 
+<a target="_top" href="../../applet/appletsonly/html.html">Using the APPLET Tag</a><a target="_top" href="../../applet/appletsonly/html.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.
+
+
+</blockquote>
+<h3>
+<a name="api">The JApplet API</a>
+</h3>
+<blockquote>
+The next table lists the interesting methods
+that <code>JApplet</code> adds to the applet API.
+They give you access to features provided by the root pane.
+Other methods you might use are defined by the
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html"><font color="#8800bb"><code>Component</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> and
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/applet/Applet.html"><font color="#8800bb"><code>Applet</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/applet/Applet.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> classes.
+See <a href="jcomponent.html#apicomponent">Component Methods</a>
+for a list of commonly used <code>Component</code> methods,
+and
+<a target="_top" href="../../applet/appletsonly/index.html">Taking Advantage of the Applet API</a><a target="_top" href="../../applet/appletsonly/index.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a> for help in using <code>Applet</code> methods.
+
+<p>
+
+<table border=1>
+<tr>
+<th align=left>Method
+</th>
+<th align=left>Purpose
+
+</th>
+</tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JApplet.html#setContentPane(java.awt.Container)"><font color="#8800bb"><font size=2><code>void setContentPane(Container)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JApplet.html#setContentPane(java.awt.Container)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JApplet.html#getContentPane()"><font color="#8800bb"><font size=2><code>Container getContentPane()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JApplet.html#getContentPane()"></a>    </td>
+    <td>Set or get the applet's content pane.
+        The content pane contains the applet's visible GUI components
+        and should be opaque.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JApplet.html#createRootPane()"><font color="#8800bb"><font size=2><code>JRootPane createRootPane()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JApplet.html#createRootPane()"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JApplet.html#setRootPane(javax.swing.JRootPane)"><font color="#8800bb"><font size=2><code>void setRootPane(JRootPane)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JApplet.html#setRootPane(javax.swing.JRootPane)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JApplet.html#getRootPane()"><font color="#8800bb"><font size=2><code>JRootPane getRootPane()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JApplet.html#getRootPane()"></a>    </td>
+    <td>Create, set, or get the applet's root pane. The root pane
+        manages the interior of the applet including the content pane,
+        the glass pane, and so on.
+ 
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JApplet.html#setJMenuBar(javax.swing.JMenuBar)"><font color="#8800bb"><font size=2><code>void setJMenuBar(JMenuBar)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JApplet.html#setJMenuBar(javax.swing.JMenuBar)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JApplet.html#getJMenuBar()"><font color="#8800bb"><font size=2><code>JMenuBar getJMenuBar()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JApplet.html#getJMenuBar()"></a>    </td>
+    <td>Set or get the applet's menu bar
+        to manage a set of menus for the applet.
+ 
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JApplet.html#setGlassPane(java.awt.Component)"><font color="#8800bb"><font size=2><code>void setGlassPane(Component)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JApplet.html#setGlassPane(java.awt.Component)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JApplet.html#getGlassPane()"><font color="#8800bb"><font size=2><code>Component getGlassPane()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JApplet.html#getGlassPane()"></a>    </td>
+    <td>Set or get the applet's glass pane.
+        You can use the glass pane to intercept mouse events.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JApplet.html#setLayeredPane(javax.swing.JLayeredPane)"><font color="#8800bb"><font size=2><code>void setLayeredPane(JLayeredPane)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JApplet.html#setLayeredPane(javax.swing.JLayeredPane)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JApplet.html#getLayeredPane()"><font color="#8800bb"><font size=2><code>JLayeredPane getLayeredPane()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JApplet.html#getLayeredPane()"></a>    </td>
+    <td>Set or get the applet's layered pane.
+        You can use the applet's layered pane to put components on top of
+        or behind other components.
+    </td>
+  </tr>
+</table>
+
+</blockquote>
+
+<h3>
+<a name="eg">Applet Examples</a>
+</h3>
+<blockquote>
+This table shows examples of Swing applets
+and where those examples are described.
+
+<p>
+<table>
+<tr>
+<th align=left> Example
+</th>
+<th align=left> Where Described
+</th>
+<th align=left> Notes
+</th>
+</tr>
+
+<tr>
+<td> <a href="example-1dot4/index.html#TumbleItem">
+     <code>TumbleItem</code></a>
+</td>
+<td> This page
+</td>
+<td> An animation applet
+</td>
+</tr>
+
+<tr>
+<td> <a href="../misc/example-1dot4/index.html#IconDemoApplet">
+     <code>IconDemoApplet</code></a>
+</td>
+<td> 
+<a target="_top" href="../misc/icon.html">How to Use Icons</a><a target="_top" href="../misc/icon.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a></td>
+<td> An applet for showing photos.
+</td>
+</tr>
+
+</table>
+
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="componentlist.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#components" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="button.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

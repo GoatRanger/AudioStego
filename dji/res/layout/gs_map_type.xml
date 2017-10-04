@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="horizontal" android:background="@drawable/gs_map_type_selection_background" android:paddingTop="10dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:baselineAligned="false"
+    <LinearLayout android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:layout_gravity="top|bottom|center_vertical|fill_vertical|center|fill" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="1.0">
+        <ImageView android:id="@id/al4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/gs_selector_map_plain" />
+        <dji.publics.DJIUI.DJITextView android:textSize="@dimen/od" android:textColor="0x106000b" android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/gs_maptype_standard" />
+    </LinearLayout>
+    <LinearLayout android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:layout_gravity="top|bottom|center_vertical|fill_vertical|center|fill" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="1.0">
+        <ImageView android:id="@id/al5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/gs_selector_map_hybrid" />
+        <dji.publics.DJIUI.DJITextView android:textSize="@dimen/od" android:textColor="0x106000b" android:id="@id/al6" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/gs_maptype_hybrid" />
+    </LinearLayout>
+    <LinearLayout android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:layout_gravity="top|bottom|center_vertical|fill_vertical|center|fill" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="1.0">
+        <ImageView android:id="@id/al7" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/gs_selector_map_satellite" />
+        <dji.publics.DJIUI.DJITextView android:textSize="@dimen/od" android:textColor="0x106000b" android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@id/al8" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/gs_maptype_satellite" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,10 @@
+org/openscience/cdk/test/MstructgenTests*.class
+org/openscience/cdk/test/structgen/deterministic/GENMDeterministicGeneratorTest*.class
+org/openscience/cdk/test/structgen/deterministic/EquivalentClassesDeterministicGeneratorTest*.class
+org/openscience/cdk/test/structgen/stochastic/PartialFilledStructureMergerTest*.class
+org/openscience/cdk/test/structgen/stochastic/operator/ChemGraphTest*.class
+org/openscience/cdk/test/structgen/stochastic/operator/CrossoverMachineTest*.class
+org/openscience/cdk/test/structgen/SingleStructureRandomGeneratorTest*.class
+org/openscience/cdk/test/structgen/VicinitySamplerTest*.class
+org/openscience/cdk/test/structgen/RandomStructureGeneratorTest*.class
+org/openscience/cdk/test/StructgenCoverageTest*.class

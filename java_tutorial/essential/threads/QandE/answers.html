@@ -1,0 +1,222 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Answers to Questions and Exercises: Threads</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="../QandE/questions.html" target="_top"><img src="../../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../../TOC.html#threads" target="_top"><img src="../../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+</td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="../index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../../search.html" target="_top">Search</a>
+<br><a href="../../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+
+<img src="../../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<font size="-1">
+<b>Trail</b>: Essential Java Classes
+<br>
+<b>Lesson</b>: Threads: Doing Two or More Tasks At Once 
+</font>
+
+<h2>
+Answers to Questions and Exercises: Threads
+</h2>
+<blockquote>
+</blockquote>
+
+<h3>Questions</h3>
+<blockquote>
+
+
+<ol>
+<li> <font color="red">Question:</font>
+     What method in <code>Timer</code> or <code>TimerTask</code>
+     can you use to determine
+     when the task was most recently scheduled to execute?
+     (Hint: You can find the answer by looking at the API
+     documentation for <code>Timer</code> and <code>TimerTask</code>.
+     Remember that these classes were introduced in version 1.3 of the
+     Java platform.)
+
+<p>
+     <font color="green">Answer:</font>
+     The <code>TimerTask</code> <code>scheduledExecutionTime</code> method.
+
+<p>
+<li> <font color="red">Question:</font>
+     What is the effect of calling the <code>start</code> method on
+     a <code>Thread</code> object?
+
+<p>
+     <font color="green">Answer:</font>
+     The thread goes into the Runnable state
+     and the <code>run</code> method is invoked.
+
+<p>
+<li> <font color="red">Question:</font>
+     What are the two ways you can provide the implementation for
+     a thread's <code>run</code> method?
+
+<p>
+     <font color="green">Answer:</font>
+     <ul>
+     <li> Create a <code>Thread</code> subclass that overrides
+          the <code>run</code> method.
+     <li> Write a class that implements the <code>Runnable</code> interface
+          and the <code>run</code> method.
+     </ul>
+</ol>
+</blockquote>
+
+<h3>Exercises</h3>
+<blockquote>
+<ol>
+<li> <font color="red">Exercise:</font>
+     Convert 
+<a target="_blank" href="../example-1dot3/AnnoyingBeep.java"><font color="#bb000f"><code><code>AnnoyingBeep.java</code></code></font></a><a target="_blank" href="../example-1dot3/AnnoyingBeep.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a> so that the initial delay is 5 seconds,
+instead of 0. 
+
+<p>
+     <font color="green">Solution:</font>
+     Change the initial delay argument to the <code>schedule</code> method
+     from 0 to 5*1000.
+
+<p>
+<li> <font color="red">Exercise:</font>
+     Convert
+<a target="_blank" href="../example-1dot3/AnnoyingBeep.java"><font color="#bb000f"><code><code>AnnoyingBeep.java</code></code></font></a><a target="_blank" href="../example-1dot3/AnnoyingBeep.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a> to use the <code>scheduleAtFixedRate</code> method instead of
+<code>schedule</code> to schedule the task.
+Change the implementation of the <code>run</code> method so
+that if the <code>run</code> method is called too late 
+for a warning beep (say, more than 5 milliseconds 
+after it was scheduled to run), nothing happens--no beep and 
+string are generated. (Hint: Remember your answer to question 1.) 
+
+<p>
+<font color="green">Solution:</font> 
+Substitute <code>scheduleAtFixedRate</code> for <code>schedule</code>. You 
+can use <code>System.currentTimeMillis()</code> to get the current time to 
+compare with the scheduled execution time.  A full solution is in 
+<a target="_blank" href="../example-1dot3/SkippingBeep.java"><font color="#bb000f"><code><code>SkippingBeep.java</code></code></font></a><a target="_blank" href="../example-1dot3/SkippingBeep.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>.
+   
+
+<p>
+<li> <font color="red">Exercise:</font>
+     Change the main program of
+<a target="_blank" href="../example/TwoThreadsDemo.java"><font color="#bb000f"><code><code>TwoThreadsDemo.java</code></code></font></a><a target="_blank" href="../example/TwoThreadsDemo.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a> so that it creates a third thread,
+named "Bora Bora." ”
+Compile and run the program again.
+Note that you will also need
+<a target="_blank" href="../example/SimpleThread.java"><font color="#bb000f"><code><code>SimpleThread.java</code></code></font></a><a target="_blank" href="../example/SimpleThread.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>. Does this change your vacation destiny?
+
+<p>
+     <font color="green">Solution:</font>
+     Add the following line to the <code>main</code> method:
+<blockquote><pre>
+new SimpleThread("Bora Bora").start();
+</pre></blockquote>
+
+<li> <font color="red">Exercise:</font>
+     Compile and run
+<a target="_blank" href="../example/RaceDemo.java"><font color="#bb000f"><code><code>RaceDemo.java</code></code></font></a><a target="_blank" href="../example/RaceDemo.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a> and
+<a target="_blank" href="../example/SelfishRunner.java"><font color="#bb000f"><code><code>SelfishRunner.java</code></code></font></a><a target="_blank" href="../example/SelfishRunner.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a> on your computer.
+Do you have a time-sliced system? 
+
+<p>
+     <font color="green">Solution:</font>
+     The answer depends on your system. As of JDK 1.0, the Java VM on Microsoft Windows
+     (includes Windows 95/98/NT/2000) uses time slicing while the  
+     Java VM on Solaris does not.
+
+<p>
+<li> <font color="red">Exercise:</font>
+     Well-behaved threads voluntarily relinquish the CPU periodically
+     and give other threads an opportunity to run.
+     Rewrite the
+<a target="_blank" href="../example/SelfishRunner.java"><font color="#bb000f"><code><code>SelfishRunner</code></code></font></a><a target="_blank" href="../example/SelfishRunner.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>     class to be
+     a <code>PoliteRunner</code>.
+     Be sure to modify the main program in
+<a target="_blank" href="../example/RaceDemo.java"><font color="#bb000f"><code><code>RaceDemo.java</code></code></font></a><a target="_blank" href="../example/RaceDemo.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>     to create <code>PoliteRunner</code>s instead of
+     <code>SelfishRunner</code>s.
+
+<p>
+     <font color="green">Solution:</font>
+     Add a call to the <code>yield</code> method somewhere within
+     the <code>run</code> method,
+     such as just after the call to <code>println</code>.
+
+</ol>
+</blockquote>
+
+<blockquote>
+</blockquote>
+
+<img src="../../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="../QandE/questions.html" target="_top"><img src="../../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../../TOC.html#threads" target="_top"><img src="../../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+</td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="../index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../../search.html" target="_top">Search</a>
+<br><a href="../../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

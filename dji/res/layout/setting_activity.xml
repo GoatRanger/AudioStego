@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="horizontal" android:background="#aaaaaa" android:layout_width="match_parent" android:layout_height="match_parent">
+    <dji.setting.demo.CameraOutView android:id="@id/bnq" android:visibility="visible" android:layout_width="match_parent" android:layout_height="match_parent">
+        <RelativeLayout android:id="@id/bnr" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_centerInParent="true">
+            <dji.setting.demo.CameraTextureView android:id="@id/bns" android:layout_width="match_parent" android:layout_height="match_parent" />
+        </RelativeLayout>
+    </dji.setting.demo.CameraOutView>
+    <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="match_parent">
+        <Button android:id="@id/bnt" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Open Setting" />
+        <TextView android:id="@id/bnu" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Aircraft status" />
+    </LinearLayout>
+</RelativeLayout>

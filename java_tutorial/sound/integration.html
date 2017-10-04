@@ -1,0 +1,172 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Overview</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="TOC.html" target="_top"><img src="../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="./TOC.html" target="_top"><img src="../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="playing.html" target="_top"><img src="../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="./index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../search.html" target="_top">Search</a>
+<br><a href="../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Sound
+</font>
+
+<h2>
+Overview
+</h2>
+<blockquote>
+Java Sound provides a very high-quality 64-channel audio rendering and
+MIDI sound synthesis engine that
+<UL>
+<LI>
+Enables consistent, reliable, high-quality audio on all Java platforms
+<LI>
+Minimizes the impact of audio-rich web pages on computing resources
+<LI>
+Reduces the need for high-cost sound cards by providing a software-only
+solution that requires only a digital-to-analog converter (DAC)
+<LI>
+Supports a wide range of audio formats
+</UL>
+
+The new sound engine is integrated into the Java Virtual Machine as a
+core library.
+
+</blockquote>
+<h3>Using the Java Sound Engine</h3>
+<blockquote>
+JDK 1.2 enables you to create and play <CODE>AudioClips</CODE>
+from both applets and applications. The clips can be any of the
+following audio file formats:
+
+<UL>
+<LI> AIFF
+<LI> AU
+<LI> WAV
+<LI> MIDI (type 0 and type 1 files)
+<LI> RMF
+</UL>
+
+The sound engine can handle 8- and 16-bit audio data at virtually any
+sample rate. In JDK 1.2 audio files are rendered at a sample rate of 22
+kHz in 16-bit stereo. If the hardware doesn't support 16-bit data or
+stereo playback, 8-bit or mono audio is output.
+<P>
+There's no need to worry about the impact of audio-rich Web pages on
+computing resources. The Java Sound engine minimizes the use of a
+system's CPU to process sound files. For example, a 24-voice MIDI file
+uses only 20 percent of the CPU on a Pentium 90 MHz system.
+</blockquote>
+
+<h3>Accessing the Java Sound Engine</h3>
+<blockquote>
+A full-featured Java Sound API is under development. This API will
+provide access to the underlying synthesis and rendering engine and
+will enable the creation of high-quality telephony and video
+conferencing applications. With the Java Sound API, professional
+musicians and sound designers will be able to develop new sounds that
+can be delivered over the Internet and used seamlessly with Java
+Sound.
+</blockquote>
+
+<h3>Java Sound and Java Media</h3>
+<blockquote>
+Java Sound is part of the Java Media family, which addresses the
+increasing demand for multimedia in the enterprise by providing a
+unified, nonproprietary, platform-neutral solution for incorporating
+time-based media, 2D fonts, graphics and images, speech input and
+output, 3D models, and telephony in Java programs. By providing
+standard players and integrating these supporting technologies, the
+Java Media APIs enable developers to produce and to distribute
+compelling, media-rich content.
+<P>
+Java Sound provides uniform access to underlying platform sound
+capabilities, enabling Java programs to read and write sampled and
+synthesized audio data. Higher-level services, such as compression,
+decompression, synchronization, streaming, container read/write, and
+network transport, are handled by the Java Media Framework (JMF). JMF
+provides a simple, unified way for Java programs to synchronize and
+display time-based data, such as audio and video. Sun's implementation
+of JMF uses the Java Sound engine to render audio data.
+<p>
+For more information about JMF and the other Java Media technologies,
+visit the
+
+<a target="_blank" href="http://java.sun.com/products/java-media"><font color="#009bbb">Java Media & Communications</font></a><a target="_blank" href="http://java.sun.com/products/java-media"><img src="../images/otherIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (outside of the tutorial)"></a>  pages on the Sun Website.
+
+</blockquote>
+
+<img src="../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="TOC.html" target="_top"><img src="../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="./TOC.html" target="_top"><img src="../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="playing.html" target="_top"><img src="../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="./index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../search.html" target="_top">Search</a>
+<br><a href="../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

@@ -1,0 +1,1041 @@
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>How to Use Split Panes</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="spinner.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#components" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="tabbedpane.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Creating a GUI with JFC/Swing
+<br>
+<b>Lesson</b>: Using Swing Components
+</font>
+
+<h2>
+How to Use Split Panes
+</h2>
+<blockquote>
+A 
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JSplitPane.html"><font color="#8800bb"><code>JSplitPane</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JSplitPane.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> displays two components,
+either side by side or one on top of the other.
+By dragging the divider that appears between the components,
+the user can specify 
+how much of the split pane's total area goes to each component.
+You can divide screen space among three or more components
+by putting split panes inside of split panes,
+as described in <a href="#nesting">Nesting Split Panes</a>.
+
+<p>
+
+Instead of adding the components of interest 
+directly to a split pane,
+you often put each component into a 
+<a href="scrollpane.html">scroll pane</a>.
+You then put the scroll panes into the split pane.
+This allows the user to view any part of a component of interest,
+without requiring the component to take up a lot of screen space
+or adapt to displaying itself in varying amounts of screen space.
+
+<p>
+Here's a picture of an application that
+uses a split pane to display a list
+and an image side by side:
+
+<p><center><IMG SRC="../../figures/uiswing/components/SplitPaneDemo.gif" WIDTH="411" HEIGHT="230" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="A snapshot of SplitPaneDemo"></center></p><p align=center>
+[PENDING: This figure will be updated.]
+</p>
+
+<blockquote><hr><strong>Try this:</strong>&nbsp;
+<ol>
+<li> <a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/components/example-1dot4/SplitPaneDemo.jnlp">Run SplitPaneDemo</a> using
+<a target="_top" href="../../information/javawebstart.html">Java<sup><font size=-2>TM</font></sup> Web Start</a><a target="_top" href="../../information/javawebstart.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.    Or, to compile and run the example yourself,
+     consult the
+     <a href="example-1dot4/index.html#SplitPaneDemo">example index</a>.
+
+<li> Drag the dimpled line that divides the list
+     and the image to the left or right.
+     Try to drag the divider
+     all the way to the window's edge.
+<li> Click the tiny arrows on the divider
+     to hide/expand the left or right component.
+</ol>
+<hr></blockquote>
+
+Below is the code from <code>SplitPaneDemo</code>
+that creates and sets up the split pane.
+<blockquote><pre>
+//Create a split pane with the two scroll panes in it.
+<strong>splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT,
+                           listScrollPane, pictureScrollPane);</strong>
+splitPane.setOneTouchExpandable(true);
+splitPane.setDividerLocation(150);
+
+//Provide minimum sizes for the two components in the split pane
+Dimension minimumSize = new Dimension(100, 50);
+listScrollPane.setMinimumSize(minimumSize);
+pictureScrollPane.setMinimumSize(minimumSize);
+</pre></blockquote>
+
+The constructor used by this example
+takes three arguments.
+The first indicates the split direction.
+The other arguments are the two components to put in the split pane.
+Refer to
+<a href="#adding">Setting the Components in a Split Pane</a>
+for information about <code>JSplitPane</code>
+methods that set the components dynamically.
+<p>
+The split pane in this example is split horizontally &#151; the
+two components appear side by side &#151; as
+specified by the <code>JSplitPane.HORIZONTAL_SPLIT</code>
+argument to the constructor.
+Split pane provides one other option,
+specified with <code>JSplitPane.VERTICAL_SPLIT</code>,
+that places one component above the other.
+You can change the split direction
+after the split pane has been created with
+the <code>setOrientation</code> method.
+
+<p>
+Two small arrows appear at the top of the divider
+in the example's split pane.
+These arrows let the user collapse (and then expand)
+either of the components with a single click.
+The current look and feel determines
+whether these controls appear by default.
+In the Java look and feel,
+they are turned off by default.
+The example turned them on
+using the <code>setOneTouchExpandable</code> method.
+
+<p>
+The range of a split pane's divider
+is determined in part by 
+the minimum sizes of the components within the split pane.
+See <a href="#divider">Positioning the Divider and Restricting its Range</a>
+for details.
+<p>
+The rest of this section covers these topics:
+<ul>
+<li> <a href="#adding">Setting the Components in a Split Pane</a>
+<li> <a href="#divider">Positioning the Divider and Restricting its Range</a>
+<li> <a href="#nesting">Nesting Split Panes</a>
+<li> <a href="#api">The Split Pane API</a>
+<li> <a href="#eg">Examples that Use Split Panes</a>
+</ul>
+
+<a name="adding">
+</blockquote>
+<h3>Setting the Components in a Split Pane</h3>
+</a>
+<blockquote>
+A program can set a split pane's two components
+dynamically with these four methods:
+<ul>
+<li><code>setLeftComponent</code>
+<li><code>setRightComponent</code>
+<li><code>setTopComponent</code>
+<li><code>setBottomComponent</code>
+</ul>
+You can use any of these methods at any time
+regardless of the split pane's current split direction.
+Calls to <code>setLeftComponent</code> and
+<code>setTopComponent</code> are equivalent and
+set the specified component in the top or left position,
+depending on the split pane's current split orientation.
+Similarly, calls to <code>setRightComponent</code> and
+<code>setBottomComponent</code> are equivalent.
+These methods replace whatever component is already
+in that position with the new one.
+<p>
+Like other containers,
+<code>JSplitPane</code> supports the <code>add</code> method.
+Split pane puts the first component added
+in the left or top position.
+The danger of using <code>add</code> is that
+you can inadvertantly call it too many times,
+in which case the split pane's layout manager
+will throw a rather esoteric-looking exception.
+If you are using the <code>add</code> method
+and a split pane is already populated,
+you first need to remove the existing components
+with <code>remove</code>.
+<p>
+If you put only one component in a split pane,
+then the divider will be stuck at the right side or
+the bottom of the split pane,
+depending on its split direction.
+</blockquote>
+
+<a name="divider">
+<h3>Positioning the Divider and Restricting Its Range</h3>
+</a>
+<blockquote>
+To make your split pane work well,
+you often need to set 
+the minimum sizes of components in the split pane,
+as well as the preferred size of either the split pane
+or its contained components.
+Choosing which sizes you should set
+is an art that requires 
+understanding how a split pane's preferred size and divider location
+are determined.
+Before we get into details, let's take another look at
+SplitPaneDemo.
+Or, if you're in a hurry, 
+you can skip to the <a href="#rules">list of rules</a>.
+
+<blockquote><hr><strong>Try this:</strong>&nbsp;
+<ol>
+<li> <a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/components/example-1dot4/SplitPaneDemo.jnlp">Run SplitPaneDemo</a> using
+<a target="_top" href="../../information/javawebstart.html">Java Web Start</a><a target="_top" href="../../information/javawebstart.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.    Or, to compile and run the example yourself,
+     consult the
+     <a href="example-1dot4/index.html#SplitPaneDemo">example index</a>.
+<br>
+Because the size of the demo's frame 
+is set using the <code>pack</code> method,
+the split pane is at its preferred size,
+which SplitPaneDemo happens to set explicitly.
+The divider is automatically placed
+so that the left component
+is at its preferred width
+and all remaining space goes to the right component.
+
+<li> 
+Make the window wider.
+<br>
+The divider stays where it is,
+and the extra space goes to the component at the right.
+
+<li>
+Make the window noticeably narrower than when it first came up &#151;
+perhaps twice as wide as the left component.
+<br>
+Again, the left component's size and the divider position stay the same.
+Only the size of the right component changes.
+
+<li>
+Make the window as narrow as possible.
+<br>
+Assuming the window uses the Java look and feel-provided decorations,
+you can't size the window smaller
+than the split pane's minimum size,
+which is determined by the minimum size of the components
+contained by the split pane.
+SplitPaneDemo sets the minimum size of these contained components explicitly.
+
+<li>
+Make the window wider, and then drag the divider 
+as far as it will go to the right.
+<br>
+The divider goes only as far as the right component's
+minimum size allows.
+If you drag the divider to the left,
+you'll see that it also respects the left component's minimum size.
+</ol>
+<hr></blockquote>
+
+<p>
+Now that you've seen the default behavior of split panes,
+we can tell you what's happening behind the scenes
+and how you can affect it.
+In this discussion,
+when we refer to a component's preferred or minimum size,
+we often mean the preferred or minimum width of the component
+if the split pane is horizontal,
+or its preferred or minimum height if the split pane is vertical.
+
+<p>
+By default,
+a split pane's preferred size and divider location
+are initialized so that
+the two components in the split pane are at their preferred sizes.
+If the split pane isn't displayed at this preferred size
+and the program hasn't set the divider's location explicitly,
+then the initial position of the divider
+(and thus the sizes of the two components)
+depends on a
+split pane property called the <em>resize weight</em>.
+If the split pane is initially at its preferred size or bigger,
+then the contained components start out at their preferred sizes,
+before adjusting for the resize weight.
+If the split pane is initially too small to display
+both components at their preferred sizes,
+then they start out at their <em>minimum</em> sizes,
+before adjusting for the resize weight.
+
+<p>
+A split pane's resize weight
+has a value between 0.0 and 1.0
+and determines
+how space is distributed between the two contained components
+when the split pane's size is set &#151;
+whether programmatically
+or by the user resizing the split pane
+(enlarging its containing window, for example).
+The resize weight of a split pane is 0.0 by default,
+indicating that the left or top component's size is fixed,
+and the right or bottom component 
+adjusts its size to fit the remaining space.
+Setting the resize weight to 0.5 
+splits any extra or missing space evenly between the two components.
+Setting the resize weight to 1.0 
+makes the right or bottom component's
+size remain fixed.
+The resize weight has no effect,
+however, 
+when the user drags the divider.
+
+<p>
+The user can drag the divider
+to any position
+<em>as long as</em>
+neither contained component goes below its minimum size.
+If the divider has one-touch buttons,
+the user can use them
+to make the divider move completely to one side or the other &#151;
+no matter what the minimum sizes of the components are.
+</p>
+
+<a name="rules">
+<p>
+Now that you know the factors
+that affect a split pane's size and divider location,
+here are some rules for making them work well:
+</a>
+
+<ul>
+<li> To ensure that the divider can be dragged
+     when the split pane is at its preferred size,
+     make sure the minimum size of one or both contained components
+     is smaller than the contained component's preferred size.
+     You can set the minimum size of a component either by 
+     invoking <code>setMinimumSize</code> on it 
+     or by overriding its <code>getMinimumSize</code> method.
+     For example, if you want the user
+     to be able to drag the divider all the way to both sides:
+
+<blockquote><pre>
+Dimension minimumSize = new Dimension(0, 0);
+leftComponent.setMinimumSize(minimumSize);
+rightComponent.setMinimumSize(minimumSize);
+</pre></blockquote>
+
+<li> To guarantee that both contained components appear,
+     make sure that either the split pane 
+     is initially at or above its preferred size,
+     or the minimum sizes of the contained components
+     are greater than zero.
+
+<p>
+<li> If you want the bottom or right component to stay the same size
+     and the top or left component to be flexible when the split pane
+     gets bigger,
+     set the resize weight to 1.0.
+     You can do this by invoking <code>setResizeWeight</code>:
+
+<blockquote><pre>
+splitPane.setResizeWeight(1.0);
+</pre></blockquote>
+
+<p>
+<li> If you want both halves of the split pane to share
+     in the split pane's extra or removed space,
+     set the resize weight to 0.5:
+
+<blockquote><pre>
+splitPane.setResizeWeight(0.5);
+</pre></blockquote>
+
+<p>
+<li> Make sure each component contained by a split pane has a reasonable
+     preferred size. 
+     If the component is a panel that uses a layout manager, 
+     you can generally just use the value it returns.
+     If the component is a scroll pane,
+     you have a few choices.
+     You can invoke the <code>setPreferredSize</code>
+     method on the scroll pane,
+     invoke the appropriate method on the component in the scroll pane
+     (such as the <code>setVisibleRowCount</code> method
+     for <code>JList</code> or <code>JTree</code>),
+     or just set the split pane's preferred size
+     and the divider's location.
+
+<p>
+<li> Make sure each component contained by a split pane
+     can display itself reasonably in varying amounts of space.
+     For example, panels that contain multiple components
+     should use layout managers 
+     that use extra space in a reasonable way.
+
+<p>
+<li> If you want
+     to set the size of contained components to something other than their
+     preferred sizes,
+     use the <code>setDividerLocation</code> method.
+     For example, to make the left component
+     150 pixels wide:
+
+<blockquote><pre>
+splitPane.setDividerLocation(150 + splitPane.getInsets().left);
+</pre></blockquote>
+
+     To make the right component 150 pixels wide:
+
+<blockquote><pre>
+splitPane.setDividerLocation(splitPane.getSize().width
+                             - splitPane.getInsets().right
+                             - splitPane.getDividerSize()
+                             - 150);
+</pre></blockquote>
+
+    If the split pane is already visible,
+    you can set the divider location as a percentage
+    of the split pane.  
+    For example, to make 25% of the space go to left/top:
+
+<blockquote><pre>
+splitPane.setDividerLocation(0.25);
+</pre></blockquote>
+
+<li>
+<p>
+To lay out the split pane
+as if it just came up, 
+likely repositioning the divider in the process,
+invoke <code>resetToPreferredSizes()</code> 
+on the split pane.
+
+<blockquote><hr><strong>Note:</strong>&nbsp;Just changing the contained components' preferred sizes &#151;
+even if you invoke <code>revalidate</code> afterwards &#151;
+is not enough to cause the split pane to lay itself out again.
+You must invoke <code>resetToPreferredSizes</code> as well.
+<hr></blockquote>
+</ul>
+ 
+The following snapshot shows an example
+named SplitPaneDividerDemo
+that demonstrates 
+split pane component sizes and divider placement.
+
+<p>
+<p><center><IMG SRC="../../figures/uiswing/components/SplitPaneDividerDemo.gif" WIDTH="272" HEIGHT="196" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="A snapshot of SplitPaneDividerDemo"></center></p>
+<p>
+Like SplitPaneDemo,
+SplitPaneDividerDemo
+features a horizontal split pane
+with one-touch buttons.
+SplitPaneDividerDemo has the following additional features:
+
+<ul>
+<li> The split pane's <em>resize weight</em>
+     is explicitly set (to 0.5).
+<li> The split pane 
+     is displayed at its default preferred size.
+<li> A Reset button at the bottom of the window
+     invokes 
+     <code>resetToPreferredSizes</code> on the split pane.
+<li> The components in the split pane
+     are instances of a custom <code>JComponent</code> subclass
+     called <code>SizeDisplayer</code>.
+     A <code>SizeDisplayer</code>
+     displays optional text 
+     against the background of a faded (and also optional) image.
+     More importantly, 
+     it has rectangles that show its preferred and minimum sizes.
+<li> SplitPaneDividerDemo sets up its
+     <code>SizeDisplayer</code>s 
+     to have equal preferred sizes
+     (due to the equally large images they show)
+     but unequal minimum sizes.
+</ul>
+
+<blockquote><hr><strong>Try this:</strong>&nbsp;
+<ol>
+<li> <a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/components/example-1dot4/SplitPaneDividerDemo.jnlp">Run SplitPaneDividerDemo</a> using
+<a target="_top" href="../../information/javawebstart.html">Java<sup><font size=-2>TM</font></sup> Web Start</a><a target="_top" href="../../information/javawebstart.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.    Or, to compile and run the example yourself,
+     consult the
+     <a href="example-1dot4/index.html#SplitPaneDividerDemo">example index</a>.
+<br>
+Because the size of the demo's frame 
+is set using the <code>pack</code> method,
+the split pane is at its preferred size,
+which by default
+is just big enough for the <code>SizeDisplayer</code>s
+to be at their preferred sizes.
+The preferred size of each <code>SizeDisplayer</code> 
+is indicated by a red rectangle.
+The divider is automatically placed so that both components
+are at their preferred widths.
+
+<p>
+<strong>Note:</strong>
+If you're running the example in Java Web Start,
+the <code>SizeDisplayer</code> components
+might be taller than their preferred sizes.
+This is due to bug #
+<a target="_blank" href="http://developer.java.sun.com/developer/bugParade/bugs/4777616.html"><font color="#009bbb">4777616</font></a><a target="_blank" href="http://developer.java.sun.com/developer/bugParade/bugs/4777616.html"><img src="../../images/otherIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (outside of the tutorial)"></a>:
+windows decorated by the Java look and feel
+don't account for the window warning string.
+
+<li> 
+Make the window wider.
+<br>
+Because the split pane's resize weight is 0.5,
+the extra space is divided evenly between the left and right components.
+The divider moves accordingly.
+
+<li>
+Make the window as narrow as possible.
+<br>
+Assuming the window uses the Java look and feel-provided decorations,
+it will not let you size the window smaller
+than the split pane's minimum size,
+which is determined by the minimum size of the <code>SizeDisplayers</code>
+it contains.
+The minimum size of each <code>SizeDisplayer</code> 
+is indicated by a bright blue rectangle.
+
+<li>
+Make the window a bit wider, and then drag the divider 
+as far as it will go to the right.
+<br>
+The divider goes only as far as the right component's
+minimum size allows.
+
+<li>
+After making sure the split pane 
+is smaller than its preferred size,
+click the Reset button.
+<br>
+Note that the two <code>SizeDisplayer</code>s
+are displayed at the different sizes, 
+even though when the application
+came up they had equal sizes.
+The reason is that 
+although their preferred sizes are equal,
+their minimum sizes are not.
+Because the split pane can't
+display them at their preferred sizes or larger,
+it lays them out using their minimum sizes.
+The leftover space
+is divided equally between the components,
+since the split pane's resize weight is 0.5.
+
+<li>
+Widen the split pane 
+so that it's large enough 
+for both <code>SizeDisplayer</code>s
+to be shown at their preferred sizes,
+and then
+click the Reset button.
+<br>
+The divider is placed in the middle again,
+so that both components are the same size.
+</ol>
+<hr></blockquote>
+
+Here is the code that creates the GUI
+for SplitPaneDividerDemo:
+
+<blockquote><pre>
+public class SplitPaneDividerDemo extends JPanel ... {
+
+    private JSplitPane splitPane;
+   
+    public SplitPaneDividerDemo() {
+        super(new BorderLayout());
+
+        Font font = new Font("Serif", Font.ITALIC, 24);
+
+        ImageIcon icon = createImageIcon("images/Cat.gif");
+        SizeDisplayer sd1 = new SizeDisplayer("left", icon);
+        sd1.setMinimumSize(new Dimension(30,30));
+        sd1.setFont(font);
+        
+        icon = createImageIcon("images/Dog.gif");
+        SizeDisplayer sd2 = new SizeDisplayer("right", icon);
+        sd2.setMinimumSize(new Dimension(60,60));
+        sd2.setFont(font);
+        
+        splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT,
+                                   sd1, sd2);
+        splitPane.setResizeWeight(0.5);
+        splitPane.setOneTouchExpandable(true);
+        splitPane.setContinuousLayout(true);
+
+        add(splitPane, BorderLayout.CENTER);
+        add(createControlPanel(), BorderLayout.PAGE_END);
+    }
+    ...
+}
+</pre></blockquote>
+
+The code is fairly self explanatory,
+except perhaps for the call to <code>setContinuousLayout</code>.
+Setting the <em>continuousLayout</em> property to true
+makes the split pane's contents be painted continuously
+while the user is moving the divider.
+Continuous layout is not on, by default,
+because it can have a negative performance impact.
+However, it makes sense to use it in this demo,
+when having the split pane's components as up-to-date
+as possible can improve the user experience.
+
+
+</blockquote>
+<a name="nesting">
+<h3>Nesting Split Panes</h3>
+</a>
+<blockquote>
+Here's a picture of a program that achieves a three-way
+split by nesting one split pane inside of another:
+
+<p><center><IMG SRC="../../figures/uiswing/components/SplitPaneDemo2.gif" WIDTH="413" HEIGHT="254" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="A snapshot of SplitPaneDemo2"></center></p><p align=center>
+[PENDING: This figure will be updated.]
+</p>
+
+If the top portion of the split pane looks familiar
+to you, it's because the program puts the split pane created by
+<code>SplitPaneDemo</code> inside a second split pane.
+A simple <code>JLabel</code> is the other component
+in the second split pane.
+This is not the most practical use of a 
+nested split pane, but it gets the point across.
+
+<p>
+
+You can <b><a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/components/example-1dot4/SplitPaneDemo2.jnlp">run SplitPaneDemo2</a></b>
+ using
+<a target="_top" href="../../information/javawebstart.html">Java Web Start</a><a target="_top" href="../../information/javawebstart.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.    Or, to compile and run the example yourself,
+     consult the
+     <a href="example-1dot4/index.html#SplitPaneDemo2">example index</a>.
+Here's the interesting part of the code, which you can find in
+
+<a target="_blank" href="example-1dot4/SplitPaneDemo2.java"><font color="#bb000f"><code>SplitPaneDemo2.java</code></font></a><a target="_blank" href="example-1dot4/SplitPaneDemo2.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>:
+
+<blockquote><pre>
+//Create an instance of SplitPaneDemo
+SplitPaneDemo splitPaneDemo = new SplitPaneDemo();
+JSplitPane top = splitPaneDemo.getSplitPane();
+
+...
+//Create a regular old label
+label = new JLabel("Click on an image name in the list.",
+		   JLabel.CENTER);
+
+//Create a split pane and put "top" (a split pane)
+//and JLabel instance in it.
+JSplitPane splitPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT,
+				      top, label);
+</pre></blockquote>
+Refer to
+<a href="problems.html#nestedborders">
+Solving Common Component Problems</a>
+for information about fixing a border problem
+that can appear when nesting split panes.
+</blockquote>
+
+<h3>
+<a name="api">The Split Pane API</a>
+</h3>
+<blockquote>
+The following tables list the commonly used
+<code>JSplitPane</code> constructors and methods.
+Other methods you are most likely to invoke on
+a <code>JSplitPane</code> object are those
+such as <code>setPreferredSize</code>
+that its superclasses provide.
+See
+<a href="jcomponent.html#api">The JComponent API</a>
+for tables of commonly used inherited methods.
+
+<p>
+The API for using lists falls into these categories:
+
+<ul>
+<li><a href="#settingupapi">Setting up the Split Pane</a>
+<li><a href="#contentsapi">Managing the Split Pane's Contents</a>
+<li><a href="#dividerapi">Positioning the Divider</a>
+</ul>
+
+<p>
+<table border=1>
+<caption><a name="settingupapi">Setting Up the Split Pane</a></caption>
+<tr>
+<th>Method or Constructor
+</th>
+<th>Purpose
+
+</th>
+</tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JSplitPane.html#JSplitPane()"><font color="#8800bb"><font size=2><code>JSplitPane()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JSplitPane.html#JSplitPane()"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JSplitPane.html#JSplitPane(int)"><font color="#8800bb"><font size=2><code>JSplitPane(int)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JSplitPane.html#JSplitPane(int)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JSplitPane.html#JSplitPane(int, boolean)"><font color="#8800bb"><font size=2><code>JSplitPane(int, boolean)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JSplitPane.html#JSplitPane(int, boolean)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JSplitPane.html#JSplitPane(int, java.awt.Component, java.awt.Component)"><font color="#8800bb"><font size=2><code>JSplitPane(int, Component, Component)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JSplitPane.html#JSplitPane(int, java.awt.Component, java.awt.Component)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JSplitPane.html#JSplitPane(int, boolean, java.awt.Component, java.awt.Component)"><font color="#8800bb"><font size=2><code>JSplitPane(int, boolean, Component, Component)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JSplitPane.html#JSplitPane(int, boolean, java.awt.Component, java.awt.Component)"></a>    </td>
+    <td>Create a split pane.
+        When present, the <code>int</code> parameter indicates
+        the split pane's orientation,
+        either <code>HORIZONTAL_SPLIT</code> (the default)
+        or <code>VERTICAL_SPLIT</code>.
+        The <code>boolean</code> parameter, when present, sets whether the
+        components continually repaint as the user drags the split pane.
+        If left unspecified,
+        this option (called <em>continuous layout</em>)
+        is turned off.
+        The <code>Component</code> parameters set the initial
+        left and right, or top and bottom components, respectively.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JSplitPane.html#setOrientation(int)"><font color="#8800bb"><font size=2><code>void setOrientation(int)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JSplitPane.html#setOrientation(int)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JSplitPane.html#getOrientation()"><font color="#8800bb"><font size=2><code>int getOrientation()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JSplitPane.html#getOrientation()"></a>    </td>
+    <td>Set or get the split pane's orientation. Use either
+        <code>HORIZONTAL_SPLIT</code> or <code>VERTICAL_SPLIT</code>
+        defined in <code>JSplitPane</code>.
+        If left unspecified,
+        the split pane will be horizontally split.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JSplitPane.html#setDividerSize(int)"><font color="#8800bb"><font size=2><code>void setDividerSize(int)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JSplitPane.html#setDividerSize(int)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JSplitPane.html#getDividerSize()"><font color="#8800bb"><font size=2><code>int getDividerSize()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JSplitPane.html#getDividerSize()"></a>    </td>
+    <td>Set or get the size of the divider in pixels.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JSplitPane.html#setContinuousLayout(boolean)"><font color="#8800bb"><font size=2><code>void setContinuousLayout(boolean)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JSplitPane.html#setContinuousLayout(boolean)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JSplitPane.html#isContinuousLayout()"><font color="#8800bb"><font size=2><code>boolean isContinuousLayout()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JSplitPane.html#isContinuousLayout()"></a>    </td>
+    <td>Set or get whether the split pane's components
+        are continually layed out and painted while the user
+        is dragging the divider.
+        By default, continuous layout is turned off.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JSplitPane.html#setOneTouchExpandable(boolean)"><font color="#8800bb"><font size=2><code>void setOneTouchExpandable(boolean)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JSplitPane.html#setOneTouchExpandable(boolean)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JSplitPane.html#isOneTouchExpandable()"><font color="#8800bb"><font size=2><code>boolean isOneTouchExpandable()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JSplitPane.html#isOneTouchExpandable()"></a>    </td>
+    <td>Set or get whether the split pane displays a
+        control on the divider to expand/collapse the divider.
+        The default depends on the look and feel.
+        In the Java look and feel, it's off by default.
+    </td>
+  </tr>
+</table>
+ 
+<p>
+<table border=1>
+<caption><a name="contentsapi">Managing the Split Pane's Contents</a></caption>
+<tr>
+<th>Method
+</th>
+<th>Purpose
+
+</th>
+</tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JSplitPane.html#setTopComponent(java.awt.Component)"><font color="#8800bb"><font size=2><code>void setTopComponent(Component)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JSplitPane.html#setTopComponent(java.awt.Component)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JSplitPane.html#setBottomComponent(java.awt.Component)"><font color="#8800bb"><font size=2><code>void setBottomComponent(Component)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JSplitPane.html#setBottomComponent(java.awt.Component)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JSplitPane.html#setLeftComponent(java.awt.Component)"><font color="#8800bb"><font size=2><code>void setLeftComponent(Component)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JSplitPane.html#setLeftComponent(java.awt.Component)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JSplitPane.html#setRightComponent(java.awt.Component)"><font color="#8800bb"><font size=2><code>void setRightComponent(Component)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JSplitPane.html#setRightComponent(java.awt.Component)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JSplitPane.html#getTopComponent()"><font color="#8800bb"><font size=2><code>Component getTopComponent()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JSplitPane.html#getTopComponent()"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JSplitPane.html#getBottomComponent()"><font color="#8800bb"><font size=2><code>Component getBottomComponent()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JSplitPane.html#getBottomComponent()"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JSplitPane.html#getLeftComponent()"><font color="#8800bb"><font size=2><code>Component getLeftComponent()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JSplitPane.html#getLeftComponent()"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JSplitPane.html#getRightComponent()"><font color="#8800bb"><font size=2><code>Component getRightComponent()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JSplitPane.html#getRightComponent()"></a>    </td>
+    <td>Set or get the indicated component.
+        Each method works regardless of the split pane's orientation.
+        Top and left are equivalent, and bottom and right are equivalent.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JSplitPane.html#remove(java.awt.Component)"><font color="#8800bb"><font size=2><code>void remove(Component)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JSplitPane.html#remove(java.awt.Component)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JSplitPane.html#removeAll()"><font color="#8800bb"><font size=2><code>void removeAll()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JSplitPane.html#removeAll()"></a>    </td>
+    <td>Remove the indicated component(s) from the split pane.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Container.html#add(java.awt.Component)"><font color="#8800bb"><font size=2><code>void add(Component)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Container.html#add(java.awt.Component)"></a>    </td>
+    <td>Add the component to the split pane. You can add only
+        two components to a split pane.
+        The first component added is the top/left component.
+        The second component added is the bottom/right component.
+        Any attempt to add more components results in an exception.
+    </td>
+  </tr>
+</table>
+
+<p>
+<table border=1>
+<caption><a name="dividerapi">Positioning the Divider</a></caption>
+<tr>
+<th>Method
+</th>
+<th>Purpose
+
+</th>
+</tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JSplitPane.html#setDividerLocation(double)"><font color="#8800bb"><font size=2><code>void setDividerLocation(double)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JSplitPane.html#setDividerLocation(double)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JSplitPane.html#setDividerLocation(int)"><font color="#8800bb"><font size=2><code>void setDividerLocation(int)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JSplitPane.html#setDividerLocation(int)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JSplitPane.html#getDividerLocation()"><font color="#8800bb"><font size=2><code>int getDividerLocation()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JSplitPane.html#getDividerLocation()"></a>    </td>
+    <td>Set or get the current divider location.
+        When setting the divider location, 
+        you can specify the new location as a percentage
+        (<code>double</code>) or a pixel location (<code>int</code>).<br>
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JSplitPane.html#resetToPreferredSizes()"><font color="#8800bb"><font size=2><code>void resetToPreferredSizes()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JSplitPane.html#resetToPreferredSizes()"></a>    </td>
+    <td>Move the divider such that both components are at their
+        preferred sizes.
+        This is how a split pane divides itself at startup,
+        unless specified otherwise.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JSplitPane.html#setLastDividerLocation(int)"><font color="#8800bb"><font size=2><code>void setLastDividerLocation(int)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JSplitPane.html#setLastDividerLocation(int)"></a>    <br> 
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JSplitPane.html#getLastDividerLocation()"><font color="#8800bb"><font size=2><code>int getLastDividerLocation()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JSplitPane.html#getLastDividerLocation()"></a>    </td>
+    <td>Set or get the previous position of the divider.
+	
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JSplitPane.html#getMaximumDividerLocation()"><font color="#8800bb"><font size=2><code>int getMaximumDividerLocation()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JSplitPane.html#getMaximumDividerLocation()"></a>    <br> 
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JSplitPane.html#getMinimumDividerLocation()"><font color="#8800bb"><font size=2><code>int getMinimumDividerLocation()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JSplitPane.html#getMinimumDividerLocation()"></a>    </td>
+    <td>Get the minimum and maximum locations for the divider.
+        These are set implicitly by setting the minimum sizes
+        of the split pane's two components.
+
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JSplitPane.html#setResizeWeight(float)"><font color="#8800bb"><font size=2><code>void setResizeWeight(float)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JSplitPane.html#setResizeWeight(float)"></a>    <br> 
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JSplitPane.html#getResizeWeight()"><font color="#8800bb"><font size=2><code>float getResizeWeight()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JSplitPane.html#getResizeWeight()"></a>    </td>
+    <td>Set or get the resize weight for the split pane,
+	a value between 0.0 (the default) and 1.0.
+	See <a href="#divider">Positioning the Divider
+	and Restricting Its Range</a>
+	for an explanation of and examples of using the resize weight.
+    </td>
+  </tr>
+</table>
+
+</blockquote>
+
+<h3>
+<a name="eg">Examples that Use Split Panes</a>
+</h3>
+<blockquote>
+This table shows some examples that use <code>JSplitPane</code>
+and where those examples are described.
+<p>
+<table>
+<tr>
+<th align=left> Example
+</th>
+<th align=left> Where Described
+</th>
+<th align=left> Notes
+</th>
+</tr>
+
+<tr>
+<td> <a href="example-1dot4/index.html#SplitPaneDemo"><code>SplitPaneDemo</code></a>
+</td>
+<td> This page and
+     <a href="list.html">How to Use Lists</a>
+</td>
+<td> Shows a split pane with a horizontal split.
+</td>
+</tr>
+
+<tr>
+<td> <a href="example-1dot4/index.html#SplitPaneDividerDemo"><code>SplitPaneDividerDemo</code></a>
+</td>
+<td> This page
+</td>
+<td> Demonstrates how component size information
+     and resize weight are used to position the divider.
+</td>
+</tr>
+
+<tr>
+<td> <a href="example-1dot4/index.html#SplitPaneDemo2"><code>SplitPaneDemo2</code></a>
+</td>
+<td> This page
+</td>
+<td> Puts a split pane within a split pane
+     to create a three-way split.
+</td>
+</tr>
+
+<tr>
+<td> <a href="example-1dot4/index.html#TreeDemo"><code>TreeDemo</code></a>
+</td>
+<td> <a href="tree.html">How to Use Trees</a>
+</td>
+<td> Uses a split pane with a vertical split
+     to separate a tree (in a scroll pane)
+     from an editor pane (in a scroll pane).
+     Does not use the one-touch expandable feature.
+</td>
+</tr>
+
+<tr>
+<td> <a href="example-1dot4/index.html#TextComponentDemo"><code>TextComponentDemo</code></a>
+</td>
+<td> <a href="generaltext.html">Text Component Features</a>
+</td>
+<td> Uses a split pane with a vertical split
+     to separate a text pane and a text area,
+     both in scroll panes.
+</td>
+</tr>
+
+<tr>
+<td> <a href="example-1dot4/index.html#TextSamplerDemo"><code>TextSamplerDemo</code></a>
+</td>
+<td> <a href="generaltext.html">Text Component Features</a>
+</td>
+<td> Uses a split pane with a vertical split
+     and resize weight of 0.5
+     to separate a text pane and an editor pane,
+     both in scroll panes.
+     The split pane is in the right half of a container
+     that has a fairly complicated layout.
+     Layout managers such as <code>GridLayout</code>
+     and <code>BorderLayout</code>
+     are used,
+     along with the split pane's resize weight,
+     to ensure 
+     that the components in scroll panes share all extra space.
+</td>
+</tr>
+
+<tr>
+<td> <a href="../events/example-1dot4/index.html#ListSelectionDemo"><code>ListSelectionDemo</code></a>
+</td>
+<td> 
+<a target="_top" href="../events/listselectionlistener.html">How to Write a List Selection Listener</a><a target="_top" href="../events/listselectionlistener.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a></td>
+<td> Uses a split pane with a vertical split
+     to separate an upper pane, 
+     containing a list and a table
+     (both in scroll panes),
+     from a lower pane that contains
+     a combo box above a scroll pane.
+     The lower pane uses a border layout
+     to keep the combo box small and the scroll pane greedy for space.
+</td>
+</tr>
+
+</table>
+ 
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="spinner.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#components" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="tabbedpane.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

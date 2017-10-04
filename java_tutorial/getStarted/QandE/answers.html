@@ -1,0 +1,235 @@
+<HTML>
+<HEAD>
+  <TITLE>Answers to Questions and Exercises: Arrays</TITLE>
+  <SCRIPT language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+  </SCRIPT>
+</HEAD>
+<BODY BGCOLOR="#ffffff" LINK="#000099">
+
+<P><B><FONT SIZE="-1">The Java</FONT><sup><FONT SIZE="-2">TM</FONT></sup>
+<FONT SIZE="-1">Tutorial</FONT></B> <BR>
+<TABLE WIDTH="550" BORDER="0" CELLSPACING="2" CELLPADDING="0">
+  <TR>
+    <TD>
+<a href="questions.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="../end.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+    </TD> 
+    <TD ALIGN="CENTER">
+    <FONT SIZE="-1"><A HREF="../../index.html" TARGET="_top">Start
+    of Tutorial</A> &gt; <A HREF="../../getStarted/index.html" TARGET="_top">Start
+    of Trail</A></FONT></TD> 
+    <TD ALIGN="RIGHT">
+    <FONT SIZE="-1"><A HREF="../../search.html" TARGET="_top">Search</A>
+<BR>
+    <A HREF="../../forms/sendusmail.html">Feedback Form</A></FONT></TD> 
+  </TR>
+</TABLE><IMG SRC="../../images/blueline.gif" ALIGN="BOTTOM"> <BR>
+<B><FONT SIZE="-1">Trail</FONT></B><FONT SIZE="-1">: Getting Started</FONT></P>
+
+<H2>Answers to Questions and Exercises: Getting Started</H2>
+
+<H3>Questions</H3>
+
+<BLOCKQUOTE>
+  <P><FONT COLOR="#ff0000">Question 1:</FONT> When you compile
+  a program written in the Java programming language, the compiler
+  converts the human-readable source file into platform-independent
+  code that a Java Virtual Machine can understand. What is this
+  platform-independent code called? <P>
+  <FONT COLOR="#008000">Answer 1:</FONT> Bytecode.</P>
+  <P><BR>
+  <FONT COLOR="#ff0000">Question 2:</FONT> Which of the following
+  is <I>not</I> a valid comment: </P>
+  <BLOCKQUOTE>
+    <P>a. <CODE>/** comment */</CODE> <BR>
+    b. <CODE>/* comment */</CODE> <BR>
+    c. <CODE>/* comment</CODE> <BR>
+    d. <CODE>// comment</CODE></P>
+  </BLOCKQUOTE>
+  <P><FONT COLOR="#008000">Answer 2:</FONT> c is an invalid comment.
+  </P>
+  <P><BR>
+  <FONT COLOR="#ff0000">Question 3:</FONT> In <I>The Java Tutorial</I>,
+  what is the URL of the page that describes Khwarazm? (<I>Hint:</I>
+  You can find the answer by going to the <A HREF="http://java.sun.com/docs/books/tutorial/">home
+  page</A> and clicking on the link to the Search page where you
+  can perform a search.) <P>
+  <FONT COLOR="#008000">Answer 3:</FONT> <A HREF="http://java.sun.com/docs/books/tutorial/information/FAQ.html#knm">http://java.sun.com/docs/books/tutorial/information/FAQ.html#knm</A></P>
+  <P><BR>
+  <FONT COLOR="#ff0000">Question 4:</FONT> Answer the following
+  questions: a. What is the highest version number of the Java
+  2 SDK, Standard Edition, that is available for download (early-access
+  releases included)? (<I>Hint:</I> You can find the answer at
+  <A HREF="http://java.sun.com/j2se/">http://java.sun.com/j2se/</A>.)
+<Blockquote>
+  <FONT COLOR="#008000">Answer 4a: </FONT>Answer on 11/23/00: Java<FONT
+   SIZE="-2"><SUP>TM</SUP></FONT> 2 SDK, Standard Edition, version
+  1.3.0.</P>
+  <P>b. What is the highest version number for an SDK that you
+  can download and use in shipping products (that is, not an early-access
+  release)? <BR>
+  <FONT COLOR="#008000">Answer 4b:</FONT> Answer on 11/23/00: Java<SUP><FONT
+   SIZE="-2">TM</FONT></SUP> 2 SDK, Standard Edition, version 1.3.0.</P>
+  <P>c. What is the lowest version number for an SDK that you can
+  download? (Note that &quot;SDK&quot; used to be called &quot;JDK.&quot;)
+<BR>
+  <FONT COLOR="#008000">Answer 4c:</FONT> Answer on 11/23/00: JDK
+  1.0.2 from <A HREF="http://java.sun.com/products/jdk/1.0.2/">http://java.sun.com/products/jdk/1.0.2/</A>
+  </blockquote></P>
+  <P><BR>
+  <FONT COLOR="#ff0000">Question 5:</FONT> Answer the following
+  questions: 
+  <blockquote>
+  a. Which bug has the highest number of votes at the
+  Java Developer Connection? Give the bug number, description,
+  and number of votes. (Hint: Look for the answer at <A HREF="http://developer.java.sun.com/developer/bugParade/">http://developer.java.sun.com/developer/bugParade/</A>.)
+<BR>
+  <FONT COLOR="#008000">Answer 5a:</FONT> Answer on 11/23/00: bug
+  number #4204845; Remote use of double buffering on JDK 1.2 is
+  very slow; 365 votes.</P>
+  <P>b. Does the bug report give a workaround? If so, what is it?
+<BR>
+  <FONT COLOR="#008000">Answer 5b:</FONT> Yes. One is published
+  in the Workaround section of the bug. Another place where workarounds
+  are often published is the &quot;Your Comments and Workarounds&quot;
+  section of the page.</P>
+  <P></BLOCKQUOTE><FONT COLOR="#ff0000">Question 6:</FONT> What
+  is the first thing you should check if the interpreter returns
+  the error: <CODE>Exception in thread &quot;main&quot; java.lang.NoClassDefFoundError:
+  HelloWorldApp.java. </CODE><P>
+  <FONT COLOR="#008000">Answer 6:</FONT> Check your classpath.
+  The interpreter cannot find your class. </P>
+</BLOCKQUOTE>
+<P>
+
+<H3>Exercises</H3>
+
+<BLOCKQUOTE>
+  <P><FONT COLOR="#ff0000">Exercise 1:</FONT> Change the 
+  <a target="source" href="../application/example/HelloWorldApp.java"><font color="#bb000f"><code>HelloWorldApp.java</code></font></a><a href="../application/example/HelloWorldApp.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt="(in a .java source file)"></a> 
+  program so that it displays <CODE>Hola Mundo!</CODE> instead
+  of <CODE>Hello World!</CODE>. <P>
+  
+  <FONT COLOR="#008000">Answer 1:</FONT> This is the only
+  line of code that must change:</P>
+  <BLOCKQUOTE>
+    <P><CODE>final JLabel label = new JLabel(&quot;Hola Mundo&quot;);</CODE></P>
+  </BLOCKQUOTE>
+  
+  <P>
+  <FONT COLOR="#ff0000"><BR>
+  Exercise 2:</FONT> Get the following file from the online
+  Tutorial: 
+    <a target="source" href="Useless.java"><font color="#bb000f"><code>Useless.java</code></font></a><a href="Useless.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt="(in a .java source file)"></a> 
+  Compile and run this program. What is the output? <P>
+  
+  <FONT COLOR="#008000">Answer 2:</FONT> This program prints
+  out your default locale; for example,</P>
+  <BLOCKQUOTE>
+    <P><CODE>en_US</CODE></P>
+  </BLOCKQUOTE>
+  <P>indicates U.S. English.</P>
+  <BR>
+  
+  <P><FONT COLOR="#ff0000">Exercise 3:</FONT> You can find
+  a slightly modified version of <CODE>HelloWorldApp</CODE> here:
+  <a target="source" href="HelloWorldApp2.java"><font color="#bb000f"><code>HelloWorldApp2.java</code></font></a><a href="HelloWorldApp2.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt="(in a .java source file)"></a>   
+  <BR>
+  The program has an error. Fix the error so that the program successfully
+  compiles and runs. What was the error? <P>
+  <FONT COLOR="#008000">Answer 3:</FONT> Here's the error
+  you get when you try to compile the program:</P>
+  <BLOCKQUOTE>
+    <P><CODE>HelloWorldApp2.java:7: unclosed string literal System.out.println(&quot;Hello
+    World!); //Display the string. ^ HelloWorldApp2.java:7: ')' expected
+    System.out.println(&quot;Hello World!); //Display the string.
+    ^ 2 errors</CODE></P>
+  </BLOCKQUOTE>
+  <P>To fix this mistake, you need to close the quotation marks
+  around the string. Here is the correct line of code:</P>
+  <BLOCKQUOTE>
+    <CODE>System.out.println("Hello World!"); //Display the string.</CODE></P>
+  </BLOCKQUOTE>
+  
+  <BR>
+  <P><FONT COLOR="#ff0000">Exercise 4:</FONT> Change the
+  height of the <CODE>HelloWorld</CODE> applet from <CODE>25</CODE>
+  to <CODE>50</CODE>. Describe what the modified applet looks like.
+<P>
+  <FONT COLOR="#008000">Answer 4:</FONT> To answer this
+  question correctly, make sure you modify the applet's height HTML file -- not
+  the <CODE>.java</CODE> file. Here is a snapshot of the resulting applet:</P>
+  <BLOCKQUOTE>
+    <P><IMG SRC="../../figures/getStarted/Hello-50.gif" WIDTH="158" HEIGHT="119" ALIGN="BOTTOM"
+    BORDER="0" NATURALSIZEFLAG="3"></BLOCKQUOTE>
+    <BR>
+  <P><FONT COLOR="RED"> Exercise 5:</FONT> Download the following two source files:
+
+<UL>
+
+<li><a target="source" href="FirstClass.java"><font color="#bb000f"><code>FirstClass.java</code></font>
+</a><a href="FirstClass.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt="(in a .java source file)"></a> 
+
+<li><a target="source" href="SecondClass.java"><font color="#bb000f"><code>SecondClass.java</code></font>
+</a><a href="SecondClass.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt="(in a .java source file)"></a> 
+</UL>
+
+Compile the files, and then run the resulting program. What is the output? 
+If you have trouble compiling the files but have successfully compiled 
+before, try unsetting the <CODE>CLASSPATH</CODE> environment variable, 
+and then compile again.
+<P>
+<FONT COLOR="#008000">Answer 5:</FONT> The key is to compile and run 
+the <code>SecondClass</code>. <code>FirstClass</code> does not have a 
+<code>main</code> method, so it cannot run independently. 
+<P>
+Here's the output (if your locale is U.S. English): 
+<BLOCKQUOTE><pre>
+English (United States)
+</pre>
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+<BR>
+<P>
+<!--START BOTTOM NAVIGATION -->
+
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<br>
+<table width="550">
+<tr>
+<td align="left" valign="center">
+<a href="questions.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="../end.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+</body>
+</html>
+

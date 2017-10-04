@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent">
+    <RelativeLayout android:id="@+id/v2_iamloading" android:background="@color/om" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent">
+        <dji.publics.DJIUI.DJIImageView android:id="@+id/v2_iamloadingimg" android:layout_width="UNKNOWN_DATA_0x7f0b011e" android:layout_height="UNKNOWN_DATA_0x7f0b011e" android:src="@r$drawable/v2_coupon_loading" android:layout_centerInParent="true" />
+    </RelativeLayout>
+</merge>

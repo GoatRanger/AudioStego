@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="33"
+   name=""
+   committed-date="2005-02-01T06:11:53.421875Z"
+   url="svn://192.168.2.2/ImageProcessor/src/or/doc/drasys/or/prob"
+   last-author="Karl"
+   kind="dir"
+   uuid="0daf4267-3229-f84b-9084-f3c94b025f38"
+   revision="55"/>
+<entry
+   committed-rev="33"
+   name="Distribution.html"
+   text-time="2005-03-02T06:25:27.625000Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="553598485fe5ba4a620aad6b99d61ce1"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:27.171875Z"/>
+<entry
+   committed-rev="33"
+   name="ProbException.html"
+   text-time="2005-03-02T06:25:27.625000Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="49b3af7211be59366a24f684afaf9273"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:27.187500Z"/>
+<entry
+   committed-rev="33"
+   name="GammaDistribution.html"
+   text-time="2005-03-02T06:25:27.640625Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="0337b2eed7f001336dcaafa73b64f0e4"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:27.203125Z"/>
+<entry
+   committed-rev="33"
+   name="NormalDistribution.Cdf.html"
+   text-time="2005-03-02T06:25:27.640625Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="f5c5a4ac2ac490b4519670d3a4bbd2c1"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:27.218750Z"/>
+<entry
+   committed-rev="33"
+   name="BinomialDistributionBase.html"
+   text-time="2005-03-02T06:25:27.656250Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="a464a69989fa0a8a927c8cef5802ea7c"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:27.218750Z"/>
+<entry
+   committed-rev="33"
+   name="FDistribution.html"
+   text-time="2005-03-02T06:25:27.671875Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="1e2208ff0a2c48ddce51992c1e0ce29a"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:27.234375Z"/>
+<entry
+   committed-rev="33"
+   name="LinearCongruential.html"
+   text-time="2005-03-02T06:25:27.671875Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="019146a1e4c706f98d3a468ac9ed8fc6"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:27.250000Z"/>
+<entry
+   committed-rev="33"
+   name="ExponentialDistribution.html"
+   text-time="2005-03-02T06:25:27.687500Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="d98f6120e431ae4beb0231627ff742a3"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:27.265625Z"/>
+<entry
+   committed-rev="33"
+   name="package-tree.html"
+   text-time="2005-03-02T06:25:27.687500Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="7d6d1eaca6f83f0d17ea5d227b2f3cef"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:27.281250Z"/>
+<entry
+   committed-rev="33"
+   name="BinomialDistribution.html"
+   text-time="2005-03-02T06:25:27.703125Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="6f2f0ca06ce5c13e9f369e132ab5de8a"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:27.296875Z"/>
+<entry
+   committed-rev="33"
+   name="StudentsTDistribution.html"
+   text-time="2005-03-02T06:25:27.718750Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="5cb56e64070cdb4b97d64516ac9d01ea"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:27.312500Z"/>
+<entry
+   committed-rev="33"
+   name="EmpiricalDistribution.html"
+   text-time="2005-03-02T06:25:27.718750Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="9258d15e7bd3b4bd731b4a1509e3ad25"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:27.328125Z"/>
+<entry
+   committed-rev="33"
+   name="MultiplicativeCongruential.html"
+   text-time="2005-03-02T06:25:27.734375Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="0dd0b2830763b541379848b4312b1a5a"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:27.328125Z"/>
+<entry
+   committed-rev="33"
+   name="ContinuousDistribution.html"
+   text-time="2005-03-02T06:25:27.734375Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="ac6d47ec1d990e8f6587e0dcccc82038"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:27.343750Z"/>
+<entry
+   committed-rev="33"
+   name="ProbError.html"
+   text-time="2005-03-02T06:25:27.765625Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="33d4a8a654c6e05c343c38b6a3baa00a"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:27.375000Z"/>
+<entry
+   committed-rev="33"
+   name="BaysDurhamShuffle.html"
+   text-time="2005-03-02T06:25:27.750000Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="780caf5a546e37ebb33249c7eb7e28ed"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:27.359375Z"/>
+<entry
+   committed-rev="33"
+   name="UniformDistribution.html"
+   text-time="2005-03-02T06:25:27.781250Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="6483e91ee046a211e1ccf3dc71e417f7"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:27.390625Z"/>
+<entry
+   committed-rev="33"
+   name="ContinuousDistributionI.html"
+   text-time="2005-03-02T06:25:27.781250Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="ccf275f3ab48ace8dbe7e31d4762d8d8"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:27.390625Z"/>
+<entry
+   committed-rev="33"
+   name="package-frame.html"
+   text-time="2005-03-02T06:25:27.796875Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="c19902b07a971c3ab485394d295b3b3a"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:27.406250Z"/>
+<entry
+   committed-rev="33"
+   name="ChiSquareDistribution.html"
+   text-time="2005-03-02T06:25:27.812500Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="4aa32e5cfd3b7cd090d92fe3e884d7b7"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:27.421875Z"/>
+<entry
+   committed-rev="33"
+   name="PoissonDistributionBase.html"
+   text-time="2005-03-02T06:25:27.812500Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="c4122ae6a4adc442536e7689bed87f06"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:27.453125Z"/>
+<entry
+   committed-rev="33"
+   name="package-summary.html"
+   text-time="2005-03-02T06:25:27.828125Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="95b21e8e5cd48b803eed97260e91eba4"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:27.468750Z"/>
+<entry
+   committed-rev="33"
+   name="NormalDistribution.html"
+   text-time="2005-03-02T06:25:27.843750Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="7b71cd21afd69ec3636972e740a0c726"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:27.500000Z"/>
+<entry
+   committed-rev="33"
+   name="DistributionI.html"
+   text-time="2005-03-02T06:25:27.828125Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="a061d4693fffe81e407e8e43f02cffc2"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:27.484375Z"/>
+<entry
+   committed-rev="33"
+   name="RandomI.html"
+   text-time="2005-03-02T06:25:27.859375Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="20fdb8368d24838d04b5af8c931d32c4"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:27.500000Z"/>
+<entry
+   committed-rev="33"
+   name="PoissonDistribution.html"
+   text-time="2005-03-02T06:25:27.875000Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="ddf4732f0524da0d8561eff6051555d5"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:27.515625Z"/>
+<entry
+   committed-rev="33"
+   name="IncompleteBeta.html"
+   text-time="2005-03-02T06:25:27.890625Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="69cb109b33aeaee28aa5aebd4380b711"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:27.531250Z"/>
+<entry
+   committed-rev="33"
+   name="NormalDistribution.Pdf.html"
+   text-time="2005-03-02T06:25:27.906250Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="8fcab0490a6f5a169d74780275046345"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:27.546875Z"/>
+<entry
+   committed-rev="33"
+   name="IncompleteGamma.html"
+   text-time="2005-03-02T06:25:27.921875Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="52e97aa617e2a4ab4e2e27d446ae9835"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:27.593750Z"/>
+<entry
+   committed-rev="33"
+   name="DiscreteDistribution.html"
+   text-time="2005-03-02T06:25:27.921875Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="422a4d360ce36cbd56942bd6a80c2cd9"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:27.578125Z"/>
+<entry
+   committed-rev="33"
+   name="DiscreteUniformDistribution.html"
+   text-time="2005-03-02T06:25:27.906250Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="1e8841b4bbb3b44e0ded959c207fbb9b"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:27.562500Z"/>
+<entry
+   committed-rev="33"
+   name="DiscreteDistributionI.html"
+   text-time="2005-03-02T06:25:27.937500Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="da86734ddc247ac0bef085b6cd048b58"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:27.593750Z"/>
+</wc-entries>

@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="33"
+   name=""
+   committed-date="2005-02-01T06:11:53.421875Z"
+   url="svn://192.168.2.2/ImageProcessor/src/or/doc/drasys/or/linear/blas"
+   last-author="Karl"
+   kind="dir"
+   uuid="0daf4267-3229-f84b-9084-f3c94b025f38"
+   revision="55"/>
+<entry
+   committed-rev="33"
+   name="BLAS2I.html"
+   text-time="2005-03-02T06:25:31.484375Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="c9f3dbc7131c367f1a77813837b0c6e0"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:31.171875Z"/>
+<entry
+   committed-rev="33"
+   name="BLAS3I.html"
+   text-time="2005-03-02T06:25:31.484375Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="650a3684ebd61c582025b0fc3b4ee60f"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:31.234375Z"/>
+<entry
+   committed-rev="33"
+   name="WS_FTP.LOG"
+   text-time="2005-03-02T06:25:31.500000Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="fba5c84117df48794f1b71b342e88509"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:31.250000Z"/>
+<entry
+   committed-rev="33"
+   name="SmpBLAS1.html"
+   text-time="2005-03-02T06:25:31.515625Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="907c4e8965b80c1eaa5a205fa906e373"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:31.265625Z"/>
+<entry
+   committed-rev="33"
+   name="package-frame.html"
+   text-time="2005-03-02T06:25:31.531250Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="22398b97db555661f3c942f80e58b070"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:31.296875Z"/>
+<entry
+   committed-rev="33"
+   name="SmpBLAS2.html"
+   text-time="2005-03-02T06:25:31.515625Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="156a8389d66343f31f89162b6d22a6ac"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:31.281250Z"/>
+<entry
+   committed-rev="33"
+   name="SmpBLAS3.html"
+   text-time="2005-03-02T06:25:31.531250Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="e09f635b978b8afd2014235ab8175b90"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:31.296875Z"/>
+<entry
+   committed-rev="33"
+   name="VectorBLAS1.html"
+   text-time="2005-03-02T06:25:31.546875Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="4918c4f021b8cbf5fe908229eba50b17"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:31.312500Z"/>
+<entry
+   committed-rev="33"
+   name="package-summary.html"
+   text-time="2005-03-02T06:25:31.546875Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="b16c711c801f77b5d23161e584d91ab0"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:31.328125Z"/>
+<entry
+   committed-rev="33"
+   name="package-tree.html"
+   text-time="2005-03-02T06:25:31.562500Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="1bb3b40c68740a5158d0d98d30e8c8ab"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:31.359375Z"/>
+<entry
+   committed-rev="33"
+   name="MatrixBLAS2.html"
+   text-time="2005-03-02T06:25:31.562500Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="a6a98735a65edb5990dc3e94c44d822d"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:31.343750Z"/>
+<entry
+   committed-rev="33"
+   name="MatrixBLAS3.html"
+   text-time="2005-03-02T06:25:31.578125Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="f244f97e5f003488411f18c4df1f468e"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:31.375000Z"/>
+<entry
+   committed-rev="33"
+   name="BlasError.html"
+   text-time="2005-03-02T06:25:31.578125Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="7928bbf7bed6103c19373163f038996b"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:31.390625Z"/>
+<entry
+   committed-rev="33"
+   name="BlasException.html"
+   text-time="2005-03-02T06:25:31.593750Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="7e25e3cca51d95c28486873884b5862b"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:31.406250Z"/>
+<entry
+   committed-rev="33"
+   name="BLAS1.html"
+   text-time="2005-03-02T06:25:31.609375Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="d9f8add84e23250ab83eb899ac02f7d0"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:31.421875Z"/>
+<entry
+   committed-rev="33"
+   name="BLAS2.html"
+   text-time="2005-03-02T06:25:31.609375Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="bb4118b9afdb394bf78a05deb68244a9"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:31.437500Z"/>
+<entry
+   committed-rev="33"
+   name="BLAS3.html"
+   text-time="2005-03-02T06:25:31.625000Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="00f15bec78e6b551a7adc704a5a619de"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:31.453125Z"/>
+<entry
+   committed-rev="33"
+   name="BLAS1I.html"
+   text-time="2005-03-02T06:25:31.625000Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="259f884efbb34e86b5131e431593e800"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:31.468750Z"/>
+</wc-entries>

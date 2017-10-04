@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.publics.DJIUI.DJILinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent">
+    <dji.publics.DJIUI.DJIGridView android:id="@+id/setting_application_grid" android:scrollbars="UNKNOWN_DATA_0x0" android:layout_width="match_parent" android:layout_height="match_parent" android:horizontalSpacing="@dimen/fj" android:verticalSpacing="@dimen/gw" android:columnWidth="@dimen/gx" android:numColumns="auto_fit" />
+</dji.publics.DJIUI.DJILinearLayout>

@@ -1,0 +1,190 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Summary</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="test.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#overview" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="../appletsonly/index.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Writing Applets
+<br>
+<b>Lesson</b>: Overview of Applets
+</font>
+
+<h2>
+Summary
+</h2>
+<blockquote>
+This lesson gave you lots of information --
+almost everything you need to know to write a Java applet.
+This page summarizes what you've learned,
+adding bits of information
+to help you understand the whole picture.
+
+<p>
+
+First you learned that to write an applet,
+you must create a subclass of the <code>java.applet Applet</code> class.
+In your <code>Applet</code> subclass,
+you must implement at least one of the following methods:
+<code>init</code>, <code>start</code>, and <code>paint</code>.
+The <code>init</code> and <code>start</code> methods,
+along with <code>stop</code> and <code>destroy</code>,
+are called when major events (milestones)
+occur in the applet's life cycle.
+The <code>paint</code> method is 
+called when the applet needs to draw itself to the screen.
+
+<p>
+
+The <code>Applet</code> class extends the AWT <code>Panel</code> class,
+which extends the AWT <code>Container</code> class,
+which extends the AWT <code>Component</code> class.
+From <code>Component</code>, an applet inherits the ability to draw and handle events.
+From <code>Container</code>, an applet inherits the ability to include other components
+and to have a layout manager control the size and position of those components.
+From <code>Applet</code>, an applet inherits several capabilities,
+including the ability to respond to major milestones,
+such as loading and unloading.
+You'll learn more about what the <code>Applet</code> class provides
+as you continue along this trail.
+
+<p>
+
+You include applets in HTML pages using the <code>&lt;APPLET&gt;</code> tag.
+When a browser user visits a page that contains an applet,
+here's what happens:
+
+<ol>
+<li> The browser finds the class file for the applet's <code>Applet</code> subclass.
+     The location of the class file
+     (which contains Java bytecodes)
+     is specified with the <code>CODE</code> and <code>CODEBASE</code> attributes
+     of the <code>&lt;APPLET&gt;</code> tag.
+
+<li> The browser brings the bytecodes
+     over the network to the user's computer.
+
+<li> The browser creates an instance of the <code>Applet</code> subclass.
+     When we refer to an <em>applet</em>,
+     we're generally referring to this instance.
+
+<li> The browser calls the applet's <code>init</code> method.
+     This method performs any one-time initialization that is required.
+
+<li> The browser calls the applet's <code>start</code> method.
+     This method often starts a thread to perform the applet's duties.
+</ol>
+
+<p>
+
+An applet's <code>Applet</code> subclass is its main, controlling class,
+but applets can use other classes, as well.
+These other classes can be either 
+local to the browser, provided as part of the Java environment,
+or custom classes that you supply.
+When the applet tries to use a class for the first time,
+the browser tries to find the class
+on the host that's running the browser.
+If the browser can't find the class there,
+it looks for the class 
+in the same place that the applet's <code>Applet</code> subclass came from.
+When the browser finds the class,
+it loads its bytecodes 
+(over the network, if necessary)
+and continues executing the applet.
+
+<p>
+
+Loading executable code over the network
+is a classic security risk.
+For Java applets,
+some of this risk is reduced
+because the Java language is designed to be safe --
+for example, it doesn't allow pointers to random memory.
+In addition, Java-compatible browsers improve security
+by imposing restrictions.
+These restrictions include
+disallowing applets from loading code written 
+in any non-Java language,
+and disallowing applets from reading or writing files
+on the browser's host.
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="test.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#overview" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="../appletsonly/index.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res-auto" phantom:orientation="vertical" phantom:layout_width="match_parent" phantom:layout_height="wrap_content" phantom:baselineAligned="false">
+    <ImageView phantom:background="@drawable/setting_ui_common_bg" phantom:layout_width="match_parent" phantom:layout_height="UNKNOWN_DATA_0x100" phantom:contentDescription="@string/app_name" />
+    <TextView phantom:textSize="@dimen/wn" phantom:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" phantom:id="@id/bp5" phantom:paddingLeft="@dimen/w8" phantom:paddingTop="@dimen/w8" phantom:paddingRight="@dimen/w8" phantom:paddingBottom="@dimen/w8" phantom:layout_width="match_parent" phantom:layout_height="wrap_content" />
+</LinearLayout>

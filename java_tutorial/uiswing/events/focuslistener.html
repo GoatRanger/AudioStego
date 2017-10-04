@@ -1,0 +1,399 @@
+
+
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>How to Write a Focus Listener</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="documentlistener.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#events" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="internalframelistener.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Creating a GUI with JFC/Swing
+<br>
+<b>Lesson</b>: Writing Event Listeners
+</font>
+
+<h2>
+How to Write a Focus Listener
+</h2>
+<blockquote>
+
+Focus events are fired whenever a component gains or
+loses the keyboard focus.
+This is true whether the change in focus occurs
+through the mouse, the keyboard, or programmatically.
+If you're unfamiliar with basic focus concepts or want
+detailed information about focus, see
+<a target="_top" href="../misc/focus.html">How to Use the Focus Subsystem</a><a target="_top" href="../misc/focus.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.
+
+<p>
+This section explains how to get focus events for a
+particular component by registering a <code>FocusListener</code>
+on it.  If you're only interested in focus events for windows,
+you might want to implement a
+<a href=windowlistener.html><code>WindowFocusListener</code></a>
+instead. If you need to know the focus status of many
+components, consider implementing a <code>PropertyChangeListener</code>
+on the <code>KeyboardFocusManager</code>, as described in
+<a target="_top" href="../misc/focus.html#trackingFocus">Tracking Focus Changes to Multiple Components</a><a target="_top" href="../misc/focus.html#trackingFocus"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a> in
+<a target="_top" href="../misc/focus.html">How to Use the Focus Subsystem</a><a target="_top" href="../misc/focus.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.
+
+<blockquote><hr><strong>Version note:</strong>&nbsp;The focus subsystem was completely rearchitected in release 
+1.4. This section uses concepts and methods introduced
+in that release.
+<hr></blockquote>
+
+<p>
+The following example demonstrates focus events.
+The window displays a variety of components.
+A focus listener, registered on each component,
+reports every focus-gained and focus-lost event.
+For each event, the other component involved
+in the focus change, the <em>opposite component</em>,
+is reported.  For example, when the focus
+goes from a button to a text field, a focus-lost
+event is fired by the button (with the text field as
+the opposite component) and then a focus-gained
+event is fired by the text field (with the button as the
+opposite component).
+Focus-lost events can be temporary, which occurs
+when the window loses the focus, for example.
+
+<p>
+<p><center><IMG SRC="../../figures/uiswing/events/FocusEventDemoWindow.gif" WIDTH="374" HEIGHT="229" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="The Focus Event Window, which demonstrates the events that are fired when the keyboard focus changes."></center></p>
+<h4 align=center><font color=red>[PENDING: new screenshot forthcoming with 
+    several samples of output]</font></h4>
+
+<blockquote><hr><strong>Try this:</strong>&nbsp;
+<ol>
+<li> <a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/events/example-1dot4/FocusEventDemo.jnlp">Run
+     FocusEventDemo</a> using
+     <a href=http://java.sun.com/products/javawebstart>
+     Java<sup><font size=-2>TM</font></sup> Web Start</a>.
+     Or, to compile and run the example yourself,
+     consult the
+     <a href="example-1dot4/index.html#FocusEventDemo">example index</a>.
+<li> You'll see a "Focus gained: JTextField" message
+     in the text area &#151; its "opposite component" is 
+     null, since it is the first component to have the focus.
+<li> Click the label.  Nothing happens because the label,
+     by default, can't get the focus.
+<li> Click the combo box. A focus-lost event is fired by
+     the text field and a focus-gained event by the combo box.
+     The combo box now shows that it has the focus, perhaps with
+     a dotted line around the text &#151; exactly how this is
+     represented is look and feel dependent.
+     <br>
+     Notice that when the focus changes from one component to another,
+     the first component fires a focus-lost event
+     before the second component fires a focus-gained event.
+<li> Select a choice from the combo box's menu. Click the
+     combo box again. Notice that no focus event is
+     reported.  As long as the user manipulates
+     the same component, the focus stays on that component.
+<li> Click the text area where the focus events are printed.
+     Nothing happens because the text area has been rendered
+     un-clickable with <code>setRequestFocusEnabled(false)</code>.
+<li> Click the text field to return the focus to the
+     initial component. 
+<li> Press Tab on the keyboard. The focus moves to the combo box
+     and skips over the label.
+<li> Press Tab again. The focus moves to the button.
+<li> Click another window so that the FocusEventDemo window
+     loses the focus.  A temporary focus-lost event is
+     generated for the button.
+<li> Click the top of the FocusEventDemo window.
+     A focus-gained event is fired by the button.
+<li> Press Tab on the keyboard. The focus moves to the list.
+<li> Press Tab again.  The focus moves to the text area.
+     <br>
+     Notice that even though you can't click on the text area,
+     you can tab to it.  This is so users who use 
+<a target="_top" href="../misc/access.html">assistive technologies</a><a target="_top" href="../misc/access.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a> can determine that a component is there and what it contains.
+     The demo disables click to focus for the text area,
+     while retaining its tab-to-focus capability,
+     by invoking <code>setRequestFocusEnabled(false)</code>
+     on the text area.  The demo could use 
+     <code>setFocusable(false)</code> to truly remove the
+     text area from the focus cycle, but that would have
+     the unfortunate effect of making the component
+     unavailable to those who use assistive technologies.
+<li> Press Tab again. The focus moves from the list back to
+     the text field.  You have just completed a <em>focus
+     cycle</em>. See the
+<a target="_top" href="../misc/focus.html#intro">introduction</a><a target="_top" href="../misc/focus.html#intro"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a> in
+<a target="_top" href="../misc/focus.html">How to Use the Focus Subsystem</a><a target="_top" href="../misc/focus.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a> for a discussion of focus terminology and concepts.
+</ol>
+<hr></blockquote>
+
+<p>
+
+You can find the demo's code in 
+
+<a target="_blank" href="example-1dot4/FocusEventDemo.java"><font color="#bb000f"><code>FocusEventDemo.java</code></font></a><a target="_blank" href="example-1dot4/FocusEventDemo.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>.
+Here is the code that's related to focus-event handling:
+
+<blockquote><pre>
+public class FocusEventDemo ... implements FocusListener ... {
+    public FocusEventDemo() {
+        ...
+        JTextField textField = new JTextField("A TextField");
+        textField.addFocusListener(this);
+        ...
+	JLabel label = new JLabel("A Label");
+	label.addFocusListener(this);
+        ...
+        JComboBox comboBox = new JComboBox(vector);
+        comboBox.addFocusListener(this);
+        ...
+        JButton button = new JButton("A Button");
+        button.addFocusListener(this);
+        ...
+        JList list = new JList(listVector);
+        list.setSelectedIndex(1); //It's easier to see the focus change
+                                  //if an item is selected.
+        list.addFocusListener(this);
+        JScrollPane listScrollPane = new JScrollPane(list);
+        //We want to prevent the list's scroll bars
+        //from getting the focus - even with the keyboard.
+        //Note that in general we prefer setRequestFocusable
+        //over setFocusable for reasons of accessibility,
+        //but this is to work around bug #4866958.
+        listScrollPane.getVerticalScrollBar().setFocusable(false);
+        listScrollPane.getHorizontalScrollBar().setFocusable(false);
+        ...
+        //Set up the area that reports focus-gained and focus-lost events.
+        display = new JTextArea();
+        display.setEditable(false);
+        //The method setRequestFocusEnabled prevents a
+        //component from being clickable, but it can still
+        //get the focus through the keyboard - this ensures
+        //user accessibility.
+        display.setRequestFocusEnabled(false);
+        display.addFocusListener(this);
+        JScrollPane displayScrollPane = new JScrollPane(display);
+
+        //Work around for bug #4866958.
+        displayScrollPane.getHorizontalScrollBar().setFocusable(false);
+        displayScrollPane.getVerticalScrollBar().setFocusable(false);
+        ...
+    }
+    ...
+    public void focusGained(FocusEvent e) {
+	displayMessage("Focus gained", e);
+    }
+
+    public void focusLost(FocusEvent e) {
+	displayMessage("Focus lost", e);
+    }
+
+    void displayMessage(String prefix, FocusEvent e) {
+	display.append(prefix
+                       + (e.isTemporary() ? " (temporary):" : ":")
+                       +  e.getComponent().getClass().getName()
+                       + "; Opposite component: " 
+                       + (e.getOppositeComponent != null ?
+                          e.getOppositeComponent().getClass().getName() : "null")
+		       + newline); 
+    }
+    ...
+}
+</pre></blockquote>
+
+</blockquote>
+<h3>
+<a name="api">The Focus Listener API</a>
+</h3>
+<blockquote>
+
+<p align=center><a name="focuslistener">The FocusListener
+   Interface</a>
+<p><em>The corresponding adapter class is
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/event/FocusAdapter.html"><font color="#8800bb"><code>FocusAdapter</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/event/FocusAdapter.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>.</em>
+<table border=1>
+<tr>
+<th align=left>Method</th>
+<th align=left>Purpose</th>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/event/FocusListener.html#focusGained(java.awt.event.FocusEvent)"><font color="#8800bb"><font size=2><code>focusGained(FocusEvent)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/event/FocusListener.html#focusGained(java.awt.event.FocusEvent)"></a></td>
+<td> Called just after the listened-to component gets the focus.
+</td>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/event/FocusListener.html#focusLost(java.awt.event.FocusEvent)"><font color="#8800bb"><font size=2><code>focusLost(FocusEvent)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/event/FocusListener.html#focusLost(java.awt.event.FocusEvent)"></a></td>
+<td> Called just after the listened-to component loses the focus.
+</td>
+</tr>
+
+</table>
+
+<p align=center><a name="focusevent">The FocusEvent API</a>
+<p>
+<table border=1>
+<tr>
+<th align=left>Method</th>
+<th align=left>Purpose</th>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/event/FocusEvent.html#isTemporary()"><font color="#8800bb"><font size=2><code>boolean isTemporary()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/event/FocusEvent.html#isTemporary()"></a></td>
+<td> Returns true if a focus-lost event is temporary.
+     This occurs, for example, when the component's window loses the focus.
+</td>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/event/ComponentEvent.html#getComponent()"><font color="#8800bb"><font size=2><code>Component getComponent()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/event/ComponentEvent.html#getComponent()"></a><br>(<em>in <code>java.awt.event.ComponentEvent</code></em>)
+</td>
+<td> Returns the component that fired the focus event.
+</td>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/event/FocusEvent.html#getOppositeComponent()"><font color="#8800bb"><font size=2><code>Component getOppositeComponent()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/event/FocusEvent.html#getOppositeComponent()"></a></td>
+<td> Returns the other component involved in the focus change.
+     For a <code>FOCUS_GAINED</code> event, this is the 
+     component that lost the focus.  For a <code>FOCUS_LOST</code>
+     event, this is the component that gained the focus. If the
+     focus change involves a native application, a
+     Java application in a different VM or context, or
+     no other component, then <code>null</code> is returned. 
+     This method was introduced in release 1.4.
+</td>
+</tr>
+
+</table>
+</blockquote>
+
+<a name="eg">
+<h3>Examples that Use Focus Listeners</h3>
+</a>
+<blockquote>
+The following table lists the
+examples that use focus listeners.
+
+<p>
+<table>
+<tr>
+<th align=left> Example
+</th>
+<th align=left> Where Described
+</th>
+<th align=left> Notes
+ 
+</th>
+</tr>
+<tr valign=top>
+<td> <a href="example-1dot4/index.html#FocusEventDemo"><code>FocusEventDemo</code></a>
+</td>
+<td> This section
+</td>
+<td> Reports all focus events that occur on several components
+     to demonstrate the circumstances under which focus events are fired.
+</td>
+</tr>
+
+<tr valign=top>
+<td>
+<a target="_top" href="../misc/example-1dot4/index.html#TrackFocusDemo"><code>TrackFocusDemo</code></a><a target="_top" href="../misc/example-1dot4/index.html#TrackFocusDemo"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a></td>
+<td> 
+<a target="_top" href="../misc/focus.html">How to Use the Focus Subsystem</a><a target="_top" href="../misc/focus.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a></td>
+<td> The custom component,
+<a target="_top" href="../misc/example-1dot4/Picture.java"><code>Picture</code></a><a target="_top" href="../misc/example-1dot4/Picture.java"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>, implements
+a focus listener to draw a red border around the
+component when it is the current focus owner.
+</td>
+</tr>
+</table>
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="documentlistener.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#events" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="internalframelistener.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

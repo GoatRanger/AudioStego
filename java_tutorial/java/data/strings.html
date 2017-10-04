@@ -1,0 +1,202 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Characters and Strings</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="QandE/objects-questions.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#data" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="whytwo.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Learning the Java Language
+<br>
+<b>Lesson</b>: Object Basics and Simple Data Objects
+</font>
+
+<h2>
+Characters and Strings
+</h2>
+<blockquote>
+The Java platform contains three classes that you can use when working with character data:
+
+<ul>
+<LI>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/Character.html"><font color="#8800bb">Character</font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/Character.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>--A class whose instances can hold a single character value. This class also defines handy methods that can manipulate or inspect single-character data.
+</LI >
+
+<LI>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/String.html"><font color="#8800bb">String</font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/String.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>-- A class for working with immutable (unchanging) data composed of multiple characters.
+</LI >
+  
+<LI>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/StringBuffer.html"><font color="#8800bb">StringBuffer</font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/StringBuffer.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>--A class for storing and manipulating mutable data composed of multiple characters.
+</LI>
+</UL>
+</BLOCKQUOTE>
+
+<H4>Characters</H4>
+<BLOCKQUOTE>
+An object of <CODE>Character</CODE> type contains a single character value. You use a <CODE>Character</CODE> object instead of a primitive <CODE>char</CODE> variable when an object is required-for example, when passing a character value into a method that changes the value or when placing a character value into a data structure, such as a vector, that requires objects.
+The following sample program, 
+
+<CODE>CharacterDemo</CODE>,
+
+ creates a few character objects and displays some information about them. The code that is related to the <CODE>Character</CODE> class is shown in boldface:
+
+<blockquote><pre>
+public class CharacterDemo {
+    public static void main(String args[]) {
+        <B>Character a = new Character('a');
+        Character a2 = new Character('a');
+        Character b = new Character('b');</B>
+
+        int difference = <B>a.compareTo(b);</B>
+
+        if (difference == 0) {
+            System.out.println("a is equal to b.");
+        } else if (difference < 0) {
+            System.out.println("a is less than b.");
+        } else if (difference > 0) {
+            System.out.println("a is greater than b.");
+        }
+        System.out.println("a is "
+                           + ((<B>a.equals(a2)</B>) ? "equal" : "not equal")
+                           + " to a2.");
+        System.out.println("The character " + <B>a.toString()</B> + " is "
+            + (<B>Character.isUpperCase(a.charValue()</B>) ? "upper" : "lower")
+            + "case.");
+    }
+}
+</pre></blockquote>
+The following is the output from this program:
+<blockquote><pre>
+a is less than b.
+a is equal to a2.
+The character a is lowercase.
+</pre></blockquote>
+The <CODE>CharacterDemo</CODE> program calls the following constructors and methods provided by the <CODE>Character</CODE> class:
+<DL>
+<DT><CODE>Character(char)</CODE></DT>
+<DD>The <CODE>Character</CODE> class's only constructor, which creates a <CODE>Character</CODE> object containing the value provided by the argument. Once a <CODE>Character</CODE> object has been created, the value it contains cannot be changed.</DD>
+<P>
+
+<DT><CODE>compareTo(Character) </CODE></DT>
+<DD>An instance method that compares the values held by two character objects: the object on which the method is called (a in the example) and the argument to the method (b in the example). This method returns an integer indicating whether the value in the current object is greater than, equal to, or less than the value held by the argument. A letter is greater than another letter if its numeric value is greater.</DD> 
+<P>
+
+<DT><CODE>equals(Object) </CODE></DT>
+<DD>An instance method that compares the value held by the current object with the value held by another. This method returns <CODE>true</CODE> if the values held by both objects are equal.</DD>
+<P>
+
+<DT><CODE>toString()</CODE></DT>
+<DD>An instance method that converts the object to a string. The resulting string is one character in length and contains the value held by the character object.</DD>
+<P>
+
+<DT><CODE>charValue()</CODE></DT>
+<DD>An instance method that returns the value held by the character object as a primitive <CODE>char</CODE> value.</DD>
+<p>
+
+<DT><CODE>isUpperCase(char)</CODE></DT>
+<DD>A class method that determines whether a primitive <CODE>char</CODE> value is uppercase. This is one of many <CODE>Character</CODE> class methods that inspect or manipulate character data.</DD>
+</DL>
+
+
+<!--INSERT TABLE -->
+
+
+<blockquote><hr><strong>Note to C and C++ Programmers:</strong>&nbsp;
+<a href="cStrings.html">Java strings are first-class objects</a>,
+unlike C and C++ strings,
+which are simply null-terminated arrays
+of 8-bit characters.
+<hr></blockquote>
+
+
+This section covers these string-related topics:
+
+<ul>
+<li>
+<a target="_top" href="whytwo.html">Why Two String Classes?</a><a target="_top" href="whytwo.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Learning the Java Language trail)"></a><li>
+<a target="_top" href="creating.html">Creating Strings and StringBuffers</a><a target="_top" href="creating.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Learning the Java Language trail)"></a><li>
+<a target="_top" href="accessors.html">Accessor Methods</a><a target="_top" href="accessors.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Learning the Java Language trail)"></a><li>
+<a target="_top" href="modifying.html">Modifying StringBuffers</a><a target="_top" href="modifying.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Learning the Java Language trail)"></a><li>
+<a target="_top" href="conversion.html">Converting Objects to Strings</a><a target="_top" href="conversion.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Learning the Java Language trail)"></a><li>
+<a target="_top" href="andback.html">Converting Strings to Numbers</a><a target="_top" href="andback.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Learning the Java Language trail)"></a><li>
+<a target="_top" href="stringsAndJavac.html">Strings and the Java Compiler</a><a target="_top" href="stringsAndJavac.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Learning the Java Language trail)"></a></ul>
+</BLOCKQUOTE>
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="QandE/objects-questions.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#data" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="whytwo.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

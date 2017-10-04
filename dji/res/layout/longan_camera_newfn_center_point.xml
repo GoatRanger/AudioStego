@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.device.common.view.set.view.DJILCameraCenterPointView xmlns:android="http://schemas.android.com/apk/res-auto" app:layout_width="match_parent" app:layout_height="match_parent" app:splitMotionEvents="false">
+    <dji.publics.DJIUI.DJILinearLayout app:orientation="vertical" app:layout_width="match_parent" app:layout_height="wrap_content" app:baselineAligned="false" app:divider="@drawable/camera_other_divider" app:showDividers="middle|end" app:dividerPadding="0dp">
+        <include app:id="@id/kq" layout="@layout/longan_shotcuts_itemlist_view" />
+        <include app:id="@id/kr" layout="@layout/longan_shotcuts_itemlist_view" />
+        <include app:id="@id/ks" layout="@layout/longan_shotcuts_itemlist_view" />
+        <include app:id="@id/kt" layout="@layout/longan_shotcuts_itemlist_view" />
+        <include app:id="@id/ku" layout="@layout/longan_shotcuts_itemlist_view" />
+        <include app:id="@id/kv" layout="@layout/longan_shotcuts_itemlist_view" />
+        <include app:id="@id/kw" layout="@layout/longan_shotcuts_itemlist_view" />
+        <include app:id="@id/kx" layout="@layout/longan_shotcuts_itemlist_view" />
+        <include app:id="@id/ky" layout="@layout/longan_camera_custom_color_item" />
+    </dji.publics.DJIUI.DJILinearLayout>
+</dji.device.common.view.set.view.DJILCameraCenterPointView>

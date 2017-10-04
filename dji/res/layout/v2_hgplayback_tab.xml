@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x2301">
+    <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true">
+        <RelativeLayout android:id="@+id/v2_hg_tab_all_parent" android:paddingTop="5dp" android:paddingBottom="5dp" android:layout_width="UNKNOWN_DATA_0x7f0b051e" android:layout_height="wrap_content" android:layout_marginRight="20dp">
+            <dji.pilot2.widget.DJINewStateTextView android:textSize="14sp" android:textColor="#9b9b9b" android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@+id/v2_hg_tab_all" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/v2_hg_all" />
+            <View android:background="@r$drawable/v2_hgplayback_line" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x301" android:layout_marginTop="7dp" android:layout_below="@+id/v2_hg_tab_all" />
+        </RelativeLayout>
+        <RelativeLayout android:id="@+id/v2_hg_tab_video_parent" android:paddingTop="5dp" android:paddingBottom="5dp" android:layout_width="UNKNOWN_DATA_0x7f0b051e" android:layout_height="wrap_content" android:layout_marginRight="20dp" android:layout_alignRight="@+id/v2_hg_tab_all_parent">
+            <dji.pilot2.widget.DJINewStateTextView android:textSize="14sp" android:textColor="#9b9b9b" android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@+id/v2_hg_tab_video" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/v2_hg_Video" />
+            <View android:background="@r$drawable/v2_hgplayback_line" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x301" android:layout_marginTop="7dp" android:layout_marginBottom="4dp" android:layout_below="@+id/v2_hg_tab_video" />
+        </RelativeLayout>
+        <RelativeLayout android:id="@+id/v2_hg_tab_image_parent" android:paddingTop="5dp" android:paddingBottom="5dp" android:layout_width="UNKNOWN_DATA_0x7f0b051e" android:layout_height="wrap_content" android:layout_alignRight="@+id/v2_hg_tab_video_parent">
+            <dji.pilot2.widget.DJINewStateTextView android:textSize="14sp" android:textColor="#9b9b9b" android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@+id/v2_hg_tab_image" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/v2_hg_Photo" />
+            <View android:background="@r$drawable/v2_hgplayback_line" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x301" android:layout_marginTop="7dp" android:layout_marginBottom="4dp" android:layout_below="@+id/v2_hg_tab_image" />
+        </RelativeLayout>
+    </LinearLayout>
+    <View android:background="#9b9b9b" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x40000031" android:layout_alignParentBottom="true" />
+</RelativeLayout>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res-auto" app:background="@color/om" app:fitsSystemWindows="@r$bool/is_fix_system" app:layout_width="match_parent" app:layout_height="match_parent">
+    <dji.publics.DJIUI.DJIRelativeLayout app:background="@color/om" app:layout_width="match_parent" app:layout_height="match_parent"
+        <dji.publics.DJIUI.DJIRelativeLayout app:id="@+id/contact_dji_header" app:background="@color/om" app:layout_width="match_parent" app:layout_height="UNKNOWN_DATA_0x7f0b0083">
+            <dji.pilot.publics.widget.DJIStateImageView app:id="@+id/mine_contact_dji_back_button" app:paddingLeft="@dimen/c_" app:paddingRight="@dimen/c_" app:layout_width="wrap_content" app:layout_height="match_parent" app:src="@r$drawable/v2_explore_arrow_left_back" app:layout_alignParentLeft="true" app:layout_centerVertical="true" app:onClick="onClickHandler" />
+            <dji.pilot.publics.widget.DJIStateTextView app:textSize="@dimen/rk" app:textColor="@r$color/v2_new_text_color" app:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" app:layout_width="wrap_content" app:layout_height="wrap_content" app:text="@string/mine_contact_dji" app:layout_centerInParent="true" />
+            <View app:background="@r$color/v2_new_divider_line_color" app:layout_width="match_parent" app:layout_height="UNKNOWN_DATA_0x40000031" app:layout_alignParentBottom="true" />
+        </dji.publics.DJIUI.DJIRelativeLayout>
+        <ScrollView app:scrollbars="UNKNOWN_DATA_0x0" app:layout_width="match_parent" app:layout_height="wrap_content" app:layout_below="@+id/contact_dji_header" app:overScrollMode="never">
+            <dji.publics.DJIUI.DJIRelativeLayout app:paddingTop="@dimen/gl" app:paddingBottom="@dimen/gl" app:layout_width="match_parent" app:layout_height="wrap_content">
+                <dji.pilot2.mine.view.FixRatioImageView app:id="@+id/contact_dji_image" app:layout_width="wrap_content" app:layout_height="UNKNOWN_DATA_0x1" app:src="@r$drawable/v2_contact_dji_logo" app:layout_centerHorizontal="true" app:width_weight="2.0" app:height_weight="1.0" />
+                <dji.pilot.publics.widget.DJIStateTextView app:textSize="@dimen/rq" app:textColor="@r$color/v2_mine_contact_font_color" app:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" app:id="@+id/contact_dji_detail" app:paddingLeft="@dimen/g1" app:paddingRight="@dimen/g1" app:layout_width="match_parent" app:layout_height="wrap_content" app:layout_marginTop="@dimen/g1" app:text="@string/mine_contact_dji_detail" app:layout_below="@+id/contact_dji_image" />
+                <dji.pilot2.mine.view.MineFlowLayout app:id="@+id/mine_flow_layout" app:background="@r$drawable/v2_profile_contact_item_background" app:layout_width="match_parent" app:layout_height="wrap_content" app:layout_marginTop="@dimen/g1" app:layout_below="@+id/contact_dji_detail">
+                    <dji.pilot2.mine.view.MineContactButton app:id="@+id/contact_dji_repair" app:layout_width="match_parent" app:layout_height="match_parent" app:onClick="onClickHandler" />
+                    <dji.pilot2.mine.view.MineContactButton app:id="@+id/contact_dji_live800" app:layout_width="match_parent" app:layout_height="match_parent" app:onClick="onClickHandler" />
+                    <dji.pilot2.mine.view.MineContactButton app:id="@+id/contact_dji_mail" app:layout_width="match_parent" app:layout_height="match_parent" app:onClick="onClickHandler" />
+                </dji.pilot2.mine.view.MineFlowLayout>
+            </dji.publics.DJIUI.DJIRelativeLayout>
+        </ScrollView>
+    </dji.publics.DJIUI.DJIRelativeLayout>
+</RelativeLayout>

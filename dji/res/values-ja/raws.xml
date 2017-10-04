@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <raw name="tips_voice_atti_mode">res/raw-ja/tips_voice_atti_mode.mp3</raw>
+    <raw name="tips_voice_battery_error">res/raw-ja/tips_voice_battery_error.mp3</raw>
+    <raw name="tips_voice_battery_overheating">res/raw-ja/tips_voice_battery_overheating.mp3</raw>
+    <raw name="tips_voice_compass_error">res/raw-ja/tips_voice_compass_error.mp3</raw>
+    <raw name="tips_voice_disconnect_gohome">res/raw-ja/tips_voice_disconnect_gohome.mp3</raw>
+    <raw name="tips_voice_distance_limit">res/raw-ja/tips_voice_distance_limit.mp3</raw>
+    <raw name="tips_voice_falisafe">res/raw-ja/tips_voice_falisafe.mp3</raw>
+    <raw name="tips_voice_gimbal_limit">res/raw-ja/tips_voice_gimbal_limit.mp3</raw>
+    <raw name="tips_voice_gohome">res/raw-ja/tips_voice_gohome.mp3</raw>
+    <raw name="tips_voice_gohome_failed">res/raw-ja/tips_voice_gohome_failed.mp3</raw>
+    <raw name="tips_voice_height_limit">res/raw-ja/tips_voice_height_limit.mp3</raw>
+    <raw name="tips_voice_home_point_is_update">res/raw-ja/tips_voice_home_point_is_update.mp3</raw>
+    <raw name="tips_voice_in_limit_area">res/raw-ja/tips_voice_in_limit_area.mp3</raw>
+    <raw name="tips_voice_landing">res/raw-ja/tips_voice_landing.mp3</raw>
+    <raw name="tips_voice_low_power">res/raw-ja/tips_voice_low_power.mp3</raw>
+    <raw name="tips_voice_near_limit_area">res/raw-ja/tips_voice_near_limit_area.mp3</raw>
+    <raw name="tips_voice_no_signal">res/raw-ja/tips_voice_no_signal.mp3</raw>
+    <raw name="tips_voice_pgps_mode">res/raw-ja/tips_voice_pgps_mode.mp3</raw>
+    <raw name="tips_voice_sdcard_error">res/raw-ja/tips_voice_sdcard_error.mp3</raw>
+    <raw name="tips_voice_sdcard_full">res/raw-ja/tips_voice_sdcard_full.mp3</raw>
+    <raw name="tips_voice_seriou_low_power">res/raw-ja/tips_voice_seriou_low_power.mp3</raw>
+    <raw name="tips_voice_seriou_low_voltage">res/raw-ja/tips_voice_seriou_low_voltage.mp3</raw>
+    <raw name="tips_voice_smart_low_battery">res/raw-ja/tips_voice_smart_low_battery.mp3</raw>
+    <raw name="tips_voice_smart_seriou_low_battery">res/raw-ja/tips_voice_smart_seriou_low_battery.mp3</raw>
+    <raw name="tips_voice_stop_gohome">res/raw-ja/tips_voice_stop_gohome.mp3</raw>
+    <raw name="tips_voice_stop_landing">res/raw-ja/tips_voice_stop_landing.mp3</raw>
+    <raw name="tips_voice_takeoff">res/raw-ja/tips_voice_takeoff.mp3</raw>
+    <raw name="tips_voice_tripod_fold">res/raw-ja/tips_voice_tripod_fold.mp3</raw>
+    <raw name="tips_voice_tripod_unfold">res/raw-ja/tips_voice_tripod_unfold.mp3</raw>
+    <raw name="tips_voice_vision_work">res/raw-ja/tips_voice_vision_work.mp3</raw>
+    <raw name="tips_voice_vps_mode">res/raw-ja/tips_voice_vps_mode.mp3</raw>
+    <raw name="tips_voice_welcome_to_use_inspire">res/raw-ja/tips_voice_welcome_to_use_inspire.mp3</raw>
+</resources>

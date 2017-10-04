@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="20"
+   name=""
+   committed-date="2005-02-01T06:07:43.375000Z"
+   url="svn://192.168.2.2/Utilities/src/eecs/util"
+   last-author="Karl"
+   kind="dir"
+   uuid="0daf4267-3229-f84b-9084-f3c94b025f38"
+   revision="53"/>
+<entry
+   name="tips"
+   kind="dir"/>
+<entry
+   committed-rev="54"
+   name="ProcessWrapper.java"
+   text-time="2005-03-01T22:03:54.875000Z"
+   committed-date="2005-03-02T05:59:06.437500Z"
+   checksum="6f9647275e1ffa0f7acff762c15166d5"
+   last-author="karl"
+   kind="file"
+   prop-time="2005-03-03T06:45:45.078125Z"
+   revision="57"/>
+<entry
+   committed-rev="20"
+   name="PrintText.java"
+   text-time="2005-03-01T22:03:54.890625Z"
+   committed-date="2005-02-01T06:07:43.375000Z"
+   checksum="996fd8375b772d5a1ee4af8d7264f76d"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-01T22:03:54.390625Z"/>
+<entry
+   committed-rev="20"
+   name="SwingWorker.java"
+   text-time="2005-03-01T22:03:54.890625Z"
+   committed-date="2005-02-01T06:07:43.375000Z"
+   checksum="3306836dbbe39521f82644c174288c77"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-01T22:03:54.406250Z"/>
+<entry
+   name="html"
+   kind="dir"/>
+<entry
+   name="images"
+   kind="dir"/>
+<entry
+   committed-rev="57"
+   name="EMail.java"
+   text-time="2005-03-02T07:35:49.984375Z"
+   committed-date="2005-03-03T06:42:33.953125Z"
+   checksum="130e200ec36b92ad1aac7f6866e3e905"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-01T22:03:54.765625Z"
+   revision="57"/>
+<entry
+   committed-rev="20"
+   name="SwingTask.java"
+   text-time="2005-03-01T22:03:54.906250Z"
+   committed-date="2005-02-01T06:07:43.375000Z"
+   checksum="c7e2a9b47e9dc1d571975b426e427fd7"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-01T22:03:54.765625Z"/>
+<entry
+   committed-rev="20"
+   name="FileManager.java"
+   text-time="2005-03-01T22:03:54.921875Z"
+   committed-date="2005-02-01T06:07:43.375000Z"
+   checksum="d87c1d47b39adb493289d4e62991f62f"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-01T22:03:54.781250Z"/>
+<entry
+   name="CVS"
+   kind="dir"/>
+<entry
+   committed-rev="20"
+   name="InterfaceCheck.java"
+   text-time="2005-03-01T22:03:54.921875Z"
+   committed-date="2005-02-01T06:07:43.375000Z"
+   checksum="36b99152355f2408f8cdbd1731205fe4"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-01T22:03:54.859375Z"/>
+</wc-entries>

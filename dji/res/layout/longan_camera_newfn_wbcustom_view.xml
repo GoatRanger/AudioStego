@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.device.common.view.set.view.LonganShotcutsWBView xmlns:android="http://schemas.android.com/apk/res-auto" phantom:layout_width="match_parent" phantom:layout_height="match_parent">
+    <dji.publics.DJIUI.DJILinearLayout phantom:orientation="vertical" phantom:layout_width="match_parent" phantom:layout_height="wrap_content" phantom:baselineAligned="false" phantom:divider="@drawable/camera_other_divider" phantom:showDividers="middle|end" phantom:dividerPadding="0dp">
+        <include phantom:id="@id/b1s" layout="@layout/longan_shotcuts_itemlist_view" />
+        <include phantom:id="@id/b1t" layout="@layout/longan_shotcuts_itemlist_view" />
+        <include phantom:id="@id/b1u" layout="@layout/longan_shotcuts_itemlist_view" />
+        <include phantom:id="@id/b1v" layout="@layout/longan_shotcuts_itemlist_view" />
+        <include phantom:id="@id/b1w" layout="@layout/longan_shotcuts_itemlist_view" />
+        <include phantom:id="@id/b1x" layout="@layout/longan_shotcuts_itemlist_view" />
+        <dji.publics.DJIUI.DJILinearLayout phantom:gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:orientation="vertical" phantom:id="@id/b1y" phantom:background="@color/an" phantom:layout_width="match_parent" phantom:layout_height="UNKNOWN_DATA_0x7f0b0456">
+            <antistatic.spinnerwheel.WheelHorizontalView phantom:id="@id/b1z" phantom:paddingTop="5dp" phantom:paddingBottom="5dp" phantom:layout_width="match_parent" phantom:layout_height="UNKNOWN_DATA_0x7f0b046e" phantom:layout_marginTop="0dp" phantom:layout_marginBottom="0dp" phantom:layout_centerInParent="true" phantom:visibleItems="3" phantom:itemsDimmedAlpha="80" phantom:isCyclic="false" />
+        </dji.publics.DJIUI.DJILinearLayout>
+    </dji.publics.DJIUI.DJILinearLayout>
+</dji.device.common.view.set.view.LonganShotcutsWBView>

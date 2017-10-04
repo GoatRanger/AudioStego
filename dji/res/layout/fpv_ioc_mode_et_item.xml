@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.publics.DJIUI.DJIRelativeLayout xmlns:android="http://schemas.android.com/apk/res-auto" phantom:layout_width="match_parent" phantom:layout_height="match_parent">
+    <dji.pilot.publics.widget.DJIStateImageView phantom:id="@+id/fpv_iocmode_item_bg_img" phantom:background="@r$drawable/ioc_mode_orientation_lock" phantom:duplicateParentState="true" phantom:layout_width="match_parent" phantom:layout_height="match_parent" phantom:contentDescription="@string/app_name" />
+    <dji.publics.DJIUI.DJITextView phantom:textSize="@dimen/rq" phantom:id="@+id/fpv_iocmode_item_name_tv" phantom:layout_marginLeft="@dimen/n2" phantom:layout_marginTop="@dimen/n2" style="@style/bm" />
+    <dji.publics.DJIUI.DJIImageView phantom:id="@+id/fpv_iocmode_item_select_img" phantom:layout_width="wrap_content" phantom:layout_height="wrap_content" phantom:src="@r$drawable/ioc_mode_selected" phantom:adjustViewBounds="true" phantom:layout_alignParentTop="true" phantom:layout_alignParentRight="true" phantom:contentDescription="@string/app_name" />
+    <dji.publics.DJIUI.DJILinearLayout phantom:gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:id="@+id/fpv_iocmode_item_value_ly" phantom:paddingRight="10dp" phantom:visibility="gone" phantom:layout_width="wrap_content" phantom:layout_height="wrap_content" phantom:layout_below="@+id/fpv_iocmode_item_name_tv" phantom:layout_alignParentRight="true">
+        <dji.publics.DJIUI.DJITextView phantom:textSize="@dimen/rq" phantom:textColor="@color/ov" phantom:id="@+id/fpv_iocmode_item_value_desc_tv" style="@style/bm" />
+        <dji.pilot.publics.widget.DJIEditText phantom:id="@+id/fpv_iocmode_item_value_et" phantom:focusableInTouchMode="true" phantom:djiTextFace="2" style="@style/FpvGenSettingEtview" />
+        <dji.publics.DJIUI.DJITextView phantom:textSize="@dimen/rq" phantom:textColor="@color/ov" phantom:id="@+id/fpv_iocmode_item_value_unit_tv" phantom:layout_marginLeft="5dp" phantom:text="@string/fpv_gensetting_foot" style="@style/bm" />
+    </dji.publics.DJIUI.DJILinearLayout>
+</dji.publics.DJIUI.DJIRelativeLayout>

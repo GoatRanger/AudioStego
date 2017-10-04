@@ -1,0 +1,183 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>The while and do-while Statements</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="flow.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#nutsandbolts" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="for.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Learning the Java Language
+<br>
+<b>Lesson</b>: Language Basics
+</font>
+
+<h2>
+The while and do-while Statements
+</h2>
+<blockquote>
+You use a
+<a href="javascript:var meth=openWin; meth('while');" onMouseOver="self.status='Look up while in glossary'; return true;" onMouseOut="self.status=''; return true;"><font color="#00bb00"><em>while</em></font></a><a href="javascript:var meth=openWin; meth('while');" onMouseOver="self.status='Look up while in glossary'; return true;" onMouseOut="self.status=''; return true;"><img src="../../images/glossaryIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the glossary)"></a> statement
+to continually execute a block of statements
+while a condition remains true.
+The general syntax of the <code>while</code> statement is:
+<blockquote><pre>
+while (<em>expression</em>) {
+    <em>statement</em>
+}
+</pre></blockquote>
+First,
+the <code>while</code> statement evaluates <em>expression</em>,
+which must return a boolean value.
+If the expression returns true, then the <code>while</code>
+statement executes the statement(s) associated with it.
+The <code>while</code> statement continues testing the expression
+and executing its block until the expression returns <code>false</code>.
+<p>
+The example program shown below,
+called
+
+<a target="_blank" href="example/WhileDemo.java"><font color="#bb000f"><code>WhileDemo</code></font></a><a target="_blank" href="example/WhileDemo.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>,
+uses a <code>while</code> statement to step through the characters of a string, appending each character from the string to the end of a string buffer until it encounters the letter <code>g</code>.
+
+<blockquote><pre>
+public class WhileDemo {
+    public static void main(String[] args) {
+
+        String copyFromMe = "Copy this string until you " + 
+                            "encounter the letter 'g'.";
+        StringBuffer copyToMe = new StringBuffer();
+
+        int i = 0;
+        char c = copyFromMe.charAt(i);
+
+        while (c != 'g') {
+            copyToMe.append(c);
+            c = copyFromMe.charAt(++i);
+        }
+        System.out.println(copyToMe);
+    }
+}
+</pre></blockquote>
+The value printed by the last line is:
+<code>Copy this strin</code>.
+<p>
+The Java programming language provides another statement that is similar
+to the <code>while</code> statement--the
+<a href="javascript:var meth=openWin; meth('do');" onMouseOver="self.status='Look up do-while in glossary'; return true;" onMouseOut="self.status=''; return true;"><font color="#00bb00"><em>do-while</em></font></a><a href="javascript:var meth=openWin; meth('do');" onMouseOver="self.status='Look up do-while in glossary'; return true;" onMouseOut="self.status=''; return true;"><img src="../../images/glossaryIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the glossary)"></a> statement.
+The general syntax of the <code>do</code>-<code>while</code> is:
+<blockquote><pre>
+do {
+    <em>statement(s)</em>
+} while (<em>expression</em>);
+</pre></blockquote>
+Instead of evaluating the expression at the top of the loop,
+<code>do</code>-<code>while</code>
+evaluates the expression at the bottom.
+Thus the statements associated with a
+<code>do</code>-<code>while</code>
+are executed at least once.
+<p>
+Here's the previous program rewritten to use <code>do</code>-<code>while</code>
+and renamed to
+
+<a target="_blank" href="example/DoWhileDemo.java"><font color="#bb000f"><code>DoWhileDemo</code></font></a><a target="_blank" href="example/DoWhileDemo.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>:
+<blockquote><pre>
+public class DoWhileDemo {
+    public static void main(String[] args) {
+
+        String copyFromMe = "Copy this string until you " +
+                            "encounter the letter 'g'.";
+        StringBuffer copyToMe = new StringBuffer();
+
+        int i = 0;
+        char c = copyFromMe.charAt(i);
+
+        do {
+            copyToMe.append(c);
+            c = copyFromMe.charAt(++i);
+        } while (c != 'g');
+        System.out.println(copyToMe);
+    }
+}
+</pre></blockquote>
+The value printed by the last line is:
+<code>Copy this strin</code>.
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="flow.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#nutsandbolts" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="for.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>A Simple Network Client Applet</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="server.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#practical" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="workaround.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Writing Applets
+<br>
+<b>Lesson</b>: Practical Considerations when Writing Applets
+</font>
+
+<h2>
+A Simple Network Client Applet
+</h2>
+<blockquote>
+The
+<a target="_top" href="../../networking/datagrams/clientServer.html">Writing a Datagram Client and Server</a><a target="_top" href="../../networking/datagrams/clientServer.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Writing Applets trail)"></a> section of the Custom Networking and Security trail
+contains example code for two applications,
+a client and a server.
+This section rewrites the client to be an applet.
+Here's the 
+<a target="_blank" href="example-1dot1/QuoteClientApplet.java"><font color="#bb000f"><code>applet source code</code></font></a><a target="_blank" href="example-1dot1/QuoteClientApplet.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>.
+(Here's the corresponding 
+<a target="_blank" href="example/QuoteClientApplet.java"><font color="#bb000f"><code>1.0 source code</code></font></a><a target="_blank" href="example/QuoteClientApplet.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>.)
+The client has been changed not only
+to communicate with the host the applet came from,
+but also to have a graphical UI, 
+and to have a loop
+so that it can get as many quotes as you like.
+You can run the applet by including it in a page
+with the following HTML code:
+
+<blockquote><pre>
+&lt;APPLET CODE=QuoteClientApplet.class WIDTH=500 HEIGHT=100&gt;
+&lt;/APPLET&gt;
+</pre></blockquote>
+<p>
+
+Here's a link to a 
+<a href=example-1dot1/quoteApplet.html>page</a> that contains the above HTML code.
+By saving this page to a file
+on your local HTTP server,
+you can use it to communicate with the server-side application
+that will be running on the HTTP server.  You must also save the
+compiled form of the applet to the same directory.
+
+<p>
+
+Before the applet can get quotes,
+you need to run the server on the host
+that the applet came from.
+You then need to note the number of the port
+that the server is listening on.
+After you enter this port number into the applet,
+it will hook up with the server
+and you'll be able to get one-line quotations.
+Below are detailed instructions,
+followed by pictures of the server and the applet in action.
+
+<ol>
+<li> Compile 
+<a target="_blank" href="example-1dot1/QuoteServer.java"><font color="#bb000f"><code>QuoteServer.java</code></font></a><a target="_blank" href="example-1dot1/QuoteServer.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>
+     and 
+<a target="_blank" href="example-1dot1/QuoteServerThread.java"><font color="#bb000f"><code>QuoteServerThread.java</code></font></a><a target="_blank" href="example-1dot1/QuoteServerThread.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>.
+     Here's a text file 
+     (<a href=example-1dot1/one-liners.txt>one-liners.txt</a>)
+     that should be in the same directory
+     as the resulting class files.
+<li> On the computer that serves the applet class file (through HTTP),
+     invoke the interpreter on the <code>QuoteServer</code> class.
+     For example, if you view the applet's page
+     with the URL <b>http://mymachine/quoteApplet.html</b>,
+     then you need to run the server on the host named
+     <b>mymachine</b>.
+<li> Record the port number that the quote server displays.
+<li> Enter this number into the applet's text field.
+<li> Press the Send button to request a quote from the server.
+     You should see a quote appear in the text area.
+</ol>
+
+
+Here's a picture of the applet in action:
+
+<p><center><IMG SRC="../../figures/applet/19quote.gif" WIDTH="425" HEIGHT="119" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p><p>
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="server.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#practical" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="workaround.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

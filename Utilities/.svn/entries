@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="32"
+   name=""
+   committed-date="2005-02-01T06:11:23.906250Z"
+   url="svn://192.168.2.2/Utilities"
+   last-author="Karl"
+   kind="dir"
+   uuid="0daf4267-3229-f84b-9084-f3c94b025f38"
+   revision="53"/>
+<entry
+   name="test"
+   kind="dir"/>
+<entry
+   name="src"
+   kind="dir"/>
+</wc-entries>

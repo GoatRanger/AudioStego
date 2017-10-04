@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res-auto" setting_ui:orientation="vertical" style="@style/g2">
+    <dji.setting.ui.rc.CalibrationGroupView setting_ui:titleText="@string/setting_ui_rc_calibration" setting_ui:subLayout="@layout/setting_ui_group_rc_calibration" style="@style/g2" />
+    <dji.setting.ui.rc.OriginCalibrationGroupView setting_ui:titleText="@string/setting_ui_rc_calibration" setting_ui:subLayout="@layout/setting_ui_group_rc_origin_calibration" style="@style/g2" />
+    <dji.setting.ui.rc.RcCoachView style="@style/g3" />
+    <dji.setting.ui.rc.RcStickMasterView style="@style/g9" />
+    <dji.setting.ui.rc.RcStickSlaveView style="@style/g9" />
+    <dji.setting.ui.rc.C1C2View style="@style/g9" />
+    <dji.setting.ui.rc.Rc5DButtonView style="@style/g9" />
+    <dji.setting.ui.rc.FrequencyView setting_ui:titleText="@string/setting_ui_rc_freq" setting_ui:showDivider="false" style="@style/g9" />
+</LinearLayout>

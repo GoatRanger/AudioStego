@@ -1,0 +1,300 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Answers: Laying Out Components within a Container</title>
+<script language="JavaScript">
+
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="questions-ch4.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#layout" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="../events/index.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="../layout/index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Creating a GUI with JFC/Swing
+<br>
+<b>Lesson</b>: Laying Out Components Within a Container
+</font>
+
+<!--END HEADER-->
+
+<H2>Answers: Laying Out Components within a Container</H2>
+
+<H3>Questions</H3>
+
+<P>In each of the following questions, choose the layout manager(s)
+most naturally suited for the described layout. Assume that the
+container controlled by the layout manager is a <CODE>JPanel</CODE>.
+[<I>Hint: </I>Two sections that might help are <A HREF="../components/components.html">A
+Visual Index to Swing Components</A> and <A HREF="../layout/using.html#choosing">Tips
+on Choosing a Layout Manager</A>.]</P>
+
+<BLOCKQUOTE>
+  <P><FONT COLOR="#ff0000">Question 1</FONT>. The container has
+  one component that should take up as much space as possible<BR>
+  <BLOCKQUOTE>
+  <TABLE WIDTH="450" BORDER="0" CELLSPACING="2" CELLPADDING="0">
+    <TR>
+      <TD WIDTH="50%">
+    <IMG SRC="../../figures/uiswing/QandE/Layout1-1.gif" WIDTH="95" HEIGHT="59"
+      ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="Layout1-1.gif">
+    </TD>
+      <TD WIDTH="50%">
+    <IMG SRC="../../figures/uiswing/QandE/Layout1-2.gif" WIDTH="186" HEIGHT="81"
+      ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="Layout1-2.gif">
+      </TD>
+    </TR>
+  </TABLE><p></P>
+
+    <P>a. <CODE>BorderLayout</CODE><BR>
+    b. <CODE>GridLayout</CODE><BR>
+    c. <CODE>GridBagLayout</CODE><BR>
+    d. a and b<BR>
+    e. b and c</P>
+  </BLOCKQUOTE>
+
+  <P><FONT COLOR="#009900">Answer 1</FONT>: d. <code>BorderLayout</code> and <code>GridLayout</code> 
+    easily deal with this situation. Although you could use <code>GridBagLayout</code>, 
+    it's much more complex than necessary.</P>
+  <BR>
+
+  <P><FONT COLOR="#ff0000">Question 2</FONT>. The container has
+  a row of components that should all be displayed at the same
+  size, filling the container&#146;s entire area.</P>
+    <BLOCKQUOTE>
+    <IMG SRC="../../figures/uiswing/QandE/Layout2-1.gif" WIDTH="350" HEIGHT="59"
+      ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="Layout2-1.gif">
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <IMG SRC="../../figures/uiswing/QandE/Layout2-2.gif" WIDTH="444" HEIGHT="81"
+      ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="Layout2-2.gif">
+    </BLOCKQUOTE>
+
+  <BLOCKQUOTE>
+    <P>a. <CODE>FlowLayout</CODE><BR>
+    b. <CODE>GridLayout</CODE><BR>
+    c. <CODE>BoxLayout</CODE><BR>
+    d. a and b</P>
+  </BLOCKQUOTE>
+
+  <P><FONT COLOR="#009900">Answer 2</FONT>: b. This type of same-size layout &#151; 
+    whether in a row, a column, or a grid &#151; is what <code>GridLayout</code> 
+    is best at. </P>
+  <BR>
+
+  <P><FONT COLOR="#ff0000">Question 3</FONT>. The container displays
+  a number of components in a column, with any extra space going
+  between the first two components.<BR>
+  <BLOCKQUOTE>
+  <TABLE WIDTH="450" BORDER="0" CELLSPACING="2" CELLPADDING="0">
+    <TR>
+      <TD WIDTH="50%">
+    <IMG SRC="../../figures/uiswing/QandE/Layout3-1.gif" WIDTH="95" HEIGHT="137"
+      ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="Layout3-1.gif">
+     </TD>
+      <TD WIDTH="50%">
+    <IMG SRC="../../figures/uiswing/QandE/Layout3-2.gif" WIDTH="224" HEIGHT="181"
+      ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="Layout3-2.gif"> 
+      </TD>
+    </TR>
+  </TABLE><p></P>
+    <P>a. <CODE>FlowLayout</CODE><BR>
+    b. <CODE>BoxLayout</CODE><BR>
+    c. <CODE>GridLayout</CODE><BR>
+    d. <CODE>BorderLayout</CODE></P>
+  </BLOCKQUOTE>
+  <P><FONT COLOR="#009900">Answer 3</FONT>: b. <code>BoxLayout</code> lays out 
+    components in either a column or a row. You can specify extra space using 
+    an invisible component.</P>
+  <BR>
+
+  <P><FONT COLOR="#ff0000">Question 4</FONT>. The container can
+  display three completely different components at different times,
+  depending perhaps on user input or program state. Even if the
+  components&#146; sizes differ, switching from one component to
+  the next shouldn&#146;t change the amount of space devoted to
+  the component.</P>
+    <BLOCKQUOTE>
+    <IMG SRC="../../figures/uiswing/QandE/Layout4-1.gif" WIDTH="357" HEIGHT="131"
+      ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="Layout4-1.gif">
+    </BLOCKQUOTE>
+
+    <BLOCKQUOTE>
+    <p><IMG SRC="../../figures/uiswing/QandE/Layout4-2.gif" WIDTH="356" HEIGHT="131"
+      ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="Layout4-2.gif"> </p>
+      <P>a. <CODE>SpringLayout</CODE><BR>
+      b. <CODE>BoxLayout</CODE><BR>
+      c. <CODE>CardLayout</CODE><BR>
+      d. <CODE>GridBagLayout</CODE></P>
+    
+
+  </BLOCKQUOTE>
+
+  
+<P><FONT COLOR="#009900">Answer 4</FONT>: c. <code>CardLayout</code> exists to 
+  allow components to share the same space. Although it's simpler to use a <code>JTabbedPane</code> 
+  component to control an area, <code>CardLayout</code> is the solution when you 
+  don't want tabs.</P>
+</BLOCKQUOTE>
+
+<H3>Exercises</H3>
+
+<BLOCKQUOTE>
+  <P><FONT COLOR="#ff0000">Exercise 1</FONT>. Implement the layout
+  described and shown in question 1.<BR>
+    <FONT COLOR="#009900">Answer 1</FONT>: See <a target="source" href="example-1dot4/Layout1.java"><font color="#bb000f"><code>Layout1.java</code></font></a><a href="example-1dot4/Layout1.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt="(in a .java source file)"></a>. 
+    Here's the code that implements the layout:</P>
+
+	<blockquote><pre>JPanel p = new JPanel(new BorderLayout());
+p.add(createComponent("Component 1"), 
+                      BorderLayout.CENTER);
+frame.setContentPane(p);</pre>
+</blockquote>
+
+  <br>
+  <P><FONT COLOR="#ff0000">Exercise 2</FONT>. Implement the layout
+  described and shown in question 2.<BR>
+  <FONT COLOR="#009900">Answer 2</FONT>: See <a target="source" href="example-1dot4/Layout2.java"><font color="#bb000f"><code>Layout2.java</code></font></a><a href="example-1dot4/Layout2.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt="(in a .java source file)"></a>. 
+    Here's the code that implements the layout:</P>
+
+	<blockquote><pre>JPanel p = new JPanel(new GridLayout(1,0));
+p.add(createComponent("Component 1"));
+p.add(createComponent("Component 2"));
+p.add(createComponent("Component 3"));
+p.add(createComponent("Component 4"));
+frame.setContentPane(p);
+</pre>
+</blockquote>
+
+  <br>
+  <P><FONT COLOR="#ff0000">Exercise 3</FONT>. Implement the layout
+  described and shown in question 3.<BR>
+  <FONT COLOR="#009900">Answer 3</FONT>: See <a target="source" href="example-1dot4/Layout3.java"><font color="#bb000f"><code>Layout3.java</code></font></a><a href="example-1dot4/Layout3.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt="(in a .java source file)"></a>. 
+    Here's the code that implements the layout:</P>
+
+	<blockquote><pre>JPanel p = new JPanel();
+p.setLayout(new BoxLayout(p, BoxLayout.PAGE_AXIS));
+p.add(createComponent("Component 1"));
+p.add(Box.createVerticalGlue());
+p.add(createComponent("Component 2"));
+p.add(createComponent("Component 3"));
+p.add(createComponent("Component 4"));
+frame.setContentPane(p);
+</pre>
+</blockquote>
+
+
+  <br>
+  <P><FONT COLOR="#ff0000">Exercise 4</FONT>. Implement the layout
+  described and shown in question 4.<BR>
+  <FONT COLOR="#009900">Answer 4</FONT>: See <a target="source" href="example-1dot4/Layout4.java"><font color="#bb000f"><code>Layout4.java</code></font></a><a href="example-1dot4/Layout4.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt="(in a .java source file)"></a>. 
+    Here's the code that implements the layout:</P>
+
+	<blockquote><pre><em>...//Where the radio buttons are set up:</em>
+for (int i= 0; i < strings.length; i++) {
+    ...
+	rb[i].setActionCommand(String.valueOf(i));
+    ...
+}
+
+<em>...//Where the panel to contain the shared-space components is set up:</em>
+cards = new JPanel(new CardLayout());
+for (int i = 0; i < strings.length; i++) {
+	cards.add(createComponent(strings[i]), String.valueOf(i));
+}
+
+<em>...//In the action listener for the radio buttons:</em>
+public void actionPerformed(ActionEvent evt) {
+	CardLayout cl = (CardLayout)(cards.getLayout());
+	cl.show(cards, (String)evt.getActionCommand());
+}</pre>
+</blockquote>
+
+
+  <br>
+  <P><FONT COLOR="#ff0000">Exercise 5</FONT>. By adding a single line of code, 
+    make the program you wrote for Exercise 2 display the components from right-to-left, 
+    instead of from left-to-right.</P>
+    <BLOCKQUOTE>
+    <IMG SRC="../../figures/uiswing/QandE/Layout2-3.gif" WIDTH="350" HEIGHT="59"
+      ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="Layout2-3.gif">
+    </BLOCKQUOTE>
+
+  <P><FONT COLOR="#009900">Answer 5</FONT>: You can change the horizontal orientation 
+    using the <code><a href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#setComponentOrientation(java.awt.ComponentOrientation)">setComponentOrientation</a></code> 
+    method defined by the <code>Component</code> class. For example: 
+  <blockquote><pre>p.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);</pre>
+  </blockquote>
+</BLOCKQUOTE>
+
+
+<!--START FOOTER-->
+
+
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="questions-ch4.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#layout" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="../events/index.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="../layout/index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>

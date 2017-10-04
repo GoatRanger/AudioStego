@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.setting.ui.SettingUIStageView xmlns:android="http://schemas.android.com/apk/res-auto" setting_ui:layout_width="match_parent" setting_ui:layout_height="match_parent" setting_ui:titleText="@string/setting_ui_battery">
+    <ScrollView style="@style/gk">
+        <LinearLayout style="@style/gj">
+            <dji.setting.ui.battery.m600.CurIndex setting_ui:titleText="@string/setting_ui_battery_sub_index" style="@style/g2" />
+            <dji.setting.ui.battery.m600.SubInfoView style="@style/g2" />
+            <dji.setting.ui.battery.m600.SubVolumes setting_ui:layout_marginBottom="@dimen/w8" style="@style/g2" />
+            <dji.setting.ui.battery.m600.DischargeView setting_ui:titleText="@string/setting_ui_battery_discharge_desc" style="@style/g2" />
+            <dji.setting.ui.widget.ItemViewGroup setting_ui:titleText="@string/setting_ui_battery_history_status" setting_ui:subLayout="@layout/setting_ui_group_battery_history" setting_ui:showDivider="false" style="@style/g2" />
+        </LinearLayout>
+    </ScrollView>
+</dji.setting.ui.SettingUIStageView>

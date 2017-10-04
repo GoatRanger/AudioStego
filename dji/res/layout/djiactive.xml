@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent"
+    <LinearLayout android:orientation="vertical" android:background="#ffffff" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x15401">
+        <TextView android:id="@id/ra" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="【via WIFI】" />
+        <Button android:layout_gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@+id/btn_10" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="激活之前过程发送国家码demo" />
+        <Button android:layout_gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@+id/btn_11" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="开机过程发送国家码demo" />
+    </LinearLayout>
+    <LinearLayout android:orientation="horizontal" android:background="#fffef0" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x1401" android:layout_marginTop="2dp" />
+    <TextView android:id="@+id/tv_log" android:background="#fffef0" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10dp" android:text="log:" />
+</LinearLayout>

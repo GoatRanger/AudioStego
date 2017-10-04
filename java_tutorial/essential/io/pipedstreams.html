@@ -1,0 +1,177 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>How to Use Pipe Streams</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="filestreams.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#io" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="processing.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Essential Java Classes
+<br>
+<b>Lesson</b>: I/O: Reading and Writing (but no 'rithmetic)
+</font>
+
+<h2>
+How to Use Pipe Streams
+</h2>
+<blockquote>
+Pipes are used to channel the output from one thread into the input of another. 
+
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/io/PipedReader.html"><font color="#8800bb"><code>PipedReader</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/io/PipedReader.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> and
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/io/PipedWriter.html"><font color="#8800bb"><code>PipedWriter</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/io/PipedWriter.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> (and their input and output stream counterparts
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/io/PipedInputStream.html"><font color="#8800bb"><code>PipedInputStream</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/io/PipedInputStream.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> and
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/io/PipedOutputStream.html"><font color="#8800bb"><code>PipedOutputStream</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/io/PipedOutputStream.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>)
+implement the input and output components of a pipe. 
+Why is this useful?
+<p>
+Consider a class that implements various string manipulation  utilities, such as sorting and reversing text. It would be nice  if the output of one of these methods could be used as the input  for another so that you could string a series of method calls  together to perform a higher-order function. For example, you  could reverse each word in a list, sort the words, and then  reverse each word again to create a list of rhyming words.  
+
+<p>
+Without pipe streams, the program would have to store the results
+somewhere (such as in a file or in memory) between each step, as shown
+here:
+
+<p><center><IMG SRC="../../figures/essential/27list.gif" WIDTH="467" HEIGHT="117" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p>
+With pipe streams, the output from one method
+could be piped into the next, as shown in this figure:
+
+<p><center><IMG SRC="../../figures/essential/28listofw.gif" WIDTH="351" HEIGHT="114" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p>
+Let's look at a program, called 
+<a target="_blank" href="example-1dot1/RhymingWords.java"><font color="#bb000f"><code>RhymingWords</code></font></a><a target="_blank" href="example-1dot1/RhymingWords.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>, that implements what's represented 
+in the previous figure. 
+This program uses <code>PipedReader</code> and <code>PipedWriter</code>
+to connect the input and output of its <code>reverse</code>
+and <code>sort</code> methods to create a list of rhyming words. Several classes make up this 
+program. 
+
+<p>
+First, let's look at the calling sequence of the <code>reverse</code>
+and <code>sort</code> methods from the <code>main</code> method:
+
+<blockquote><pre>
+FileReader words = new FileReader("words.txt");
+Reader rhymingWords = reverse(sort(reverse(words)));
+</pre></blockquote>
+
+The innermost call to <code>reverse</code> takes a 
+<code>FileReader</code>, which is opened on the file  
+<a target="_blank" href="example-1dot1/words.txt"><font color="#bb000f"><code>words.txt</code></font></a><a target="_blank" href="example-1dot1/words.txt"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a> which contains a list of words. The return value of <code>reverse</code> is
+passed to <code>sort</code>, whose return value is then passed to
+another call to <code>reverse</code>.
+<p>
+Let's look at the <code>reverse</code> method; the <code>sort</code>
+method is similar and you will understand it once you understand
+<code>reverse</code>.
+<blockquote><pre>
+public static Reader reverse(Reader src) throws IOException {
+    BufferedReader in = new BufferedReader(source);
+
+    <B>PipedWriter pipeOut = new PipedWriter();
+    PipedReader pipeIn = new PipedReader(pipeOut);</B>
+    PrintWriter out = new PrintWriter(pipeOut);
+
+    new ReverseThread(out, in).start();
+
+    return pipeIn;
+}
+</pre></blockquote>
+The statements in boldface create both ends of a
+pipe--a <code>PipedWriter</code> and a <code>PipedReader</code>--
+and connect them by constructing
+the <code>PipedReader</code> "on" the <code>PipedWriter</code>.
+Whatever is written to the 
+<code>PipedWriter</code> can be read from the <code>PipedReader</code>.
+The connection forms a
+pipe, as illustrated here:
+
+<p><center><IMG SRC="../../figures/essential/29revers.gif" WIDTH="412" HEIGHT="58" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p>
+The <code>reverse</code> method starts a
+
+<a target="_blank" href="example-1dot1/ReverseThread.java"><font color="#bb000f"><code>ReverseThread</code></font></a><a target="_blank" href="example-1dot1/ReverseThread.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>
+that writes its output to the <code>PipedWriter</code>
+and then returns the <code>PipedReader</code> to the caller.
+The caller then arranges for a sorting thread to read from it.
+The <code>sort</code> method is exactly the same,
+except that it creates and starts a
+
+<a target="_blank" href="example-1dot1/SortThread.java"><font color="#bb000f"><code>SortThread</code></font></a><a target="_blank" href="example-1dot1/SortThread.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>.
+
+<P>
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="filestreams.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#io" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="processing.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

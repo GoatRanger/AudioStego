@@ -1,0 +1,528 @@
+
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>How to Use Actions</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#misc" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="access.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Creating a GUI with JFC/Swing
+<br>
+<b>Lesson</b>: Using Other Swing Features
+</font>
+
+<h2>
+How to Use Actions
+</h2>
+<blockquote>
+<p>
+If you have two or more components
+that perform the same function,
+consider using an
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/Action.html"><font color="#8800bb"><code>Action</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/Action.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> object to implement the function.
+An <code>Action</code> object is an
+<a target="_top" href="../events/actionlistener.html">action listener</a><a target="_top" href="../events/actionlistener.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a> that provides not only action-event handling,
+but also centralized handling of the state
+of action-event-firing components such as 
+<a target="_top" href="../components/toolbar.html">tool bar buttons</a><a target="_top" href="../components/toolbar.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>,
+<a target="_top" href="../components/menu.html">menu items</a><a target="_top" href="../components/menu.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>,     
+<a target="_top" href="../components/button.html">common buttons</a><a target="_top" href="../components/button.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>,    and
+<a target="_top" href="../components/textfield.html">text fields</a><a target="_top" href="../components/textfield.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.
+The state that an action can handle includes
+text, icon, mnemonic, and enabled status.
+
+<p>
+You typically attach an action to a component
+using the <code>setAction</code> method.
+Here's what happens when <code>setAction</code> is invoked
+on a component:
+
+<ul>
+<li> The component's state is updated to match the state of the
+     <code>Action</code>.  
+     For example, if the <code>Action</code>'s text and icon values
+     were set,
+     the component's text and icon are set to those values.
+<li> The <code>Action</code> object is registered as an action listener
+     on the component.
+<li> If the state of the <code>Action</code> changes, 
+     the component's state is updated to match the <code>Action</code>.
+     For example, if you change the enabled status of the action,
+     all components it's attached to change their enabled states
+     to match the action.
+</ul>
+
+Here's an example of creating a tool-bar button and menu item
+that perform the same function:
+
+<blockquote><pre>
+Action leftAction = new LeftAction(); <em>//LeftAction code is shown later</em>
+...
+button = new JButton(leftAction)
+...
+menuItem = new JMenuItem(leftAction);
+</pre></blockquote>
+
+<p>
+<blockquote><hr><strong>Version Note:</strong>&nbsp;Prior to 1.3,
+the only way for a button or menu item
+to get the full benefit of using an <code>Action</code>
+was to create the component using the
+<code>add(Action)</code> method of
+<code>JToolBar</code>,
+<code>JMenu</code>, or <code>JPopupMenu</code>.
+This was because the pre-1.3 releases
+have no API except <code>addActionListener(ActionListener)</code>
+to connect an <code>Action</code> 
+to an already existing component.
+Although you could
+use <code>addActionListener</code>
+to add an <code>Action</code> object 
+as an action listener to any button,
+for example,
+the button wouldn't be notified when the action was disabled.
+<hr></blockquote>
+
+<p>
+
+To create an <code>Action</code> object,
+you generally create a subclass of
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractAction.html"><font color="#8800bb"><code>AbstractAction</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractAction.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> and then instantiate it.
+In your subclass, 
+you must implement the <code>actionPerformed</code> method 
+to react appropriately 
+when the action event occurs.
+Here's an example of creating and instantiating
+an <code>AbstractAction</code> subclass:
+
+<blockquote><pre>
+leftAction = new LeftAction("Go left", anIcon,
+             "This is the left button.",
+             new Integer(KeyEvent.VK_L));
+...
+class LeftAction extends AbstractAction {
+    public LeftAction(String text, ImageIcon icon,
+                      String desc, Integer mnemonic) {
+        super(text, icon);
+        putValue(SHORT_DESCRIPTION, desc);
+        putValue(MNEMONIC_KEY, mnemonic);
+    }
+    public void actionPerformed(ActionEvent e) {
+        displayResult("Action for first button/menu item", e);
+    }
+}
+</pre></blockquote>
+
+<p>
+When the action created by the preceding code is attached to a
+button and a menu item, the button and menu item display the 
+text and icon associated with the action.  The <code>L</code>
+character is used for mnemonics on the button and menu item, and
+their tool-tip text is set to the <code>SHORT_DESCRIPTION</code>
+string followed by a representation of the mnemonic key.
+<p>
+For example, we have provided a simple example,
+<a target="_blank" href="example-1dot4/ActionDemo.java"><font color="#bb000f"><code>ActionDemo.java</code></font></a><a target="_blank" href="example-1dot4/ActionDemo.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>, which defines three actions. Each action is attached to a button
+and a menu item.
+Thanks to the mnemonic values set for each button's action, the key
+sequence <code>Alt-L</code> activates the left button, <code>Alt-M</code>
+the middle button, and <code>Alt-R</code> the right button.  The tool tip
+for the left button displays <em>This is the left button. Alt-L.</em>
+All of this configuration occurs automatically, without the program making
+explicit calls to set the mnemonic or tool-tip text.  As we'll show
+later, the program <em>does</em> make calls to set the button text, 
+but only to avoid using the values already set by the actions.
+
+<p>
+<p><center><IMG SRC="../../figures/uiswing/misc/ActionDemo.gif" WIDTH="432 " HEIGHT="186" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="A snapshot of ActionDemo, which uses actions to coordinate menus and buttons."></center></p>
+<blockquote><hr><strong>Try this:</strong>&nbsp;
+<ol>
+<li> <a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/misc/example-1dot4/ActionDemo.jnlp">Run ActionDemo</a> using
+<a target="_top" href="../../information/javawebstart.html">Java<sup><font size=-2>TM</font></sup> Web Start</a><a target="_top" href="../../information/javawebstart.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.
+     Or, to compile and run the example yourself,
+     consult the
+     <a href="example-1dot4/index.html#ActionDemo">example index</a>.
+<li> Choose the top item from the left menu (<b>Menu &gt; Go left</b>).
+     <br>
+     The text area displays some text identifying both
+     the event source and
+     the action listener that received the event.
+<li> Click the leftmost button in the tool bar.
+     <br>
+     The text area again displays 
+     information about the event.
+     Note that although the source of the events is different,
+     both events were detected by the same action listener:
+     the <code>Action</code> object attached to the components.
+<li> Choose the top item from the <b>Action State</b> menu.
+     <br>
+     This disables the "Go left" <code>Action</code> object,
+     which in turn disables
+     its associated menu item and button.
+</ol>
+<hr></blockquote>
+
+Here is what the user sees
+when the "Go left" action is disabled:
+<table border="0">
+<tr>
+<td>
+
+<p><center><IMG SRC="../../figures/uiswing/misc/ActionDemo-a.gif" WIDTH="298" HEIGHT="186" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="A snapshot of ActionDemo when "Go Left" is disabled."></center></p></td><td>
+
+<p><center><IMG SRC="../../figures/uiswing/misc/ActionDemo-b.gif" WIDTH="298" HEIGHT="186" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="A snapshot of ActionDemo when "Go Left" is disabled."></center></p></td></tr>
+</table>
+
+
+<p>
+
+Here's the code that disables the "Go left" action:
+<blockquote><pre>
+boolean selected = ...//<em>true if the action should be enabled;</em>
+                      //<em>false, otherwise</em>
+leftAction.setEnabled(selected);
+</pre></blockquote>
+
+After you create components using an <code>Action</code>,
+you might well need to customize them.
+For example, you might want to customize the
+appearance of one of the components
+by adding or deleting the icon or text.
+For example, 
+
+<a target="_blank" href="example-1dot4/ActionDemo.java"><font color="#bb000f"><code>ActionDemo.java</code></font></a><a target="_blank" href="example-1dot4/ActionDemo.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>
+has no icons in its menus, and no text in its buttons.
+Here's the code that accomplishes this:
+
+<blockquote><pre>
+menuItem = new JMenuItem();
+menuItem.setAction(leftAction);
+menuItem.setIcon(null); //arbitrarily chose not to use icon in menu
+...
+button = new JButton();
+button.setAction(leftAction);
+button.setText(""); //an icon-only button
+</pre></blockquote>
+
+<p>We chose to create an icon-only button and
+a text-only menu item from the same action by setting
+the icon property to <code>null</code> and the text
+to an empty string.
+However, if a property of the <code>Action</code> changes, the
+widget may try to reset the icon and text from the
+<code>Action</code> again.
+
+</blockquote>
+<h3>
+<a name="api">The Action API</a>
+</h3>
+<blockquote>
+The following tables list the commonly used
+<code>Action</code> constructors and methods.
+The API for using <code>Action</code> objects
+falls into three categories:
+
+<ul>
+<li><a href="#actioncomponents">Components that Support set/getAction</a>
+<li><a href="#actionapi">Creating and Using an AbstractAction</a>
+<li><a href="#properties">Action Properties</a>
+</ul>
+
+<p>
+<table border=1>
+<caption><a name="actioncomponents">Components that Support set/getAction</a></caption>
+<tr>
+<th align=left>Class</th>
+<th align=left>Purpose</th>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#setAction(javax.swing.Action)"><font color="#8800bb"><font size=2><code>AbstractButton</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#setAction(javax.swing.Action)"></a><br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JComboBox.html#setAction(javax.swing.Action)"><font color="#8800bb"><font size=2><code>JComboBox</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JComboBox.html#setAction(javax.swing.Action)"></a><br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTextField.html#setAction(javax.swing.Action)"><font color="#8800bb"><font size=2><code>JTextField</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTextField.html#setAction(javax.swing.Action)"></a></td>
+<td>
+As of release 1.3, these components and their
+subclasses may have an action directly assigned
+to them via <code>setAction</code>.
+For further information about components that are often
+associated with actions, see the sections on
+<a target="_top" href="../components/toolbar.html">tool bar buttons</a><a target="_top" href="../components/toolbar.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>,
+<a target="_top" href="../components/menu.html">menu items</a><a target="_top" href="../components/menu.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>,     
+<a target="_top" href="../components/button.html">common buttons</a><a target="_top" href="../components/button.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>,    and
+<a target="_top" href="../components/textfield.html">text fields</a><a target="_top" href="../components/textfield.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.
+For details on which properties
+each component takes from the <code>Action</code>,
+see the API documentation for the relevant class's
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JMenuItem.html#configurePropertiesFromAction(javax.swing.Action)"><font color="#8800bb"><code>configurePropertiesFromAction</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JMenuItem.html#configurePropertiesFromAction(javax.swing.Action)"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> method.
+
+</tr>
+</tr>
+</table>
+
+
+<p>
+<table border=1> 
+<caption><a name="actionapi">Creating and Using an AbstractAction</a></caption>
+<tr>
+<th align=left>Constructor or Method</th>
+<th align=left>Purpose</th>
+</tr>
+ 
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractAction.html#AbstractAction()"><font color="#8800bb"><font size=2><code>AbstractAction()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractAction.html#AbstractAction()"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractAction.html#AbstractAction(java.lang.String)"><font color="#8800bb"><font size=2><code>AbstractAction(String)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractAction.html#AbstractAction(java.lang.String)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractAction.html#AbstractAction(java.lang.String, javax.swing.Icon)"><font color="#8800bb"><font size=2><code>AbstractAction(String, Icon)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractAction.html#AbstractAction(java.lang.String, javax.swing.Icon)"></a></td>
+<td>Create an <code>Action</code> object.
+    Through arguments,
+    you can specify the text and icon
+    to be used in the components that the action controls.</td>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractAction.html#setEnabled(boolean)"><font color="#8800bb"><font size=2><code>void setEnabled(boolean)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractAction.html#setEnabled(boolean)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractAction.html#isEnabled()"><font color="#8800bb"><font size=2><code>boolean isEnabled()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractAction.html#isEnabled()"></a></td>
+<td>Set or get whether the components the action controls are enabled.
+    Invoking <code>setEnabled(false)</code>
+    disables all the components that the action controls.
+    Similarly, invoking <code>setEnabled(true)</code>
+    enables the action's components.</td>
+</tr>
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractAction.html#putValue(java.lang.String, java.lang.Object)"><font color="#8800bb"><font size=2><code>void putValue(String, Object)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractAction.html#putValue(java.lang.String, java.lang.Object)"></a><br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractAction.html#getValue(java.lang.String)"><font color="#8800bb"><font size=2><code>Object getValue(String)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractAction.html#getValue(java.lang.String)"></a></td>
+<td>Set or get an object associated with a specified key.
+    Used for setting and getting properties associated
+    with an action.
+</td>
+</tr>
+
+</table>
+
+<p>
+<p align=center><a name="properties">Action Properties</a>
+<p>This table defines the properties that can be set on an
+action.  The second column lists which components automatically
+use the properties (and what method is specifically called).
+For example,
+setting the <code>ACCELERATOR_KEY</code> on an action that
+is then attached to a menu item, means that
+<code>JMenuItem.setAccelerator(KeyStroke)</code>
+is called automatically.
+<p>
+<table border=1> 
+<tr>
+<th align=left>Property</th>
+<th align=left>Auto-Applied to: <br>Class <br><em>(Method Called)</em></th>
+<th align=left>Purpose</th>
+</tr>
+ 
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/Action.html#ACCELERATOR_KEY"><font color="#8800bb"><font size=2><code>ACCELERATOR_KEY</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/Action.html#ACCELERATOR_KEY"></a></td>
+<td><code>JMenuItem</code>
+    <br>(<em>setAccelerator</em>)
+</td>
+<td>The <code>KeyStroke</code> to be used as the accelerator for
+    the action.
+    For a discussion of accelerators versus mnemonics, see
+<a target="_top" href="../components/menu.html#mnemonic">Enabling Keyboard Operation.</a><a target="_top" href="../components/menu.html#mnemonic"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>    Introduced in 1.3.
+</td>
+</tr>
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/Action.html#ACTION_COMMAND_KEY"><font color="#8800bb"><font size=2><code>ACTION_COMMAND_KEY</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/Action.html#ACTION_COMMAND_KEY"></a></td>
+<td><code>AbstractButton</code>, <code>JCheckBox</code>,
+    <code>JRadioButton</code>
+    <br>(<em>setActionCommand</em>)
+</td>
+<td>The command string associated with the
+    <code>ActionEvent</code>.
+</td>
+</tr>
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/Action.html#LONG_DESCRIPTION"><font color="#8800bb"><font size=2><code>LONG_DESCRIPTION</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/Action.html#LONG_DESCRIPTION"></a></td>
+<td>None
+</td>
+<td>The longer description for the action.
+    Can be used for context-sensitive help.
+</td>
+</tr>
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/Action.html#MNEMONIC_KEY"><font color="#8800bb"><font size=2><code>MNEMONIC_KEY</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/Action.html#MNEMONIC_KEY"></a></td>
+<td><code>AbstractButton</code>, <code>JMenuItem</code>,
+    <code>JCheckBox</code>, <code>JRadioButton</code>
+    <br>(<em>setMnemonic</em>)
+</td>
+<td>The mnemonic for the action.
+    For a discussion of accelerators versus mnemonics, see
+<a target="_top" href="../components/menu.html#mnemonic">Enabling Keyboard Operation.</a><a target="_top" href="../components/menu.html#mnemonic"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>    Introduced in 1.3. 
+</td>
+</tr>
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/Action.html#NAME"><font color="#8800bb"><font size=2><code>NAME</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/Action.html#NAME"></a></td>
+<td><code>AbstractButton</code>, <code>JMenuItem</code>,
+    <code>JCheckBox</code>, <code>JRadioButton</code>
+    <br>(<em>setText</em>)
+</td>
+<td>The name of the action.
+    You can set this property when creating the action using
+    the <code>AbstractAction(String)</code> or 
+    <code>AbstractAction(String, Icon)</code> constructors.
+</td>
+</tr>
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/Action.html#SHORT_DESCRIPTION"><font color="#8800bb"><font size=2><code>SHORT_DESCRIPTION</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/Action.html#SHORT_DESCRIPTION"></a></td>
+<td><code>AbstractButton</code>,
+    <code>JCheckBox</code>, <code>JRadioButton</code>
+    <br>(<em>setToolTipText</em>)
+</td>
+<td>The short description of the action.
+</td>
+</tr>
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/Action.html#SMALL_ICON"><font color="#8800bb"><font size=2><code>SMALL_ICON</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/Action.html#SMALL_ICON"></a></td>
+<td><code>AbstractButton</code>, <code>JMenuItem</code>
+    <br>(<em>setIcon</em>)
+</td>
+<td>The icon for the action used in the tool bar or on
+    a button.
+    You can set this property when creating the action using
+    the <code>AbstractAction(name, icon)</code> constructor.
+</td>
+</tr>
+</table>
+
+
+</blockquote>
+<h3>
+<a name="eg">Examples that Use Actions</a>
+</h3>
+<blockquote>
+The following examples
+use <code>Action</code> objects.
+<p>
+<table>
+<tr>
+<th align=left> Example</th>
+<th align=left> Where Described</th>
+<th align=left> Notes</th>
+</tr>
+
+<tr>
+<td> <a href="example-1dot4/index.html#ActionDemo"><code>ActionDemo</code></a></td>
+<td> This section</td>
+<td> Uses actions to bind buttons and menu items to the same function.</td>
+</tr>
+
+<tr>
+<td> <a href="../components/example-1dot4/index.html#TextComponentDemo">
+     <code>TextComponentDemo</code></a></td>
+<td> 
+<a target="_top" href="../components/generaltext.html">Text Component Features</a><a target="_top" href="../components/generaltext.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a></td>
+<td> Uses text actions to create menu items
+     for text editing commands, such as cut, copy, and paste,
+     and to bind key strokes to caret movement.
+     Also implements custom <code>AbstractAction</code> subclasses
+     to implement undo and redo.
+     The text action discussion begins in
+     <a href="../components/generaltext.html#editorkits">Concepts:
+     About Editor Kits</a>.</td>
+</tr>
+
+</table>
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#misc" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="access.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

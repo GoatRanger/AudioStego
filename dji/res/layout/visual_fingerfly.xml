@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.pilot.visual.view.FingerFlyView xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/tapview" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent">
+    <include android:id="@+id/visual_point_tip_ly" android:visibility="visible" android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/visual_point_tip_view" />
+    <include android:id="@+id/visual_horizontal_ly" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerHorizontal="true" layout="@layout/visual_horizontal_view" />
+    <include layout="@layout/visual_fingertap" />
+    <include android:id="@+id/visual_finger_fly_preview" layout="@layout/visual_finger_fly_preview" />
+</dji.pilot.visual.view.FingerFlyView>

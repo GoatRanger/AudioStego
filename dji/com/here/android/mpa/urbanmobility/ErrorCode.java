@@ -1,0 +1,27 @@
+package com.here.android.mpa.urbanmobility;
+
+import com.nokia.maps.annotation.HybridPlus;
+
+@HybridPlus
+public enum ErrorCode {
+    NONE,
+    VIOLATES_OPTIONS,
+    INVALID_OPERATION,
+    INVALID_CREDENTIALS,
+    INVALID_PARAMETERS,
+    INVALID_PERIOD,
+    START_DESTINATION_TOO_CLOSE,
+    CANCELLED,
+    OPERATION_NOT_ALLOWED,
+    NETWORK_COMMUNICATION,
+    NOT_FOUND,
+    ROUTING_NOT_POSSIBLE,
+    NO_COVERAGE,
+    NO_STATION_NEARBY,
+    UNAVAILABLE_API,
+    INVALID_RESPONSE,
+    SERVICE_UNAVAILABLE,
+    INSUFFICIENT_MAP_DATA,
+    OUT_OF_MEMORY,
+    UNKNOWN
+}

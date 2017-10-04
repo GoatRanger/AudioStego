@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="33"
+   name=""
+   committed-date="2005-02-01T06:11:53.421875Z"
+   url="svn://192.168.2.2/ImageProcessor/src/or/doc/drasys/or/stat/model"
+   last-author="Karl"
+   kind="dir"
+   uuid="0daf4267-3229-f84b-9084-f3c94b025f38"
+   revision="55"/>
+<entry
+   committed-rev="33"
+   name="LinearCorrelation.html"
+   text-time="2005-03-02T06:25:34.609375Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="2ef26860203c36bb50003a29c64ada1c"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:34.437500Z"/>
+<entry
+   committed-rev="33"
+   name="StepwiseLinear.html"
+   text-time="2005-03-02T06:25:34.609375Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="9dd6ae962d90998cf79e55360dba8716"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:34.437500Z"/>
+<entry
+   committed-rev="33"
+   name="QuadraticMatrix.html"
+   text-time="2005-03-02T06:25:34.625000Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="a71bb264859549579a1426c44dc322e6"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:34.453125Z"/>
+<entry
+   committed-rev="33"
+   name="GeneralLinearModelI.html"
+   text-time="2005-03-02T06:25:34.625000Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="ef53660726ce430dcbf5d31c1fcce82e"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:34.468750Z"/>
+<entry
+   committed-rev="33"
+   name="package-frame.html"
+   text-time="2005-03-02T06:25:34.640625Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="89e3f08be779ad793dff410436bffb48"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:34.500000Z"/>
+<entry
+   committed-rev="33"
+   name="LinearRegressionI.html"
+   text-time="2005-03-02T06:25:34.656250Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="3d80d5d3569c0e7195654652a746f72e"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:34.515625Z"/>
+<entry
+   committed-rev="33"
+   name="ReverseLinear.html"
+   text-time="2005-03-02T06:25:34.656250Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="d54e3d85c5f0363496184c89e75e29e1"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:34.531250Z"/>
+<entry
+   committed-rev="33"
+   name="package-summary.html"
+   text-time="2005-03-02T06:25:34.671875Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="87bbec64cc231eab13e3ead150dabb0d"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:34.546875Z"/>
+<entry
+   committed-rev="33"
+   name="PolynomialMatrix.html"
+   text-time="2005-03-02T06:25:34.671875Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="3ec43dd6e9d32d5fa09ef29686cbd775"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:34.546875Z"/>
+<entry
+   committed-rev="33"
+   name="package-tree.html"
+   text-time="2005-03-02T06:25:34.687500Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="5c0a365c6e592c8dc74328632d12f96a"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:34.562500Z"/>
+<entry
+   committed-rev="33"
+   name="GeneralLinearModel.html"
+   text-time="2005-03-02T06:25:34.687500Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="25cda10a7248089b6e7a345bd7a1b4eb"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:34.578125Z"/>
+<entry
+   committed-rev="33"
+   name="LinearRegression.html"
+   text-time="2005-03-02T06:25:34.703125Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="ead7c9134b38113b7f6a22dfe71af9a4"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:34.593750Z"/>
+</wc-entries>

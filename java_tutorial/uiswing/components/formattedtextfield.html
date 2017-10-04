@@ -1,0 +1,1166 @@
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>How to Use Formatted Text Fields</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="filechooser.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#components" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="frame.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Creating a GUI with JFC/Swing
+<br>
+<b>Lesson</b>: Using Swing Components
+</font>
+
+<h2>
+How to Use Formatted Text Fields
+</h2>
+<blockquote>
+Release 1.4 introduced a subclass of <code>JTextField</code> called
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFormattedTextField.html"><font color="#8800bb"><code>JFormattedTextField</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFormattedTextField.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>.
+Formatted text fields provide a way for developers to specify
+the legal set of characters that can be entered into a text field.
+Specifically,
+<code>JFormattedTextField</code> adds a <em>formatter</em>
+and an object <em>value</em>
+to the features inherited from <code>JTextField</code>.
+The formatter performs the translation
+from the field's value into the text it displays,
+and vice versa.
+
+<p>
+Using the formatters Swing provides,
+you can set up formatted text fields
+for easy input of dates and numbers
+in localized formats.
+Another kind of formatter
+lets you use a character mask
+to specify the set of characters
+that can be entered at each position in the field.
+For example, you can specify a mask
+for entering phone numbers in a particular format,
+such as (XX) X-XX-XX-XX-XX.
+
+<blockquote><hr><strong>Version note:</strong>&nbsp;Before 1.4, text field formatting required more effort.
+You could check the field's value when the user pressed Enter
+by putting format-checking code in your action listener,
+but you couldn't do any checking before the action event
+was generated
+unless you implemented a custom model
+(<a href="generaltext.html#document"><code>Document</code></a>)
+for the text field.
+1.3 introduced
+<a target="_top" href="../misc/focus.html#inputVerification">input verification</a><a target="_top" href="../misc/focus.html#inputVerification"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>, but that isn't specialized for text fields
+and is tied to focus changes.
+<hr></blockquote>
+
+<p>
+If the possible values of a formatted text field have an
+obvious order,
+consider using a <a href="spinner.html">spinner</a> instead.
+A spinner uses a formatted text field,
+by default,
+but adds two buttons that let the user
+step through a sequence of values.
+
+<p>
+Another alternative or adjunct to using a formatted text field
+is installing an
+<a target="_top" href="../misc/focus.html#inputVerification">input verifier</a><a target="_top" href="../misc/focus.html#inputVerification"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a> on the field.
+A component's input verifier is called
+when the component is about to lose the keyboard focus.
+It lets you
+check whether the value of the component is legal
+and optionally change it or
+stop focus from being transferred.
+
+<p>
+Here is a picture of a GUI that uses formatted text fields
+to display numbers in four different formats.
+
+<p><center><IMG SRC="../../figures/uiswing/components/FormattedTextFieldDemo.gif" WIDTH="263" HEIGHT="153" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="A snapshot of FormattedTextFieldDemo"></center></p>
+<blockquote><hr><strong>Try this:</strong>&nbsp;<ol>
+<li> <a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/components/example-1dot4/FormattedTextFieldDemo.jnlp">Run FormattedTextFieldDemo</a> using
+<a target="_top" href="../../information/javawebstart.html">Java<sup><font size=-2>TM</font></sup> Web Start</a><a target="_top" href="../../information/javawebstart.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.    Or, to compile and run the example yourself,
+     consult the
+     <a href="example-1dot4/index.html#FormattedTextFieldDemo">example index</a>.
+<li> Experiment with different loan amounts, annual percentage rates (APR),
+     and loan lengths.
+<br>
+     Note that the Month Payment field is updated
+     when you either press Enter or move the focus
+     out of the field you're editing,
+     as long as the text you type is valid.
+
+<li> Enter invalid text such as "abcd" in the Loan Amount field
+     and then press Enter.
+     <br>
+     Nothing happens.
+     When you move the focus from the field,
+     the text reverts to the field's last valid value.
+
+<li> Enter marginally valid text such as "2000abcd" in the Loan Amount field
+     and press Enter.
+     <br>
+     The Monthly Payment field is updated,
+     though the Loan Amount field still looks strange.
+     When you move the focus from the Loan Amount field,
+     the text it displays is updated
+     to be a nicely formatted version of its value &#151;
+     for example, "2,000".
+</ol>
+<hr></blockquote>
+
+You can find the full code in
+<a target="_blank" href="example-1dot4/FormattedTextFieldDemo.java"><font color="#bb000f"><code><code>FormattedTextFieldDemo.java</code></code></font></a><a target="_blank" href="example-1dot4/FormattedTextFieldDemo.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>.
+Here is the code that creates the first field:
+
+<blockquote><pre>
+amountField = new JFormattedTextField(amountFormat);
+amountField.setValue(new Double(amount));
+amountField.setColumns(10);
+amountField.addPropertyChangeListener("value", this);
+...
+amountFormat = NumberFormat.getNumberInstance();
+</pre></blockquote>
+
+<p>
+The constructor used to create <code>amountField</code>
+takes a <code>java.text.Format</code> argument.
+The <code>Format</code> object is used by the field's formatter
+to translate between the field's text and value.
+
+<p>
+The rest of the code
+sets up <code>amountField</code>.
+The <code>setValue</code> method sets the field's
+value property to a floating point number
+represented as a <code>Double</code> object.
+The <code>setColumns</code> method,
+inherited from <code>JTextField</code>,
+provides a hint as to the preferred size of the field.
+Finally, the call to <code>addPropertyChangeListener</code>
+registers a listener
+for the value property of the field,
+so the program can update the Monthly Payment field
+whenever the user changes the loan amount.
+
+<p>
+The rest of this section covers the following topics:
+
+<ul>
+<li> <a href="#constructors">Creating and Initializing Formatted Text Fields</a>
+<li> <a href="#value">Setting and Getting the Field's Value</a>
+<li> <a href="#format">Specifying Formats</a>
+<li> <a href="#maskformatter">Using MaskFormatter</a>
+<li> <a href="#factory">Specifying Formatters and Using Formatter Factories</a>
+</ul>
+
+<p>
+This section doesn't explain the API inherited from
+<code>JTextField</code>.
+That API is described in
+<a href="textfield.html">How to Use Text Fields</a>.
+
+</blockquote>
+<h3>
+<a name="constructors">Creating and Initializing Formatted Text Fields</a>
+</h3>
+<blockquote>
+
+<p>
+The following code creates and initializes the remaining three fields
+in FormattedTextFieldDemo.
+
+<blockquote><pre>
+rateField = new JFormattedTextField(percentFormat);
+rateField.setValue(new Double(rate));
+rateField.setColumns(10);
+rateField.addPropertyChangeListener("value", this);
+
+numPeriodsField = new JFormattedTextField();
+numPeriodsField.setValue(new Integer(numPeriods));
+numPeriodsField.setColumns(10);
+numPeriodsField.addPropertyChangeListener("value", this);
+
+paymentField = new JFormattedTextField(paymentFormat);
+paymentField.setValue(new Double(payment));
+paymentField.setColumns(10);
+paymentField.setEditable(false);
+paymentField.setForeground(Color.red);
+
+...
+percentFormat = NumberFormat.getNumberInstance();
+percentFormat.setMinimumFractionDigits(2);
+
+paymentFormat = NumberFormat.getCurrencyInstance();
+</pre></blockquote>
+
+<p>
+The code for setting up <code>numPeriodsField</code>
+is almost identical to the code you saw before.
+The only difference is that the format is slightly different,
+thanks to the code <code>percentFormat.setMinimumFractionDigits(2)</code>.
+
+<p>
+The code
+that creates <code>numPeriodsField</code>
+doesn't explicitly set a format or formatter.
+Instead, it sets the value to an <code>Integer</code>
+and lets the field use the default formatter for <code>Integer</code>s.
+We couldn't do this in the previous two fields
+because we didn't want to use the default formatter
+for <code>Double</code>s;
+the result didn't look exactly like we wanted it to.
+We'll discuss how to specify formats and formatters
+a little later.
+
+<p>
+The payment field is different from the
+other fields because it's uneditable,
+uses a different color for its text,
+and doesn't happen to have a property change listener.
+However, it's otherwise the same
+as the other fields.
+We could have chosen to use a
+<a href="textfield.html">text field</a> or
+<a href="label.html">label</a> instead.
+Whatever the component,
+we could still use <code>paymentFormat</code> to parse the
+payment amount into the text to be displayed.
+
+
+</blockquote>
+<h3>
+<a name="value">Setting and Getting the Field's Value</a>
+</h3>
+<blockquote>
+
+<p>
+Keep this in mind
+when using a formatted text field:
+
+<blockquote>
+<hr>
+<strong>
+A formatted text field's <em>text</em>
+and its <em>value</em>
+are two different properties,
+and the value often lags the text.
+</strong>
+<hr>
+</blockquote>
+
+<p>
+The <em>text</em> property is defined by <code>JTextField</code>;
+it always reflects what the field displays.
+The <em>value</em> property, defined by <code>JFormattedTextField</code>,
+might not reflect the latest text displayed in the field.
+While the user is typing,
+the text property changes,
+but the value property doesn't
+until the changes are <em>committed</em>.
+
+<p>
+To be more precise,
+the value of a formatted text field can be set
+using either the <code>setValue</code> method
+or the <code>commitEdit</code> method.
+The <code>setValue</code> method sets the value
+to the specified argument.
+Although the argument can technically be any <code>Object</code>,
+it needs to be something that the formatter can
+convert into a string.
+Otherwise, the text field won't display anything useful.
+
+<p>
+The <code>commitEdit</code> method
+sets the value to whatever object
+the formatter determines is represented by the field's text.
+The <code>commitEdit</code> method is
+automatically called when either of the following happens:
+
+<ul>
+<li> When the user presses Enter while the field has the focus.
+<li> By default, when the field loses the focus &#151;
+     for example, the user presses Tab to change the focus
+     to another component.
+     You can use the <code>setFocusLostBehavior</code> method
+     to specify that something different should happen
+     when the field loses the focus.
+</ul>
+
+<blockquote><hr><strong>Note:</strong>&nbsp;Some formatters might update the value constantly,
+making the focus-lost behavior moot
+since the value will always be the same as what the text specifies.
+<hr></blockquote>
+
+<p>
+When you set the value of a formatted text field,
+the field's text is updated to reflect the value.
+Exactly how the value is represented as text
+depends on the field's formatter.
+
+<p>
+Note that although <code>JFormattedTextField</code>
+inherits the <code>setText</code> method from
+<code>JTextField</code>,
+you don't usually invoke <code>setText</code> on a formatted text field.
+If you do,
+the field's display will change accordingly
+but the value will not be updated
+(unless the field's formatter updates it constantly).
+
+<p>
+To get a formatted text field's current value,
+use the <code>getValue</code> method.
+If necessary, you can ensure the value reflects the text
+by calling <code>commitEdit</code>
+before <code>getValue</code>.
+Because <code>getValue</code> returns an <code>Object</code>,
+you need to cast it to the type used for your field's value.
+For example:
+
+<blockquote><pre>
+Date enteredDate = (Date)dateField.getValue();
+</pre></blockquote>
+
+<p>
+To detect changes in a formatted text field's value,
+you can register a property change listener
+on the formatted text field
+to listen for changes to the "value" property.
+Here is the property change listener from FormattedTextFieldDemo:
+
+<blockquote><pre>
+<em>//The property change listener is registered on each
+//field using code like this:
+//    someField.addPropertyChangeListener("value", this);</em>
+
+/** Called when a field's "value" property changes. */
+public void propertyChange(PropertyChangeEvent e) {
+    Object source = e.getSource();
+    if (source == amountField) {
+        amount = ((Number)amountField.getValue()).doubleValue();
+    } else if (source == rateField) {
+        rate = ((Number)rateField.getValue()).doubleValue();
+    } else if (source == numPeriodsField) {
+        numPeriods = ((Number)numPeriodsField.getValue()).intValue();
+    }
+
+    double payment = computePayment(amount, rate, numPeriods);
+    paymentField.setValue(new Double(payment));
+}
+</pre></blockquote>
+
+
+
+</blockquote>
+<h3>
+<a name="format">Specifying Formats</a>
+</h3>
+<blockquote>
+
+The
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/text/Format.html"><font color="#8800bb"><code>Format</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/text/Format.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> class provides a way to format
+locale-sensitive information such as dates and numbers.
+Formatters that descend from
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/InternationalFormatter.html"><font color="#8800bb"><code>InternationalFormatter</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/InternationalFormatter.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>, such as
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/DateFormatter.html"><font color="#8800bb"><code>DateFormatter</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/DateFormatter.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> and
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/NumberFormatter.html"><font color="#8800bb"><code>NumberFormatter</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/NumberFormatter.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>, use <code>Format</code> objects
+to translate between the field's text and value.
+You can get a <code>Format</code> object
+by invoking one of the factory methods in
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/text/DateFormat.html"><font color="#8800bb"><code>DateFormat</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/text/DateFormat.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> or
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/text/NumberFormat.html"><font color="#8800bb"><code>NumberFormat</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/text/NumberFormat.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>, or by using one of the
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/text/SimpleDateFormat.html"><font color="#8800bb"><code>SimpleDateFormat</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/text/SimpleDateFormat.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> constructors.
+
+<blockquote><hr><strong>Note:</strong>&nbsp;A third commonly used formatter class,
+<code>MaskFormatter</code>,
+does not descend from <code>InternationalFormatter</code>
+and does not use formats.
+It's discussed in
+<a href="#maskformatter">Using MaskFormatter</a>.
+<hr></blockquote>
+
+<p>
+You can customize certain format aspects
+when you create the <code>Format</code>,
+and others through format-specific API.
+For example,
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/text/DecimalFormat.html"><font color="#8800bb"><code>DecimalFormat</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/text/DecimalFormat.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> objects,
+which inherit from <code>NumberFormat</code>
+and are often returned by its factory methods,
+can be customized using the
+<code>setMaximumFractionDigits</code> and
+<code>setNegativePrefix</code> methods.
+For information about using <code>Format</code>s,
+see the
+<a target="_top" href="../../i18n/format/index.html">Formatting</a><a target="_top" href="../../i18n/format/index.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a> lesson of the Internationalization trail.
+
+<p>
+The easiest way to associate a customized format
+with a formatted text field
+is to create the field using
+the <code>JFormattedTextField</code> constructor
+that takes a <code>Format</code> as an argument.
+You can see this in the previous code snippets that create
+<code>amountField</code> and <code>rateField</code>.
+
+
+</blockquote>
+<a name="maskformatter">
+<h3>
+Using MaskFormatter
+</h3>
+</a>
+<blockquote>
+
+The
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/MaskFormatter.html"><font color="#8800bb"><code>MaskFormatter</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/MaskFormatter.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> class implements a formatter
+that specifies exactly which characters are
+legal in each position of the field's text.
+For example, the following code creates a <code>MaskFormatter</code>
+that lets the user enter a 5-digit zip code:
+
+<blockquote><pre>
+zipField = new JFormattedTextField(
+                    createFormatter("#####"));
+...
+protected MaskFormatter createFormatter(String s) {
+    MaskFormatter formatter = null;
+    try {
+        formatter = new MaskFormatter(s);
+    } catch (java.text.ParseException exc) {
+        System.err.println("formatter is bad: " + exc.getMessage());
+        System.exit(-1);
+    }
+    return formatter;
+}
+</pre></blockquote>
+
+You can try out the results of the preceding code by
+<a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/components/example-1dot4/TextInputDemo.jnlp">running TextInputDemo</a>
+using
+<a target="_top" href="../../information/javawebstart.html">Java Web Start</a><a target="_top" href="../../information/javawebstart.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.    Or, to compile and run the example yourself,
+     consult the
+     <a href="example-1dot4/index.html#TextInputDemo">example index</a>.
+Here is a picture of the program's GUI:
+
+<p><center><IMG SRC="../../figures/uiswing/components/TextInputDemo.gif" WIDTH="551" HEIGHT="188" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="A snapshot of TextInputDemo"></center></p>[PENDING: This snapshot needs to be retaken,
+since the GUI has changed slightly.]
+
+<p>
+The following table shows
+the characters you can use in the formatting mask:
+
+<p>
+<table border=1 summary="Valid characters and their descriptions">
+<tr>
+   <th align=center>Character&nbsp;</th>
+   <th align=left>Description</th>
+</tr>
+<tr>
+   <td align=center>#</td>
+   <td>Any valid number (<code>Character.isDigit</code>).</td>
+</tr>
+<tr>
+   <td align=center>'
+   <br>
+   <em>(single quote)</em></td>
+   <td>Escape character, used to escape any of the
+      special formatting characters.</td>
+</tr>
+<tr>
+   <td align=center>U</td>
+   <td>Any character (<code>Character.isLetter</code>). All
+       lowercase letters are mapped to uppercase.</td>
+</tr>
+<tr><td align=center>L</td>
+    <td>Any character (<code>Character.isLetter</code>). All
+       uppercase letters are mapped to lowercase.</td>
+</tr>
+<tr><td align=center>A</td>
+    <td>Any character or number (<code>Character.isLetter</code>
+      or <code>Character.isDigit</code>).</td>
+</tr>
+<tr><td align=center>?</td>
+    <td>Any character
+       (<code>Character.isLetter</code>).</td>
+</tr>
+<tr><td align=center>*</td>
+    <td>Anything.</td>
+</tr>
+<tr><td align=center>H</td>
+    <td>Any hex character (0-9, a-f or A-F).</td>
+</tr>
+</table>
+
+</blockquote>
+<h3>
+<a name="factory">Specifying Formatters and Using Formatter Factories</a>
+</h3>
+<blockquote>
+
+When specifying formatters,
+keep in mind that each formatter object
+can be used by at most one
+formatted text field at a time.
+Each field should have at least one formatter associated with it,
+of which exactly one is used at any time.
+
+<p>
+You can specify the formatters to be used by a formatted text field
+in several ways:
+
+<ul>
+<li>
+<b>
+Use the <code>JFormattedTextField</code> constructor
+that takes a <code>Format</code> argument.
+</b>
+<br>
+A formatter for the field is automatically created
+that uses the specified format.
+
+<p>
+<li>
+<b>
+Use the <code>JFormattedTextField</code> constructor
+that takes a <code>JFormattedTextField.AbstractFormatter</code> argument.
+</b>
+<br>
+The specified formatter is used for the field.
+
+<p>
+<li>
+<b>
+Set the value of a formatted text field
+that has no format, formatter, or formatter factory specified.
+</b>
+<br>
+A formatter is assigned to the field by the default formatter factory,
+using the type of the field's value as a guide.
+If the value is a <code>Date</code>,
+the formatter is a <code>DateFormatter</code>.
+If the value is a <code>Number</code>,
+the formatter is a <code>NumberFormatter</code>.
+Other types
+result in an instance of <code>DefaultFormatter</code>.
+
+<p>
+<li>
+<b>
+Make the formatted text field use
+a formatter factory that returns customized formatter objects.
+</b>
+<br>
+This is the most flexible approach.
+It's useful when you want to associate
+more than one formatter with a field
+or add a new kind of formatter
+to be used for multiple fields.
+As an example of the former use,
+you might have a field that should
+interpret user typing a certain way
+but display the value (when the user isn't typing) another way.
+As an example of the latter use,
+you might have several fields
+that have values of a custom class &#151;
+say, <code>PhoneNumber</code>.
+You could set up the fields to use a formatter factory
+that can return specialized formatters for phone numbers.
+</ul>
+
+<p>
+You can set a field's formatter factory
+either by creating the field using a constructor
+that takes a formatter factory argument,
+or by invoking the <code>setFormatterFactory</code> method
+on the field.
+To create a formatter factory,
+you can often use an instance of
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/DefaultFormatterFactory.html"><font color="#8800bb"><code>DefaultFormatterFactory</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/DefaultFormatterFactory.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>.
+A <code>DefaultFormatterFactory</code> object
+lets you specify the formatters returned
+when a value is being edited, not being edited,
+or has a null value.
+
+<p>
+The following pictures show an application
+based on FormattedTextFieldDemo
+that uses formatter factories
+to set multiple editors for the
+Loan Amount and APR fields.
+While the user is editing the Loan Amount,
+the $ character is not used
+so that the user isn't forced to enter it.
+Similarly, while the user is editing the APR field,
+the % is not required.
+You can
+<a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/components/example-1dot4/FormatterFactoryDemo.jnlp">run the example</a>
+using
+<a target="_top" href="../../information/javawebstart.html">Java Web Start</a><a target="_top" href="../../information/javawebstart.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.    Or, to compile and run the example yourself,
+     consult the
+     <a href="example-1dot4/index.html#FormatterFactoryDemo">example index</a>.
+
+<p align=center>
+<IMG SRC="../../figures/uiswing/components/FormatterFactoryDemo.gif" WIDTH="263" HEIGHT="153" ALT="FormatterFactoryDemo, with amount field being edited">
+<IMG SRC="../../figures/uiswing/components/FormatterFactoryDemo-2.gif" WIDTH="263" HEIGHT="153" ALT="FormatterFactoryDemo, with no custom editors installed">
+<p>
+Here is the code that creates the formatters
+and sets them up,
+using instances of <code>DefaultFormatterFactory</code>:
+
+<blockquote><pre>
+private double rate = .075;  //7.5 %
+...
+amountField = new JFormattedTextField(
+                    <b>new DefaultFormatterFactory(
+                        new NumberFormatter(amountDisplayFormat),
+                        new NumberFormatter(amountDisplayFormat),
+                        new NumberFormatter(amountEditFormat))</b>);
+...
+NumberFormatter percentEditFormatter =
+        new NumberFormatter(percentEditFormat) {
+    public String valueToString(Object o)
+          throws ParseException {
+        Number number = (Number)o;
+        if (number != null) {
+            double d = number.doubleValue() * 100.0;
+            number = new Double(d);
+        }
+        return super.valueToString(number);
+    }
+    public Object stringToValue(String s)
+           throws ParseException {
+        Number number = (Number)super.stringToValue(s);
+        if (number != null) {
+            double d = number.doubleValue() / 100.0;
+            number = new Double(d);
+        }
+        return number;
+    }
+};
+rateField = new JFormattedTextField(
+                     <b>new DefaultFormatterFactory(
+                        new NumberFormatter(percentDisplayFormat),
+                        new NumberFormatter(percentDisplayFormat),
+                        percentEditFormatter)</b>);
+...
+amountDisplayFormat = NumberFormat.getCurrencyInstance();
+amountDisplayFormat.setMinimumFractionDigits(0);
+amountEditFormat = NumberFormat.getNumberInstance();
+
+percentDisplayFormat = NumberFormat.getPercentInstance();
+percentDisplayFormat.setMinimumFractionDigits(2);
+percentEditFormat = NumberFormat.getNumberInstance();
+percentEditFormat.setMinimumFractionDigits(2);
+</pre></blockquote>
+
+The boldface code highlights the calls to
+<code>DefaultFormatterFactory</code> constructors.
+The first argument to the constructor specifies the default formatter
+to use for the formatted text field.
+The second specifies the display formatter,
+which is used
+when the field doesn't have the focus.
+The third specifies the edit formatter,
+used when the field has the focus.
+The code doesn't use a fourth argument,
+but if it did,
+it would specify the null formatter,
+which is used when the field's value is null.
+Because no null formatter is specified,
+the default formatter is used when the value is null.
+
+<p>
+The code customizes the formatter
+that uses <code>percentEditFormat</code>
+by creating a subclass of <code>NumberFormatter</code>.
+This subclass overrides the <code>valueToString</code>
+and <code>stringToValue</code> methods
+of <code>NumberFormatter</code>
+so that they convert the displayed number
+to the value actually used in calculations,
+and vice versa.
+Specifically, the displayed number
+is 100 times the actual value.
+The reason is that the percent format
+used by the display formatter
+automatically displays the text
+as 100 times the value,
+so the corresponding editor formatter must do so as well.
+FormattedTextFieldDemo doesn't need to worry about this conversion
+because it uses only one format for both display and editing.
+
+<p>
+You can find the code for the entire program in
+<a target="_blank" href="example-1dot4/FormatterFactoryDemo.java"><font color="#bb000f"><code><code>FormatterFactoryDemo.java</code></code></font></a><a target="_blank" href="example-1dot4/FormatterFactoryDemo.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>.
+
+
+</blockquote>
+<h3>
+<a name="api">The Formatted Text Field API</a>
+</h3>
+<blockquote>
+
+The following tables list some of the commonly used API
+for using formatted text fields.
+
+<ul>
+<li><a href="#newclassesapi">Classes Related to Formatted Text Fields</a>
+<li><a href="#formattedtextfieldapi">JFormattedTextField Methods</a>
+
+
+<li><a href="#defaultformatterapi">DefaultFormatter Options</a>
+
+</ul>
+
+<p>
+
+<table border=1>
+<caption><a name="newclassesapi">Classes Related to Formatted Text Fields</a></caption>
+<tr>
+<th align=left>Class or Interface
+</th>
+<th align=left>Purpose
+
+</th>
+</tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFormattedTextField.html"><font color="#8800bb"><font size=2><code>JFormattedTextField</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFormattedTextField.html"></a>    </td>
+    <td>Subclass of <code>JTextField</code>
+        that supports formatting arbitrary values.
+
+    </td>
+  </tr>
+
+
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFormattedTextField.AbstractFormatter.html"><font color="#8800bb"><font size=2><code>JFormattedTextField.AbstractFormatter</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFormattedTextField.AbstractFormatter.html"></a>  <td>
+     The superclass of all formatters for <code>JFormattedTextField</code>.
+     A formatter enforces editing policies and navigation policies,
+     handles string-to-object conversions,
+     and manipulates the <code>JFormattedTextField</code> as
+     necessary to enforce the desired policy.
+  </tr>
+
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFormattedTextField.AbstractFormatterFactory.html"><font color="#8800bb"><font size=2><code>JFormattedTextField.AbstractFormatterFactory</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFormattedTextField.AbstractFormatterFactory.html"></a>    </td>
+    <td>The superclass of all formatter factories.
+    Each <code>JFormattedTextField</code> uses a formatter factory
+    to obtain the formatter that best corresponds to the text field's state.
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/DefaultFormatterFactory.html"><font color="#8800bb"><font size=2><code>DefaultFormatterFactory</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/DefaultFormatterFactory.html"></a>    </td>
+    <td>The formatter factory normally used.
+        Dishes out formatters based on details such as
+        the passed-in parameters and focus state.
+
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/DefaultFormatter.html"><font color="#8800bb"><font size=2><code>DefaultFormatter</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/DefaultFormatter.html"></a>    </td>
+    <td>Subclass of <code>JFormattedTextField.AbstractFormatter</code>
+        that formats arbitrary objects using the
+        <code>toString</code> method.
+
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/MaskFormatter.html"><font color="#8800bb"><font size=2><code>MaskFormatter</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/MaskFormatter.html"></a>    </td>
+    <td>Subclass of <code>DefaultFormatter</code>
+        that formats and edits strings using a specified character mask.
+        (For example, 7-digit phone numbers can be specified using  "###-####".)
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/InternationalFormatter.html"><font color="#8800bb"><font size=2><code>InternationalFormatter</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/InternationalFormatter.html"></a>    </td>
+    <td>Subclass of <code>DefaultFormatter</code> that uses an instance of
+        <code>java.text.Format</code> to handle conversion to and from a
+        <code>String</code>.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/NumberFormatter.html"><font color="#8800bb"><font size=2><code>NumberFormatter</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/NumberFormatter.html"></a>    </td>
+    <td>Subclass of <code>InternationalFormatter</code> that supports number
+        formats using an instance of <code>NumberFormat</code>.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/DateFormatter.html"><font color="#8800bb"><font size=2><code>DateFormatter</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/DateFormatter.html"></a>    </td>
+    <td>Subclass of <code>InternationalFormatter</code> that supports date
+        formats using an instance of <code>DateFormat</code>.
+
+    </td>
+  </tr>
+</table>
+
+<p>
+
+<table border=1>
+<caption><a name="formattedtextfieldapi">JFormattedTextField Methods</a></caption>
+<tr>
+<th align=left>Method or Constructor
+</th>
+<th align=left>Purpose
+
+</th>
+</tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFormattedTextField.html#JFormattedTextField()"><font color="#8800bb"><font size=2><code>JFormattedTextField()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFormattedTextField.html#JFormattedTextField()"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFormattedTextField.html#JFormattedTextField(java.lang.Object)"><font color="#8800bb"><font size=2><code>JFormattedTextField(Object)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFormattedTextField.html#JFormattedTextField(java.lang.Object)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFormattedTextField.html#JFormattedTextField(java.text.Format)"><font color="#8800bb"><font size=2><code>JFormattedTextField(Format)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFormattedTextField.html#JFormattedTextField(java.text.Format)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFormattedTextField.html#JFormattedTextField(javax.swing.JFormattedTextField.AbstractFormatter)"><font color="#8800bb"><font size=2><code>JFormattedTextField(AbstractFormatter)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFormattedTextField.html#JFormattedTextField(javax.swing.JFormattedTextField.AbstractFormatter)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFormattedTextField.html#JFormattedTextField(javax.swing.JFormattedTextField.AbstractFormatterFactory)"><font color="#8800bb"><font size=2><code>JFormattedTextField(AbstractFormatterFactory)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFormattedTextField.html#JFormattedTextField(javax.swing.JFormattedTextField.AbstractFormatterFactory)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFormattedTextField.html#JFormattedTextField(javax.swing.JFormattedTextField.AbstractFormatterFactory, java.lang.Object)"><font color="#8800bb"><font size=2><code>JFormattedTextField(AbstractFormatterFactory, Object)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFormattedTextField.html#JFormattedTextField(javax.swing.JFormattedTextField.AbstractFormatterFactory, java.lang.Object)"></a>    </td>
+    <td>Create a new formatted text field.
+    The <code>Object</code> argument, if present,
+    specifies the initial value of the field
+    and causes an appropriate formatter factory to be created.
+    The <code>Format</code> or <code>AbstractFormatter</code>argument
+    specifies the format or formatter to be used for the field,
+    causing an appropriate formatter factory to be created.
+    The <code>AbstractFormatterFactory</code> argument
+    specifies the formatter factory to be used,
+    which determines which formatters
+    are used for the field.
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFormattedTextField.html#setValue(java.lang.Object)"><font color="#8800bb"><font size=2><code>void setValue(Object)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFormattedTextField.html#setValue(java.lang.Object)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFormattedTextField.html#getValue()"><font color="#8800bb"><font size=2><code>Object getValue()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFormattedTextField.html#getValue()"></a>    </td>
+    <td>Set or get the value of the formatted text field.  You must
+        cast the return type based on how the
+        <code>JFormattedTextField</code> has been configured.
+        If the formatter hasn't been set yet,
+        invoking <code>setValue</code> sets the formatter
+        to one returned by the field's
+        formatter factory.
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFormattedTextField.html#setFormatterFactory(javax.swing.JFormattedTextField.AbstractFormatterFactory)"><font color="#8800bb"><font size=2><code>void setFormatterFactory(AbstractFormatterFactory)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFormattedTextField.html#setFormatterFactory(javax.swing.JFormattedTextField.AbstractFormatterFactory)"></a>    </td>
+    <td>Set the object that determines the
+        formatters used for the formatted text field.
+        It is often an instance of <code>DefaultFormatterFactory</code>.
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFormattedTextField.html#getFormatter()"><font color="#8800bb"><font size=2><code>AbstractFormatter getFormatter()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFormattedTextField.html#getFormatter()"></a>    </td>
+    <td>Get the formatter of the formatted text field.
+        It is often an instance of <code>DefaultFormatter</code>.
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFormattedTextField.html#setFocusLostBehavior(int)"><font color="#8800bb"><font size=2><code>void setFocusLostBehavior(int)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFormattedTextField.html#setFocusLostBehavior(int)"></a>    </td>
+    <td>
+    Specifies what should happen when the field loses the focus.
+    Possible values are
+    defined in <code>JFormattedTextField</code> as
+    <code>COMMIT_OR_REVERT</code> (the default),
+    <code>COMMIT</code> (commit if valid,
+    otherwise leave everything the same),
+    <code>PERSIST</code> (do nothing),
+    and <code>REVERT</code>
+    (change the text to reflect the value).
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFormattedTextField.html#commitEdit()"><font color="#8800bb"><font size=2><code>void commitEdit()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFormattedTextField.html#commitEdit()"></a>    </td>
+    <td>Sets the value to the object represented by the field's text
+    (as determined by the field's formatter).
+    If the text is invalid, the value remains the same and a
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/text/ParseException.html"><font color="#8800bb"><code>ParseException</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/text/ParseException.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>    is thrown.
+  </tr>
+
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFormattedTextField.html#isEditValid()"><font color="#8800bb"><font size=2><code>boolean isEditValid()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFormattedTextField.html#isEditValid()"></a>    </td>
+    <td>Returns true if the formatter considers the current text
+    to be valid
+    (as determined by the field's formatter).
+    </td>
+  </tr>
+</table>
+
+<p>
+
+
+<table border=1>
+<caption><a name="defaultformatterapi">DefaultFormatter Options</a></caption>
+<tr>
+<th align=left>Method
+</th>
+<th align=left>Purpose
+
+</th>
+</tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/DefaultFormatter.html#setCommitsOnValidEdit(boolean)"><font color="#8800bb"><font size=2><code>void setCommitsOnValidEdit(boolean)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/DefaultFormatter.html#setCommitsOnValidEdit(boolean)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/DefaultFormatter.html#getCommitsOnValidEdit()"><font color="#8800bb"><font size=2><code>boolean getCommitsOnValidEdit()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/DefaultFormatter.html#getCommitsOnValidEdit()"></a>    </td>
+    <td>Set or get when edits are pushed back to the <code>JFormattedTextField</code>.
+        If <code>true</code>, <code>commitEdit</code> is invoked after every valid edit.
+        This property is <code>false</code> by default.
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/DefaultFormatter.html#setOverwriteMode(boolean)"><font color="#8800bb"><font size=2><code>void setOverwriteMode(boolean)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/DefaultFormatter.html#setOverwriteMode(boolean)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/DefaultFormatter.html#getOverwriteMode()"><font color="#8800bb"><font size=2><code>boolean getOverwriteMode()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/DefaultFormatter.html#getOverwriteMode()"></a>    </td>
+    <td>Set or get the the behavior when inserting characters.
+        If <code>true</code>, new characters overwrite existing
+        characters in the model as they are inserted.
+        The default value of this property is
+        <code>true</code> in <code>DefaultFormatter</code>
+        (and thus in <code>MaskFormatter</code>)
+        and
+        <code>false</code> in <code>InternationalFormatter</code>
+        (and thus in <code>DateFormatter</code> and
+        <code>NumberFormatter</code>).
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/DefaultFormatter.html#setAllowsInvalid(boolean)"><font color="#8800bb"><font size=2><code>void setAllowsInvalid(boolean)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/DefaultFormatter.html#setAllowsInvalid(boolean)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/DefaultFormatter.html#getAllowsInvalid()"><font color="#8800bb"><font size=2><code>boolean getAllowsInvalid()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/DefaultFormatter.html#getAllowsInvalid()"></a>    </td>
+    <td>Set or get whether the value being edited is allowed to be invalid for
+        a length of time.  It is often convenient to allow the user to enter
+        invalid values until a commit is attempted.
+        <code>DefaultFormatter</code> initializes this property to
+<code>true</code>.  Of the standard Swing formatters,
+        only <code>MaskFormatter</code> sets it to <code>false</code>.
+    </td>
+  </tr>
+</table>
+
+
+</blockquote>
+<h3>
+<a name="eg">Examples that Use Formatted Text Fields</a>
+</h3>
+<blockquote>
+
+A few of our examples use formatted text fields.
+
+<p>
+
+<table summary="layout">
+<tr>
+<th align=left> Example
+</th>
+<th align=left> Where Described
+</th>
+<th align=left> Notes
+
+</th>
+</tr>
+<tr valign = top>
+<td> <a href="example-1dot4/index.html#FormattedTextFieldDemo">FormattedTextFieldDemo</a>
+</td>
+<td> This section
+</td>
+<td> Uses four formatted text fields.
+</td>
+</tr>
+
+<tr valign = top>
+<td> <a href="example-1dot4/index.html#SpinnerDemo">SpinnerDemo</a>
+</td>
+<td> <a href="spinner.html">How to Use Spinners</a>
+</td>
+<td> Customizes the appearance of the formatted text fields
+     used by two spinners.
+</td>
+</tr>
+
+<tr valign = top>
+<td> <a href="example-1dot4/index.html#SliderDemo3">SliderDemo3</a>
+</td>
+<td> <a href="slider.html">How to Use Sliders</a>
+</td>
+<td> Pairs a formatted text field with a slider
+     to allow editing of an integer value.
+</td>
+</tr>
+
+<tr valign = top>
+<td> <a href="example-1dot4/index.html#Converter">Converter</a>
+</td>
+<td> <a href="model.html">Using Models</a>
+</td>
+<td> Each <code>ConversionPanel</code> pairs a formatted text field
+     with a slider.
+</td>
+</tr>
+
+<tr valign = top>
+<td>
+    CelsiusConverter2
+<br>
+<font color=gray>
+[PENDING:
+When the 1.4 version of this example is added, there will be a link to it.]
+</font>
+</td>
+<td>
+Nowhere yet
+</td>
+<td> Uses a formatted text field
+     to let the user enter a decimal number.
+</td>
+</tr>
+
+<tr valign = top>
+<td> <a href="example-1dot4/index.html#TextInputDemo">TextInputDemo</a>
+</td>
+<td> This section
+</td>
+<td> Shows how to use text fields, spinners, and formatted text fields
+     together,
+     and demonstrates how to use <code>MaskFormatter</code>.
+     Includes code for selecting the text of the field
+     that has just gotten the focus.
+</td>
+</tr>
+
+<tr valign = top>
+<td> <a href="example-1dot4/index.html#FormatterFactoryDemo">FormatterFactoryDemo</a>
+</td>
+<td> This section
+</td>
+<td> A variation on FormattedTextFieldDemo
+     that uses formatter factories
+     to specify multiple formatters
+     for two formatted text fields.
+</td>
+</tr>
+
+<tr>
+<td valign=top>
+RegexFormatter
+</td>
+<td valign=top>
+<a target="_blank" href="http://java.sun.com/products/jfc/tsc/articles/reftf"><font color="#009bbb">Regular Expression Based AbstractFormatter</font></a><a target="_blank" href="http://java.sun.com/products/jfc/tsc/articles/reftf"><img src="../../images/otherIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (outside of the tutorial)"></a> (in
+<a target="_blank" href="http://java.sun.com/products/jfc/tsc"><font color="#009bbb"><em>The Swing Connection</em></font></a><a target="_blank" href="http://java.sun.com/products/jfc/tsc"><img src="../../images/otherIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (outside of the tutorial)"></a></td>
+<td valign=top>
+A regular expression formatter
+that you can use.
+Includes source code and information on how it was implemented.
+</td>
+
+
+</table>
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="filechooser.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#components" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="frame.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

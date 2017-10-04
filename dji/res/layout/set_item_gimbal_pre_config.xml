@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res-auto" set:orientation="vertical" set:layout_width="match_parent" set:layout_height="match_parent">
+    <TextView set:text="@string/set_gimbal_quick_config" style="@style/fj" />
+    <View set:layout_width="match_parent" style="@style/fc" />
+    <LinearLayout set:gravity="top|bottom|center_vertical|fill_vertical|center|fill" set:orientation="horizontal" set:layout_marginTop="10dp" set:layout_marginBottom="10dp" style="@style/fh">
+        <RadioGroup set:id="@id/bc_" style="@style/fq">
+            <RadioButton set:id="@id/bca" set:background="@drawable/set_radio_left_bg" set:text="@string/set_gimbal_preconfig_slow" set:layout_weight="1.0" style="@style/fe" />
+            <View style="@style/fg" />
+            <RadioButton set:id="@id/bcb" set:text="@string/set_gimbal_preconfig_middle" set:layout_weight="1.0" style="@style/fe" />
+            <View style="@style/fg" />
+            <RadioButton set:id="@id/bcc" set:text="@string/set_gimbal_preconfig_quick" set:layout_weight="1.0" style="@style/fe" />
+            <View style="@style/fg" />
+            <RadioButton set:id="@id/bln" set:text="@string/set_gimbal_preconfig_customer_one" set:layout_weight="1.0" style="@style/fe" />
+            <View style="@style/fg" />
+            <RadioButton set:id="@id/blo" set:background="@drawable/set_radio_right_bg" set:text="@string/set_gimbal_preconfig_customer_two" set:layout_weight="1.0" style="@style/fe" />
+        </RadioGroup>
+    </LinearLayout>
+    <View set:layout_width="match_parent" style="@style/fc" />
+    <LinearLayout set:gravity="top|bottom|center_vertical|fill_vertical|center|fill" set:orientation="horizontal" style="@style/fh">
+        <TextView set:text="@string/set_gimbal_advance_settings" style="@style/fl" />
+        <Switch set:id="@id/blp" set:layout_marginRight="@dimen/a4h" style="@style/fs" />
+    </LinearLayout>
+    <View style="@style/fc" />
+    <LinearLayout set:orientation="vertical" set:id="@id/blq" set:layout_width="match_parent" set:layout_height="wrap_content">
+        <TextView set:text="@string/set_gimbal_smooth_track_setting" style="@style/fj" />
+        <View style="@style/fc" />
+        <LinearLayout set:orientation="vertical" set:layout_width="match_parent" set:layout_height="wrap_content"
+            <LinearLayout set:orientation="vertical" set:id="@id/blr" set:layout_width="match_parent" set:layout_height="wrap_content"
+                <LinearLayout set:gravity="top|bottom|center_vertical|fill_vertical|center|fill" set:orientation="horizontal" style="@style/fh">
+                    <TextView set:text="@string/set_gimbal_pan" style="@style/fl" />
+                    <Switch set:id="@id/bls" set:layout_marginRight="@dimen/a4h" style="@style/fs" />
+                </LinearLayout>
+                <View style="@style/fc" />
+                <LinearLayout set:gravity="top|bottom|center_vertical|fill_vertical|center|fill" set:orientation="horizontal" style="@style/fh">
+                    <TextView set:text="@string/set_gimbal_tilt" style="@style/fl" />
+                    <Switch set:id="@id/blt" set:layout_marginRight="@dimen/a4h" style="@style/fs" />
+                </LinearLayout>
+                <View style="@style/fc" />
+                <View style="@style/fc" />
+            </LinearLayout>
+            <LinearLayout set:orientation="vertical" set:id="@id/blu" set:layout_width="match_parent" set:layout_height="match_parent"
+                <LinearLayout set:gravity="top|bottom|center_vertical|fill_vertical|center|fill" set:orientation="horizontal" set:id="@id/blv" set:layout_width="match_parent" set:layout_height="match_parent">
+                    <TextView set:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" set:layout_width="UNKNOWN_DATA_0x1" set:layout_marginRight="0dp" set:text="@string/set_gimbal_smooth_track_adjustments" set:layout_weight="1.0" style="@style/fj" />
+                    <TextView set:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" set:layout_width="UNKNOWN_DATA_0x7f0b049d" set:layout_marginRight="0dp" set:text="@string/set_gimbal_speed" set:layout_weight="0.0" style="@style/fk" />
+                    <TextView set:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" set:layout_width="UNKNOWN_DATA_0x7f0b049d" set:layout_marginRight="0dp" set:text="@string/set_gimbal_deadband" set:layout_weight="0.0" style="@style/fk" />
+                    <TextView set:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" set:layout_width="UNKNOWN_DATA_0x7f0b049d" set:layout_marginRight="7dp" set:text="@string/set_gimbal_accel" set:layout_weight="0.0" style="@style/fk" />
+                </LinearLayout>
+                <View style="@style/fc" />
+                <LinearLayout set:gravity="top|bottom|center_vertical|fill_vertical|center|fill" set:orientation="horizontal" set:id="@id/blw" set:layout_width="match_parent" set:layout_height="match_parent">
+                    <TextView set:text="@string/set_gimbal_pan" style="@style/fl" />
+                    <dji.pilot.set.view.gimbal.GimbalSelectBtnView set:id="@id/blx" set:text="0" set:dir="0" set:option="0" style="@style/fd" />
+                    <dji.pilot.set.view.gimbal.GimbalSelectBtnView set:id="@id/bly" set:text="0" set:dir="0" set:option="1" style="@style/fd" />
+                    <dji.pilot.set.view.gimbal.GimbalSelectBtnView set:id="@id/blz" set:text="0" set:dir="0" set:option="2" style="@style/fd" />
+                </LinearLayout>
+                <View style="@style/fc" />
+                <LinearLayout set:gravity="top|bottom|center_vertical|fill_vertical|center|fill" set:orientation="horizontal" set:id="@id/bm0" set:layout_width="match_parent" set:layout_height="match_parent">
+                    <TextView set:text="@string/set_gimbal_tilt" style="@style/fl" />
+                    <dji.pilot.set.view.gimbal.GimbalSelectBtnView set:id="@id/bm1" set:text="0" set:dir="1" set:option="0" style="@style/fd" />
+                    <dji.pilot.set.view.gimbal.GimbalSelectBtnView set:id="@id/bm2" set:text="0" set:dir="1" set:option="1" style="@style/fd" />
+                    <dji.pilot.set.view.gimbal.GimbalSelectBtnView set:id="@id/bm3" set:text="0" set:dir="1" set:option="2" style="@style/fd" />
+                </LinearLayout>
+                <View style="@style/fc" />
+            </LinearLayout>
+            <LinearLayout set:orientation="vertical" set:id="@id/bm4" set:layout_width="match_parent" set:layout_height="match_parent"
+                <LinearLayout set:gravity="top|bottom|center_vertical|fill_vertical|center|fill" set:orientation="horizontal" set:layout_width="match_parent" set:layout_height="match_parent">
+                    <TextView set:layout_width="UNKNOWN_DATA_0x1" set:text="@string/set_gimbal_control_stick" set:layout_weight="1.0" style="@style/fj" />
+                    <TextView set:textSize="11sp" set:layout_width="UNKNOWN_DATA_0x7f0b049d" set:layout_marginRight="0dp" set:text="@string/set_gimbal_smooth" set:layout_weight="0.0" style="@style/fk" />
+                    <TextView set:textSize="11sp" set:layout_width="UNKNOWN_DATA_0x7f0b049d" set:layout_marginRight="7dp" set:text="@string/set_gimbal_speed" set:layout_weight="0.0" style="@style/fk" />
+                </LinearLayout>
+                <View style="@style/fc" />
+                <LinearLayout set:gravity="top|bottom|center_vertical|fill_vertical|center|fill" set:orientation="vertical" set:layout_width="match_parent" set:layout_height="match_parent"
+                    <LinearLayout set:gravity="top|bottom|center_vertical|fill_vertical|center|fill" set:layout_width="match_parent" set:layout_height="match_parent">
+                        <TextView set:text="@string/set_gimbal_pan" style="@style/fl" />
+                        <dji.pilot.set.view.gimbal.GimbalSelectBtnView set:id="@id/bm5" set:text="0" set:dir="3" set:option="3" style="@style/fd" />
+                        <dji.pilot.set.view.gimbal.GimbalSelectBtnView set:id="@id/bm6" set:text="0" set:dir="3" set:option="0" style="@style/fd" />
+                    </LinearLayout>
+                    <View style="@style/fc" />
+                    <LinearLayout set:gravity="top|bottom|center_vertical|fill_vertical|center|fill" set:layout_width="match_parent" set:layout_height="match_parent">
+                        <TextView set:text="@string/set_gimbal_tilt" style="@style/fl" />
+                        <dji.pilot.set.view.gimbal.GimbalSelectBtnView set:id="@id/bm7" set:text="0" set:dir="4" set:option="3" style="@style/fd" />
+                        <dji.pilot.set.view.gimbal.GimbalSelectBtnView set:id="@id/bm8" set:text="0" set:dir="4" set:option="0" style="@style/fd" />
+                    </LinearLayout>
+                    <View style="@style/fc" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+        <View style="@style/fc" />
+    </LinearLayout>
+</LinearLayout>

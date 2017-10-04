@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.device.camera.view.osd.LonganSSDView xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="horizontal" android:background="@drawable/longan_preview_status_bg" android:layout_width="wrap_content" android:layout_height="UNKNOWN_DATA_0x7f0b0119">
+    <TextView android:layout_gravity="top|bottom|center_vertical|fill_vertical|center|fill" android:id="@id/b83" android:visibility="gone" style="@style/dq" />
+    <LinearLayout android:layout_gravity="top|bottom|center_vertical|fill_vertical|center|fill" android:id="@id/b84" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <ImageView android:layout_gravity="top|bottom|center_vertical|fill_vertical|center|fill" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/gw" android:src="@drawable/longan_ssd" android:scaleType="center" />
+        <TextView android:layout_gravity="top|bottom|center_vertical|fill_vertical|center|fill" android:id="@id/b85" android:layout_marginLeft="@dimen/ga" android:text="N/A" style="@style/dq" />
+        <dji.device.common.view.LonganBLN android:layout_gravity="top|bottom|center_vertical|fill_vertical|center|fill" android:id="@id/b86" android:layout_width="UNKNOWN_DATA_0x501" android:layout_height="UNKNOWN_DATA_0x501" android:layout_marginLeft="@dimen/ga" />
+        <TextView android:layout_gravity="top|bottom|center_vertical|fill_vertical|center|fill" android:id="@id/b87" android:layout_marginLeft="@dimen/gw" android:text="N/A" style="@style/dq" />
+        <TextView android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:layout_gravity="top|bottom|center_vertical|fill_vertical|center|fill" android:id="@id/b88" android:paddingRight="@dimen/gw" android:layout_marginLeft="@dimen/ga" android:text="N/A" style="@style/dq" />
+    </LinearLayout>
+</dji.device.camera.view.osd.LonganSSDView>

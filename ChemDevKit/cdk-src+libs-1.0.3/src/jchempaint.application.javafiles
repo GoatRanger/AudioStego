@@ -1,0 +1,4 @@
+org/openscience/cdk/applications/jchempaint/dialogs/GeneralSettingsEditor.java
+org/openscience/cdk/applications/jchempaint/dialogs/ModifyGeneralSettingsDialog.java
+org/openscience/cdk/applications/jchempaint/action/ModifyGeneralSettingsAction.java
+org/openscience/cdk/applications/jchempaint/application/JChemPaint.java

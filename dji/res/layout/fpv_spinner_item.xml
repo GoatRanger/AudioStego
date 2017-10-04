@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.publics.DJIUI.DJITextView xmlns:android="http://schemas.android.com/apk/res-auto" phantom:textSize="@dimen/rj" phantom:textColor="@r$color/spinner_text" phantom:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" phantom:id="@+id/txtvwSpinner" phantom:layout_width="wrap_content" phantom:layout_height="wrap_content" phantom:djiTextFace="1" style="@style/FpvGenSettingDescTxt" />

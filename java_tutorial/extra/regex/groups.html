@@ -1,0 +1,202 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Capturing Groups</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="quant.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#regex" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="bounds.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Bonus
+<br>
+<b>Lesson</b>: Regular Expressions
+</font>
+
+<h2>
+Capturing Groups
+</h2>
+<blockquote>
+<!--Capturing Groups-->
+
+In the 
+<a target="_top" href="quant.html">previous section</a><a target="_top" href="quant.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Bonus trail)"></a>, we saw how quantifiers attach to one character, 
+character class, or capturing group at a time. But until now, we have not 
+discussed the notion of capturing groups in any detail. 
+<P>
+ <i>Capturing groups</i> are a way to treat multiple characters 
+as a single unit. They are created by placing the characters to 
+be grouped inside a set of parentheses. For example, 
+the regular expression <CODE>(dog)</CODE> creates a single group containing the letters <code>"d" "o"</code> and <code>"g"</code>. 
+The portion of the input string that matches the capturing group 
+will be saved in memory for later recall via backreferences (as discussed
+below in the section, 
+<A HREF="#backref">Backreferences</A>). 
+
+<H3>Numbering</H3>
+
+As described in the 
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/regex/Pattern.html"><font color="#8800bb"><code>Pattern</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/regex/Pattern.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> API, 
+capturing groups are numbered by counting their opening parentheses from left to right. In
+the expression <code>((A)(B(C)))</code>, for example, 
+there are four such groups: 
+<OL>   
+<li><code>((A)(B(C)))</code>
+<li><code>(A)</code>
+<li><code>(B(C))</code>
+<li><code>(C)
+</code>
+</OL>
+
+To find out how many groups are present in the 
+expression, call the <CODE>groupCount</CODE> method on a matcher object. The <CODE>groupCount</CODE>
+ method returns an <CODE>int</CODE> showing the number of capturing groups present in the matcher's pattern. In this 
+example, <CODE>groupCount</CODE> would return the number <code>4</code>, showing that the pattern contains 4 capturing groups. 
+
+<P>
+There is also a special group, group 0, which always represents 
+the entire expression. This group is not  
+included in the total reported by 
+<CODE>groupCount</CODE>. Also note that groups beginning with <CODE>(?</CODE> 
+are pure, <i>non-capturing groups</i> 
+that do not capture text and do not count towards the group total. 
+(You'll see examples of non-capturing groups later in the section 
+<a target="_top" href="pattern.html">Methods of the Pattern Class</a><a target="_top" href="pattern.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Bonus trail)"></a>.)  
+
+<P>
+It's important to understand how groups are numbered
+because some <code>Matcher</code> methods accept an <CODE>int</CODE> specifying a particular group number as a parameter:
+
+
+<UL>
+<LI>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/regex/Matcher.html#start(int)"><font color="#8800bb"><code>public int start(int group)</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/regex/Matcher.html#start(int)"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>: 
+Returns the start index of the subsequence captured by the given
+            group during the previous match operation.
+<P>
+
+<LI>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/regex/Matcher.html#end(int)"><font color="#8800bb"><code>public int end (int group)</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/regex/Matcher.html#end(int)"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>: 
+Returns the index of the last character, plus one, of the subsequence captured by the
+     given group during the previous match operation. 
+ <P>
+<LI>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/regex/Matcher.html#group(int)"><font color="#8800bb"><code>public String group (int group)</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/regex/Matcher.html#group(int)"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>:
+Returns the input subsequence captured by the given group during the previous match operation. 
+</UL> 
+
+
+<P>
+<A NAME="backref"></A>
+<H3>Backreferences</H3>
+The section of the input string matching the 
+capturing group(s) is saved in memory for later recall via a backreference. 
+A backreference is specified in the 
+regular expression as a backslash (<code>\</code>) followed by a 
+digit indicating the number of the group to be recalled. 
+For example, the expression <CODE>(\d\d)</CODE> defines one capturing group matching two digits in a row,  
+which 
+can be recalled later in the expression via the backreference <CODE>\1</CODE>. 
+
+<P>To match any 2 digits, followed by the exact same two digits, you would use <CODE>(\d\d)\1</CODE> as the regular expression:
+
+<blockquote><pre> 
+Current REGEX is: (\d\d)\1
+Current INPUT is: 1212
+I found the text "1212" starting at index 0 and ending at index 4.
+</pre></blockquote> 
+
+If you change the last two digits and the match will fail:
+
+<blockquote><pre> 
+Current REGEX is: (\d\d)\1
+Current INPUT is: 1234
+No match found.
+</pre></blockquote> 
+
+For nested capturing groups, backreferencing works in exactly the same way: Specify a backslash followed 
+by the number of the group to be recalled. 
+
+<P>
+
+
+
+
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="quant.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#regex" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="bounds.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

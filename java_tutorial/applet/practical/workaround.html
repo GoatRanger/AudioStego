@@ -1,0 +1,193 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Using a Server to Work Around Security Restrictions</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="clientExample.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#practical" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="../finishing/index.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Writing Applets
+<br>
+<b>Lesson</b>: Practical Considerations when Writing Applets
+</font>
+
+<h2>
+Using a Server to Work Around Security Restrictions
+</h2>
+<blockquote>
+As the 
+<a href="security.html">Security Restrictions</a>
+section explains,
+applets are subject to many security restrictions.
+For example, they can't perform file I/O,
+they can't make network connections except to their original host,
+and they can't start programs.
+
+<p>
+
+One way of working around these restrictions
+is to use a server application
+that executes on the applet's host.
+The server won't be able to get around every applet restriction,
+but it can make more things possible.
+For example, a server probably can't save files
+on the host the applet's running on,
+but it'll be able to save files on the host the applet originated from.
+
+<p>
+
+This page features an example of a server
+that allows two applets to communicate with each other.
+The applets don't have to be running on the same page,
+in the same browser,
+or on the same computer.
+As long as the applets originate from the same computer,
+they can communicate through the server 
+that's running on that originating computer.
+The example uses sockets,
+which are documented in
+<a target="_top" href="../../networking/sockets/index.html">All About Sockets</a><a target="_top" href="../../networking/sockets/index.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Writing Applets trail)"></a>.
+
+<p>
+
+
+Here are the source files:
+<dl>
+<dt> 
+<a target="_blank" href="example-1dot1/TalkClientApplet.java"><font color="#bb000f"><code>TalkClientApplet.java</code></font></a><a target="_blank" href="example-1dot1/TalkClientApplet.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>
+<dd> The source file for the client applets.
+     (Both applets are instances of the same class;
+     here's the 
+<a target="_blank" href="example/TalkClientApplet.java"><font color="#bb000f"><code>1.0 version</code></font></a><a target="_blank" href="example/TalkClientApplet.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>.)
+     After you compile it, 
+     you can run it by including it in an HTML page with this tag:
+<blockquote><pre>
+&lt;APPLET CODE=TalkClientApplet.class WIDTH=550 HEIGHT=200&gt;
+&lt;/applet&gt;
+</pre></blockquote>
+     <p>
+     Here's a link to a <a href=example-1dot1/talk.html>page</a>
+     that includes the above HTML code.
+     After saving this page to a file on your local HTTP server,
+     you can use it to communicate with the talk server
+
+<dt> 
+<a target="_blank" href="example-1dot1/TalkServer.java"><font color="#bb000f"><code>TalkServer.java</code></font></a><a target="_blank" href="example-1dot1/TalkServer.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a> and
+     
+<a target="_blank" href="example-1dot1/TalkServerThread.java"><font color="#bb000f"><code>TalkServerThread.java</code></font></a><a target="_blank" href="example-1dot1/TalkServerThread.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>
+<dd> The source files for the server.
+     (1.0 versions of these files are in
+     
+<a target="_blank" href="example/TalkServer.java"><font color="#bb000f"><code>example/TalkServer.java</code></font></a><a target="_blank" href="example/TalkServer.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>
+     and
+     
+<a target="_blank" href="example/TalkServerThread.java"><font color="#bb000f"><code>example/TalkServerThread.java</code></font></a><a target="_blank" href="example/TalkServerThread.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>
+     After compiling both files,
+     you can run the server on the applets' originating host
+     by invoking the interpreter on the <code>TalkServer</code> class.
+</dl>    
+
+<p>
+ 
+The instructions for running the server are just like those for
+the 
+<a href=clientExample.html>previous example</a>.  Run the server on the applets' originating
+host, recording the port number the applets should rendezvous on.
+then initialize both applets (which can be running on different 
+machines) to talk to the server port number.  After this
+initialization is complete, type into each applet and press
+the Return key to send the message to the other applet.
+<p>
+
+Here's the server in action:
+
+    <BLOCKQUOTE>
+    <CODE>
+    www% <B> java TalkServer </B><BR>
+    TalkServer listening on rendezvous port: 36567
+    </CODE>
+    </BLOCKQUOTE>
+
+Here are pictures of the applets in action:
+
+<p><center><a href="../../figures/applet/20sun.gif" target="_top"><IMG SRC="../../figures/applet/20sun.gif" WIDTH="460" HEIGHT="168" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></a><br><em>This figure has been reduced to fit on the page. <br> Click the image to view it at its natural size.</em></center></p>
+<p><center><a href="../../figures/applet/21pc.gif" target="_top"><IMG SRC="../../figures/applet/21pc.gif" WIDTH="460" HEIGHT="186" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></a><br><em>This figure has been reduced to fit on the page. <br> Click the image to view it at its natural size.</em></center></p>
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="clientExample.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#practical" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="../finishing/index.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

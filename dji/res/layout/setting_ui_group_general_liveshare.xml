@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.setting.ui.general.LivePlatformSelectView xmlns:android="http://schemas.android.com/apk/res-auto" liveshare:titleText="@string/setting_ui_general_liveshare_select" style="@style/gk">
+    <LinearLayout liveshare:orientation="horizontal" style="@style/gj">
+        <dji.setting.ui.general.LivePlatformView liveshare:id="@id/btn" liveshare:layout_width="UNKNOWN_DATA_0x1" liveshare:layout_height="wrap_content" liveshare:layout_weight="1.0" liveshare:type="UNKNOWN_DATA_0x13" />
+        <dji.setting.ui.general.LivePlatformView liveshare:id="@id/bto" liveshare:layout_width="UNKNOWN_DATA_0x1" liveshare:layout_height="wrap_content" liveshare:layout_weight="1.0" liveshare:type="UNKNOWN_DATA_0x14" />
+        <dji.setting.ui.general.LivePlatformView liveshare:id="@id/btp" liveshare:layout_width="UNKNOWN_DATA_0x1" liveshare:layout_height="wrap_content" liveshare:layout_weight="1.0" liveshare:type="UNKNOWN_DATA_0x15" />
+        <dji.setting.ui.general.LivePlatformView liveshare:id="@id/btq" liveshare:layout_width="UNKNOWN_DATA_0x1" liveshare:layout_height="wrap_content" liveshare:layout_weight="1.0" liveshare:type="UNKNOWN_DATA_0x16" />
+    </LinearLayout>
+</dji.setting.ui.general.LivePlatformSelectView>

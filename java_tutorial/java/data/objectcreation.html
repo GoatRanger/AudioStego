@@ -1,0 +1,271 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Creating Objects</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="objects.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#data" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="usingobject.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Learning the Java Language
+<br>
+<b>Lesson</b>: Object Basics and Simple Data Objects
+</font>
+
+<h2>
+Creating Objects
+</h2>
+<blockquote>
+As you know, a class provides the blueprint 
+for objects; you create an object from a class.
+
+Each of the following statements taken from the
+<a target="_blank" href="example/CreateObjectDemo.java"><font color="#bb000f"><code>CreateObjectDemo</code></font></a><a target="_blank" href="example/CreateObjectDemo.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a> program creates an object:
+<blockquote><pre>
+<FONT COLOR=RED>Point origin_one</FONT> = new Point(23, 94);
+<FONT COLOR=RED>Rectangle rect_one</FONT> = new Rectangle(origin_one, 100, 200);
+<FONT COLOR=RED>Rectangle rect_two</FONT> = new Rectangle(50, 100);
+</pre></blockquote>
+The first line creates an object from the
+<a target="_blank" href="example/Point.java"><font color="#bb000f"><code>Point</code></font></a><a target="_blank" href="example/Point.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a> class
+and the second and third lines each create an
+object from the
+<a target="_blank" href="example/Rectangle.java"><font color="#bb000f"><code>Rectangle</code></font></a><a target="_blank" href="example/Rectangle.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a> class.
+<p>
+Each statement has three parts:
+<ol>
+<li>
+<strong>Declaration</strong>:
+The code set in <FONT COLOR=RED>red</FONT> in the previous listing are all variable declarations that associate a name with a type. When you create an object, you do not have to declare a variable to refer to it. However, a variable declaration often appears on the same line as the code to create an object. 
+
+<li>
+<strong>Instantiation</strong>:
+<code>new</code> is a Java operator
+that creates the new object (allocates space for it).
+<li>
+<strong>Initialization</strong>:
+The <code>new</code> operator is followed
+by a call to a constructor.
+For example, <code>Point(23, 94)</code> is a call to
+<code>Point</code>'s only constructor.
+The constructor initializes the new object. 
+
+</ol>
+
+The next three subsections discuss each of these
+actions in detail:
+<ul>
+<li> <a href="#declaring">Declaring a Variable to Refer to an Object</a>
+<li> <a href="#instantiating">Instantiating an Object</a>
+<li> <a href="#initializing">Initializing an Object</a>
+</ul>
+
+</blockquote>
+<a name="declaring">
+<h3>Declaring a Variable to Refer to an Object</h3>
+</a>
+<blockquote>
+From the
+<a target="_top" href="../nutsandbolts/variables.html">Variables</a><a target="_top" href="../nutsandbolts/variables.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Learning the Java Language trail)"></a> section in the previous lesson,
+you learned that to declare a variable, you write:
+<blockquote><pre>
+<em>type name</em>
+</pre></blockquote>
+This notifies the compiler that you will use <em>name</em> to
+refer to data whose type is <em>type</em>.
+<p>
+In addition to the primitive types,
+such as <code>int</code> and <code>boolean</code>,
+provided directly by the Java platform,
+classes and interfaces are also types.
+So to declare a variable to refer to an object,
+you can use the name of a class or an interface,
+as the variable's type.
+The sample program uses both the <code>Point</code>
+and the <code>Rectangle</code> class names as types to declare variables.
+<blockquote><pre>
+<strong>Point origin_one</strong> = new Point(23, 94);
+<strong>Rectangle rect_one</strong> = new Rectangle(origin_one, 100, 200);
+<strong>Rectangle rect_two</strong> = new Rectangle(50, 100);
+</pre></blockquote>
+
+Declarations do not create new objects. The code <CODE>Point origin_one</CODE> does not create a new <CODE>Point object</CODE>; it just declares a variable, named <CODE>origin_one</CODE>, that will be used to refer to a <CODE>Point</CODE> object. The reference is empty until assigned, as illustrated in the next figure. An empty reference is known as a <I>null reference</I>.
+<p><center><IMG SRC="../../figures/java/origin.gif" WIDTH="152" HEIGHT="72" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p>
+To create an object you must instantiate it with the
+<code>new</code> operator.
+</blockquote>
+
+<a name="instantiating">
+<h3>Instantiating an Object</h3>
+</a>
+<blockquote>
+
+The <code>new</code> operator instantiates a class by allocating memory for a new object. The <code>new</code>operator requires a single, postfix argument: a call to a constructor. The name of the constructor provides the name of the class to instantiate. The constructor initializes the new object. 
+<P>
+The <code>new</code> operator returns a reference to the object it created. Often, this reference is assigned to a variable of the appropriate type. If the reference is not assigned to a variable, the object is unreachable after the statement in which the <code>new</code> operator appears finishes executing. 
+
+<a name="initializing"></a>
+<h4>Initializing an Object</h4>
+Here's the code for the <code>Point</code> class: 
+<blockquote><pre>
+public class Point {
+    public int x = 0;
+    public int y = 0;
+    <B>//A constructor!
+    public Point(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }</B>
+}
+</pre></blockquote>
+This class contains a single constructor. You can recognize a constructor because it has the same name as the class and has no return type. The constructor in the <CODE>Point</CODE> class takes two integer arguments, as declared by the code <CODE>(int x, int y)</CODE>. The following statement provides 23 and 94 as values for those arguments: 
+<blockquote><pre>
+Point origin_one = new Point(23, 94);
+</pre></blockquote>
+The effect of the previous line of code can be illustrated in the next figure: 
+<p><center><IMG SRC="../../figures/java/2pointObj.gif" WIDTH="392" HEIGHT="144" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p>
+Here's the code for the <CODE>Rectangle</CODE> class, which contains four constructors: 
+
+<blockquote><pre>
+public class Rectangle {
+    public int width = 0;
+    public int height = 0;
+    public Point origin;
+
+    //Four constructors
+    public Rectangle() {
+        origin = new Point(0, 0);
+    }
+
+    public Rectangle(Point p) {
+        origin = p;
+    }
+
+    public Rectangle(int w, int h) {
+        this(new Point(0, 0), w, h);
+    }
+
+    public Rectangle(Point p, int w, int h) {
+        origin = p;
+        width = w;
+        height = h;
+    }
+
+    //A method for moving the rectangle
+    public void move(int x, int y) {
+        origin.x = x;
+        origin.y = y;
+    }
+
+    //A method for computing the area of the rectangle
+    public int area() {
+        return width * height;
+    }
+}
+</pre></blockquote>
+
+Each constructor lets you provide initial values for different aspects of the rectangle: the origin; the width, and the height; all three; or none. If a class has multiple constructors, they all have the same name but a different number of arguments or different typed arguments. The Java platform differentiates the constructors, based on the number and the type of the arguments. When the Java platform encounters the following code, it knows to call the constructor in the <CODE>Rectangle</CODE> class that requires a Point argument followed by two integer arguments: 
+
+<blockquote><pre> 
+Rectangle rect_one = new Rectangle(origin_one, 100, 200);
+</pre></blockquote>
+
+This call initializes the rectangle's <CODE>origin</CODE> variable to the <CODE>Point</CODE> object referred to by <CODE>origin_one</CODE>. The code also sets <CODE>width</CODE> to 100 and <CODE>height</CODE> to 200. Now there are two references to the same <CODE>Point</CODE> object; an object can have multiple references to it, as shown in the next figure:
+<p><center><IMG SRC="../../figures/java/3pointObj.gif" WIDTH="373" HEIGHT="244" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p>
+ 
+Multiple references can refer to the same object.
+The following line of code calls the constructor that requires two integer arguments, which provide the initial values for <CODE>width</CODE> and <CODE>height</CODE>. If you inspect the code within the constructor, you will see that it creates a new <CODE>Point</CODE> object whose <CODE>x</CODE> and <CODE>y</CODE> values are initialized to 0: 
+
+<blockquote><pre>
+Rectangle rect_two = new Rectangle(50, 100);
+</pre></blockquote>
+
+The <CODE>Rectangle</CODE> constructor used in the following statement doesn't take any arguments, so it's called a <I>no-argument constructor</I>:
+
+<blockquote><pre>
+Rectangle rect = new Rectangle();
+</pre></blockquote> 
+
+If a class does not explicitly declare any constructors, the Java platform automatically provides a no-argument constructor, called the <I>default constructor</I>, that does nothing. Thus, all classes have at least one constructor. 
+</blockquote>
+<p>
+This section talked about how to use a constructor.
+<a target="_top" href="../javaOO/constructors.html">Providing Constructors for Your Classes</a><a target="_top" href="../javaOO/constructors.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Learning the Java Language trail)"></a> explains how to write constructors for your classes.
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="objects.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#data" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="usingobject.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

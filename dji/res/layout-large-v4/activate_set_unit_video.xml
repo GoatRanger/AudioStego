@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.pilot2.usercenter.activate.ActivateSetUnitVideoView xmlns:android="http://schemas.android.com/apk/res/android" android:gravity="left|right|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@+id/activate_set_unit_video" style="@style/activate_llayout_style">
+    <TextView android:text="@string/v2_active_51" style="@style/activate_des_title_pad" />
+    <TextView android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:layout_marginTop="@dimen/gc" android:layout_marginBottom="@dimen/g1" android:text="@string/v2_active_52" style="@style/activate_des_content_pad" />
+    <LinearLayout android:gravity="top|bottom|center_vertical|fill_vertical|center|fill" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/gt" style="@style/activate_des_content_pad">
+        <TextView android:layout_width="UNKNOWN_DATA_0x1" android:text="@string/v2_active_52" android:layout_weight="3.0" style="@style/activate_des_content_pad" />
+        <TextView android:layout_width="UNKNOWN_DATA_0x1" android:text="@string/activate_video_output" android:layout_weight="3.0" style="@style/activate_des_content_pad" />
+    </LinearLayout>
+    <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="match_parent">
+        <RadioGroup android:id="@+id/activate_set_unit_group" android:layout_width="UNKNOWN_DATA_0x1" android:layout_height="wrap_content" android:layout_marginRight="@dimen/g1" android:layout_weight="3.0">
+            <dji.publics.DJIUI.DJIRadioButton android:textSize="@dimen/x1" android:textColor="@r$color/activate_text" android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@+id/activate_unit_metric" android:layout_width="match_parent" android:layout_height="wrap_content" android:checked="true" android:button="@r$drawable/activate_control_mode_box_style" android:text="@string/v2_active_53" />
+            <View android:layout_marginBottom="@dimen/gw" style="@style/activate_divider_line" />
+            <dji.publics.DJIUI.DJIRadioButton android:textSize="@dimen/x1" android:textColor="@r$color/activate_text" android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@+id/activate_unit_metric_km" android:layout_width="match_parent" android:layout_height="wrap_content" android:checked="false" android:button="@r$drawable/activate_control_mode_box_style" android:text="@string/v2_active_metric_km" />
+            <View android:layout_marginBottom="@dimen/fj" style="@style/activate_divider_line" />
+            <dji.publics.DJIUI.DJIRadioButton android:textSize="@dimen/x1" android:textColor="@r$color/activate_text" android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@+id/activate_unit_imperial" android:layout_width="match_parent" android:layout_height="wrap_content" android:checked="false" android:button="@r$drawable/activate_control_mode_box_style" android:text="@string/v2_active_54" />
+            <View android:layout_marginBottom="@dimen/gw" style="@style/activate_divider_line" />
+        </RadioGroup>
+        <RadioGroup android:id="@+id/activate_set_video_group" android:layout_width="UNKNOWN_DATA_0x1" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/g1" android:layout_weight="3.0">
+            <dji.publics.DJIUI.DJIRadioButton android:textSize="@dimen/x1" android:textColor="@r$color/activate_text" android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@+id/activate_set_video_pal" android:layout_width="match_parent" android:layout_height="wrap_content" android:checked="true" android:button="@r$drawable/activate_control_mode_box_style" android:text="PAL" />
+            <View android:layout_marginBottom="@dimen/gw" style="@style/activate_divider_line" />
+            <dji.publics.DJIUI.DJIRadioButton android:textSize="@dimen/x1" android:textColor="@r$color/activate_text" android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@+id/activate_set_video_ntsc" android:layout_width="match_parent" android:layout_height="wrap_content" android:checked="false" android:button="@r$drawable/activate_control_mode_box_style" android:text="NTSC" />
+            <View android:layout_marginBottom="@dimen/gw" style="@style/activate_divider_line" />
+        </RadioGroup>
+    </LinearLayout>
+</dji.pilot2.usercenter.activate.ActivateSetUnitVideoView>

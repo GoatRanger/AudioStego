@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="33"
+   name=""
+   committed-date="2005-02-01T06:11:53.421875Z"
+   url="svn://192.168.2.2/ImageProcessor/src/or/doc/drasys/or/graph/tw"
+   last-author="Karl"
+   kind="dir"
+   uuid="0daf4267-3229-f84b-9084-f3c94b025f38"
+   revision="55"/>
+<entry
+   committed-rev="33"
+   name="TimeWindowValueI.html"
+   text-time="2005-03-02T06:25:25.875000Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="194780ff1e6fbd995d82cef1ccff49f7"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:25.765625Z"/>
+<entry
+   committed-rev="33"
+   name="TimeWindowPropertiesI.html"
+   text-time="2005-03-02T06:25:25.875000Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="e58ba1e41f2018e3c09b41b6485d76b2"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:25.765625Z"/>
+<entry
+   committed-rev="33"
+   name="WS_FTP.LOG"
+   text-time="2005-03-02T06:25:25.890625Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="73b7684c9408c70489bf204d6e5f61d8"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:25.781250Z"/>
+<entry
+   committed-rev="33"
+   name="package-frame.html"
+   text-time="2005-03-02T06:25:25.890625Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="78a45139c18d50e2884a12e8a6b581d0"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:25.796875Z"/>
+<entry
+   committed-rev="33"
+   name="TimeWindowValue.html"
+   text-time="2005-03-02T06:25:25.906250Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="11cd79796d045d02c04e480d55531c5b"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:25.812500Z"/>
+<entry
+   committed-rev="33"
+   name="TimeWindowPropertiesAdapter.html"
+   text-time="2005-03-02T06:25:25.906250Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="750774aabc149c315827f7b4d28f7359"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:25.812500Z"/>
+<entry
+   committed-rev="33"
+   name="package-summary.html"
+   text-time="2005-03-02T06:25:25.921875Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="9de8c02077056cd27d30de85b77186d2"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:25.828125Z"/>
+<entry
+   committed-rev="33"
+   name="package-tree.html"
+   text-time="2005-03-02T06:25:25.937500Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="c89ab18210e0174b59e5c47f5587d0c2"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:25.859375Z"/>
+</wc-entries>

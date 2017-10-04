@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" style="@style/g2"
+    <LinearLayout style="@style/g2">
+        <TextView android:layout_width="UNKNOWN_DATA_0x1" android:text="@string/setting_ui_battery_low_warning" style="@style/gh" />
+        <dji.setting.ui.widget.DJISeekbarRightValue android:id="@id/bpz" android:layout_width="UNKNOWN_DATA_0x7f0b036e" android:layout_height="wrap_content" android:layout_weight="0.0" />
+    </LinearLayout>
+    <View style="@style/fz" />
+    <LinearLayout android:orientation="horizontal" android:layout_height="UNKNOWN_DATA_0x7f0b0350" style="@style/g2">
+        <TextView android:layout_width="UNKNOWN_DATA_0x1" android:text="@string/setting_ui_battery_serious_low_warning" style="@style/gh" />
+        <dji.setting.ui.widget.DJISeekbarRightValue android:id="@id/bq0" android:layout_width="UNKNOWN_DATA_0x7f0b036e" android:layout_height="wrap_content" android:layout_weight="0.0" />
+    </LinearLayout>
+    <TextView android:textSize="@dimen/zx" android:textColor="@color/i2" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/setting_ui_battery_serious_notification" />
+</LinearLayout>

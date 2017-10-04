@@ -1,0 +1,5 @@
+<APPLET CODE="Composite.class"
+        codebase="example-1dot2/"
+        archive="composite.jar"
+	WIDTH=300 HEIGHT=300>
+</APPLET>

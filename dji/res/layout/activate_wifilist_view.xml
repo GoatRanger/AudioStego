@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:background="@drawable/activate_wifi_list_bg" android:layout_width="match_parent" android:layout_height="match_parent">
+    <RelativeLayout android:gravity="top|bottom|center_vertical|fill_vertical|center|fill" android:id="@+id/activate_wifi_list_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="@dimen/h1">
+        <Switch android:id="@+id/activate_wifi_list_enable4g" android:layout_margin="@dimen/gr" android:checked="true" android:layout_alignParentRight="true" style="@style/CommonSwitch" />
+        <TextView android:textSize="@dimen/x1" android:textColor="@r$color/activate_text" android:gravity="top|bottom|center_vertical|fill_vertical|center|fill" android:paddingLeft="@dimen/gj" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/activate_disable_wifi_to_use_4g" android:layout_toLeftOf="@+id/activate_wifi_list_enable4g" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+    </RelativeLayout>
+    <View android:layout_marginLeft="@dimen/tr" android:layout_marginRight="@dimen/tr" style="@style/activate_divider_line" />
+    <LinearLayout android:orientation="vertical" android:id="@+id/activate_wifi_list_ly" android:layout_width="match_parent" android:layout_height="match_parent">
+        <ListView android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@+id/activate_wifi_list_view" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:gravity="top|bottom|center_vertical|fill_vertical|center|fill" android:orientation="horizontal" android:paddingLeft="15dp" android:paddingRight="15dp" android:layout_width="match_parent" android:layout_height="match_parent">
+    <TextView android:id="@+id/active_view_button_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="美国手(默认)" android:layout_alignParentLeft="true" />
+    <ImageView android:id="@+id/active_view_button_image" android:background="@r$drawable/login_next" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentRight="true" />
+</RelativeLayout>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
+    <ListView android:id="@id/rr" android:background="@drawable/edittext_bg_normal_black" android:scrollbars="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:listSelector="0x106000d" android:cacheColorHint="0x0" android:divider="0x0" />
+</LinearLayout>

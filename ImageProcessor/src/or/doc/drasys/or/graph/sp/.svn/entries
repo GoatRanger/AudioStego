@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="33"
+   name=""
+   committed-date="2005-02-01T06:11:53.421875Z"
+   url="svn://192.168.2.2/ImageProcessor/src/or/doc/drasys/or/graph/sp"
+   last-author="Karl"
+   kind="dir"
+   uuid="0daf4267-3229-f84b-9084-f3c94b025f38"
+   revision="55"/>
+<entry
+   committed-rev="33"
+   name="Iterate.html"
+   text-time="2005-03-02T06:25:24.515625Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="e30f452b692205ba30923012fbfc2578"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:24.375000Z"/>
+<entry
+   committed-rev="33"
+   name="SingleVertexListenerI.html"
+   text-time="2005-03-02T06:25:24.531250Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="0952349aa768b0084323a3b85fdfc747"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:24.390625Z"/>
+<entry
+   committed-rev="33"
+   name="WS_FTP.LOG"
+   text-time="2005-03-02T06:25:24.546875Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="27041aeba4edb5b360f1a76a7203aeb2"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:24.406250Z"/>
+<entry
+   committed-rev="33"
+   name="AllPairsI.html"
+   text-time="2005-03-02T06:25:24.546875Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="8f8ee52a8cc86b1b77719b3969aaa5b0"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:24.421875Z"/>
+<entry
+   committed-rev="33"
+   name="Connections.html"
+   text-time="2005-03-02T06:25:24.562500Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="27b49dbfe3c87c38855d30bcc4b87eec"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:24.437500Z"/>
+<entry
+   committed-rev="33"
+   name="package-frame.html"
+   text-time="2005-03-02T06:25:24.562500Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="0d2e80e69ef90dcaec7a19a464afd2a6"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:24.437500Z"/>
+<entry
+   committed-rev="33"
+   name="package-summary.html"
+   text-time="2005-03-02T06:25:24.578125Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="db2b266016e314a9d3cbf82e3f3e5252"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:24.453125Z"/>
+<entry
+   committed-rev="33"
+   name="SingleVertexListenerAdapter.html"
+   text-time="2005-03-02T06:25:24.578125Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="6cc12109e1666671a8c7ac185467e057"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:24.468750Z"/>
+<entry
+   committed-rev="33"
+   name="package-tree.html"
+   text-time="2005-03-02T06:25:24.593750Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="c79518e375e899ba168bdf5291aabe17"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:24.484375Z"/>
+<entry
+   committed-rev="33"
+   name="SingleVertexI.html"
+   text-time="2005-03-02T06:25:24.593750Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="38e6cf8536babe0ac7b140d148b510c8"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:24.484375Z"/>
+<entry
+   committed-rev="33"
+   name="Dijkstra.html"
+   text-time="2005-03-02T06:25:24.609375Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="3a3030b39f1e25f697e7e6763104f9e2"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:24.500000Z"/>
+</wc-entries>

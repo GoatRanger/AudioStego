@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res-auto" phantom:layout_width="match_parent" phantom:layout_height="wrap_content">
+    <LinearLayout phantom:orientation="horizontal" phantom:layout_width="match_parent" phantom:layout_height="wrap_content" phantom:layout_marginLeft="@dimen/ft" phantom:layout_marginTop="@dimen/fj" phantom:layout_marginRight="@dimen/ft">
+        <include phantom:id="@+id/v2_new_academy_instruction_cview_child1" phantom:layout_width="UNKNOWN_DATA_0x1" phantom:layout_height="match_parent" phantom:layout_marginRight="@dimen/gw" phantom:layout_weight="1.0" layout="@layout/v2_new_academy_instruction_cview_child" />
+        <include phantom:id="@+id/v2_new_academy_instruction_cview_child2" phantom:layout_width="UNKNOWN_DATA_0x1" phantom:layout_height="match_parent" phantom:layout_marginRight="@dimen/gw" phantom:layout_weight="1.0" layout="@layout/v2_new_academy_instruction_cview_child" />
+        <include phantom:id="@+id/v2_new_academy_instruction_cview_child3" phantom:visibility="gone" phantom:layout_width="UNKNOWN_DATA_0x1" phantom:layout_height="match_parent" phantom:layout_marginRight="@dimen/gw" phantom:layout_weight="1.0" layout="@layout/v2_new_academy_instruction_cview_child" />
+        <include phantom:id="@+id/v2_new_academy_instruction_cview_child4" phantom:visibility="gone" phantom:layout_width="UNKNOWN_DATA_0x1" phantom:layout_height="match_parent" phantom:layout_marginRight="@dimen/gw" phantom:layout_weight="1.0" layout="@layout/v2_new_academy_instruction_cview_child" />
+        <include phantom:id="@+id/v2_new_academy_instruction_cview_child5" phantom:visibility="gone" phantom:layout_width="UNKNOWN_DATA_0x1" phantom:layout_height="match_parent" phantom:layout_marginRight="@dimen/gw" phantom:layout_weight="1.0" layout="@layout/v2_new_academy_instruction_cview_child" />
+    </LinearLayout>
+</RelativeLayout>

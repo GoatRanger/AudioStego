@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent">
+    <dji.publics.DJIUI.DJILinearLayout android:orientation="vertical" android:background="@r$drawable/account_dialog_bg" android:layout_width="UNKNOWN_DATA_0x7f0b02b6" android:layout_height="UNKNOWN_DATA_0x7f0b02b5" android:layout_centerInParent="true" android:showDividers="middle">
+        <dji.publics.DJIUI.DJITextView android:textSize="@dimen/sign_dialog_content_text" android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@+id/txt_content" android:paddingLeft="@dimen/sign_dialog_content_padding" android:paddingRight="@dimen/sign_dialog_content_padding" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x7f0b02b1" android:text="@string/account_email_not_found" android:allowUndo="true" />
+        <dji.publics.DJIUI.DJIImageView android:background="#979797" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x101" />
+        <dji.publics.DJIUI.DJILinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="match_parent" android:divider="#979797" android:showDividers="middle">
+            <dji.pilot.publics.widget.DJIStateButton android:textSize="@dimen/sign_dialog_btn_text" android:textColor="#4a90e2" android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@+id/btn_left" android:background="@color/j5" android:layout_width="match_parent" android:layout_height="match_parent" android:text="@string/account_sign_up_now" android:layout_weight="1.0" />
+            <dji.publics.DJIUI.DJIImageView android:background="#979797" android:layout_width="UNKNOWN_DATA_0x101" android:layout_height="match_parent" />
+            <dji.pilot.publics.widget.DJIStateButton android:textSize="@dimen/sign_dialog_btn_text" android:textColor="#4a90e2" android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@+id/btn_right" android:background="@color/j5" android:layout_width="match_parent" android:layout_height="match_parent" android:text="@string/account_dialog_dismiss" android:layout_weight="1.0" />
+        </dji.publics.DJIUI.DJILinearLayout>
+    </dji.publics.DJIUI.DJILinearLayout>
+</RelativeLayout>

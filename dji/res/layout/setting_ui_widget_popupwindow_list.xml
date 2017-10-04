@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:background="@drawable/setting_ui_spinner_btn_list_bg" android:layout_width="match_parent" android:layout_height="match_parent">
+    <ListView android:id="@id/byj" android:scrollbars="UNKNOWN_DATA_0x0" android:layout_width="match_parent" android:layout_height="wrap_content" android:listSelector="@drawable/setting_ui_trans" android:divider="0x0" />
+</LinearLayout>

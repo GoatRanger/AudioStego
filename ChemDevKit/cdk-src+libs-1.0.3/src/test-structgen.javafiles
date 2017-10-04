@@ -1,0 +1,10 @@
+org/openscience/cdk/test/MstructgenTests.java
+org/openscience/cdk/test/structgen/deterministic/GENMDeterministicGeneratorTest.java
+org/openscience/cdk/test/structgen/deterministic/EquivalentClassesDeterministicGeneratorTest.java
+org/openscience/cdk/test/structgen/stochastic/PartialFilledStructureMergerTest.java
+org/openscience/cdk/test/structgen/stochastic/operator/ChemGraphTest.java
+org/openscience/cdk/test/structgen/stochastic/operator/CrossoverMachineTest.java
+org/openscience/cdk/test/structgen/SingleStructureRandomGeneratorTest.java
+org/openscience/cdk/test/structgen/VicinitySamplerTest.java
+org/openscience/cdk/test/structgen/RandomStructureGeneratorTest.java
+org/openscience/cdk/test/StructgenCoverageTest.java

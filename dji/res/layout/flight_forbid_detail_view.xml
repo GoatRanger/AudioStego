@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.pilot.flyunlimit.view.NfzZoneDescView xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:layout_width="UNKNOWN_DATA_0x7f0b01d7" android:layout_height="UNKNOWN_DATA_0x7f0b01d6">
+    <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent">
+        <ImageView android:layout_gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@+id/flight_forbid_desc_zone_ico" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/g1" android:src="@r$drawable/yellow_zone_img" />
+        <TextView android:textStyle="bold" android:layout_gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@+id/flight_forbid_desc_zone_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/fj" android:text="@string/flight_forbid_yellow_zone_title" style="@style/GeoTitleTv" />
+        <ScrollView android:layout_width="wrap_content" android:layout_height="UNKNOWN_DATA_0x7f0b013e">
+            <dji.publics.DJIUI.DJITextView android:gravity="left|right|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@+id/flight_forbid_desc_tv" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x1" android:layout_margin="@dimen/ft" android:text="@string/flight_forbid_yellow_zone_desc_txt" android:layout_weight="1.0" style="@style/FlightForbidTv" />
+        </ScrollView>
+    </LinearLayout>
+    <View android:layout_above="@+id/flight_forbid_desc_ok" style="@style/GeoDlgHorDivider" />
+    <dji.pilot.publics.widget.DJIStateTextView android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:layout_gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@+id/flight_forbid_desc_ok" android:text="@string/app_enter" android:layout_alignParentBottom="true" style="@style/GeoDlgBottomBtn" />
+</dji.pilot.flyunlimit.view.NfzZoneDescView>

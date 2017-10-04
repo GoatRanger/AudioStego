@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="0x1020000">
+        <nine-patch android:src="@drawable/gs_slide" />
+    </item>
+    <item android:id="0x102000f">
+        <clip android:drawable="0x106000d" />
+    </item>
+    <item android:id="0x102000d">
+        <clip android:drawable="0x106000d" />
+    </item>
+</layer-list>

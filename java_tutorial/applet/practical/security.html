@@ -1,0 +1,227 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Security Restrictions</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#practical" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="ui.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Writing Applets
+<br>
+<b>Lesson</b>: Practical Considerations when Writing Applets
+</font>
+
+<h2>
+Security Restrictions
+</h2>
+<blockquote>
+One of the main goals of the Java environment
+is to make browser users feel secure running any applet.
+To achieve this goal, 
+we've started out conservatively,
+restricting capabilities perhaps more than necessary.
+As time passes,
+applets will probably get more and more abilities.
+
+<p>
+
+This page tells you about the current
+applet security restrictions,
+from the point of view of how they affect applet design.
+For more information on applet security,
+you should refer to Marianne Mueller's
+excellent document:
+<blockquote>
+
+<a target="_blank" href="http://java.sun.com/sfaq/"><font color="#009bbb">Frequently Asked Questions - Applet Security</font></a><a target="_blank" href="http://java.sun.com/sfaq/"><img src="../../images/otherIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (outside of the tutorial)"></a> </blockquote>
+
+<p>
+
+Each applet viewer has a <code>SecurityManager</code> object 
+that checks for applet security violations.
+When a <code>SecurityManager</code> detects a violation,
+it creates and throws a <code>SecurityException</code> object.
+Generally, the <code>SecurityException</code> constructor
+prints a warning message to the standard output.
+An applet can catch <code>SecurityException</code>s and react appropriately,
+such as by reassuring the user
+and by resorting to a "safer" (but less ideal) way
+of accomplishing the task.
+
+<p>
+
+Some applet viewers swallow some <code>SecurityException</code>s,
+so that the applet never gets the <code>SecurityException</code>.
+For example, the JDK Applet Viewer's
+implementation of the <code>AppletContext</code>
+<code>getApplet</code> and
+<code>getApplets</code> methods
+simply catches and ignores any <code>SecurityException</code>s.
+The user can see an error message in the standard output, 
+but at least the applet gets a valid result from the methods.
+This makes some sense, 
+since <code>getApplets</code>
+should be able to return any valid applets it finds,
+even if it encounters invalid ones.
+(The Applet Viewer considers an applet valid
+if it's loaded
+from the same host as the applet that's calling
+<code>getApplets</code>.)
+
+<p>
+
+To learn about security managers
+and the kinds of security violations
+they can check for, see 
+<a target="_top" href="../../essential/system/securityIntro.html">Introducing the Security Manager</a><a target="_top" href="../../essential/system/securityIntro.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Writing Applets trail)"></a>.
+
+<p>
+
+As the applet overview lesson mentioned, 
+existing applet viewers 
+(including Web browsers)
+impose the following restrictions:
+<dl>
+<dt> <strong>Applets cannot load libraries or define native methods.</strong>
+<dd> Applets can use only their own Java code 
+     and the Java API the applet viewer provides.
+     At a minimum, each applet viewer must provide
+     access to the API defined in the
+     <code>java.*</code> packages.
+     <p>
+<dt> <strong>An applet cannot ordinarily read or write files
+     on the host that is executing it.</strong>
+<dd> The JDK Applet Viewer actually permits some user-specified exceptions
+     to this rule,
+     but Netscape Navigator 2.0, for example, does not.
+     Applets in any applet viewer
+     <em>can</em> read files specified with full URLs,
+     instead of by a filename.
+     A workaround for not being to write files
+     is to have the applet forward data 
+     to an application on the host the applet came from.
+     This application can write the data files on its own host.
+     See
+     <a href="server.html">Working with a Server-Side Application</a>
+     for more examples.
+     <p>
+<dt> <strong>An applet cannot make network connections
+     except to the host that it came from.</strong>
+<dd> The workaround for this restriction
+     is to have the applet work with an application
+     on the host it came from.
+     The application can make its own connections anywhere on the network.
+     See
+     <a href="workaround.html">Using a Server to Work Around Security Restrictions</a>
+     for an example.
+     <p>
+<dt> <strong>An applet cannot start any program on the host that is executing it.</strong>
+<dd> Again, an applet can work with a server-side application
+     instead.
+     <p>
+<dt> <strong>An applet cannot read certain system properties.</strong>
+<dd> See 
+     <a href="properties.html">Reading System Properties</a>
+     for more information.
+     <p>
+<dt> <strong>Windows that an applet brings up
+     look different than windows that an application brings up.</strong>
+<dd> Applet windows have some warning text
+     and either a colored bar or an image.
+     This helps the user distinguish applet windows 
+     from those of trusted applications.
+     <p>
+     The following figures show a window brought up
+     by a program that can run either as an applet or as an application.
+     The first figure shows what the window looks like
+     when the program is run as an application on the Solaris platform.
+     The second figure shows the window
+     when the program runs as an applet
+     within the Solaris Netscape Navigator 2.0 browser.
+
+<p><center><a href="../../figures/applet/15flowap.gif" target="_top"><IMG SRC="../../figures/applet/15flowap.gif" WIDTH="460" HEIGHT="72" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></a><br><em>This figure has been reduced to fit on the page. <br> Click the image to view it at its natural size.</em></center></p>
+
+<p><center><a href="../../figures/applet/16flowl.gif" target="_top"><IMG SRC="../../figures/applet/16flowl.gif" WIDTH="460" HEIGHT="94" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></a><br><em>This figure has been reduced to fit on the page. <br> Click the image to view it at its natural size.</em></center></p>
+     <p>
+     As you can see, 
+     the applet window has a warning.
+</dl>
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#practical" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="ui.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

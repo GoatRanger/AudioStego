@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent"
+    <LinearLayout android:gravity="top|bottom|center_vertical|fill_vertical|center|fill" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="match_parent">
+        <TextView android:gravity="top|bottom|center_vertical|fill_vertical|center|fill" android:id="@id/q6" android:text="test" style="@style/fl" />
+        <RadioGroup android:id="@id/bm9" android:layout_marginRight="@dimen/a4p" style="@style/fq">
+            <RadioButton android:id="@id/bm_" android:background="@drawable/set_radio_left_bg" android:layout_width="UNKNOWN_DATA_0x7f0b04a0" android:text="test" style="@style/fe" />
+            <View style="@style/fg" />
+            <RadioButton android:id="@id/bma" android:background="@drawable/set_radio_right_bg" android:layout_width="UNKNOWN_DATA_0x7f0b04a0" android:text="test" style="@style/fe" />
+        </RadioGroup>
+    </LinearLayout>
+    <View android:id="@id/q9" android:layout_below="@id/q6" style="@style/fc" />
+</LinearLayout>

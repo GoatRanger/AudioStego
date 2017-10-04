@@ -1,0 +1,169 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Locking an Object</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="synchronization.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#threads" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="reentrant.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Essential Java Classes
+<br>
+<b>Lesson</b>: Threads: Doing Two or More Tasks At Once
+</font>
+
+<h2>
+Locking an Object
+</h2>
+<blockquote>
+The code segments within a program that access the same object from
+separate, concurrent threads are called <em>critical sections</em>.
+In the Java
+language, a critical section can be a block or a method and are
+identified with the <code>synchronized</code> keyword.
+The Java platform then
+associates a lock with every object that has synchronized code.
+
+<p>
+In the producer/consumer example, the <code>put</code> and
+<code>get</code> methods of the <code>CubbyHole</code> are
+the critical sections. The <code>Consumer</code> should not access the
+<code>CubbyHole</code> when the <code>Producer</code> is changing it,
+and the <code>Producer</code> should not modify it when the
+<code>Consumer</code> is getting the value. So <code>put</code> and
+<code>get</code> in the <code>CubbyHole</code> class should be marked
+with the <code>synchronized</code> keyword.
+<p>
+Here's a code skeleton for the <code>CubbyHole</code> class: 
+<blockquote><pre>
+public class CubbyHole {
+    private int contents;
+    private boolean available = false;
+
+    public synchronized int get() {
+        ...
+    }
+
+    public synchronized void put(int value) {
+        ...
+    }
+}
+</pre></blockquote>
+Note that the method declarations for both <code>put</code> and
+<code>get</code> contain the <code>synchronized</code> keyword.
+ Hence, the system
+associates a unique lock with every instance of <code>CubbyHole</code>
+(including the one shared by the <code>Producer</code> and the
+<code>Consumer</code>). Whenever control enters a synchronized method,
+the thread that called the method locks the object whose method has
+been called. Other threads cannot call a synchronized method on the
+same object until the object is unlocked.
+<p>
+So, when the <code>Producer</code> calls <code>CubbyHole</code>'s
+<code>put</code> method, it locks the <code>CubbyHole</code>, thereby
+preventing the <code>Consumer</code> from calling the
+<code>CubbyHole</code>'s <code>get</code> method:
+<blockquote><pre>
+public synchronized void put(int value) {
+    // CubbyHole locked by the Producer
+    ..
+    // CubbyHole unlocked by the Producer
+}
+</pre></blockquote>
+When the <code>put</code> method returns, the <code>Producer</code>
+unlocks the <code>CubbyHole</code>.
+<p>
+Similarly, when the <code>Consumer</code> calls
+<code>CubbyHole</code>'s <code>get</code> method, it locks the
+<code>CubbyHole</code>, thereby preventing the <code>Producer</code>
+from calling <code>put</code>:
+<blockquote><pre>
+public synchronized int get() {
+    // CubbyHole locked by the Consumer
+    ...
+    // CubbyHole unlocked by the Consumer
+}
+</pre></blockquote>
+The acquisition and release of a lock is done automatically and
+atomically by the Java runtime system. This ensures that race
+conditions cannot occur in the underlying implementation of the
+threads, thus ensuring data integrity.
+Synchronization isn't the whole story. The two threads must also be able to notify one another when they've done their job. Learn more about that after a brief foray into reentrant locks.
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="synchronization.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#threads" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="reentrant.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

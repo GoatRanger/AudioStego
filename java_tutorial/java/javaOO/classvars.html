@@ -1,0 +1,458 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Understanding Instance and Class Members</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="accesscontrol.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#javaOO" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="QandE/creating-questions.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Learning the Java Language
+<br>
+<b>Lesson</b>: Classes and Inheritance
+</font>
+
+<h2>
+Understanding Instance and Class Members
+</h2>
+<blockquote>
+
+When you declare a member variable such as
+<code>aFloat</code> in <code>MyClass</code>: </P>
+
+<blockquote><pre>
+class MyClass {
+    float aFloat;
+}
+</pre></blockquote>
+
+<P>you declare an <I>instance variable</I>. Every time you create an instance
+of a class, the runtime system creates one copy of each class's instance
+variables for the instance. You can access an object's instance variables
+from an object as described in
+<a target="_top" href="../data/usingobject.html">Using Objects</a><a target="_top" href="../data/usingobject.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Learning the Java Language trail)"></a>.
+</P>
+
+<P>Instance variables are in contrast to <I>class variables</I> (which
+you declare using the <code>static</code> modifier). The runtime system allocates
+class variables once per class regardless of the number of instances created
+of that class. The system allocates memory for class variables the first
+time it encounters the class. All instances share the same copy of the
+class's class variables. You can access class variables through an instance
+or through the class itself. </P>
+
+<P>Methods are similar: Your classes can have instance methods and class
+methods. Instance methods operate on the current object's instance variables
+but also have access to the class variables. Class methods, on the other
+hand, cannot access the instance variables declared within the class (unless
+they create a new object and access them through the object). Also, class
+methods can be invoked on the class, you don't need an instance to call
+a class method. </P>
+
+<P>By default, unless otherwise specified, a member declared within a class
+is an instance member. The class defined below has one instance variable--an
+integer named <code>x</code>--and two instance methods--<code>x</code> and <code>setX</code>--that let
+other objects set and query the value of <code>x</code>: </P>
+
+<blockquote><pre>
+class AnIntegerNamedX {
+    int x;
+    public int x() {
+        return x;
+    }
+    public void setX(int newX) {
+        x = newX;
+    }
+}
+</pre></blockquote>
+
+<P>Every time you instantiate a new object from a class, you get a new
+copy of each of the class's instance variables. These copies are associated
+with the new object. So, every time you instantiate a new <code>AnIntegerNamedX</code>
+object from the class, you get a new copy of x that is associated with
+the new <code>AnIntegerNamedX</code> object. </P>
+
+<P>All instances of a class share the same implementation of an instance
+method; all instances of <code>AnIntegerNamedX</code> share the same implementation
+of <code>x</code> and <code>setX</code>. Note that both methods, <code>x</code> and <code>setX</code>,
+refer to the object's instance variable <code>x</code> by name. &quot;But&quot;,
+you ask, &quot;if all instances of AnIntegerNamedX share the same implementation
+of <code>x</code> and <code>setX</code> isn't this ambiguous?&quot; The answer
+is &quot;no.&quot; Within an instance method, the name of an instance variable
+refers to the current object's instance variable, assuming that the instance
+variable isn't hidden by a method parameter. So, within <code>x</code> and
+<code>setX</code>, <code>x</code> is equivalent to <code>this.x</code>. </P>
+
+<P>Objects outside of <code>AnIntegerNamedX</code> that wish to access <code>x</code>
+must do so through a particular instance of <code>AnIntegerNamedX</code>. Suppose
+that this code snippet was in another object's method. It creates two different
+objects of type <code>AnIntegerNamedX</code>, sets their <code>x</code> values
+to different values, <A NAME="snippet"></A>then displays them: </P>
+
+<blockquote><pre>
+. . .
+AnIntegerNamedX myX = new AnIntegerNamedX();
+AnIntegerNamedX anotherX = new AnIntegerNamedX();
+myX.setX(1);
+anotherX.x = 2;
+System.out.println(&quot;myX.x = &quot; + myX.x());
+System.out.println(&quot;anotherX.x = &quot; + anotherX.x());
+. . .
+</pre></blockquote>
+
+<P>Notice that the code used <code>setX</code> to set the <code>x</code> value
+for <code>myX</code> but just assigned a value to <code>anotherX.x</code> directly.
+Either way, the code is manipulating two different copies of <code>x</code>:
+the one contained in the <code>myX</code> object and the one contained in the
+<code>anotherX</code> object. The output produced by this code snippet is:
+</P>
+
+<blockquote><pre>
+myX.x = 1
+anotherX.x = 2
+</pre></blockquote>
+
+<P>showing that each instance of the class <code>AnIntegerNamedX</code> has
+its own copy of the instance variable <code>x</code> and each <code>x</code> has
+a different value. </P>
+
+<P>You can, when declaring a member variable, specify that the variable
+is a class variable rather than an instance variable. Similarly, you can specify
+that a method is a class method rather than an instance method. The system
+creates a single copy of a class variable the first time it encounters
+the class in which the variable is defined. All instances of that class
+share the same copy of the class variable. Class methods can only operate
+on class variables--they cannot access the instance variables defined in
+the class. </P>
+
+<P>To specify that a member variable is a class variable, use the <code>static</code>
+keyword. For example, let's change the <code>AnIntegerNamedX</code> class such
+that its <code>x</code> variable is now a class variable: </P>
+
+<blockquote><pre>
+class AnIntegerNamedX {
+    static int x;
+    public int x() {
+        return x;
+    }
+    public void setX(int newX) {
+        x = newX;
+    }
+}
+</pre></blockquote>
+
+<P>Now the exact same code snippet <A HREF="#snippet">from before</A> that
+creates two instances of AnIntegerNamedX, sets their <code>x</code> values,
+and then displays them produces this, different, output. </P>
+
+<blockquote><pre>
+myX.x = 2
+anotherX.x = 2
+</pre></blockquote>
+
+<P>The output is different because <code>x</code> is now a class variable so
+there is only one copy of the variable and it is shared by all instances
+of <code>AnIntegerNamedX</code>, including <code>myX</code> and <code>anotherX</code>.
+When you invoke <code>setX</code> on either instance, you change the value
+of <code>x</code> for all instances of <code>AnIntegerNamedX</code>. </P>
+
+<P>You use class variables for items that you need only one copy of and
+which must be accessible by all objects inheriting from the class in which
+the variable is declared. For example, class variables are often used with
+<code>final</code> to define constants; this is more memory efficient than
+final instance variables because constants can't change, so you really
+only need one copy). </P>
+
+<P>Similarly, when declaring a method, you can specify that method to be
+a class method rather than an instance method. Class methods can only operate
+on class variables and cannot access the instance variables defined in
+the class. </P>
+
+<P>To specify that a method is a class method, use the <code>static</code>
+keyword in the method declaration. Let's change the <code>AnIntegerNamedX
+</code>class such that its member variable <code>x</code> is once again an instance
+variable, and its two methods are now class methods: </P>
+
+<blockquote><pre>
+class AnIntegerNamedX {
+    int x;
+    static public int x() {
+        return x;
+    }
+    static public void setX(int newX) {
+        x = newX;
+    }
+}
+</pre></blockquote>
+
+<P>When you try to compile this version of AnIntegerNamedX,
+the compiler displays an error like this one: </P>
+
+<blockquote><pre>
+AnIntegerNamedX.java:4: Can't make a static reference to
+nonstatic variable x in class AnIntegerNamedX.
+        return x;
+               ^ 
+</pre></blockquote>
+
+<P>This is because class methods cannot access instance variables unless
+the method created an instance of <code>AnIntegerNamedX</code> first and accessed
+the variable through it. </P>
+
+<P>Let's fix <code>AnIntegerNamedX</code> by making its <code>x</code> variable
+a class variable: </P>
+
+<blockquote><pre>
+class AnIntegerNamedX {
+    static int x;
+    static public int x() {
+        return x;
+    }
+    static public void setX(int newX) {
+        x = newX;
+    }
+}
+</pre></blockquote>
+
+<P>Now the class will compile and the same code snippet <A HREF="#snippet">from
+before</A> that creates two instances of <code>AnIntegerNamedX</code>, sets
+their <code>x</code> values, and then prints the <code>x</code> values produces
+this output: </P>
+
+<blockquote><pre>
+myX.x = 2
+anotherX.x = 2
+</pre></blockquote>
+
+<P>Again, changing <code>x</code> through <code>myX</code> also changes it for
+other instances of <code>AnIntegerNamedX</code>. </P>
+
+<P>Another difference between instance members and class members is that
+class members are accessible from the class itself. You don't need to instantiate
+a class to access its class members. Let's rewrite the code snippet <A HREF="#snippet">from
+before</A> to access <code>x</code> and <code>setX</code> directly from the <code>AnIntegerNamedX</code>
+class: </P>
+
+<blockquote><pre>
+. . .
+AnIntegerNamedX.setX(1);
+System.out.println(&quot;AnIntegerNamedX.x = &quot; + AnIntegerNamedX.x());
+. . .
+</pre></blockquote>
+
+<P>Notice that you no longer have to create <code>myX</code> and <code>anotherX</code>.
+You can set <code>x</code> and retrieve <code>x</code> directly from the <code>AnIntegerNamedX</code>
+class. You cannot do this with instance members, you can only invoke instance
+methods from an object and can only access instance variables from an object.
+You can access class variables and methods either from an instance of the
+class or from the class itself. 
+
+<a name="initializing">
+</blockquote>
+<h3>Initializing Instance and Class Members</h3>
+</a>
+<blockquote>
+You can use static initializers and instance initializers to provide
+initial values for class and instance members when you declare them in
+a class:
+<blockquote><pre>
+class BedAndBreakfast {
+    static final int MAX_CAPACITY = 10;
+    boolean full = false;
+}
+</pre></blockquote>
+This works well for members of primitive data type. Sometimes, it even
+works when creating arrays and objects. But this form of initialization
+has limitations, as follows:
+<ol>
+<li>
+Initializers can perform only initializations that can be expressed in
+an assignment statement.
+<li>
+Initializers cannot call any method that can throw a checked
+exception.
+<li>
+If the initializer calls a method that throws a runtime exception, then
+it cannot do error recovery.
+</ol>
+If you have some initialization to perform that cannot be done in an
+initializer because of one of these limitations, you have to put the
+initialization code elsewhere. To initialize class members, put the
+initialization code in a static initialization block. To initialize
+instance members, put the initialization code in a constructor.
+
+<h3>Using Static Initialization Blocks</h3>
+Here's an example of a static initialization block:
+
+<p><center><IMG SRC="../../figures/java/errors.gif" WIDTH="348" HEIGHT="196" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p>
+The <code>errorStrings</code> resource bundle must be initialized in a
+static initialization block. This is because error recovery must be
+performed if the bundle cannot be found. Also, <code>errorStrings</code>
+is a class member and it doesn't make sense for it to be initialized in a
+constructor. As the previous example shows, a static initialization
+block begins with the <code>static</code> keyword
+and is a normal block of Java code
+enclosed in curly braces {}.
+<p>
+A class can have any number of static initialization blocks that appear
+anywhere in the class body. The runtime system guarantees that static
+initialization blocks and static initializers are called in the order
+(left-to-right, top-to-bottom) that they appear in the source code.
+<p>
+
+<h3>Initializing Instance Members</h3>
+If you want to initialize an instance variable and cannot do it in the
+variable declaration for the reasons cited previously, then put the
+initialization in the constructor(s) for the class. Suppose the
+<code>errorStrings</code> bundle in the previous example
+is an instance variable
+rather than a class variable. Then you'd use the following code to
+initialize it:
+<blockquote><pre>
+import java.util.ResourceBundle;
+class Errors {
+    ResourceBundle errorStrings;
+    Errors() {
+        try {
+            errorStrings = ResourceBundle.
+                               getBundle(&quot;ErrorStrings&quot;);
+        } catch (java.util.MissingResourceException e) {
+            // error recovery code here
+        }
+    }
+}
+</pre></blockquote>
+The code that initializes <code>errorStrings</code>
+is now in a constructor for the class.
+<p>
+Sometimes a class contains many constructors and each constructor
+allows the caller to provide initial values for different instance
+variables of the new object. For example, <code>java.awt.Rectangle</code>
+has these three constructors:
+<blockquote><pre>
+Rectangle();
+Rectangle(int width, int height);
+Rectangle(int x, int y, int width, int height);
+</pre></blockquote>
+The no-argument constructor doesn't let the caller provide initial values
+for anything, and the other two constructors let the caller set initial
+values either for the size or for the origin and size. Yet, all of
+the instance variables, the origin and the size,
+for <code>Rectangle</code> must be
+initialized. In this case, classes often have one constructor that does
+all of the work. The other constructors call this constructor and
+provide it either with the values from their parameters or with default
+values. For example, here are the possible implementations of the three
+<code>Rectangle</code> constructors shown previously
+(assume <code>x</code>, <code>y</code>,
+<code>width</code>, and <code>height</code>
+are the names of the instance variables to be initialized):
+<blockquote><pre>
+Rectangle() {
+    this(0,0,0,0);
+}
+Rectangle(int width, int height) {
+    this(0,0,width,height);
+}
+Rectangle(int x, int y, int width, int height) {
+    this.x = x;
+    this.y = y;
+    this.width = width;
+    this.height = height;
+}
+</pre></blockquote>
+The Java language supports instance initialization blocks, which you
+could use instead. However, these are intended to be used with
+anonymous classes, which cannot declare constructors.
+<p>
+The approach described here that uses constructors is better for these reasons:
+<ul>
+<li>
+All of the initialization code is in one place, thus making the code
+easier to maintain and read.
+<li>
+Defaults are handled explicitly.
+<li>
+Constructors are widely understood by the Java community, including
+relatively new Java programmers, while instance initializers are not
+and may cause confusion to others reading your code.
+</ul>
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="accesscontrol.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#javaOO" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="QandE/creating-questions.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

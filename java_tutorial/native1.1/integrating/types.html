@@ -1,0 +1,174 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Mapping Between Java and Native Types</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="declare.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#integrating" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="../implementing/index.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Java Native Interface
+<br>
+<b>Lesson</b>: Integrating Java and Native Programs
+</font>
+
+<h2>
+Mapping Between Java and Native Types
+</h2>
+<blockquote>
+
+In this section, you will learn how to reference Java types in your
+native method. You need to do this when you want to:
+<ul>
+<li>Access arguments
+passed in to a native method from a Java application.</li>
+<li> Create Java objects in your native method.</li>
+<li> Have your native method return results to
+the caller.</li>
+</ul>
+
+</blockquote>
+<h3>Java Primitive Types</h3>
+
+<p> Your native method can directly access Java <strong>primitive</strong>
+types such as booleans, integers, floats, and so on, that are passed
+from programs written in Java. For example, the Java type <code>boolean</code> maps to the
+native language type <code>jboolean</code> (represented as unsigned 8 bits), while the Java type <code>float</code> maps to the native language type <code>jfloat</code> (represented by 32
+bits). The following table describes the mapping of Java primitive
+types to native types.
+
+<blockquote>
+<h5>Primitive Types and Native Equivalents</h5>
+<table border=1>
+  <tr>
+     <td>Java Type</td><td>  Native Type</td><td>Size in bits</td> 
+  </tr>
+     <td><code>boolean</code></td><td>  <code>jboolean</code></td><td>8, unsigned</td> 
+  </tr>
+     <td><code>byte</code></td><td>  <code>jbyte</code></td><td>8</td> 
+  </tr>
+     <td><code>char</code></td><td>  <code>jchar</code></td><td>16, unsigned</td> 
+  </tr>
+     <td><code>short</code></td><td>  <code>jshort</code></td><td>16</td> 
+  </tr>
+     <td><code>int</code></td><td>  <code>jint</code></td><td>32</td> 
+  </tr>
+     <td><code>long</code></td><td> <code>jlong</code></td><td>64</td> 
+  </tr>
+     <td><code>float</code></td><td>  <code>jfloat</code></td><td>32</td> 
+  </tr>
+     <td><code>double</code></td><td>  <code>jdouble</code></td><td>64</td> 
+  </tr>
+     <td><code>void</code></td><td>  <code>void</code></td><td>n/a</td> 
+  </tr>
+</table>
+</blockquote>
+
+<h3>Java Object Types</h3>
+
+<p>
+Java objects are passed by reference. All references to Java objects have the 
+type <code>jobject</code>. For convenience and to avoid programming errors, the JNI implements a set of types that are conceptually all subclassed from (or are "subtypes" of) <code>jobject</code>, as follows:
+
+
+<p><center><IMG SRC="../../figures/native1.1/native5.gif" WIDTH="618" HEIGHT="270" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p>
+
+<p>In our <code>Prompt.java</code> example, the native method
+<code>getLine</code> takes a Java string as an argument and returns a Java string:
+<blockquote><pre>
+private native String getLine(String prompt);
+</pre></blockquote>
+
+ Its
+corresponding native implementation has type <code>jstring</code> for both the argument and the return value:
+
+<blockquote><pre>
+JNIEXPORT jstring JNICALL
+    Java_Prompt_getLine(JNIEnv *, jobject, jstring);
+</pre></blockquote>
+
+<p>
+Graphically, this looks as follows:
+
+<p><center><IMG SRC="../../figures/native1.1/getLine.gif" WIDTH="586 " HEIGHT="82" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p>
+As mentioned above, <code>jstring</code> corresponds to the Java type
+<code>String</code>. Notice that the second argument to <code>Java_Prompt_getLine</code>, which is the reference to the object
+itself, has type <code>jobject</code>.
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="declare.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#integrating" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="../implementing/index.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

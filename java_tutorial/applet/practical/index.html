@@ -1,0 +1,149 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Practical Considerations when Writing Applets</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="../appletsonly/index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#practical" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="security.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+
+<br>
+<font size="-1">
+<b>Trail</b>: Writing Applets
+</font>
+
+<h2>
+Lesson: Practical Considerations when Writing Applets
+</h2>
+<blockquote>
+The first two lessons in this trail discussed
+all of the applet-specific API.
+However, most applets rely on a lot of API
+that isn't specific to applets.
+This lesson gives you hints
+about using the Java API,
+covering the areas
+that are affected by applets' close relationships with browsers.
+
+<p>
+
+<a href="security.html">Security Restrictions</a>
+lists the security restrictions
+that untrusted applets face.
+It also describes some ways to get around the restrictions.
+
+<p>
+
+<a href="ui.html">Creating a User Interface</a> 
+discusses the elements of an applet's UI.
+It then goes on to give hints
+for creating a GUI and creating debugging output
+using the standard output and standard error streams.
+
+<p>
+
+<a href="properties.html">Getting System Properties</a> 
+discusses the system properties
+that an applet can get
+to find out about its environment.
+It includes an example applet
+that displays the ten properties applets can get.
+It also lists some properties that applets typically can't get.
+
+<p>
+
+<a href="threads.html">Threads in Applets</a>
+delves deeply into the issues 
+of using threads in applets.
+A thread -- sometimes called an execution context
+or a lightweight process --
+is a single sequential flow of control
+within a process.
+Even the simplest applets run in multiple threads,
+although it's not always apparent.
+Many applets create and use their own threads
+so that they perform well
+without affecting the performance
+of the browser they run in
+or the performance of other applets.
+
+<p>
+
+<a href="server.html">Working with a Server-Side Application</a>
+shows how even untrusted applets
+can use networking code 
+to communicate with programs
+running on the host from which they came.
+
+</blockquote>
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="../appletsonly/index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#practical" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="security.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

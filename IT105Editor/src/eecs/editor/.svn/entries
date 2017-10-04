@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="53"
+   name=""
+   committed-date="2005-02-25T22:16:45.420625Z"
+   url="svn://192.168.2.2/IT105Editor/src/eecs/editor"
+   last-author="karl"
+   kind="dir"
+   uuid="0daf4267-3229-f84b-9084-f3c94b025f38"
+   revision="55"/>
+<entry
+   committed-rev="53"
+   name="editor.properties"
+   text-time="2005-03-02T06:14:20.375000Z"
+   committed-date="2005-02-25T22:16:45.420625Z"
+   checksum="68882a84cdbbbbbf8c344b4abf4ae273"
+   last-author="karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:18.812500Z"/>
+<entry
+   name="language"
+   kind="dir"/>
+<entry
+   name="text"
+   kind="dir"/>
+<entry
+   committed-rev="10"
+   name="PropertyDialog.java"
+   text-time="2005-03-02T06:14:20.421875Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="b4f3ccce6858b794c69fd6ef49357046"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:19.125000Z"/>
+<entry
+   committed-rev="53"
+   name="EditPanel.java"
+   text-time="2005-03-02T06:14:20.421875Z"
+   committed-date="2005-02-25T22:16:45.420625Z"
+   checksum="1e74c090727ef7d28d7281799fb3083d"
+   last-author="karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:19.328125Z"/>
+<entry
+   committed-rev="53"
+   name="Messages.java"
+   text-time="2005-03-02T06:14:20.453125Z"
+   committed-date="2005-02-25T22:16:45.420625Z"
+   checksum="4eb9b269881db02862309a27fccae746"
+   last-author="karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:19.937500Z"/>
+<entry
+   name="CVS"
+   kind="dir"/>
+<entry
+   committed-rev="10"
+   name="package.html"
+   text-time="2005-03-02T06:14:20.500000Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="7b31e7a02beed3598fe308e106dee53a"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:20.343750Z"/>
+<entry
+   committed-rev="10"
+   name="GenericFileFilter.java"
+   text-time="2005-03-02T06:14:20.390625Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="a79eed6a2390e127ebdd883afc43bc4d"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:18.828125Z"/>
+<entry
+   committed-rev="10"
+   name="EditableTextPane.java"
+   text-time="2005-03-02T06:14:20.406250Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="88d6331a51f85b4b8c93f14c244a3365"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:18.843750Z"/>
+<entry
+   name="images"
+   kind="dir"/>
+<entry
+   committed-rev="56"
+   name="Editor.java"
+   text-time="2005-03-02T07:23:28.718750Z"
+   committed-date="2005-03-02T07:41:27.156250Z"
+   checksum="e33ea1ab6ea9e85c1010b2813c40a4d2"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:19.921875Z"
+   revision="56"/>
+<entry
+   committed-rev="10"
+   name="catalog.xml"
+   text-time="2005-03-02T06:14:20.468750Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="ff4cc001236d2432aafe1ea186d71fd3"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:19.937500Z"/>
+<entry
+   committed-rev="10"
+   name="ReplaceDialog.java"
+   text-time="2005-03-02T06:14:20.484375Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="0cf3d134f3edb5f888c2557c70aa6ec3"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:19.953125Z"/>
+<entry
+   name="util"
+   kind="dir"/>
+</wc-entries>

@@ -1,0 +1,268 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Checklist</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="steps.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#intro" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="../locale/index.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Internationalization
+<br>
+<b>Lesson</b>: Introduction
+</font>
+
+<h2>
+Checklist
+</h2>
+<blockquote>
+Many programs are not internationalized when first written. These
+programs may have started as prototypes, or perhaps they were not
+intended for international distribution. If you must internationalize
+an existing program, take the following steps:
+
+</blockquote>
+<h3>Identify Culturally Dependent Data</h3>
+<blockquote>
+Text messages are the most obvious form of data that varies with
+culture. However, other types of data may vary with region or language.
+The following list contains examples of culturally dependent data:
+<UL>
+<LI> Messages
+<LI> Labels on GUI components
+<LI> Online help
+<LI> Sounds
+<LI> Colors
+<LI> Graphics
+<LI> Icons
+<LI> Dates
+<LI> Times
+<LI> Numbers
+<LI> Currencies
+<LI> Measurements
+<LI> Phone numbers
+<LI> Honorifics and personal titles
+<LI> Postal addresses
+<LI> Page layouts
+</UL>
+</blockquote>
+
+<h3>Isolate Translatable Text in Resource Bundles</h3>
+<blockquote>
+Translation is costly. You can help reduce costs by isolating the text
+that must be translated in <CODE>ResourceBundle</CODE> objects.
+Translatable text includes status messages, error messages, log file
+entries, and GUI component labels. This text is hardcoded into programs
+that haven't been internationalized. You need to locate all occurrences
+of hardcoded text that is displayed to end users. For example, you
+should clean up code like this:
+<blockquote><pre>
+String buttonLabel = &quot;OK&quot;;
+...
+JButton okButton = new JButton(buttonLabel);
+</pre></blockquote>
+<P>
+See the section
+<A HREF="../resbundle/index.html">Isolating Locale-Specific Data</A>
+for details. 
+</blockquote>
+
+<h3> Deal with Compound Messages</h3>
+<blockquote>
+Compound messages contain variable data. In the message &quot;The disk
+contains 1100 files.&quot; the integer 1100 may vary. This message is
+difficult to translate because the position of the integer in the
+sentence is not the same in all languages. The following message is not
+translatable, because the order of the sentence elements is hardcoded
+by concatenation:
+<blockquote><pre>
+Integer fileCount;
+...
+String diskStatus = &quot;The disk contains &quot; + fileCount.toString() 
+                    + &quot; files.&quot;;
+</pre></blockquote>
+
+Whenever possible, you should avoid constructing compound messages,
+because they are difficult to translate. However, if your application
+requires compound messages, you can handle them with the techniques
+described in the section
+<A HREF="../format/messageintro.html">Messages</A>. 
+</blockquote>
+
+<h3>Format Numbers and Currencies</h3>
+<blockquote>
+
+If your application displays numbers and currencies, you must format
+them in a locale-independent manner. The following code is not yet
+internationalized, because it will not display the number correctly in
+all countries:
+<blockquote><pre>
+Double amount;
+TextField amountField;
+...
+String displayAmount = amount.toString();
+amountField.setText(displayAmount);
+</pre></blockquote>
+<P>
+You should replace the preceding code with a routine that formats the
+number correctly. The Java programming language provides several
+classes that format numbers and currencies. These classes are discussed
+in the section
+<A HREF="../format/numberintro.html">Numbers and Currencies</A>. 
+</blockquote>
+
+<h3>Format Dates and Times</h3>
+<blockquote>
+Date and time formats differ with region and language. If your code
+contains statements like the following, you need to change it:
+<blockquote><pre>
+Date currentDate = new Date();
+TextField dateField;
+...
+String dateString = currentDate.toString();
+dateField.setText(dateString);
+</pre></blockquote>
+<P>
+If you use the date-formatting classes, your application can display
+dates and times correctly around the world. For examples and
+instructions, see the section
+<A HREF="../format/dateintro.html">Dates and Times</A>. 
+</blockquote>
+
+<h3>Use Unicode Character Properties</h3>
+<blockquote>
+The following code tries to verify that a character is a letter: 
+<blockquote><pre>
+char ch;
+...
+if ((ch &gt;= 'a' &amp;&amp; ch &lt;= 'z') || 
+    (ch &gt;= 'A' &amp;&amp; ch &lt;= 'Z'))       // WRONG!
+</pre></blockquote>
+
+Watch out for code like this, because it won't work with languages
+other than English. For example, the <CODE>if</CODE> statement misses
+the character &uuml; in the German word Gr&uuml;n.
+
+<P>
+The <CODE>Character</CODE> comparison methods use the Unicode standard
+to identify character properties. Thus you should replace the previous
+code with the following:
+<blockquote><pre>
+char ch;
+...
+if (Character.isLetter(ch))
+</pre></blockquote>
+For more information on the <CODE>Character</CODE> comparison methods,
+see the section
+<A HREF="../text/charintro.html">Checking Character Properties</A>. 
+</blockquote>
+
+<h3>Compare Strings Properly</h3>
+<blockquote>
+When sorting text you often compare strings. If the text is displayed,
+you shouldn't use the comparison methods of the <CODE>String</CODE>
+class. A program that hasn't been internationalized might compare
+strings as follows:
+<blockquote><pre>
+String target;
+String candidate;
+...
+if (target.equals(candidate)) {
+...
+if (target.compareTo(candidate) &lt; 0) {
+...
+</pre></blockquote>
+<P>
+The <CODE>String.equals</CODE> and <CODE>String.compareTo</CODE>
+methods perform binary comparisons, which are ineffective when sorting
+in most languages. Instead you should use the <CODE>Collator</CODE>
+class, which is described in the section
+<A HREF="../text/collationintro.html">Comparing Strings</A>. 
+</blockquote>
+
+<h3>Convert Non-Unicode Text</h3>
+<blockquote>
+<P>
+Characters in the Java programming language are encoded in Unicode. If
+your application handles non-Unicode text, you might need to translate
+it into Unicode. For more information, see the section
+<A HREF="../text/convertintro.html">Converting Non-Unicode Text</A>.
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="steps.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#intro" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="../locale/index.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

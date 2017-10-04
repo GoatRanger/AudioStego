@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.pilot.visual.view.VisualTrackView xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/trackview" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent">
+    <dji.pilot.visual.util.VisualDrawOnScreen android:id="@+id/visual_track_draw_rect" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:contentDescription="@string/app_name" />
+    <dji.publics.DJIUI.DJIImageView android:id="@+id/visual_track_tap_img" android:background="@r$drawable/visual_point_tag" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:contentDescription="@string/app_name" />
+    <include android:id="@+id/visual_track_target_ly" android:visibility="gone" layout="@layout/visual_track_target_view" />
+    <dji.publics.DJIUI.DJILinearLayout android:gravity="top|bottom|center_vertical|fill_vertical|center|fill" android:id="@+id/visual_track_circle_ly" android:visibility="gone" android:layout_width="UNKNOWN_DATA_0x7f0b011d" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/fp" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true">
+        <dji.publics.DJIUI.DJIImageView android:id="@+id/visual_track_cw_img" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@r$drawable/ic_track_cw_big" />
+        <dji.pilot.visual.view.DJICircleSeekBar android:id="@+id/visual_track_circle_sb" android:layout_width="UNKNOWN_DATA_0x1" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/h7" android:layout_marginRight="@dimen/h7" android:layout_marginBottom="@dimen/rq" android:layout_weight="1.0" />
+        <dji.publics.DJIUI.DJIImageView android:id="@+id/visual_track_ccw_img" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@r$drawable/ic_track_ccw_big" />
+    </dji.publics.DJIUI.DJILinearLayout>
+</dji.pilot.visual.view.VisualTrackView>

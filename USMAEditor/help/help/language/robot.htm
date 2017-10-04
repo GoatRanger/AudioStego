@@ -1,0 +1,348 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>EECS Input/Output Command Reference</title>
+  </head>
+  <body>
+    <div id="main">
+	<h1><a id="CF2">Robot Command Reference</a></h1>
+	<h2><a id="F.4">F.4 Robots</a></h2>
+	<h3><a id="B.4.1">B.4.1 Movement</a></h3>
+	<ul>
+      <li><strong>pivotRight</strong>
+			<ul>
+      <li> Takes an angle in degrees (an integer).</li>
+      <li> Returns nothing.</li>
+      <li> Rotates the robot clockwise by the given angle.</li>
+      <li> Halts the program with an error message if the angle is
+      less than 0 or greater than 360, or if no robot has been
+      created.</li>
+      <li> Example:<br />
+      <tt>pivotRight(90);</tt></li>
+</ul>
+</li>
+      
+      <li><strong>pivotLeft</strong>
+			<ul>
+      <li> Just like pivotRight but rotates the robot
+      counterclockwise rather than clockwise.</li>
+			</ul>
+      </li>
+      <li><strong>goForward</strong>
+			<ul>
+      <li> Takes nothing.</li>
+      <li> Returns nothing.</li>
+      <li> Tells the robot to start moving in the direction it is
+      currently facing. The robot will continue to move until it
+      receives another command (<tt>goForward, goBackward,
+      pivotLeft, pivotRight, halt</tt>). How fast it moves
+      depends on the current power level.</li>
+      <li> Example:<br />
+      <tt>goForward();</tt></li>
+</ul>
+</li>
+      
+      <li><strong>goForward</strong>
+		<ul>
+      <li> Takes a time in milliseconds (an integer).</li>
+      <li> Returns nothing.</li>
+      <li> Drives the robot in the direction it is currently facing
+      for the given amount of time. How far the robot goes
+      depends on the current power level.</li>
+      <li> Halts the program with an error message if the number of
+      milliseconds is less than 1 or if no robot has been
+      created.</li>
+      <li> Example:<br />
+      <tt>goForward(1000);</tt></li>
+</ul>
+</li>
+      
+      <li><strong>goBackward</strong>
+		<ul>
+      <li> Just like goForward but drives the robot backward rather
+      than forward. <tt>goBackward</tt> also has two forms-one
+      with a time (milliseconds), and one that takes nothing.</li>
+		</ul>
+		</li>
+      
+      <li><strong>setPower</strong>
+		<ul>
+      <li> Takes a power level between 1 and 10 (an integer).</li>
+      <li> Returns nothing.</li>
+      <li> Sets the power level of the robot to the given value.
+      More power makes the robot drive faster.</li>
+      <li> Halts the program with an error message if the power
+      level is less than 1 or greater than 10, or if no robot has
+      been created.</li>
+      <li> Example:<br />
+      <tt>setPower(5);</tt></li>
+</ul>
+</li>
+		</li>
+      
+      <li><strong>halt</strong>
+		<ul>
+      <li> Takes nothing.</li>
+      <li> Returns nothing.</li>
+      <li> Stops the robot.</li>
+      <li> Command is only useful if a <code>goForward()</code> or <code>goBackward()</code>
+			     was the last movement command issued.</li>
+      <li> Example:<br />
+      <tt>halt();</tt></li>
+</ul>
+</li>
+      
+      <li><strong>pause</strong>
+		<ul>
+      <li> Takes a time in milliseconds (an integer).</li>
+      <li> Returns nothing.</li>
+      <li> If the robot is moving due to a <tt>goForward()</tt> or
+      <tt>goBackward()</tt> command, causes the robot to continue
+      to move in that direction for the specified amount of time.
+      If the robot was stopped when the command was issued,
+      causes the robot to sit still for the given length of
+      time.</li>
+      <li> Halts the program with an error message if the number of
+      milliseconds is less than 1 or if no robot has been
+      created.</li>
+      <li> Example:<br />
+      <tt>pause(500);</tt></li>
+</ul>
+</li>
+      
+      <li><strong>drawTrails</strong>
+		<ul>
+      <li> Takes a boolean telling whether to turn trails on
+      (<tt>true</tt>) or off (<tt>false</tt>).</li>
+      <li> Returns nothing.</li>
+      <li> If the boolean is <tt>true</tt>, the robot will leave
+      green dots along its trail as it moves.</li>
+      <li> Halts the program with an error message if no robot has
+      been created.</li>
+      <li> Example:<br />
+      <tt>drawTrails(true);</tt></li>
+</ul>
+</li>
+      </ul>
+	<h3><a id="F.4.2">F.4.2 Sensors</a></h3>
+      <br />
+			<ul>
+      <li><strong>getTouchSensor</strong> (if robot has a Touch
+      Sensor/bumper attached)
+<ul>
+      <li> Takes nothing.</li>
+      <li> Returns one of two integers, either the constant
+      <tt>ON</tt> (if the sensor is being pressed) or the
+      constant <tt>OFF</tt> (if the sensor is not being
+      pressed).</li>
+      <li> Example:<br />
+      <tt>while (getTouchSensor() == OFF)</tt></li>
+</ul>
+</li>
+      
+      <li><strong>getReflectanceSensor</strong> (if robot has a blue Lego Light
+      Sensor attached)
+<ul>
+      <li> Takes nothing.</li>
+      <li> Returns one of several integers. In the Jago simulation,
+      the light sensor has two modes of operation (you will be
+      told which mode the robot is using). In the default mode,
+      the values will be either the constant <tt>OFF</tt> (if the
+      sensor sees nothing notable. In this mode, whatever is
+      considered &quot;just the floor&quot; is seen as <tt>OFF</tt> by the
+      light sensor) or one of the &quot;color&quot; constants
+      <tt>WHITE</tt>, <tt>BLACK</tt>, <tt>RED</tt>, <tt>BLUE</tt>
+      <tt>GREEN</tt>, <tt>LIGHT_GRAY</tt>, <tt>MED_GRAY</tt>, or
+      <tt>DARK_GRAY</tt> (if the sensor sees that color). In the
+      realistic mode, the light sensor can only see the amount of
+      reflected light (essentially shades of gray), so the values
+      will be continuous between 0 and 100. In this mode, the
+      only way to determine what value matches a given &quot;color&quot; is
+      through testing. In general, if the sensor &quot;sees&quot; a white
+      surface, the value will be near 50, and if it sees a black
+      surface, the value will be near 30.</li>
+      <li> Example:<br />
+      <tt>if (getReflectanceSensor() == RED)</tt> (idealistic mode)
+      or <tt>if (getReflectanceSensor() &gt; 48)</tt> (realistic mode)</li>
+			</ul>
+			</li>
+      
+      <li><strong>getDualLightSensor</strong> (if robot has a
+      Differential Light Sensor attached)
+<ul>
+      <li> Takes nothing.</li>
+      <li> Returns an integer between -50 and +50. Negative values
+      indicate that the sensor sees stronger light on its left
+      side; positive values indicate that the sensor sees
+      stronger light on its right side. Values near 0 indicate
+      that the light is generally directly in front of the
+      sensor. Note that since it only detects the difference
+      between its left and right sides, the reading does not give
+      an indication if the light is in front of or behind the
+      sensor.</li>
+      <li> Example:<br />
+      <tt>if (getDualLightSensor() &gt; 10)</tt></li>
+
+      <li> The following diagram and table illustrates some possible
+      values, based on the location of the light source.
+
+      <p id="tth_fIg4"></p>
+      <p><img src="images\hitSensor.gif" alt="Diagram of positions for the Differential Light Sensor" /></p>
+      <br />
+      <p id="tth_tAb1"></p>
+      <table border="1">
+        <thead>
+          <tr>
+            <th>
+              <p><strong>Location of Light Source</strong></p>
+            </th>
+            <th>
+              <p><strong>Value</strong></p>
+            </th>
+          </tr>
+        </thead>
+				<tbody>
+        <tr>
+          <td>
+            <p>A</p>
+          </td>
+          <td>
+            <p>0</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p>B</p>
+          </td>
+          <td>
+            <p>+5</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p>C</p>
+          </td>
+          <td>
+            <p>+40</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p>D</p>
+          </td>
+          <td>
+            <p>+3</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p>E</p>
+          </td>
+          <td>
+            <p>0</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p>F</p>
+          </td>
+          <td>
+            <p>-6</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p>G</p>
+          </td>
+          <td>
+            <p>-40</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p>H</p>
+          </td>
+          <td>
+            <p>-35</p>
+          </td>
+        </tr>
+				</tbody>
+      </table>
+      </li>
+      </ul>
+			</li>
+			</ul>
+	<h3><a id="F.4.3">F.4.3 Miscellaneous</a></h3>
+      <br />
+			<ul>
+      <li><strong>createRobot</strong>
+		<ul>
+      <li> Takes three integers: an x-coordinate, a y-coordinate,
+      and an angle.</li>
+      <li> Returns nothing.</li>
+      <li> Creates a robot at the given position, facing in the
+      given direction.</li>
+      <li> X-coordinates are measured in pixels from the left edge
+      of the screen.</li>
+      <li> Y-coordinates are measured in pixels from the top of the
+      screen.</li>
+      <li> The angle is measured in degrees clockwise from straight
+      up.</li>
+      <li> Halts the program with an error message if the angle is
+      less than 0 or greater than 360, or if a robot has already
+      been created.</li>
+      <li> Example:<br />
+      <tt>createRobot(100, 250, 90);</tt></li>
+</ul>
+</li>
+      
+      <li><strong>destroyRobot</strong>
+		<ul>
+      <li> Takes nothing.</li>
+      <li> Returns nothing.</li>
+      <li> Destroys the current robot and erases it from the screen.
+      You may not use any more movement or sensor commands until
+      you create another robot.</li>
+      <li> Does nothing if no robot currently exists.</li>
+      <li> Example:<br />
+      <tt>destroyRobot();</tt></li>
+</ul>
+</li>
+      
+      <li><strong>setSimulationTitle</strong>
+		<ul>
+      <li> Takes the new title (a string).</li>
+      <li> Returns nothing.</li>
+      <li> Changes the title at the top of the simulation window to
+      the given string.</li>
+      <li> Example:<br />
+      <tt>setSimulationTitle(&quot;New Title&quot;);</tt></li>
+			</ul>
+		 </li>
+      
+      <li><strong>setBackgroundImage</strong>
+		<ul>
+      <li> Takes a filename (a string).</li>
+      <li> Returns nothing.</li>
+      <li> Loads the image in the given file into the simulation
+      window as the field that the robot drives on.</li>
+      <li> Loads a plain white background if the image file does not
+      exist.</li>
+      <li> Example:<br />
+      <tt>setBackgroundImage(&quot;background.gif&quot;);</tt></li>
+			</ul>
+			</li>
+      
+      <li><strong>setBackgroundTile</strong>
+  			<ul>
+            <li> Just like <tt>setBackgroundImage</tt> except that if the
+            loaded image is too small to fill the window, it will be
+            duplicated across the screen (both horizontally and
+            vertically) until the window is filled.</li>
+            <li> Example:<br />
+            <tt>setBackgroundTile(&quot;smallpicture.gif&quot;);</tt></li>
+  			</ul>
+			</li>
+			</ul>
+			</div>
+			</body>
+			</html>

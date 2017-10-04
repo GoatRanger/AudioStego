@@ -1,0 +1,254 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Alternatives to Deprecated Classes and Methods in java.io</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="charVsByteStreams.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#converting" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="deprecatedAWT.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: JDK(TM) 1.1 -- And Beyond!
+<br>
+<b>Lesson</b>: Migrating to 1.1
+</font>
+
+<h2>
+Alternatives to Deprecated Classes and Methods in java.io
+</h2>
+<blockquote>
+</blockquote>
+<h3>Deprecated Classes in java.io</h3>
+<blockquote>
+The following two classes have been deprecated in
+<code>java.io</code>. <code>LineNumberInputStream</code>
+was deprecated because it
+incorrectly assumes that bytes
+adequately represent characters.
+<code>StringBufferInputStream</code> was
+deprecated because it
+does not properly convert
+characters into bytes.
+As of JDK 1.1, the preferred way to
+operate on character streams is
+via the new set of character-stream classes
+which provides character-based alternatives
+to both <code>LineNumberInputStream</code>
+and <code>StringBufferInputStream</code>.
+<p>
+<table border cellpadding=5>
+<tr>
+<th>Deprecated Class</th> <th>Alternative</th>
+</tr>
+<tr>
+<td><code>LineNumberInputStream</code></td> <td><code>LineNumberReader</code></td>
+</tr>
+<tr>
+<td><code>StringBufferInputStream</code></td> <td><code>StringReader</code></td>
+</tr>
+</table>
+</blockquote>
+
+<h3>The <code>java.io.ByteArrayOutputStream</code> Class</h3>
+<blockquote>
+The following method in <code>java.io.ByteArrayOutputStream</code>
+was deprecated because it does not properly convert bytes into characters.
+As of JDK 1.1, the preferred way to do this is via one of the other
+two <code>toString</code> methods,
+which allow the caller to specify the character encoding to use
+to convert bytes to characters or 
+uses the platform's default character encoding. 
+<p>
+<table border cellpadding=5>
+<tr>
+<th>Deprecated Method</th> <th>Alternative</th>
+</tr>
+<tr>
+<td><code>String toString(int hibyte)</code></td>
+<td><code>String toString()</code> <em>or</em>
+    <code>String toString(String enc)</code></td>
+</tr>
+</table>
+</blockquote>
+
+<h3>The <code>java.io.DataInputStream</code> Class</h3>
+<blockquote>
+The following method in <code>java.io.DataInputStream</code>
+has been deprecated because it does not properly convert bytes to characters.
+<p>
+<table border cellpadding=5>
+<tr>
+<th>Deprecated Method</th> <th>Alternative</th>
+</tr>
+<tr>
+<td><code>String readLine()</code></td>
+<td><code>String BufferedReader.readLine()</code></td>
+</tr>
+</table>
+<p>
+The alternative shown here will not work for all programs.
+For examples and discussion about other choices, see
+<a href="convertingIO.html">How to Convert Code that Uses I/O</a>.
+
+</blockquote>
+
+<h3>The <code>java.io.PrintStream</code> Class</h3>
+<blockquote>
+The <code>java.io.PrintStream</code> class has been superceded
+by the character-based <code>java.io.PrintWriter</code> class.
+To discourage its use all the constructors for <code>java.io.PrintStream</code>
+have been deprecated.
+<p>
+<table border cellpadding=5>
+<tr>
+<th>Deprecated Method</th> <th>Alternative</th>
+</tr>
+<tr>
+<td><code>PrintStream(OutputStream)</code></td>
+<td><code>PrintWriter(OutputStream)</code></td>
+</tr>
+<tr>
+<td><code>PrintStream(OutputStream, boolean)</code></td>
+<td><code>PrintWriter(OutputStream, boolean)</code></td>
+</tr>
+</table>
+
+<p>
+
+<blockquote><hr><strong>Related Notes:</strong>&nbsp; The <code>PrintStream</code> class
+has been modified to use the platform's default character encoding and the
+platform's default line terminator.  Thus each <code>PrintStream</code>
+incorporates an <code>OutputStreamWriter</code>,
+and it passes all characters through this writer to produce bytes for output.
+The <code>println</code> methods use the platform's default line terminator, which
+is defined by the system property <code>line.separator</code> and is not
+necessarily a single newline character (<code>'\n'</code>).  Bytes and byte arrays
+written via the existing <code>write</code> methods are not passed through the
+writer.
+
+<p>
+The primary motivation for changing the <code>PrintStream</code> class is that
+it will make <code>System.out</code> and <code>System.err</code> more useful
+to people writing Java programs on platforms where the local encoding is
+something other than ASCII. <code>PrintStream</code> is, in other words, provided
+primarily for use in debugging and for compatibility with existing code.
+Therefore its two constructors have been deprecated.
+
+<p>
+Deprecating the constructors rather than the entire class allows existing
+uses of <code>System.out</code> and <code>System.err</code> to be compiled without
+generating deprecation warnings. Thus programmers just learning Java, or
+programmers inserting <code>System.err.println</code> calls for debugging purposes,
+will not be bothered by such warnings. Programmers writing code that
+explicitly constructs a <code>PrintStream</code>, on the other hand, will see a
+deprecation warning when that code is compiled. Code that produces textual
+output should use the new <code>PrintWriter</code> class, which
+allows the character encoding to be specified or the default encoding to be
+accepted.  For convenience, the <code>PrintWriter</code> class provides
+constructors that take an <code>OutputStream</code> object and create an
+intermediate <code>OutputStreamWriter</code> object that uses the default encoding.
+<hr></blockquote>
+
+</blockquote>
+
+<h3>The <code>java.io.StreamTokenizer</code> Class</h3>
+<blockquote>
+The constructor for <code>java.io.StreamTokenizer</code> that
+operates on an <code>InputStream</code> has been deprecated
+in favor of the constructor that operates on a <code>Reader</code>.
+You can still tokenize an <code>InputStream</code> by 
+converting it to a Reader:
+<blockquote><pre>
+Reader r = new BufferedReader(new InputStreamReader(is));
+StreamTokenizer st = new StreamTokenizer(r);
+</pre></blockquote>
+       
+<p>
+<table border cellpadding=5>
+<tr>
+<th>Deprecated Method</th> <th>Alternative</th>
+</tr>
+<tr>
+<td><code>StreamTokenizer(InputStream)</code></td>
+<td><code>StreamTokenizer(Reader)</code></td>
+</tr>
+</table>
+
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="charVsByteStreams.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#converting" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="deprecatedAWT.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

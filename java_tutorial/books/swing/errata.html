@@ -1,0 +1,331 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <title>The Java(tm) Tutorial Books: The JFC Swing Tutorial</title>
+</head>
+<body text="#000000" bgcolor="#FFFFFF" link="#000099" vlink="#551A8B" alink="#000099" background="../../images/backgroundsm.gif">
+<a NAME="errata_top"></a>
+<table BORDER=0 CELLSPACING=0 CELLPADDING=2 WIDTH="726" >
+<tr>
+<td ALIGN=RIGHT VALIGN=TOP WIDTH="149" HEIGHT="140"><a NAME="top"></a><b><i><font face="Arial, Helvetica"><font size=-1><a href="../../index.html">The
+Java Tutorial</a></font></font></i></b><a href="../../index.html"><img SRC="../../images/dukesign.GIF" BORDER=0 height=104 width=130 align=BOTTOM></a></td>
+
+<td VALIGN=TOP WIDTH="287" HEIGHT="140"><map NAME="shoenavbarMap11"><area SHAPE="rect" COORDS="360,2,440,41" HREF="http://java.sun.com/docs/books/tutorial/search.html"><area SHAPE="rect" COORDS="277,0,359,41" HREF="../../trailmap.html"><area SHAPE="rect" COORDS="214,1,276,41" HREF="../../information/FAQ.html"><area SHAPE="rect" COORDS="104,2,214,42" HREF="../../information/download.html"><area SHAPE="rect" COORDS="1,-1,105,43" HREF="../../book.html"><area SHAPE="rect" COORDS="0,0,423,38" HREF="../../information/download.html"></map><img ISMAP SRC="../../images/shoenavbar.gif" BORDER=0 USEMAP="#shoenavbarMap11" height=38 width=423 align=BOTTOM>
+<p><font face="Arial, Helvetica"><font size=-1><font color="#C0C0C0">About
+the <i>Java Tutorial</i> Books > </font><font color="#707070">The JFC Swing
+Tutorial</font></font></font>
+<br><b><i><font face="Arial, Helvetica"><font color="#000099"><font size=+2>Errata</font></font></font></i></b>
+<p><font face="Arial"><font size=-1><a href="index.html">Index</a> | <a href="toc.html#toc_top">TOC</a>
+| <a href="cdinfo.html#cd_top">CD-ROM</a>
+| Errata</font></font></td>
+
+<td VALIGN=BOTTOM WIDTH="286" HEIGHT="140">&nbsp;</td>
+</tr>
+
+<tr>
+<td COLSPAN="2" ROWSPAN="2">
+<table BORDER=0 CELLSPACING=2 CELLPADDING=0 WIDTH="95%" >
+<tr>
+<td WIDTH="29" HEIGHT="156"></td>
+
+<td WIDTH="498" HEIGHT="156">The following errors were corrected in second
+printing of this book, September 1999.&nbsp;
+<table BORDER CELLSPACING=2 CELLPADDING=0 WIDTH="487" >
+<tr>
+<td WIDTH="8%">&nbsp;<b>Page(s)</b></td>
+
+<td WIDTH="92%">&nbsp;<b>Correction</b></td>
+</tr>
+
+<tr>
+<td>vi</td>
+
+<td>Added contents of "Using Other Swing Features" to the Table of Contents.</td>
+</tr>
+
+<tr>
+<td>8</td>
+
+<td>Updated the last row of Table 1 to read:
+<br>&nbsp;
+<table BORDER COLS=4 WIDTH="100%" NOSAVE >
+<tr VALIGN=TOP NOSAVE>
+<td>Swing 1.1.1
+<p><font size=-2><b>Note: </b>This book describes some HTML text functionality
+added in this release.</font></td>
+
+<td NOSAVE>JFC 1.1
+<br>(with Swing 1.1.1)</td>
+
+<td>Java 2 SDK, Standard Edition,&nbsp;<br>
+v 1.2.2</td>
+
+<td>This is the final release of JFC 1.1.</td>
+</tr>
+</table>
+</td>
+</tr>
+
+<tr>
+<td WIDTH="8%">18, 52, 54,&nbsp;
+<br>64-66, 81,&nbsp;
+<br>82, 91, 92,&nbsp;
+<br>94, 108, 117,&nbsp;
+<br>158, 173, 259,&nbsp;
+<br>269, 306, 356, 357, 421, 540,<br>
+562</td>
+
+<td WIDTH="92%">Updated or improved figures.</td>
+</tr>
+
+<tr>
+<td>23, 87, 96,&nbsp;
+<br>153, 172, 195,&nbsp;
+<br>206, 207, 366,&nbsp;
+<br>367, 369, 414, 418, 426, 581,
+<br>592</td>
+
+<td>Fixed code formatting.</td>
+</tr>
+
+<tr>
+<td>105</td>
+
+<td>Changed the code font in the names of the intermediate containers.</td>
+</tr>
+
+<tr>
+<td WIDTH="8%">143</td>
+
+<td WIDTH="92%">Updated <tt>InternalFrameDemo</tt> screenshot.</td>
+</tr>
+
+<tr>
+<td>143-149, 669</td>
+
+<td>You must invoke <tt>setVisible(true)</tt> on <tt>JInternalFrames</tt>.
+In future releases of the Java 2 Platform, <tt>JInternalFrames</tt> will
+be invisible by default.</td>
+</tr>
+
+<tr>
+<td>144, 669</td>
+
+<td>Updated the bold line in the <tt>createFrame</tt> method code:
+<br><tt>protected void createFrame() {</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; MyInternalFrame frame = new MyInternalFrame();</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; <b>frame.setVisible(true);</b> //necessary in&nbsp;</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+//future releases</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; desktop.add(frame);</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; try {</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; frame.setSelected(true);</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; } catch (java.beans.PropertyVetoException e)
+{}</tt>
+<br><tt>}</tt></td>
+</tr>
+
+<tr>
+<td>147</td>
+
+<td>The title of Table 49 was changed to: "Specifying the Internal Frame's
+Size, Location, <b>and Visibility</b>."&nbsp;
+<br>The following entry was added at the first row: <tt>setVisible()</tt>:
+Make the internal frame visible (if <tt>true</tt>) or invisible (if <tt>false</tt>).
+You should invoke <tt>JInternalFrame</tt> before adding it to its container.
+(Inherited from <tt>Component</tt>.)</td>
+</tr>
+
+<tr>
+<td WIDTH="8%">167</td>
+
+<td WIDTH="92%">Increased the font size in the list of atomic components.</td>
+</tr>
+
+<tr>
+<td WIDTH="8%">200</td>
+
+<td WIDTH="92%">Changed button name from "Open a File..." to "Open."</td>
+</tr>
+
+<tr>
+<td WIDTH="8%">237&nbsp;</td>
+
+<td WIDTH="92%">Added link to information on <tt>AbstractButton</tt>.</td>
+</tr>
+
+<tr>
+<td WIDTH="8%">309</td>
+
+<td WIDTH="92%">Changed the cross-reference from "Let's Play" in the "Putting
+It All Together" section to "The Code."</td>
+</tr>
+
+<tr>
+<td>320</td>
+
+<td>Updated the the screenshot in Figure 95. The figure caption now reads:
+"A tree."</td>
+</tr>
+
+<tr>
+<td WIDTH="8%">387-438</td>
+
+<td WIDTH="92%">Added running header to the "Using Other Swing Features"
+pages.</td>
+</tr>
+
+<tr>
+<td WIDTH="8%">439</td>
+
+<td WIDTH="92%">In the third paragraph, changed the word "rage" to "range."&nbsp;</td>
+</tr>
+
+<tr>
+<td WIDTH="8%">474</td>
+
+<td WIDTH="92%">At the bottom of the page, added <tt>getDocument</tt> to
+the list of methods that the <tt>DocumentEvent</tt> interface requires.</td>
+</tr>
+
+<tr>
+<td WIDTH="8%">477</td>
+
+<td WIDTH="92%">At the top of the page, renumbered the first step to start
+with "Bring up the Focus Event Window..."</td>
+</tr>
+
+<tr>
+<td WIDTH="8%">583</td>
+
+<td WIDTH="92%">Indented the third-to-last paragraph, "The AWT classes
+you might still need..."</td>
+</tr>
+
+<tr>
+<td WIDTH="8%">585</td>
+
+<td WIDTH="92%">At the end of the paragraph, added a cross-reference to
+the Assistive Techologies section.</td>
+</tr>
+
+<tr>
+<td WIDTH="8%">593</td>
+
+<td WIDTH="92%">Indented the first paragraph, "If you want a mutable list..."&nbsp;</td>
+</tr>
+
+<tr>
+<td WIDTH="8%">594</td>
+
+<td WIDTH="92%">Added cross-references to the list of conversion examples.&nbsp;</td>
+</tr>
+
+<tr>
+<td WIDTH="8%">596, 597, 598</td>
+
+<td WIDTH="92%">In the tables, added cross-references to the AWT and Swing
+source code and HTML code in the Appendix.</td>
+</tr>
+
+<tr>
+<td WIDTH="8%">597</td>
+
+<td WIDTH="92%">Corrected figure caption 183 to read "The Swing <tt>TextEventDemo</tt>
+applet."</td>
+</tr>
+
+<tr>
+<td WIDTH="8%">598</td>
+
+<td WIDTH="92%">Added snapshot of the Swing version of the <tt>Converter</tt>
+application.&nbsp;</td>
+</tr>
+
+<tr>
+<td WIDTH="8%">601</td>
+
+<td WIDTH="92%">In the table, corrected the code font in the crossreference
+page numbers.</td>
+</tr>
+
+<tr>
+<td WIDTH="8%">604</td>
+
+<td WIDTH="92%">At the end of the page, added a cross-reference to "Solving
+Common Layout Problems (page 385)."</td>
+</tr>
+
+<tr>
+<td WIDTH="8%">612, 624, 779, 806, 826, 858, 886</td>
+
+<td WIDTH="92%">Changed the introductory sentence from "Complete examples..."
+to "Source files used..."</td>
+</tr>
+
+<tr>
+<td WIDTH="8%">806-825</td>
+
+<td WIDTH="92%">In the running header, corrected the spacing between "Swing"
+and Features."</td>
+</tr>
+
+<tr>
+<td WIDTH="8%">909, 918, 920</td>
+
+<td WIDTH="92%">Changed the heading "AWT EXAMPLE :" to "AWT EXAMPLE:"&nbsp;</td>
+</tr>
+
+<tr>
+<td WIDTH="8%">924</td>
+
+<td WIDTH="92%">Added <tt>TextEventDemo.html&nbsp;</tt></td>
+</tr>
+</table>
+
+<center>
+<p>
+<hr WIDTH="66%"><font face="Arial"><font size=-1><a href="index.html">index</a>
+| <a href="toc.html#toc_top">TOC</a> | <a href="cdinfo.html#cd_top">CD-ROM</a>
+| <a href="#errata_top">Errata</a></font></font></center>
+</td>
+</tr>
+
+<tr>
+<td></td>
+
+<td></td>
+</tr>
+
+<tr>
+<td></td>
+
+<td></td>
+</tr>
+</table>
+</td>
+
+<td VALIGN=TOP WIDTH="286"><a href="http://www.amazon.com/exec/obidos/ASIN/0201433214/javasoftsunmicroA/002-0635640-1808605"><img SRC="../../images/bookcovers/swing.gif" ALT="The JFC Swing Tutorial" BORDER=1 height=140 width=113 align=BOTTOM></a>
+<br><i>The JFC Swing Tutorial</i>
+<p>Available from <a href="http://www.amazon.com/exec/obidos/ASIN/0201433214/javasoftsunmicroA/002-0635640-1808605">Amazon.com</a></td>
+</tr>
+
+<tr>
+<td WIDTH="286"></td>
+</tr>
+</table>
+
+<table BORDER=0 CELLSPACING=2 CELLPADDING=0 WIDTH="642" >
+<tr>
+<td WIDTH="6%">&nbsp;</td>
+
+<td WIDTH="94%">
+<hr ALIGN=LEFT><font size=-1>All of the material in <i>The Java Tutorial</i>
+is <a href="../../information/copyright.html">copyright</a>-protected and
+may not be published in other works without express written permission
+from Sun Microsystems.</font></td>
+</tr>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,254 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Answers to Questions and Exercises: I/O: Reading and Writing (but no 'rithmetic)</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="../QandE/questions.html" target="_top"><img src="../../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../../TOC.html#io" target="_top"><img src="../../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+</td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="../index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../../search.html" target="_top">Search</a>
+<br><a href="../../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+
+<img src="../../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<font size="-1">
+<b>Trail</b>: Essential Java Classes
+<br>
+<b>Lesson</b>: I/O: Reading and Writing (but no 'rithmetic) 
+</font>
+
+<h2>
+Answers to Questions and Exercises: I/O: Reading and Writing (but no 'rithmetic)
+</h2>
+<blockquote>
+</BLOCKQUOTE>
+<H3>Questions</H3>
+
+<BLOCKQUOTE>
+  <P><font color="red"> Question 1.</font> What class would you use to read a few pieces of data that
+  are at known positions near the end of a large file?
+  
+  <BR><font color="green"> Answer 1.</font>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/io/RandomAccessFile.html"><font color="#8800bb"><code>RandomAccessFile</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/io/RandomAccessFile.html"><img src="../../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>.
+
+  <P><font color="red"> Question 2.</font> What class in the 
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/zip/package-summary.html"><font color="#8800bb"><code>java.util.zip</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/zip/package-summary.html"><img src="../../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> package gives
+  you access to the entries in a ZIP archive and allows you to
+  read those entries through a stream?
+  <BR><font color="green"> Answer 2.</font>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/zip/ZipInputStream.html"><font color="#8800bb"><CODE>ZipInputStream</CODE></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/zip/ZipInputStream.html"><img src="../../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>. This class implements an input stream filter for reading files
+  in the ZIP file format. </P>
+
+
+  <P><font color="red"> Question 3.</font> How would you append data to the end of a file? Show the
+  constructor for the class you would use and explain your answer.
+  <BR><font color="green"> Answer 3.</font> 
+Here's a quick answer:
+  Use the 
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/io/FileWriter.html"><font color="#8800bb"><CODE>FileWriter</CODE></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/io/FileWriter.html"><img src="../../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>  and 
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/io/BufferedWriter.html"><font color="#8800bb"><CODE>BufferedWriter</CODE></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/io/BufferedWriter.html"><img src="../../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>  classes to append data to the end of the text file. Here is the
+  <CODE>FileWriter</CODE> constructor, you pass in <CODE>true</CODE>
+  to write to the file in append mode:</P>
+
+<blockquote><pre>
+FileWriter writer = new FileWriter (String filename, boolean append);
+</pre></blockquote>
+
+
+An alternate answer is to use 
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/io/RandomAccessFile.html"><font color="#8800bb"><code>RandomAccessFile</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/io/RandomAccessFile.html"><img src="../../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>  and skip to the end of the file and start writing:</P>
+<blockquote><pre>
+...
+RandomAccessFile file = new RandomAccessFile(datafile, "rw");
+file.skipBytes((int)file.length()); //skip to the end of the file
+file.writeBytes("Add this text to the end of datafile"); //write at the end of the file
+file.close();
+...
+</pre></blockquote>
+<br>
+
+  <P><font color="red"> Question 4.</font> Suppose you wanted to write code that reads from a file
+  one word at a time. The code needs to peek ahead to find where
+  the words are separated by whitespace. What input stream could
+  you use to accomplish this?
+  <BR><font color="green"> Answer 4.</font>
+  Answer 4:  You can use the 
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/StringTokenizer.html"><font color="#8800bb"><code>java.util.StringTokenizer</CODE></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/StringTokenizer.html"><img src="../../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> or 
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/io/StreamTokenizer.html"><font color="#8800bb"><CODE>java.io.StreamTokenizer</CODE></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/io/StreamTokenizer.html"><img src="../../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>   to parse your input into
+  words. Each class has a default set of delimiters (like white
+  space) that you can specify. </P>
+
+  <P><font color="red"> Question 5.</font> How can you improve the performance of the following code?
+  Explain your answer and show the new line(s) of code.
+<blockquote><pre>
+int i;
+URL url = new URL("http://java.sun.com/");
+URLConnection javaSite = url.openConnection();
+InputStream input = javaSite.getInputStream();
+InputStreamReader reader = new InputStreamReader(input);
+while ((i = reader.read()) != -1) {
+    System.out.print(i);
+}
+</pre></blockquote>
+<font color="green"> Answer 5.</font>
+Buffer! To improve
+  the performance of your code, you should buffer all your input
+  and output where possible (remember you can't buffer a <CODE>RandomAccessFile</CODE>).
+  In this exercise, you should add two buffers: the 
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/io/InputStream.html"><font color="#8800bb"><CODE>InputStream</CODE></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/io/InputStream.html"><img src="../../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>  is wrapped within a 
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/io/BufferedInputStream.html"><font color="#8800bb"><CODE>BufferedInputStream</CODE></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/io/BufferedInputStream.html"><img src="../../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> and the
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/io/InputStreamReader.html"><font color="#8800bb"><CODE>InputStreamReader</CODE></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/io/InputStreamReader.html"><img src="../../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> is wrapped within a 
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/io/BufferedReader.html"><font color="#8800bb"><CODE>BufferedReader</CODE></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/io/BufferedReader.html"><img src="../../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>.  Here is the revised code (changes shown in bold):</P>
+
+<blockquote><pre>
+int i;
+URL url = new URL(&quot;http://java.sun.com/&quot;);
+URLConnection javaSite = url.openConnection();
+InputStream input = javaSite.getInputStream();
+<B>BufferedInputStream in = new BufferedInputStream(input);</B>
+<B>BufferedReader reader = new BufferedReader(new InputStreamReader(in));</B>
+while ((i = reader.read()) != -1) {
+    System.out.print(i);
+}
+</pre></blockquote>
+
+
+</BLOCKQUOTE>
+
+  <BR>
+<H3>Exercises</H3>
+
+<BLOCKQUOTE>
+  <P><font color="red"> Exercise 1.</font> Modify the program discussed in the section 
+<a target="_top" href="../../io/pipedstreams.html">How to Use Pipe Streams</a><a target="_top" href="../../io/pipedstreams.html"><img src="../../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Essential Java Classes trail)"></a> so that it uses input streams and output
+ streams in place of readers and writers.
+  <BR><font color="green"> Answer 1.</font> See 
+<a target="_blank" href="../example/RhymingWords.java"><font color="#bb000f"><code>RhymingWords.java</code></font></a><a target="_blank" href="../example/RhymingWords.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>.
+
+
+   <P><font color="red"> Exercise 2.</font> Implement a pair of classes, one <CODE>Reader</CODE> and
+ one <CODE>Writer</CODE>, that count the number of times a particular
+ character, such as <CODE>e</CODE>, is read or written. The character
+ can be specified when the stream is created. Write a program
+ to test your classes. You can use 
+<a target="_blank" href="../example-1dot1/farrago.txt"><font color="#bb000f"><code>farrago.txt</code></font></a><a target="_blank" href="../example-1dot1/farrago.txt"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a> as the input file.
+  <BR><font color="green"> Answer 2.</font> See the following three files: 
+<a target="_blank" href="../example-1dot1/CounterDemo.java"><font color="#bb000f"><code>CounterDemo.java</code></font></a><a target="_blank" href="../example-1dot1/CounterDemo.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>, 
+<a target="_blank" href="../example-1dot1/CountReader.java"><font color="#bb000f"><code>CountReader.java</code></font></a><a target="_blank" href="../example-1dot1/CountReader.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>, and 
+<a target="_blank" href="../example-1dot1/CountWriter.java"><font color="#bb000f"><code>CountWriter.java</code></font></a><a target="_blank" href="../example-1dot1/CountWriter.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>.
+
+
+    <P><font color="red"> Exercise 3.</font> The file 
+<a target="_blank" href="../example/datafile"><font color="#bb000f"><code>datafile</code></font></a><a target="_blank" href="../example/datafile"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a> begins with a single <CODE>long</CODE> that tells you the offset
+ of a single int piece of data within the same file. Using the
+ <CODE>RandomAccessFile</CODE> class, write a program that gets
+ the int piece of data. What is the <CODE>int</CODE> data?
+  <BR><font color="green"> Answer 3.</font>
+<code>123</code>. See 
+<a target="_blank" href="FileReader.java"><font color="#bb000f"><code>FileReader.java</code></font></a><a target="_blank" href="FileReader.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a> for the solution. If you're interested in seeing how the file
+ was written, see 
+<a target="_blank" href="FileWriter.java"><font color="#bb000f"><code>FileWriter.java</code></font></a><a target="_blank" href="FileWriter.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>.</P>
+ 
+
+    <P><font color="red"> Exercise 4.</font> In this exercise, you'll implement object serialization
+  for the 
+
+<a target="_blank" href="../../../java/javaOO/example/Card2.java"><font color="#bb000f"><code>Card2</code></font></a><a target="_blank" href="../../../java/javaOO/example/Card2.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a> class. </P>
+  <BLOCKQUOTE>
+
+    <P><font color="red"> Exercise 4a.</font> Rename the class <CODE>Card3</CODE> and make it serializable.
+  <BR><font color="green"> Answer 4a.</font> See 
+<a target="_blank" href="../example-1dot1/Card3.java"><font color="#bb000f"><code>Card3.java</code></font></a><a target="_blank" href="../example-1dot1/Card3.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>.</P>
+
+    <P><font color="red"> Exercise 4b.</font> Create a program named <CODE>CardWriter</CODE> that creates
+    a <CODE>Card3</CODE> instance, displays its value, and serializes
+    it into a file named card.out. Here is an example of what <CODE>CardWriter</CODE>
+    might display:<BR><BR>
+    <CODE>&nbsp; &nbsp; &nbsp;  Card to write is: Ace of Spades</code>
+  <P><font color="green"> Answer 4b.</font> See 
+<a target="_blank" href="../example-1dot1/CardWriter.java"><font color="#bb000f"><code>CardWriter.java</code></font></a><a target="_blank" href="../example-1dot1/CardWriter.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>.</P>    
+    
+    <P><font color="red"> Exercise 4c.</font> Create a program named <CODE>CardReader</CODE> that reads
+    the <CODE>Card3</CODE> object from card.out and displays its
+    value. For example:<BR><BR>
+    <CODE>&nbsp; &nbsp; &nbsp;  Card read is: Ace of Spades</CODE>
+  <P><font color="green"> Answer 4c.</font> See 
+<a target="_blank" href="../example-1dot1/CardReader.java"><font color="#bb000f"><code>CardReader.java</code></font></a><a target="_blank" href="../example-1dot1/CardReader.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>.</P> 
+
+  </BLOCKQUOTE>
+</BLOCKQUOTE>
+<BR>
+<P>
+
+</blockquote>
+
+<img src="../../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="../QandE/questions.html" target="_top"><img src="../../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../../TOC.html#io" target="_top"><img src="../../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+</td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="../index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../../search.html" target="_top">Search</a>
+<br><a href="../../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

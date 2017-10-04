@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.publics.DJIUI.DJILinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent">
+    <FrameLayout android:layout_width="match_parent" android:layout_height="match_parent" android:layout_weight="1.0">
+        <dji.pilot.dji_groundstation.ui.views.FollowMeCircleView android:layout_gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:layout_width="wrap_content" android:layout_height="match_parent" />
+    </FrameLayout>
+    <dji.publics.DJIUI.DJILinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_weight="1.0"
+        <dji.publics.DJIUI.DJILinearLayout android:layout_gravity="top|bottom|center_vertical|fill_vertical|center|fill" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_weight="1.0">
+            <dji.publics.DJIUI.DJITextView android:textSize="12dp" android:textColor="@color/os" android:layout_gravity="left|right|center_horizontal|fill_horizontal|center|fill|start|end" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/gsnew_gs_follow_me_phone_gps_label" />
+            <dji.pilot.dji_groundstation.ui.views.GPSSignalNoticeView android:textSize="14dp" android:textColor="@color/h_" android:layout_gravity="left|right|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@id/aju" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        </dji.publics.DJIUI.DJILinearLayout>
+        <dji.publics.DJIUI.DJILinearLayout android:layout_gravity="top|bottom|center_vertical|fill_vertical|center|fill" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_weight="1.0">
+            <dji.publics.DJIUI.DJITextView android:textSize="12dp" android:textColor="@color/os" android:layout_gravity="left|right|center_horizontal|fill_horizontal|center|fill|start|end" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/gsnew_gs_follow_me_height_label" />
+            <dji.pilot.dji_groundstation.ui.views.CurHeightView android:textSize="14dp" android:textColor="@color/h_" android:layout_gravity="left|right|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@id/ajv" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        </dji.publics.DJIUI.DJILinearLayout>
+    </dji.publics.DJIUI.DJILinearLayout>
+    <dji.publics.DJIUI.DJITextView android:textSize="13dp" android:textColor="@color/om" android:gravity="left|right|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@id/aiz" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="15dp" android:layout_marginBottom="15dp" android:text="@string/gsnew_gs_follow_me_desc" android:layout_weight="1.0" android:lineSpacingMultiplier="1.3" />
+</dji.publics.DJIUI.DJILinearLayout>

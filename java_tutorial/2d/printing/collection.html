@@ -1,0 +1,140 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Printing a Collection of Pages</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="pagesetup.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#printing" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="../problems/index.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: 2D Graphics
+<br>
+<b>Lesson</b>: Printing
+</font>
+
+<h2>
+Printing a Collection of Pages
+</h2>
+<blockquote>
+When you need more control over the individual pages in a print job,
+you can use a pageable job instead of a printable job. The simplest way
+to manage a pageable job is to use the <CODE>Book</CODE> class, which
+represents a collection of pages.
+
+</blockquote>
+<h3>Example: SimpleBook</h3>
+<blockquote>
+The <CODE>SimpleBook</CODE> program uses a <CODE>Book</CODE> to manage
+two page painters: <CODE>PaintCover</CODE> is used for the cover page,
+and <CODE>PaintContent</CODE> is used for the content page. The cover
+page is printed in landscape mode, whereas the content page is printed
+in portrait mode.
+<P>
+Once the <CODE>Book</CODE> is created, pages are added to it with the
+<CODE>append</CODE> method. When you add a page to a <CODE>Book</CODE>,
+you need to specify the <CODE>Printable</CODE> and
+<CODE>PageFormat</CODE> to use for that page.
+<blockquote><pre>
+// In the program's job control code...
+// Get a PrinterJob
+PrinterJob job = PrinterJob.getPrinterJob();
+
+// Create a landscape page format
+PageFormat landscape = job.defaultPage();
+landscape.setOrientation(PageFormat.LANDSCAPE);
+
+// Set up a book
+Book bk = new Book();
+bk.append(new PaintCover(), job.defaultPage());
+bk.append(new PaintContent(), landscape);
+
+// Pass the book to the PrinterJob
+job.setPageable(bk);
+</pre></blockquote>
+<P>
+The <CODE>setPageable</CODE> method is called on the
+<CODE>PrinterJob</CODE> to tell the printing system to use the
+<CODE>Book</CODE> to locate the appropriate rendering code.
+<P>
+You can find the full program in
+
+<a target="_blank" href="example-1dot2/SimpleBook.java"><font color="#bb000f"><code>SimpleBook.java</code></font></a><a target="_blank" href="example-1dot2/SimpleBook.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>.
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="pagesetup.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#printing" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="../problems/index.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

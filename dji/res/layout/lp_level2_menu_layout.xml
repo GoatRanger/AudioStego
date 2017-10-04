@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.phone.menu.DJILPCameraLevel2MenuView xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:background="0x106000d" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:splitMotionEvents="true">
+    <include android:id="@id/b43" android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/lp_radiogroup_single" />
+    <ViewStub android:id="@id/bat" android:layout="@layout/lp_radiogroup_longex" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <ViewStub android:id="@id/bau" android:layout="@layout/lp_radiogroup_pano" android:layout_width="match_parent" android:layout_height="match_parent" />
+</dji.phone.menu.DJILPCameraLevel2MenuView>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="10"
+   name=""
+   committed-date="2005-02-01T05:59:34.421875Z"
+   url="svn://192.168.2.2/IT105Editor/src/eecs/syntax/CVS"
+   last-author="Karl"
+   kind="dir"
+   uuid="0daf4267-3229-f84b-9084-f3c94b025f38"
+   revision="55"/>
+<entry
+   committed-rev="10"
+   name="Repository"
+   text-time="2005-03-02T06:14:18.453125Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="0d2f4d00be9bce5f23551d89aff50878"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:18.437500Z"/>
+<entry
+   committed-rev="10"
+   name="Root"
+   text-time="2005-03-02T06:14:18.468750Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="cf6eb897fc3bf4190b7303962b0fecaf"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:18.437500Z"/>
+<entry
+   committed-rev="10"
+   name="Entries"
+   text-time="2005-03-02T06:14:18.468750Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="411d576a2d261c6a79f274c6fe4a981d"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:18.453125Z"/>
+</wc-entries>

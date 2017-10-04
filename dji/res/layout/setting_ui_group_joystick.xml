@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.setting.ui.SettingUIStageView xmlns:android="http://schemas.android.com/apk/res-auto" setting_ui:layout_width="match_parent" setting_ui:layout_height="match_parent" setting_ui:titleText="@string/setting_ui_joystick_title">
+    <ScrollView style="@style/gk">
+        <LinearLayout style="@style/gj">
+            <dji.setting.ui.rc.RcStickView style="@style/g9" />
+        </LinearLayout>
+    </ScrollView>
+</dji.setting.ui.SettingUIStageView>

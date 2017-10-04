@@ -1,0 +1,247 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Classes New for 1.1</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="newPackages.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#converting" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="languageChanges.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: JDK(TM) 1.1 -- And Beyond!
+<br>
+<b>Lesson</b>: Migrating to 1.1
+</font>
+
+<h2>
+Classes New for 1.1
+</h2>
+<blockquote>
+</blockquote>
+<h3>Changes Across All Packages</h3>
+<blockquote>
+Although the basic mechanism for exception handling
+did <em>not</em> change for the JDK 1.1,
+many new exception and error classes were added to JDK for 1.1.
+For the sake of brevity and deadlines,
+we do not list them here.
+</blockquote>
+
+<h3>Additions to <code>java.lang</code></h3>
+<blockquote>
+Three new data type wrapper classes were added to the
+java.lang package in the JDK 1.1:
+<ul>
+<li> <code>Byte</code>
+<li> <code>Short</code>
+<li> <code>Void</code>
+</ul>
+<code>Byte</code> and <code>Short</code> are subclasses of
+<code>Number</code> and are similar to the other data type
+wrapper classes such as <code>Integer</code>.
+<code>Void</code> was added for completeness and is a subclass
+of <code>Object</code>.
+<code>Void</code> is used by the reflection methods
+to represent <code>void</code> return types.
+<p>
+The tutorial does not cover these classes. They will be 
+covered in the second edition of <em>The Java Language Specification</em>
+and are covered online in the <code>javadoc</code>-generated API documentation.
+</blockquote>
+
+<a name="JAVAIO">
+<h3>Additions to <code>java.io</code></h3>
+</a>
+<blockquote>
+The <code>java.io</code> package has been extended with character
+streams, which are like byte streams except that they read and write
+16-bit Unicode characters rather than eight-bit bytes.
+Additionally, <code>java.io</code> has been extended to support
+object serialization.
+<p>
+The new classes are:
+<ul>
+<li> <code>BufferedReader</code> and <code>BufferedWriter</code>
+<li> <code>CharArrayReader</code> and <code>CharArrayWriter</code>
+<li> <code>FileReader</code> and <code>FileWriter</code>
+<li> <code>FilterReader</code> and <code>FilterWriter</code>
+<li> <code>InputStreamReader</code>
+<li> <code>LineNumberReader</code>
+<li> <code>ObjectInputStream</code> and <code>ObjectOutputStream</code>
+<li> <code>ObjectStreamClass</code>
+<li> <code>OutputStreamWriter</code>
+<li> <code>PipedReader</code> and <code>PipedWriter</code>
+<li> <code>PrintWriter</code>
+<li> <code>PushbackReader</code>
+<li> <code>Reader</code> and <code>Writer</code>
+<li> <code>StringReader</code> and <code>StringWriter</code>
+</ul>
+
+<p>
+The new interfaces are:
+<ul>
+<li>
+<code>Externalizable</code>
+<li>
+<code>ObjectInput</code>
+<li>
+<code>ObjectInputValidation</code>
+<li>
+<code>ObjectOutput</code>
+<li>
+<code>Serializable</code>
+</ul>
+
+All of the I/O classes, including the new character
+streams, are covered in
+<a target="_top" href="../../essential/io/index.html">I/O: Reading and Writing (but no 'rithmetic)</a><a target="_top" href="../../essential/io/index.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the JDK(TM) 1.1 -- And Beyond! trail)"></a>.
+</blockquote>
+
+<h3>Additions to <code>java.util</code></h3>
+<blockquote>
+Eight classes were added to <code>java.util</code> to support
+internationalization:
+<ul>
+<li> <code>Calendar</code>
+<li> <code>GregorianCalendar</code>
+<li> <code>ListResourceBundle</code>
+<li> <code>Locale</code>
+<li> <code>PropertyResourceBundle</code>
+<li> <code>ResourceBundle</code>
+<li> <code>SimpleTimeZone</code>
+<li> <code>TimeZone</code>
+</ul>
+
+Our online trail
+<a target="_top" href="../../i18n/index.html">Internationalization</a><a target="_top" href="../../i18n/index.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the JDK(TM) 1.1 -- And Beyond! trail)"></a> contains information about writing Java programs that are
+independent of users' language and culture.
+
+<p>
+Two classes were added to <code>java.util</code> to support
+event handling:
+<ul>
+<li> <code>EventListener</code>
+<li> <code>EventObject</code>
+</ul>
+
+</blockquote>
+
+<a name="NETWORKING">
+<h3>Additions to <code>java.net</code></h3>
+</a>
+<blockquote>
+Three classes and one interface were added to
+the <code>java.net</code> package:
+<ul>
+<li> <code>DatagramSocketImpl</code>
+<li> <code>HttpURLConnection</code>
+<li> <code>MulticastSocket</code>
+<li> <code>FileNameMap</code> (an interface)
+</ul>
+<p>
+<a target="_top" href="../../networking/datagrams/broadcasting.html">Broadcasting to Multiple Recipients</a><a target="_top" href="../../networking/datagrams/broadcasting.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the JDK(TM) 1.1 -- And Beyond! trail)"></a>provides an example of using a <code>MulticastSocket</code>.
+The other classes and interfaces are not covered in this tutorial.
+</blockquote>
+
+<h3>Changes to <code>java.applet</code></h3>
+<blockquote>
+The basic applet API hasn't changed,
+except for the addition of an attribute,
+<code>ARCHIVE</code>,
+to the <code>&lt;APPLET&gt;</code> tag.
+With the help of the
+new <code>ARCHIVE</code> attribute,
+you can tell browsers
+to load your applet's files from Java archive (JAR) files.
+Using JAR files can significantly reduce applet loading time
+and help you
+work around unnecessary security restrictions.
+
+<p>
+Since applets can use most of the classes in the JDK,
+most of the changes described in other trails
+apply to applets, as well.
+Applets are probably most affected by the
+1.1 changes to the AWT
+(see the next section).
+Another significant change
+is that signed classes make it possible
+to create trusted applets
+(depending on browser support).
+</blockquote>
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="newPackages.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#converting" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="languageChanges.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.pilot.liveshare.base.widget.LiveSelectRadioButton xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+    <dji.publics.DJIUI.DJILinearLayout android:gravity="top|bottom|center_vertical|fill_vertical|center|fill" android:layout_gravity="top|bottom|center_vertical|fill_vertical|center|fill" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <dji.publics.DJIUI.DJIImageView android:layout_gravity="top|bottom|center_vertical|fill_vertical|center|fill" android:id="@+id/liveshare_selector_iv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/u1" android:src="@r$drawable/liveshare_ic_selector_normal" />
+        <dji.publics.DJIUI.DJIImageView android:layout_gravity="top|bottom|center_vertical|fill_vertical|center|fill" android:id="@+id/liveshare_share_type_iv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/tv" android:src="@r$drawable/liveshare_ic_all" />
+        <dji.publics.DJIUI.DJILinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="@dimen/ts" android:layout_marginLeft="@dimen/ts">
+            <dji.publics.DJIUI.DJITextView android:textSize="@dimen/rl" android:textColor="@color/om" android:id="@+id/liveshare_share_title_tv" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <dji.publics.DJIUI.DJITextView android:textSize="@dimen/rq" android:id="@+id/liveshare_share_des_tv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/v3" />
+        </dji.publics.DJIUI.DJILinearLayout>
+    </dji.publics.DJIUI.DJILinearLayout>
+    <dji.publics.DJIUI.DJIImageView android:background="@color/oq" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x40000031" android:layout_marginLeft="@dimen/u1" android:layout_marginRight="@dimen/u1" />
+</dji.pilot.liveshare.base.widget.LiveSelectRadioButton>

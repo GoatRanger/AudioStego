@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.pilot.set.view.DJILPFirmwareVersionDetailView xmlns:android="http://schemas.android.com/apk/res-auto" set:orientation="vertical" set:clickable="true" style="@style/ff">
+    <ScrollView set:layout_width="match_parent" set:layout_height="match_parent" set:fadeScrollbars="false">
+        <LinearLayout set:orientation="vertical" set:layout_width="match_parent" set:layout_height="match_parent"
+            <LinearLayout set:gravity="top|bottom|center_vertical|fill_vertical|center|fill" set:orientation="horizontal" set:clickable="true" set:layout_width="match_parent" set:layout_height="wrap_content">
+                <TextView set:gravity="top|bottom|center_vertical|fill_vertical|center|fill" set:text="@string/set_about_gimbal" style="@style/fl" />
+                <TextView set:id="@id/bci" set:paddingRight="15dp" set:text="" style="@style/fm" />
+            </LinearLayout>
+            <LinearLayout set:gravity="top|bottom|center_vertical|fill_vertical|center|fill" set:orientation="horizontal" set:clickable="true" set:layout_width="match_parent" set:layout_height="wrap_content">
+                <TextView set:gravity="top|bottom|center_vertical|fill_vertical|center|fill" set:text="@string/bluetooth_version" style="@style/fl" />
+                <TextView set:id="@id/bcj" set:paddingRight="15dp" set:text="" style="@style/fm" />
+            </LinearLayout>
+            <LinearLayout set:gravity="top|bottom|center_vertical|fill_vertical|center|fill" set:orientation="horizontal" set:id="@id/bck" set:clickable="true" set:layout_width="match_parent" set:layout_height="wrap_content">
+                <TextView set:gravity="top|bottom|center_vertical|fill_vertical|center|fill" set:text="@string/handset_version" style="@style/fl" />
+                <TextView set:id="@id/bcl" set:paddingRight="15dp" set:text="" style="@style/fm" />
+            </LinearLayout>
+            <LinearLayout set:gravity="top|bottom|center_vertical|fill_vertical|center|fill" set:orientation="horizontal" set:clickable="true" set:layout_width="match_parent" set:layout_height="wrap_content">
+                <TextView set:gravity="top|bottom|center_vertical|fill_vertical|center|fill" set:text="@string/pitch_motor_driver_version" style="@style/fl" />
+                <TextView set:id="@id/bcm" set:paddingRight="15dp" set:text="" style="@style/fm" />
+            </LinearLayout>
+            <LinearLayout set:gravity="top|bottom|center_vertical|fill_vertical|center|fill" set:orientation="horizontal" set:id="@id/bcn" set:clickable="true" set:layout_width="match_parent" set:layout_height="wrap_content">
+                <TextView set:gravity="top|bottom|center_vertical|fill_vertical|center|fill" set:text="@string/roll_motor_driver_version" style="@style/fl" />
+                <TextView set:id="@id/bco" set:paddingRight="15dp" set:text="" style="@style/fm" />
+            </LinearLayout>
+            <LinearLayout set:gravity="top|bottom|center_vertical|fill_vertical|center|fill" set:orientation="horizontal" set:id="@id/bcp" set:clickable="true" set:layout_width="match_parent" set:layout_height="wrap_content">
+                <TextView set:gravity="top|bottom|center_vertical|fill_vertical|center|fill" set:text="@string/yaw_motor_driver_version" style="@style/fl" />
+                <TextView set:id="@id/bcq" set:paddingRight="15dp" set:text="" style="@style/fm" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</dji.pilot.set.view.DJILPFirmwareVersionDetailView>

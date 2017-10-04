@@ -1,0 +1,152 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Getting and Setting Element Values</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="newInstance.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#array" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="../summary/index.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: The Reflection API
+<br>
+<b>Lesson</b>: Working with Arrays
+</font>
+
+<h2>
+Getting and Setting Element Values
+</h2>
+<blockquote>
+In most programs, to access array elements you merely use an assignment 
+expression as follows:
+
+<blockquote><pre>
+int[10] codes; 
+codes[3] = 22; 
+aValue = codes[3];
+</pre></blockquote>
+
+This technique will not work if you don't know the name of the array until runtime.  
+
+<p>
+Fortunately, you can use the <code>Array</code> class <code>set</code> and <code>get</code> methods to access 
+array elements when the name of the array is unknown at compile time. In 
+addition to <code>get</code> and <code>set</code>, the <code>Array</code> class has specialized methods that work 
+with specific primitive types. For example, the value parameter of <code>setInt</code> is 
+an <code>int</code>, and the object returned by <code>getBoolean</code> is a wrapper for a <code>boolean</code> 
+type.  
+
+<p>
+The sample program that follows
+uses the <code>set</code> and <code>get</code> methods to copy the 
+contents of one array to another.
+
+<blockquote><pre>
+import java.lang.reflect.*;
+
+class SampleGetArray {
+
+   public static void main(String[] args) {
+      int[] sourceInts = {12, 78};
+      int[] destInts = new int[2];
+      copyArray(sourceInts, destInts);
+      String[] sourceStrgs = {"Hello ", "there ", "everybody"};
+      String[] destStrgs = new String[3];
+      copyArray(sourceStrgs, destStrgs);
+   }
+
+   public static void copyArray(Object source, Object dest) {
+      for (int i = 0; i < Array.getLength(source); i++) {
+         Array.set(dest, i, Array.get(source, i));
+         System.out.println(Array.get(dest, i));
+      }
+   }
+}
+</pre></blockquote>
+
+The output of the sample program is:
+
+<blockquote><pre>
+12
+78
+Hello 
+there 
+everybody
+</pre></blockquote>
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="newInstance.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#array" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="../summary/index.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

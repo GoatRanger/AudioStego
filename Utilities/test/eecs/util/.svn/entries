@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="20"
+   name=""
+   committed-date="2005-02-01T06:07:43.375000Z"
+   url="svn://192.168.2.2/Utilities/test/eecs/util"
+   last-author="Karl"
+   kind="dir"
+   uuid="0daf4267-3229-f84b-9084-f3c94b025f38"
+   revision="53"/>
+<entry
+   name="tips"
+   kind="dir"/>
+</wc-entries>

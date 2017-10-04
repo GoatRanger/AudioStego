@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="33"
+   name=""
+   committed-date="2005-02-01T06:11:53.421875Z"
+   url="svn://192.168.2.2/ImageProcessor/src/or"
+   last-author="Karl"
+   kind="dir"
+   uuid="0daf4267-3229-f84b-9084-f3c94b025f38"
+   revision="55"/>
+<entry
+   committed-rev="33"
+   name="OR124.JAR"
+   text-time="2005-03-02T06:25:37.578125Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="8fca5c2b37b8b70266e58f24a67f6ce5"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:23.453125Z"/>
+<entry
+   name="doc"
+   kind="dir"/>
+</wc-entries>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:background="@drawable/gs_bg" android:layout_width="UNKNOWN_DATA_0x7f0b03f0" android:layout_height="UNKNOWN_DATA_0x7f0b03cf">
+    <ImageView android:id="@id/aj_" android:background="@drawable/gs_selector_btn_top" android:clickable="true" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x7f0b03ef" android:src="@drawable/gs_icon_delete" android:scaleType="center" />
+    <ImageView android:background="@drawable/gs_line_right" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x7f0b03e9" />
+    <ImageView android:id="@id/aja" android:background="@drawable/gs_selector_btn_mid" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x7f0b03ef" android:src="@drawable/gs_icon_gohome" android:scaleType="center" />
+    <ImageView android:background="@drawable/gs_line_right" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x7f0b03e9" />
+    <dji.publics.DJIUI.DJITextView android:textSize="@dimen/zu" android:textStyle="bold" android:textColor="0x106000b" android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@id/ajb" android:background="@drawable/gs_selector_btn_mid" android:clickable="true" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x7f0b03ef" android:text="@string/gs_txt_done" />
+</LinearLayout>

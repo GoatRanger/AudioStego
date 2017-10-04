@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.pilot.flyunlimit.view.WarningTypeView xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent">
+    <dji.publics.DJIUI.DJIListView android:id="@+id/warning_type_list" android:scrollbars="vertical" android:fadingEdgeLength="0dp" android:layout_width="match_parent" android:layout_height="match_parent" android:listSelector="0x0" android:drawSelectorOnTop="false" android:cacheColorHint="@color/j5" android:divider="@color/b4" android:dividerHeight="1px" android:overScrollMode="ifContentScrolls" />
+</dji.pilot.flyunlimit.view.WarningTypeView>

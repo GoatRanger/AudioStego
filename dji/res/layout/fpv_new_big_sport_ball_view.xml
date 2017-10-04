@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.pilot.fpv.sport.DJISportAttitudeView xmlns:android="http://schemas.android.com/apk/res-auto" app:layout_width="UNKNOWN_DATA_0x7f0b0177" app:layout_height="UNKNOWN_DATA_0x7f0b0177">
+    <dji.publics.DJIUI.DJIImageView app:id="@+id/fpv_sport_attitude_tip_img" app:background="@r$drawable/new_sport_attitude_tip_bg" app:visibility="invisible" app:layout_width="match_parent" app:layout_height="match_parent" app:layout_centerInParent="true" app:contentDescription="@string/app_name" />
+    <dji.publics.DJIUI.DJIImageView app:background="@r$drawable/big_sport_ball_new_bg" app:layout_width="match_parent" app:layout_height="match_parent" app:layout_centerInParent="true" app:contentDescription="@string/app_name" />
+    <ViewAnimator app:id="@+id/fpv_sport_attitude_status_va" app:layout_width="match_parent" app:layout_height="match_parent" app:layout_centerInParent="true" app:animateFirstView="false">
+        <dji.pilot.publics.widget.DJIClipView app:id="@+id/fpv_sport_attitude_status_img1" app:layout_width="match_parent" app:layout_height="match_parent" app:isUseSrcSize="false" app:shape="oval" app:src="@r$drawable/new_sport_attitude_new_low" />
+        <dji.pilot.publics.widget.DJIClipView app:id="@+id/fpv_sport_attitude_status_img2" app:layout_width="match_parent" app:layout_height="match_parent" app:isUseSrcSize="false" app:shape="oval" app:src="@r$drawable/new_sport_attitude_new_fast" />
+    </ViewAnimator>
+    <dji.publics.DJIUI.DJILinearLayout app:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" app:orientation="vertical" app:layout_width="wrap_content" app:layout_height="wrap_content" app:baselineAligned="false" app:layout_centerInParent="true">
+        <dji.publics.DJIUI.DJITextView app:textSize="@dimen/rq" app:textStyle="bold" app:id="@+id/fpv_sport_attitude_rpm_tv" style="@style/bm" />
+        <dji.publics.DJIUI.DJITextView app:textSize="@dimen/rn" app:textStyle="bold" app:id="@+id/fpv_sport_attitude_rpm_desc_tv" app:layout_marginTop="@dimen/fpv_attitude_sport_rpm" app:text="@string/unit_rpm" style="@style/bm" />
+    </dji.publics.DJIUI.DJILinearLayout>
+</dji.pilot.fpv.sport.DJISportAttitudeView>

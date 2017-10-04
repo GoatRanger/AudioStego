@@ -1,0 +1,161 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Number Format Pattern Syntax</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="decimalFormat.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#format" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+</td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<font size="-1">
+<b>Trail</b>: Internationalization
+<br>
+<b>Lesson</b>: Formatting 
+</font>
+
+<h2>
+Number Format Pattern Syntax
+</h2>
+<blockquote>
+You can design your own format patterns for numbers
+by following the rules specified by the
+following BNF diagram:
+
+<blockquote><pre>
+pattern    := subpattern{;subpattern}
+subpattern := {prefix}integer{.fraction}{suffix}
+prefix     := '\\u0000'..'\\uFFFD' - specialCharacters
+suffix     := '\\u0000'..'\\uFFFD' - specialCharacters
+integer    := '#'* '0'* '0'
+fraction   := '0'* '#'*
+</pre></blockquote>
+
+The notation used in the preceding diagram is explained in
+the following table:
+
+<blockquote>
+<table border >
+  <th>Notation</th>
+  <th>Description</th>
+</tr>
+<tr> <td><pre>X*</pre></td> <td>0 or more instances of X</td> </tr>
+<tr> <td><pre>(X | Y)</pre></td> <td>either X or Y</td> </tr>
+<tr> <td><pre>X..Y</pre></td> <td>any character from X up to Y, inclusive</td> </tr>
+<tr> <td><pre>S - T</pre></td> <td>characters in S, except those in T</td> </tr>
+<tr> <td><pre>{X}</pre></td> <td>X is optional</td> </tr>
+</table >
+</blockquote>
+
+In the preceding BNF diagram, the first subpattern specifies
+the format for positive numbers.
+The second subpattern, which is optional,
+specifies the format for negative numbers.
+
+<p>
+Although not noted in the BNF diagram, 
+a comma may appear within the integer portion.
+
+<p>
+Within the subpatterns, you specify formatting
+with special symbols.  These symbols are described
+in the following table: 
+
+
+<blockquote>
+<table border >
+  <th>Symbol</th>
+  <th>Description</th>
+</tr>
+
+<tr> <td>0</td> <td>a digit</td> </tr>
+<tr> <td>#</td> <td>a digit, zero shows as absent</td> </tr>
+<tr> <td>.</td> <td>placeholder for decimal separator</td> </tr>
+<tr> <td>,</td> <td>placeholder for grouping separator</td> </tr>
+<tr> <td>E</td> <td>separates mantissa and exponent for exponential formats</td> </tr>
+<tr> <td>;</td> <td>separates formats</td> </tr>
+<tr> <td>-</td> <td>default negative prefix</td> </tr>
+<tr> <td>%</td> <td>multiply by 100 and show as percentage</td> </tr>
+<tr> <td>?</td> <td>multiply by 1000 and show as per mille</td> </tr>
+<tr> <td>&curren;</td> <td>currency sign; replaced by currency symbol; if doubled, replaced by international currency symbol;  if present in a pattern, the monetary decimal separator is used instead of the decimal separator </td> </tr>
+<tr> <td>X</td> <td>any other characters can be used in the prefix or suffix</td> </tr>
+<tr> <td>'</td> <td>used to quote special characters in a prefix or suffix</td> </tr>
+
+</table >
+</blockquote>
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="decimalFormat.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#format" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+</td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Accessing Java Strings in Native Methods</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#implementing" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="array.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Java Native Interface
+<br>
+<b>Lesson</b>: Interacting with Java from the Native Side
+</font>
+
+<h2>
+Accessing Java Strings in Native Methods
+</h2>
+<blockquote>
+When a Java application passes a string to a native method, it passes the string as a <code>jstring</code> type. This <code>jstring</code> type is  
+different from the regular C string type (char *). If your code tries to
+ print a <code>jstring</code> directly, it will likely result in a VM crash. For example, the following code segment incorrectly tries to print a <code>jstring</code> and may result in a VM crash:
+
+<blockquote><pre>
+/* <strong>DO NOT USE jstring THIS WAY !!!</strong> */
+JNIEXPORT jstring JNICALL
+Java_Prompt_getLine(JNIEnv *env, jobject obj, jstring prompt)
+{
+    printf("%s", prompt);
+    ...
+</pre></blockquote>
+
+<p> Your native method code must use JNI functions to convert Java  
+strings to native strings. The JNI supports the conversion to and from
+native Unicode and UTF-8 strings. In particular, UTF-8 strings use the
+highest bit-to-signal multibyte characters; they are therefore upwards-compatible with 7-bit ASCII. In Java, UTF-8 strings are always
+0-terminated.
+
+
+</blockquote>
+<h3>Accessing Java Strings</h3>
+
+Your native method needs to call
+<code>GetStringUTFChars</code> to correctly print the string passed to it from a Java application. <code>GetStringUTFChars</code> converts the built-in Unicode representation of a 
+Java string into a UTF-8 string. 
+After the <code>jstring</code> has been converted to 
+a UTF-8 string, you can directly pass the string to most 
+regular C language functions, 
+such as <code>printf</code>, 
+as is shown in <a href=example-1dot1/Prompt.c><code>Prompt.c</code></a>:
+
+<blockquote><pre>
+JNIEXPORT jstring JNICALL
+Java_Prompt_getLine(JNIEnv *env, jobject obj, jstring prompt)
+{
+    char buf[128];
+    const char *str = (*env)->GetStringUTFChars(env, prompt, 0);
+    printf("%s", str);
+    (*env)->ReleaseStringUTFChars(env, prompt, str);
+    ...
+</pre></blockquote>
+
+
+   If the original string contained only characters in the ASCII range 
+   of Unicode, then all standard C library functions will work on 
+   the UTF-8 string exactly as they would on the corresponding ASCII 
+   string (because in this case, they are identical strings).  If 
+   the original string contained non-ASCII characters, some library 
+   functions may not behave as expected if passed the converted, UTF-8  
+   string.  For example, the result of passing such a UTF-8 string to 
+   the <code>strlen</code> function will <em>not</em> be the number of 
+   Unicode characters in the string. 
+
+<blockquote><hr><strong>Note:</strong>&nbsp; When your native code is finished using the UTF-8 string, it
+must call <code>ReleaseStringUTFChars</code>. <code>ReleaseStringUTFChars</code> informs the VM that the native method is finished with the string so that the VM can free the memory
+taken by the UTF-8 string. Failing to call
+<code>ReleaseStringUTFChars</code> results in a memory leak.  This will ultimately lead to
+system memory exhaustion.
+<hr></blockquote>
+
+<p> The native method can also construct a new string using the JNI
+function <code>NewStringUTF</code>.  The following lines of code from
+<code>Java_Prompt_getLine</code> show this:
+
+<blockquote><pre>
+    ...
+    scanf("%s", buf);
+    return (*env)->NewStringUTF(env, buf);
+}
+</pre></blockquote>
+
+<h3>Using the JNIEnv Interface Pointer</h3>
+
+<p> Native methods must access and manipulate Java objects, such as
+strings, through the <code>env</code> interface pointer. In C, this
+requires using the <code>env</code> pointer to reference the JNI
+function. Notice how the native method uses the <code>env</code>
+interface pointer to reference the two functions,
+<code>GetStringUTFChars</code> and <code>ReleaseStringUTFChars</code>,
+that it calls.  Not only does the native method use <code>env</code> as an interface pointer, <code>env</code> is passed as the first parameter to
+these functions.
+
+<p><center><IMG SRC="../../figures/native1.1/native6.gif" WIDTH="586" HEIGHT="110" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p>
+
+<h3>Other JNI Functions for Accessing Java Strings</h3>
+
+<p> The JNI also provides functions to obtain the Unicode
+representation of Java strings. This is useful, for example, on those
+operating systems that support Unicode as the native format. There are
+also utility functions to obtain both the UTF-8 and Unicode length of
+Java strings.
+
+<p>
+<ul>
+
+<li><code>GetStringChars</code> takes the Java string and returns a
+pointer to an array of Unicode characters
+that comprise the string.</li>
+
+<li><code>ReleaseStringChars</code> releases the pointer to the array
+of Unicode characters.</li>
+
+<li><code>NewString</code> constructs a new
+<code>java.lang.String</code> object from an array of Unicode
+characters.</li>
+
+<li><code>GetStringLength</code> returns the length of a string that
+is comprised of an array of Unicode characters.</li>
+
+<li><code>GetStringUTFLength</code> returns the length of a string if
+it is represented in the UTF-8 format.</li>
+
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#implementing" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="array.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

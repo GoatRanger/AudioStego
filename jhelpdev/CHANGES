@@ -1,0 +1,15 @@
+Changes always refer to the previous version.
+
+JHelpDev 0.27
+
+-James Iry added automatic TOC generation that merges with existing TOC items
+ while keeping the current TOC structure intact
+-no yellow (no target) highlighting for directories 
+-some minor refactorings
+-James Iry added environment settings to hold recently opened files and
+the last directory the user looked in
+-James Iry did some refactoring to move common XML parsing code into a 
+ common base class
+-Xml export via xmlenc
+-removed XML libraries from distribution
+-encodings not editable anymore, choose from all encodings supported by xmlenc

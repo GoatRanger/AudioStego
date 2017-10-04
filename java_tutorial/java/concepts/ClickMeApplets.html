@@ -1,0 +1,219 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Run the ClickMe Applets</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Learning the Java Language
+<br>
+<b>Lesson</b>: Object-Oriented Programming Concepts
+</font>
+
+<h2>
+Run the ClickMe Applets
+</h2>
+<blockquote>
+
+<blockquote><hr><strong>Note:</strong>&nbsp;The applets on this page require JDK 1.1.
+If you are using an older browser that does not support 1.1,
+you won't be able to run the applets.
+Instead, you need to view this page in a 1.1 browser,
+such as HotJava, the JDK Applet Viewer (<code>appletviewer</code>),
+or certain versions of Netscape Navigator and Internet Explorer.
+For more information about running applets,
+refer to
+<a target="_top" href="../../information/examples.html">About Our Examples</a><a target="_top" href="../../information/examples.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Learning the Java Language trail)"></a>.
+<hr></blockquote>
+
+</blockquote>
+
+<h3>
+<a target="_blank" href="example-1dot1/ClickMe.java"><font color="#bb000f"><code>ClickMe</code></font></a><a target="_blank" href="example-1dot1/ClickMe.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a></h3>
+<blockquote>
+<applet code="ClickMe.class"
+        codebase="example-1dot1/"
+        width="200" height="100">
+</applet>
+<p>
+This is the original applet.
+Click within the applet's bounds
+and the applet displays a red spot at
+the mouse click location.
+</blockquote>
+
+<h3>
+<a target="_blank" href="QandE/ClickMeGreen.java"><font color="#bb000f"><code>ClickMeGreen</code></font></a><a target="_blank" href="QandE/ClickMeGreen.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a></h3>
+<blockquote>
+<applet code="ClickMeGreen.class"
+        codebase="QandE/"
+        width="200" height="100">
+</applet>
+<p>
+This applet is a minor modification of the original.
+Besides the applet name,
+only the code that draws the spot changed.
+The following table shows the spot-drawing code
+from both versions of the applet.
+<p>
+<table border="1">
+<tr>
+<th>Old Version</th>
+<th>New Version</th>
+</tr>
+<tr>
+<td>
+<pre>
+g.setColor(Color.<font color="red">red</font>);
+if (spot != null) {
+    g.fill<font color="red">Oval</font>(spot.x - RADIUS,
+               spot.y - RADIUS,
+               RADIUS * 2, RADIUS * 2);
+}
+</pre>
+</td>
+<td>
+<pre>
+g.setColor(Color.<font color="red">green</font>);
+if (spot != null) {
+    g.fill<font color="red">Rect</font>(spot.x - RADIUS,
+               spot.y - RADIUS,
+               RADIUS * 2, RADIUS * 2);
+}
+</pre>
+</td>
+</tr>
+</table>
+
+</blockquote>
+
+<h3>
+<a target="_blank" href="QandE/ClickMePurple.java"><font color="#bb000f"><code>ClickMePurple</code></font></a><a target="_blank" href="QandE/ClickMePurple.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a></h3>
+<blockquote>
+<applet code="ClickMePurple.class"
+        codebase="QandE/"
+        width="200" height="100">
+</applet>
+<p>
+This is another relatively minor
+modification of the original applet.
+The differences between the two versions are shown in <font color="red">red</font>:
+<p>
+<table border="1">
+<tr>
+<th>Old Version</th>
+<th>New Version</th>
+</tr>
+<tr>
+<td>
+<pre>
+import java.applet.Applet;
+import java.awt.*;
+import java.awt.event.*;
+
+public class <font color="red">ClickMe</font>
+       extends Applet
+       implements MouseListener
+{
+    private Spot spot = null;
+    <font color="red">private static final int RADIUS = 7;</font>
+
+    public void init() {
+        addMouseListener(this);
+    }
+
+    public void paint(Graphics g) {
+        // draw black border and white background
+        ...
+
+        // draw the spot
+        g.setColor(<font color="red">Color.red</font>);
+        if (spot != null) {
+            <font color="red">g.fillOval(spot.x - RADIUS,
+                       spot.y - RADIUS,
+                       RADIUS * 2, RADIUS * 2);</font>
+        }
+    }
+    public void mousePressed(MouseEvent event) {
+        if (spot == null) {
+            spot = new Spot(<font color="red">RADIUS</font>);
+        }
+        spot.x = event.getX();
+        spot.y = event.getY();
+        repaint();
+    }
+    ...
+}
+</pre>
+</td>
+<td valign="top">
+<pre>
+import java.applet.Applet;
+import java.awt.*;
+import java.awt.event.*;
+
+public class <font color="red">ClickMePurple</font>
+       extends Applet
+       implements MouseListener
+{
+    private Spot spot = null;
+    <font color="red">private Color purple = new Color(0.5f, 0.0f, 0.5f);</font>
+
+    public void init() {
+        addMouseListener(this);
+    }
+
+    public void paint(Graphics g) {
+        // draw black border and white background
+        ...
+
+        // draw the spot
+        g.setColor(<font color="red">purple</font>);
+        if (spot != null) {
+
+            <font color="red">g.drawString("Mary", spot.x, spot.y);</font>
+
+        }
+    }
+    public void mousePressed(MouseEvent event) {
+        if (spot == null) {
+            spot = new Spot(<font color="red">0</font>);
+        }
+        spot.x = event.getX();
+        spot.y = event.getY();
+        repaint();
+    }
+    ...
+}
+</pre>
+</td>
+</tr>
+</table>
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>
+

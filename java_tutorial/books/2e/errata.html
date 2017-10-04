@@ -1,0 +1,869 @@
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <title>The Java Tutorial Books</title>
+</head>
+<body bgcolor="#FFFFFF" link="#000099" alink="#000099" background="../../images/backgroundsm.gif">
+<a NAME="errata_top"></a>
+<table BORDER=0 CELLSPACING=0 CELLPADDING=2 WIDTH="726" >
+<tr>
+<td ALIGN=RIGHT VALIGN=TOP WIDTH="149" HEIGHT="140">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<b><i><font face="Arial, Helvetica"><font size=-1><a href="../../index.html">The
+Java Tutorial</a></font></font></i></b><a href="../../index.html"><img SRC="../../images/dukesign.GIF" BORDER=0 NATURALSIZEFLAG="3" height=104 width=130 align=BOTTOM></a></td>
+
+<td VALIGN=TOP WIDTH="287" HEIGHT="140"><map NAME="shoenavbarMap11"><area SHAPE="rect" COORDS="360,2,440,41" HREF="http://java.sun.com/docs/books/tutorial/search.html"><area SHAPE="rect" COORDS="277,0,359,41" HREF="../../trailmap.html"><area SHAPE="rect" COORDS="214,1,276,41" HREF="../../information/FAQ.html"><area SHAPE="rect" COORDS="104,2,214,42" HREF="../../information/download.html"><area SHAPE="rect" COORDS="1,-1,105,43" HREF="../../book.html"></map><img ISMAP SRC="../../images/shoenavbar.gif" BORDER=0 NATURALSIZEFLAG="3" USEMAP="#shoenavbarMap11" height=38 width=423 align=BOTTOM>
+<p><font face="Arial, Helvetica"><font size=-1><font color="#C0C0C0">About
+the <i>Java Tutorial</i> Books > </font><font color="#707070">The Java
+Tutorial Second Edition</font></font></font>
+<br><b><i><font face="Arial, Helvetica"><font color="#000099"><font size=+2>Errata</font></font></font></i></b>
+<p><font face="Arial"><font size=-1><a href="book.html">book</a>
+| <a href="toc.html#toc_top">TOC</a>
+| <a href="cdinfo.html#cd_top">CD-ROM</a>
+| <a href="reference.html#references_top">References</a>
+| Errata</font></font></td>
+
+<td VALIGN=BOTTOM WIDTH="286" HEIGHT="140">&nbsp;</td>
+</tr>
+
+<tr>
+<td COLSPAN="2" ROWSPAN="2">
+<table BORDER=0 CELLSPACING=2 CELLPADDING=0 WIDTH="95%" >
+<tr>
+<td WIDTH="29" HEIGHT="156"></td>
+
+<td WIDTH="498" HEIGHT="156">
+<ul>
+<li>
+<a href="errata.html#4">Fourth Printing
+Corrections</a>&nbsp;</li>
+
+<li>
+<a href="errata.html#3">Third Printing
+Corrections</a>&nbsp;</li>
+</ul>
+
+<h4>
+<a NAME="4"></a><font color="#000099">Fourth Printing Corrections</font></h4>
+The following errors were corrected in the fourth printing, July 1999.&nbsp;
+<table BORDER CELLSPACING=2 CELLPADDING=0 WIDTH="100%" >
+<tr>
+<td WIDTH="12%">&nbsp;<b>Page</b></td>
+
+<td WIDTH="88%">&nbsp;<b>Correction</b></td>
+</tr>
+
+<tr>
+<td WIDTH="12%">&nbsp;48</td>
+
+<td WIDTH="88%">Updated the sources for more object-oriented programming
+information.</td>
+</tr>
+
+<tr>
+<td WIDTH="12%">&nbsp;54</td>
+
+<td WIDTH="88%">Updated Figure 11 to read "<font color="#3333FF">Method</font>
+Parameter Scope" rather than "Member ..."</td>
+</tr>
+
+<tr>
+<td WIDTH="12%">&nbsp;61</td>
+
+<td WIDTH="88%">In third paragraph: Changed "This operator is a tertiary
+operator..." to "This operator is a <font color="#3333FF">ternary</font>
+operator..."&nbsp;</td>
+</tr>
+
+<tr>
+<td WIDTH="12%">&nbsp;62</td>
+
+<td WIDTH="88%">Deleted two sentences in the second paragraph: "A right
+shift of 1 bit ...multiplying by 2." Sentences were not replaced.&nbsp;</td>
+</tr>
+
+<tr>
+<td WIDTH="12%">&nbsp;88</td>
+
+<td WIDTH="88%">In the third full paragraph, clarified the use of "default
+constructor."&nbsp; The first sentence now reads: "A constructor that takes
+no arguments, such as the one shown, is called a <font color="#3333FF">no-argument
+constructor</font>."</td>
+</tr>
+
+<tr>
+<td WIDTH="12%">&nbsp;96</td>
+
+<td WIDTH="88%">In the next-to-last paragraph, changed: "It also defines
+one constructor-- the default constructor..." to "It also defines one constructor--a
+<font color="#3333FF">no-argument</font> constructor..."</td>
+</tr>
+
+<tr>
+<td WIDTH="12%">&nbsp;97</td>
+
+<td WIDTH="88%">Added the following highlighted words: " Similarly... the
+compiler chooses <font color="#3333FF">the no-argument constructor or </font>the
+default constructor..."</td>
+</tr>
+
+<tr>
+<td WIDTH="12%">&nbsp;124</td>
+
+<td WIDTH="88%">Updated the second paragraph to read: " The <font color="#3333FF">no-argument</font>
+constructor doesn't let the caller provide initial values for anything
+and the other two constructors let the caller set the initial values either
+for the <font color="#3333FF">size</font> or for the origin and the size."</td>
+</tr>
+
+<tr>
+<td WIDTH="12%">&nbsp;136&nbsp;</td>
+
+<td WIDTH="88%">Updated the Stack class code. The highlighted code has
+been added or changed:&nbsp;
+<br>&nbsp;&nbsp;<tt> public String toString() {</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#3333FF">
+int n = items.size();</font></tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; StringBuffer result
+= new StringBuffer();</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; result.append("[");</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for (int i = 0; i &lt;
+n; i++) {</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+result.append(items.elementAt<font color="#3333FF">(</font>i<font color="#3333FF">)</font>.toString());</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (i <font color="#3333FF">&lt;</font> n-1) <font color="#3333FF">result.append(",");</font></tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#3333FF">
+result.append("]");</font></tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return result.toString();</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; }&nbsp;</tt></td>
+</tr>
+
+<tr>
+<td WIDTH="12%">&nbsp;139</td>
+
+<td WIDTH="88%">In the first line of code on p. 139, "<tt>Clone</tt>" should
+be lower-cased. Therefore, the line of code should read:&nbsp; <tt>protected
+Object <font color="#3333FF">c</font>lone() {</tt></td>
+</tr>
+
+<tr>
+<td WIDTH="12%">&nbsp;139</td>
+
+<td WIDTH="88%">Clarified the explanation of the <tt>clone</tt> method
+in the first paragraph:&nbsp;
+<br>The implementation for <tt>Stack</tt>'s <tt>clone</tt> method is relatively
+simple:<font color="#3333FF"> It calls <tt>super.clone</tt></font> (<tt>Object</tt>'s
+implementation of the <tt>clone</tt> method) <font color="#3333FF">to create
+an instance of the correct type</font>. The only member of <tt>Stack</tt>,
+a <tt>Vector</tt>, is also cloneable. Be careful: <tt>clone</tt> should
+not use new to create the clone and should not call constructors.<font color="#3333FF">
+Instead, the method should call <tt>super.clone</tt>, which creates an
+object of the correct type and allows the hierarchy of superclasses to
+perform the copying necessary to get a proper clone.</font></td>
+</tr>
+
+<tr>
+<td WIDTH="12%">&nbsp;155</td>
+
+<td WIDTH="88%">Updated the code for the <tt>StackEnum</tt> class:&nbsp;
+<br>&nbsp;&nbsp;&nbsp;<tt>&nbsp; class StackEnum implements Enumeration
+{</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int currentItem = <font color="#3333FF">items.size()
+- 1</font>;</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public boolean hasMoreElements()
+{</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return <font color="#3333FF">(currentItem >= 0)</font>;</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public Object nextElement()
+{</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if <font color="#3333FF">(!hasMoreElements())</font></tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+throw new NoSuchElementException();</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+else</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return items.elementAt<font color="#3333FF">(currentItem--)</font>;</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; }</tt></td>
+</tr>
+
+<tr>
+<td WIDTH="12%">&nbsp;156&nbsp;</td>
+
+<td WIDTH="88%">Updated the code for the <tt>enumerator</tt> method:&nbsp;
+<br>&nbsp;&nbsp;&nbsp; <tt>public Enumeration enumerator() {</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return new Enumeration() {</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int currentItem
+= items.size() - 1;</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public boolean
+hasMoreElements() {</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return <font color="#3333FF">(currentItem >= 0)</font>;</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public Object
+nextElement() {</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if <font color="#3333FF">(!hasMoreElements())</font></tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+throw new NoSuchElementException();</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+else</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return items.elementAt<font color="#3333FF">(currentItem--)</font>;</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</tt>
+<br><tt>&nbsp; }</tt></td>
+</tr>
+
+<tr>
+<td>&nbsp;175</td>
+
+<td>Figure 31 was updated to indicate that there is at least one class
+between <tt>Container</tt> and <tt>Applet</tt>.</td>
+</tr>
+
+<tr>
+<td WIDTH="12%">&nbsp;317&nbsp;</td>
+
+<td WIDTH="88%">In the first full paragraph, the second sentence was corrected
+to read: "Let's modify the <tt>writeList</tt> method to specify the <font color="#3333FF">exceptions</font>
+that it can throw instead of catching them."</td>
+</tr>
+
+<tr>
+<td WIDTH="12%">&nbsp;331</td>
+
+<td WIDTH="88%">The code for the <tt>SimpleThread</tt> class was corrected
+so that the sleep method takes a long (rather than an int). The correct
+line of code is:&nbsp;
+<br>&nbsp;&nbsp;<font color="#000000">&nbsp; <tt>sleep ((</tt></font><tt><font color="#3333FF">long</font><font color="#000000">))Math.random()
+* 1000));</font></tt></td>
+</tr>
+
+<tr>
+<td>&nbsp;407</td>
+
+<td>In the first sentence under "Getting configuration information from
+the user," the words "the applet" were changed to "a program."&nbsp; The
+revised sentence is: "Users can specify configuration information to <font color="#3333FF">a
+program</font> using..."</td>
+</tr>
+
+<tr>
+<td>&nbsp;456</td>
+
+<td>In the first line of the first code snippet, "( )" was added before
+the semicolon.&nbsp; The revised line of code looks like this:&nbsp;
+<br>&nbsp;&nbsp;<tt>&nbsp; Panel p1 = new Panel<font color="#3333FF">()</font>;</tt></td>
+</tr>
+
+<tr>
+<td>&nbsp;469</td>
+
+<td>In the first code snippet, the duplicate definition of <tt>mouseEntered</tt>
+was deleted.&nbsp;</td>
+</tr>
+
+<tr>
+<td>&nbsp;469</td>
+
+<td>In the second code snippet, the following lines of code were added:
+<p><tt>//An example of extending an adapter class.</tt>
+<br><tt>public class MyClass extends MouseAdapter {</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; ...</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; someObject.addMouseListener(this);</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; ...</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; public void mouseClicked(MouseEvent e) {</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ...//Event handler implementation
+goes here...</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; }</tt>
+<br><tt>}</tt></td>
+</tr>
+
+<tr>
+<td>&nbsp;470</td>
+
+<td>In the first code snippet, the name of the inner class was changed
+from <tt>MyClass</tt> to <tt>MyAdapter</tt>. Therefore, the&nbsp; inner
+class's declaration is now:&nbsp;
+<br>&nbsp;&nbsp;&nbsp; <tt>class <font color="#3333FF">MyAdapter</font>
+extends MouseAdapter {</tt></td>
+</tr>
+
+<tr>
+<td WIDTH="12%">&nbsp;477&nbsp;</td>
+
+<td WIDTH="88%">Minor correction in the sentence under the "Container Event
+Methods" heading: "The <tt>ContainerListener</tt> interface... and <tt>ContainerAdapter</tt>
+contain <font color="#3333FF">two</font> methods."</td>
+</tr>
+
+<tr>
+<td WIDTH="12%">&nbsp;481</td>
+
+<td WIDTH="88%">Minor correction in the second sentence of the last paragraph:
+"Here is the applet's <font color="#3333FF">focus</font>-event handlling
+code:"&nbsp;</td>
+</tr>
+
+<tr>
+<td WIDTH="12%">&nbsp;487</td>
+
+<td WIDTH="88%">Deleted superfluous "the" in the last sentence on this
+page.&nbsp;</td>
+</tr>
+
+<tr>
+<td WIDTH="12%">&nbsp;494</td>
+
+<td WIDTH="88%">In the second sentence of the first paragraph, changed
+"methods" to its singular ("method").</td>
+</tr>
+
+<tr>
+<td WIDTH="12%">&nbsp;500</td>
+
+<td WIDTH="88%">Minor correction: In the first sentence under the heading
+"The <tt>WindowEvent</tt> Class," the sentence was changed from "Each mouse
+event method..." to "Each <font color="#3333FF">window</font> event method..."</td>
+</tr>
+
+<tr>
+<td WIDTH="12%">&nbsp;504</td>
+
+<td WIDTH="88%">In the third paragraph under the "Using Layout Managers"
+heading, some wording was modified to reflect the placement of the screenshots
+on p. 505.</td>
+</tr>
+
+<tr>
+<td WIDTH="12%">&nbsp;505</td>
+
+<td WIDTH="88%">Minor change: In the first sentence of the last paragraph,
+"an" should be "an<font color="#3333FF">d</font>."</td>
+</tr>
+
+<tr>
+<td WIDTH="12%">&nbsp;522</td>
+
+<td WIDTH="88%">In the first full paragraph, the second sentence was corrected
+to read: "Instead of implementing <tt><font color="#3333FF">LayoutManager</font></tt>
+directly, some layout managers implement the <tt><font color="#3333FF">LayoutManager2</font></tt>
+interface."</td>
+</tr>
+
+<tr>
+<td>&nbsp;546</td>
+
+<td>In the second-to-last line of the code snippet, a <tt>filter</tt> argument
+was added to the <tt>FilteredImageSource</tt> constructor. The revised
+code looks like this:&nbsp;
+<br><tt>&nbsp; ImageProducer producer = new FilteredImageSource(</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+sourceImage.getSource(),</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<font color="#3333FF">filter</font>);</tt></td>
+</tr>
+
+<tr>
+<td>&nbsp;548</td>
+
+<td>In the seventh line on the page (in the code snippet), a <tt>filter</tt>
+argument was added, as in the above correction for page 546.</td>
+</tr>
+
+<tr>
+<td>&nbsp;566</td>
+
+<td>In the code snippet, in the <tt>paintFrame</tt> method, the comments
+were reversed.&nbsp; The first one now reads:&nbsp;
+<br><tt>&nbsp;//If we have a valid width and height for the background</tt>
+<br><tt>&nbsp;//image, draw it.</tt>
+<p>The second comment now reads:&nbsp;
+<br><tt>&nbsp;//If we have a valid width and height for the foreground</tt>
+<br><tt>&nbsp;//image, draw it.</tt></td>
+</tr>
+
+<tr>
+<td>&nbsp;568</td>
+
+<td>In the 7th line of the code snippet, a quotation mark was inserted
+before the T.&nbsp; Like this: <tt><font color="#3333FF">"</font>T"+i+".gif")</tt>;</td>
+</tr>
+
+<tr>
+<td>&nbsp;570</td>
+
+<td>An additional closing bracket "<tt>}"</tt> was added after the code
+snippet.&nbsp; Like this:
+<p><tt>&nbsp;&nbsp;&nbsp; else {</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ..//same code as before...</tt>
+<br><tt><font color="#3333FF">&nbsp;&nbsp;&nbsp; }</font></tt></td>
+</tr>
+
+<tr>
+<td WIDTH="12%">&nbsp;588</td>
+
+<td WIDTH="88%">In the second sentence of the third paragraph, the word
+"correct" was replaced with "<font color="#3333FF">in</font>correct."</td>
+</tr>
+
+<tr>
+<td WIDTH="12%">&nbsp;622</td>
+
+<td WIDTH="88%">In the first code snippet, the second line of code was
+corrected to read:&nbsp;
+<br>&nbsp;&nbsp;&nbsp;<tt> DataGramPacket <font color="#3333FF">packet</font>
+= new DataGramPacket(buf, buf.length);</tt></td>
+</tr>
+
+<tr>
+<td>&nbsp;711</td>
+
+<td>A mention of Swing was changed in the second line of the program <tt>ScrollingSimple.java</tt>:&nbsp;
+<br>&nbsp;&nbsp;&nbsp;<tt> java.swing.TextField;</tt>
+<br>was changed to this:&nbsp;
+<br>&nbsp;&nbsp;<tt> java.awt.TextField;</tt></td>
+</tr>
+
+<tr>
+<td WIDTH="12%">&nbsp;929-&nbsp;
+<br>&nbsp;930</td>
+
+<td WIDTH="88%">The following sentence was added to the first paragraph
+in the "Java Language Keywords" section:
+<blockquote><tt>true</tt>, <tt>false</tt>, and <tt>null</tt> are not keywords
+but they are reserved words, so you cannot use them as names in your programs
+either.&nbsp;</blockquote>
+<tt>true</tt>, <tt>false</tt>, and <tt>null</tt> were removed from Table
+41: "Reserved Java Keywords." <tt>strictfp</tt> was added to Table 41 since
+<tt>strictfp</tt> was designated a reserved keyword in the Java 2 Platform.</td>
+</tr>
+</table>
+
+<p>[<a href="#errata_top">top</a>]
+<h4>
+<a NAME="3"></a><font color="#000099">Third Printing Corrections</font></h4>
+The following errors were corrected in the third printing, January 1999.&nbsp;
+<table BORDER CELLSPACING=2 CELLPADDING=0 WIDTH="100%" NOSAVE >
+<tr>
+<td><b>Page</b></td>
+
+<td><b>Correction</b></td>
+</tr>
+
+<tr>
+<td>&nbsp;50</td>
+
+<td>
+<dt>
+<b>Running the countChars Method: </b>The code shown on this page has a
+typo. The 'S' on <tt>System.err</tt> should be capitalized. To compile
+the program change this line:</dt>
+
+<blockquote>
+<pre><b>s</b>ystem.err.println("Usage: Count filename");</pre>
+</blockquote>
+to this:
+<blockquote><b>S</b>ystem.err.println("Usage: Count filename");</blockquote>
+</td>
+</tr>
+
+<tr NOSAVE>
+<td WIDTH="12%" NOSAVE>&nbsp;51</td>
+
+<td>
+<dt>
+<b>Data Types</b></dt>
+
+<br>Fourth sentence should read "Integers can contain only <i>integral</i>
+values..."&nbsp;</td>
+</tr>
+
+<tr NOSAVE>
+<td WIDTH="10" NOSAVE>&nbsp;52</td>
+
+<td>
+<dt>
+<b>Table 1: Java's primitive data types</b></dt>
+
+<br>"Whole numbers" should be "Integers" instead. Likewise in the second
+sentence in the paragraph following the table.&nbsp;</td>
+</tr>
+
+<tr>
+<td>&nbsp;53</td>
+
+<td>
+<dt>
+<b>Variable Names</b></dt>
+
+<br>List item "1" incorrectly refers to the Russian alphabet. It should
+refer instead to the Cyrillic alphabet.&nbsp;</td>
+</tr>
+
+<tr>
+<td>&nbsp;54&nbsp;</td>
+
+<td>
+<dt>
+<b>Figure 11</b></dt>
+
+<br>Figure 11 has a typo. The label "<i>Member</i> Parameter Scope" should
+read "<i>Method</i> Parameter Scope".&nbsp;</td>
+</tr>
+
+<tr>
+<td>&nbsp;67</td>
+
+<td>
+<dt>
+<b>Paragraph Below "By Convention" note.</b></dt>
+
+<br>The reference to the table "<i>Operator Precedence in Java</i> (page
+932)" should actually reference page 930.&nbsp;</td>
+</tr>
+
+<tr>
+<td>&nbsp;74</td>
+
+<td>
+<dt>
+<b>Branching Statements</b></dt>
+
+<br>The discussion about labeled break is incorrect. The labeled break
+statement breaks to the statement following the labeled statement, <i>not</i>
+to the label as stated.&nbsp;</td>
+</tr>
+
+<tr>
+<td>&nbsp;75</td>
+
+<td>
+<dt>
+<b>Branching Statements</b></dt>
+
+<br>The following sentence at the end of the third paragraph is incorrect
+and should be removed: "The loop either continues or not depending on the
+results of the termination condition."&nbsp;</td>
+</tr>
+
+<tr>
+<td>&nbsp;75</td>
+
+<td>
+<dt>
+<b>Branching Statements</b></dt>
+
+<br>The first paragraph about the labeled continue statement needs to be
+clarified. It should read "The labeled form of the <tt>continue</tt> statement
+continues at the next iteration of the labeled loop."&nbsp;</td>
+</tr>
+
+<tr>
+<td>&nbsp;78</td>
+
+<td>
+<dt>
+<b>Code Sample at Top of Page</b></dt>
+
+<br>The code sample found at the top of the page has the same problem as
+the code on <a href="errata.html#page50">page
+50</a>. Additionally, part of the paragraph following the code sample at
+the top of the page reads "so <tt>main</tt> doesn't have <i>do</i>". It
+should read "so <tt>main</tt> doesn't have <i>to</i>".&nbsp;</td>
+</tr>
+
+<tr>
+<td>&nbsp;85</td>
+
+<td>
+<dt>
+<b>Code Sample at Top of Page</b></dt>
+
+<br>The declaration for the <tt>area</tt> method is wrong. It should read:&nbsp;
+<blockquote>
+<pre>public int area() {&nbsp;</pre>
+</blockquote>
+That is, the <tt>int x, int y</tt> parameters should be removed.&nbsp;</td>
+</tr>
+
+<tr>
+<td>&nbsp;96</td>
+
+<td>
+<dt>
+<b>&nbsp;implements Interfaces paragraph</b></dt>
+
+<br>The second sentence of the paragraph reads "applet implements <i>and</i>
+interface". It should read "applet implements <i>an</i> interface".</td>
+</tr>
+
+<tr>
+<td>&nbsp;100&nbsp;</td>
+
+<td>
+<dt>
+<b>static Paragraph</b></dt>
+
+<br>The first sentence refers to <i>members</i>. It should refer to <i>variables</i>
+to make it more precise.&nbsp;</td>
+</tr>
+
+<tr>
+<td>&nbsp;125</td>
+
+<td>
+<dt>
+<b>Second bullet item</b></dt>
+
+<br>The fourth line reads "confusion to <i>other</i> reading your code."
+It should read "confusion to <i>others</i> reading your code."&nbsp;</td>
+</tr>
+
+<tr>
+<td>&nbsp;138</td>
+
+<td>
+<dt>
+<b>Being a Descendent of Object</b></dt>
+
+<br>The <tt>hashCode</tt> method is incorrectly listed as final. <tt>hashCode</tt>
+is not final and may be overridden by subclasses.&nbsp;</td>
+</tr>
+
+<tr>
+<td>&nbsp;146</td>
+
+<td>
+<dt>
+<b>Paragraph below first code sample</b></dt>
+
+<br>The second sentence of the paragraph begins "After a specified <i>a
+mount</i> of time". It should read "After a specified <i>amount</i> of
+time".&nbsp;</td>
+</tr>
+
+<tr>
+<td>&nbsp;154</td>
+
+<td>
+<dt>
+<b>Inner Classes</b></dt>
+
+<br>In the first code sample after the first paragraph in the section <tt>public</tt>
+is misspelled as <tt>pubilc</tt>.&nbsp;</td>
+</tr>
+
+<tr>
+<td>&nbsp;156</td>
+
+<td>
+<dt>
+<b>Code Sample at the Top of Page</b></dt>
+
+<br>The <tt>return</tt> statement is wrong. It should read:&nbsp;
+<blockquote>
+<pre>return new Enumeration <b>()</b> {</pre>
+</blockquote>
+That is, add the parentheses after <tt>Enumeration</tt> as shown.&nbsp;</td>
+</tr>
+
+<tr>
+<td>&nbsp;161</td>
+
+<td>
+<dt>
+<b>Managing Source and Class Files</b></dt>
+
+<br>The second paragraph in the section has an extra period '.' after the
+filename <tt>Rectangle.java</tt>.&nbsp;</td>
+</tr>
+
+<tr>
+<td>&nbsp;162</td>
+
+<td>
+<dt>
+<b>Figure 28 and 29</b></dt>
+
+<br>The first line in Figures 28 and 29 should read "<tt>package com.taranis.graphics;</tt>"
+instead of "<tt>package.com.taranis.graphics;</tt>".&nbsp; Remove the extra
+"dot".&nbsp;</td>
+</tr>
+
+<tr>
+<td>&nbsp;171&nbsp;</td>
+
+<td>
+<dt>
+<b>Taking Advantage of the Applet API</b></dt>
+
+<br>In the middle of the page a line reads "about how t o use the". It
+should read "about how to use the".&nbsp; There is an extra space.&nbsp;</td>
+</tr>
+
+<tr>
+<td>&nbsp;229&nbsp;</td>
+
+<td>
+<dt>
+<b>The Window at the Bottom of the Page</b></dt>
+
+<br>The bottom two lines in the window should read:
+<blockquote>Sent: Hi, PC&nbsp;
+<br>Received: Hi, Sun</blockquote>
+</td>
+</tr>
+
+<tr>
+<td>&nbsp;274</td>
+
+<td>
+<dt>
+<b>Code Sample in Impurity Alert Note</b></dt>
+
+<br>The code incorrectly uses <tt>==</tt> when it should call the <tt>equals</tt>
+method instead:
+<blockquote><tt>// IMPURE CODE!&nbsp;</tt>
+<br><tt>if (System.getProperty("os.name").equals("Solaris"))</tt>
+<br><tt>&nbsp; doSomething();&nbsp;</tt>
+<br><tt>else if (System.getProperty("os.name").equals("Windows 95"))&nbsp;</tt>
+<br><tt>&nbsp; doSomethingElse();</tt></blockquote>
+</td>
+</tr>
+
+<tr>
+<td>&nbsp;303</td>
+
+<td>
+<dt>
+<b>First Paragraph after Code Sample</b></dt>
+
+<br>The paragraph incorrectly refers to <tt>getLine</tt>. It should refer
+instead to <tt>getWord</tt>.&nbsp;</td>
+</tr>
+
+<tr>
+<td>&nbsp;338</td>
+
+<td>
+<dt>
+<b>Code Sample at Top of Page</b></dt>
+
+<br>The code sample misspells <tt>Thread</tt> twice on the second line.&nbsp;</td>
+</tr>
+
+<tr>
+<td>&nbsp;339</td>
+
+<td>
+<dt>
+<b>Code Sample in Middle of Page</b></dt>
+
+<br>The code sample misspells <tt>Thread</tt> once on the second line.&nbsp;</td>
+</tr>
+
+<tr>
+<td>&nbsp;386</td>
+
+<td>
+<dt>
+<b>The Second <tt>read</tt> Method in <tt>CheckedInputStream</tt> class</b></dt>
+
+<dd>
+This line</dd>
+
+<blockquote>
+<pre>cksum.update(b, 0, b.length);</pre>
+</blockquote>
+should read like this
+<blockquote>cksum.update(b, 0, len);</blockquote>
+</td>
+</tr>
+
+<tr>
+<td>&nbsp;389</td>
+
+<td>
+<dt>
+<b>&nbsp;How to Write to an ObjectOutputStream</b></dt>
+
+<br>The second line of the code sample in this section has a typo. The
+bold text
+<blockquote>
+<pre>ObjectOutputStream s = new ObjectOutputStream(<b>f</b>);</pre>
+</blockquote>
+should be changed as indicated:
+<blockquote>ObjectOutputStream s = new ObjectOutputStream(<b>out</b>);</blockquote>
+</td>
+</tr>
+
+<tr>
+<td>&nbsp;685</td>
+
+<td>
+<dt>
+<b>Code Sample at Bottom of Page</b></dt>
+
+<br>Change this line
+<blockquote><tt>thisThread.sleep(interval);</tt></blockquote>
+to
+<blockquote><tt>Thread.sleep(interval);</tt></blockquote>
+The <tt>sleep</tt> method is a class method that puts the current thread
+to sleep. Calling it on a specific thread is misleading.&nbsp;</td>
+</tr>
+
+<tr>
+<td>&nbsp;686</td>
+
+<td>&nbsp;Same correction as on page 685</td>
+</tr>
+
+<tr>
+<td>&nbsp;687</td>
+
+<td>&nbsp;Same correction as on page 685</td>
+</tr>
+</table>
+
+<p>[<a href="#errata_top">top</a>]
+<center>
+<p>
+<hr WIDTH="66%"><font face="Arial"><font size=-1><A HREF="../../book.html">book.html</A> | <a href="toc.html#toc_top">TOC</a>
+| <a href="cdinfo.html#cd_top">CD-ROM</a>
+| <a href="reference.html#references_top">References</a>
+| <a href="errata.html#errata_top">Errata</a></font></font></center>
+</td>
+</tr>
+</table>
+</td>
+
+<td VALIGN=TOP WIDTH="286"><a href="book.html"><img SRC="../../images/bookcovers/second-edition.gif" BORDER=0 NATURALSIZEFLAG="3" height=140 width=112 align=BOTTOM></a>
+<br><i>The Java Tutorial Second Edition</i>
+<p>Available from<a href="http://www.amazon.com/exec/obidos/ISBN%3D0201310074/javasoftsunmicroA/002-1843791-9160041">
+Amazon.com</a></td>
+</tr>
+
+<tr>
+<td WIDTH="286"></td>
+</tr>
+</table>
+
+<table BORDER=0 CELLSPACING=2 CELLPADDING=0 WIDTH="642" >
+<tr>
+<td WIDTH="6%">&nbsp;</td>
+
+<td WIDTH="94%">
+<hr ALIGN=LEFT><font size=-1>All of the material in <i>The Java Tutorial</i>
+is <a href="../../information/copyright.html">copyright</a>-protected
+and may not be published in other works without express written permission
+from Sun Microsystems.</font></td>
+</tr>
+</table>
+
+</body>
+</html>

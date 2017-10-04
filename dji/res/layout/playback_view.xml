@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent" android:baselineAligned="false">
+    <include android:id="@+id/playback_tab_ly" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x7f0b03c9" android:layout_centerHorizontal="true" layout="@layout/playback_tab_view" />
+    <FrameLayout android:id="@+id/playback_content_ly" android:background="@color/d3" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x1" android:layout_weight="1.0" />
+</LinearLayout>

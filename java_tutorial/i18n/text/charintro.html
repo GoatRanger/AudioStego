@@ -1,0 +1,181 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Checking Character Properties</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#text" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="collationintro.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Internationalization
+<br>
+<b>Lesson</b>: Working with Text
+</font>
+
+<h2>
+Checking Character Properties
+</h2>
+<blockquote>
+You can categorize characters according to their properties. For
+instance, X is an uppercase letter and 4 is a decimal digit. Checking
+character properties is a common way to verify the data entered by end
+users. If you are selling books online, for example, your order entry
+screen should verify that the characters in the quantity field are all
+digits.
+<P>
+Developers who aren't used to writing global software might determine a
+character's properties by comparing it with character constants. For
+instance, they might write code like this:
+<blockquote><pre>
+char ch;
+...
+
+// This code is WRONG!
+
+if ((ch &gt;= 'a' &amp;&amp; ch &lt;= 'z') || (ch &gt;= 'A' &amp;&amp; ch &lt;= 'Z'))
+  // ch is a letter
+...
+if (ch &gt;= '0' &amp;&amp; ch &lt;= '9')
+  // ch is a digit
+...
+if ((ch == ' ') || (ch =='\n') || (ch == '\t'))
+  // ch is a whitespace
+</pre></blockquote>
+<P>
+The preceding code is <EM>wrong</EM> because it works only with English
+and a few other languages. To internationalize the previous example,
+replace it with the following statements:
+<blockquote><pre>
+char ch;
+...
+
+// This code is OK!
+
+if (Character.isLetter(ch))
+...
+if (Character.isDigit(ch))
+...
+if (Character.isSpaceChar(ch))
+</pre></blockquote>
+
+The
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/Character.html"><font color="#8800bb"><code>Character</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/Character.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> methods rely on the Unicode Standard for determining the properties of
+a character. Unicode is a 16-bit character encoding that supports the
+world's major languages. In the Java programming language
+<CODE>char</CODE> values represent Unicode characters. If you check
+the properties of a <CODE>char</CODE> with the appropriate
+<CODE>Character</CODE> method, your code will work with all major
+languages. For example, the <CODE>Character.isLetter</CODE> method
+returns <CODE>true</CODE> if the character is a letter in Chinese,
+German, Arabic, or another language.
+<P>
+The following list gives some of the most useful <CODE>Character</CODE>
+comparison methods. The <CODE>Character</CODE> API documentation fully
+specifies the methods.
+<UL>
+<LI> <CODE>isDigit</CODE>
+<LI> <CODE>isLetter</CODE>
+<LI> <CODE>isLetterOrDigit</CODE>
+<LI> <CODE>isLowerCase</CODE>
+<LI> <CODE>isUpperCase</CODE>
+<LI> <CODE>isSpaceChar</CODE>
+<LI> <CODE>isDefined</CODE>
+</UL>
+<P>
+The <CODE>Character.getType</CODE> method returns the Unicode category
+of a character. Each category corresponds to a constant defined in the
+<CODE>Character</CODE> class. For instance, <CODE>getType</CODE>
+returns the <CODE>Character.UPPERCASE_LETTER</CODE> constant for the
+character A. For a complete list of the category constants returned by
+<CODE>getType</CODE>, see the
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/Character.html"><font color="#8800bb"><code>Character</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/Character.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> API documentation. The following example shows how to use <CODE>
+getType</CODE> and the <CODE>Character</CODE> category constants. All
+of the expressions in these <CODE>if</CODE> statements are
+<CODE>true</CODE>:
+<blockquote><pre>
+if (Character.getType('a') == Character.LOWERCASE_LETTER)
+...
+if (Character.getType('R') == Character.UPPERCASE_LETTER)
+...
+if (Character.getType('&gt;') == Character.MATH_SYMBOL)
+...
+if (Character.getType('_') == Character.CONNECTOR_PUNCTUATION)
+</pre></blockquote>
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#text" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="collationintro.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

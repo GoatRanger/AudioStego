@@ -1,0 +1,218 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Using a ListResourceBundle</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="propfile.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#resbundle" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="../format/index.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Internationalization
+<br>
+<b>Lesson</b>: Isolating Locale-Specific Data
+</font>
+
+<h2>
+Using a ListResourceBundle
+</h2>
+<blockquote>
+This section illustrates the use of a <CODE>ListResourceBundle</CODE>
+object with a sample program called
+
+<a target="_blank" href="example-1dot1/ListDemo.java"><font color="#bb000f"><code><CODE>ListDemo</CODE></code></font></a><a target="_blank" href="example-1dot1/ListDemo.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>.
+The text
+that follows explains each step involved in creating the
+<CODE>ListDemo</CODE> program, along with the
+<CODE>ListResourceBundle</CODE> subclasses that support it.
+
+</blockquote>
+<h3>1. Create the ListResourceBundle Subclasses</h3>
+<blockquote>
+A <CODE>ListResourceBundle</CODE> is backed up by a class file.
+Therefore the first step is to create a class file for every supported
+<CODE>Locale</CODE>. In the <CODE>ListDemo</CODE> program the base name
+of the <CODE>ListResourceBundle </CODE> is <CODE>StatsBundle</CODE>.
+Since <CODE>ListDemo</CODE> supports three <CODE>Locale</CODE> objects,
+it requires the following three class files:
+<blockquote><pre>
+StatsBundle_en_CA.class
+StatsBundle_fr_FR.class
+StatsBundle_ja_JP.class
+</pre></blockquote>
+<P>
+The <CODE>StatsBundle</CODE> class for Japan is defined in the source
+code that follows. Note that the class name is constructed by appending
+the language and country codes to the base name of the
+<CODE>ListResourceBundle</CODE>. Inside the class the two-dimensional
+<CODE>contents</CODE> array is initialized with the key-value pairs.
+The keys are the first element in each pair: <CODE>GDP</CODE>,
+<CODE>Population</CODE>, and <CODE>Literacy</CODE>. The keys must be
+<CODE>String</CODE> objects and they must be the same in every class in
+the <CODE>StatsBundle</CODE> set. The values can be any type of object.
+In this example the values are two <CODE>Integer</CODE> objects and a
+<CODE>Double</CODE> object.
+<blockquote><pre>
+import java.util.*;
+public class StatsBundle_ja_JP extends ListResourceBundle {
+    public Object[][] getContents() {
+	return contents;
+    }
+    private Object[][] contents = {
+	{ &quot;GDP&quot;, new Integer(21300) },
+	{ &quot;Population&quot;, new Integer(125449703) },
+	{ &quot;Literacy&quot;, new Double(0.99) },
+    };
+}
+</pre></blockquote>
+</blockquote>
+
+<h3>2. Specify the Locale</h3>
+<blockquote>
+The <CODE>ListDemo</CODE> program defines the <CODE>Locale</CODE>
+objects as follows:
+<blockquote><pre>
+Locale[] supportedLocales = {
+    new Locale(&quot;en&quot;, &quot;CA&quot;),
+    new Locale(&quot;ja&quot;, &quot;JP&quot;),
+    new Locale(&quot;fr&quot;, &quot;FR&quot;)
+};
+</pre></blockquote>
+
+Each <CODE>Locale</CODE> object corresponds to one of the
+<CODE>StatsBundle </CODE> classes. For example, the Japanese
+<CODE>Locale</CODE>, which was defined with the <CODE>ja</CODE> and
+<CODE>JP</CODE> codes, matches <CODE>StatsBundle_ja_JP.class</CODE>.
+</blockquote>
+
+<h3> 3. Create the ResourceBundle</h3>
+<blockquote>
+To create the <CODE>ListResourceBundle</CODE>, invoke the
+<CODE>getBundle </CODE> method. The following line of code specifies
+the base name of the class (<CODE>StatsBundle</CODE>) and the
+<CODE>Locale</CODE>:
+<blockquote><pre>
+ResourceBundle stats =
+		ResourceBundle.getBundle(&quot;StatsBundle&quot;, currentLocale);
+</pre></blockquote>
+<P>
+The <CODE>getBundle</CODE> method searches for a class whose name
+begins with <CODE>StatsBundle</CODE> and is followed by the language
+and country codes of the specified <CODE>Locale</CODE>. If the
+<CODE>currentLocale</CODE> is created with the <CODE> ja</CODE> and
+<CODE>JP</CODE> codes, <CODE>getBundle</CODE> returns a
+<CODE>ListResourceBundle</CODE> corresponding to the class
+<CODE>StatsBundle_ja_JP</CODE>, for example.
+</blockquote>
+
+<h3 CLASS="D-Head"> 4. Fetch the Localized Objects</h3>
+<blockquote>
+Now that the program has a <CODE>ListResourceBundle</CODE> for the
+appropriate <CODE>Locale</CODE>, it can fetch the localized objects by
+their keys. The following line of code retrieves the literacy rate by
+invoking <CODE>getObject</CODE> with the <CODE>Literacy</CODE> key
+parameter. Since <CODE>getObject</CODE> returns an object, cast it to a
+<CODE>Double</CODE>:
+<blockquote><pre>
+Double lit = (Double)stats.getObject(&quot;Literacy&quot;);
+</pre></blockquote>
+</blockquote>
+
+<h3> 5. Run the Demo Program</h3>
+<blockquote>
+<CODE>ListDemo</CODE> program prints the data it fetched with the
+<CODE>getBundle </CODE> method:
+<blockquote><pre>
+Locale = en_CA
+GDP = 24400
+Population = 28802671
+Literacy = 0.97
+
+Locale = ja_JP
+GDP = 21300
+Population = 125449703
+Literacy = 0.99
+
+Locale = fr_FR
+GDP = 20200
+Population = 58317450
+Literacy = 0.99
+</pre></blockquote>
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="propfile.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#resbundle" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="../format/index.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

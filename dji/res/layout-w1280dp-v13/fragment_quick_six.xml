@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:background="@color/om" android:layout_width="match_parent" android:layout_height="match_parent">
+    <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="30dp"
+        <LinearLayout android:orientation="vertical" android:layout_width="UNKNOWN_DATA_0x1" android:layout_height="match_parent" android:layout_weight="4.0">
+            <RelativeLayout android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x1" android:layout_weight="4.0">
+                <dji.publics.DJIUI.DJIImageView android:id="@+id/v2_quickstart_six_img" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="10dp" android:src="@r$drawable/pic_quikstart_seven_pic1" android:scaleType="fitCenter" android:layout_alignParentRight="true" />
+            </RelativeLayout>
+            <RelativeLayout android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x1" android:layout_weight="3.0">
+                <LinearLayout android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:orientation="horizontal" android:id="@+id/v2_quickstart_six_2" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="20dp" android:layout_marginTop="10dp">
+                    <dji.publics.DJIUI.DJIImageView android:id="@+id/v2_quickstart_six_1" android:layout_width="UNKNOWN_DATA_0x1" android:layout_height="UNKNOWN_DATA_0x6401" android:src="@r$drawable/pic_quikstart_six_pic2" android:scaleType="fitCenter" android:layout_weight="1.0" />
+                    <dji.publics.DJIUI.DJIImageView android:id="@+id/v2_quickstart_six_p2r" android:layout_width="UNKNOWN_DATA_0x1" android:layout_height="UNKNOWN_DATA_0x6401" android:src="@r$drawable/pic_quikstart_six_pic3" android:scaleType="fitCenter" android:layout_weight="1.0" android:layout_toRightOf="@+id/v2_quickstart_six_1" />
+                </LinearLayout>
+                <LinearLayout android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="20dp" android:layout_marginTop="20dp" android:layout_below="@+id/v2_quickstart_six_2">
+                    <dji.publics.DJIUI.DJITextView android:textSize="11sp" android:textColor="#323846" android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@+id/v2_quickstart_six_t3l" android:layout_width="UNKNOWN_DATA_0x1" android:layout_height="UNKNOWN_DATA_0x3c01" android:text="@string/v2_quickstart_six_1" android:layout_weight="1.0" />
+                    <dji.publics.DJIUI.DJITextView android:textSize="11sp" android:textColor="#323846" android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@+id/v2_quickstart_six_t3r" android:layout_width="UNKNOWN_DATA_0x1" android:layout_height="UNKNOWN_DATA_0x3c01" android:text="@string/v2_quickstart_six_2" android:layout_weight="1.0" android:layout_toRightOf="@+id/v2_quickstart_six_1" />
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+        <RelativeLayout android:layout_gravity="top|bottom|center_vertical|fill_vertical|center|fill" android:layout_width="UNKNOWN_DATA_0x1" android:layout_height="wrap_content" android:layout_weight="3.0">
+            <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginRight="50dp">
+                <dji.publics.DJIUI.DJITextView android:textSize="23sp" android:textColor="@color/a_" android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/v2_quickstart_six_3" />
+                <dji.publics.DJIUI.DJITextView android:textSize="23sp" android:textColor="@color/a_" android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@+id/v2_quickstart_five_six_stick" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="15dp" android:text="@string/v2_quickstart_six_4" />
+                <dji.publics.DJIUI.DJITextView android:textSize="14sp" android:textColor="#6a6e77" android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@+id/v2_quckstart_six_desc" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="45dp" android:text="@string/v2_quickstart_seven_5" />
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+</RelativeLayout>

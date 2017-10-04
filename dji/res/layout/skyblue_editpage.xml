@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:background="#e6ffffff" android:layout_width="match_parent" android:layout_height="match_parent">
+    <include android:id="@+id/actionbarLayout" layout="@layout/skyblue_share_actionbar" />
+    <RelativeLayout android:id="@+id/mainRelLayout" android:background="@r$drawable/skyblue_editpage_bg" android:padding="10dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_margin="14dp" android:layout_below="@+id/actionbarLayout">
+        <LinearLayout android:orientation="horizontal" android:id="@+id/titleLayout" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <EditText android:textColor="#a7a7a7" android:id="@+id/titleEditText" android:background="0x0" android:layout_width="UNKNOWN_DATA_0x1" android:layout_height="wrap_content" android:layout_weight="1.0" />
+            <ImageView android:id="@+id/closeImageView" android:paddingLeft="10dp" android:layout_width="UNKNOWN_DATA_0x1e01" android:layout_height="UNKNOWN_DATA_0x1401" android:src="@r$drawable/skyblue_editpage_close" android:scaleType="center" />
+        </LinearLayout>
+        <View android:id="@+id/divider" android:background="@r$drawable/skyblue_editpage_divider" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x101" android:layout_marginTop="5dp" android:layout_below="@+id/titleLayout" />
+        <EditText android:textColor="#333333" android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@+id/textEditText" android:background="0x0" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="5dp" android:layout_marginBottom="5dp" android:minLines="1" android:layout_below="@+id/divider" />
+        <LinearLayout android:orientation="vertical" android:id="@+id/atLayout" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@+id/textEditText" />
+        <TextView android:textSize="14sp" android:textColor="#ffcfcfcf" android:id="@+id/textCounterTextView" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5dp" android:layout_below="@+id/textEditText" android:layout_alignParentRight="true" />
+        <HorizontalScrollView android:id="@+id/hScrollView" android:scrollbars="UNKNOWN_DATA_0x0" android:fadingEdge="UNKNOWN_DATA_0x0" android:layout_width="wrap_content" android:layout_height="UNKNOWN_DATA_0x3801" android:layout_marginTop="5dp" android:layout_below="@+id/atLayout">
+            <LinearLayout android:orientation="horizontal" android:id="@+id/imagesLinearLayout" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        </HorizontalScrollView>
+    </RelativeLayout>
+</RelativeLayout>

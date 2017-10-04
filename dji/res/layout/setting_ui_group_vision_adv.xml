@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res-auto" setting_ui:titleText="@string/setting_ui_vision_adv_desc" style="@style/gk">
+    <LinearLayout setting_ui:layout_height="wrap_content" style="@style/gj">
+        <TextView setting_ui:text="@string/setting_ui_vision_forward_title" style="@style/gf" />
+        <dji.setting.ui.vision.VisionFrontAssView style="@style/g3" />
+        <TextView setting_ui:text="@string/setting_ui_vision_down_title" style="@style/gf" />
+        <dji.setting.ui.vision.VisionDownVPSView style="@style/g3" />
+    </LinearLayout>
+</ScrollView>

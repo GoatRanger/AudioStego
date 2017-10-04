@@ -1,0 +1,3 @@
+org/openscience/cdk/test/Mbuilder3dTests.java
+org/openscience/cdk/test/modeling/builder3d/ModelBuilder3dTest.java
+org/openscience/cdk/test/modeling/builder3d/TemplateHandler3DTest.java

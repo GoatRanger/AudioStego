@@ -1,0 +1,185 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Writing Final Classes and Methods</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="objectclass.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#javaOO" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="abstract.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Learning the Java Language
+<br>
+<b>Lesson</b>: Classes and Inheritance
+</font>
+
+<h2>
+Writing Final Classes and Methods
+</h2>
+<blockquote>
+You can declare that your class is final, that is, that your class
+cannot be subclassed. There are (at least) two reasons why you might
+want to do this: to increase system security by preventing system
+subversion, and for reasons of good object-oriented design.
+
+<p>
+<strong>Security</strong>:
+<p>
+<blockquote>
+One mechanism that hackers use to subvert systems is to create a
+subclass of a class and then substitute their class for the original.
+The subclass looks and feels like the original class but does vastly
+different things, possibly causing damage or getting into private
+information. To prevent this kind of subversion, you can declare your
+class to be final and thereby prevent any subclasses from being
+created. The <code>String</code> class in the
+<code>java.lang</code> package is a final class for
+just this reason. This class is so vital to the operation of the
+compiler and the interpreter that the Java system must guarantee that
+whenever a method or object uses a <code>String</code> it gets exactly a
+<code>java.lang.String</code> and not some other string.
+This ensures that all strings have no strange,
+inconsistent, undesirable, or unpredictable properties.
+<p>
+If you try to compile a subclass of a final class, the compiler prints
+an error message and refuses to compile your program. In addition, the
+bytecode verifier ensures that the subversion is not taking place at
+the bytecode level. It does this by checking to make sure that a class
+is not a subclass of a final class.
+</blockquote>
+<p>
+<strong>Design</strong>:
+<p>
+<blockquote>
+You may also wish to declare a class as final for object-oriented
+design reasons. You may think that your class is "perfect" or that,
+conceptually, your class should have no subclasses.
+</blockquote>
+
+
+<p>
+To specify that your class is final, use the keyword <code>final</code>
+before the <code>class</code> keyword in your class declaration.
+<p>
+For example, if you wanted to declare your (perfect) <code>ChessAlgorithm</code>
+class as final, its declaration should look like this:
+<blockquote><pre>
+final class ChessAlgorithm {
+    . . .
+}
+</pre></blockquote>
+Any subsequent attempts to subclass <code>ChessAlgorithm</code>
+ will result in a compiler error such as the following:
+<blockquote><pre>
+Chess.java:6: Can't subclass final classes: class ChessAlgorithm
+class BetterChessAlgorithm extends ChessAlgorithm {
+      ^
+1 error
+</pre></blockquote>
+
+</blockquote>
+<h3>Final Methods</h3>
+<blockquote>
+Does creating a final class seem heavy-handed for your needs? Do you
+really just want to protect some of your class's methods from being
+overridden? You can use the <code>final</code> keyword in a
+method declaration to
+indicate to the compiler that the method cannot be overridden by
+subclasses. As just shown, the <code>Object</code> class does this;
+some of its methods are final and some are not.
+<p>
+You might wish to make a method final if it has an implementation that
+should not be changed and it is critical to the consistent state of the
+object. For example, instead of making your <code>ChessAlgorithm</code>
+class final, you might want instead to make the <code>nextMove</code>
+method final:
+
+<blockquote><pre>
+class ChessAlgorithm {
+    . . .
+    final void nextMove(ChessPiece pieceMoved,
+                        BoardLocation newLocation)
+    {
+        ...
+    }
+    . . .
+}
+</pre></blockquote>
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="objectclass.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#javaOO" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="abstract.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

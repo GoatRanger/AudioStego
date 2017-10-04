@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res-auto" app:layout_width="match_parent" app:layout_height="match_parent">
+    <dji.publics.DJIUI.DJIImageView app:id="@+id/banner_image" app:background="@r$color/v2_explore_no_image" app:layout_width="match_parent" app:layout_height="match_parent" app:scaleType="centerCrop" />
+    <LinearLayout app:gravity="left|right|center_horizontal|fill_horizontal|center|fill|start|end" app:orientation="vertical" app:layout_width="wrap_content" app:layout_height="wrap_content" app:layout_centerInParent="true">
+        <TextView app:textSize="@dimen/rl" app:textColor="@color/om" app:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" app:id="@+id/v2_share_contest_learn_more" app:padding="@dimen/fj" app:visibility="invisible" app:layout_width="wrap_content" app:layout_height="wrap_content" app:text="@string/v2_share_contest_banner_item_learn_more" />
+    </LinearLayout>
+    <RelativeLayout app:id="@+id/v2_share_contest_submit" app:background="@r$drawable/v2_share_contest_share_item_submit_selector" app:paddingLeft="@dimen/g1" app:paddingTop="@dimen/gw" app:paddingRight="@dimen/g1" app:paddingBottom="@dimen/gw" app:layout_width="wrap_content" app:layout_height="wrap_content" app:layout_marginTop="@dimen/fj" app:layout_marginBottom="30dp" app:layout_alignBottom="@+id/banner_image" app:layout_centerHorizontal="true">
+        <TextView app:textSize="@dimen/rl" app:textColor="@color/om" app:id="@+id/v2_share_contest_banner_item_submit_textview" app:layout_width="wrap_content" app:layout_height="wrap_content" app:text="@string/v2_share_contest_banner_item_submit" />
+    </RelativeLayout>
+    <dji.publics.DJIUI.DJIImageView app:id="@+id/v2_explore_banner_new" app:visibility="invisible" app:layout_width="wrap_content" app:layout_height="wrap_content" app:layout_marginBottom="@dimen/fj" app:src="@r$drawable/v2_explore_banner_new" app:layout_alignRight="@+id/banner_image" app:layout_alignBottom="@+id/banner_image" />
+</RelativeLayout>

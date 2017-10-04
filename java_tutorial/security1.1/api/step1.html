@@ -1,0 +1,192 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Step 1: Prepare Initial Program Structure</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#api" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="step2.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Security in JDK 1.1
+<br>
+<b>Lesson</b>: Using the Security API to Generate Public and Private Keys
+</font>
+
+<h2>
+Step 1: Prepare Initial Program Structure
+</h2>
+<blockquote>
+To start the creation of our example application:
+
+<ol>
+
+<li>Create a text file named <code>testSig.java</code>.<p>
+
+<li>Add <code>import</code> statements.
+
+<p>The methods for signing data are in the <code>java.security</code>
+package, so we import everything from that package. We also
+need to import the <code>java.io</code> package
+since it contains the methods we need to
+input the file data to be signed. 
+
+<pre>
+import java.io.*;
+import java.security.*;
+</pre>
+
+<li>Start the class definition:
+
+<pre>
+class testSig {
+</pre>
+
+<li>Type the signature for the <code>main</code> method 
+(which we need, since this is an application), and write a
+comment about what this program does:
+
+<pre>
+    public static void main(String[] args) {
+
+        /* Test generating and verifying a DSA signature */
+</pre>
+
+<li>Write the exception-handling blocks. 
+
+<p>These are needed because many
+methods called by the program throw exceptions that we must
+catch. Note: The code we write in subsequent steps of this lesson
+to generate and verify a signature
+will go between the <code>try</code> and <code>catch</code> blocks.
+
+<pre>
+        try {
+
+
+
+        } catch (Exception e) {
+            System.err.println("Caught exception " + e.toString());
+        }
+
+</pre>
+
+<li>Write the closing braces for the main method
+and the testSig class:
+
+<pre>
+    }
+
+}
+
+</pre>
+ 
+</ol>
+
+
+<p><b>What We've Got So Far</b>
+
+<p>Now we've got the basic structure of our program. It looks like this:
+
+<pre>
+import java.io.*;
+import java.security.*;
+
+class testSig {
+
+    public static void main(String[] args) {
+
+        /* Test generating and verifying a DSA signature */
+
+        try {
+
+
+
+        } catch (Exception e) {
+            System.err.println("Caught exception " + e.toString());
+        }
+    }
+
+}
+</pre>
+
+
+
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#api" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="step2.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

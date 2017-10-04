@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:background="@color/om" android:fitsSystemWindows="@r$bool/is_fix_system" android:layout_width="match_parent" android:layout_height="match_parent">
+    <include layout="@layout/v2_academy_header" />
+    <RelativeLayout android:background="@r$color/v2_new_academy_bgcolor" android:layout_width="match_parent" android:layout_height="match_parent">
+        <dji.pilot2.mine.view.RefreshableView android:orientation="vertical" android:id="@+id/v2_newacademy_video_refreshableView" android:background="@r$color/v2_explore_empty_background" android:layout_width="match_parent" android:layout_height="match_parent">
+            <ListView android:id="@+id/v2_newacademy_video_list" android:scrollbars="UNKNOWN_DATA_0x0" android:layout_width="match_parent" android:layout_height="match_parent" android:listSelector="0x106000d" android:divider="@color/j5" android:overScrollMode="never" />
+        </dji.pilot2.mine.view.RefreshableView>
+        <include android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/v2_webview_errorly_roundpgb" />
+        <include android:visibility="gone" layout="@layout/v2_new_academy_empty_lv" />
+    </RelativeLayout>
+</LinearLayout>

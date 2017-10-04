@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="36"
+   name=""
+   committed-date="2005-02-01T06:13:37.812500Z"
+   url="svn://192.168.2.2/NetBuilder/src/utils"
+   last-author="Karl"
+   kind="dir"
+   uuid="0daf4267-3229-f84b-9084-f3c94b025f38"
+   revision="55"/>
+<entry
+   committed-rev="36"
+   name="FileManager.java"
+   text-time="2005-03-02T06:28:42.312500Z"
+   committed-date="2005-02-01T06:13:37.812500Z"
+   checksum="e5838a57a8d7117e8ba7f50ac097158a"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:28:42.296875Z"/>
+</wc-entries>

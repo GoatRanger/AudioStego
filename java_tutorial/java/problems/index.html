@@ -1,0 +1,198 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Solving Common Coding Problems</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="../interpack/index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#problems" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="../end.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+
+<br>
+<font size="-1">
+<b>Trail</b>: Learning the Java Language
+</font>
+
+<h2>
+Lesson: Solving Common Coding Problems
+</h2>
+<blockquote>
+This section covers some common problems that you might encounter when
+learning the Java language. After each problem is a list of possible
+solutions.
+
+<p>
+<strong>Problem</strong>: The compiler complains that it can't find a class.
+<ul>
+<li>
+Make sure you've imported the class or its package.
+<li>
+Unset the <code>CLASSPATH</code> environment variable, if it's set.
+<li>
+Make sure you're spelling the class name exactly the same way as it is
+declared. Case matters!
+<li>
+If your classes are in packages, make sure that they appear in the
+correct subdirectory as outlined in
+<a target="_top" href="../interpack/managingfiles.html">Managing Source and Class Files</a><a target="_top" href="../interpack/managingfiles.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Learning the Java Language trail)"></a>.
+<li>
+Also, some programmers use different names for the class name from the
+<code>.java</code> filename. Make sure you're using the class name and not the
+filename. In fact, make the names the same and you won't run into this
+problem for this reason.
+</ul>
+
+<p>
+<strong>Problem</strong>: The interpreter says it can't find one of my classes.
+<ul>
+<li>
+Make sure you specified the class name--not the class file name--to the interpreter.
+<li>
+Unset the <code>CLASSPATH</code> environment variable, if it's set.
+<li>
+If your classes are in packages, make sure that they appear in the
+correct subdirectory as outlined in
+<a target="_top" href="../interpack/managingfiles.html">Managing Source and Class Files</a><a target="_top" href="../interpack/managingfiles.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Learning the Java Language trail)"></a>.
+<li>
+Make sure you're invoking the interpreter from the directory in which
+the <code>.class</code> file is located.
+</ul>
+
+<p>
+<strong>Problem</strong>: My program doesn't work! What's wrong with it?
+<p>
+The following is a list of common programming mistakes by novice Java
+programmers. Make sure one of these isn't what's holding you back.
+<ul>
+<li>
+Did you forget to use <code>break</code> after each <code>case</code>
+statement in a <code>switch</code> statement?
+<li>
+Did you use the assignment operator <code>=</code> when you really
+wanted to use the comparison operator <code>==</code>?
+<li>
+Are the termination conditions on your loops correct? Make sure you're
+not terminating loops one iteration too early or too late. That is,
+make sure you are using <code>&lt;</code> or <code>&lt;=</code>
+and <code>&gt;</code> or <code>&gt;=</code> as appropriate for your
+situation.
+<li>
+Remember that array indices begin at 0, so iterating over an array
+looks like this:
+<blockquote><pre>
+for (int i = 0; i &lt; array.length; i++)
+    . . .
+</pre></blockquote>
+<li>
+Are you comparing floating-point numbers using <code>==</code>? Remember that floats
+are approximations of the real thing. The greater than and less than (<code>&gt;</code>
+and <code>&lt;</code>) operators are more appropriate when conditional logic is
+performed on floating-point numbers.
+<li>
+Are you having trouble with encapsulation, inheritance, or other
+object-oriented programming and design concepts? Review the information
+in
+<a href="../concepts/index.html">Object-Oriented Programming Concepts</a>.
+<li>
+Make sure that blocks of statements are enclosed in curly brackets <code>{ }</code>.
+The following code looks right because of indentation, but it doesn't
+do what the indents imply because the brackets are missing:
+<blockquote><pre>
+for (int i = 0; i &lt; arrayOfInts.length; i++)
+    arrayOfInts[i] = i;
+    System.out.println("[i] = " + arrayOfInts[i]);
+</pre></blockquote>
+<li>
+Are you using the correct conditional operator? Make sure you
+understand <code>&&</code> and <code>||</code> and are using them appropriately.
+<li>
+Do you use the negation operator ! a lot? Try to express conditions
+without it. Doing so is less confusing and error-prone.
+<li>
+Are you using a <code>do</code>-<code>while</code>? If so, do you know
+that a <code>do</code>-<code>while</code> executes at least once,
+but a similar <code>while</code> loop may not be executed at all?
+<li>
+Are you trying to change the value of an argument from a method?
+Arguments in Java are passed by value and can't be changed in a
+method.
+<li>
+Did you inadvertently add an extra semicolon (<code>;</code>), thereby
+terminating a statement prematurely? Notice the extra semicolon at the
+end of this for statement:
+<blockquote><pre>
+for (int i = 0; i &lt; arrayOfInts.length; i++) ;
+    arrayOfInts[i] = i;
+</pre></blockquote>
+</ul>
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="../interpack/index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#problems" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="../end.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

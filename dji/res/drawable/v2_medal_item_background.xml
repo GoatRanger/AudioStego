@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <solid android:color="@r$color/v2_mine_backgound" />
+    <stroke android:width="1px" android:color="@r$color/v2_mine_profile_border" />
+</shape>

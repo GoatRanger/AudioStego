@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Displaying Short Status Strings</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="data.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#appletsonly" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="browser.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Writing Applets
+<br>
+<b>Lesson</b>: Taking Advantage of the Applet API
+</font>
+
+<h2>
+Displaying Short Status Strings
+</h2>
+<blockquote>
+All applet viewers --
+from the Applet Viewer to Java-compatible browsers --
+allow applets to display a short status string.
+In current implementations,
+this string appears on the status line
+at the bottom of the applet viewer window.
+In browsers,
+all applets on the page, 
+as well as the browser itself,
+generally share the same status line.
+
+<p>
+
+You should never put crucial information
+in the status line.
+If many users might need the information,
+it should instead be displayed within the applet area.
+If only a few, sophisticated users might need the information,
+consider displaying the information on the standard output
+(see 
+<a target="_top" href="../practical/stdout.html">Displaying Diagnostics to the Standard Output and Error Streams</a><a target="_top" href="../practical/stdout.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Writing Applets trail)"></a>).
+
+<p>
+
+The status line is not usually very prominent,
+and it can be overwritten by other applets or by the browser.
+For these reasons, 
+it's best used for incidental, transitory information.
+For example, an applet that loads several image files
+might display the name of the image file it's currently loading.
+
+<p>
+
+Applets display status lines with the
+<a href=http://java.sun.com/products/archive/jdk/1.1/index.html/java.applet.Applet.html#showStatus><code>showStatus</code></a>
+method.
+Here's an example of its use:
+
+<blockquote><pre>
+showStatus("MyApplet: Loading image file " + file);
+</pre></blockquote>
+
+
+<blockquote><hr><strong>Note:</strong>&nbsp;
+Please don't put scrolling text in the status line.
+Browser users find such status line abuse highly annoying!
+<hr></blockquote>
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="data.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#appletsonly" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="browser.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

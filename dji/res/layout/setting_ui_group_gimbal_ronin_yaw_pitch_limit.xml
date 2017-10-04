@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.setting.ui.gimbal.ronin.YawPitchLimit xmlns:android="http://schemas.android.com/apk/res-auto" setting_ui:orientation="vertical" setting_ui:layout_width="match_parent" setting_ui:layout_height="match_parent" setting_ui:titleText="@string/setting_ui_ronin_yaw_pitch_limit">
+    <ScrollView style="@style/gk">
+        <LinearLayout setting_ui:orientation="vertical" setting_ui:paddingTop="@dimen/ts" setting_ui:paddingBottom="@dimen/ts" setting_ui:layout_width="match_parent" setting_ui:layout_height="wrap_content">
+            <TextView setting_ui:textColor="@color/om" setting_ui:layout_width="wrap_content" setting_ui:layout_height="wrap_content" setting_ui:text="@string/setting_ui_ronin_remote_controller_setting_pitch" />
+            <LinearLayout setting_ui:orientation="horizontal" setting_ui:layout_width="match_parent" setting_ui:layout_height="wrap_content" setting_ui:layout_marginLeft="@dimen/vd">
+                <TextView setting_ui:textColor="@color/hj" setting_ui:gravity="left|right|center_horizontal|fill_horizontal|center|fill|start|end" setting_ui:layout_width="UNKNOWN_DATA_0x7f0b0313" setting_ui:layout_height="wrap_content" setting_ui:layout_marginLeft="@dimen/tt" setting_ui:layout_marginRight="@dimen/vd" setting_ui:text="@string/setting_ui_ronin_pitch_up" />
+                <TextView setting_ui:textColor="@color/hj" setting_ui:gravity="left|right|center_horizontal|fill_horizontal|center|fill|start|end" setting_ui:layout_width="UNKNOWN_DATA_0x7f0b0313" setting_ui:layout_height="wrap_content" setting_ui:layout_marginLeft="@dimen/vd" setting_ui:text="@string/setting_ui_ronin_pitch_down" />
+            </LinearLayout>
+            <LinearLayout setting_ui:orientation="horizontal" setting_ui:layout_width="match_parent" setting_ui:layout_height="wrap_content" setting_ui:layout_marginLeft="@dimen/tt">
+                <TextView setting_ui:id="@id/bu6" style="@style/gp" />
+                <TextView setting_ui:id="@id/bu7" style="@style/gp" />
+            </LinearLayout>
+            <TextView setting_ui:textColor="@color/om" setting_ui:layout_width="wrap_content" setting_ui:layout_height="wrap_content" setting_ui:layout_marginTop="@dimen/uf" setting_ui:text="@string/setting_ui_ronin_remote_controller_setting_trans" />
+            <LinearLayout setting_ui:orientation="horizontal" setting_ui:layout_width="match_parent" setting_ui:layout_height="wrap_content" setting_ui:layout_marginLeft="@dimen/vd">
+                <TextView setting_ui:textColor="@color/hj" setting_ui:gravity="left|right|center_horizontal|fill_horizontal|center|fill|start|end" setting_ui:layout_width="UNKNOWN_DATA_0x7f0b0313" setting_ui:layout_height="wrap_content" setting_ui:layout_marginLeft="@dimen/tt" setting_ui:layout_marginRight="@dimen/vd" setting_ui:text="@string/setting_ui_ronin_yaw_left" />
+                <TextView setting_ui:textColor="@color/hj" setting_ui:gravity="left|right|center_horizontal|fill_horizontal|center|fill|start|end" setting_ui:layout_width="UNKNOWN_DATA_0x7f0b0313" setting_ui:layout_height="wrap_content" setting_ui:layout_marginLeft="@dimen/vd" setting_ui:text="@string/setting_ui_ronin_yaw_right" />
+            </LinearLayout>
+            <LinearLayout setting_ui:orientation="horizontal" setting_ui:layout_width="match_parent" setting_ui:layout_height="wrap_content" setting_ui:layout_marginLeft="@dimen/tt">
+                <TextView setting_ui:id="@id/bu8" style="@style/gp" />
+                <TextView setting_ui:id="@id/bu9" style="@style/gp" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</dji.setting.ui.gimbal.ronin.YawPitchLimit>

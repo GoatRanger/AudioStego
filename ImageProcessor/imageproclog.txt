@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2016-11-25T14:32:02</date>
+  <millis>1480113122379</millis>
+  <sequence>0</sequence>
+  <logger>imageproc</logger>
+  <level>SEVERE</level>
+  <class>imageproc.Classifier</class>
+  <method>initDecisionTree</method>
+  <thread>16</thread>
+  <message>Couldn't Open File null</message>
+</record>
+<record>
+  <date>2016-11-25T14:32:02</date>
+  <millis>1480113122383</millis>
+  <sequence>1</sequence>
+  <logger>imageproc</logger>
+  <level>SEVERE</level>
+  <class>imageproc.Classifier</class>
+  <method>initDecisionTree</method>
+  <thread>16</thread>
+  <message>File cannot be found, or is empty</message>
+</record>
+<record>
+  <date>2016-11-25T14:32:02</date>
+  <millis>1480113122383</millis>
+  <sequence>2</sequence>
+  <logger>imageproc</logger>
+  <level>INFO</level>
+  <class>imageproc.Classifier</class>
+  <method>&lt;init&gt;</method>
+  <thread>16</thread>
+  <message>Classifier Initialization Completed</message>
+</record>
+</log>

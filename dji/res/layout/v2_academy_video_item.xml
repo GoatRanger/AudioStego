@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.publics.DJIUI.DJILinearLayout xmlns:android="http://schemas.android.com/apk/res-auto" phantom:orientation="vertical" phantom:paddingRight="@dimen/college_margin" phantom:layout_width="wrap_content" phantom:layout_height="match_parent" phantom:baselineAligned="false">
+    <dji.publics.DJIUI.DJIRelativeLayout phantom:layout_width="UNKNOWN_DATA_0x7f0b00fe" phantom:layout_height="UNKNOWN_DATA_0x7f0b00fc">
+        <dji.pilot.publics.widget.DJIStateImageView phantom:id="@+id/college_video_img" phantom:background="@color/om" phantom:layout_width="match_parent" phantom:layout_height="match_parent" phantom:scaleType="centerCrop" phantom:adjustViewBounds="true" phantom:contentDescription="@string/app_name" />
+        <dji.publics.DJIUI.DJIImageView phantom:id="@+id/college_video_new_img" phantom:background="@r$drawable/college_video_new" phantom:layout_width="wrap_content" phantom:layout_height="wrap_content" phantom:layout_alignParentRight="true" phantom:contentDescription="@string/app_name" />
+        <dji.publics.DJIUI.DJIImageView phantom:id="@+id/college_document_mask_img" phantom:background="@color/a_" phantom:layout_width="match_parent" phantom:layout_height="match_parent" phantom:contentDescription="@string/app_name" phantom:alpha="0.2" />
+        <dji.publics.DJIUI.DJIImageView phantom:id="@+id/acad_video_play_img" phantom:background="@r$drawable/v2_acad_play_icon" phantom:layout_width="wrap_content" phantom:layout_height="wrap_content" phantom:layout_centerInParent="true" phantom:contentDescription="@string/app_name" />
+    </dji.publics.DJIUI.DJIRelativeLayout>
+    <dji.publics.DJIUI.DJITextView phantom:textSize="@dimen/rp" phantom:textColor="@color/b" phantom:ellipsize="end" phantom:gravity="left|right|center_horizontal|fill_horizontal|center|fill|start|end" phantom:id="@+id/college_video_name" phantom:layout_width="UNKNOWN_DATA_0x7f0b00fe" phantom:layout_height="match_parent" phantom:layout_marginTop="@dimen/n3" phantom:maxLines="3" phantom:djiTextFace="2" />
+</dji.publics.DJIUI.DJILinearLayout>

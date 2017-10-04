@@ -1,0 +1,173 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Essential Java Classes</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="../index.html" target="_top"><img src="../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="TOC.html" target="_top"><img src="../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Trail Contents"></a>
+<a href="./exceptions/index.html" target="_top"><img src="../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../index.html" target="_top">Start of Tutorial</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../search.html" target="_top">Search</a>
+<br><a href="../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<h2>
+Trail: Essential Java Classes
+</h2>
+<blockquote>
+This trail discusses classes from the Java platform that are essential
+to most programmers. It focuses on classes in the
+<code>java.lang</code> and <code>java.io</code> packages, including these:
+<ul>
+
+<li> <code>Thread </code>and its related classes
+<li> <code>Throwable</code> and <code>Exception</code>, and their friends
+<li> The <code>Reader</code>, <code>Writer</code>, <code>InputStream</code>,
+     and <code>OutputStream </code>classes from <code>java.io</code> and
+     their descendants
+</ul>
+
+
+<!--    ERROR HANDLING AND EXCEPTIONS    -->
+<p>
+<a href="exceptions/index.html">
+<img src=../images/coreIcon.gif align=left width=20 height=20 border=0>
+<b>Handling Errors Using Exceptions</b></a>
+explains how you can use Java's exception mechanism to handle errors in
+your programs. This lesson describes what an exception is, how to throw
+and catch exceptions, what to do with an exception once you've caught
+it, and how to best use the exception class hierarchy provided by the
+Java platform.
+
+<!--    THREADS    -->
+<p>
+<a href="threads/index.html">
+<img src=../images/coreIcon.gif align=left width=20 height=20 border=0>
+<b>Threads: Doing Two or More Tasks at Once</b></a> 
+discusses in detail the use of threads that enable your Java
+applications or applets to perform multiple tasks simultaneously. This
+lesson describes when and why you might want to use threads, how to
+create and manage threads and thread groups in your Java program, and
+how to avoid common pitfalls such as deadlock, starvation, and race
+conditions.
+
+<!--
+<blockquote>
+<hr>
+<img src="../images/bookcovers/leasecond.jpg" width=60 height=75 border=1 align="left">
+This tutorial provides basic information about using threads.
+Do you need more advanced information
+than provided here?
+Check out the second edition of Doug Lea's book,
+<a target="_blank" href="http://java.sun.com/docs/books/cp/index.html"><font color="#009bbb">Concurrent Programming in Java, Second Edition</font></a><a target="_blank" href="http://java.sun.com/docs/books/cp/index.html"><img src="../images/otherIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (outside of the tutorial)"></a>.
+This book shows readers how to use the Java platform's threading model
+more precisely by helping them to understand the patterns and tradeoffs
+associated with concurrent programming. 
+The second edition is available from
+<a target="_blank" href="http://www.amazon.com/exec/obidos/ISBN=0201310090/javasoftsunmicroA/"><font color="#009bbb">amazon.com</font></a><a target="_blank" href="http://www.amazon.com/exec/obidos/ISBN=0201310090/javasoftsunmicroA/"><img src="../images/otherIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (outside of the tutorial)"></a>.
+<hr></blockquote>
+-->
+
+<!--    INPUT AND OUTPUT STREAMS    -->
+<p>
+<a href="io/index.html">
+<img src=../images/coreIcon.gif align=left width=20 height=20 border=0>
+<b>I/O: Reading and Writing (but No 'rithmetic)</b></a>
+describes the process of getting information into your program and
+sending it out again through
+the use of the stream classes in <code>java.io</code>.
+Reading and writing information provides the basis for all kinds of
+interesting behaviors, such as serializing objects, communicating over a network, or just accessing
+the file system.
+
+
+<!--    ATTRIBUTES    -->
+<p>
+<a href="attributes/index.html">
+<img src=../images/coreIcon.gif align=left width=20 height=20 border=0>
+<b>Setting Program Attributes</b></a>
+describes how you can set attributes for your Java programs through the
+use of properties and command-line arguments. Use properties to change
+attributes for every invocation of your program; use command-line
+arguments to change attributes for only the current invocation of your
+program.
+
+<!--    SYSTEM    -->
+<p>
+<a href="system/index.html">
+<img src="../images/coreIcon.gif" align=left width=20 height=20 border=0>
+<b>Accessing System Resources</b></a>
+shows you how, through the <code>System</code> class,
+your Java programs can manage
+properties, set up a security manager, and access system resources such
+as the standard input and output streams. The <code>System</code>
+class provides a
+system-independent programming interface to system resources, thus
+allowing your programs to use them without compromising portability.
+This lesson also contains a brief discussion of the <code>Runtime</code>
+class and why most programmers should avoid using it.
+
+</blockquote>
+
+<img src="../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="../index.html" target="_top"><img src="../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="TOC.html" target="_top"><img src="../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Trail Contents"></a>
+<a href="./exceptions/index.html" target="_top"><img src="../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../index.html" target="_top">Start of Tutorial</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../search.html" target="_top">Search</a>
+<br><a href="../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

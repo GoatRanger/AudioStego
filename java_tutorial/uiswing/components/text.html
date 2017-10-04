@@ -1,0 +1,279 @@
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Using Text Components</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="jcomponent.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#components" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="generaltext.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Creating a GUI with JFC/Swing
+<br>
+<b>Lesson</b>: Using Swing Components
+</font>
+
+<h2>
+Using Text Components
+</h2>
+<blockquote>
+This section gives you background information
+you might need when using
+Swing's text components.
+If you intend to use an unstyled text component 
+&#151;
+a <a href="textfield.html">text field</a>,
+<a href="passwordfield.html">password field</a>,
+<a href="formattedtextfield.html">formatted text field</a>, or
+<a href="textarea.html">text area</a>
+&#151;
+we recommend that you go to its how-to page
+and return here only if necessary.
+If you intend to use a styled text component,
+then you're welcome to go to
+<a href="editorpane.html">How to Use Editor Panes and Text Panes</a>,
+but you'll probably need to read this section as well.
+If you don't know which component you need,
+read on.
+
+<p>
+Swing's text components display text and
+optionally allow the user to edit the text.
+Programs need text components for tasks
+ranging from the straightforward
+(enter a word and press Enter)
+to the complex
+(display and edit styled text with
+embedded images in an Asian language).
+
+<p>
+Swing provides six text components,
+along with supporting classes and interfaces,
+that meet even the most complex text requirements.
+In spite of their different uses and capabilities,
+all of Swing's text components inherit from
+the same superclass,
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html"><font color="#8800bb"><code>JTextComponent</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>, which provides a highly-configurable
+and powerful foundation for text manipulation.
+
+<p>
+The following figure shows the <code>JTextComponent</code> hierarchy.
+
+<p><center><IMG SRC="../../figures/uiswing/components/10jtextcomp.gif" WIDTH="495" HEIGHT="161" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="Swing's hierarchy of text components"></center></p><br>
+[PENDING: This figure will be updated to add JFormattedTextField,
+which is a subclass of JTextField.]
+
+<p>
+The following picture shows an application 
+called TextSamplerDemo that uses
+one of each of Swing's text components.
+ 
+<p><center><IMG SRC="../../figures/uiswing/components/TextSamplerDemo.gif" WIDTH="559" HEIGHT="383" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="An application that provides a sample of each Swing text component"></center></p>[PENDING: This figure will be updated. A formatted text field
+now appears below the password field.]
+
+
+<blockquote><hr><strong>Try this:</strong>&nbsp;
+<ol>
+<li> <a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/components/example-1dot4/TextSamplerDemo.jnlp">Run TextSamplerDemo</a> using
+<a target="_top" href="../../information/javawebstart.html">Java<sup><font size=-2>TM</font></sup> Web Start</a><a target="_top" href="../../information/javawebstart.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.    Or, to compile and run the example yourself,
+     consult the
+     <a href="example-1dot4/index.html#TextSamplerDemo">example index</a>.
+
+<li> Type some text into the text field and press Enter.
+     Do the same with the password field.
+     The label beneath the fields is updated when you press Enter.
+
+<li> Try entering valid and invalid dates into the formatted text field.
+     Note that
+     when you press Enter
+     the label beneath is updated
+     only if the date is valid. 
+
+<li> Select and edit text in the text area and the text pane.
+     Use special keyboard keys to cut, copy, and paste text.
+     [PENDING: more detail?]
+
+<li> Try to edit the text in the editor pane,
+     which has been made uneditable with a call to <code>setEditable</code>.
+
+<li> Look in the text pane to find an example
+     of an embedded component and an embedded icon.
+</ol>
+<hr></blockquote>
+
+<p>
+TextSamplerDemo uses the text components
+in very basic ways.
+The following table tells you a bit more about
+what you can do with each
+kind of text component.
+
+<p>
+<table cellpadding=5 border=1>
+<tr>
+<th> Group
+</th>
+<th> Description
+</th>
+<th> Swing Classes
+
+</th>
+</tr>
+<tr>
+<th> Text Controls
+</th>
+<td>
+Also known simply as text fields,
+text controls
+can display and edit only one line of text.
+Like buttons, they generate action events.
+Use them to get a small amount
+of textual information from the user
+and take some action after the text entry is complete.
+</td>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTextField.html"><font color="#8800bb"><code>JTextField</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTextField.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> and its subclasses 
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JPasswordField.html"><font color="#8800bb"><code>JPasswordField</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JPasswordField.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> and
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFormattedTextField.html"><font color="#8800bb"><code>JFormattedTextField</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFormattedTextField.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>
+</td>
+</tr>
+<tr>
+<th> Plain Text Areas
+</th>
+<td>
+<code>JTextArea</code>
+can display and edit multiple lines of text.
+Although a text area can display text in any font,
+all of the text is in the same font.
+Use a text area to allow the user to enter
+unformatted text of any length
+or to display unformatted help information.
+</td>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTextArea.html"><font color="#8800bb"><code>JTextArea</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTextArea.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>
+</td>
+</tr>
+<tr>
+<th> Styled Text Areas
+</th>
+<td>
+A styled text component
+can display and edit text using more than one font.
+Some styled text components allow embedded images
+and even embedded components.
+Styled text components are powerful and multi-faceted
+components suitable for high-end needs,
+and offer more avenues for customization than
+the other text components.
+
+<p>
+Because they are so powerful and flexible,
+styled text components typically require
+more up-front programming to set up and use.
+One exception is that
+editor panes can be easily loaded with
+formatted text from a URL, which makes them useful
+for displaying uneditable help information.
+</td>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JEditorPane.html"><font color="#8800bb"><code>JEditorPane</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JEditorPane.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a><br>
+ and its subclass
+<br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTextPane.html"><font color="#8800bb"><code>JTextPane</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTextPane.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a></td>
+</tr>
+</table>
+
+<p>
+In this Tutorial, we give you information
+about the foundation laid by <code>JTextComponent</code>
+and tell you how to accomplish
+some common text-related tasks.
+Because <code>JTextComponent</code> and its subclasses
+have too many features
+to be completely described in this Tutorial,
+please periodically search
+<a href="http://java.sun.com/products/jfc/tsc/index.html">The Swing
+Connection</a> for pointers to more information.
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="jcomponent.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#components" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="generaltext.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

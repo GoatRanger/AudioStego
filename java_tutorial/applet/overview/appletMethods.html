@@ -1,0 +1,215 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Methods for Milestones</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="lifeCycle.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#overview" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="componentMethods.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Writing Applets
+<br>
+<b>Lesson</b>: Overview of Applets
+</font>
+
+<h2>
+Methods for Milestones
+</h2>
+<blockquote>
+<blockquote><pre>
+public class Simple extends Applet {
+    . . .
+    public void <strong>init()</strong> { . . . }
+    public void <strong>start()</strong> { . . . }
+    public void <strong>stop()</strong> { . . . }
+    public void <strong>destroy()</strong> { . . . }
+    . . .
+}
+</pre></blockquote>
+The <code>Simple</code> applet, like every other applet,
+features a subclass of the <code>Applet</code> class.
+The <code>Simple</code> class overrides four <code>Applet</code> methods
+so that it can respond to major events:
+
+<p>
+<dl>
+<dt> <code>init</code>
+<dd> To <em>initialize</em> the applet
+     each time it's loaded (or reloaded).
+
+<dt> <code>start</code>
+<dd> To <em>start</em> the applet's execution, 
+     such as when the applet's loaded
+     or when the user revisits a page that contains the applet.
+
+<dt> <code>stop</code>
+<dd> To <em>stop</em> the applet's execution,
+     such as when the user leaves the applet's page
+     or quits the browser.
+
+<dt> <code>destroy</code>
+<dd> To perform a <em>final cleanup</em> in preparation for unloading.
+
+</dl>
+<p>
+
+Not every applet needs to override every one of these methods.
+Some very simple applets override none of them.
+For example, the 
+<a target="_top" href="../../applet/index.html">Writing Applets</a><a target="_top" href="../../applet/index.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Writing Applets trail)"></a> doesn't override any of these methods,
+since it doesn't do anything except draw itself.
+The "Hello World" applet just displays a string once,
+using its <code>paint</code> method.
+(The <code>paint</code> method is described on the following page.)
+Most applets, however, do more.
+<p>
+
+The <code>init</code> method is useful
+for one-time initialization 
+that doesn't take very long.
+In general, the <code>init</code> method
+should contain the code
+that you would normally put into a constructor.
+The reason applets shouldn't usually have constructors
+is that an applet isn't guaranteed to have a full environment
+until its <code>init</code> method is called.
+For example, the <code>Applet</code> image loading methods
+simply don't work inside of a applet constructor.
+The <code>init</code> method, on the other hand,
+is a great place to call the image loading methods,
+since the methods return quickly.
+
+<p>
+
+
+<blockquote><hr><strong>Browser note:</strong>&nbsp;
+Some browsers sometimes call the 
+<code>init</code> method more than once 
+after the applet has been loaded.
+See the <a href=lifeCycle.html>previous page</a> 
+for more details.
+<hr></blockquote>
+<p>
+
+Every applet that does something after initialization
+(except in direct response to user actions)
+must override the <code>start</code> method.
+The <code>start</code> method either performs the applet's work or
+(more likely) starts up one or more threads to perform the work.
+You'll learn more about threads later in this trail, in
+<a target="_top" href="../practical/threads.html">Threads in Applets</a><a target="_top" href="../practical/threads.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Writing Applets trail)"></a>.
+You'll learn more about handling the events
+that represent user actions
+on the <a href=componentMethods.html>next page</a>.
+
+<p>
+
+Most applets that override <code>start</code>
+should also override the <code>stop</code> method.
+The <code>stop</code> method 
+should suspend the applet's execution, 
+so that it doesn't take up system resources
+when the user isn't viewing the applet's page.
+For example, an applet that displays animation
+should stop trying to draw the animation
+when the user isn't looking at it.
+
+<p>
+
+Many applets don't need to override the <code>destroy</code> method,
+since their <code>stop</code> method
+(which is called before <code>destroy</code>)
+does everything necessary to shut down the applet's execution.
+However, <code>destroy</code> is available
+for applets that need to release additional resources.
+<p>
+
+The
+<code>init</code>,
+<code>start</code>,
+<code>stop</code>, and
+<code>destroy</code> methods
+are discussed and used throughout this tutorial.
+For more information,
+you can also refer to the
+<a href=http://java.sun.com/products/archive/jdk/1.1/index.html/java.applet.Applet.html>Applet
+API reference page<img src=../../images/apiIcon.gif
+height=20 width=20 border=0></a>.
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="lifeCycle.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#overview" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="componentMethods.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

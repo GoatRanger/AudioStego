@@ -1,0 +1,228 @@
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Using Other Swing Features: Examples (1.1/1.2)</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="../../components/example-1dot4/index.html" target="_top"><img src="../../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../../TOC.html#misc" target="_top"><img src="../../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="../../misc/example-1dot4/index.html" target="_top"><img src="../../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="../index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../../search.html" target="_top">Search</a>
+<br><a href="../../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Creating a GUI with JFC/Swing
+<br>
+<b>Lesson</b>: Using Other Swing Features
+</font>
+
+<h2>
+Using Other Swing Features: Examples (1.1/1.2)
+</h2>
+<blockquote>
+
+The <a href="#table">table</a> that follows lists every 1.1/1.2 example in the Using Other Swing Features lesson, with links to required files and to where each example is discussed.
+
+
+<blockquote><hr><strong>Note:</strong>&nbsp;These examples use the Swing 1.1 API, which is supported by J2SE 1.2 and compatible releases, as well as JDK 1.1 + JFC/Swing 1.1.
+
+To see more up-to-date
+versions of these examples
+that can be launched using Java<sup><font size=-2>TM</font></sup> Web Start,
+see the
+<a target="_top" href="../example-1dot4/index.html">list of 1.4 examples</a><a target="_top" href="../example-1dot4/index.html"><img src="../../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.
+
+<br>
+<br>
+Examples 
+are applications
+unless noted otherwise.
+See 
+<a target="_top" href="../../../uiswing/14start/index.html">Getting Started with Swing</a><a target="_top" href="../../../uiswing/14start/index.html"><img src="../../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a> for details about releases and 
+ instructions on compiling and running programs.
+<hr></blockquote>
+
+
+<p>
+You can get the source, image, and other files required
+for all these examples 
+by downloading the
+<a target="_blank" href="http://java.sun.com/docs/books/tutorial/information/download.html#egs"><font color="#009bbb">Tutorial Examples bundle</font></a><a target="_blank" href="http://java.sun.com/docs/books/tutorial/information/download.html#egs"><img src="../../../images/otherIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (outside of the tutorial)"></a>, which contains the files in the correct hierarchy.
+If you download an individual example,
+take care to have all the necessary files 
+in the proper hierarchy when you compile and run it.
+For example, many examples
+expect their image files
+to be in a directory named <code>images</code>
+that's in the same directory as the example's class files.
+Here's a typical setup:
+
+<p><center><IMG SRC="../../../figures/uiswing/misc/ActionDemoFiles.gif" WIDTH="410" HEIGHT="143" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="Directory structure"></center></p>
+
+<a name="table">
+<table border="1">
+
+<tr>
+<td><strong>Source Files</td>
+<td><strong>Image & Other Files</strong></td>
+<td><strong>Where Described</td>
+</tr>
+
+<tr>
+<td><a name="AccessibleScrollDemo">
+    
+<a target="_blank" href="AccessibleScrollDemo.java"><font color="#bb000f"><code>AccessibleScrollDemo.java</code></font></a><a target="_blank" href="AccessibleScrollDemo.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>
+    <br>&nbsp;&nbsp;
+<a target="_blank" href="Rule.java"><font color="#bb000f"><code>Rule.java</code></font></a><a target="_blank" href="Rule.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>
+    <br>&nbsp;&nbsp;
+<a target="_blank" href="Corner.java"><font color="#bb000f"><code>Corner.java</code></font></a><a target="_blank" href="Corner.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>
+    <br>&nbsp;&nbsp;
+<a target="_blank" href="ScrollablePicture.java"><font color="#bb000f"><code>ScrollablePicture.java</code></font></a><a target="_blank" href="ScrollablePicture.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>
+    </a></td>
+<td><a href="images/youngdad.jpeg"><code>youngdad.jpeg</code></a></td>
+<td><a href="../access.html">
+    How to Support Assistive Technologies</a></td>
+</tr>
+
+<tr>
+<td><a name="ActionDemo">
+    
+<a target="_blank" href="ActionDemo.java"><font color="#bb000f"><code>ActionDemo.java</code></font></a><a target="_blank" href="ActionDemo.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>
+    </a></td>
+<td><a href="images/right.gif"><code>right.gif</code></a>,
+    <a href="images/middle.gif"><code>middle.gif</code></a>,
+    <a href="images/left.gif"><code>left.gif</code></a></td>
+<td><a href="../action.html">
+    How to Use Actions</a></td>
+</tr>
+
+<tr>
+<td><a name="BorderDemo">
+    
+<a target="_blank" href="BorderDemo.java"><font color="#bb000f"><code>BorderDemo.java</code></font></a><a target="_blank" href="BorderDemo.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>
+    </a></td>
+<td><a href="images/left.gif"><code>left.gif</code></a></td>
+<td><a href="../border.html">
+    How to Use Borders</a></td>
+</tr>
+
+<tr>
+<td><a name="CustomIconDemo">
+    
+<a target="_blank" href="CustomIconDemo.java"><font color="#bb000f"><code>CustomIconDemo.java</code></font></a><a target="_blank" href="CustomIconDemo.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>
+    <br>&nbsp;&nbsp;
+<a target="_blank" href="ArrowIcon.java"><font color="#bb000f"><code>ArrowIcon.java</code></font></a><a target="_blank" href="ArrowIcon.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>
+    </a></td>
+<td><a href="images/middle.gif"><code>middle.gif</code></a></td>
+<td><a href="../icon.html">
+    How to Use Icons</a></td>
+</tr>
+
+<tr>
+<td><a name="IconDemoApplet">
+    
+<a target="_blank" href="IconDemoApplet.java"><font color="#bb000f"><code>IconDemoApplet.java</code></font></a><a target="_blank" href="IconDemoApplet.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>
+    <em>(an applet)</em>
+    <br>&nbsp;&nbsp;
+<a target="_blank" href="SwingWorker.java"><font color="#bb000f"><code>SwingWorker.java</code></font></a><a target="_blank" href="SwingWorker.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>
+    <br>&nbsp;&nbsp;
+<a target="_blank" href="Photo.java"><font color="#bb000f"><code>Photo.java</code></font></a><a target="_blank" href="Photo.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a></td>
+<td><a href="images/right.gif"><code>right.gif</code></a>,
+    <a href="images/left.gif"><code>left.gif</code></a>,
+    <a href="images/dimmedRight.gif"><code>dimmedRight.gif</code></a>,
+    <a href="images/dimmedLeft.gif"><code>dimmedLeft.gif</code></a>,
+    <a href="images/stickerface.gif"><code>stickerface.gif</code></a>,
+    <a href="images/lainesTongue.gif"><code>lainesTongue.gif</code></a>,
+    <a href="images/kathyCosmo.gif"><code>kathyCosmo.gif</code></a>,
+    <a href="images/ewanPumpkin.gif"><code>ewanPumpkin.gif</code></a>,
+    <br>To run the applet:
+    <a href="../IconDemoApplet.html"><code>IconDemoApplet.html</code></a>
+    <br>To view the &lt;APPLET&gt; tag:
+    <a href="../IconDemoApplet.atag"><code>IconDemoApplet.atag</code></a>
+    </a></td>
+<td><a href="../icon.html">
+    How to Use Icons</a></td>
+</tr>
+
+</table>
+</a>
+
+</blockquote>
+
+<img src="../../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="../../components/example-1dot4/index.html" target="_top"><img src="../../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../../TOC.html#misc" target="_top"><img src="../../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="../../misc/example-1dot4/index.html" target="_top"><img src="../../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="../index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../../search.html" target="_top">Search</a>
+<br><a href="../../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

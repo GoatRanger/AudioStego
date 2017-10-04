@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="10"
+   name=""
+   committed-date="2005-02-01T05:59:34.421875Z"
+   url="svn://192.168.2.2/IT105Editor/docs/jalopy/api/de/hunsicker/util"
+   last-author="Karl"
+   kind="dir"
+   uuid="0daf4267-3229-f84b-9084-f3c94b025f38"
+   revision="55"/>
+<entry
+   name="class-use"
+   kind="dir"/>
+<entry
+   committed-rev="10"
+   name="ChainingRuntimeException.html"
+   text-time="2005-03-02T06:14:24.937500Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="aa35fe6718862c6dc1269b6f938636c3"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:24.890625Z"/>
+<entry
+   committed-rev="10"
+   name="Version.html"
+   text-time="2005-03-02T06:14:24.953125Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="177646f704df5a14ececec6518034606"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:24.906250Z"/>
+</wc-entries>

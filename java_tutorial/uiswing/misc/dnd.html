@@ -1,0 +1,2372 @@
+
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>How to Use Drag and Drop and Data Transfer</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="border.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#misc" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="focus.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Creating a GUI with JFC/Swing
+<br>
+<b>Lesson</b>: Using Other Swing Features
+</font>
+
+<h2>
+How to Use Drag and Drop and Data Transfer
+</h2>
+<blockquote>
+
+Most programs can benefit from the ability to transfer
+information, either between components, between
+Java applications, or between Java and native applications.
+The ability to transfer data takes two forms:
+
+<ul>
+<li>Drag and drop (DnD) support.
+    The following diagram illustrates the Java portion of a
+    drag operation:
+
+<p>
+<p><center><IMG SRC="../../figures/uiswing/../../figures/uiswing/misc/dndprocess1.gif" WIDTH="533" HEIGHT="215" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="Drag and Drop Illustration"></center></p>
+<font color=red>[PENDING: Change "Drag begins" in the diagram
+to "Drag gesture".]</font>
+
+<p>
+<li>Clipboard transfer via cut/copy and paste.
+    The following diagrams illustrate the Java portion of the
+    cut/copy and paste operations:
+
+<p>
+<p><center><IMG SRC="../../figures/uiswing/../../figures/uiswing/misc/dndprocess2.gif" WIDTH="485" HEIGHT="103" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="Cut/Copy Illustration"></center></p>
+<p>
+<p><center><IMG SRC="../../figures/uiswing/../../figures/uiswing/misc/dndprocess3.gif" WIDTH="486" HEIGHT="104" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="Paste Illustration"></center></p></ul>
+
+<p>The <code>TransferHandler</code> object, the heart of the
+data transfer system, is described in more detail later.
+The arrows in the preceding diagrams show the path of the data.
+
+<p>Many Swing components provide out-of-the-box support for transferring
+data, as shown in the following table:
+
+<p>
+<table summary="Data Transfer Support" border=1>
+<caption><a name=defaultSupport>Data Transfer Support</a></caption>
+<tr><th>Component</th>
+    <th>Drag*<br>Copy</th>
+    <th>Drag*<br>Move</th>
+    <th>Drop</th>
+    <th>Cut</th>
+    <th>Copy</th>
+    <th>Paste</th>
+</tr>
+
+<tr><th align=left><code>JColorChooser**</code>
+<td align=center>
+<p><center><IMG SRC="../../figures/uiswing/../../images/check.gif" WIDTH="12" HEIGHT="12" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="checked"></center></p></td>
+<td>&nbsp;</td>
+<td align=center>
+<p><center><IMG SRC="../../figures/uiswing/../../images/check.gif" WIDTH="12" HEIGHT="12" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="checked"></center></p></td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+
+<tr><th align=left><code>JEditorPane</code>
+<td align=center>
+<p><center><IMG SRC="../../figures/uiswing/../../images/check.gif" WIDTH="12" HEIGHT="12" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="checked"></center></p></td>
+<td align=center>
+<p><center><IMG SRC="../../figures/uiswing/../../images/check.gif" WIDTH="12" HEIGHT="12" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="checked"></center></p></td>
+<td align=center>
+<p><center><IMG SRC="../../figures/uiswing/../../images/check.gif" WIDTH="12" HEIGHT="12" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="checked"></center></p></td>
+<td align=center>
+<p><center><IMG SRC="../../figures/uiswing/../../images/check.gif" WIDTH="12" HEIGHT="12" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="checked"></center></p></td>
+<td align=center>
+<p><center><IMG SRC="../../figures/uiswing/../../images/check.gif" WIDTH="12" HEIGHT="12" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="checked"></center></p></td>
+<td align=center>
+<p><center><IMG SRC="../../figures/uiswing/../../images/check.gif" WIDTH="12" HEIGHT="12" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="checked"></center></p></td>
+</tr>
+
+<tr><th align=left><code>JFileChooser***</code>
+<td align=center>
+<p><center><IMG SRC="../../figures/uiswing/../../images/check.gif" WIDTH="12" HEIGHT="12" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="checked"></center></p></td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td align=center>
+<p><center><IMG SRC="../../figures/uiswing/../../images/check.gif" WIDTH="12" HEIGHT="12" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="checked"></center></p></td>
+<td>&nbsp;</td>
+</tr>
+
+<tr><th align=left><code>JFormattedTextField</code>
+<td align=center>
+<p><center><IMG SRC="../../figures/uiswing/../../images/check.gif" WIDTH="12" HEIGHT="12" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="checked"></center></p></td>
+<td align=center>
+<p><center><IMG SRC="../../figures/uiswing/../../images/check.gif" WIDTH="12" HEIGHT="12" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="checked"></center></p></td>
+<td align=center>
+<p><center><IMG SRC="../../figures/uiswing/../../images/check.gif" WIDTH="12" HEIGHT="12" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="checked"></center></p></td>
+<td align=center>
+<p><center><IMG SRC="../../figures/uiswing/../../images/check.gif" WIDTH="12" HEIGHT="12" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="checked"></center></p></td>
+<td align=center>
+<p><center><IMG SRC="../../figures/uiswing/../../images/check.gif" WIDTH="12" HEIGHT="12" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="checked"></center></p></td>
+<td align=center>
+<p><center><IMG SRC="../../figures/uiswing/../../images/check.gif" WIDTH="12" HEIGHT="12" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="checked"></center></p></td>
+</tr>
+
+<tr><th align=left><code>JList</code>
+<td align=center>
+<p><center><IMG SRC="../../figures/uiswing/../../images/check.gif" WIDTH="12" HEIGHT="12" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="checked"></center></p></td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>
+<p><center><IMG SRC="../../figures/uiswing/../../images/check.gif" WIDTH="12" HEIGHT="12" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="checked"></center></p></td>
+<td>&nbsp;</td>
+</tr>
+
+<tr><th align=left><code>JPasswordField</code>
+<td align=center><i>n/a</i></td>
+<td align=center><i>n/a</i></td>
+<td align=center>
+<p><center><IMG SRC="../../figures/uiswing/../../images/check.gif" WIDTH="12" HEIGHT="12" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="checked"></center></p></td>
+<td align=center><i>n/a</i></td>
+<td align=center><i>n/a</i></td>
+<td align=center>
+<p><center><IMG SRC="../../figures/uiswing/../../images/check.gif" WIDTH="12" HEIGHT="12" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="checked"></center></p></td>
+</tr>
+
+<tr><th align=left><code>JTable</code>
+<td align=center>
+<p><center><IMG SRC="../../figures/uiswing/../../images/check.gif" WIDTH="12" HEIGHT="12" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="checked"></center></p></td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>
+<p><center><IMG SRC="../../figures/uiswing/../../images/check.gif" WIDTH="12" HEIGHT="12" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="checked"></center></p></td>
+<td>&nbsp;</td>
+</tr>
+
+<tr><th align=left><code>JTextArea</code>
+<td align=center>
+<p><center><IMG SRC="../../figures/uiswing/../../images/check.gif" WIDTH="12" HEIGHT="12" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="checked"></center></p></td>
+<td align=center>
+<p><center><IMG SRC="../../figures/uiswing/../../images/check.gif" WIDTH="12" HEIGHT="12" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="checked"></center></p></td>
+<td align=center>
+<p><center><IMG SRC="../../figures/uiswing/../../images/check.gif" WIDTH="12" HEIGHT="12" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="checked"></center></p></td>
+<td>
+<p><center><IMG SRC="../../figures/uiswing/../../images/check.gif" WIDTH="12" HEIGHT="12" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="checked"></center></p></td>
+<td>
+<p><center><IMG SRC="../../figures/uiswing/../../images/check.gif" WIDTH="12" HEIGHT="12" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="checked"></center></p></td>
+<td>
+<p><center><IMG SRC="../../figures/uiswing/../../images/check.gif" WIDTH="12" HEIGHT="12" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="checked"></center></p></td>
+</tr>
+
+<tr><th align=left><code>JTextField</code>
+<td align=center>
+<p><center><IMG SRC="../../figures/uiswing/../../images/check.gif" WIDTH="12" HEIGHT="12" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="checked"></center></p></td>
+<td align=center>
+<p><center><IMG SRC="../../figures/uiswing/../../images/check.gif" WIDTH="12" HEIGHT="12" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="checked"></center></p></td>
+<td align=center>
+<p><center><IMG SRC="../../figures/uiswing/../../images/check.gif" WIDTH="12" HEIGHT="12" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="checked"></center></p></td>
+<td align=center>
+<p><center><IMG SRC="../../figures/uiswing/../../images/check.gif" WIDTH="12" HEIGHT="12" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="checked"></center></p><td align=center>
+<p><center><IMG SRC="../../figures/uiswing/../../images/check.gif" WIDTH="12" HEIGHT="12" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="checked"></center></p><td align=center>
+<p><center><IMG SRC="../../figures/uiswing/../../images/check.gif" WIDTH="12" HEIGHT="12" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="checked"></center></p></tr>
+
+<tr><th align=left><code>JTextPane</code>
+<td align=center>
+<p><center><IMG SRC="../../figures/uiswing/../../images/check.gif" WIDTH="12" HEIGHT="12" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="checked"></center></p></td>
+<td align=center>
+<p><center><IMG SRC="../../figures/uiswing/../../images/check.gif" WIDTH="12" HEIGHT="12" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="checked"></center></p></td>
+<td align=center>
+<p><center><IMG SRC="../../figures/uiswing/../../images/check.gif" WIDTH="12" HEIGHT="12" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="checked"></center></p></td>
+<td align=center>
+<p><center><IMG SRC="../../figures/uiswing/../../images/check.gif" WIDTH="12" HEIGHT="12" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="checked"></center></p></td>
+<td align=center>
+<p><center><IMG SRC="../../figures/uiswing/../../images/check.gif" WIDTH="12" HEIGHT="12" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="checked"></center></p></td>
+<td align=center>
+<p><center><IMG SRC="../../figures/uiswing/../../images/check.gif" WIDTH="12" HEIGHT="12" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="checked"></center></p></td>
+</tr>
+
+<tr><th align=left><code>JTree</code>
+<td align=center>
+<p><center><IMG SRC="../../figures/uiswing/../../images/check.gif" WIDTH="12" HEIGHT="12" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="checked"></center></p></td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>
+<p><center><IMG SRC="../../figures/uiswing/../../images/check.gif" WIDTH="12" HEIGHT="12" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="checked"></center></p></td>
+<td>&nbsp;</td>
+</table>
+&nbsp;&nbsp;*Enabled by invoking <code>component.setDragEnabled(true)</code>
+on the component.
+<br>
+&nbsp;**Imports and exports data of type <code>java.awt.Color</code>.
+<br>
+***Exports both a list of filenames as <code>java.io.File</code>
+objects (preferred) and as strings for those components
+that do not accept <code>File</code> objects.  The <em>File
+Name</em> text field in the file chooser accepts strings;
+the browser in the file chooser does not accept data.
+Note that as of release 1.4, clipboard copy from a <code>JFileChooser</code>
+is broken and actually causes the file to be moved when it
+is pasted.  You may want to watch bug
+<a target="_blank" href="http://developer.java.sun.com/developer/bugParade/bugs/4915992.html"><font color="#009bbb">#4915992</font></a><a target="_blank" href="http://developer.java.sun.com/developer/bugParade/bugs/4915992.html"><img src="../../images/otherIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (outside of the tutorial)"></a>.
+
+<blockquote><hr><strong>Version note:</strong>&nbsp;This section describes the drag and drop architecture
+implemented in release 1.4.  Prior to 1.4, AWT support
+for data transfer was not well integrated into Swing
+components.
+<hr></blockquote>
+
+<p>The data transfer mechanism is built in to every 
+<code>JComponent</code>. For all the components
+with an empty space in the preceding table only a small
+amount of code is needed to customize the support.
+Support can easily be added to 
+<code>JComponent</code>s not listed in the table so they
+can fully participate in data transfer.
+
+<p>
+The rest of this section covers the following topics:
+
+<ul>
+<li><a href=#cursorIcons>A Visual Guide to Drag and Drop Cursor Icons</a>
+<li><a href=#intro>Introduction to Data Transfer Support</a>
+<li><a href=#label>A Simple Example: Adding DnD to JLabel</a>
+<li><a href=#complex>Extending Default DnD Support</a>
+<li><a href=#dataFormat>Specifying the Data Format</a>
+<li><a href=#customImport>Importing a New Flavor: Color</a>
+<li><a href=#replacingSupport>Replacing Default Support: Color and Text</a>
+<li><a href=#importFiles>Importing a New Flavor: Files</a>
+<li><a href=#customComp>Data Transfer with a Custom Component</a>
+<li><a href=#customFlavor>Data Transfer with a Custom DataFlavor</a>
+<li><a href=#cut>Adding Cut/Copy/Paste Support</a>
+<li><a href=#api>The Data Transfer API</a>
+<li><a href=#eg>Examples that Use Data Transfer</a>
+</ul>
+
+</blockquote>
+<a name=cursorIcons>
+<h2>A Visual Guide to Drag and Drop Cursor Icons</h2></a>
+<blockquote>
+<p>
+Before delving into drag and drop further, it's useful
+to take a look at the various cursor icons you may
+encounter when initiating a drag operation.
+We expect the Solaris and Linux cursor icons
+to change for release 1.5, but here is a guide
+as of release 1.4:
+
+<a name=cursorIconTable>
+<h4 align=center>Cursor Icons for Drag and Drop</h4>
+</a>
+<table align=center border=1>
+<tr>
+<th align=left>Microsoft<br>Windows</th>
+<th align=left>Solaris/<br>Linux</th>
+<th align=left>Description</th>
+</tr>
+<tr valign=center>
+<td align=center>
+<IMG SRC="../../figures/uiswing/misc/win32_CopyDrop.gif" WIDTH="23" HEIGHT="32" ALT="Copy cursor icon for Windows, the component below accepts the drop."></td>
+<td align=center>
+<IMG SRC="../../figures/uiswing/misc/motif_CopyDrop.gif" WIDTH="32" HEIGHT="32" ALT="Copy cursor icon for Linux/Solaris, the component below accepts the drop."></td>
+<td>
+Copy.
+The component underneath accepts this type of data.
+</td>
+</tr>
+
+<tr valign=center>
+<td align=center>
+<IMG SRC="../../figures/uiswing/misc/no.gif" WIDTH="20" HEIGHT="20" ALT="Copy cursor icon for Windows, the component below won't accept."></td>
+<td align=center>
+<IMG SRC="../../figures/uiswing/misc/motif_CopyNoDrop.gif" WIDTH="32" HEIGHT="32" ALT="Copy cursor icon for Linux/Solaris, the component below won't accept."></td>
+<td>
+Copy.  The area underneath will not accept this data.
+</td>
+</tr>
+
+<tr>
+<td align=center valign=center>
+<IMG SRC="../../figures/uiswing/misc/win32_MoveDrop.gif" WIDTH="16" HEIGHT="27" ALT="Move cursor icon for Windows, the component accepts the drop."></td>
+<td align=center valign=center>
+<IMG SRC="../../figures/uiswing/misc/motif_MoveDrop.gif" WIDTH="32" HEIGHT="32" ALT="Move cursor icon for Linux/Solaris, the component accepts the drop."></td>
+<td>
+Move.
+The component underneath accepts this type of data.
+</td>
+</tr>
+
+<tr>
+<td align=center valign=center>
+<IMG SRC="../../figures/uiswing/misc/no.gif" WIDTH="20" HEIGHT="20" ALT="Move cursor icon for Windows, the component won't accept."></td>
+<td align=center valign=center>
+<IMG SRC="../../figures/uiswing/misc/motif_MoveNoDrop.gif" WIDTH="32" HEIGHT="32" ALT="Move cursor icon for Linux/Solaris, the component won't accept."></td>
+<td>
+Move.  The area underneath will not accept this data.
+</td>
+</tr>
+
+</table>
+
+<p>On a <code>Component</code> supporting both Copy and Move,
+a normal drag from the component performs a move and a Control-drag
+performs a copy.  The drag behavior from a native application to
+a Java application is platform dependent.  If only one of the operations
+is supported, a normal drag performs that operation. For more
+information on the behavior of the drop action, see the class spec for
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/dnd/DragSourceDragEvent.html"><font color="#8800bb">DragSourceDragEvent</font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/dnd/DragSourceDragEvent.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>.
+
+</blockquote>
+<a name=intro>
+<h2>Introduction to Data Transfer Support</h2></a>
+<blockquote>
+<p>
+The simple demo <code>BasicDnD</code> illustrates default
+drag and drop behavior for several Swing components.
+At startup the components do not have drag turned on,
+but a check box allows you to enable dragging on the fly.
+Note that at startup, even though drag is not yet enabled,
+many of the components do support the cut/copy/paste of text
+using key bindings.
+
+<p><center><a href="../../figures/uiswing/../../figures/uiswing/misc/BasicDND.gif" target="_top"><IMG SRC="../../figures/uiswing/../../figures/uiswing/misc/BasicDND.gif" WIDTH="500" HEIGHT="341" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></a><br><em>This figure has been reduced to fit on the page. <br> Click the image to view it at its natural size.</em></center></p>
+<blockquote><hr><strong>Try this:</strong>&nbsp;<ol>
+<li> <a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/misc/example-1dot4/BasicDnD.jnlp">Run
+     BasicDnD</a> using
+     <a href=http://java.sun.com/products/javawebstart>
+     Java<sup><font size=-2>TM</font></sup> Web Start</a>.
+     Or, to compile and run the example yourself,
+     consult the
+     <a href="example-1dot4/index.html#BasicDnD">example index</a>.
+<li> Select an item in the list, and then release the mouse button
+     so it is now highlighted.
+<li> Press the item again, this time holding down the mouse
+     button and begin to drag. Nothing happens because
+     <nobr><code>setDragEnabled(true)</code></nobr> has not yet been 
+     called on the list.
+<li> Type Control-C.  This puts the text of the selected
+     list item onto the system clipboard.
+<li> Click in the text area.  The caret cursor blinks
+     showing that this component now has the focus.
+<li> Type Control-V.  The contents of the previously copied
+     text are pasted at the caret location.
+<li> Click the "Turn on Drag and Drop" check box.
+<li> Once again, press the selected item in the list
+     and begin to drag.
+     Initially, on Microsoft Windows, you see the 
+<IMG SRC="../../figures/uiswing/misc/no.gif" WIDTH="20" HEIGHT="20" ALT="Copy cursor icon for Windows, the component won't accept."> cursor icon.
+     This indicates that the area below the cursor, in this
+     case the list itself, does not accept drops.
+<li> Drag the cursor over a text area.  The cursor
+     icon now changes to
+<IMG SRC="../../figures/uiswing/misc/win32_CopyDrop.gif" WIDTH="23" HEIGHT="32" ALT="Copy cursor icon for Windows, the component below accepts the drop.">. This text area will accept the data if you release the
+     mouse button.
+<li> As you can see in the <a href=#cursorIconTable>cursor icon
+     table</a>, the Copy cursor icon
+     gives you a visual clue that it will not disturb
+     the contents of the original component.  In the case
+     of Microsoft Windows, the clue is the small + sign.
+<li> Drag the selected text over a text area. The insertion
+     point for the text is indicated by a blinking cursor.
+<li> Release the mouse and watch the text appear in the text area.
+<li> Select some text in one of the text areas.
+<li> Press and hold the mouse button while the cursor is
+     over the selected text and begin to drag.
+<li> Note that this time, the
+<IMG SRC="../../figures/uiswing/misc/win32_MoveDrop.gif" WIDTH="16" HEIGHT="27" ALT="Move cursor icon for Windows, the component accepts the drop."> icon appears.
+     This indicates that the drag is a Move and will remove the
+     text from the original component on a successful drop.
+<li> Release the mouse button over an area that will not
+     accept it.  The original text is undisturbed.
+<li> Hold the Control key down and press again on the selected
+     text.  The Copy icon now appears.
+     Move the cursor over the text area and drop. The text
+     appears in the new location but is not removed from the
+     original location.
+     The Control key can be used to change any Move to a Copy.
+<li> Select a color from the color chooser. The selected color
+     appears in the Preview panel.  Press and hold the mouse button
+     over the color in the Preview panel and drag it over the
+     other components.  Note that none of the components
+     accepts color by default.  
+<li> Play with dragging and dropping between the various components
+     and note which components accept data.
+</ol>
+<hr></blockquote>
+
+<p>When the <em>Turn drag and drop on</em> check box is checked,
+<code>BasicDnD</code> demonstrates drag and drop behavior
+that becomes available to a component with the following
+line of code:
+
+<blockquote><pre>
+component.setDragEnabled(true);
+</pre></blockquote>
+
+Many components support cut/copy/paste of text using
+the keyboard bindings Control-X, Control-C, and Control-V, respectively. 
+This is because a <code>JTextComponent</code> installs the
+cut/copy/paste key bindings
+and action map when it is created.  You only need to add a bit more
+code to create a menu with Cut, Copy and Paste menu items and
+tie those items to the default text support.
+We show you how to do that in the
+<a href=#replacingSupport><code>DragColorTextFieldDemo</code></a> example.
+Cut/copy/paste is further discussed in <a href=#cut>Adding
+Cut/Copy/Paste Support</a>.
+
+<p>
+At the heart of the data transfer mechanism is the
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/TransferHandler.html"><font color="#8800bb"><code>TransferHandler</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/TransferHandler.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> class.  A <code>TransferHandler</code> provides
+an easy mechanism for transferring data to and from a
+<code>JComponent</code>.  The data to be transferred is bundled
+up into an object that implements the
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/datatransfer/Transferable.html"><font color="#8800bb"><code>Transferable</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/datatransfer/Transferable.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> interface.  The components in the
+<a href=#defaultSupport>data transfer support table</a>
+are provided with default transfer handlers, but a transfer
+handler can be created and installed on any component using
+the <code>JComponent</code> method <code>setTransferHandler</code>:
+
+<blockquote><pre>
+component.setTransferHandler(new MyTransferHandler());
+</pre></blockquote>
+
+<a name=customGotcha><p></a>
+The default Swing transfer handlers, such as those used
+by text components and the color chooser, provide the support 
+considered to be most useful for
+both importing and exporting of data.  If you install a custom
+<code>TransferHandler</code> onto a Swing component,
+the default support is replaced.  For example,
+if you replace <code>JTextField</code>'s
+<code>TransferHandler</code> with one that handles colors only,
+you'll disable its ability to support import and export of text.
+
+<p>This means that if you must replace a default
+<code>TransferHandler</code> &#151; for example, one that handles
+text &#151; you'll need to re-implement the text import and export ability. 
+This does not need to be as extensive as what Swing provides &#151;
+it could be as simple as supporting the <code>StringFlavor</code> data
+flavor, depending on your application's needs.
+The <a href=#replacingSupport><code>DragColorTextFieldDemo</code></a>
+gives an example of this.  You might also want to watch RFE
+<a target="_blank" href="http://developer.java.sun.com/developer/bugParade/bugs/4830695.html"><font color="#009bbb">#4830695</font></a><a target="_blank" href="http://developer.java.sun.com/developer/bugParade/bugs/4830695.html"><img src="../../images/otherIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (outside of the tutorial)"></a>, which requests the ability to add data import
+on top of an existing <code>TransferHandler</code>.
+
+<p>The remainder of this document describes how to use data transfer
+in a variety of ways. Here is a list of some common scenarios and
+where in the document you can find more information:
+
+<dl>
+<dt>How do I provide drop support for those components
+    in the <a href=#defaultSupport>Data Transfer Support</a> table
+    that do not have a check-mark in the drop column?
+<dd>You need to implement a custom transfer handler to
+    provide drop support.
+    See <a href=#complex>Extending Default DnD Support</a>
+    for an example of how this is done.
+<p>
+<dt>I want my component to import only.  How do I do that?
+<dd>You need to provide a custom transfer handler with
+    implementations for the <code>canImport</code> and
+    <code>importData</code> methods.  The <code>DragColorDemo</code>
+    example in <a href=#customImport>Importing a New Flavor:
+    Color</a> does this.
+<p>
+<dt>How do I create a component that can accept multiple
+    types of data?
+<dd>A transfer handler can be created to accept more than one
+    type of data.  <a href=#replacingSupport>Replacing Default
+    Support: Color and Text</a> shows the example,
+    DragColorTextFieldDemo, which installs a custom transfer
+    handler on a <code>JTextField</code> to import both
+    color and text, and export text. Also, the
+    <code>DragFileDemo</code> in <a href=#importFiles>
+    Importing a New Flavor: Files</a> installs a transfer
+    handler on the text area/tabbed pane that imports both files
+    and strings.
+<p>
+<dt>How do I create a custom transfer handler to import/export
+    a non-standard type of data?
+<dd><a href=#dataFormat>Specifying the Data Format</a> describes
+    how to create a data flavor with a variety of data types.
+    Also, the DragListDemo example in <a href=#customFlavor>
+    Data Transfer with a Custom DataFlavor</a> shows how
+    to transfer data in the <code>ArrayList</code> format.
+<p>
+<dt>How do I make data transfer work with my custom component?
+<dd><a href=#customComp>Data Transfer with a Custom Component</a>
+    discusses the requirements of making a custom component work
+    with the data transfer system.
+<p>
+<dt>How do I enable the cut/copy/paste bindings?
+<dd><a href=#cut>Adding Cut/Copy/Paste Support</a>
+    describes how to enable the built-in cut/copy/paste support
+    for text components.  Implementing cut/copy/paste for
+    non-text components is also covered.
+<p>
+<dt>How do I obtain the drop position in the destination
+    component?
+<dd>You can obtain the drop location by way of the component's
+    selection.  You'll notice that the selection changes in a component
+    as you drag over it.  For lists, tables, and trees you can query
+    the current selection at drop time to find the drop position.
+    For text components, you can query the position of the caret.
+    There is an example of this in
+    <a href=example-1dot4/ArrayListTransferHandler.java>
+    ArrayListTransferHandler</a>, part of the
+    <a href=example-1dot4/DragListDemo.java>DragListDemo</a> example. 
+    You might also want to watch RFE 
+<a target="_blank" href="http://developer.java.sun.com/developer/bugParade/bugs/4468566.html"><font color="#009bbb">#4468566</font></a><a target="_blank" href="http://developer.java.sun.com/developer/bugParade/bugs/4468566.html"><img src="../../images/otherIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (outside of the tutorial)"></a>, which requests a better way of indicating (and displaying)
+the drop location without changing the selection.
+</dl>
+
+<p>This has been a brief introduction to the Swing data transfer
+mechanism.  If you want more details, see the
+<a target="_blank" href="http://java.sun.com/j2se/1.4.1/docs/guide/swing/1.4/dnd.html"><font color="#009bbb">Swing Data Transfer</font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.1/docs/guide/swing/1.4/dnd.html"><img src="../../images/otherIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (outside of the tutorial)"></a> document in the release notes for your particular J2SE release.
+
+<p>
+
+</blockquote>
+<a name=label>
+<h2>A Simple Example: Adding DnD to JLabel</h2></a>
+<blockquote>
+
+<p>
+The <code>JLabel</code> component does not, by default, 
+support drag or drop,
+but it is a fairly simple exercise to add this support &#151;
+the following demo shows how to do this.
+
+<p><center><IMG SRC="../../figures/uiswing/misc/LabelDnD.gif" WIDTH="333" HEIGHT="152" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="The LabelDnD example"></center></p>
+<blockquote><hr><strong>Try this:</strong>&nbsp;<ol>
+<li> <a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/misc/example-1dot4/LabelDnD.jnlp">Run
+     LabelDnD</a> using
+     <a href=http://java.sun.com/products/javawebstart>
+     Java Web Start</a>.
+     Or, to compile and run the example yourself,
+     consult the
+     <a href="example-1dot4/index.html#LabelDnD">example index</a>.
+<li> Press and hold the mouse button while the cursor is over
+     the label.  As you begin to move the cursor the Copy cursor
+     icon appears.
+     Drop the text onto the text field.
+<li> Type text into the text field.  Select and initiate the
+     drag using the mouse. The Move cursor icon appears because
+     the default behavior for text field is Move.
+     Drop the text onto the label and note that the selected string
+     has been removed from the original text.
+<li> Type more text into the text field, if necessary, and select.
+     While holding down the Control key, drag the text. 
+     The Copy cursor icon appears.  Drop the text as desired.
+</ol>
+<hr></blockquote>
+
+<p>While it is possible to extend this
+example to show copy and paste, note that <code>JLabel</code>
+does not have bindings for copy and paste and does not, by default,
+receive the focus that is required to support this feature.
+
+<p>The entire example can be found in
+<a target="_blank" href="example-1dot4/LabelDnD.java"><font color="#bb000f"><code>LabelDnD.java</code></font></a><a target="_blank" href="example-1dot4/LabelDnD.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>. Here is the code that creates the label and installs
+a transfer handler on the label:
+
+<blockquote><pre>
+label = new JLabel("I'm a Label!", SwingConstants.LEADING);
+label.setTransferHandler(new TransferHandler("text"));
+
+MouseListener listener = new DragMouseAdapter();
+label.addMouseListener(listener);
+</pre></blockquote>
+
+<p>To add drag support to <code>JLabel</code> or any
+custom component, you must add the ability to detect 
+activity on the mouse.  <code>LabelDnD</code> implements
+a mouse listener to detect mouse pressed &#151; when the
+mouse is pressed, the transfer handler initiates the
+drag from the label by invoking <code>exportAsDrag</code>
+with the Copy argument:
+
+<blockquote><pre>
+public class DragMouseAdapter extends MouseAdapter {
+    public void mousePressed(MouseEvent e) {
+        JComponent c = (JComponent)e.getSource();
+        TransferHandler handler = c.getTransferHandler();
+        handler.exportAsDrag(c, e, TransferHandler.COPY);
+    }
+}
+</pre></blockquote>
+
+<p>
+To find what the call to 
+<blockquote><pre>
+new TransferHandler("text")
+</pre></blockquote>
+ does, see 
+<a href=#dataFormat>Specifying the Data Format</a>.
+
+</blockquote>
+<a name=complex>
+<h2>Extending Default DnD Support</h2></a>
+<blockquote>
+
+<p>
+You've seen in the <a href=#defaultSupport>Data Transfer Support table</a>
+that several components do not support drop by default. 
+The reason for this is that there is no all-purpose way to handle
+a drop on those components.
+For example, what does it mean to drop on a particular node of
+a <code>JTree</code>?  Does it replace the node, insert below it,
+or insert as a child of that node? 
+Also, we don't know what type of model is
+behind the tree &#151; it might not be mutable.  However, while Swing
+doesn't provide a default implementation, the framework for
+drop is there.  You need only to provide a custom
+<code>TransferHandler</code>
+that deals with the actual transfer of data.
+
+<p>The following example, <code>ExtendedDnDDemo</code>,
+tweaks the default drag and drop behavior for
+two components, <code>JList</code> and <code>JTable</code>. 
+This demo shows how to:
+
+<ul>
+<li> Drop text onto a <code>JList</code> &#151; the incoming
+     string can be newline-delimited so that a new list item
+     is created at each new line.
+<li> Move data from a <code>JList</code> (the default Swing behavior is Copy).
+     On export, multiple list items are separated by newlines.
+<li> Drop text onto a <code>JTable</code> &#151; the incoming
+     string can be newline <i>and</i> comma-delimited. Strings
+     are split into rows at newlines, and into columns at commas.
+<li> Move data from a <code>JTable</code> (the default Swing behavior is Copy).
+     On export, multiple table rows are separated by newlines,
+     and table columns are separated by commas.
+</ul>
+
+<p>
+If you've run the <code>BasicDnD</code> example previously, you'll
+see that this tweaked behavior is slightly different than the
+default Swing behavior which does not use commas as a separator.
+
+<p><center><IMG SRC="../../figures/uiswing/misc/extendedDnD.gif" WIDTH="420" HEIGHT="307" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="The ExtendedDnDDemo example"></center></p>
+<blockquote><hr><strong>Try this:</strong>&nbsp;<ol>
+<li> <a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/misc/example-1dot4/ExtendedDnDDemo.jnlp">Run
+     ExtendedDnDDemo</a> using
+     <a href=http://java.sun.com/products/javawebstart>
+     Java Web Start</a>.
+     Or, to compile and run the example yourself, consult the
+     <a href="example-1dot4/index.html#ExtendedDnDDemo">example index</a>.
+<li> Select a row in the table
+<li> Press the row again and drag. As you drag the cursor
+     icon over the list, the row that is currently under
+     the cursor highlights &#151; the new data will be
+     inserted after the selected row.
+<li> Drop the row onto
+     the list.  Note that the row has been removed from the
+     table, and now appears in the list with commas separating
+     the columns.
+<li> Select two rows from the table and drop onto the list.
+     Now there are two new items in the list with commas
+     separating the columns.
+<li> Select one of the items in the list and drag it to the table. 
+     As you drag the icon over the table, the row that is under
+     the curson highlights &#151; the new data will be inserted
+     after the selected row.
+<li> Drop it onto the table.  It is removed from the list and
+     the commas are removed, replaced by column separators.
+<li> Type some text into the text area; 
+     for example: How, Now, Brown, Cow.
+     Select the line of text and drop it into the table.
+<li> Select an item in the list. Hold down the Control key
+     while dragging the item to the text area and drop.
+     The text has been copied to the new location.
+</ol>
+<hr></blockquote>
+
+<p>The code for the example's main class is
+in <a href=example-1dot4/ExtendedDnDDemo.java>
+<code>ExtendedDnDDemo.java</code></a>.
+An abstract subclass of <code>TransferHandler</code>,
+<code>StringTransferHandler</code>, defines
+three abstract methods for importing and exporting
+strings: <code>exportString</code>, <code>importString</code>,
+and <code>cleanup</code>.  <code>StringTransferHandler</code>
+also overrides the standard <code>TransferHandler</code> methods:
+<code>importData</code> and <code>canImport</code>
+are required to import data;
+<code>getSourceActions</code>,
+<code>createTransferable</code>, and
+<code>exportDone</code> are for export.
+(Note that <code>exportDone</code> may not be necessary if you only
+implement Copy and, therefore, do not need to remove data from the
+source as you would for a Move.)
+The abstract methods <code>importString</code>, <code>exportString</code>,
+and <code>cleanup</code> are called by the <code>importData</code>,
+<code>createTransferable</code>, and <code>exportDone</code> methods,
+respectively.  Here is the code for
+<a href=example-1dot4/StringTransferHandler.java>
+<code>StringTransferHander.java</code></a>:
+
+<blockquote><pre>
+public abstract class StringTransferHandler extends TransferHandler {
+    
+    protected abstract String exportString(JComponent c);
+    protected abstract void importString(JComponent c, String str);
+    protected abstract void cleanup(JComponent c, boolean remove);
+    
+    protected Transferable createTransferable(JComponent c) {
+        return new StringSelection(exportString(c));
+    }
+    
+    public int getSourceActions(JComponent c) {
+        return COPY_OR_MOVE;
+    }
+    
+    public boolean importData(JComponent c, Transferable t) {
+        if (canImport(c, t.getTransferDataFlavors())) {
+            try {
+                String str = (String)t.getTransferData(DataFlavor.stringFlavor);
+                importString(c, str);
+                return true;
+            } catch (UnsupportedFlavorException ufe) {
+            } catch (IOException ioe) {
+            }
+        }
+
+        return false;
+    }
+    
+    protected void exportDone(JComponent c, Transferable data, int action) {
+        cleanup(c, action == MOVE);
+    }
+    
+    public boolean canImport(JComponent c, DataFlavor[] flavors) {
+        for (int i = 0; i < flavors.length; i++) {
+            if (DataFlavor.stringFlavor.equals(flavors[i])) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+}
+</pre></blockquote>
+
+<p>The
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/datatransfer/StringSelection.html"><font color="#8800bb"><code>StringSelection</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/datatransfer/StringSelection.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> class implements the <code>Transferable</code> interface and 
+handles the details of bundling up the data for transport.
+
+<p>Two subclasses of <code>StringTransferHandler</code>,
+<a href=example-1dot4/ListTransferHandler.java>
+<code>ListTransferHandler</code></a> and
+<a href=example-1dot4/TableTransferHandler.java>
+<code>TableTransferHandler</code></a>, implement the
+abstract <code>importString</code>, 
+<code>exportString</code>, and <code>cleanup</code>
+methods and deal with the specifics of a list and a table,
+respectively. Here is the code for
+<code>ListTransferHandler</code>:
+
+<blockquote><pre>
+public class ListTransferHandler extends StringTransferHandler {
+    private int[] indices = null;
+    private int addIndex = -1; //Location where items were added
+    private int addCount = 0;  //Number of items added.
+            
+    //Bundle up the selected items in the list
+    //as a single string, for export.
+    protected String exportString(JComponent c) {
+        JList list = (JList)c;
+        indices = list.getSelectedIndices();
+        Object[] values = list.getSelectedValues();
+        
+        StringBuffer buff = new StringBuffer();
+
+        for (int i = 0; i < values.length; i++) {
+            Object val = values[i];
+            buff.append(val == null ? "" : val.toString());
+            if (i != values.length - 1) {
+                buff.append("\n");
+            }
+        }
+        
+        return buff.toString();
+    }
+
+    //Take the incoming string and wherever there is a
+    //newline, break it into a separate item in the list.
+    protected void importString(JComponent c, String str) {
+        JList target = (JList)c;
+        DefaultListModel listModel = (DefaultListModel)target.getModel();
+        int index = target.getSelectedIndex();
+
+        //Prevent the user from dropping data back on itself.
+        //For example, if the user is moving items #4,#5,#6 and #7 and
+        //attempts to insert the items after item #5, this would
+        //be problematic when removing the original items.
+        //So this is not allowed.
+        if (indices != null && index >= indices[0] - 1 &&
+              index <= indices[indices.length - 1]) {
+            indices = null;
+            return;
+        }
+
+        int max = listModel.getSize();
+        if (index < 0) {
+            index = max;
+        } else {
+            index++;
+            if (index > max) {
+                index = max;
+            }
+        }
+        addIndex = index;
+        String[] values = str.split("\n");
+        addCount = values.length;
+        for (int i = 0; i < values.length; i++) {
+            listModel.add(index++, values[i]);
+        }
+    }
+
+    //If the remove argument is true, the drop has been
+    //successful and it's time to remove the selected items 
+    //from the list. If the remove argument is false, it
+    //was a Copy operation and the original list is left
+    //intact.
+    protected void cleanup(JComponent c, boolean remove) {
+        if (remove && indices != null) {
+            JList source = (JList)c;
+            DefaultListModel model  = (DefaultListModel)source.getModel();
+            //If we are moving items around in the same list, we
+            //need to adjust the indices accordingly, since those
+            //after the insertion point have moved.
+            if (addCount > 0) {
+                for (int i = 0; i < indices.length; i++) {
+                    if (indices[i] > addIndex) {
+                        indices[i] += addCount;
+                    }
+                }
+            }
+            for (int i = indices.length - 1; i >= 0; i--) {
+                model.remove(indices[i]);
+            }
+        }
+        indices = null;
+        addCount = 0;
+        addIndex = -1;
+    }
+}
+</pre></blockquote>
+
+<p>Note that <code>importString</code> uses the
+<code>split</code> utility method of <code>String</code>
+to divide the incoming text so that wherever a newline occurs,
+a new list item is created.
+To support the moving of text from a list, <code>exportDone</code>
+calls <code>cleanup</code>, which takes care of removing the
+dragged items from the original list. The <code>cleanup</code>
+method has special handling for the case when moving items
+within the same list and the data is moved to a higher
+position in the list (with a smaller index).  The <code>cleanup</code>
+method is called <em>after</em> the data has been inserted into
+the list which changes the indices of the items to be deleted.
+When the indices of the original items to be moved have
+changed, they must be adjusted accordingly, before they can
+be deleted.
+
+<p>The table transfer handler,
+<a href=example-1dot4/TableTransferHandler.java>
+<code>TableTransferHandler</code></a>, is implemented in a similar
+manner, though it is slightly more complex because it has
+support for text that is newline- and comma-delimited.
+
+</blockquote>
+<a name=dataFormat>
+<h2>Specifying the Data Format</h2></a>
+<blockquote>
+
+<p>Creating a <code>TransferHandler</code> can be
+   as simple as using the constructor.
+   For example, in the <code>LabelDnD</code> demo, the label
+   supports both importing and exporting <code>String</code>s
+   to and from its its <code>text</code>
+   property with the following line of code:
+
+<blockquote><pre>
+label.setTransferHandler(new TransferHandler("text"));
+</pre></blockquote>
+
+<p>When using the property name form of the constructor,
+there must be a <code>get<i>Property</i></code> method in the
+component's API to export data and a <code>set<i>Property</i></code>
+method to import data.  The label's transfer handler works because
+<code>JLabel</code> has a <code>getText</code> method.
+This works with any property, for example,
+if you had instead created the label's transfer handler like this:
+
+<blockquote><pre>
+label.setTransferHandler(new TransferHandler("foreground"));
+</pre></blockquote>
+
+
+<p>You would then be able to drag a color from the color
+chooser, drop it on the label, and the label's text color
+would change, because label has a <code>setForeground</code>
+method that requires a <code>java.awt.Color</code> object.
+We have provided another version of LabelDnD, called 
+<a href=example-1dot4/index.html#LabelDnD2>LabelDnD2</a>,
+which demonstrates using the <code>TransferHandler</code>
+constructor, this time for the label's foreground property:
+
+<p><center><IMG SRC="../../figures/uiswing/misc/LabelDnD2.gif" WIDTH="449 " HEIGHT="341 " ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="The LabelDnD2 example"></center></p>
+<blockquote><hr><strong>Try this:</strong>&nbsp;<ol>
+<li> <a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/misc/example-1dot4/LabelDnD2.jnlp">Run
+     LabelDnD2</a> using
+     <a href=http://java.sun.com/products/javawebstart>
+     Java Web Start</a>.
+     Or, to compile and run the example yourself,
+     consult the
+     <a href="example-1dot4/index.html#LabelDnD">example index</a>.
+<li> Select a color from the palette.  The selected color
+     appears in the Preview panel.
+<li> Press and hold the mouse button while the cursor is over
+     the Preview panel and begin to drag.
+<li> Drop the color onto the label and see the text change color.
+<li> Select another color from the palette so the Preview panel
+     now shows a new color.
+<li> Press on the label and begin to drag. Drop the color
+     anywhere on the color chooser &#151; in the palette or
+     the preview panel.  The Preview panel now shows the color
+     of the label.
+</ol>
+<hr></blockquote>
+
+<p>If you cannot use the property name form of the
+<code>TransferHandler</code> constructor, the
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/datatransfer/DataFlavor.html"><font color="#8800bb"><code>DataFlavor</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/datatransfer/DataFlavor.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> class allows you to specify the content-type of your data
+for both your <code>TransferHandler</code> and, if necessary,
+your <code>Transferable</code>. 
+Three flavor types are predefined for you:
+<ul>
+<li> <code>imageFlavor</code> represents data in the
+     <code>java.awt.Image</code> format
+<li> <code>stringFlavor</code> represents data in the most
+     basic form of text &#151; <code>java.lang.String</code>
+<li> <code>javaFileListFlavor</code> represents
+     <code>java.io.File</code> objects in a
+     <code>java.util.List</code> format
+</ul>
+
+<p>For example, a <code>TransferHandler</code> imports
+<code>String</code> data with this line of code:
+
+<blockquote><pre>
+String str = (String)t.getTransferData(DataFlavor.stringFlavor);
+</pre></blockquote>
+
+<p>Or it imports a <code>java.awt.Image</code> using 
+<code>imageFlavor</code> with this line of code:
+
+<blockquote><pre>
+Image image = (Image)t.getTransferData(DataFlavor.imageFlavor);
+</pre></blockquote>
+
+<p>If you require a flavor other than these
+predefined types, you need to create your own.
+The format for specifying a data flavor is this:
+
+<blockquote><pre>
+DataFlavor(Class representationClass, String humanPresentableName);
+</pre></blockquote>
+
+For example, to create a data flavor for the
+<code>java.util.ArrayList</code> class:
+
+<blockquote><pre>
+new DataFlavor(ArrayList.class, "ArrayList");
+</pre></blockquote>
+
+<p>To create a data flavor for an integer array:
+
+<blockquote><pre>
+new DataFlavor(int[].class, "Integer Array");
+</pre></blockquote>
+
+<p>Transferring the data in this manner uses <code>Object</code>
+serialization, so the class you use to transfer the data
+must implement the <code>Serializable</code> interface,
+as must anything that is serialized with it. If not everything is 
+<code>Serializable</code>, you'll see a
+<code>NotSerializableException</code> during drop or copy to 
+the clipboard.  For more information see
+<a target="_top" href="../../essential/io/serialization.html">Object Serialization</a><a target="_top" href="../../essential/io/serialization.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a> in the
+<a target="_top" href="../../essential/">Essential Java Classes</a><a target="_top" href="../../essential/"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a> trail.
+
+<p>Note that creating a data flavor using the
+<code>DataFlavor(Class, String)</code> constructor
+allows you to transfer data between applications,
+including native applications.
+If you want to create a data flavor that transfers data
+only within an application, you use 
+<code>javaJVMLocalObjectMimeType</code> and the
+<code>DataFlavor(String)</code> constructor. 
+For example, to specify a data flavor that transfers color from a
+<code>JColorChooser</code>, you could use this code:
+
+<blockquote><pre>
+String colorType = DataFlavor.javaJVMLocalObjectMimeType +
+                   ";class=java.awt.Color";
+DataFlavor colorFlavor = new DataFlavor(colorType);
+</pre></blockquote>
+
+<p>To create a data flavor for an <code>ArrayList</code>:
+
+<blockquote><pre>
+new DataFlavor(DataFlavor.javaJVMLocalObjectMimeType +
+               ";class=java.util.ArrayList");
+</pre></blockquote>
+
+<p>To transfer the data as an integer array you would use:
+
+<blockquote><pre>
+new DataFlavor(DataFlavor.javaJVMLocalObjectMimeType +
+               ";class=\"" + int[].class.getName() + "\"");
+</pre></blockquote>
+
+<p>You'll see that a MIME type containing special characters,
+(such as <b>[</b> and <b>;</b>),
+must have those characters enclosed in quotes.
+
+
+<p>Finally, a <code>Transferable</code> can be implemented to
+support multiple flavors.  For example, you can use both local
+and serialization flavors together, or you can use two forms of the
+same data, such as the <code>ArrayList</code> and integer array
+flavors, together, or you can create
+a <code>TransferHandler</code> that accepts different types of 
+data, such as color and text,
+as you will later see. When you create the array of
+<code>DataFlavors</code> to be returned from the
+<code>Transferable</code>'s
+<code>getTransferDataFlavors</code> method,
+the flavors should be inserted in preferred order,
+with the most preferred appearing at element 0 of the array.
+Generally the preferred order is from the richest or most
+complex form of the data down to the simplest &#151; the form
+most likely to be understood by other objects.
+
+<p>See the
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/guide/swing/1.4/dnd.html#DefaultTransferHandlerSupport"><font color="#009bbb">Components That Support DnD</font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/guide/swing/1.4/dnd.html#DefaultTransferHandlerSupport"><img src="../../images/otherIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (outside of the tutorial)"></a> table in the release notes for your particular J2SE release
+for further details of which data types each component imports
+and exports.
+
+</blockquote> 
+<a name=customImport>
+<h2>Importing a New Flavor: Color</h2></a>
+<blockquote>
+
+<p>The only Swing component that can, by default, import or export
+color is <code>JColorChooser</code>. We prevously described how
+you can create a transfer handler that will transfer data as
+specified by a named property. While this is easy to do,
+it has limited functionality.  For example, if you specify
+the "foreground" property, a drop would only change the color
+of the text.  It wouldn't change the background color.
+And if your component drags and drops text by default, replacing
+the transfer handler in this manner
+causes the component to lose this default ability.
+<p>To solve this problem you need to
+write a custom <code>TransferHandler</code>. We have provided an example
+of how to create a custom transfer handler that can be installed
+on a component so that it can accept color on a drop.
+<code>DragColorDemo</code> specifically shows how you can drop
+a color onto the foreground or background of a button or label.
+
+
+<p><center><IMG SRC="../../figures/uiswing/misc/DragColorDemo.gif" WIDTH="479" HEIGHT="456" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="The DragColorDemo example"></center></p>
+<blockquote><hr><strong>Try this:</strong>&nbsp;<ol>
+<li> <a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/misc/example-1dot4/DragColorDemo.jnlp">Run
+     DragColorDemo</a> using
+     <a href=http://java.sun.com/products/javawebstart>
+     Java Web Start</a>.
+     Or, to compile and run the example yourself, consult the
+     <a href="example-1dot4/index.html#DragColorDemo">example index</a>.
+<li> Select a color from the palette.  The selected color
+     appears in the Preview panel.
+<li> Press and hold the mouse button while the cursor is over
+     the Preview panel and begin to drag.
+<li> Drop the color onto the label and see the text change color.
+<li> Select another color.  Drop onto a button.  The color of
+     the button text changes.
+<li> Click the "Change the foreground color"
+     check box so that it is no longer checked.
+<li> Drop another color onto a button or the label. 
+     The background color changes.
+</ol>
+<hr></blockquote>
+
+<p>The example's main class can be found in
+<a href=example-1dot4/DragColorDemo.java>
+<code>DragColorDemo.java</code></a>. The custom transfer handler
+is defined in <a href=example-1dot4/ColorTransferHandler.java>
+<code>ColorTransferHandler.java</code></a>.
+In this example, we are only implementing import functionality
+and therefore only need to implement the methods
+<code>canImport</code> and <code>importData</code>.
+A single instance of the <code>ColorTransferHandler</code>
+is created and shared by all nine buttons and the label.
+Here is a snippet of code where the transfer handler is
+created and installed on the buttons:
+
+<blockquote><pre>
+colorHandler = new ColorTransferHandler();
+...
+for (int i = 0; i < 9; i++) {
+    JButton tmp = new JButton("Button "+i);
+    tmp.setTransferHandler(colorHandler);
+    ....
+}
+</pre></blockquote>
+
+Here is the code for <code>ColorTransferHandler</code>:
+
+<blockquote><pre>
+class ColorTransferHandler extends TransferHandler {
+    //The data type exported from JColorChooser.
+    String mimeType = DataFlavor.javaJVMLocalObjectMimeType +
+                        ";class=java.awt.Color";
+    DataFlavor colorFlavor;
+    private boolean changesForegroundColor = true;
+
+    ColorTransferHandler() {
+        //Try to create a DataFlavor for color.
+        try {
+            colorFlavor = new DataFlavor(mimeType);
+        } catch (ClassNotFoundException e) { }
+    }
+
+    /**
+     * Overridden to import a Color if it is available.
+     * getChangesForegroundColor is used to determine whether
+     * the foreground or the background color is changed.
+     */
+    public boolean importData(JComponent c, Transferable t) {
+        if (hasColorFlavor(t.getTransferDataFlavors())) {
+            try {
+                Color col = (Color)t.getTransferData(colorFlavor);
+                if (getChangesForegroundColor()) {
+                    c.setForeground(col);
+                } else {
+                    c.setBackground(col);
+                }
+                return true;
+            } catch (UnsupportedFlavorException ufe) {
+            } catch (IOException ioe) { }
+        }
+        return false;
+    }
+
+    /**
+     * Does the flavor list have a Color flavor?
+     */
+    protected boolean hasColorFlavor(DataFlavor[] flavors) {
+        if (colorFlavor == null) {
+             return false;
+        }
+
+        for (int i = 0; i &lt; flavors.length; i++) {
+            if (colorFlavor.equals(flavors[i])) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Overridden to include a check for a color flavor.
+     */
+    public boolean canImport(JComponent c, DataFlavor[] flavors) {
+        return hasColorFlavor(flavors);
+    }
+
+    protected void setChangesForegroundColor(boolean flag) {
+        changesForegroundColor = flag;
+    }
+
+    protected boolean getChangesForegroundColor() {
+        return changesForegroundColor;
+    }
+}
+</pre></blockquote>
+
+<p>The <code>ColorTransferHandler</code> is implemented to
+support <code>JavaJVMlocalObjectMimeType</code> with the
+representation class <code>class=java.awt.Color</code>, which
+is the mechanism <code>JColorChooser</code> uses to export color.
+For a discussion of how data is specified to the transfer
+mechanism, see the previous section
+<a href=#dataFormat>Specifying the Data Format</a>.
+
+</blockquote>
+<a name=replacingSupport>
+<h2>Replacing Default Support: Color and Text</h2></a>
+<blockquote>
+
+The <code>DragColorDemo</code> example shown in 
+<a href=#customImport>Importing a New Flavor: Color</a>
+replaces the component's current transfer handler.
+When <code>DragColorDemo</code> installs
+the <code>ColorTransferHandler</code> on its components,
+it clobbers any pre-existing transfer handler.
+This is not so much a problem with buttons or labels, which
+don't have any predefined data to transfer, but it can be
+a problem when you want to add the ability to import/export
+color on top of a component that already imports/exports
+other data, such as text.
+As discussed in <a href=#customGotcha>Introduction to Data Transfer
+Support</a>, if you install a custom transfer handler
+onto a component, such as <code>JTextField</code>,
+that has a Swing-provided transfer handler, you would need
+to re-implement the Swing support.
+We have provided a version of <code>DragColorDemo</code>, called
+<code>DragColorTextFieldDemo</code>, that creates a transfer
+handler that accepts color and also re-implements the clobbered
+support for text.
+
+<p><center><IMG SRC="../../figures/uiswing/misc/DragColorTFDemo.gif" WIDTH="479" HEIGHT="403" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="The DragColorTextFieldDemo example"></center></p>
+<blockquote><hr><strong>Try this:</strong>&nbsp;<ol>
+<li> <a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/misc/example-1dot4/DragColorTextFieldDemo.jnlp">Run
+     DragColorTextFieldDemo</a> using
+     <a href=http://java.sun.com/products/javawebstart>
+     Java Web Start</a>.
+     Or, to compile and run the example yourself, consult the
+     <a href="example-1dot4/index.html#DragColorTextFieldDemo">example
+     index</a>.
+<li> Select a color from the palette. Drag the color from the Preview panel
+     to one of the text fields. Each text field can have its own color.
+<li> Select some text and drag to move to another text field.
+<li> Hold down the Control key while dragging to copy the text
+     to another text field.
+<li> Cut some text either using the menu item or the key
+     binding: Control-X.
+<li> Select a location to paste the text and paste, either using
+     the menu item or the key binding: Control-V.
+<li> Copy some text using Control-C and paste it with Control-V.
+<li> Select some text, drag to a native application, such as
+     a text editor, and drop.  The text is inserted.
+<li> Select some text in the native text editor, drag
+     to the text area and drop.  The text is
+     inserted.
+</ol>
+<hr></blockquote>
+
+<p>
+This transfer handler descends from
+<code>ColorTransferHandler</code> which was used in the
+<code>DragColorDemo</code> example.  Since
+<code>ColorAndTextTransferHandler</code>
+must export data, it implements <code>createTransferable</code>,
+<code>getSourceActions</code>, and <code>exportDone</code>
+(in addition to the two methods it provides for import support).
+The code is too long to include here, but 
+you can find the main class's source code in 
+<a href=example-1dot4/DragColorTextFieldDemo.java>
+<code>DragColorTextFieldDemo.java</code></a>.
+The custom transfer handler is in
+<a href=example-1dot4/ColorAndTextTransferHandler.java>
+<code>ColorAndTextTransferHandler.java</code></a>.
+
+
+</blockquote>
+<a name=importFiles>
+<h2>Importing a New Flavor: Files</h2></a>
+<blockquote>
+
+<p>The <code>JFileChooser</code> exports
+the <code>javaFileListFlavor</code> &#151; a
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/List.html"><font color="#8800bb"><code>List</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/List.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> of 
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/io/File.html"><font color="#8800bb"><code>File</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/io/File.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> objects discussed in <a href=#dataFormat>Specifying
+the Data Format</a>. The file chooser also exports
+its filenames as a list of <code>String</code>s &#151;
+both in <code>text/plain</code> and <code>text/html</code>
+formats. For example, dragging a file from a drag-enabled
+file chooser and dropping it on a <code>JTextArea</code>
+causes the file name to be inserted into the text area,
+but not the contents of the file.
+However, a custom transfer handler that knows about
+<code>javaFileListFlavor</code> can be installed to
+accept the file list provided by a file chooser, open
+the file, read the contents, and display the contents of the
+file in the text area.
+We have provided an example that does this.
+Note that because this example reads files from
+your local file system, launching the demo via
+Java Web Start will bring up a warning panel requiring
+permission before executing the application.  If you
+prefer, you can instead download the application
+and run it locally.
+
+<p><center><IMG SRC="../../figures/uiswing/misc/DragFileDemo.gif" WIDTH="522 " HEIGHT="398" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="The DragFileDemo example"></center></p>
+<blockquote><hr><strong>Try this:</strong>&nbsp;
+<ol>
+<li> <a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/misc/example-1dot4/DragFileDemo.jnlp">Run
+     DragFileDemo</a> using
+     <a href=http://java.sun.com/products/javawebstart>
+     Java Web Start</a>.
+     Or, to compile and run the example yourself,
+     consult the
+     <a href="example-1dot4/index.html#DragFileDemo">example
+     index</a>.
+<li> Browse your file system and find a text file to select.
+<li> Drag the selected file and drop it onto
+     the text area. The text area changes to a
+     <code>JTabbedPane</code> with the file name on the tab
+     and the contents of the file displayed underneath.
+<li> Hold the cursor over the tab.  The path to the file
+     appears in the tool tip.
+<li> Select several files from the file chooser.
+<li> Drag and drop them on the text area. Each file is put into
+     its own tab.  The current tab is set to the last
+     file added.
+<li> Select text from the text area from one of the files. 
+     Drop it back on the text area.  The text is moved in the
+     expected manner for a text area.
+<li> Select a text file from the file chooser.  Drag
+     to a native file explorer, and drop.
+     The file will be copied to the location 
+     where it was dropped.
+<li> From the same native file explorer, select a file and drag to the
+     text area and drop.  The contents of the file will
+     appear under a new tab.
+<li> Select a text file from the file chooser.  Drag
+     to a native application, such as a text editor or
+     web browser on your system, and drop.
+     If that app supports drop, the text of the file
+     should appear in that application.
+<li> Select the <em>Clear All</em> button.  The tabbed pane
+     is cleared and replaced by the default text area.
+</ol>
+<hr></blockquote>
+
+<p>The code is too long to include here, but you
+   you can find the main class's source in
+   <a href=example-1dot4/DragFileDemo.java>
+   <code>DragFileDemo.java</code></a>.
+   The custom <code>TransferHandler</code> for the text area
+   is in <a href=example-1dot4/FileAndTextTransferHandler.java>
+   <code>FileAndTextTransferHandler.java</code></a>.
+   <code>DragFileDemo</code> doesn't do anything particularly
+   unusual with the one exception of embedding the file chooser
+   into the main window, rather than running it from a dialog.
+   This allows the file chooser to be interactive without blocking
+   the rest of the application.  A separate class,
+   <code>TabbedPaneController</code> manages the
+   <code>JTextArea</code>/<code>JTabbedPane</code> that
+   displays the contents of the files.
+   In the constructor for <code>DragFileDemo</code>, the tab pane
+   controller is created and installed like this:
+
+<blockquote><pre>
+JTabbedPane tabbedPane = new JTabbedPane();
+JPanel tabPanel = new JPanel(new BorderLayout());
+...
+tpc = new TabbedPaneController(tabbedPane, tabPanel);
+</pre></blockquote>
+
+<p>You can find the implementation for the tabbed pane
+controller in <a href=example-1dot4/TabbedPaneController.java>
+TabbedPaneController.java</a>.
+
+<p>The <code>FileandTextTransferHandler</code> that is
+installed on the text area imports two flavors:
+<code>javaFileListFlavor</code> and <code>stringFlavor</code>.
+As you have seen before, <code>stringFlavor</code> is
+necessary because the new transfer handler clobbers
+the default behavior for the text area and this re-implements
+its basic behavior.  In the <code>importData</code> method
+for the transfer handler, the code first checks to see
+if files are being imported.  If so, the files are
+opened into a <code>BufferedReader</code> and the contents
+are appended. If the imported data is not files, it then
+checks for strings.
+
+
+</blockquote>
+<h2>
+<a name=customComp>Data Transfer with a Custom Component</a>
+</h2>
+<blockquote>
+
+<p>We have seen how to customize data transfer for
+standard Swing components, but how do you add data transfer
+to a custom component?  The simplest data transfer to implement
+is drag and drop:
+<ul>
+<li>You first determine which gesture initiates the drag.
+    A mouse press? A press and drag? 
+    How many pixels must be traversed to define a valid drag?
+<li>When drag conditions are met, you must invoke
+    <code>exportAsDrag</code> on the component's
+    <code>TransferHandler</code>.
+</ul>
+With a bit more code cut/copy/paste support can be added.
+The <code>DragPictureDemo</code> example shows how to
+implement full data transfer with a custom component.
+
+<p><center><IMG SRC="../../figures/uiswing/misc/DragPicture.gif" WIDTH="460" HEIGHT="595" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="The DragPictureDemo example"></center></p>
+<blockquote><hr><strong>Try this:</strong>&nbsp;<ol>
+<li> <a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/misc/example-1dot4/DragPictureDemo.jnlp">Run
+     DragPictureDemo</a> using
+     <a href=http://java.sun.com/products/javawebstart>
+     Java Web Start</a>.
+     Or, to compile and run the example yourself, consult the
+     <a href="example-1dot4/index.html#DragPictureDemo">example
+     index</a>.
+<li> Drag and drop the pictures using the mouse.  Copy
+     a picture by holding the Control key while dragging.
+<li> Cut or Copy a picture using the key bindings
+     Control-X or Control-C.
+<li> Paste the picture using the key binding Control-V.
+<li> You can run this example using only the keyboard 
+     by using Tab to move the focus, and the
+     Control-X, Control-C, and Control-V
+     keys to cut, copy, and paste the pictures, respectively.
+</ol>
+<hr></blockquote>
+
+<p>You can find the main class's source code in 
+<a href=example-1dot4/DragPictureDemo.java>
+<code>DragPictureDemo.java</code></a> &#151; you may
+recognize the basic functionality from the 
+<code>TrackFocusDemo</code> example in the
+<a href=focus.html>How to Use the Focus Subsystem</a> section. 
+The custom component <a href=example-1dot4/DTPicture.java>
+<code>DTPicture</code></a> is a subclass of the
+<code>Picture</code> component, modified to support data transfer.
+A new class is <a href=example-1dot4/PictureTransferHandler.java>
+<code>PictureTransferHandler</code></a>, the custom
+transfer handler for <code>DTPicture</code>.
+
+<p>The custom component <code>DTPicture</code> 
+enables drag and drop by implementing
+the <code>MouseMotionListener</code> interface.
+The <code>MouseMotionListener</code> interface allows you to detect
+mouse motion by implementing the <code>mouseDragged</code> method.
+We arbitrarily chose a displacement
+of 5 pixels to determine whether the user is actually attempting
+to drag, as opposed to clicking on a picture.  Once the cursor has moved
+a distance of 5 pixels in either direction while the mouse button
+is down, the transfer handler is called to initiate the drag. The
+<code>mouseDragged</code> method also checks to see if the
+Control button is being pushed on the keyboard &#151;
+if it is, the action is a Copy, otherwise the action is a Move.
+The <code>mousePressed</code>, <code>mouseDragged</code>
+and <code>mouseReleased</code> methods in <code>DTPicture</code>
+look like this:
+
+<blockquote><pre> 
+MouseEvent firstMouseEvent = null;
+
+public void mousePressed(MouseEvent e) {
+    //Don't bother to drag if there is no image.
+    if (image == null) return;
+
+    firstMouseEvent = e;
+    e.consume();
+}
+
+public void mouseDragged(MouseEvent e) {
+    //Don't bother to drag if the component displays no image.
+    if (image == null) return;
+
+    if (firstMouseEvent != null) {
+        e.consume();
+
+        //If they are holding down the control key, COPY rather than MOVE
+        int ctrlMask = InputEvent.CTRL_DOWN_MASK;
+        int action = ((e.getModifiersEx() & ctrlMask) == ctrlMask) ?
+              TransferHandler.COPY : TransferHandler.MOVE;
+
+        int dx = Math.abs(e.getX() - firstMouseEvent.getX());
+        int dy = Math.abs(e.getY() - firstMouseEvent.getY());
+        //Arbitrarily define a 5-pixel shift as the
+        //official beginning of a drag.
+        if (dx > 5 || dy > 5) {
+            //This is a drag, not a click.
+            JComponent c = (JComponent)e.getSource();
+            //Tell the transfer handler to initiate the drag.
+            TransferHandler handler = c.getTransferHandler();
+            handler.exportAsDrag(c, firstMouseEvent, action);
+            firstMouseEvent = null;
+        }
+    }
+}
+
+public void mouseReleased(MouseEvent e) {
+    firstMouseEvent = null;
+}
+</pre></blockquote>
+
+<p>The <a href=#cut>Adding Cut/Copy/Paste Support</a>
+section discusses how DragPictureDemo implements
+cut, copy and paste with and without menu support.
+
+<p>The <code>PictureTransferHandler</code> class looks
+very much like other custom transfer handlers you have seen
+except this one transfers data using the built-in support
+for <code>java.awt.Image</code>s &#151;
+<code>DataFlavor.imageFlavor</code>. For more information, see
+<a href=#dataFormat>Specifying the Data Format</a>.
+If you are interested in more discussion on the custom
+<a href=example-1dot4/Picture.java>Picture</a> component, see the
+<a href=focus.html#trackingFocus>Tracking Focus
+Changes to Multiple Components</a>
+discussion in <a href=focus.html>How to Use the Focus
+Subsystem</a>.
+
+</blockquote>
+<h2>
+<a name=customFlavor>Data Transfer with a Custom DataFlavor</a>
+</h2>
+<blockquote>
+
+<p>By now you've seen several examples of transfer handlers
+that transfer data using conventional formats.  This section
+takes a standard Swing object &#151; a <code>JList</code> &#151; and transfers
+the data using a content-type based on the
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/ArrayList.html"><font color="#8800bb"><code>java.util.ArrayList</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/ArrayList.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> class. To achieve this, a custom <code>Transferable</code> is
+created.  To implement a <code>Transferable</code> you must
+conform to the <code>Transferable</code> interface and provide
+implementations for the methods <code>getTransferData</code>,
+<code>getTransferDataFlavors</code> and
+<code>isDataFlavorSupported</code>.
+
+<p><center><IMG SRC="../../figures/uiswing/misc/DragListDemo.gif" WIDTH="470" HEIGHT="200" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="The DragListDemo example"></center></p>
+<blockquote><hr><strong>Try this:</strong>&nbsp;<ol>
+<li> <a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/misc/example-1dot4/DragListDemo.jnlp">Run
+     DragListDemo</a> using
+     <a href=http://java.sun.com/products/javawebstart>
+     Java Web Start</a>.
+     Or, to compile and run the example yourself, consult the
+     <a href="example-1dot4/index.html#DragListDemo">example
+     index</a>.
+<li> Select one or more items from either list. To select
+     a contiguous group of items, after selecting the first item, select the
+     last item while holding down the Shift key.  All the items in
+     between are automatically selected.
+<li> As you begin to drag, the selection in the first 
+     list changes to show where a drop would occur,
+     but the items being dragged are not affected.
+<li> Drop the items on either list.
+     The data is deposited immediately after the selected item.
+     Note that the items are removed from the first list since this
+     was a Move. 
+<li> Repeat these steps while holding down the Control key to perform
+     a Copy.
+<li> Cut, copy, and paste the items using the key
+     bindings Control-X, Control-C, and Control-V.
+</ol>
+<hr></blockquote>
+
+<p>The <a href=example-1dot4/DragListDemo.java>
+<code>DragListDemo.java</code></a> class creates and displays
+the lists in the usual manner.  On each list is installed
+a shared instance of 
+<a href=example-1dot4/ArrayListTransferHandler.java>
+<code>ArrayListTransferHandler.java</code></a>.
+
+
+</blockquote>
+<h2>
+<a name=cut>Adding Cut/Copy/Paste Support</a>
+</h2>
+<blockquote>
+<p>
+So far our discussion has centered mostly around drag and drop
+support. However, it is an easy matter to hook up cut/copy/paste
+to a transfer handler.  The basic steps are:
+<ul>
+<li>Ensure a transfer handler is installed on the component.
+<li>Create a manner by which the <code>TransferHandler</code>'s
+    cut/copy/paste support can be invoked.  Typically, this
+    involves adding bindings to the input and action maps
+    to have the <code>TransferHandler</code>'s cut/copy/paste
+    actions invoked in response to particular keystrokes.
+    You could also create menu items and/or buttons.  The latter
+    approach proves to be easy to implement with text components
+    (more later) but requires somewhat more work with other components,
+    since you need logic to determine which component to fire the
+    action on.  You could also write your own logic to call 
+    <code>exportToClipboard</code> or get the contents from the clipboard
+    and call <code>importData</code> &#151; but there are built-in
+    actions for this.
+</ul>
+
+<p>The <code>DragColorTextFieldDemo</code>, in
+<a href=#replacingSupport>Replacing Default Support: Color and Text</a>,
+shows how to use the
+default cut/copy/paste text support provided by 
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/DefaultEditorKit.html"><font color="#8800bb"><code>DefaultEditorKit</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/DefaultEditorKit.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> with the custom TransferHandler installed on the
+text fields. A nice feature of the <code>DefaultEditorKit</code>
+methods is that they remember which component last had the focus.
+Here is the code that creates the Edit menu and uses
+the cut, copy, and paste <code>Action</code>s defined in
+<code>DefaultEditorKit</code> to create the menu items:
+
+<blockquote><pre>
+//Create an Edit menu to support cut/copy/paste.
+public JMenuBar createMenuBar () {
+    JMenuItem menuItem = null;
+    JMenuBar menuBar = new JMenuBar();
+    JMenu mainMenu = new JMenu("Edit");
+    mainMenu.setMnemonic(KeyEvent.VK_E);
+
+    menuItem = new JMenuItem(new DefaultEditorKit.CutAction());
+    menuItem.setText("Cut");
+    menuItem.setMnemonic(KeyEvent.VK_T);
+    mainMenu.add(menuItem);
+    menuItem = new JMenuItem(new DefaultEditorKit.CopyAction());
+    menuItem.setText("Copy");
+    menuItem.setMnemonic(KeyEvent.VK_C);
+    mainMenu.add(menuItem);
+    menuItem = new JMenuItem(new DefaultEditorKit.PasteAction());
+    menuItem.setText("Paste");
+    menuItem.setMnemonic(KeyEvent.VK_P);
+    mainMenu.add(menuItem);
+
+    menuBar.add(mainMenu);
+    return menuBar;
+}
+</pre></blockquote>
+
+<p>Hooking up cut/copy/paste support in this manner works with
+any component that descends from <code>JTextComponent</code>.
+
+<p>For any non-text component, you must manually set up the bindings
+in the input and action maps.  The DragPictureDemo example,
+in <a href=#customComp>Data Transfer
+with a Custom Component</a>, shows how to do this.
+Here is a code snippet from the constructor for the
+<code>DTPicture</code> component:
+
+<blockquote><pre>
+if (installInputMapBindings) {
+    InputMap imap = this.getInputMap();
+    imap.put(KeyStroke.getKeyStroke("ctrl X"),
+        TransferHandler.getCutAction().getValue(Action.NAME));
+    imap.put(KeyStroke.getKeyStroke("ctrl C"),
+        TransferHandler.getCopyAction().getValue(Action.NAME));
+    imap.put(KeyStroke.getKeyStroke("ctrl V"),
+        TransferHandler.getPasteAction().getValue(Action.NAME));
+}
+
+ActionMap map = this.getActionMap();
+map.put(TransferHandler.getCutAction().getValue(Action.NAME),
+        TransferHandler.getCutAction());
+map.put(TransferHandler.getCopyAction().getValue(Action.NAME),
+        TransferHandler.getCopyAction());
+map.put(TransferHandler.getPasteAction().getValue(Action.NAME),
+        TransferHandler.getPasteAction());
+</pre></blockquote>
+
+<p>The boolean <code>installInputMapBindings</code> is true in
+this case and will be further discussed when we show how to
+add an Edit menu to support cut/copy/paste.
+
+<p>While you can implement cut/copy/paste to work exclusively
+using key bindings, it is considered good GUI design
+to provide menu items as well. We have provided the
+DragPictureDemo2 example which extends DragPictureDemo with
+an Edit menu.
+
+<p><center><IMG SRC="../../figures/uiswing/misc/DragPictureDemo2.gif" WIDTH="460" HEIGHT="703" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="The DragPictureDemo2 example"></center></p>
+<blockquote><hr><strong>Try this:</strong>&nbsp;<ol>
+<li> <a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/misc/example-1dot4/DragPictureDemo2.jnlp">Run
+     DragPictureDemo2</a> using
+     <a href=http://java.sun.com/products/javawebstart>
+     Java<sup><font size=-2>TM</font></sup> Web Start</a>.
+     Or, to compile and run the example yourself,
+     consult the
+     <a href="example-1dot4/index.html#DragPictureDemo2">example index</a>.
+<li> Cut/copy an image using the Edit->Cut or Edit->Copy menu item.
+<li> Select an empty square. Paste the image using the Edit->paste menu item.
+</ol>
+<hr></blockquote>
+
+<p>The DragPictureDemo2 example creates the Edit menu like this:
+
+<blockquote><pre>
+public JMenuBar createMenuBar() {
+    JMenuItem menuItem = null;
+    JMenuBar menuBar = new JMenuBar();
+    JMenu mainMenu = new JMenu("Edit");
+    mainMenu.setMnemonic(KeyEvent.VK_E);
+    TransferActionListener actionListener = new TransferActionListener();
+
+    menuItem = new JMenuItem("Cut");
+    menuItem.setActionCommand((String)TransferHandler.getCutAction().
+             getValue(Action.NAME));
+    menuItem.addActionListener(actionListener);
+    menuItem.setAccelerator(
+      KeyStroke.getKeyStroke(KeyEvent.VK_X, ActionEvent.CTRL_MASK));
+    menuItem.setMnemonic(KeyEvent.VK_T);
+    mainMenu.add(menuItem);
+    menuItem = new JMenuItem("Copy");
+    menuItem.setActionCommand((String)TransferHandler.getCopyAction().
+             getValue(Action.NAME));
+    menuItem.addActionListener(actionListener);
+    menuItem.setAccelerator(
+      KeyStroke.getKeyStroke(KeyEvent.VK_C, ActionEvent.CTRL_MASK));
+    menuItem.setMnemonic(KeyEvent.VK_C);
+    mainMenu.add(menuItem);
+    menuItem = new JMenuItem("Paste");
+    menuItem.setActionCommand((String)TransferHandler.getPasteAction().
+             getValue(Action.NAME));
+    menuItem.addActionListener(actionListener);
+    menuItem.setAccelerator(
+      KeyStroke.getKeyStroke(KeyEvent.VK_V, ActionEvent.CTRL_MASK));
+    menuItem.setMnemonic(KeyEvent.VK_P);
+    mainMenu.add(menuItem);
+
+    menuBar.add(mainMenu);
+    return menuBar;
+}
+</pre></blockquote>
+
+<p>The line:
+
+<blockquote><pre>
+menuItem.setActionCommand((String)TransferHandler.getCopyAction().
+         getValue(Action.NAME));
+</pre></blockquote>
+
+ties the copy action to the menu item.  The line:
+
+<blockquote><pre>
+menuItem.setAccelerator(
+  KeyStroke.getKeyStroke(KeyEvent.VK_C, ActionEvent.CTRL_MASK));
+</pre></blockquote>
+
+defines Control-C as the key binding for the action.
+The keyboard shortcuts, E (Edit), T (cuT), C (Copy),
+and P (Paste), are installed by calling <code>setMnemonic</code>.
+For a discussion of mnemonics versus accelerators, see the
+<a target="_top" href="../components/menu.html#mnemonic">Enabling Keyboard Operation</a><a target="_top" href="../components/menu.html#mnemonic"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a> discussion in the menu portion of the 
+<a target="_top" href="../components/">Components</a><a target="_top" href="../components/"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a> lesson.
+
+<p>When you register the key stroke in the
+input map yourself, you're registering it on
+a per-component basis &#151; when the component
+has the focus, and the key stroke is typed, the
+action is fired.
+When you set an key binding on a menu, the key stroke
+information is added to a global input map,
+and the key binding is active all the time,
+when the window has the focus.
+Therefore setting up the input maps on the components yourself
+is redundant when the menu accelerators are used.
+If you are not using menu accelerators, you need
+to set up the input map yourself.
+The DTPicture class can be used by both DragPictureDemo
+and DragPictureDemo2 because the static property
+<code>installInputMapBindings</code> allows one demo
+to set the bindings on the input map and the other demo
+to skip that step.  For your program, you would choose one
+approach or the other, but not both.
+
+<p>The final change to DragPictureDemo2 is necessary to
+ensure that the action goes to
+the correct component when the user initiates a
+cut, copy, or paste.  The <code>TransferActionListener</code>
+class is installed as an action listener on the cut/copy/paste
+menu items, and as a property change listener on the keyboard
+focus manager.  Each time the focus owner changes,
+<code>TransferActionListener</code> keeps track of the
+new focus owner.  When the user initiates a cut, copy,
+or paste, through a menu item, <code>TransferActionListener</code>
+is notified and then fires the appropriate action on the 
+component that has the focus.
+Here is the code for <code>TransferActionListener</code>:
+
+<blockquote><pre>
+public class TransferActionListener implements ActionListener,
+                                              PropertyChangeListener {
+    private JComponent focusOwner = null;
+    
+    public TransferActionListener() {
+        KeyboardFocusManager manager = KeyboardFocusManager.
+           getCurrentKeyboardFocusManager();
+        manager.addPropertyChangeListener("permanentFocusOwner", this);
+    }
+    
+    public void propertyChange(PropertyChangeEvent e) {
+        Object o = e.getNewValue();
+        if (o instanceof JComponent) {
+            focusOwner = (JComponent)o;
+        } else {
+            focusOwner = null;
+        }
+    }
+    
+    public void actionPerformed(ActionEvent e) {
+        if (focusOwner == null)
+            return;
+        String action = (String)e.getActionCommand();
+        Action a = focusOwner.getActionMap().get(action);
+        if (a != null) {
+            a.actionPerformed(new ActionEvent(focusOwner,
+                                              ActionEvent.ACTION_PERFORMED,
+                                              null));
+        }
+    }
+}
+</pre></blockquote>
+
+</blockquote>
+<h3>
+<a name=api>The Data Transfer API</a>
+</h3>
+<blockquote>
+
+The following tables list the commonly used
+constructors and methods related to data transfer.
+The data transfer API falls into five categories:
+
+<ul>
+<li><a href="#usefulComponentMethods">Useful JComponent Methods</a>
+<li><a href="#transferHandlerAPI">TransferHandler API</a>
+<li><a href="#transferableClasses">Transferable Classes</a>
+<li><a href="#transferableAPI">Transferable Interface API</a>
+<li><a href="#dataflavorAPI">DataFlavor API</a>
+</ul>
+
+<p>For more detailed information about the data transfer mechanism,
+see the
+<a target="_blank" href="http://java.sun.com/j2se/1.4.1/docs/guide/swing/1.4/dnd.html"><font color="#009bbb">Swing Data Transfer</font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.1/docs/guide/swing/1.4/dnd.html"><img src="../../images/otherIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (outside of the tutorial)"></a> document in the release notes for your particular J2SE release.
+
+<p align=center><a name="usefulComponentMethods">Useful JComponent
+    Methods</a>
+<p><em>All of this API was introduced in release 1.4.</em>
+<table border=1>
+<tr>
+<th align=left>Method</th>
+<th align=left>Purpose</th>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JComponent.html#setTransferHandler(javax.swing.TransferHandler)"><font color="#8800bb"><font size=2><code>setTransferHandler(TransferHandler)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JComponent.html#setTransferHandler(javax.swing.TransferHandler)"></a><br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JComponent.html#getTransferHandler()"><font color="#8800bb"><font size=2><code>getTransferHandler()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JComponent.html#getTransferHandler()"></a></td>
+<td>Set or get the transfer handler.  For those components that
+    have default Swing support,
+    the <code>TransferHandler</code> is installed by the
+    <code>ComponentUI</code> if the value is null or
+    marked by the presence of the <code>UIResource</code>
+    interface. The default <code>TransferHandler</code>
+    implementation installed by the <code>ComponentUI</code>
+    is marked by the <code>UIResource</code> interface,
+    enabling developers to override the default
+    <code>TransferHandler</code>. Note that the same instance
+    of a transfer handler may be shared among components.
+</td>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JColorChooser.html#setDragEnabled(boolean)"><font color="#8800bb"><font size=2><code>setDragEnabled(boolean)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JColorChooser.html#setDragEnabled(boolean)"></a><br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JColorChooser.html#getDragEnabled()"><font color="#8800bb"><font size=2><code>getDragEnabled()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JColorChooser.html#getDragEnabled()"></a></td>
+<td>
+Set or get the <code>dragEnabled</code> property which must
+be <code>true</code> to enable automatic drag handling.
+These methods are implemented on the following Swing components only:
+<code>JColorChooser</code>, <code>JEditorPane</code>,
+<code>JFileChooser</code>, <code>JFormattedTextField</code>,
+<code>JList</code>, <code>JPasswordField</code>, <code>JTable</code>,
+<code>JTextArea</code>, <code>JTextField</code>, <code>JTextPane</code>,
+and <code>JTree</code>. Even so, some look and feels may not
+support automatic drag and drop and some components do not have
+default support for drop.  For security reasons,
+<code>JPasswordField</code> does not support drag.
+The default value for this property is false.
+</td>
+</tr>
+</table>
+
+<p align=center><a name=transferHandlerAPI>TransferHandler API</a>
+<p><em>All of this API was introduced in release 1.4.</em>
+<table border=1>
+<tr>
+<th align=left>Constructor or Method</th>
+<th align=left>Purpose</th>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/TransferHandler.html#TransferHandler()"><font color="#8800bb"><font size=2><code>TransferHandler()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/TransferHandler.html#TransferHandler()"></a><br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/TransferHandler.html#TransferHandler(java.lang.String)"><font color="#8800bb"><font size=2><code>TransferHandler(String)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/TransferHandler.html#TransferHandler(java.lang.String)"></a></td>
+<td>Create a transfer handler.
+The constructor that takes a string creates
+a transfer handler that can transfer a
+named property from one component to another. 
+The <code>String</code> argument is the name
+of the property to transfer and may be null.
+</td>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/TransferHandler.html#canImport(javax.swing.JComponent, java.awt.datatransfer.DataFlavor[])"><font color="#8800bb"><font size=2><code>canImport(JComponent, DataFlavor[])</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/TransferHandler.html#canImport(javax.swing.JComponent, java.awt.datatransfer.DataFlavor[])"></a></td>
+<td>Returns true if the specified component currently accepts data of
+    at least one of the types specified in the list of data flavors,
+    otherwise returns false.  If this method returns true, the
+    data transfer system changes the cursor icon to indicate
+    that this component will accept the data.
+</td>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/TransferHandler.html#createTransferable(javax.swing.JComponent)"><font color="#8800bb"><font size=2><code>protected createTransferable(JComponent)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/TransferHandler.html#createTransferable(javax.swing.JComponent)"></a></td>
+<td>Returns a <code>Transferable</code>, encapsulating the data
+    to be transferred.
+</td>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/TransferHandler.html#importData(javax.swing.JComponent, java.awt.datatransfer.Transferable)"><font color="#8800bb"><font size=2><code>importData(JComponent, Transferable)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/TransferHandler.html#importData(javax.swing.JComponent, java.awt.datatransfer.Transferable)"></a></td>
+<td>Import the data into the component.  The
+    <code>Transferable</code> contains the actual data to import.
+    True is returned if the import was successful, otherwise
+    false is returned.
+</td>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/TransferHandler.html#exportAsDrag(javax.swing.JComponent, java.awt.event.InputEvent, int)"><font color="#8800bb"><font size=2><code>exportAsDrag(JComponent, InputEvent, int)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/TransferHandler.html#exportAsDrag(javax.swing.JComponent, java.awt.event.InputEvent, int)"></a></td>
+<td>Initiate the Swing drag support.
+    The int argument specifies either
+    a <code>COPY</code> or a <code>MOVE</code> action.
+    When this method returns, the export may not have
+    completed.  The method <code>exportDone</code> is called
+    when the transfer is complete.
+</td>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/TransferHandler.html#exportToClipboard(javax.swing.JComponent, java.awt.datatransfer.Clipboard, int)"><font color="#8800bb"><font size=2><code>exportToClipboard(JComponent, Clipboard, int)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/TransferHandler.html#exportToClipboard(javax.swing.JComponent, java.awt.datatransfer.Clipboard, int)"></a></td>
+<td>Initiate a data transfer from the specified component to 
+    the specified clipboard.  The int argument specifies either
+    a <code>COPY</code> or a <code>MOVE</code> action.  When
+    this method returns, the export is completed.  The method
+    <code>exportDone</code> is called with the transfer is
+    complete.
+</td>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/TransferHandler.html#exportDone(javax.swing.JComponent, java.awt.datatransfer.Transferable, int)"><font color="#8800bb"><font size=2><code>protected exportDone(JComponent, Transferable, int)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/TransferHandler.html#exportDone(javax.swing.JComponent, java.awt.datatransfer.Transferable, int)"></a></td>
+<td>Called after the export has completed.  This method should
+    remove the data that was transferred from the source
+    component if the action was <code>MOVE</code>.
+</td>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/TransferHandler.html#getCutAction()"><font color="#8800bb"><font size=2><code>getCutAction()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/TransferHandler.html#getCutAction()"></a><br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/TransferHandler.html#getCopyAction()"><font color="#8800bb"><font size=2><code>getCopyAction()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/TransferHandler.html#getCopyAction()"></a><br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/TransferHandler.html#getPasteAction()"><font color="#8800bb"><font size=2><code>getPasteAction()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/TransferHandler.html#getPasteAction()"></a></td>
+<td>Return an <code>Action</code> that implements a 
+    cut, copy, or paste operation, respectively.
+    The cut and copy actions cause <code>exportToClipboard</code> to
+    be invoked.  The paste action causes <code>importData</code>
+    to be invoked.
+</td>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/TransferHandler.html#getSourceActions(javax.swing.JComponent)"><font color="#8800bb"><font size=2><code>getSourceActions(JComponent)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/TransferHandler.html#getSourceActions(javax.swing.JComponent)"></a></td>
+<td>Return the type of transfer actions supported by the component
+    when used as the source of data transfer.  It will be one of
+    these types: <code>COPY</code>,
+    <code>COPY_OR_MOVE</code>, <code>MOVE</code>, or <code>NONE</code>.
+    The <code>NONE</code> type indicates that the component does
+    not allow exporting of any data.
+</td>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/TransferHandler.html#getVisualRepresentation(java.awt.datatransfer.Transferable)"><font color="#8800bb"><font size=2><code>getVisualRepresentation(Transferable)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/TransferHandler.html#getVisualRepresentation(java.awt.datatransfer.Transferable)"></a></td>
+<td>Returns the <code>Icon</code> that establishes the look of
+    a transfer.  In v 1.4, this method does nothing.
+You might want to watch bug
+<a target="_blank" href="http://developer.java.sun.com/developer/bugParade/bugs/4816922.html"><font color="#009bbb">#4816922</font></a><a target="_blank" href="http://developer.java.sun.com/developer/bugParade/bugs/4816922.html"><img src="../../images/otherIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (outside of the tutorial)"></a> to track the status of this method.
+</td>
+</tr>
+</table>
+
+<p align=center><a name=transferableClasses>Transferable Classes</a>
+<p>
+<table border=1>
+<tr>
+<th align=left>Class</th>
+<th align=left>Purpose</th>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/datatransfer/Transferable.html"><font color="#8800bb"><font size=2><code>Transferable</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/datatransfer/Transferable.html"></a></td>
+<td>An interface for classes that can be used to provide data for a transfer
+    operation.
+</td>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/datatransfer/StringSelection.html"><font color="#8800bb"><font size=2><code>StringSelection</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/datatransfer/StringSelection.html"></a></td>
+<td>A <code>Transferable</code> that implements the capability
+    required to transfer a <code>String</code>. Supports
+    <code>DataFlavor.stringFlavor</code> and equivalent flavors.
+</td>
+</tr>
+</table>
+
+<p align=center><a name=transferableAPI>Transferable Interface API</a>
+<p>
+<table border=1>
+<tr>
+<th align=left>Method</th>
+<th align=left>Purpose</th>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/datatransfer/Transferable.html#getTransferData(java.awt.datatransfer.DataFlavor)"><font color="#8800bb"><font size=2><code>getTransferData(DataFlavor)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/datatransfer/Transferable.html#getTransferData(java.awt.datatransfer.DataFlavor)"></a></td>
+<td>Return an object that contains the data to be transferred.
+</td>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/datatransfer/Transferable.html#getTransferDataFlavors()"><font color="#8800bb"><font size=2><code>getTransferDataFlavors()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/datatransfer/Transferable.html#getTransferDataFlavors()"></a></td>
+<td>Return an array of <code>DataFlavor</code>s listing the
+flavors in which the data can be provided.  The flavors are
+listed in preferred order, with the item at element 0 being
+the most preferred flavor.
+</td>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/datatransfer/Transferable.html#isDataFlavorSupported(java.awt.datatransfer.DataFlavor)"><font color="#8800bb"><font size=2><code>isDataFlavorSupported(DataFlavor)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/datatransfer/Transferable.html#isDataFlavorSupported(java.awt.datatransfer.DataFlavor)"></a></td>
+<td>Return true if the requested flavor is supported for this object,
+otherwise return false.
+</td>
+</tr>
+</table>
+
+<p align=center><a name=dataflavorAPI>DataFlavor API</a>
+<p>
+<table border=1>
+<tr>
+<th align=left>Class or Field</th>
+<th align=left>Purpose</th>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/datatransfer/DataFlavor.html#DataFlavor()"><font color="#8800bb"><font size=2><code>DataFlavor()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/datatransfer/DataFlavor.html#DataFlavor()"></a><br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/datatransfer/DataFlavor.html#DataFlavor(java.lang.Class, java.lang.String)"><font color="#8800bb"><font size=2><code>DataFlavor(Class, String)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/datatransfer/DataFlavor.html#DataFlavor(java.lang.Class, java.lang.String)"></a><br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/datatransfer/DataFlavor.html#DataFlavor(java.lang.String)"><font color="#8800bb"><font size=2><code>DataFlavor(String)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/datatransfer/DataFlavor.html#DataFlavor(java.lang.String)"></a><br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/datatransfer/DataFlavor.html#DataFlavor(java.lang.String, java.lang.String)"><font color="#8800bb"><font size=2><code>DataFlavor(String, String)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/datatransfer/DataFlavor.html#DataFlavor(java.lang.String, java.lang.String)"></a><br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/datatransfer/DataFlavor.html#DataFlavor(java.lang.String, java.lang.String, java.lang.ClassLoader)"><font color="#8800bb"><font size=2><code>DataFlavor(String, String, ClassLoader)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/datatransfer/DataFlavor.html#DataFlavor(java.lang.String, java.lang.String, java.lang.ClassLoader)"></a></td>
+<td>
+Create a new content-type for transferring data. See
+<a href=#dataFormat>Specifying the Data Format</a> for
+details on how to create new data flavors.
+</td>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/datatransfer/DataFlavor.html#stringFlavor"><font color="#8800bb"><font size=2><code>stringFlavor</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/datatransfer/DataFlavor.html#stringFlavor"></a></td>
+<td>The data flavor representing the Java Unicode
+    <code>java.lang.String</code> class.
+</td>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/datatransfer/DataFlavor.html#imageFlavor"><font color="#8800bb"><font size=2><code>imageFlavor</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/datatransfer/DataFlavor.html#imageFlavor"></a></td>
+<td>The data flavor representing the <code>java.awt.Image</code>
+    class.
+</td>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/datatransfer/DataFlavor.html#javaFileListFlavor"><font color="#8800bb"><font size=2><code>javaFileListFlavor</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/datatransfer/DataFlavor.html#javaFileListFlavor"></a></td>
+<td>The data flavor representing the <code>java.util.List</code>
+    class where each element of the list must be a
+    <code>java.io.File</code>.
+</td>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/datatransfer/DataFlavor.html#javaJVMLocalObjectMimeType"><font color="#8800bb"><font size=2><code>javaJVMLocalObjectMimeType</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/datatransfer/DataFlavor.html#javaJVMLocalObjectMimeType"></a></td>
+<td>A data flavor with this MIME type is used to transfer
+    a reference to an arbitrary Java object using the
+    <code>Transferable</code> interface within the same VM.
+</td>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/datatransfer/DataFlavor.html#javaSerializedObjectMimeType"><font color="#8800bb"><font size=2><code>javaSerializedObjectMimeType</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/datatransfer/DataFlavor.html#javaSerializedObjectMimeType"></a></td>
+<td>
+A data flavor with this MIME type represents a graph of Java
+objects that have been made persistent. This is used to
+transfer serialized objects.
+</td>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/datatransfer/DataFlavor.html#javaRemoteObjectMimeType"><font color="#8800bb"><font size=2><code>javaRemoteObjectMimeType</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/datatransfer/DataFlavor.html#javaRemoteObjectMimeType"></a></td>
+<td>
+A data flavor with this MIME type represents a live link
+to a <code>Remote</code> object, where the representation
+class of the <code>DataFlavor</code> represents the type of
+the <code>Remote</code> interface to be transferred.
+</td>
+</tr>
+
+</table>
+
+</blockquote>
+<h3>
+<a name=eg>Examples that Use Data Transfer</a>
+</h3>
+<blockquote>
+The following table lists examples that
+use data transfer:
+<p>
+<table>
+<tr valign = top>
+<th align=left> Example</th>
+<th align=left> Where Described</th>
+<th align=left> Notes</th>
+</tr>
+
+<tr valign = top>
+<td> <a href="example-1dot4/index.html#BasicDnD">
+     <code>BasicDnD</code></a>
+</td>
+<td> In this section under <a href=#intro>
+     Introduction to Data Transfer Support</a></td>
+<td> Demonstrates basic default drag and drop behavior.
+</td>
+</tr>
+
+<tr valign = top>
+<td> <a href="example-1dot4/index.html#LabelDnD">
+     <code>LabelDnD</code></a>
+</td>
+<td> In this section under <a href=#label>
+     A Simple Example: Adding DnD to JLabel</a></td>
+<td> Demonstrates how to add support for dragging text
+     from and dropping text on a <code>JLabel</code>.
+</td>
+</tr>
+
+<tr valign = top>
+<td> <a href="example-1dot4/index.html#LabelDnD2">
+     <code>LabelDnD2</code></a>
+</td>
+<td> In this section under <a href=#dataFormat>
+     Specifying the Data Format</a></td>
+<td> Demonstrates how to add support for dropping color
+     onto a <code>JLabel</code>.
+</td>
+</tr>
+
+<tr valign = top>
+<td> <a href="example-1dot4/index.html#ExtendedDnDDemo">
+     <code>ExtendedDnDDemo</code></a>
+</td>
+<td> In this section under <a href=#complex>
+     Extended Default DnD Support</a></td>
+<td> Demonstrates how to create a custom transfer handler
+     to extend default drag and drop support for <code>JList</code>
+     and <code>JTable</code>.
+</td>
+</tr>
+
+<tr valign = top>
+<td> <a href="example-1dot4/index.html#DragColorDemo">
+     <code>DragColorDemo</code></a>
+</td>
+<td> In this section under <a href=#customImport>
+     Importing a New Flavor: Color</a></td>
+<td> Demonstrates how to drag color onto buttons and labels.
+</td>
+</tr>
+
+<tr valign = top>
+<td> <a href="example-1dot4/index.html#DragColorTextFieldDemo">
+     <code>DragColorTextFieldDemo</code></a>
+</td>
+<td> In this section under <a href=#replacingSupport>
+     Replacing Default Support: Color and Text</a></td>
+<td> Demonstrates how to drag color onto text fields and
+     how to create a custom transfer handler that allows the
+     text fields to export text. Also demonstrates cut/copy/paste
+     using the built-in text support.
+</td>
+</tr>
+
+<tr valign = top>
+<td> <a href="example-1dot4/index.html#DragFileDemo">
+     <code>DragFileDemo</code></a>
+</td>
+<td> In this section under <a href=#importFiles>
+     Importing a New Flavor: Files</a></td>
+<td> Demonstrates how to implement a custom <code>TransferHandler</code>
+     on a text area that accepts a list of files from a file chooser,
+     opens those files and appends the contents.
+</td>
+</tr>
+
+<tr valign = top>
+<td> <a href="example-1dot4/index.html#DragListDemo">
+     <code>DragListDemo</code></a>
+</td>
+<td> In this section under <a href=#customFlavor>
+     Data Transfer with a Custom DataFlavor</a></td>
+<td> Demonstrates how to implement a custom <code>TransferHandler</code>
+     with a custom <code>DataFlavor</code> &#151;
+     <code>java.util.ArrayList</code>.
+</td>
+</tr>
+
+<tr valign = top>
+<td> <a href="example-1dot4/index.html#DragPictureDemo">
+     <code>DragPictureDemo</code></a>
+</td>
+<td> In this section under <a href=#customComp>
+     Data Transfer with a Custom Component</a></td>
+<td> Demonstrates how to implement a custom <code>TransferHandler</code>
+     for a custom <code>JComponent</code>.  Also implements
+     cut/copy/paste on a custom component using key bindings.
+</td>
+</tr>
+
+<tr valign = top>
+<td> <a href="example-1dot4/index.html#DragPictureDemo2">
+     <code>DragPictureDemo2</code></a>
+</td>
+<td> In this section under <a href=#cut>
+     Adding Cut/Copy/Paste Support</a></td>
+<td> Extends DragPictureDemo to support cut/copy/paste
+     using an Edit menu.
+</td>
+</tr>
+
+</table>
+
+</blockquote>
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="border.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#misc" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="focus.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

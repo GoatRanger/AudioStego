@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.publics.DJIUI.DJILinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:background="@r$drawable/radius_corner_dark_bg" android:layout_width="match_parent" android:layout_height="match_parent" android:baselineAligned="false">
+    <include android:layout_width="match_parent" android:layout_height="wrap_content" layout="@layout/dlg_titlebar_view" />
+    <dji.publics.DJIUI.DJIGridView android:id="@+id/fpv_iocmode_gridview" android:scrollbars="UNKNOWN_DATA_0x0" android:descendantFocusability="afterDescendants" android:layout_width="match_parent" android:layout_height="match_parent" android:listSelector="0x106000d" android:drawSelectorOnTop="false" android:cacheColorHint="0x106000d" android:stretchMode="columnWidth" android:numColumns="UNKNOWN_DATA_0x2" android:choiceMode="singleChoice" />
+</dji.publics.DJIUI.DJILinearLayout>

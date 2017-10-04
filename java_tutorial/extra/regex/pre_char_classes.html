@@ -1,0 +1,251 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Predefined Character Classes</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="char_classes.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#regex" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="quant.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Bonus
+<br>
+<b>Lesson</b>: Regular Expressions
+</font>
+
+<h2>
+Predefined Character Classes
+</h2>
+<blockquote>
+<!--Predefined Character Classes-->
+
+The <code>Pattern</code> API contains a number of useful <i>predefined character classes</i>, which offer convenient shorthands 
+for commonly-used regular expressions: 
+<A NAME="CHART"></A>
+<BLOCKQUOTE>
+<TABLE BORDER=1>
+<TR>
+<TD COLSPAN=2><center><B>Predefined Character Classes</B></center></TD>
+</TR>
+<TR><TD WIDTH=15>
+<CODE>. </CODE>
+</TD><TD>
+Any character (may or may not match line terminators)
+</TD></TR>
+<TR><TD>
+<CODE>\d</CODE>
+</TD><TD>         
+A digit: <code>[0-9]</code>
+</TD></TR>
+<TR><TD>
+<CODE>\D</CODE>
+</TD><TD>         
+A non-digit: <code>[^0-9]</code>
+</TD></TR>
+<TR><TD>
+<CODE>\s</CODE>
+</TD><TD>         
+A whitespace character: <code>[ \t\n\x0B\f\r]</code>
+</TD></TR>
+<TR><TD>
+<CODE>\S</CODE>
+</TD><TD>         
+A non-whitespace character: <code>[^\s]</code>
+</TD></TR>
+<TR><TD>
+<CODE>\w</CODE>
+</TD><TD>         
+A word character: <code>[a-zA-Z_0-9]</code></TD></TR>
+<TR><TD>
+<CODE>\W</CODE>
+</TD><TD>         A non-word character: <code>[^\w]</code>
+</TD></TR>
+</TABLE>
+</BLOCKQUOTE>
+
+In the table above, each construct in the left-hand column 
+is shorthand for the character class in the right-hand column. 
+For example, <CODE>\d</CODE> means a range of digits (0-9), and <CODE>\w</CODE> 
+means a word character (any lowercase letter, any uppercase letter, the underscore character, or any digit). 
+Use the predefined classes whenever possible. They make your 
+code easier to read and eliminate errors introduced 
+by malformed character classes. 
+<P>
+Constructs beginning 
+with a backslash are called <I>escaped constructs</I>; we previewed 
+escaped constructs in the 
+<a target="_top" href="literals.html">String Literals</a><a target="_top" href="literals.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Bonus trail)"></a> section where we mentioned the use of backslash and <code>\Q</code> and <code>\E</code>  
+for quotation. If you are using an 
+escaped construct within a string literal, you must preceed 
+the backslash with another backslash for the string to compile.
+
+For example:
+<blockquote><pre> 
+private final String REGEX = "\\d"; // a single digit
+</pre></blockquote> 
+In this example <CODE>\d</CODE> is the regular expression; the extra backslash 
+is required so that the code compile. 
+Our test harness reads the expressions directly from a file, however, so 
+the extra backslash is unnecessary.
+
+<P>
+The following examples demonstrate the use of predefined 
+character classes. For each case, try to 
+predicit the result before you read the output on the last line.  
+
+<blockquote><pre> 
+Current REGEX is: .
+Current INPUT is: @
+I found the text "@" starting at index 0 and ending at index 1.
+
+Current REGEX is: .
+Current INPUT is: 1
+I found the text "1" starting at index 0 and ending at index 1.
+
+Current REGEX is: .
+Current INPUT is: a
+I found the text "a" starting at index 0 and ending at index 1.
+
+Current REGEX is: \d
+Current INPUT is: 1
+I found the text "1" starting at index 0 and ending at index 1.
+
+Current REGEX is: \d
+Current INPUT is: a
+No match found.
+
+Current REGEX is: \D
+Current INPUT is: 1
+No match found.
+
+Current REGEX is: \D
+Current INPUT is: a
+I found the text "a" starting at index 0 and ending at index 1.
+
+Current REGEX is: \s
+Current INPUT is:  
+I found the text " " starting at index 0 and ending at index 1.
+
+Current REGEX is: \s
+Current INPUT is: a
+No match found.
+
+Current REGEX is: \S
+Current INPUT is:  
+No match found.
+
+Current REGEX is: \S
+Current INPUT is: a
+I found the text "a" starting at index 0 and ending at index 1.
+
+Current REGEX is: \w
+Current INPUT is: a
+I found the text "a" starting at index 0 and ending at index 1.
+
+Current REGEX is: \w
+Current INPUT is: !
+No match found.
+
+Current REGEX is: \W
+Current INPUT is: a
+No match found.
+
+Current REGEX is: \W
+Current INPUT is: !
+I found the text "!" starting at index 0 and ending at index 1.
+</pre></blockquote>
+
+
+In the first three examples, our regular expression is simply <code>.</code>  (the "period" or  "dot" metacharacter) which indicates "any character."
+Therefore, the match is successful in all three cases (a randomly-selected <CODE>@</CODE> character, a digit, and a letter). The remaining examples each use a single regular expression construct from the <A HREF="#CHART">Predefined Character Classes table</A>. You can refer to this table  
+to figure out the logic behind each match:
+<UL>
+<li><CODE>\d</CODE> matches all digits 
+<LI><CODE>\s</CODE> matches spaces
+<LI><CODE>\w</CODE> matches word characters
+</UL>
+Alternatively, a capital letter means the opposite: 
+<UL>
+<LI><CODE>\D</CODE> matches non-digits
+<LI><CODE>\S</CODE> matches non-spaces
+<LI><CODE>\W</CODE> matches non-word characters
+</UL>
+
+<P>
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="char_classes.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#regex" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="quant.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

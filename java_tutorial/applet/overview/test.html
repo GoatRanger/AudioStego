@@ -1,0 +1,156 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Test Driving an Applet</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="security.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#overview" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="summary.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Writing Applets
+<br>
+<b>Lesson</b>: Overview of Applets
+</font>
+
+<h2>
+Test Driving an Applet
+</h2>
+<blockquote>
+Once you've written some code for your applet,
+you'll want to run your applet to test it.
+To run an applet,
+you first need to add the applet to an HTML page,
+using the <code>&lt;APPLET&gt;</code> tag.
+You then specify the URL of the HTML page
+to your Java-enabled browser.
+
+<p>
+
+
+<blockquote><hr><strong>Note:</strong>&nbsp;
+Because you can't always rely on browsers 
+to reload your applet's classes,
+you might want to use a quick-starting tool
+like the JDK Applet Viewer for most of your applet testing.
+Every time you change your applet,
+you can restart the Applet Viewer
+to make sure it loads all of the latest classes.
+<hr></blockquote>
+
+<p>
+
+Here's the simplest form of the <code>&lt;APPLET&gt;</code> tag:
+
+<blockquote><pre>
+&lt;APPLET CODE=<em>AppletSubclass</em>.class WIDTH=<em>anInt</em> HEIGHT=<em>anInt</em>&gt;
+&lt;/APPLET&gt;
+</pre></blockquote>
+This tag tells the browser to load the applet
+whose <code>Applet</code> subclass is named <em>AppletSubclass</em>. 
+The following figure shows where the applet class file must be,
+relative to the HTML document that contains the 
+<code>&lt;APPLET&gt;</code> tag.
+As the figure shows, unless the applet is declared to be in a package,
+its class file should be in the same directory
+as the HTML file that has the 
+<code>&lt;APPLET&gt;</code> tag.
+
+<p><center><IMG SRC="../../figures/applet/6pkg.gif" WIDTH="452" HEIGHT="150" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p><p>
+
+When a Java-enabled browser encounters an
+<code>&lt;APPLET&gt;</code> tag,
+it reserves a display
+area of the specified width and height for the applet,
+loads the bytecodes for
+the specified Applet subclass,
+creates an instance of the subclass,
+and then calls the instance's <code>init</code>
+and <code>start</code> methods. 
+
+<p>
+
+The <code>&lt;APPLET&gt;</code> tag
+has many options that you can use
+to customize your applet's execution.
+For example, you can put your applet's files into an archive.
+You can also specify parameters to be passed to the applet.
+These options are described in 
+<a target="_top" href="../appletsonly/html.html">Using the APPLET Tag</a><a target="_top" href="../appletsonly/html.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Writing Applets trail)"></a>.
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="security.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#overview" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="summary.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

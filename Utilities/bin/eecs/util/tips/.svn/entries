@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="20"
+   name=""
+   committed-date="2005-02-01T06:07:43.375000Z"
+   url="svn://192.168.2.2/Utilities/src/eecs/util/tips"
+   last-author="Karl"
+   kind="dir"
+   uuid="0daf4267-3229-f84b-9084-f3c94b025f38"
+   revision="53"/>
+<entry
+   committed-rev="20"
+   name="EdgeBorder.java"
+   text-time="2005-03-01T22:03:54.359375Z"
+   committed-date="2005-02-01T06:07:43.375000Z"
+   checksum="587fbc54933a241b2449fdae748e4280"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-01T22:03:54.234375Z"/>
+<entry
+   committed-rev="20"
+   name="JTips.java"
+   text-time="2005-03-01T22:03:54.359375Z"
+   committed-date="2005-02-01T06:07:43.375000Z"
+   checksum="d4cc625131c4b93dfbe05a295abde2d8"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-01T22:03:54.250000Z"/>
+<entry
+   committed-rev="20"
+   name="TipTextArea.java"
+   text-time="2005-03-01T22:03:54.375000Z"
+   committed-date="2005-02-01T06:07:43.375000Z"
+   checksum="9a3db1a29d26b4830b452013a8438f05"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-01T22:03:54.250000Z"/>
+<entry
+   name="CVS"
+   kind="dir"/>
+<entry
+   committed-rev="20"
+   name="test.tips"
+   text-time="2005-03-01T22:03:54.375000Z"
+   committed-date="2005-02-01T06:07:43.375000Z"
+   checksum="867e6c89cd94a483cb2242ffa774c2b8"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-01T22:03:54.343750Z"/>
+</wc-entries>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.phone.controview.DJILPCameraRecordBottomBar xmlns:android="http://schemas.android.com/apk/res-auto" phantom:layout_width="wrap_content" phantom:layout_height="wrap_content">
+    <dji.publics.DJIUI.DJILinearLayout phantom:orientation="horizontal" phantom:id="@id/b6s" phantom:visibility="gone" phantom:layout_width="wrap_content" phantom:layout_height="wrap_content">
+        <dji.device.common.view.LonganBLN phantom:layout_gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:id="@id/b6t" phantom:paddingTop="@dimen/fz" phantom:visibility="invisible" phantom:layout_width="UNKNOWN_DATA_0x7f0b0100" phantom:layout_height="UNKNOWN_DATA_0x7f0b0100" />
+        <dji.publics.DJIUI.DJITextView phantom:textColor="@color/om" phantom:gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:layout_gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:id="@id/b6u" phantom:visibility="gone" phantom:layout_width="wrap_content" phantom:layout_height="wrap_content" phantom:layout_marginLeft="@dimen/gr" />
+        <View phantom:id="@id/bc7" phantom:background="@color/oq" phantom:visibility="gone" phantom:layout_width="UNKNOWN_DATA_0x26666731" phantom:layout_height="wrap_content" phantom:layout_marginLeft="4dp" />
+        <include phantom:layout_gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:layout_width="UNKNOWN_DATA_0x2d01" phantom:layout_height="UNKNOWN_DATA_0x7f0b010e" phantom:layout_marginLeft="@dimen/yb" layout="@layout/lp_record_voice_ly" />
+    </dji.publics.DJIUI.DJILinearLayout>
+    <dji.publics.DJIUI.DJILinearLayout phantom:orientation="horizontal" phantom:id="@id/bc8" phantom:visibility="gone" phantom:layout_width="wrap_content" phantom:layout_height="wrap_content">
+        <dji.publics.DJIUI.DJITextView phantom:textSize="@dimen/rl" phantom:textColor="@color/om" phantom:layout_gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:id="@id/bc9" phantom:layout_width="wrap_content" phantom:layout_height="wrap_content" phantom:djiTextFace="2" />
+    </dji.publics.DJIUI.DJILinearLayout>
+</dji.phone.controview.DJILPCameraRecordBottomBar>

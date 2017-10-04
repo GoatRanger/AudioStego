@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:fitsSystemWindows="@r$bool/is_fix_system" android:layout_width="match_parent" android:layout_height="match_parent"
+    <LinearLayout android:orientation="horizontal" android:background="#222222" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x7f0b0127" android:layout_marginTop="@dimen/gc">
+        <RelativeLayout android:layout_width="UNKNOWN_DATA_0x1" android:layout_height="match_parent" android:layout_weight="1.0">
+            <LinearLayout android:id="@+id/net_layout" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true">
+                <ImageView android:id="@+id/audio_net_icon" android:layout_width="wrap_content" android:layout_height="UNKNOWN_DATA_0x7f0b0112" android:src="@r$drawable/v2_netaudio_selector" android:scaleType="centerInside" />
+                <dji.publics.DJIUI.DJITextView android:textSize="@dimen/ft" android:textColor="@r$drawable/v2_audio_selector" android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@+id/audio_net" android:paddingLeft="@dimen/fj" android:layout_width="wrap_content" android:layout_height="UNKNOWN_DATA_0x7f0b0112" android:text="@string/v2_audio_subtitle2" />
+            </LinearLayout>
+            <View android:id="@+id/net_line" android:background="@r$drawable/v2_yellow_line" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x501" android:layout_alignParentBottom="true" />
+        </RelativeLayout>
+        <View android:background="@color/ov" android:layout_width="UNKNOWN_DATA_0x101" android:layout_height="match_parent" android:layout_margin="@dimen/gw" android:layout_marginTop="@dimen/gw" />
+        <RelativeLayout android:layout_width="UNKNOWN_DATA_0x1" android:layout_height="match_parent" android:layout_weight="1.0">
+            <LinearLayout android:id="@+id/local_layout" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true">
+                <ImageView android:id="@+id/audio_local_icon" android:layout_width="wrap_content" android:layout_height="UNKNOWN_DATA_0x7f0b0112" android:src="@r$drawable/v2_audio_icon_selector" android:scaleType="centerInside" />
+                <dji.publics.DJIUI.DJITextView android:textSize="@dimen/ft" android:textColor="@r$drawable/v2_audio_selector" android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@+id/audio_native" android:paddingLeft="@dimen/fj" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/v2_audio_subtitle1" />
+            </LinearLayout>
+            <View android:id="@+id/local_line" android:background="@r$drawable/v2_yellow_line" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x501" android:layout_alignParentBottom="true" />
+        </RelativeLayout>
+    </LinearLayout>
+    <View android:background="@r$color/v2_multimoment_fine_grey" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x101" />
+    <android.support.v4.view.ViewPager android:id="@+id/audio_native_page" android:layout_width="match_parent" android:layout_height="match_parent" />
+</LinearLayout>

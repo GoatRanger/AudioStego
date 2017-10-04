@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:background="#64000000" android:layout_width="match_parent" android:layout_height="match_parent">
+    <LinearLayout android:orientation="vertical" android:background="@r$drawable/v2_countrycode_activity_corner_bg" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_margin="40dp" android:layout_centerInParent="true">
+        <TextView android:textSize="24sp" android:textColor="#ff10a0ff" android:id="@+id/popup_dlg_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="20dp" android:text="@string/v2_country_code_dialog_title" />
+        <View android:background="#ff10a0ff" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x201" />
+        <TextView android:textSize="20sp" android:textColor="#000000" android:id="@+id/popup_dlg_msg" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="14dp" android:text="@string/v2_country_code_fail_tip_wm220" android:textAlignment="center" />
+        <View android:background="#ffc0c0c0" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x101" />
+        <TextView android:textSize="18sp" android:textColor="#000000" android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@+id/tvOk" android:padding="14dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="确定 " />
+    </LinearLayout>
+</RelativeLayout>

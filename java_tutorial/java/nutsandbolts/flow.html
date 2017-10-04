@@ -1,0 +1,189 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Control Flow Statements</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="QandE/questions_expressions.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#nutsandbolts" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="while.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Learning the Java Language
+<br>
+<b>Lesson</b>: Language Basics
+</font>
+
+<h2>
+Control Flow Statements
+</h2>
+<blockquote>
+
+When you write a program, you type statements into a file. 
+Without control flow statements, the interpreter executes 
+these statements in the order they appear in the file from 
+left to right, top to bottom. You can use <I>control flow 
+statements</I> in your programs to conditionally execute 
+statements, to repeatedly execute a block of statements, 
+and to otherwise change the normal, sequential flow of 
+control. For example, in the following code snippet, the 
+<code>if</code> statement conditionally executes the 
+<code>System.out.println</code> statement within the 
+braces, based on the return value of 
+<code>Character.isUpperCase(aChar)</code>:
+
+<blockquote><pre>
+char c;
+...
+if (Character.isUpperCase(aChar)) {
+    System.out.println("The character " + aChar + " is upper case.");
+}
+</pre></blockquote>
+
+The Java programming language provides several control flow statements, which 
+are listed in the following table.
+<p>
+<table border cellpadding=5>
+<th>Statement Type</th>
+<th>Keyword</th>
+
+<tr>
+    <td>
+	looping
+    </td>
+    <td>
+	<code>while</code>, <code>do-while </code>, <code>for</code>
+    </td>
+</tr>
+<tr>
+    <td>
+	decision making
+    </td>
+    <td>
+	<code>if-else</code>, <code>switch-case</code>
+    </td>
+</tr>
+<tr>
+    <td>
+	exception handling
+    </td>
+    <td>
+	<code>try-catch-finally</code>, <code>throw</code>
+    </td>
+</tr>
+<tr>
+    <td>
+	branching
+    </td>
+    <td>
+	<code>break</code>, <code>continue</code>, <code>label:</code>, <code>return </code>
+    </td>
+</tr>
+
+</table>
+<p>
+
+In the sections that follow, you will see the following notation to describe the 
+general form of a control flow statement:
+<blockquote><pre>
+control flow statement details {
+    statement(s)
+}
+</pre></blockquote>
+
+Technically, the braces, { and }, are not required if the block contains only 
+one statement. However, we recommend that you always use { and }, because the 
+code is easier to read and it helps to prevent errors when modifying code.
+<P>
+
+<ul>
+<li>
+<a target="_top" href="while.html">The while and do-while Statements</a><a target="_top" href="while.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Learning the Java Language trail)"></a><li>
+<a target="_top" href="for.html">The for Statement</a><a target="_top" href="for.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Learning the Java Language trail)"></a><li>
+<a target="_top" href="if.html">The if/else Statements</a><a target="_top" href="if.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Learning the Java Language trail)"></a><li>
+<a target="_top" href="switch.html">The switch Statement</a><a target="_top" href="switch.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Learning the Java Language trail)"></a><li>
+<a target="_top" href="exception.html">Exception Handling Statements</a><a target="_top" href="exception.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Learning the Java Language trail)"></a><li>
+<a target="_top" href="branch.html">Branching Statements</a><a target="_top" href="branch.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Learning the Java Language trail)"></a><li>
+<a target="_top" href="flowsummary.html">Summary of Control Flow Statements</a><a target="_top" href="flowsummary.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Learning the Java Language trail)"></a><li>
+<a target="_top" href="QandE/questions_flow.html">Questions and Exercises: Control Flow</a><a target="_top" href="QandE/questions_flow.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Learning the Java Language trail)"></a></ul>
+
+<blockquote><hr><strong>Note:</strong>&nbsp;Although <code>goto</code> is a reserved word,
+currently the Java programming language
+does not support the <code>goto</code> statement.
+<hr></blockquote>
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="QandE/questions_expressions.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#nutsandbolts" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="while.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

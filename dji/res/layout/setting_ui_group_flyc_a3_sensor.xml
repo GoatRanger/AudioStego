@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res-auto" setting_ui:titleText="@string/setting_ui_flyc" style="@style/gk">
+    <LinearLayout style="@style/gj">
+        <dji.setting.ui.flyc.A3SensorView style="@style/g2" />
+        <dji.setting.ui.flyc.A3CompassView setting_ui:showDivider="false" style="@style/g2" />
+        <LinearLayout setting_ui:gravity="top|bottom|center_vertical|fill_vertical|center|fill" setting_ui:orientation="horizontal" setting_ui:layout_width="wrap_content" setting_ui:layout_height="match_parent">
+            <View setting_ui:layout_width="UNKNOWN_DATA_0x1" setting_ui:layout_height="UNKNOWN_DATA_0x101" setting_ui:layout_weight="1.0" />
+            <TextView setting_ui:layout_marginRight="@dimen/ts" setting_ui:text="@string/setting_ui_redundancy_sensor_imu_desc_cur_use" setting_ui:drawableLeft="@drawable/setting_ui_flyc_circle_selected" style="@style/gr" />
+            <ProgressBar setting_ui:layout_width="UNKNOWN_DATA_0x7f0b032a" setting_ui:layout_height="UNKNOWN_DATA_0x7f0b0352" setting_ui:layout_marginRight="@dimen/ts" setting_ui:max="100" setting_ui:progress="100" setting_ui:progressDrawable="@drawable/setting_ui_status_pgb_green" style="?unknown_attr_ref: 1010078" />
+            <TextView setting_ui:layout_marginRight="@dimen/ts" setting_ui:text="@string/setting_ui_redundancy_sensor_imu_desc_good" style="@style/gr" />
+            <ProgressBar setting_ui:layout_width="UNKNOWN_DATA_0x7f0b032a" setting_ui:layout_height="UNKNOWN_DATA_0x7f0b0352" setting_ui:layout_marginRight="@dimen/ts" setting_ui:max="100" setting_ui:progress="100" setting_ui:progressDrawable="@drawable/setting_ui_status_pgb_yellow" style="?unknown_attr_ref: 1010078" />
+            <TextView setting_ui:layout_marginRight="@dimen/ts" setting_ui:text="@string/setting_ui_redundancy_sensor_imu_desc_normal" style="@style/gr" />
+            <ProgressBar setting_ui:layout_width="UNKNOWN_DATA_0x7f0b032a" setting_ui:layout_height="UNKNOWN_DATA_0x7f0b0352" setting_ui:layout_marginRight="@dimen/ts" setting_ui:max="100" setting_ui:progress="100" setting_ui:progressDrawable="@drawable/setting_ui_status_pgb_red" style="?unknown_attr_ref: 1010078" />
+            <TextView setting_ui:layout_marginRight="@dimen/ts" setting_ui:text="@string/setting_ui_redundancy_sensor_imu_desc_bad" style="@style/gr" />
+            <View setting_ui:layout_width="UNKNOWN_DATA_0x1" setting_ui:layout_height="UNKNOWN_DATA_0x101" setting_ui:layout_weight="1.0" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

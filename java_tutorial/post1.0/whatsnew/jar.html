@@ -1,0 +1,146 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>JAR File Format</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="javabeans.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#whatsnew" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="networking.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: JDK(TM) 1.1 -- And Beyond!
+<br>
+<b>Lesson</b>: What's New in 1.1?
+</font>
+
+<h2>
+JAR File Format
+</h2>
+<blockquote>
+JAR (Java ARchive) is a platform-independent file format that allows
+you to bundle a Java applet and its requisite components (<code>.class</code> files,
+images and sounds) into a single file. Using the new <code>ARCHIVE</code> attribute
+of the <code>&lt;APPLET&gt;</code> tag, this JAR file can be downloaded to a browser in a
+single HTTP transaction, greatly improving the download speed. In
+addition, JAR supports compression, which reduces the file size,
+further improving the download time.
+<p>
+Finally, the applet author can digitally sign individual entries in a
+JAR file to authenticate their origin. You read about this in
+<a href="security.html">Security and Signed Applets</a>.
+<p>
+To help you get started, here's a brief introduction to some of the
+basics of using JAR files.
+You create and manipulate JAR files with the jar utility program. The command-line arguments to jar are similar to those of the UNIX tar program. Table 19 lists the most common manipulations of a JAR file along with the jar command or HTML tags for doing them.
+
+<p>
+<table border=1 cellpadding=5>
+<tr>
+<td>To create a JAR file:</td><td> <code>jar cvf <em>JARfilename</em> <em>listoffiles</em></code></td>
+</tr>
+<tr>
+<td>To list the contents<br> of a JAR file:</td><td> <code>jar tvf <em>JARfilename</em></code></td>
+</tr>
+<tr>
+<td>To extract the entire<br> contents of a JAR file:</td><td> <code>jar xvf <em>JARfilename</em></code></td>
+</tr>
+<tr>
+<td>To extract a specific<br> file from a JAR file:</td><td> <code>jar xvf <em>JARfilename</em> <em>FileToExtract</em></code></td>
+</tr>
+<tr>
+<td>To specify the use of a<br> JAR file with an applet:</td><td><pre>
+&lt;applet code=<em>AppletClassName.class</em>
+        archive="<em>JarFileName.jar</em>"
+        width=<em>width</em> height=<em>height</em>&gt;
+&lt;/applet&gt;</pre></td>
+</tr>
+</table>
+
+</blockquote>
+<h3>Where to Find Documentation</h3>
+
+Please refer to the trail
+<a target="_top" href="../../jar/index.html">JAR Files</a><a target="_top" href="../../jar/index.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the JDK(TM) 1.1 -- And Beyond! trail)"></a>.
+JAR files are also discussed in 
+<a target="_top" href="../../applet/appletsonly/html.html#jar">Combining an Applet's Files into a Single File</a><a target="_top" href="../../applet/appletsonly/html.html#jar"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the JDK(TM) 1.1 -- And Beyond! trail)"></a>, which shows you how to use JAR files with your applets and talks about
+the benefits of doing so.
+<p>
+
+</ul>
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="javabeans.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#whatsnew" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="networking.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.publics.DJIUI.DJIRelativeLayout xmlns:android="http://schemas.android.com/apk/res-auto" phantom:background="@r$drawable/flight_record_bg" phantom:layout_width="match_parent" phantom:layout_height="match_parent" phantom:baselineAligned="false" phantom:djiDeviceType="1">
+    <dji.publics.DJIUI.DJILinearLayout phantom:orientation="horizontal" phantom:layout_width="match_parent" phantom:layout_height="match_parent">
+        <fragment phantom:name="dji.pilot2.usercenter.fragment.DJIFlightRecordOverviewFragment" phantom:id="@+id/flightrecord_overview_fragment" phantom:layout_width="UNKNOWN_DATA_0x1" phantom:layout_height="match_parent" phantom:layout_weight="4.0" />
+        <dji.publics.DJIUI.DJILinearLayout phantom:background="@color/db" phantom:layout_width="UNKNOWN_DATA_0x7f0b0110" phantom:layout_height="match_parent" />
+        <fragment phantom:name="dji.pilot2.usercenter.fragment.DJIFlightRecordDataFragment" phantom:id="@+id/flightrecord_data_fragment" phantom:layout_width="UNKNOWN_DATA_0x1" phantom:layout_height="match_parent" phantom:layout_weight="7.0" />
+    </dji.publics.DJIUI.DJILinearLayout>
+</dji.publics.DJIUI.DJIRelativeLayout>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="33"
+   name=""
+   committed-date="2005-02-01T06:11:53.421875Z"
+   url="svn://192.168.2.2/ImageProcessor/src/imageproc/utilities"
+   last-author="Karl"
+   kind="dir"
+   uuid="0daf4267-3229-f84b-9084-f3c94b025f38"
+   revision="55"/>
+<entry
+   committed-rev="33"
+   name="ImageHistogram.java"
+   text-time="2005-03-02T06:25:38.640625Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="04e4b9d0bc71bb5d66a915fa2df4f4ee"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:38.000000Z"/>
+<entry
+   committed-rev="33"
+   name="SwingWorker.java"
+   text-time="2005-03-02T06:25:38.640625Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="ab89ab9838473e73d9fc3118e0b5593d"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:38.015625Z"/>
+<entry
+   committed-rev="33"
+   name="Utility.java"
+   text-time="2005-03-02T06:25:38.656250Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="a64c604b5aa5aa1693ae7b48421bee76"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:38.015625Z"/>
+<entry
+   committed-rev="33"
+   name="DecisionNode.java"
+   text-time="2005-03-02T06:25:38.671875Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="c313684a5c9aede7c23077267b42a3f1"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:38.031250Z"/>
+<entry
+   name="images"
+   kind="dir"/>
+<entry
+   committed-rev="33"
+   name="CaseData.java"
+   text-time="2005-03-02T06:25:38.671875Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="7e01cf348537c62d42010b010021dc02"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:38.562500Z"/>
+<entry
+   committed-rev="33"
+   name="TriageList.java"
+   text-time="2005-03-02T06:25:38.703125Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="a71207966b392512e9d0c7e8e1505ba1"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:38.562500Z"/>
+<entry
+   committed-rev="33"
+   name="Clusterer.java"
+   text-time="2005-03-02T06:25:38.718750Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="3958fa710cff0ce71f8fb6cb44159578"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:38.578125Z"/>
+<entry
+   committed-rev="33"
+   name="DisplayJAI.java"
+   text-time="2005-03-02T06:25:38.734375Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="09d3495d65c5944beb8dc8c9d42b7835"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:38.593750Z"/>
+<entry
+   committed-rev="33"
+   name="DataFile.java"
+   text-time="2005-03-02T06:25:38.734375Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="bec3cdcf2ff030b1c466efcc8027fab7"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:38.609375Z"/>
+<entry
+   committed-rev="33"
+   name="Constants.java"
+   text-time="2005-03-02T06:25:38.750000Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="d9d51ea5d0b9eb6c681205868dc931af"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:38.609375Z"/>
+<entry
+   committed-rev="33"
+   name="ImageStatistics.java"
+   text-time="2005-03-02T06:25:38.765625Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="42d85d9e36967c2e33a78f7413e3ee96"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:38.625000Z"/>
+</wc-entries>

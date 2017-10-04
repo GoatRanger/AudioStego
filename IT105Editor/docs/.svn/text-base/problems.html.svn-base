@@ -1,0 +1,17 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<HTML>
+  <HEAD>
+    <TITLE>IT105 Editor - Problem Report</TITLE>
+  </HEAD>
+  <BODY>
+  <h3>Problem Report</h3>
+<ol>
+  <li>The Problem Set Run Tests option may produce invalid errors (seems to test
+correctly, but when an error occurs, message may incorrectly identify the
+character position that was violated)</li>
+  <li>AutoRecover may not always open the recovery file.</li>
+  <li>Syntax coloring may freeze (document lock issue).</li>
+</ol>
+  </BODY>
+</HTML>

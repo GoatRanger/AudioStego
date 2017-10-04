@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/v2_coupon_detail" android:layout_width="match_parent" android:layout_height="match_parent">
+    <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:src="@r$drawable/v2_coupon_bg_main" android:scaleType="centerCrop" />
+    <RelativeLayout android:fitsSystemWindows="@r$bool/is_fix_system" android:layout_width="match_parent" android:layout_height="match_parent">
+        <fragment android:name="dji.pilot2.coupon.coupondetail.DJICouponDetailFragment" android:id="@+id/v2_coupon_fragment" android:layout_width="match_parent" android:layout_height="wrap_content" />
+    </RelativeLayout>
+</RelativeLayout>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res-auto" phantom:layout_width="UNKNOWN_DATA_0x3201" phantom:layout_height="UNKNOWN_DATA_0x7f0b0479">
+    <dji.publics.DJIUI.DJITextView phantom:textSize="@dimen/a32" phantom:textColor="@color/fd" phantom:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" phantom:id="@id/b4m" phantom:layout_width="UNKNOWN_DATA_0x3201" phantom:layout_height="UNKNOWN_DATA_0x1001" phantom:lines="1" phantom:djiTextFace="2" />
+</FrameLayout>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent"
+    <RelativeLayout android:id="@+id/final_layout" android:background="@r$color/v2_quick_button" android:visibility="visible" android:layout_width="match_parent" android:layout_height="match_parent"
+        <RelativeLayout android:id="@+id/final_left_layout" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerVertical="true">
+            <View android:id="@+id/final_signal" android:background="@r$drawable/v2_quickstart_radio_anim" android:layout_width="UNKNOWN_DATA_0x7f0b0113" android:layout_height="UNKNOWN_DATA_0x7f0b0113" android:layout_marginLeft="65dp" android:layout_marginTop="10dp" />
+            <View android:id="@+id/final_right" android:background="@r$drawable/v2_quick_final_one" android:layout_width="UNKNOWN_DATA_0x6f01" android:layout_height="UNKNOWN_DATA_0x6f01" android:layout_below="@+id/final_signal" android:layout_alignLeft="@+id/final_signal" />
+            <View android:background="@r$drawable/v2_quick_final_two" android:layout_width="UNKNOWN_DATA_0x6f01" android:layout_height="UNKNOWN_DATA_0x6f01" android:layout_below="@+id/final_signal" android:layout_alignRight="@+id/final_signal" />
+        </RelativeLayout>
+        <RelativeLayout android:id="@+id/quick_final_right" android:layout_width="UNKNOWN_DATA_0x7f0b02e3" android:layout_height="wrap_content" android:layout_marginTop="60dp" android:layout_marginRight="30dp" android:layout_alignParentRight="true">
+            <TextView android:textSize="@dimen/quick_titletext_size" android:textStyle="bold" android:textColor="@color/om" android:id="@+id/final_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/quick_fragment_final_title" />
+            <TextView android:textSize="@dimen/quick_contenttext_size" android:textColor="@color/om" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="25dp" android:text="@string/quick_fragment_final_content" android:layout_below="@+id/final_title" android:layout_alignLeft="@+id/final_title" />
+        </RelativeLayout>
+        <Button android:textColor="@r$color/v2_quick_button" android:id="@+id/quick_final_button" android:background="@r$drawable/v2_main_quickstart_exbutton_selector" android:paddingLeft="@dimen/ft" android:paddingRight="@dimen/ft" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/gt" android:text="@string/quick_begin_fly" android:layout_alignLeft="@+id/quick_final_right" android:layout_alignRight="@+id/quick_final_right" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+</RelativeLayout>

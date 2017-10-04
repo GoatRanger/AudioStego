@@ -1,0 +1,262 @@
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Using HTML in Swing Components</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="components.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#components" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="toplevel.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Creating a GUI with JFC/Swing
+<br>
+<b>Lesson</b>: Using Swing Components
+</font>
+
+<h2>
+Using HTML in Swing Components
+</h2>
+<blockquote>
+Many Swing components display a text string
+as part of their GUI.
+By default, a component's text is displayed
+in a single font and color,
+all on one line.
+You can determine the font and color of a component's text
+by invoking the component's <code>setFont</code> and <code>setForeground</code>
+methods, respectively.
+For example, the following code
+creates a label and then sets its font and color:
+
+<blockquote><pre>
+label = new JLabel("A label");
+label.setFont(new Font("Serif", Font.PLAIN, 14));
+label.setForeground(new Color(0xffffdd));
+</pre></blockquote>
+
+If you want to mix fonts or colors within the text,
+or to have formatting such as multiple lines,
+you can use HTML.
+HTML formatting can be used in all Swing buttons, menu items,
+labels, tool tips, and tabbed panes,
+as well as in components such as trees and tables
+that use labels as renderers.
+
+<p>
+To specify that a component's text has HTML formatting,
+just put the <code>&lt;html&gt;</code> tag at the beginning of the text,
+then use any valid HTML in the remainder.
+Here is an example of using HTML in a button's text:
+
+<blockquote><pre>
+button = new JButton("&lt;html&gt;&lt;b&gt;&lt;u&gt;T&lt;/u&gt;wo&lt;/b&gt;&lt;br&gt;lines&lt;/html&gt;");
+</pre></blockquote>
+
+Here's the resulting button.
+
+<p>
+[PENDING: Figure: A button with HTML formatting]
+
+<blockquote><hr><strong>Performance note:</strong>&nbsp;Because Swing's HTML rendering support uses many classes,
+users on older
+systems might notice a delay the first time
+a component with HTML formatting is shown. One way to
+avoid the possible delay is not to show
+the HTML-formatted component immediately, and to
+create it (or another component that uses HTML)
+on a background thread.
+<hr></blockquote>
+
+
+</blockquote>
+<h3>
+An Example: HtmlDemo
+</h3>
+<blockquote>
+
+The following snapshot shows an application called HtmlDemo that
+lets you play with HTML formatting
+by setting the text on a label.
+
+<p>
+[PENDING: Figure: The HtmlDemo application]
+
+<blockquote><hr><strong>Try This:</strong>&nbsp;<ol>
+<li> <a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/components/example-1dot4/HtmlDemo.jnlp">Run HtmlDemo</a> using
+<a target="_top" href="../../information/javawebstart.html">Java<sup><font size=-2>TM</font></sup> Web Start</a><a target="_top" href="../../information/javawebstart.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.    Or, to compile and run the example yourself,
+     consult the
+     <a href="example-1dot4/index.html#HtmlDemo">example index</a>.
+</li>
+
+<li>
+Edit the HTML in the text area at the left
+and click the "Change the label" button. The
+label at the right shows the result.
+</li>
+
+<li>
+Remove &lt;html&gt; from the text area on the left.
+The label's text is no longer parsed as HTML.
+</li>
+</ol>
+<hr></blockquote>
+
+</blockquote>
+<h3>
+Example 2: ButtonHtmlDemo
+</h3>
+<blockquote>
+
+Let's look at another example that uses HTML.
+ButtonHtmlDemo adds font, color, and other text formatting
+to three buttons.
+You can find its full source code in
+<a target="_blank" href="example-1dot4/ButtonHtmlDemo.java"><font color="#bb000f"><code>ButtonHtmlDemo.java</code></font></a><a target="_blank" href="example-1dot4/ButtonHtmlDemo.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a> and links to its image files in the
+<a href="example-1dot4/index.html#ButtonHtmlDemo">example index</a>.
+You can <a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/components/example-1dot4/ButtonHtmlDemo.jnlp"><b>run ButtonHtmlDemo</b></a> using
+<a target="_top" href="../../information/javawebstart.html">Java Web Start</a><a target="_top" href="../../information/javawebstart.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.
+
+<p>
+[PENDING: Figure: The ButtonHtmlDemo application]
+
+<p>
+The left and right buttons have multiple lines and text styles
+and are implemented using
+HTML. The middle button, on the other hand,
+uses just one line, font, and color, so it doesn't
+require HTML. Here is the code that specifies
+the text formatting for these three buttons:
+
+<blockquote><pre>
+b1 = new JButton("&lt;html&gt;&lt;center&gt;&lt;b&gt;&lt;u&gt;D&lt;/u&gt;isable&lt;/b&gt;&lt;br&gt;"
+                 + "&lt;font color=#ffffdd&gt;middle button&lt;/font&gt;",
+                 leftButtonIcon);
+Font font = b1.getFont().deriveFont(Font.PLAIN);
+b1.setFont(font);
+...
+b2 = new JButton("middle button", middleButtonIcon);
+b2.setFont(font);
+b2.setForeground(new Color(0xffffdd));
+...
+b3 = new JButton("&lt;html&gt;&lt;center&gt;&lt;b&gt;&lt;u&gt;E&lt;/u&gt;nable&lt;/b&gt;&lt;br&gt;"
+                 + "&lt;font color=#ffffdd&gt;middle button&lt;/font&gt;",
+                 rightButtonIcon);
+b3.setFont(font);
+</pre></blockquote>
+
+Note that we had to use a <code>&lt;u&gt;</code> tag to cause
+the mnemonic characters "D" and "E" to be underlined in
+the HTML-using buttons. Note also that when
+a button is disabled, its HTML text unfortunately
+remains black, instead of becoming gray.
+(Keep an eye on
+<a target="_blank" href="http://developer.java.sun.com/developer/bugParade/bugs/4783068.html"><font color="#009bbb">bug #4783068</font></a><a target="_blank" href="http://developer.java.sun.com/developer/bugParade/bugs/4783068.html"><img src="../../images/otherIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (outside of the tutorial)"></a> to see if this situation changes.)
+
+<p>
+This section discussed how to use HTML in ordinary,
+non-text components.
+For information on components whose primary purpose is formatting text,
+see
+<a target="_top" href="text.html">Using Text Components</a><a target="_top" href="text.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.
+
+<blockquote><hr><strong>Version note:</strong>&nbsp;HTML rendering in ordinary Swing components was first added
+in v 1.2.2
+and completed in 1.3. The components that supported
+HTML in 1.2.2 were
+<code>JButton</code>,
+<code>JLabel</code>,
+<code>JMenuItem</code>,
+<code>JMenu</code>,
+<code>JRadioButtonMenuItem</code>,
+<code>JCheckBoxMenuItem</code>,
+<code>JTabbedPane</code>, and
+<code>JToolTip</code>.
+HTML support was
+added in 1.3 to
+<code>JToggleButton</code>,
+<code>JCheckBox</code>, and
+<code>JRadioButton</code>.
+<hr></blockquote>
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="components.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#components" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="toplevel.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

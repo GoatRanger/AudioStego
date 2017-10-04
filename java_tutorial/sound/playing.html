@@ -1,0 +1,286 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Playing Sounds</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="integration.html" target="_top"><img src="../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="./TOC.html" target="_top"><img src="../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="problems.html" target="_top"><img src="../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="./index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../search.html" target="_top">Search</a>
+<br><a href="../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Sound
+</font>
+
+<h2>
+Playing Sounds
+</h2>
+<blockquote>
+With JDK 1.2 you can play many different types of audio files from both
+applets and applications. This lesson contains three sections that show
+you how.
+
+</blockquote>
+<h3>Playing Sounds from an Applet</h3>
+<blockquote>
+The mechanism for playing sounds from an applet is unchanged in JDK
+1.2. To play a sound file, you can load the clip by using
+<CODE>Applet.getAudioClip</CODE>
+and control playback through the <CODE>AudioClip</CODE>
+<CODE>play</CODE>, <CODE>loop</CODE>, and <CODE>stop</CODE>
+methods. For example, to play a WAV file from an applet, you could
+<OL>
+<LI>
+Call <CODE>Applet.getAudio</CODE>
+clip and pass in the URL where the <CODE>.wav</CODE>
+file is located.
+<LI>
+Call <CODE>play</CODE> or <CODE>loop</CODE> on the
+<CODE>AudioClip</CODE>.
+</OL>
+
+The audio data is loaded when the <CODE>AudioClip</CODE>
+is constructed. It is not loaded asynchronously.
+<P>
+You can also use <CODE>Applet.play</CODE>
+to play any of the supported types of audio files. However, when you
+use <CODE>Applet.play</CODE>, the audio data is not preloaded. The
+first time the user initiates playback of a particular sound, your
+applet's drawing and event handling will freeze while the audio data is
+loaded.
+
+<h3>Example: SoundApplet</h3>
+The applet shown below plays several types of audio clips: an AU file, an AIFF
+file, a WAV file, and a MIDI file.
+(The AIFF and WAV files used in the examples for this trail were
+provided by Headspace, Inc.)
+
+<p><center><a href="SoundApplet.html" target="_blank"><IMG SRC="../figures/sound/sound-1.gif" WIDTH="510" HEIGHT="233" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="Click this figure to run the applet."></a><br><em>This is a picture of the applet's GUI.  To run the applet, click the picture.  The applet will appear in a new browser window.</em></center></p>
+<P>
+You can find the complete code for this program in
+<A HREF="example-1dot2/SoundApplet.java"><code>SoundApplet.java</code></A>.
+The applet also requires two more source files,
+<A HREF="example-1dot2/AppletSoundList.java">
+<code>AppletSoundList.java</code></A>
+and
+<A HREF="example-1dot2/AppletSoundLoader.java">
+<code>AppletSoundLoader.java</code></A>,
+and the following sound files:
+<ul>
+<li><a href="example-1dot2/bottle-open.wav"><code>bottle-open.wav</code></a>
+<li><a href="example-1dot2/flute+hrn+mrmba.aif"><code>flute+hrn+mrmba.aif</code></a>
+<li><a href="example-1dot2/jungle.rmf"><code>jungle.rmf</code></a>
+<li><a href="example-1dot2/spacemusic.au"><code>spacemusic.au</code></a>
+<li><a href="example-1dot2/trippygaia1.mid"><code>trippygaia1.mid</code></a>
+</ul>
+
+<blockquote><hr><strong>Note:</strong>&nbsp;If you're behind a firewall, the SoundApplet sample
+might not play the sounds if you run it by clicking
+on the picture above. Some versions of Java Plugin
+cannot access the sound files from a JAR file.
+To run the applet, you can download all of the necessary 
+files to your machine and run it locally without using
+a JAR file.
+<hr></blockquote>
+
+<P>
+Regardless of the type of sound file used, the code for loading and
+playing the file is the same. This example provides a framework for
+loading and playing multiple audio clips and loads the audio clips
+asynchronously, but the code for loading and playing the clips
+essentially boils down to
+<blockquote><pre>
+AudioClip onceClip, loopClip;
+onceClip = soundList.getClip(chosenFile);
+loopClip = soundList.getClip(chosenFile);
+AudioClip audioClip = Applet.getAudioClip(baseURL, relativeURL);
+onceClip.play();	//Play it once.
+loopClip.loop();	//Start the sound loop.
+loopClip.stop();	//Stop the sound loop.
+</pre></blockquote>
+
+This applet stops playing a looping sound when the user leaves the page
+and resumes playback when the user comes back. This is done through the
+applet's <CODE>start</CODE> and <CODE>stop</CODE> methods.
+
+<blockquote><pre>
+public void stop() {
+    onceClip.stop();        //Cut short the one-time sound.
+    if (looping) {
+        loopClip.stop();    //Stop the sound loop.
+    }
+}
+
+public void start() {
+    if (looping) {
+        loopClip.loop();    //Restart the sound loop.
+    }
+}
+</pre></blockquote>
+<P>
+To reduce the amount of time that the user has to wait before
+interacting with the applet, the sounds are preloaded in a background
+thread instead of in the applet's <CODE>init</CODE> method. If the user
+initiates playback before a sound has finished loading, the applet can
+respond appropriately. The loading of the sounds is done in the
+<CODE>SoundLoader</CODE> <CODE>run</CODE> method.
+<blockquote><pre>
+public void run() {
+    AudioClip audioClip = Applet.getAudioClip(baseURL, relativeURL);
+    soundList.putClip(audioClip, relativeURL);
+}
+</pre></blockquote>
+</blockquote>
+
+<h3>Playing Sounds from an Application</h3>
+<blockquote>
+In JDK 1.2, applications as well as applets can play sounds. A new
+static method has been added to <CODE>java.applet.Applet</CODE> to
+enable applications to create <CODE>AudioClips</CODE> from a URL.
+<blockquote><pre>
+public static final AudioClip newAudioClip(URL r)
+</pre></blockquote>
+To play a sound from an applet, you call <CODE>Applet.newAudioClip</CODE>
+to load the sound and then use the <CODE>AudioClip</CODE> <CODE>play</CODE>,
+<CODE>loop</CODE>, and <CODE>stop</CODE> methods to control playback.
+For example, to play a WAV file from an application, you could
+<OL>
+<LI> Call <CODE>Applet.newAudioClip</CODE>
+     and pass in the URL where the <CODE>.wav</CODE>
+     file is located.
+<LI>
+Call <CODE>play</CODE> or <CODE>loop</CODE> on the <CODE>AudioClip</CODE>.
+</OL>
+
+<h3>Example: SoundApplication</h3>
+The sound player in the previous example can easily be implemented as
+an application. The main difference is that
+<CODE>Applet.newAudioClip</CODE> is called to load the sounds.
+<blockquote><pre>
+AudioClip onceClip, loopClip;
+onceClip = soundList.getClip(chosenFile);
+loopClip = soundList.getClip(chosenFile);
+AudioClip audioClip = Applet.newAudioClip(completeURL);
+</pre></blockquote>
+You can find the complete code for this application in
+<A HREF="example-1dot2/SoundApplication.java">
+<code>SoundApplication.java</code></A>.
+To run this application, you will also need the files
+<A HREF="example-1dot2/SoundList.java">
+<code>SoundList.java</code></A>
+and
+<A HREF="example-1dot2/SoundLoader.java">
+<code>SoundLoader.java</code></A>,
+and the following sound files:
+<ul>
+<li><a href="example-1dot2/bottle-open.wav"><code>bottle-open.wav</code></a>
+<li><a href="example-1dot2/flute+hrn+mrmba.aif"><code>flute+hrn+mrmba.aif</code></a>
+<li><a href="example-1dot2/jungle.rmf"><code>jungle.rmf</code></a>
+<li><a href="example-1dot2/spacemusic.au"><code>spacemusic.au</code></a>
+<li><a href="example-1dot2/trippygaia1.mid"><code>trippygaia1.mid</code></a>
+</ul>
+
+</blockquote>
+
+<h3>Common Problems (and Their Solutions)</h3>
+<blockquote>
+Here are solutions to two of the most common problems you might
+encounter when playing audio files.
+<DL>
+<DD>
+<strong><em>Problem:</em></strong>
+<em>8 kHz audio files do not sound as good as they did
+before I switched to JDK 1.2.</EM>
+<DD>
+<strong>Solution:</strong>
+The Java Sound engine up-samples 8 kHz audio data to 22 kHz, which can
+result in added noise during playback. If you find that the audio
+quality is not acceptable, start with a higher-quality audio clip to
+avoid the up-sampling.
+<p>
+<DD>
+<strong><EM>Problem:</EM></strong>
+<EM> Some of my audio files won't play.</EM>
+<DD>
+<strong>Solution:</strong>
+You cannot play WAV, AU, AIFF, or AU files compressed using ADPCM or
+other compression schemes. The Java Sound engine supports only linear
+PCM audio files.
+</DL>
+
+
+</blockquote>
+
+<img src="../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="integration.html" target="_top"><img src="../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="./TOC.html" target="_top"><img src="../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="problems.html" target="_top"><img src="../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="./index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../search.html" target="_top">Search</a>
+<br><a href="../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

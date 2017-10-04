@@ -1,0 +1,231 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Answers to Questions and Exercises: Control Flow</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="../QandE/questions_flow.html" target="_top"><img src="../../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../../TOC.html#nutsandbolts" target="_top"><img src="../../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+</td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="../index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../../search.html" target="_top">Search</a>
+<br><a href="../../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+
+<img src="../../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<font size="-1">
+<b>Trail</b>: Learning the Java Language
+<br>
+<b>Lesson</b>: Language Basics 
+</font>
+
+<h2>
+Answers to Questions and Exercises: Control Flow
+</h2>
+<blockquote>
+</blockquote>
+
+<h3>Answers to Questions</h3>
+<blockquote>
+<ol>
+<li>
+<strong>Question:</strong>
+Look at the 
+<a target="_blank" href="../example/SortDemo.java"><font color="#bb000f"><code>SortDemo</code></font></a><a target="_blank" href="../example/SortDemo.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a> program.
+What control flow statements does it contain?
+<br>
+<strong>Answer:</strong>
+<code>SortDemo</code> contains four control statements.
+In order: two <code>for</code> statements,
+an <code>if</code> statement, and another <code>for</code> statement.
+<li>
+<strong>Question:</strong>
+What's wrong with the following code snippet:
+<blockquote><pre>
+if (i = 1) {
+    /* do something */
+}
+</pre></blockquote>
+<br>
+<strong>Answer:</strong>
+It should use <code>==</code> instead of <code>=</code>.
+If you try to compile the preceding code,
+the compiler warns you that a <code>boolean</code> value
+is required instead of an <code>int</code> value.
+<li>
+<strong>Question:</strong>
+Look at the
+<a target="_blank" href="../example/WhileDemo.java"><font color="#bb000f"><code>WhileDemo</code></font></a><a target="_blank" href="../example/WhileDemo.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a> program and the
+<a target="_blank" href="../example/DoWhileDemo.java"><font color="#bb000f"><code>DoWhileDemo</code></font></a><a target="_blank" href="../example/DoWhileDemo.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a> program.
+What would the output be from each program if you changed the value of
+each program's <code>copyFromMe</code> string to
+<code>golly gee. this is fun.</code>
+Explain why you think each program will have the predicted output.
+<br>
+<strong>Answer:</strong>
+<a target="_blank" href="NewWhileDemo.java"><font color="#bb000f"><code>NewWhileDemo</code></font></a><a target="_blank" href="NewWhileDemo.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a> and 
+<a target="_blank" href="NewDoWhileDemo.java"><font color="#bb000f"><code>NewDoWhileDemo</code></font></a><a target="_blank" href="NewDoWhileDemo.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>. The modified
+<code>WhileDemo</code> displays a blank line because the first letter
+is a <code>g</code>, and thus the loop is not entered and no characters are
+appended to <code>copyToMe</code>.
+The modified <code>DoWhileDemo</code> displays <code>golly </code>
+because the first <code>g</code> is ignored,
+and the second one terminates the
+loop without adding the second <code>g</code> to the string.
+</ol>
+</blockquote>
+ 
+<h3>Exercises</h3>
+<blockquote>
+<ol>
+<li>
+Consider the following code snippet. 
+<blockquote><pre>
+if (aNumber &gt;= 0)
+    if (aNumber == 0) System.out.println("first string");
+else System.out.println("second string");
+System.out.println("third string");
+</pre></blockquote>
+<ol TYPE=a>
+<li>
+<strong>Exercise:</strong>
+What output do you think the code will produce if <code>aNumber</code> is 3?
+<br>
+<strong>Solution:</strong>
+<blockquote><pre>
+second string
+third string
+</pre></blockquote>
+<li>
+<strong>Exercise:</strong>
+Write a test program containing the code snippet;
+make <code>aNumber</code> 3.
+What is the output of the program?
+Is it what you predicted?
+Explain why the output is what it is.
+In other words, what is the control flow for the code snippet?
+<br>
+<strong>Solution:</strong>
+<a target="_blank" href="NestedIf.java"><font color="#bb000f"><code>NestedIf</code></font></a><a target="_blank" href="NestedIf.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a><blockquote><pre>
+second string
+third string
+</pre></blockquote>
+3 is greater than or equal to 0,
+so execution progresses to the second <code>if</code> statement. The
+second <code>if</code> statement's test fails because 3 is not equal to 0.
+Thus, the <code>else</code> clause
+executes (since it's attached to the second <code>if</code> statement).
+Thus, <code>second string</code> is displayed.
+The final <code>println</code> is completely outside
+of any <code>if</code> statement,
+so it always gets executed,
+and thus <code>third string</code> is always displayed.
+<li>
+<strong>Exercise:</strong>
+Using only spaces and line breaks, reformat the code snippet to make
+the control flow easier to understand.
+<br>
+<strong>Solution:</strong>
+<blockquote><pre>
+if (aNumber >= 0)
+    if (aNumber == 0)
+        System.out.println("first string");
+    else
+        System.out.println("second string");
+
+System.out.println("third string");
+</pre></blockquote>
+<li>
+<strong>Exercise:</strong>
+Use braces <code>{</code> and <code>}</code>
+to further clarify the code and reduce the
+possibility of errors by future maintainers of the code.
+<br>
+<strong>Solution:</strong>
+Adhering to the Sun code conventions:
+<blockquote><pre>
+if (aNumber >= 0) {
+    if (aNumber == 0) {
+        System.out.println("first string");
+    } else {
+        System.out.println("second string");
+    }
+}
+
+System.out.println("third string");
+</pre></blockquote>
+</ol>
+</ol>
+</blockquote>
+
+<blockquote>
+</blockquote>
+
+<img src="../../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="../QandE/questions_flow.html" target="_top"><img src="../../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../../TOC.html#nutsandbolts" target="_top"><img src="../../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+</td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="../index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../../search.html" target="_top">Search</a>
+<br><a href="../../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

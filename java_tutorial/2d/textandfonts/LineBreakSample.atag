@@ -1,0 +1,5 @@
+<APPLET CODE="LineBreakSample.class"
+        codebase="example-1dot2/"
+        archive="linebreaksample.jar"
+	WIDTH=400 HEIGHT=250>
+</APPLET>

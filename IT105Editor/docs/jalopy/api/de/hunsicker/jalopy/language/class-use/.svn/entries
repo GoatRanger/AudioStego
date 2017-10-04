@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="10"
+   name=""
+   committed-date="2005-02-01T05:59:34.421875Z"
+   url="svn://192.168.2.2/IT105Editor/docs/jalopy/api/de/hunsicker/jalopy/language/class-use"
+   last-author="Karl"
+   kind="dir"
+   uuid="0daf4267-3229-f84b-9084-f3c94b025f38"
+   revision="55"/>
+<entry
+   committed-rev="10"
+   name="NodeFactory.html"
+   text-time="2005-03-02T06:14:26.109375Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="7a7f3d300ecf307df9c0247a84246f21"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:25.656250Z"/>
+<entry
+   committed-rev="10"
+   name="Lexer.html"
+   text-time="2005-03-02T06:14:26.109375Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="d557e6198bb15d22cf6db83010d6b026"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:25.656250Z"/>
+<entry
+   committed-rev="10"
+   name="JavaNodeFactory.html"
+   text-time="2005-03-02T06:14:26.125000Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="b22aa5d94cdcbaff1b317a8e6b17b28b"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:25.671875Z"/>
+<entry
+   committed-rev="10"
+   name="JavaLexer.html"
+   text-time="2005-03-02T06:14:26.140625Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="ef778ddc4a5566ec5cb815d981bc6d4a"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:25.687500Z"/>
+<entry
+   committed-rev="10"
+   name="JavadocParser.html"
+   text-time="2005-03-02T06:14:26.171875Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="6518cda338e2b35cc6a2def9e6f522cd"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:25.750000Z"/>
+<entry
+   committed-rev="10"
+   name="TransformationException.html"
+   text-time="2005-03-02T06:14:26.187500Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="d1c374f27d7c881c02c87e28b78b1880"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:25.765625Z"/>
+<entry
+   committed-rev="10"
+   name="Node.html"
+   text-time="2005-03-02T06:14:26.187500Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="96b6079e7eed1af885fe61519fb0d69f"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:25.781250Z"/>
+<entry
+   committed-rev="10"
+   name="DeclarationType.html"
+   text-time="2005-03-02T06:14:26.203125Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="1c80d0d0cc158992975c843c57b3e28b"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:25.796875Z"/>
+<entry
+   committed-rev="10"
+   name="ClassRepositoryEntry.html"
+   text-time="2005-03-02T06:14:26.218750Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="25286cee67c1097bc4a26909654359d3"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:25.812500Z"/>
+<entry
+   committed-rev="10"
+   name="JavaNodeHelper.html"
+   text-time="2005-03-02T06:14:26.218750Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="d503f390534acfffe5b163e87aa9ea0b"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:25.828125Z"/>
+<entry
+   committed-rev="10"
+   name="JavaNode.html"
+   text-time="2005-03-02T06:14:26.234375Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="6d05110201fc543e8ff8f5f2fe73e12b"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:25.828125Z"/>
+<entry
+   committed-rev="10"
+   name="JavadocTokenTypes.html"
+   text-time="2005-03-02T06:14:26.250000Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="a6846dbde016c170335d1e71068ae67b"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:25.875000Z"/>
+<entry
+   committed-rev="10"
+   name="Recognizer.ParseException.html"
+   text-time="2005-03-02T06:14:26.265625Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="d0cd89c92cfaeaef6e7e601229fe15be"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:25.890625Z"/>
+<entry
+   committed-rev="10"
+   name="ExtendedToken.html"
+   text-time="2005-03-02T06:14:26.281250Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="a6c2bfc31593a55323e2dd4949cd319b"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:25.921875Z"/>
+<entry
+   committed-rev="10"
+   name="TreeWalker.html"
+   text-time="2005-03-02T06:14:26.312500Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="06faec4da0fdec359aa5dc9f014ef3a6"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:25.968750Z"/>
+<entry
+   committed-rev="10"
+   name="Transformation.html"
+   text-time="2005-03-02T06:14:26.328125Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="95b97158fc1379b9f68aca06c8b9a67a"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:26.015625Z"/>
+<entry
+   committed-rev="10"
+   name="JavaNodeModifier.html"
+   text-time="2005-03-02T06:14:26.328125Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="6453d75998d3f8515e3e2df1f5fc4647"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:25.984375Z"/>
+<entry
+   committed-rev="10"
+   name="Recognizer.html"
+   text-time="2005-03-02T06:14:26.375000Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="9c897e53db4a9915181fc22572e01bcb"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:26.046875Z"/>
+<entry
+   committed-rev="10"
+   name="JavadocLexer.html"
+   text-time="2005-03-02T06:14:26.343750Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="e1c57090ab09dbca05732486c5d37d0b"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:26.031250Z"/>
+<entry
+   committed-rev="10"
+   name="JavaRecognizer.html"
+   text-time="2005-03-02T06:14:26.390625Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="3b4f703a859e6c18ee7400ba5b66c065"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:26.062500Z"/>
+<entry
+   committed-rev="10"
+   name="ClassRepositoryEntry.Info.html"
+   text-time="2005-03-02T06:14:26.156250Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="e635b0f3a643f70c1a33a0ce52f74331"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:25.703125Z"/>
+<entry
+   committed-rev="10"
+   name="Type.html"
+   text-time="2005-03-02T06:14:26.156250Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="f4fb6d11f415550239102b66063aa48d"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:25.718750Z"/>
+<entry
+   committed-rev="10"
+   name="MethodType.html"
+   text-time="2005-03-02T06:14:26.171875Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="5049e91b670d2176716427f353091f09"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:25.734375Z"/>
+<entry
+   committed-rev="10"
+   name="Parser.html"
+   text-time="2005-03-02T06:14:26.234375Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="fc68be458bd243a8bd6b43791f0469e3"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:25.859375Z"/>
+<entry
+   committed-rev="10"
+   name="JavaParser.html"
+   text-time="2005-03-02T06:14:26.250000Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="1be9a0c7790e30a42b3290227fee96c5"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:25.875000Z"/>
+<entry
+   committed-rev="10"
+   name="ModifierType.html"
+   text-time="2005-03-02T06:14:26.281250Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="3eb7a39ab7594cb42fba978c085f8ece"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:25.906250Z"/>
+<entry
+   committed-rev="10"
+   name="CodeInspector.html"
+   text-time="2005-03-02T06:14:26.296875Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="a5cd3efe5d957522724cca9bedb90086"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:25.937500Z"/>
+<entry
+   committed-rev="10"
+   name="Position.html"
+   text-time="2005-03-02T06:14:26.296875Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="684eb8e3752d676dbceaa62d016c9fa9"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:25.937500Z"/>
+<entry
+   committed-rev="10"
+   name="ClassRepository.html"
+   text-time="2005-03-02T06:14:26.312500Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="b23bf3726448648951f7113fb16346a6"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:25.953125Z"/>
+<entry
+   committed-rev="10"
+   name="JavaTokenTypes.html"
+   text-time="2005-03-02T06:14:26.359375Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="99ae81a8aa2b6c505c05d40ca604dc36"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:26.031250Z"/>
+<entry
+   committed-rev="10"
+   name="Annotation.html"
+   text-time="2005-03-02T06:14:26.390625Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="cb4d714efe67558a994a577b3ed29cbc"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:26.078125Z"/>
+</wc-entries>

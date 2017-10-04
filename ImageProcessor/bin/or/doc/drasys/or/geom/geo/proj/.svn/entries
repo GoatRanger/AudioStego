@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="33"
+   name=""
+   committed-date="2005-02-01T06:11:53.421875Z"
+   url="svn://192.168.2.2/ImageProcessor/src/or/doc/drasys/or/geom/geo/proj"
+   last-author="Karl"
+   kind="dir"
+   uuid="0daf4267-3229-f84b-9084-f3c94b025f38"
+   revision="55"/>
+<entry
+   committed-rev="33"
+   name="Mercator.html"
+   text-time="2005-03-02T06:25:33.671875Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="b42c1757cce9ff551195f6b98a84d2ad"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:33.515625Z"/>
+<entry
+   committed-rev="33"
+   name="Projection.html"
+   text-time="2005-03-02T06:25:33.687500Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="a672aeec3165b965d46f16896eb6944f"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:33.531250Z"/>
+<entry
+   committed-rev="33"
+   name="WS_FTP.LOG"
+   text-time="2005-03-02T06:25:33.703125Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="9855cbf6e0720324104fe32df754e4a4"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:33.546875Z"/>
+<entry
+   committed-rev="33"
+   name="LambertConic.html"
+   text-time="2005-03-02T06:25:33.703125Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="f18ae359b821388136dbc24e6e0e3e05"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:33.546875Z"/>
+<entry
+   committed-rev="33"
+   name="package-frame.html"
+   text-time="2005-03-02T06:25:33.718750Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="afd945496d3ea4dccdd3a5fd940745a9"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:33.562500Z"/>
+<entry
+   committed-rev="33"
+   name="ConicI.html"
+   text-time="2005-03-02T06:25:33.718750Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="15280bba2e7abc53737c819b27382737"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:33.562500Z"/>
+<entry
+   committed-rev="33"
+   name="ProjectionI.html"
+   text-time="2005-03-02T06:25:33.734375Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="5ef09efb7cd346061544cf2b3308b3db"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:33.578125Z"/>
+<entry
+   committed-rev="33"
+   name="package-summary.html"
+   text-time="2005-03-02T06:25:33.734375Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="e4254ee23e0ce89196d9a60e8ecdc858"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:33.593750Z"/>
+<entry
+   committed-rev="33"
+   name="Albers.html"
+   text-time="2005-03-02T06:25:33.750000Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="34a4317fa671ea892401cef08c152f9d"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:33.609375Z"/>
+<entry
+   committed-rev="33"
+   name="package-tree.html"
+   text-time="2005-03-02T06:25:33.765625Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="c9c3dc8ab4eed86a2f8ff3ffdd6ec1dd"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:33.625000Z"/>
+<entry
+   committed-rev="33"
+   name="Conic.html"
+   text-time="2005-03-02T06:25:33.765625Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="03459d3445f9051f42f144dcec5979e7"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:33.671875Z"/>
+</wc-entries>

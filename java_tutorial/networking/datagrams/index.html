@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>All About Datagrams</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="../sockets/index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#datagrams" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="definition.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+
+<br>
+<font size="-1">
+<b>Trail</b>: Custom Networking
+</font>
+
+<h2>
+Lesson: All About Datagrams
+</h2>
+<blockquote>
+Some applications that you write to communicate over the network will
+not require the reliable, point-to-point channel provided by TCP.
+Rather, your applications might benefit from a mode of communication
+that delivers independent packages of information whose arrival and
+order of arrival are not guaranteed.
+<p>
+The UDP protocol provides a mode of network communication whereby
+applications send packets of data, called datagrams, to one another. A
+datagram is an independent, self-contained message sent over the
+network whose arrival, arrival time, and content are not guaranteed.
+The <code>DatagramPacket</code> and <code>DatagramSocket</code>
+classes in the <code>java.net</code> package
+implement system-independent datagram communication using UDP.
+
+</blockquote>
+<h3><a href="definition.html">What Is a Datagram?</a></h3>
+<blockquote>
+A datagram is an independent, self-contained message sent over
+the network whose arrival, arrival time, and content are not
+guaranteed.
+</blockquote>
+
+<h3><a href="clientServer.html">Writing a Datagram Client and Server</a></h3>
+<blockquote>
+This section walks you through an example that contains two Java
+programs that use datagrams to communicate. The server side is a quote
+server that listens to its <code>DatagramSocket</code> and sends a quotation to a
+client whenever the client requests it. The client side is a simple
+program that simply makes a request of the server.
+</blockquote>
+
+<h3><a href="broadcasting.html">Broadcasting to Multiple Recipients</a></h3>
+<blockquote>
+This section modifies the quote server so that
+instead of sending a quotation to a single client upon request, the
+quote server broadcasts a quote every minute to as many clients as are
+listening. The client program must be modified accordingly.
+</blockquote>
+
+
+<blockquote><hr><strong>Note:</strong>&nbsp;
+Many firewalls and routers are configured not to allow UDP packets. If
+you have trouble connecting to a service outside your firewall, or if
+clients have trouble connecting to your service, ask your system
+administrator if UDP is permitted.
+<hr></blockquote>
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="../sockets/index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#datagrams" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="definition.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

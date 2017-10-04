@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.publics.DJIUI.DJIRelativeLayout xmlns:android="http://schemas.android.com/apk/res-auto" pilot:background="@drawable/selector_fn_item" pilot:paddingLeft="@dimen/rp" pilot:paddingRight="@dimen/n3" pilot:layout_width="match_parent" pilot:layout_height="match_parent">
+    <dji.publics.DJIUI.DJITextView pilot:textSize="@dimen/rq" pilot:id="@id/q6" pilot:layout_height="UNKNOWN_DATA_0x7f0b0456" pilot:layout_centerVertical="true" style="@style/bm" />
+    <dji.publics.DJIUI.DJIImageView pilot:id="@id/b1n" pilot:background="@drawable/arrow_right" pilot:layout_width="wrap_content" pilot:layout_height="wrap_content" pilot:layout_alignParentRight="true" pilot:layout_centerVertical="true" pilot:contentDescription="@string/app_name" />
+    <dji.publics.DJIUI.DJIImageView pilot:id="@id/b1o" pilot:padding="@dimen/n3" pilot:layout_width="UNKNOWN_DATA_0x7f0b0456" pilot:layout_height="UNKNOWN_DATA_0x7f0b0456" pilot:layout_marginRight="@dimen/n3" pilot:scaleType="centerInside" pilot:adjustViewBounds="true" pilot:layout_toLeftOf="@id/b1n" pilot:contentDescription="@string/app_name" />
+    <dji.publics.DJIUI.DJITextView pilot:textSize="@dimen/rq" pilot:id="@id/b1p" pilot:layout_height="UNKNOWN_DATA_0x7f0b0456" pilot:layout_marginRight="@dimen/n2" pilot:layout_toLeftOf="@id/b1n" pilot:layout_centerVertical="true" style="@style/bm" />
+</dji.publics.DJIUI.DJIRelativeLayout>

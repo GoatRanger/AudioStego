@@ -1,0 +1,221 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Answers to Questions and Exercises: Creating and Using Packages</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="../QandE/packages-questions.html" target="_top"><img src="../../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../../TOC.html#interpack" target="_top"><img src="../../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+</td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="../index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../../search.html" target="_top">Search</a>
+<br><a href="../../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+
+<img src="../../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<font size="-1">
+<b>Trail</b>: Learning the Java Language
+<br>
+<b>Lesson</b>: Interfaces and Packages 
+</font>
+
+<h2>
+Answers to Questions and Exercises: Creating and Using Packages
+</h2>
+<blockquote>
+</blockquote>
+<H3>Answers</H3>
+<blockquote>
+<FONT COLOR="RED">Question 1:</FONT> Assume that you have written some classes. Belatedly, you 
+decide that they should be split into three packages, as 
+listed in the table below. Furthermore, assume that the 
+classes are currently in the default package (they have 
+no <code>package</code> statements).
+<blockquote>
+<TABLE BORDER CELLSPACING=1 CELLPADDING=3 WIDTH=300>
+<TR><TD WIDTH="60%" VALIGN="TOP">
+<B><FONT SIZE=3><P ALIGN="JUSTIFY">Package Name</code></B></FONT></TD>
+<TD WIDTH="40%" VALIGN="TOP">
+<B><FONT SIZE=3><P ALIGN="JUSTIFY">Class Name</code></B></FONT></TD>
+</TR>
+<TR><TD WIDTH="60%" VALIGN="TOP">
+<FONT SIZE=3><P ALIGN="JUSTIFY"><code>mygame.server</code></FONT></TD>
+<TD WIDTH="40%" VALIGN="TOP">
+<FONT SIZE=3><P ALIGN="JUSTIFY"><code>Server</code></FONT></TD>
+</TR>
+<TR><TD WIDTH="60%" VALIGN="TOP">
+<FONT SIZE=3><P ALIGN="JUSTIFY"><code>mygame.shared</code></FONT></TD>
+<TD WIDTH="40%" VALIGN="TOP">
+<FONT SIZE=3><P ALIGN="JUSTIFY"><code>Utilities</code></FONT></TD>
+</TR>
+<TR><TD WIDTH="60%" VALIGN="TOP">
+<FONT SIZE=3><P ALIGN="JUSTIFY"><code>mygame.client</code></FONT></TD>
+<TD WIDTH="40%" VALIGN="TOP">
+<FONT SIZE=3><P ALIGN="JUSTIFY"><code>Client</code></FONT></TD>
+</TR>
+</TABLE>
+<P>
+
+a. What line of code will you need to add to each source 
+file to put each class in the right package?
+<br>
+<FONT COLOR="GREEN">Answer 1a:</FONT> The first line of each file 
+must specify the package:
+<dl>
+<dt>In <code>Client.java</code> add: </dt>
+<dd>
+<code>package mygame.client;</code></dd>
+
+<dt>In <code>Server.java</code> add:</dt>
+<dd>
+<code>package mygame.server;</code>:</dd>
+
+<dt>In <code>Utilities.java</code> add:</dt>
+<dd>
+<code>package mygame.shared;</code></dd>
+</dl>
+
+b. To adhere to the directory structure, you will need to 
+create some subdirectories in your development directory, 
+and put source files in the correct subdirectories. What 
+subdirectories must you create?  Which subdirectory does 
+each source file go in?
+<br>
+<FONT COLOR="GREEN"> Answer 1b:</FONT> Within the <code>mygame</code> 
+directory, you need to create three subdirectories:  
+<code>client</code>, 
+<code>server</code>, and 
+<code>shared</code>.  
+
+<dl>
+<dt>In <code>mygame/client/</code> place:</dt>
+<dd>
+<code> Client.java</code></dd>
+
+<dt>In <code>mygame/server/</code> place:</dt>
+<dd>
+<code>Server.java</code></dd>
+
+<dt>In <code>mygame/shared/</code> place:</dt>
+<dd>
+<code>Utilities.java</code></dd>
+</dl>
+
+
+c. Do you think you'll need to make any other changes to 
+the source files to make them compile correctly? 
+If so, what?
+<br>
+<FONT COLOR="GREEN"> Answer 1c:</FONT> Yes, you need to add import statements. 
+ <code>Client.java</code> and <code>Server.java</code> need to import the
+ <code>Utilities</code> class, which they can do in one of two ways: 
+<blockquote><pre>
+import mygame.shared.*;
+import mygame.shared.Utilities;
+</pre></blockquote>
+
+</blockquote>
+
+</blockquote>
+
+<H3>Exercises</H3>
+<blockquote>
+<FONT COLOR="RED">Exercise 1:</FONT> Download three source files:
+<ul>
+<li>
+<a target="_blank" href="question/Client.java"><font color="#bb000f"><code>Client</code></font></a><a target="_blank" href="question/Client.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a><li>
+<a target="_blank" href="question/Server.java"><font color="#bb000f"><code>Server</code></font></a><a target="_blank" href="question/Server.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a><li>
+<a target="_blank" href="question/Utilities.java"><font color="#bb000f"><code>Utilities</code></font></a><a target="_blank" href="question/Utilities.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a></ul>
+
+<BLOCKQUOTE>
+a. Implement the changes you proposed in question 1, 
+using the source files you just downloaded.
+<br>
+
+b. Compile the revised source files. (<I>Hint:</I> 
+If you're invoking the compiler from the command line 
+(as opposed to using a builder), invoke the compiler from 
+the directory that contains the <code>mygame</code> directory 
+you just created.)
+</blockquote>
+
+<FONT COLOR="GREEN"> Answer 1:</FONT> Download this zip file with the solution:
+<a href="mygame.zip">mygame.zip</a><BR> 
+You might need to change your proposed import code to reflect our implementation.
+
+<P>
+
+
+
+</blockquote>
+
+</blockquote>
+
+<img src="../../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="../QandE/packages-questions.html" target="_top"><img src="../../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../../TOC.html#interpack" target="_top"><img src="../../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+</td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="../index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../../search.html" target="_top">Search</a>
+<br><a href="../../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

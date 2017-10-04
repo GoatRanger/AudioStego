@@ -1,0 +1,270 @@
+/*
+ * Created on Sep 24, 2004
+ *
+ * This class implements the Opinion based subjective logic.
+ */
+/** 
+ * This logic was first described by Audun Josang.<br>
+ * A. Jøsang. <i>A Logic for Uncertain Probabilities.</i> 
+ * International Journal of Uncertainty, Fuzziness and Knowledge-Based Systems. 9(3), pp.279-311, June 2001.
+ * 
+ * A brief description of this technique, extracted from the above resource:
+ * <blockquote>In this paper we describe subjective logic (see Jøsang 1997 for an earlier version) as
+ * a logic which operates on subjective beliefs about the world, and use the term opinion
+ * to denote the representation of a subjective belief. Subjective logic operates on opinions
+ * and contains standard logical operators in addition to some non-standard operators which
+ * specifically depend on belief ownership. An opinion can be interpreted as a probability
+ * measure containing secondary uncertainty, and as such subjective logic can be seen as an
+ * extension of both probability calculus and binary logic.</blockquote>
+ * 
+ * Functions compared with, and special cases added, based on Subjective Logic-API from 
+ * <a href="http://security.dstc.edu.au/spectrum/sl-api/">DSTC - http://security.dstc.edu.au/spectrum/sl-api/</a>.
+ *
+ */
+package ai.subjlogic;
+
+/** Subjective Logic manager */
+public class Opinion implements Comparable {
+    double belief;
+    double disbelief;
+    double uncertainty;
+    double atomicity;
+    
+    public Opinion () {
+        belief = 0.0;
+        disbelief = 0.0;
+        uncertainty = 0.0;
+        atomicity = 0.0;
+    }
+    
+    public Opinion (double belief, double disbelief, double ignorance)
+    throws IllegalArgumentException {
+        this(belief, disbelief, ignorance, 0.0);
+    }
+    
+    public Opinion (double belief, double disbelief, double ignorance, double atomicity)
+    	throws IllegalArgumentException {
+            if (Math.round (belief+disbelief+ignorance)!=1) {
+                System.out.println ("Inconsistent Opinion!");
+                throw new IllegalArgumentException ("Inconsistent Opinion");
+            }
+            this.belief = belief;
+            this.disbelief = disbelief;
+            this.uncertainty = ignorance;
+            this.atomicity = atomicity;
+    }
+    
+    public Opinion (Opinion b) {
+        this.belief = b.belief;
+        this.disbelief = b.disbelief;
+        this.uncertainty = b.uncertainty;
+        this.atomicity = b.atomicity;
+    }
+    
+    public double getBelief () {
+        return belief;
+    }
+    
+    public double getUncertainty () {
+        return uncertainty;
+    }
+    
+    public void change (double belief, double disbelief, double ignorance) {
+        this.belief += belief;
+        this.disbelief += disbelief;
+        this.uncertainty += ignorance;
+    }
+    
+    /** Returns a new opinion about two propositions being true.  Assumes
+     * that this proposition and the passed proposition are different.
+     *
+     * @param b          The second proposition
+     *
+     * @return           A new opinion on the truth of this proposition and
+     *                   proposition b
+     */
+    public Opinion conjunction (Opinion b) {
+        Opinion conjunct = new Opinion ();
+        conjunct.belief = this.belief * b.belief;
+        conjunct.disbelief = this.disbelief + b.disbelief
+        - (this.disbelief * b.disbelief);
+        conjunct.uncertainty = this.belief * b.uncertainty +
+        	this.uncertainty * b.belief +
+			this.uncertainty * b.uncertainty;
+        if (this.uncertainty!=0) {
+	        conjunct.atomicity = 
+	        	( this.belief*b.uncertainty*b.atomicity
+			    + this.uncertainty*this.atomicity*b.belief
+				+ this.uncertainty*this.atomicity*b.uncertainty*b.atomicity)
+				/ (conjunct.uncertainty);
+        } else if (this.uncertainty == 0.0 && b.uncertainty == 0.0) {
+        	conjunct.atomicity = (b.atomicity*this.belief +
+        		this.atomicity*b.belief)/(this.belief + b.belief);
+        } else if (this.disbelief == 1.0) {
+        	conjunct.atomicity = this.atomicity;
+        } else if (b.disbelief == 1.0) {
+        	conjunct.atomicity = b.atomicity;
+        } else {
+        	conjunct.atomicity = 0.5;
+        }
+        return conjunct;
+    }
+    
+    /** Returns a new opinion about whether either of the two opinions are
+     * true.
+     *
+     * @param b          The second proposition
+     *
+     * @return           A new opinion on the truth of this proposition or
+     *                   proposition b
+     */
+    public Opinion disjunction (Opinion b) {
+        Opinion disjunct = new Opinion ();
+        disjunct.belief = this.belief + b.belief
+        - (this.belief * this.belief);
+        disjunct.disbelief = this.disbelief * b.disbelief;
+        disjunct.uncertainty = this.disbelief * b.uncertainty
+        + this.uncertainty * b.disbelief
+        + this.uncertainty * b.uncertainty;
+        return disjunct;
+    }
+    
+    /** Returns the negation of an opinion.  Represents the opinion about
+     * this opinion being false.
+     *
+     * @return           The negation of this opinion
+     */
+    public Opinion negation () {
+        Opinion negate = new Opinion ();
+        negate.belief = this.disbelief;
+        negate.disbelief = this.belief;
+        negate.uncertainty = this.uncertainty;
+        negate.atomicity = 1 - this.atomicity;
+        
+        return negate;
+    }
+    
+    public Opinion consensus (Opinion b) {
+    	return consensus(b,1.0);
+    }
+    
+    /** Returns the consensus between two opinions.  Both opinions cannot
+     * have 0 ignorance (0 ignorance indicates that the opinion has already
+     * committed to belief or disbelief).
+     *
+     * @param b         The second opinion
+     * @param rd        Relative dogmatism
+     *
+     * @return          The consensus opinion
+     */
+    public Opinion consensus (Opinion b, double rd) {
+        Opinion consent = new Opinion ();
+        
+        double kappa = this.uncertainty + b.uncertainty
+        - (this.uncertainty * b.uncertainty);
+        if (kappa == 0) {
+        	consent.belief = (rd * this.belief + b.belief)/(rd+1);
+        	consent.disbelief = (rd * this.disbelief + b.disbelief)/(rd+1);
+        	consent.uncertainty = 0;
+        	consent.atomicity = (rd * b.atomicity + this.atomicity)/(rd+1);
+        	//return new Opinion (0.0,0.0,1.0);
+        } else {
+        	// Look at SL-API for a potential extension here (commented)
+        	//if (kappa - this.uncertainty*b.uncertainty != 0) {
+		        consent.belief = (this.belief * b.uncertainty
+		        + b.belief * this.uncertainty) / kappa;
+		        consent.disbelief = (this.disbelief * b.uncertainty
+		        + b.disbelief * this.uncertainty) / kappa;
+		        consent.uncertainty = (this.uncertainty * b.uncertainty) / kappa;
+		        consent.atomicity = (b.atomicity*this.uncertainty + 
+				   this.atomicity * b.uncertainty - 
+				   (this.atomicity+b.atomicity)*this.uncertainty*b.uncertainty)/(kappa-this.uncertainty*b.uncertainty);
+//        	} else {
+//        		if (this.atomicity == b.atomicity) {
+//        			
+//        		}
+//        	}
+        }
+        return consent;
+    }
+    
+    /** Returns a new opinion based on a recommendation about this opinion.
+     * Assumes this is an opinion about some proposition, and the passed
+     * opinion is an opinion about the performance of this recommender.
+     *
+     * @param b        An opinion about this agent's recommendations
+     *
+     * @return         The recommendation
+     */
+    public Opinion recommendation (Opinion b) {
+        Opinion recommend = new Opinion ();
+        
+        recommend.belief = this.belief * b.belief;
+        recommend.disbelief = b.belief * this.disbelief;
+        recommend.uncertainty = b.disbelief + b.uncertainty
+        + b.belief * this.uncertainty;
+        
+        return recommend;
+    }
+    
+    public boolean equals (Object o) {
+        if (!(o instanceof Opinion)) return false;
+        Opinion b = (Opinion)o;
+        double v1 = roundTo (belief-b.belief,2);
+        double v2 = roundTo (disbelief-b.disbelief,2);
+        double v3 = roundTo (uncertainty-b.uncertainty,2);
+        return (v1==0 && v2==0 && v3==0);
+    }
+    
+    /** Returns the maximum of this opinion and the supplied opinion */
+    public Opinion max (Opinion b) {
+        double first = (this.belief + this.uncertainty) /
+        (this.belief + this.disbelief + 2 * this.uncertainty);
+        double second = (b.belief + b.uncertainty) /
+        (b.belief + b.disbelief + 2 * b.uncertainty);
+        if (first == second) {
+            if (this.uncertainty < b.uncertainty) return new Opinion (this);
+            else return new Opinion (b);
+        }
+        if (second < first) return new Opinion (this);
+        return new Opinion (b);
+    }
+    
+    /** Compares two opinions
+     *
+     * @param o      Compare this opinion to opinion o
+     * @return       -1 if this opinion is less, 1 if greater, 0 if equal
+     */
+    public int compareTo (Object o) {
+        Opinion b = (Opinion)o;
+        
+        Double first = new Double ((this.belief + this.uncertainty) /
+        (this.belief + this.disbelief + 2 * this.uncertainty));
+        Double second = new Double ((b.belief + b.uncertainty) /
+        (b.belief + b.disbelief + 2 * b.uncertainty));
+        Double fi = new Double (this.uncertainty);
+        Double si = new Double (b.uncertainty);
+        if (first.equals (second)) return (fi.compareTo (si));
+        return second.compareTo (first);
+    }
+    
+    private double roundTo (double val, int digits) {
+        double temp;
+        temp = (double)(((int) (val * Math.pow (10,digits)))
+        / (double)Math.pow (10,digits));
+        return temp;
+    }
+    
+    
+    public String toString () {
+        return ("Belief: " + roundTo (belief,2) + ", Disbelief: "
+        + roundTo (disbelief,2) + ", Uncertainty: "
+        + roundTo (uncertainty,2) + ", Atomicity: " + roundTo(atomicity,2));
+    }
+	public double getAtomicity() {
+		return atomicity;
+	}
+	public double getDisbelief() {
+		return disbelief;
+	}
+}

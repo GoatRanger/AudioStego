@@ -1,0 +1,411 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Language" content="en-us" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>CSS Reference</title>
+	  <link rel="stylesheet" type="text/css" href="handbook.css" />
+    <link rel="stylesheet" type="text/css" href="samples.css" />
+ 
+	</head>
+  <body>
+    <div id="header">
+      <h1 class="overlay"><a id="CK">CSS Reference</a></h1>
+    </div>
+    <div id="main">
+      <h2><a id="K.1">K.1 CSS Attributes</a></h2>
+      <h2><a id="K.2">K.2 Fonts</a>(CSS)</h2>
+			<p>This is a shorthand property notation based on a traditional typography shorthand method of specifying values for multiple properties related to fonts ('font-style', 'font-variant', 'font-weight', 'font-size', 'line-height', and 'font-family'.) Defaults for this shorthand method match those used for each property listed individually. If properties are omitted from this shorthand notation, they are assumed to carry their individual default values. CSS2 introduces the capability of setting a font to a system font via this property. This capability is only possible with the 'font' shorthand (they can't be set with 'font-family') - altering the capability of this property to be more than the sum of the other individual properties it can set. After setting a system font, individual font properties can be applied to the result to customize the font behavior. If an indicated system font type is not available a browser default font should be used.  </p>
+      <h3><a id="K.2.1">K.2.1 font-style</a></h3>
+		  <h4>What is it?</h4>
+      <p>
+        This property describes the font thickness of a section. Its value can be absolute or relative to the parent container thickness if it has one. Child elements inherit the resulting weight, not the keyword value. If the desired font-weight is not available to the browser, the nearest approximation should be used.  
+      </p>
+      <h4>Allowed Values</h4>
+		  <ul>
+				<li><em>normal: </em>This value indicates a font classified as 'normal' should be used (a font not italicized or obliqued.</li>
+				<li><em>italic: </em>A font specified as 'italic' (or a variant of type Cursive) should be used. If one is not available, an oblique font may be used in its place.</li>
+			</ul>
+			<h4>Example</h4>
+			<p style="font-style:italic">body { font-style: italic}</p>
+			
+      <h3><a id="K.2.2">K.2.2 font-weight</a></h3>
+		  <h4>What is it?</h4>
+      <p>
+        This property applies font effects to content in the current container. If the preferred style can not be accommodated, the browser should try to find the best match to the indicated effect. Italic and Oblique properties both result in an 'italic-like' appearance, but some font families require the use of the 'oblique' value instead of 'italic'. 
+      </p>
+      <h4>Allowed Values</h4>
+		  <ul>
+			  <li><em>100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900: </em>These values are absolute font weights on a scale. As such, it allows much greater control than the HTML element it replaces. The values 'normal' and 'bold' listed below map to 400 and 700 respectively.</li>
+				<li><em>normal | bold: </em>These values are simple toggles to allow an author to specify a section as bold or not bold.</li> 
+				<li><em>lighter | bolder: </em>These values select the next higher or lower value on the font weight scale relative to the weight inherited from the parent if possible.</li>
+			</ul>
+			<h4>Example</h4>
+			<p style="font-weight:900">body { font-weight: 900}</p>
+      <h3><a id="K.2.3">K.2.3 font-size</a></h3>
+		  <h4>What is it?</h4>
+      <p>
+        This property controls the size of text for a section. Objects within a section (such as Applets, Images and Horizontal Rules) are not affected by this property. The actual size of the font can be different than the value specified for 'font-size' due to interactions with the 'font-size-adjust' property. Child elements inherit the calculated value of the 'font-size' property.  
+      </p>
+      <h4>Allowed Values</h4>
+		  <ul>
+			  <li><em>xx-small | x-small | small | medium | large | x-large | xx-large: </em> These values are computed against a table of available font sizes compiled by the browser. Medium is the default value for the 'font-size' property and should be equivalent to the current browser default size. A scaling factor of 1.2 is suggested in CSS2 for adjacent keyword values.</li>
+				<li><em>smaller | larger: </em>This size change value is relative to the font size of the parent element but is limited in range to that allowed by the system.</li> 
+				<li><em>[length]: </em>Refers to either the length in relation to the current element or an absolute measurement. Negative values are not allowed.</li> 
+				<li><em>[percentage]: </em>Refers to a percentage of the font size of the parent element.</li> 
+			</ul>			
+			<h4>Example</h4>
+			<p style="font-size:xx-large">body { font-size:xx-large}</p>
+      <h3><a id="K.2.4">K.2.4 font-family</a></h3>
+		  <h4>What is it?</h4>
+      <p>
+        A 'font-family' is a group of fonts that exhibit similar characteristics. The 'font-family' property indicates a prioritized list of specific/generic font family names to use to display text content in the current container. At least one specific or general font family must be given. If the specified font does not exist, or the necessary glyph is not available in the specified font, the next font is tried. This process continues through the prioritized list until no more are available. If no match is made, the browser default font family should be used.   
+      </p>
+      <h4>Allowed Values</h4>
+		  <ul>
+			  <li><em>serif | sans-serif | cursive | fantasy | monospace: </em>These values refer to generic font families that have certain visual characteristics. Browsers will attempt to map an existing font for the selection using this generic family specification. It is recommended to offer a generic font family value as a last alternative after specifying specific font family names.</li> 
+				<li><em>[specific font-family]: </em>This value will be a string identifying a specific font. Font names containing white space should be quoted (else the value is normalized.) 
+				   <ul>
+					    <li style="font-family:'Abadi MT Condensed Light'">Abadi MT Condensed Light</li>					 
+					    <li style="font-family:'Andale Mono'">Andale Mono</li>
+							<li style="font-family:Arial">Arial</li>
+							<li style="font-family:'Arial Black'">Arial Black</li>
+							<li style="font-family:'Arial Narrow'">Arial Narrow</li>
+							<li style="font-family:'Arial Rounded MT'">Arial Rounded MT</li>
+							<li style="font-family:'Arial Unicode MS'">Arial Unicode MS</li>
+							<li style="font-family:'Book Antiqua'">Book Antiqua</li>
+							<li style="font-family:'Bookman Old Style'">Bookman Old Style</li>
+							<li style="font-family:Braggadocio">Braggadocio</li>
+							<li style="font-family:'Britannic Bold'">Britannic Bold</li>
+							<li style="font-family:'Brush Script MT'">Brush Script MT</li>
+							<li style="font-family:'Calisto MT'">Calisto MT</li>
+							<li style="font-family:'Century Gothic'">Century Gothic</li>
+							<li style="font-family:'Century Schoolbook'">Century Schoolbook</li>
+							<li style="font-family:'Colonna MT'">Colonna MT </li>
+							<li style="font-family:'Comic Sans MS'">Comic Sans MS </li>
+							<li style="font-family:'Copperplate Gothic Bold'">Copperplate Gothic Bold</li>
+							<li style="font-family:'Courier New'">Courier New</li>
+							<li style="font-family:Desdemona">Desdemona</li>
+							<li style="font-family:'Footlight MT Light'">Footlight MT Light</li>
+							<li style="font-family:Garamond">Garamond</li>
+							<li style="font-family:Georgia">Georgia</li>
+							<li style="font-family:Haettenschweiler">Haettenschweiler</li>
+							<li style="font-family:Impact">Impact</li>
+							<li style="font-family:'Kino MT'">Kino MT</li>
+							<li style="font-family:'Lucida Console'">Lucida Console</li>
+							<li style="font-family:'Lucida Handwriting'">Lucida Handwriting</li>
+							<li style="font-family:'Lucida Sans Unicode'">Lucida Sans Unicode</li>
+							<li style="font-family:'Matura MT Script Capitals'">Matura MT Script Capitals</li>
+							<li style="font-family:'News Gothic MT'">News Gothic MT </li>
+							<li style="font-family:'OCR A Extended'">OCR A Extended</li>
+							<li style="font-family:Playbill">Playbill</li>
+							<li style="font-family:Tahoma">Tahoma</li>
+							<li style="font-family:Terminal">Terminal</li>
+							<li style="font-family:'Times New Roman'">Times New Roman</li>
+							<li style="font-family:'Trebuchet MS'">Trebuchet MS</li>
+							<li style="font-family:Verdana">Verdana</li>
+							<li style="font-family:'Wide Latin'">Wide Latin</li>							
+					 </ul>
+				</li>
+				 
+			</ul>			
+			<h4>Example</h4>
+			<p STYLE="font-family: Courier, 'Courier New', monospace">body { font-family: Courier, 'Courier New', monospace}</p>				 	
+      <h2><a id="K.3">K.3 Text</a></h2>
+			<p>These properties control the visual appearance and presentation of text content (characters, words, blocks and the spacing between them.) Some of the special physical formatting effects from HTML have found their home in the Text properties.  </p>
+      <h3><a id="K.3.1">K.3.1 text-align</a></h3>
+		  <h4>What is it?</h4>
+      <p>
+        This property details how text will be horizontally aligned within the current element.    
+      </p>
+      <h4>Allowed Values</h4>
+		  <ul>
+			  <li><em>left: </em>Left aligns all text in the current element.</li> 
+			  <li><em>right: </em>Right aligns all text in the current element. </li>
+			  <li><em>center: </em>Center aligns all text in the current element. </li>
+			  <li><em>justify: </em>Applies double text justification to all text content in the current element.</li>  
+			</ul>			
+			<h4>Example</h4>
+			<p style="text-align: center">p {text-align: center; }</p>	
+      <h3><a id="K.3.2">K.3.2 text-decoration</a></h3>
+		  <h4>What is it?</h4>
+      <p>This property describes the appearance characteristics of text that are not specified with the 'font-style' and 'font-weight' properties. The color of the text-decoration is taken from the 'color' property for the element. The characteristics of this property ARE used by child elements if the parent element is set to block. If this property is specified for an element/section containing no text (like the IMG element) or is empty, this property has no effect. Browsers may treat unknown values as underline.   
+      </p>
+      <h4>Allowed Values</h4>
+		  <ul>
+			  <li><em>none: </em>This adds no decoration to the section. 
+			  <li><em>underline: </em>The text in the section will be underlined. </li>
+			  <li><em>overline: </em> The text in the section should have a line at the top of the text. </li>
+			  <li><em>line-through: </em>The text in the section will have a line through the middle (strikethrough text.)</li>  
+			</ul>			
+			<h4>Example</h4>
+			<p style="text-decoration: line-through">p {text-decoration: line-through; }</p>
+			<h3><a id="K.3.3">K.3.3 text-indent</a></h3>
+		  <h4>What is it?</h4>
+      <p>This property specifies the horizontal indent from the left side of the current parent Block Element for the first line in the current Block. The indent is only applied at the beginning of the block and not after any intervening line-breaking elements (like BR.)     
+      </p>
+      <h4>Allowed Values</h4>
+		  <ul>
+			  <li><em>[length]: </em> This is an absolute value to determine text indenting. Negative values are allowed, but browsers may have limits to behavior in such situations. Consult the Units Page for acceptable length unit systems.</li> 
+			  <li><em>[percentage]: </em> This number is a multiplier used to determine the text-indent relative to the parent block's width. </li>
+			</ul>			
+			<h4>Example</h4>
+			<p style="text-indent: 5%;">p {text-indent: 5%; } This property specifies the horizontal indent from the left side of the current parent Block Element for the first line in the current Block. The indent is only applied at the beginning of the block and not after any intervening line-breaking elements (like &lt;br /&gt;.)</p>					
+			<h2><a id="K.4">K.4 Lists</a></h2>
+			<p>Lists are used to organize and render one or more data items with some relationship to each other. With a list structure, extra information is used to give some indication of the degree of relationship between the items. 
+But this extra information is not actually stored in the document itself, it is generated automatically when it is rendered. List structures generate two blocks for each item of rendered data - a box for each data item, along with a separate marker box for the visual list iteration object (such as a bullet, number, or image) that is created by the system. The list properties control the type and placement of the marker box in list contexts. 
+</p>
+			<h3><a id="K.4.1">K.4.1 list-style-type</a></h3>
+		  <h4>What is it?</h4>
+      <p>This property is used when the author wishes to change the default appearance of list-markers in HTML list structures. If a 'list-style-image' property is also given and it has a value of 'none' or the URL can not be loaded, the 'list-style-type' property value will be used in its place. This property should always be specified in the event the URL pointed to in 'list-style-image' can not be loaded. If a value for this property is not understood, the value 'decimal' should be used. <br />
+							NOTE: <br />
+							Although the CSS specs say that this property is inherited, in practice it is a different matter. IE, Netscape and Opera all treat this as a non-inherited property - nested lists do not inherit the list-style-type from the parent.      
+      </p>
+      <h4>Allowed Values and Example</h4>
+			<p> ol {list-style-type: upper-roman;}
+		  <ol style="list-style-type: upper-roman;">
+			  <li><em>none: </em>No list-marker will be displayed for each list item.</li> 
+			  <li><em>disc | circle | square: </em>This specifies standard symbols to use as non-ordered list markers. For each successive list-item, the symbol will remain the same.<br />
+				   - 'disc': Solid bullet<br />
+					 - 'circle': Hollow bullet.<br />
+					 - 'square': Solid square. </li>
+			  <li><em>decimal: </em>This specifies a standard set of symbols to use as ordered list markers. The values increment with each successive list item using a numeric sequence, eg: decimal integers - 1, 2, 3, 4, 5,...</li> 
+			  <li><em>decimal-leading-zero:</em>This specifies a standard set of symbols to use as ordered list markers. The values increment with each successive list item using a numeric sequence, eg: decimal integers padded by initial zeros - 01, 02, 03, 04, 05,...</li> 
+			  <li><em>lower-roman | upper-roman: </em>This specifies a standard set of symbols to use as ordered list markers. The values increment with each successive list item using an alpha-numeric sequence, eg:<br />
+				   lower-roman - i, ii, iii, iv, v,...<br />
+					 upper-roman - I, II, III, IV, V,... </li>
+			  <li><em>lower-alpha | upper-alpha: </em>This specifies a standard set of symbol systems to use as ordered list markers. The values increment with each successive list item using an alphabetic sequence, eg:<br />
+				   lower-alpha - a, b, c, d, e,...<br />
+					 upper-alpha - A, B, C, D, E,... </li>
+			</ol></p>			
+			<h3><a id="K.4.2">K.4.2 list-style-image</a></h3>
+		  <h4>What is it?</h4>
+      <p>This property indicates a graphic to be used for the list markers in the list structure. This should override the default appearance of list-markers in the current HTML list structure. If a 'list-style-image' is given a value of 'none' or the URL can not be loaded, the 'list-style-type' will be used in its place. The 'list-style-type' should always be specified in the event the URL pointed to in 'list-style-image' can not be loaded. 
+			</p>
+      <h4>Allowed Values and Example</h4>
+			<p> ol {list-style-image: url(images/sword.gif);}
+		  <ul style="list-style-image: url(images/sword.gif);">
+			  <li><em>none: </em>No list-marker will be displayed for each list item.</li> 
+			  <li><em>[url]: </em>This value indicates the URL source for the list-marker graphic. It can be either an absolute or relative URL. If the graphic can not be loaded, whatever 'list-style-type' property is set will be used. </li>
+			</ul></p>			
+			<h3><a id="K.4.3">K.4.3 list-style-position</a></h3>
+		  <h4>What is it?</h4>
+      <p>This property indicates a graphic to be used for the list markers in the list structure. This should override the default appearance of list-markers in the current HTML list structure. If a 'list-style-image' is given a value of 'none' or the URL can not be loaded, the 'list-style-type' will be used in its place. The 'list-style-type' should always be specified in the event the URL pointed to in 'list-style-image' can not be loaded. 
+			</p>
+      <h4>Allowed Values and Example</h4>
+			<p> ol {list-style-position: inside;}
+		  <ul style="list-style-position: inside;">
+			  <li><em>outside: </em>This specifies that all list item content will be rendered indented from the list-marker.</li> 
+			  <li><em>inside: </em> This renders wrapped content at a similar indentation level to the list-marker. </li>
+			</ul></p>		
+			<p> ol {list-style-position: outside;}
+		  <ul style="list-style-position: outside;">
+			  <li><em>outside: </em>This specifies that all list item content will be rendered indented from the list-marker.</li> 
+			  <li><em>inside: </em> This renders wrapped content at a similar indentation level to the list-marker. </li>
+			</ul></p>
+			<h2><a id="K.5">K.5 Border</a></h2>
+			<p>The border of any element can be modified.  You can explictly change any side of the border by using border-left, border-right,border-top, or border-bottom.  You need to include a style since the default is none. 
+      This is a shorthand property which allows an author to specify 'border-top-width', 'border-right-width', 'border-bottom-width', and 'border-left-width' properties using a single property and value notation (the values are given in this order separated by spaces.) If one or more of the values are not present, the value for a missing side is taken from the opposite side that is present. If only one value is listed, it applies to all sides.       
+      </p>
+      <h4>Allowed Values</h4>
+		  <ul>
+			  <li><a id="K.5.1">K.5.1 <em>[border-width]: </em></a>This is a shorthand property which allows an author to specify 'border-top-width', 'border-right-width', 'border-bottom-width', and 'border-left-width' properties using a single property and value notation (the values are given in this order separated by spaces.) If one or more of the values are not present, the value for a missing side is taken from the opposite side that is present. If only one value is listed, it applies to all sides. 
+            <ul> 
+			  			<li><em>thin | medium | thick: </em>Renders a "thin", "medium" or "thick" border for a side of the element's rendering box. The actual thickness of these border values is not specified, but "thin" should have a smaller thickness than "medium", which should have a smaller thickness than "thick".</li> 
+			  			<li><em>[length]: </em>Sets the width of the border for a side of the element's rendering box to an explicit measurement.</li> 
+						</ul></li>
+				<li><a id="K.5.2">K.5.2 <em>[border-style]: </em></a>This is a shorthand property which allows an author to specify 'border-top-style', 'border-right-style', 'border-bottom-style', and 'border-left-style' properties using a single property and value notation (the values are given in this order separated by spaces.) If one or more of the values are not present, the value for a missing side is taken from the opposite side that is present. If only one value is listed, it applies to all sides.
+				    <ul>
+						  <li><em>none: </em>No border is rendered. This overrides any value of 'border-width', if present.</li> 
+						  <li><em>dotted: </em>The border is rendered as a series of dots. </li>
+						  <li><em>dashed: </em>The border is rendered as a series of short lines.</li> 
+						  <li><em>solid: </em>Renders a solid line. </li>
+						  <li><em>groove: </em>Creates the effect of the border being grooved or carved in the rendering surface (A 3-D groove - the opposite of 'ridge'.) The groove bevel color is rendered based upon the value of the 'color' property.</li> 
+						  <li><em>ridge: </em>Creates the effect of the border being raised from the rendering surface (A 3-D ridge - the opposite of 'groove'.) The ridge bevel color is rendered based upon the value of the 'color' property. </li>
+						  <li><em>inset: </em>Creates the effect of the border being embedded in the rendering surface (A 3-D inset.) The inset bevel color is rendered based upon the value of the 'color' property. A distinction exists between this value and 'groove'.</li> 
+						  <li><em>outset: </em>Creates the effect of the border coming out of the rendering surface (A 3-D outset - the opposite of 'inset'.) The outset bevel color is rendered based upon the value of the 'color' property. A distinction exists between this value and 'ridge'.</li> 
+						  <li><em>double: </em>A double line drawn on top of the background of the element. The two lines with the space between adds up to the value of the 'border-width' property.</li> 
+					  </ul> 
+				<li><a id="K.5.3">K.5.3 <em>[border-color]: </em></a>This is a shorthand property which allows an author to specify 'border-top-color', 'border-right-color', 'border-bottom-color', and 'border-left-color' properties using a single property and value notation (the values are given in this order separated by spaces.) If one or more of the values are not present, the value for a missing side is taken from the opposite side that is present. If only one value is listed, it applies to all sides. If no border-color is specified for an element's border, the value of the 'color' property is used instead.  
+				    <ul>
+						  <li><em>[color]: </em>Sets the border to the indicated color value.</li> 
+						</ul>
+			<h4>Example</h4>
+			<p style="border-top: thin solid black;border-bottom: thin dashed red;border-left: 5px groove blue;border-right: 5px double green">p {border-top: thin solid black; ;border-bottom: thin dashed red;border-left: 2% groove blue;border-right: 5px double green; } </p>					
+ 			<h2><a id="K.6">K.6 Background</a></h2>
+			<p>This is a shorthand property notation for specifying information about how to display the background surface onto which content (images, text, etc.) is rendered. Backgrounds can be colors and/or images. If an image is specified, many choices are available to specify display behavior. Both a background color and image can be specified in the same property definition, but it is not required to have both. If URL behavior properties are listed without an accompanying URL, the values will be ignored. Although this property does not inherit, a parent element's background will shine through because of the default 'transparent' background-color value in the children elements. The background property is one of several shorthand properties that specify values controlling many aspects of display behavior. </p>
+ 			<h3><a id="K.6.1">K.6.1 background-color</a></h3>
+		  <h4>What is it?</h4>
+      <p>This value sets the background color for the current element. A 'background-color' can be specified either alone or in conjunction with a 'background-image'. When used with a background image, it can still serve several purposes: 1) to fill transparent regions of the background image, 2) for display while the background image is loading, 3) the browser has image loading capability turned off, and 4) if the background image display settings will not cover all of the browser display area. All the standard Color Units specification methods apply here.    
+      </p>
+      <h4>Allowed Values</h4>
+		  <ul>
+			  <li><em>[color]: </em>This is a representation of the values for Red/Green/Blue used to determine a final display color. Please see the section on Color Units for details on the various color specification schemes.</li> 
+			  <li><em>transparent: </em>This specifies that the parent element background/image will shine through if one exists, else the system default background/image value is used.</li> 
+			</ul>			
+			<h4>Example</h4>
+			<p style="background-color: green">p {background-color: green; }</p>	
+			<h3><a id="K.6.2">K.6.2 background-images</a></h3>
+		  <h4>What is it?</h4>
+      <p>This value indicates the URL source for the graphic. If this property is present, 'background-repeat', 'background-attachment' and 'background-position' properties can also be specified. Transparent portions of the background-image will assume the color value of any background-color specified.     
+      </p>
+      <h4>Allowed Values</h4>
+		  <ul>
+			  <li><em>[background-image]: </em>This value indicates the URL source for the graphic. If this property is present, 'background-repeat', 'background-attachment' and 'background-position' properties can also be specified. Transparent portions of the background-image will assume the color value of any background-color specified. 
+				  <ul>
+					  <li><em>[url]: </em>It can be either an absolute or relative URL. Please see the section on URL Units for details on how to indicate a URL within a Style Sheet.</li> 
+						<li><em>none: </em>No image is used as the background for the element.</li>
+					</ul>	 </li>
+				<li><em>[background-repeat]: </em>If a 'background-image' is specified, this value specifies how the image is repeated if the image is not large enough to cover the entire element. All image rendering covers the content and padding areas of the element's box.  
+				  <ul>
+					  <li><em>repeat: </em>Image is repeated (tiled) both vertically and horizontally.</li> 
+					  <li><em>repeat-x: </em>Image is repeated (tiled) horizontally only (to the left and right) of the originating position.</li> 
+					  <li><em>repeat-y: </em>Image is repeated (tiled) vertically only (upwards and downwards) of the originating position. </li>
+					  <li><em>no-repeat: </em>Image is not repeated. Only a single occurrence of the background image behind the current element is used, at the specified position.</li> 
+					</ul>	 </li>
+				<li><em>[background-attachment]: </em>If a 'background-image' is specified, this value indicates whether or not the background image will move when the browser window is scrolled to view text outside the current display area.  
+				  <ul>
+					  <li><em>scroll: </em> Background image moves when the browser window is scrolled to view text outside the current display area. </li>
+					  <li><em>fixed: </em>Background image does not move when the browser window is scrolled to view text outside the current display area.</li>
+					</ul>	 </li>
+				<li><em>[background-position]: </em>If a 'background-image' is specified, this complex parameter details the initial position of the background image specified in the browser window if it is not continuously tiled in the display area. The values for this property translate to space separated X/Y coordinates of the browser window. Minimum values are at the upper-left corner of the display area and maximum values are at the lower-right corner. These values are normally represented as a pair, but omitting a value is legal - the missing value is assumed to be the y-axis coordinate and is set to the default 'center' value.  
+				  <ul>
+					  <li><em>X% Y%: </em>Percentage is in reference to the dimensions of the box of the current element. Values specify the percentages on BOTH the image and the canvas and may be negative (eg: 20% 75% indicates the reference point 20% from the left side of the image, 75% from the top of the image is to be located at 20% from the left side of the element's rendering box and 75% from the top of the rendering box.)</li> 
+					  <li><em>X Y: </em>Represents absolute coordinate position of the image and may be negative. Standard Absolute or Relative Length Units may be used here.</li> 
+					  <li><em>[(left|center|right) (top|center|bottom)]: </em>Keywords representing screen positions. Left keyword is the X-position and the right keyword is the Y-position for the image.</li> 
+					</ul></li>	 
+ 			</ul>			
+			<h4>Example</h4>
+			<p>body {background-image: url(picture.jpg) repeat-y center center }</p>	
+ 			<h2><a id="K.7">K.7 Colors</a></h2>
+			<p>In the computer and publishing industries, many different syntaxes and methods have evolved to represent a color, whether it be by a conglomeration of color component values or by a friendly common name. Each of the methods available in CSS have a specific number of allowed values. When an attempt is made to render a color, it is displayed as specified, unless the presentation medium can not support it (for any number of reasons, such as limitations in the OS or video card capability.) In such a case the closest suitable match is used, or more commonly, the color value will be approximated using dithering. </p>
+      <h3><a id="K.7.1">K.7.1 Color Safe Palette</a></h3>
+			<p>A very useful subset of values within the 16 million colors range is the non-dithering "Color-Safe Palette". This subset represents the palette of color values that will not dither on a system that uses only 256 colors. This "safe" range is composed of six equally spaced values in the 256 value range for each color component. With six values for each component, this gives a total of 216 (6 X 6 X 6) color combinations.<br />
+			   Hexadecimal: 00, 33, 66, 99, cc, and ff<br />
+   			 Decimal: 0, 51, 102, 153, 204, and 255<br />
+   			 Percentage: 0%, 20%, 40%, 60% 80%, and 100% 
+			</p>
+      <h3><a id="K.7.2">K.7.2 Color Units</a></h3>
+			<ul>
+			  <li><em>[#RGB]: </em>Possible Color Values: 4096<br /> 
+				Description:  This syntax is preceded by a '#' symbol, and represents a three character hexadecimal string for each of the component values for Red, Green and Blue. This shorthand version of the [#RRGGBB-color] syntax duplicates the hex character for each color component to calculate the final value for each component (thus, #84A in [#RGB] syntax is equal to #8844AA in [#RRGGBB] syntax.<br /> 
+				NOTE: Trying to map a [#RRGGBB-color] notation to [#RGB-color] notation will not usually yield the same exact color value. The method used to duplicate the second Hexadecimal number loses the least significant hexadecimal digit. The resultant color difference will be very small, but can be noticeable. 
+			  </li>
+			  <li><em>[#RRGGBB]: </em>Possible Color Values: 16,777,216<br />
+				Description:  This method represents a color using a triplet of hexadecimal values concatenated together. These values represent the Red, Green and Blue components for a given color. The range of each component value is 00-FF in Hexadecimal (0-255 Decimal.) The total value should be prefixed by a pound "#" symbol. 
+		    </li>
+			  <li><em>[rgb(r,g,b)]: </em>Possible Color Values: 16,777,216<br /> 
+				Description:  This value is a comma separated list of integer values from 0-255 for the Red, Green and Blue components of the color (just as with the #RRGGBB method.) The notation is nested in parentheses and preceded by the keyword 'rgb'. 
+		    </li>
+			  <li><em>[rgb(r%,g%,b%)]: </em>Possible Color Values: 16,777,216<br /> 
+				Description:  This value is a comma separated list of floating point percentage values for each Red, Green and Blue color component. A value of 0% represents the absence of a color component, while a value of 100% represents full presence of the color component. The notation is nested in parentheses and preceded by the keyword 'rgb'. 
+		 		</li>
+			  <li><em>[VGA Name]:</em>Possible Color Values: 16<br /> 
+				Description:  These friendly color names are taken from the Windows 16-color VGA palette. The color names represent zero, half and full-values (00, 80 and ff respectively) in the RGB component method. Associating names with colors is usually easier for many authors to remember, but the cost is limiting the choice to only 16 values.
+				  <ul>
+							<li style="color:Black;">Black</li>
+							<li style="color:Red;">Red</li>
+							<li style="color:Yellow;">Yellow</li>
+							<li style="color:Lime;">Lime</li>
+							<li style="color:Aqua;">Aqua</li>
+							<li style="color:Blue;">Blue</li>
+							<li style="color:Fuchsia;">Fuchsia</li>
+							<li style="color:Gray;">Gray</li>
+							<li style="color:Silver;">Silver</li>
+							<li style="color:Maroon;">Maroon</li>
+							<li style="color:Olive;">Olive</li>
+							<li style="color:Green;">Green</li>
+							<li style="color:Teal;">Teal</li>
+							<li style="color:Navy;">Navy</li>
+							<li style="color:Purple;">Purple</li>
+							<li><span style="color:white; background-color:Black;">White</span></li>
+					</ul> 
+			  </li>
+				<li><em><a href="http://www.blooberry.com/indexdot/color/uiname.htm">[UI Name]:</a> </em>Possible color values: 28<br /> 
+				Description:  One of the main problems in user interface design is the inability satisfy every user. With colors especially, not every user will like or be able to efficiently use the same colors (because of visual disabilities, personal preference or other factors.) How can a page be designed with color, AND allow for such a wide spectrum of user color requirements? The answer is fairly simple - let the user decide. 
+				Each piece of the user interface in a GUI environment usually has an addressable system name/label, from scrollbars all the way to the application background. A user will have specific colors or values specified for use by each of these pieces in the system. Colors can now be specified using these system labels to give some control over page appearance to the viewer. In theory, letting the user decide what their own user interface should look like will yield the greatest satisfaction. If the browser does not have a color associated with a given UI name, it should be mapped to the color of the nearest available UI component, or instead to a default color.
+  				<ul style="background-color: Silver">
+				     <li style="color:ActiveBorder;">ActiveBorder</li>
+				     <li style="color:ActiveCaption;">ActiveCaption</li>
+				     <li style="color:AppWorkspace;">AppWorkspace</li>
+				     <li style="color:Background;">Background</li>
+				     <li style="color:Buttonface;">Buttonface</li>
+				     <li style="color:ButtonHighlight;">ButtonHighlight</li>
+						 <li style="color:ButtonShadow;">ButtonShadow</li>
+						 <li style="color:ButtonText;">ButtonText</li>
+						 <li style="color:CaptionText;">CaptionText</li>
+						 <li style="color:GrayText;">GrayText</li>
+						 <li style="color:Highlight;">Highlight</li>
+						 <li style="color:HighlightText;">HighlightText</li>
+						 <li style="color:InactiveBorder;">InactiveBorder</li>
+						 <li style="color:InactiveCaption;">InactiveCaption</li>
+						 <li style="color:InactiveCaptionText;">InactiveCaptionText</li>
+						 <li style="color:InfoBackground;">InfoBackground</li>
+						 <li style="color:InfoText;">InfoText</li>
+						 <li style="color:Menu;">Menu</li>
+						 <li style="color:MenuText;">MenuText</li>
+						 <li style="color:Scrollbar;">Scrollbar</li>
+						 <li style="color:ThreeDDarkShadow;">ThreeDDarkShadow</li>
+						 <li style="color:ThreeDFace;">ThreeDFace</li>
+						 <li style="color:ThreeDDarkShadow;">ThreeDDarkShadow</li>
+						 <li style="color:ThreeDFace;">ThreeDFace</li>
+						 <li style="color:ThreeDHighlight;">ThreeDHighlight</li>
+						 <li style="color:ThreeDLightShadow;">ThreeDLightShadow</li>
+						 <li style="color:ThreeDShadow;">ThreeDShadow</li>
+						 <li style="color:Window;">Window</li>						 						 						 						 						 						 
+						 <li style="color:WindowFrame;">WindowFrame</li>
+						 <li style="color:WindowText;">WindowText</li>						  
+			  	</ul> 
+				</li>
+			</ul>
+			<h4> Examples</h4>
+			<p style="color:#336699">p { color: #336699}</p>		  
+			<p style="color:#369">p { color: #369}</p>
+			<p style="color:rgb(100,150,200)">p { color: rgb(100,150,200)}</p>
+			<p style="color:rgb(20%,40%,60%)">p { color: rgb(20%,40%,60%)}</p>
+			<p style="color: green">p { color: green}</p>
+			<p style="color: ButtonShadow">p { color: ButtonShadow}</p>
+		 			<h2><a id="K.8">K.8 Positioning</a></h2>
+			<p>The classification properties serve to classify elements and select which layout models will be used in their display. In the visual media formatting model, an element's rendering is based heavily upon, among other things, the positioning method specified (floating, positioned or normal flow positioning) and the classification type of the element's box (the 'display' property.) 
+ 			<h3><a id="K.8.1">K.8.1 position</a></h3>
+		  <h4>What is it?</h4>
+      <p>This property determines whether normal, relative or absolute positioning methods are used to render the current element box.     
+      </p>
+      <h4>Allowed Values</h4>
+		  <ul>
+			  <li><em>static: </em>This is the default positioning scheme, where elements are rendered in order, as they appear in the document flow. The 'top', 'left', 'right' and 'bottom' properties have no effect if this value is set.</li> 
+			  <li><em>relative: </em>The element's normal document flow position is calculated as if the element had a 'position' value of 'static'. It is then offset from this position according to the 'top' and 'left' properties. Any elements that come after this element will be laid out as if the element had not been offset (a phantom height and width for the element is reserved in the normal document flow.)</li> 
+			  <li><em>absolute: </em>This specifies that the element box be absolutely positioned using the 'top', 'left', 'right' and 'bottom' properties. These values use the element box's containing block as origin. Absolutely positioned elements do NOT exist in the normal document flow like relatively positioned elements are - elements that follow will flow as if the absolutely positioned element does not exist.</li>
+			</ul>
+			<h4>Examples</h4>
+			<p>  h2 { display: block; position: absolute; top: 20px; right: 50px; bottom: 20px; left: 50px } </p> 
+			<h3><a id="K.8.2">K.8.2 float</a></h3>
+		  <h4>What is it?</h4>
+      <p>Floating elements are elements whose rendering boxes are shifted to the left or right side of the current line. Content boxes that follow are rendered along the side of the floated element; down the right side of elements floated to the left, and down the left side of elements floated to the right. This property controls this floating behavior, specifying an element float to the left, right, or not at all. For correct rendering, a floated element needs to have an intrinsic or assigned 'width' value.      
+      </p>
+      <h4>Allowed Values</h4>
+		  <ul>
+			  <li><em>none: </em>The element box is not floated.</li> 
+			  <li><em>left: </em>The current element box will be floated to the left. Subsequent content flows around it to the right, starting at the top of the element box If this value is given, the 'display' property for the current element is ignored, unless it has the value 'none'.</li> 
+			  <li><em>right: </em>The current element box will be floated to the right. Subsequent content flows around it to the left, starting at the top of the element box If this value is given, the 'display' property for the current element is ignored, unless it has the value 'none'.</li>
+			</ul>
+			<h4>Examples</h4>
+			<p>img.test { float: left }</p> 
+			<h3><a id="K.8.3">K.8.3 clear</a></h3>
+		  <h4>What is it?</h4>
+      <p>This property specifies whether the current element allows floated elements occuring earlier in the document to float along its sides. The values for this property indicate which sides of the element do not allow floating elements. If the current element has any floating sub-elements, the property does not apply to them. 
+      </p>
+      <h4>Allowed Values</h4>
+		  <ul>
+			  <li><em>none: </em>No restriction is made on floating element placement behavior.</li> 
+			  <li><em>left: </em>The current element is shifted such that the top edge of the top margin is below the bottom edge of any left-floated elements previously occuring in the document.</li> 
+			  <li><em>right: </em>The current element is shifted such that the top edge of the top margin is below the bottom edge of any right-floated elements previously occuring in the document.</li> 
+			  <li><em>both: </em>The current element is shifted such that the top edge of the top margin is below the bottom edge of any floated elements previously occuring in the document.</li>
+			<ul>
+			<h4>Examples</h4>
+			<p>address { clear: both }</p>			
+    </div>
+	<!--#include virtual="menu.html"-->
+     <div id="submenu"> 
+      </div>
+  </body>
+</html>

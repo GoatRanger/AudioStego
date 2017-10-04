@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.publics.DJIUI.DJILinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:background="#ffffffff" android:fitsSystemWindows="true" android:layout_width="match_parent" android:layout_height="match_parent">
+    <dji.publics.DJIUI.DJIRelativeLayout android:orientation="horizontal" android:padding="8dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <dji.publics.DJIUI.DJIView android:id="@+id/v2_upgrade_activity_back_btn" android:background="@r$drawable/v2_explore_arrow_left_back" android:layout_width="UNKNOWN_DATA_0x1801" android:layout_height="UNKNOWN_DATA_0x1801" />
+        <dji.publics.DJIUI.DJITextView android:textSize="20dp" android:textColor="#000000" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/rcupgrade_upgradep4_title" android:layout_centerInParent="true" />
+    </dji.publics.DJIUI.DJIRelativeLayout>
+    <dji.publics.DJIUI.DJIView android:background="#e8e8e8" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x101" />
+    <FrameLayout android:paddingLeft="30dp" android:paddingRight="30dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="13dp">
+        <LinearLayout android:orientation="vertical" android:id="@+id/v2_upgrade_activity_start_header_layout" android:layout_width="match_parent" android:layout_height="match_parent" android:weightSum="1.0">
+            <RelativeLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+                <ImageView android:id="@+id/v2_upgrade_product_icon" android:layout_width="UNKNOWN_DATA_0x18b01" android:layout_height="UNKNOWN_DATA_0xa201" android:src="@r$drawable/v2_p4_disconnect_icon" android:scaleType="fitCenter" android:layout_centerInParent="true" />
+            </RelativeLayout>
+            <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="13dp"
+                <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                    <dji.publics.DJIUI.DJITextView android:textSize="16sp" android:textColor="#00031b" android:layout_gravity="top|bottom|center_vertical|fill_vertical|center|fill" android:id="@+id/v2_upgrade_activity_ver_code" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/fpv_about_version" />
+                    <LinearLayout android:background="@r$drawable/v2_upgrade_activity_corner_bg" android:padding="1dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="13dp">
+                        <dji.publics.DJIUI.DJITextView android:textSize="13sp" android:textColor="#1088f2" android:id="@+id/v2_upgrade_activity_ver_size" android:background="#ffffff" android:paddingLeft="10dp" android:paddingTop="2dp" android:paddingRight="10dp" android:paddingBottom="2dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0MB" />
+                    </LinearLayout>
+                </LinearLayout>
+                <dji.publics.DJIUI.DJITextView android:textSize="13sp" android:textColor="#4a4a4a" android:id="@+id/v2_upgrade_prepare_tip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="13dp" android:text="@string/rcupgrade_upgradep4_tip" />
+            </LinearLayout>
+        </LinearLayout>
+        <RelativeLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="match_parent">
+            <ImageView android:id="@+id/v2_upgrade_activity_animation_header_image" android:layout_width="UNKNOWN_DATA_0x12c01" android:layout_height="UNKNOWN_DATA_0xa001" android:layout_centerInParent="true" />
+        </RelativeLayout>
+    </FrameLayout>
+    <dji.publics.DJIUI.DJILinearLayout android:orientation="vertical" android:paddingLeft="20dp" android:paddingRight="20dp" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x8c01">
+        <View android:background="#e8e8e8" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x101" android:layout_marginTop="13dp" />
+        <dji.publics.DJIUI.DJIRelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="12dp" android:layout_marginTop="13dp">
+            <TextView android:textSize="13sp" android:textColor="#00031b" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/v2_upgrade_p4_upgrade_note" android:layout_alignParentLeft="true" />
+            <dji.publics.DJIUI.DJITextView android:textSize="11sp" android:textColor="#1088f2" android:id="@+id/v2_upgrade_activity_more_releasenote" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/v2_upgrade_p4_more_note" android:layout_alignParentRight="true" />
+        </dji.publics.DJIUI.DJIRelativeLayout>
+        <dji.pilot.publics.widget.DJIScrollTextView android:scrollbarSize="2dp" android:scrollbarThumbVertical="@drawable/anim_grid_thumb" android:scrollbarTrackVertical="@color/db" android:scrollbarAlwaysDrawVerticalTrack="false" android:scrollbarStyle="insideOverlay" android:textSize="14sp" android:textColor="#4a4a4a" android:id="@+id/v2_upgrade_p4_release_note" android:paddingLeft="12dp" android:paddingRight="13dp" android:scrollbars="vertical" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="5dp" android:maxHeight="@dimen/ml" android:text="" android:lineSpacingExtra="@dimen/n4" android:scrollbarFadeDuration="2000" android:scrollbarDefaultDelayBeforeFade="0" />
+    </dji.publics.DJIUI.DJILinearLayout>
+    <FrameLayout android:layout_gravity="top|bottom|center_vertical|fill_vertical|center|fill" android:orientation="vertical" android:background="@color/om" android:paddingLeft="15dp" android:paddingRight="15dp" android:paddingBottom="27dp" android:layout_width="match_parent" android:layout_height="match_parent">
+        <dji.publics.DJIUI.DJIRelativeLayout android:layout_gravity="left|right|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@+id/v2_upgrade_wait_to_connect_mc" android:visibility="visible" android:layout_width="UNKNOWN_DATA_0x7f0b02cc" android:layout_height="wrap_content">
+            <dji.publics.DJIUI.DJIImageView android:id="@+id/v2_upgrade_wait_to_connect_mc_icon" android:layout_width="UNKNOWN_DATA_0xaa01" android:layout_height="UNKNOWN_DATA_0xaa01" android:src="@r$drawable/upgrade_p4_tomc" android:layout_alignParentRight="true" />
+            <dji.publics.DJIUI.DJITextView android:textSize="18sp" android:textColor="#4a4a4a" android:gravity="left|right|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@+id/v2_upgrade_wait_to_connect_mc_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/v2_upgrade_tomc_title" android:layout_alignParentLeft="true" />
+            <dji.publics.DJIUI.DJITextView android:textSize="16sp" android:textColor="#6f6f6f" android:gravity="top|bottom|center_vertical|fill_vertical|center|fill" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="20dp" android:maxWidth="180dp" android:text="@string/v2_upgrade_tomc_tv" android:layout_below="@+id/v2_upgrade_wait_to_connect_mc_title" android:layout_alignParentLeft="true" android:lineSpacingMultiplier="1.4" />
+        </dji.publics.DJIUI.DJIRelativeLayout>
+        <dji.publics.DJIUI.DJITextView android:textSize="20sp" android:textColor="@color/om" android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:layout_gravity="top|bottom|center_vertical|fill_vertical|center|fill" android:id="@+id/v2_upgrade_activity_ok_btn" android:background="@r$drawable/v2_upgrade_activity_btn_selector" android:visibility="visible" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x3701" android:layout_marginTop="20dp" android:text="@string/v2_upgrade_activity_start_wait" android:singleLine="true" />
+        <dji.publics.DJIUI.DJILinearLayout android:layout_gravity="top|bottom|center_vertical|fill_vertical|center|fill" android:orientation="vertical" android:id="@+id/v2_upgrade_activity_progress_layout" android:visibility="invisible" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x3701">
+            <ProgressBar android:id="@+id/v2_upgrade_activity_downing_progress" android:background="#c1c1c1" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x401" android:layout_marginTop="4dp" android:max="100" android:progress="20" android:progressDrawable="@r$drawable/v2_upgrade_activity_progress" style="?unknown_attr_ref: 1010078" />
+            <dji.publics.DJIUI.DJITextView android:textSize="16sp" android:textColor="#e8e8e8" android:gravity="left|right|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@+id/v2_upgrade_activity_downing_desc" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20dp" android:text="" android:singleLine="true" />
+        </dji.publics.DJIUI.DJILinearLayout>
+    </FrameLayout>
+</dji.publics.DJIUI.DJILinearLayout>

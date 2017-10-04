@@ -1,0 +1,363 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Relational and Conditional Operators</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="arithmetic.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#nutsandbolts" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="bitwise.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Learning the Java Language
+<br>
+<b>Lesson</b>: Language Basics
+</font>
+
+<h2>
+Relational and Conditional Operators
+</h2>
+<blockquote>
+
+A relational operator compares two values and determines the relationship
+between them. For example, <code>!=</code> returns <code>true</code> if the two
+operands are unequal.
+This table summarizes the relational operators:
+<p>
+<table border cellpadding=5>
+<th>Operator</th>
+<th>Use</th>
+<th>Returns <code>true</code> if</th>
+
+<tr>
+
+    <td>
+	<code>></code>
+    </td>
+    <td>
+	<code>op1 &gt; op2 </code>
+    </td>
+    <td>
+	<code>op1</code> is greater than <code>op2</code>
+    </td>
+</tr>
+<tr>
+    <td>
+	<code>&gt;=</code>
+    </td>
+    <td>
+	<code>op1 &gt;= op2</code>
+    </td>
+    <td>
+	<code>op1</code> is greater than or equal to <code>op2</code>
+    </td>
+</tr>
+<tr>
+    <td>
+	<code><</code>
+    </td>
+    <td>
+	<code>op1 &lt; op2</code>
+    </td>
+    <td>
+	<code>op1</code> is less than <code>op2</code>
+    </td>
+</tr>
+<tr>
+    <td>
+	<code>&lt;=</code>
+    </td>
+    <td>
+	<code>op1 &lt;= op2 </code>
+    </td>
+    <td>
+	<code>op1</code> is less than or equal to <code>op2</code>
+    </td>
+</tr>
+<tr>
+    <td>
+	<code>==</code>
+    </td>
+    <td>
+	<code>op1 == op2</code>
+    </td>
+    <td>
+	<code>op1</code> and <code>op2</code> are equal
+    </td>
+</tr>
+<tr>
+    <td>
+	<code>!=</code>
+    </td>
+    <td>
+	<code>op1 != op2 </code>
+    </td>
+    <td>
+	<code>op1</code> and <code>op2</code> are not equal
+    </td>
+</tr>
+
+</table>
+<p>
+Following is an example,
+<a target="_blank" href="example/RelationalDemo.java"><font color="#bb000f"><code>RelationalDemo</code></font></a><a target="_blank" href="example/RelationalDemo.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>, that defines three integer numbers
+and uses the relational operators to compare them.
+The relational operations are shown in <font color="red">red</font>:
+
+<blockquote><pre>
+public class RelationalDemo {
+    public static void main(String[] args) {
+
+        //a few numbers
+        int i = 37;
+        int j = 42;
+        int k = 42;
+        System.out.println("Variable values...");
+        System.out.println("    i = " + i);
+        System.out.println("    j = " + j);
+        System.out.println("    k = " + k);
+
+	//greater than
+        System.out.println("Greater than...");
+        System.out.println("    i > j = " + (<font color="red">i > j</font>));	  //false
+        System.out.println("    j > i = " + (<font color="red">j > i</font>));     //true
+        System.out.println("    k > j = " + (<font color="red">k > j</font>));     //false, they are equal
+
+	//greater than or equal to
+        System.out.println("Greater than or equal to...");
+        System.out.println("    i >= j = " + (<font color="red">i >= j</font>));   //false
+        System.out.println("    j >= i = " + (<font color="red">j >= i</font>));   //true
+        System.out.println("    k >= j = " + (<font color="red">k >= j</font>));   //true
+
+	//less than
+        System.out.println("Less than...");
+        System.out.println("    i < j = " + (<font color="red">i < j</font>));     //true
+        System.out.println("    j < i = " + (<font color="red">j < i</font>));     //false
+        System.out.println("    k < j = " + (<font color="red">k < j</font>));     //false
+
+	//less than or equal to
+        System.out.println("Less than or equal to...");
+        System.out.println("    i <= j = " + (<font color="red">i <= j</font>));   //true
+        System.out.println("    j <= i = " + (<font color="red">j <= i</font>));   //false
+        System.out.println("    k <= j = " + (<font color="red">k <= j</font>));   //true
+
+	//equal to
+        System.out.println("Equal to...");
+        System.out.println("    i == j = " + (<font color="red">i == j</font>));   //false
+        System.out.println("    k == j = " + (<font color="red">k == j</font>));   //true
+
+	//not equal to
+        System.out.println("Not equal to...");
+        System.out.println("    i != j = " + (<font color="red">i != j</font>));   //true
+        System.out.println("    k != j = " + (<font color="red">k != j</font>));   //false
+
+    }
+}
+</pre></blockquote>
+
+Here's the output from this program:
+
+<blockquote><pre>
+Variable values...
+    i = 37
+    j = 42
+    k = 42
+Greater than...
+    i > j = false
+    j > i = true
+    k > j = false
+Greater than or equal to...
+    i >= j = false
+    j >= i = true
+    k >= j = true
+Less than...
+    i < j = true
+    j < i = false
+    k < j = false
+Less than or equal to...
+    i <= j = true
+    j <= i = false
+    k <= j = true
+Equal to...
+    i == j = false
+    k == j = true
+Not equal to...
+    i != j = true
+    k != j = false
+</pre></blockquote>
+
+Relational operators often are used with conditional operators to construct more complex decision-making expressions. The Java programming language supports six conditional operators-five binary and one unary--as shown in the following table.
+<p>
+<table border cellpadding=5>
+<th>Operator</th>
+<th>Use</th>
+<th>Returns <code>true</code> if</th>
+
+<tr>
+    <td>
+	<code>&&</code>
+    </td>
+    <td>
+	<code>op1 && op2</code>
+    </td>
+    <td>
+	<code>op1</code> and <code>op2</code> are both <code>true</code>,
+	conditionally evaluates <code>op2</code>
+    </td>
+</tr>
+<tr>
+    <td>
+	<code>||</code>
+    </td>
+    <td>
+	<code>op1 || op2</code>
+    </td>
+    <td>
+	either <code>op1</code> or <code>op2</code> is <code>true</code>,
+	conditionally evaluates <code>op2</code>
+    </td>
+</tr>
+<tr>
+    <td>
+	<code>!</code>
+    </td>
+    <td>
+	<code>! op</code>
+    </td>
+    <td>
+	<code>op</code> is <code>false</code>
+    </td>
+</tr>
+<tr>
+    <td>
+	<code>&</code>
+    </td>
+    <td>
+	<code>op1 & op2</code>
+    </td>
+    <td>
+	<code>op1</code> and <code>op2</code> are both <code>true</code>,
+	always evaluates <code>op1</code> and <code>op2</code
+    </td>
+</tr>
+<tr>
+    <td>
+	<code>|</code>
+    </td>
+    <td>
+	<code>op1 | op2</code>
+    </td>
+    <td>
+	either <code>op1</code> or <code>op2</code> is <code>true</code>,
+	always evaluates <code>op1</code> and <code>op2</code
+    </td>
+</tr>
+<tr>
+    <td>
+	<code>^</code>
+    </td>
+    <td>
+	<code>op1 ^ op2</code>
+    </td>
+    <td>
+	if op1 and op2 are different--that is if one or the other of
+        the operands is true but not both
+    </td>
+</tr>
+
+</table>
+<P>
+
+One such operator is <code>&&</code>, which performs the <I>conditional</I> <code>AND</code> operation. You can use two different relational operators along with <code>&&</code> to determine whether both relationships are <code>true</code>. The following line of code uses this technique to determine whether an array index is between two boundaries. It determines whether the index is both greater than or equal to 0 and less than <code>NUM_ENTRIES</code>, which is a previously defined constant value.
+<blockquote><pre>
+0 <= index && index &lt; NUM_ENTRIES
+</pre></blockquote>
+Note that in some instances, the second operand to a conditional operator may not be evaluated. Consider this code segment:
+<blockquote><pre>
+(numChars < LIMIT) && (...)
+</pre></blockquote>
+
+The <code>&&</code> operator will return <code>true</code> only if <I>both</I> operands are <code>true</code>. So, if <code>numChars</code> is greater than or equal to <code>LIMIT</code>, the left-hand operand for <code>&&</code> is <code>false</code>, and the return value of <code>&&</code> can be determined without evaluating the right-hand operand. In such a case, the interpreter will not evaluate the right-hand operand. This has important implications if the right-hand operand has side effects, such as reading from a stream, updating a value, or making a calculation. 
+<P>
+When both operands are boolean, the operator <code>&</code> performs the same operation as <code>&&</code>. However, <code>&</code> always evaluates both of its operands and returns <code>true</code> if both are <code>true</code>. Likewise, when the operands are boolean, <code>|</code> performs the same operation as <code>||</code>. The <code>|</code> operator always evaluates both of its operands and returns <code>true</code> if at least one of its operands is <code>true</code>. When their operands are numbers, <code>&</code> and <code>|</code> perform bitwise manipulations.
+<P>
+
+The 
+<a target="_top" href="bitwise.html">next section</a><a target="_top" href="bitwise.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Learning the Java Language trail)"></a> has more information.
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="arithmetic.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#nutsandbolts" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="bitwise.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

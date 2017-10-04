@@ -1,0 +1,313 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Managing Program Settings in the Player</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="eventQueue.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#bingo" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="otherTidbits.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Putting It All Together
+<br>
+<b>Lesson</b>: BINGO!
+</font>
+
+<h2>
+Managing Program Settings in the Player
+</h2>
+<blockquote>
+The Player application provides a number of UI widgets
+that allow a user to change various settings such
+as the player's name, the number of cards to play,
+and whether to beep to announce each ball.
+<p>
+[PENDING: put picture of player with callouts here]
+<p>
+As you can see from the diagram,
+the settings for the Player application that the user can change are:
+<ul>
+<li> the player's name
+<li> the name of the machine on which the Game is running
+<li> the number of cards to play
+<li> whether the application should beep for each ball
+<li> the random number seed
+</ul>
+As an added convenience, the Player application
+remembers these settings between
+invocations so that each time the
+user invokes the Player application
+its UI can be initialized with the values used
+in the last game.
+
+<p>
+One class is the central repository
+for all program settings in the Player: the
+
+<a target="_blank" href="example-swing/bingo/player/PlayerParameters.java"><font color="#bb000f"><code>PlayerParameters</code></font></a><a target="_blank" href="example-swing/bingo/player/PlayerParameters.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>
+class. For each program setting, <code>PlayerParameters</code>
+declares one member variable to contain its current value, and
+two methods, one to set (or change) the value and one to get it.
+For example, here is the declaration for the member variable
+in <code>PlayerParameters</code> that stores the player's name,
+and the two methods that set and get it:
+<blockquote><pre>
+. . .
+private String name = "";
+. . .
+void setName(String name) {
+    this.name = name;
+    saveParameters();
+}
+String getName() {
+    return name;
+}
+</pre></blockquote>
+Note that the <code>setName</code> method calls another method
+named <code>saveParameters</code> which saves the now changed properties
+to a file on the file system.
+All the settings but one, the random number seed, is remembered
+between invocations of the Player application.
+
+<p>
+<code>PlayerParameters</code> manages the values of the settings for the
+program. The work of saving the settings to the Player's
+properties file and restoring them from the same file
+is done by its superclass
+
+<a target="_blank" href="example-swing/bingo/shared/Parameters.java"><font color="#bb000f"><code>Parameters</code></font></a><a target="_blank" href="example-swing/bingo/shared/Parameters.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>.
+
+<p>
+<code>Parameters</code> is an abstract class with three
+abstract methods that must be implemented by its subclasses.
+These three methods bridge setting values as
+maintained by the <code>PlayerParameters</code> class
+and their <code>String</code> representations saved to a file.
+<code>Parameters</code> uses the JDK's
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/Properties.html"><font color="#8800bb"><code>Properties</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/Properties.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> class to store the <code>String</code> representation of each setting
+and save and restore them.
+
+</blockquote>
+<h3>How it Works</h3>
+<blockquote>
+When the Player first starts up, it loads the last-saved properties
+and uses them to initialize its UI. The Player and the Game
+use the JDK's <code>Properties</code> class to save and restore
+program settings, so they are stored as <code>String</code>s
+in as key/value pairs like this:
+<blockquote><pre>
+player.shouldbeep=false
+server.name=taranis
+num.cards=3
+player.name=mary campione
+</pre></blockquote>
+The method used to load the properties is implemented in
+<code>PlayerParameters</code>' superclass, <code>Parameters</code>,
+and looks like this:
+<blockquote><pre>
+protected void getParameters() {
+    Properties defaults = new Properties();
+    FileInputStream in = null;
+
+    <strong>setDefaults(defaults);</strong>
+
+    properties = new Properties(defaults);
+
+    try {
+        String folder = System.getProperty("user.home");
+        String filesep = System.getProperty("file.separator");
+        in = new FileInputStream(folder
+            + filesep
+            + propertiesFilename);
+        properties.load(in);
+
+    } catch (java.io.FileNotFoundException e) {
+        in = null;
+        ErrorMessages.error("Can't find properties file. " +
+                            "Using defaults.");
+    } catch (java.io.IOException e) {
+        ErrorMessages.error("Can't read properties file. " +
+                            "Using defaults.");
+    } finally {
+        if (in != null) {
+            try { in.close(); } catch (java.io.IOException e) { }
+            in = null;
+        }
+    }
+
+    <strong>updateSettingsFromProperties();</strong>
+
+}
+</pre></blockquote>
+This method does three things:
+<ol>
+<li> calls <code>setDefaults</code> to set up default values which
+     will be used if there are no properties saved or if there are
+     any errors while reading them.
+     (This method call is shown in bold)
+<li> loads the properties from the file. (This is the code in
+     the big <code>try</code> statement.)
+<li> calls <code>updateSettingsFromProperties</code> to update
+     the program settings from the properties just read.
+      (This method call is also shown in bold.)
+</ol>
+Note that <code>setDefaults</code> and <code>updateSettingsFromProperties</code>
+are abstract methods in the <code>Parameters</code> class. These methods
+are implemented in its concrete subclasses such as <code>PlayerParameters</code>.
+This is appropriate because <code>Parameters</code> does the generic work
+of saving and restoring the properties and its two subclasses <code>PlayerParameters</code>
+and <code>GameParameters</code> manage the specific program settings for
+each program.
+<p>
+Remember that the program settings are stored as human-readable text.
+<code>setDefaults</code> and <code>updateSettingsFromProperties</code>
+convert the values from <code>String</code>s to the appropriate type at this time.
+<p>
+Whenever a program setting is modified and that change takes affect,
+the settings are saved to the file. For example, here's <code>PlayerParameters</code>'s
+<code>setHostname</code> method that changes the hostname.
+<blockquote><pre>
+void setHostname(String hostname) {
+    this.hostname = hostname;
+    saveParameters();
+}
+</pre></blockquote>
+This method calls <code>saveParameters</code> a method implemented
+by the parent class <code>Parameters</code>
+<blockquote><pre>
+protected void saveParameters() {
+
+    <strong>updatePropertiesFromSettings();</strong>
+
+    if (DEBUG) {
+        System.out.println("Just set properties: "
+                           + propertiesDescription);
+        System.out.println(toString());
+    }
+
+    FileOutputStream out = null;
+
+    try {
+        String folder = System.getProperty("user.home");
+        String filesep = System.getProperty("file.separator");
+        out = new FileOutputStream(folder
+			           + filesep
+			           + propertiesFilename);
+        properties.save(out, propertiesDescription);
+    } catch (java.io.IOException e) {
+        ErrorMessages.error("Can't save properties. " +
+			    "Oh well, it's not a big deal.");
+    } finally {
+        if (out != null) {
+	    try { out.close(); } catch (java.io.IOException e) { }
+	    out = null;
+        }
+    }
+}
+</pre></blockquote>
+This method converts the settings as stored in the program to
+<code>String</code>s by calling the <code>updatePropertiesFromSettings</code>
+method which is declared abstract in <code>Parameters</code> and
+implemented by <code>PlayerParameters</code>.
+Next the method saves the properties to a file.
+<p>
+You should note the use of the JDK's <code>Properties</code> class
+to store the <code>String</code> representations of the program
+settings, and save and restore them to the file system. 
+</blockquote>
+
+<h3>Managing the Game's Settings</h3>
+<blockquote>
+The Game application also provides a UI for modifying
+settings for the entire game (such as maximum number of players,
+maximum number of wolf cries and so on):
+<p>
+[PENDING: put picture of game with callouts here]
+<p>
+Like the Player application, the Game application uses
+one class, the
+
+<a target="_blank" href="example-swing/bingo/game/GameParameters.java"><font color="#bb000f"><code>GameParameters</code></font></a><a target="_blank" href="example-swing/bingo/game/GameParameters.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>
+class, to manage its settings.
+<code>GameParameters</code> is also a subclass of
+<code>Parameters</code>.
+The code in this class is very similar to that in the
+Player and we leave it to you to figure out.
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="eventQueue.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#bingo" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="otherTidbits.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.publics.DJIUI.DJILinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent">
+    <dji.publics.DJIUI.DJITextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/uh" android:layout_marginBottom="@dimen/uf" android:text="@string/setting_ui_rc_5d_button_title" style="@style/fw" />
+    <dji.publics.DJIUI.DJILinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <dji.publics.DJIUI.DJIImageView android:layout_width="UNKNOWN_DATA_0x7f0b0327" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/uf" android:layout_marginRight="@dimen/uh" android:src="@drawable/setting_ui_rc_five_dimens_customization" android:minHeight="@dimen/g0" />
+        <dji.publics.DJIUI.DJILinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <dji.publics.DJIUI.DJIRelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/uf">
+                <dji.publics.DJIUI.DJITextView android:textColor="@color/om" android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@id/bw8" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minWidth="@dimen/y7" android:minHeight="@dimen/us" android:text="@string/setting_ui_rc_5d_button_up_button_title" />
+                <dji.setting.ui.widget.DJISpinnerButton android:id="@id/bw9" android:text="@string/setting_ui_rc_5d_button_up_button_desc" android:layout_toRightOf="@id/bw8" style="@style/ga" />
+            </dji.publics.DJIUI.DJIRelativeLayout>
+            <dji.publics.DJIUI.DJIRelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/uf">
+                <dji.publics.DJIUI.DJITextView android:textColor="@color/om" android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@id/bw_" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minWidth="@dimen/y7" android:minHeight="@dimen/us" android:text="@string/setting_ui_rc_5d_button_down_button_title" />
+                <dji.setting.ui.widget.DJISpinnerButton android:id="@id/bwa" android:text="@string/setting_ui_rc_5d_button_down_button_desc" android:layout_toRightOf="@id/bw_" style="@style/ga" />
+            </dji.publics.DJIUI.DJIRelativeLayout>
+            <dji.publics.DJIUI.DJIRelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/uf">
+                <dji.publics.DJIUI.DJITextView android:textColor="@color/om" android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@id/bwb" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minWidth="@dimen/y7" android:minHeight="@dimen/us" android:text="@string/setting_ui_rc_5d_button_left_button_title" />
+                <dji.setting.ui.widget.DJISpinnerButton android:id="@id/bwc" android:text="@string/setting_ui_rc_5d_button_left_button_desc" android:layout_toRightOf="@id/bwb" style="@style/ga" />
+            </dji.publics.DJIUI.DJIRelativeLayout>
+            <dji.publics.DJIUI.DJIRelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/uf">
+                <dji.publics.DJIUI.DJITextView android:textColor="@color/om" android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@id/bwd" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minWidth="@dimen/y7" android:minHeight="@dimen/us" android:text="@string/setting_ui_rc_5d_button_right_button_title" />
+                <dji.setting.ui.widget.DJISpinnerButton android:id="@id/bwe" android:text="@string/setting_ui_rc_5d_button_right_button_desc" android:layout_toRightOf="@id/bwd" style="@style/ga" />
+            </dji.publics.DJIUI.DJIRelativeLayout>
+        </dji.publics.DJIUI.DJILinearLayout>
+    </dji.publics.DJIUI.DJILinearLayout>
+    <dji.publics.DJIUI.DJITextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/setting_ui_rc_5d_button_desc" style="@style/fw" />
+</dji.publics.DJIUI.DJILinearLayout>

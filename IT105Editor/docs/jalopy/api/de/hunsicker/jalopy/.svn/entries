@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="10"
+   name=""
+   committed-date="2005-02-01T05:59:34.421875Z"
+   url="svn://192.168.2.2/IT105Editor/docs/jalopy/api/de/hunsicker/jalopy"
+   last-author="Karl"
+   kind="dir"
+   uuid="0daf4267-3229-f84b-9084-f3c94b025f38"
+   revision="55"/>
+<entry
+   name="class-use"
+   kind="dir"/>
+<entry
+   committed-rev="10"
+   name="Jalopy.State.html"
+   text-time="2005-03-02T06:14:30.171875Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="d2d8646cd6212cce1853c2fbb3be3b55"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:25.093750Z"/>
+<entry
+   committed-rev="10"
+   name="Jalopy.html"
+   text-time="2005-03-02T06:14:30.187500Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="ca89bb47c0f81a9530a99a4b2186af40"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:25.125000Z"/>
+<entry
+   name="language"
+   kind="dir"/>
+<entry
+   name="storage"
+   kind="dir"/>
+<entry
+   committed-rev="10"
+   name="package-frame.html"
+   text-time="2005-03-02T06:14:30.203125Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="7301d9824af3b0fb3c4074124e5392ce"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:27.812500Z"/>
+<entry
+   name="swing"
+   kind="dir"/>
+<entry
+   committed-rev="10"
+   name="package-use.html"
+   text-time="2005-03-02T06:14:30.203125Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="985792e029462c52854c577cd1180fed"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:29.296875Z"/>
+<entry
+   committed-rev="10"
+   name="package-summary.html"
+   text-time="2005-03-02T06:14:30.218750Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="1a73a2697c0442b9e3a46dd099419d93"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:29.312500Z"/>
+<entry
+   committed-rev="10"
+   name="package-tree.html"
+   text-time="2005-03-02T06:14:30.218750Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="0b97560df342da2624ad2bfbeff17b34"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:29.328125Z"/>
+<entry
+   committed-rev="10"
+   name="VersionMismatchException.html"
+   text-time="2005-03-02T06:14:30.234375Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="61fa79d52f411a1c614e24de6047969f"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:29.343750Z"/>
+<entry
+   name="plugin"
+   kind="dir"/>
+</wc-entries>

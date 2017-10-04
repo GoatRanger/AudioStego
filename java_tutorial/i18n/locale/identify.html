@@ -1,0 +1,159 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Identifying Available Locales</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="create.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#locale" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="scope.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Internationalization
+<br>
+<b>Lesson</b>: Setting the Locale
+</font>
+
+<h2>
+Identifying Available Locales
+</h2>
+<blockquote>
+You can create a <CODE>Locale</CODE> with any combination of valid
+language and country codes, but that doesn't mean that you can use it.
+Remember, a <CODE>Locale</CODE> object is only an identifier. You pass
+the <CODE>Locale </CODE> object to other objects, which then do the
+real work. These other objects, which we call locale-sensitive, do not
+know how to deal with all possible <CODE>Locale</CODE> definitions.
+<P>
+To find out which types of <CODE>Locale</CODE> definitions a
+locale-sensitive class recognizes, you invoke the
+<CODE>getAvailableLocales</CODE> method. For example, to find out which
+<CODE>Locale</CODE> definitions are supported by the
+<CODE>DateFormat</CODE> class, you could write a routine such as the
+following:
+<blockquote><pre>
+import java.util.*;
+import java.text.*;
+
+public class Available {
+    static public void main(String[] args) {
+	Locale list[] = DateFormat.getAvailableLocales();
+	for (int i = 0; i &lt; list.length; i++) {
+	    System.out.println(list[i].toString());
+	}
+    }
+}
+</pre></blockquote>
+<P>
+The output of the previous program follows. Note that the
+<CODE>String</CODE> returned by <CODE>toString</CODE> contains the
+language and country codes, separated by an underscore:
+<blockquote><pre>
+ar_EG
+be_BY
+bg_BG
+ca_ES
+cs_CZ
+da_DK
+de_DE
+.
+.
+.
+</pre></blockquote>
+<P>
+If you want to display a list of <CODE>Locale</CODE> names to end
+users, you should show them something easier to understand than the
+language and country codes returned by <CODE>toString</CODE>. Instead
+you can invoke the <CODE>Locale.getDisplayName</CODE> method, which
+retrieves a localized <CODE>String</CODE> of a <CODE>Locale</CODE>
+object. For example, when <CODE>toString</CODE> is replaced by
+<CODE>getDisplayName</CODE> in the preceding code, the program prints
+the following lines:
+<blockquote><pre>
+Arabic (Egypt)
+Byelorussian (Belarus)
+Bulgarian (Bulgaria)
+Catalan (Spain)
+Czech (Czech Republic)
+Danish (Denmark)
+German (Germany)
+.
+.
+.
+</pre></blockquote>
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="create.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#locale" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="scope.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

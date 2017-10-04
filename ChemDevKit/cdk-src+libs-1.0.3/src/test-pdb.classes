@@ -1,0 +1,4 @@
+org/openscience/cdk/test/MpdbTests*.class
+org/openscience/cdk/test/templates/AminoAcidsTest*.class
+org/openscience/cdk/test/tools/ProteinBuilderToolTest*.class
+org/openscience/cdk/test/io/PDBReaderTest*.class

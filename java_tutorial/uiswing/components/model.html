@@ -1,0 +1,277 @@
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Using Models</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="toplevel.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#components" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="jcomponent.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Creating a GUI with JFC/Swing
+<br>
+<b>Lesson</b>: Using Swing Components
+</font>
+
+<h2>
+Using Models
+</h2>
+<blockquote>
+Most noncontainer Swing components have models.
+A button (<code>JButton</code>), for example,
+has a model (a <code>ButtonModel</code> object)
+that stores the button's state &#151;
+what its keyboard mnemonic is,
+whether it's enabled, selected, or pressed,
+and so on.
+Some components have multiple models.
+A list (<code>JList</code>), for example,
+uses a <code>ListModel</code>
+to hold the list's contents,
+and a <code>ListSelectionModel</code>
+to track the list's current selection.
+
+<p>
+You often don't need to know about the models
+that a component uses.
+For example, programs that use buttons
+usually deal directly with the <code>JButton</code> object,
+and don't deal at all with the <code>ButtonModel</code> object.
+
+<p>
+Why then do models exist?
+The biggest reason is that they give you
+flexibility in determining how data is stored and retrieved.
+For example,
+if you're designing a spreadsheet application
+that displays data in a sparsely populated table,
+you can create your own table model
+that is optimized for such use.
+
+<p>
+Models have other benefits, too.
+They mean that data isn't copied between
+a program's data structures
+and those of the Swing components.
+Also, models automatically
+propagate changes to all interested listeners,
+making it easy for the GUI to stay in sync with the data.
+For example, to add items to a list
+you can invoke methods on the list model.
+When the model's data changes,
+the model fires events to 
+the <code>JList</code> and any other registered listeners,
+and the GUI is updated accordingly.
+
+<p>
+Although Swing's model architecture
+is sometimes referred to as a
+Model-View-Controller (MVC) design,
+it really isn't.
+Swing components are generally implemented
+so that the view and controller are indivisible,
+implemented by a single UI object
+provided by the look and feel.
+The Swing model architecture is more accurately described as a
+<em>separable model architecture</em>.
+If you're interested in learning more about the Swing model architecture, see
+<a target="_blank" href="http://java.sun.com/products/jfc/tsc/articles/architecture/"><font color="#009bbb">A Swing Architecture Overview</font></a><a target="_blank" href="http://java.sun.com/products/jfc/tsc/articles/architecture/"><img src="../../images/otherIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (outside of the tutorial)"></a>, an article in
+<em>The Swing Connection</em>.
+
+
+</blockquote>
+<h3>
+<a name="converter">An Example: Converter</a>
+</h3>
+<blockquote>
+This section features an example called Converter,
+which is an application that continuously converts distance measurements
+between metric and U.S. units.
+You can
+<a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/components/example-1dot4/Converter.jnlp"><b>run Converter</b></a> using
+<a target="_top" href="../../information/javawebstart.html">Java<sup><font size=-2>TM</font></sup> Web Start</a><a target="_top" href="../../information/javawebstart.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.    Or, to compile and run the example yourself,
+consult the
+<a href="example-1dot4/index.html#Converter">example index</a>.
+
+<p>
+As the following picture shows,
+Converter features two sliders,
+each tied to a text field.
+The sliders and text fields all display the same data
+&#151; a distance &#151; but using two different units of measure.
+
+<p><center><IMG SRC="../../figures/uiswing/components/Converter.gif" WIDTH="290" HEIGHT="200" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="Converter has four components displaying the same data"></center></p>
+<p>
+The important thing for this program
+is ensuring that only one model
+controls the value of the data.
+There are various ways to achieve this;
+we did it by deferring to the top slider's model.
+The bottom slider's model
+(an instance of a custom class called <code>FollowerRangeModel</code>)
+forwards all data queries to the top slider's model
+(an instance of a custom class called <code>ConverterRangeModel</code>).
+Each text field is kept in sync with its slider,
+and vice versa,
+by event handlers that listen for changes in value.
+Care is taken to ensure that the top slider's model
+has the final say about what distance is displayed.
+
+<p>
+When we started implementing the custom slider models,
+we first looked at
+the API section of
+<a target="_top" href="../components/slider.html">How to Use Sliders</a><a target="_top" href="../components/slider.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>. It informed us that all slider data models must
+implement the <code>BoundedRangeModel</code> interface.
+The
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/BoundedRangeModel.html"><font color="#8800bb"><code>BoundedRangeModel</code> API documentation</font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/BoundedRangeModel.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> tells us
+that the interface has an implementing class named
+<code>DefaultBoundedRangeModel</code>.
+The
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/DefaultBoundedRangeModel.html"><font color="#8800bb">API documentation for <code>DefaultBoundedRangeModel</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/DefaultBoundedRangeModel.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> shows that it's a general-purpose implementation
+of <code>BoundedRangeModel</code>.
+
+<p>
+We didn't use <code>DefaultBoundedRangeModel</code>
+directly because it stores data as integers,
+and Converter uses floating-point data.
+Thus, we implemented
+<code>ConverterRangeModel</code> as a subclass of
+<code>Object</code>.
+We then implemented <code>FollowerRangeModel</code>
+as a subclass of <code>ConverterRangeModel</code>.
+
+
+</blockquote>
+<h3>
+For Further Information
+</h3>
+<blockquote>
+
+<p>
+
+To find out about the models for individual components,
+see the
+<a href="componentlist.html">"How to"</a> pages
+and API documentation
+for individual components.
+Here are some of our examples that use models directly:
+
+<ul>
+<li> All but the simplest of the
+     <a href="table.html#eg">table examples</a>
+     implement custom table data models.
+<li> The <a href="colorchooser.html#eg">color chooser demos</a>
+     have change listeners on the color chooser's selection model
+     so they can be notified when the user selects a new color.
+     In ColorChooserDemo2, the <code>CrayonPanel</code> class
+     directly uses the color selection model
+     to set the current color.
+<li> The
+     <a href="example-1dot4/index.html#DynamicTreeDemo">DynamicTreeDemo</a>
+     example sets the tree model
+     (to an instance of <code>DefaultTreeModel</code>),
+     interacts directly with it,
+     and listens for changes to it.
+<li> <a href="example-1dot4/index.html#ListDemo">ListDemo</a>
+     sets the list data model
+     (to an instance of <code>DefaultListModel</code>)
+     and interacts directly with it.
+<li> <a href="example-1dot4/index.html#SharedModelDemo">SharedModelDemo</a>
+     defines a <code>SharedDataModel</code> class that extends
+     <code>DefaultListModel</code> and implements
+     <code>TableModel</code>.
+     A <code>JList</code> and  <code>JTable</code>
+     share an instance of <code>SharedDataModel</code>,
+     providing different views of the model's data.
+<li> In the event listener examples,
+<a target="_top" href="../events/example-1dot4/index.html#ListDataEventDemo">ListDataEventDemo</a><a target="_top" href="../events/example-1dot4/index.html#ListDataEventDemo"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>     creates and uses a <code>DefaultListModel</code> directly.
+<li> Our <a href="spinner.html#eg">spinner examples</a>
+     create spinner models.
+<li> As you've already seen, the
+     <a href="example-1dot4/index.html#Converter">Converter</a>
+     example defines
+     two custom slider models.
+</ul>
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="toplevel.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#components" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="jcomponent.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

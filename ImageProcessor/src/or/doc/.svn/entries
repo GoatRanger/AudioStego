@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="33"
+   name=""
+   committed-date="2005-02-01T06:11:53.421875Z"
+   url="svn://192.168.2.2/ImageProcessor/src/or/doc"
+   last-author="Karl"
+   kind="dir"
+   uuid="0daf4267-3229-f84b-9084-f3c94b025f38"
+   revision="55"/>
+<entry
+   committed-rev="33"
+   name="serialized-form.html"
+   text-time="2005-03-02T06:25:37.125000Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="5060c0e988474899cb3e13e5abfaed9c"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:23.515625Z"/>
+<entry
+   committed-rev="33"
+   name="stylesheet.css"
+   text-time="2005-03-02T06:25:37.156250Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="5e9a9b33187f474e19fcf636c5e35681"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:23.531250Z"/>
+<entry
+   committed-rev="33"
+   name="index-all.html"
+   text-time="2005-03-02T06:25:37.281250Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="b87c2dc794caeef154898e5f954c1b8b"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:23.703125Z"/>
+<entry
+   committed-rev="33"
+   name="overview-frame.html"
+   text-time="2005-03-02T06:25:37.343750Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="1687753d536b833d1c4ffebc4a060862"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:23.734375Z"/>
+<entry
+   committed-rev="33"
+   name="allclasses-frame.html"
+   text-time="2005-03-02T06:25:37.406250Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="2dc1584d1c7ad9b8fadadcc9ed63a4ca"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:23.750000Z"/>
+<entry
+   committed-rev="33"
+   name="packages.html"
+   text-time="2005-03-02T06:25:37.437500Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="154a468aff24e9f1def669af701c3d52"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:23.750000Z"/>
+<entry
+   committed-rev="33"
+   name="overview-summary.html"
+   text-time="2005-03-02T06:25:37.453125Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="2cb2e46e420ae03c21de9075ab049db3"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:23.781250Z"/>
+<entry
+   committed-rev="33"
+   name="package-list"
+   text-time="2005-03-02T06:25:37.484375Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="3cf712b63c1959b4798ec8a49b3a38bb"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:23.796875Z"/>
+<entry
+   name="drasys"
+   kind="dir"/>
+<entry
+   committed-rev="33"
+   name="overview-tree.html"
+   text-time="2005-03-02T06:25:37.484375Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="432ef5ea4edb8b25ce809e77189e99b3"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:37.031250Z"/>
+<entry
+   committed-rev="33"
+   name="index.html"
+   text-time="2005-03-02T06:25:37.500000Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="e02ca2cf6f438ed6bf1a8f5e803c8e39"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:37.046875Z"/>
+<entry
+   committed-rev="33"
+   name="deprecated-list.html"
+   text-time="2005-03-02T06:25:37.500000Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="69c02db898794d14ce89117be1ee00a1"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:37.046875Z"/>
+<entry
+   committed-rev="33"
+   name="help-doc.html"
+   text-time="2005-03-02T06:25:37.515625Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="dd4f0200523877b1cdfd12c8e0c6d4be"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:37.062500Z"/>
+</wc-entries>

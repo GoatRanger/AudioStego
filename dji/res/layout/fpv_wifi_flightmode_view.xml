@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.pilot.fpv.flightmode.FlightModeWifiView xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="wrap_content" android:layout_height="match_parent">
+    <ImageView android:id="@+id/wifi_left_bar_bg" android:background="@color/a_" android:layout_width="UNKNOWN_DATA_0x7f0b0131" android:layout_height="match_parent" />
+    <RelativeLayout android:background="@color/ak" android:layout_width="UNKNOWN_DATA_0x7f0b010d" android:layout_height="match_parent" android:layout_toRightOf="@+id/wifi_left_bar_bg">
+        <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true"
+            <LinearLayout android:id="@+id/flight_mode_wifi_tapfly_ly" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <ImageView android:layout_width="UNKNOWN_DATA_0x7f0b012c" android:layout_height="UNKNOWN_DATA_0x7f0b012c" android:src="@drawable/selector_flightmode_point" />
+                <TextView android:textSize="@dimen/rl" android:textColor="@color/om" android:layout_gravity="top|bottom|center_vertical|fill_vertical|center|fill" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/fo" android:text="@string/fpv_flight_mode_point" />
+            </LinearLayout>
+            <LinearLayout android:id="@+id/flight_mode_wifi_track_ly" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/gc">
+                <ImageView android:layout_width="UNKNOWN_DATA_0x7f0b012c" android:layout_height="UNKNOWN_DATA_0x7f0b012c" android:src="@drawable/selector_flightmode_track" />
+                <TextView android:textSize="@dimen/rl" android:textColor="@color/om" android:layout_gravity="top|bottom|center_vertical|fill_vertical|center|fill" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/fo" android:text="@string/fpv_flight_mode_track" />
+            </LinearLayout>
+            <LinearLayout android:id="@+id/flight_mode_wifi_seflie_ly" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/gc">
+                <ImageView android:layout_width="UNKNOWN_DATA_0x7f0b012c" android:layout_height="UNKNOWN_DATA_0x7f0b012c" android:src="@r$drawable/selector_flightmode_selfie_track" />
+                <TextView android:textSize="@dimen/rl" android:textColor="@color/om" android:layout_gravity="top|bottom|center_vertical|fill_vertical|center|fill" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/fo" android:text="@string/fpv_flight_mode_gesture" />
+            </LinearLayout>
+            <LinearLayout android:id="@+id/flight_mode_wifi_joystick_ly" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/gc">
+                <ImageView android:layout_width="UNKNOWN_DATA_0x7f0b012c" android:layout_height="UNKNOWN_DATA_0x7f0b012c" android:src="@r$drawable/selector_flightmode_wifi_joystick" />
+                <TextView android:textSize="@dimen/rl" android:textColor="@color/om" android:layout_gravity="top|bottom|center_vertical|fill_vertical|center|fill" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/fo" android:text="@string/fpv_flight_mode_wifi_joystick" />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+</dji.pilot.fpv.flightmode.FlightModeWifiView>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.pilot2.upgrade.DJIPADUpgradeTipBannerView xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/rc_main_update_tip" android:background="@r$drawable/shape_background_green" android:visibility="gone" android:layout_width="UNKNOWN_DATA_0xf001" android:layout_height="UNKNOWN_DATA_0x2d01" android:layout_alignParentBottom="true">
+    <dji.publics.DJIUI.DJIRelativeLayout android:padding="5dp" android:layout_width="match_parent" android:layout_height="match_parent">
+        <dji.publics.DJIUI.DJIImageView android:layout_gravity="top|bottom|center_vertical|fill_vertical|center|fill" android:id="@+id/rc_main_upgrade_ic" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@r$drawable/rc_main_ic_home_s_upgrade" android:layout_alignParentRight="true" />
+        <dji.publics.DJIUI.DJITextView android:textSize="16sp" android:textColor="@color/om" android:layout_gravity="top|bottom|center_vertical|fill_vertical|center|fill" android:id="@+id/djipad_upgrade_tip_txt" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="3dp" android:text="@string/rc_main_update" android:layout_toLeftOf="@+id/rc_main_upgrade_ic" />
+        <dji.publics.DJIUI.DJITextView android:textSize="13sp" android:textColor="@color/om" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" />
+    </dji.publics.DJIUI.DJIRelativeLayout>
+</dji.pilot2.upgrade.DJIPADUpgradeTipBannerView>

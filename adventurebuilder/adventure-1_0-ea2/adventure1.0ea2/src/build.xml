@@ -1,0 +1,112 @@
+<?xml version="1.0"?>
+<!-- Copyright 2003 Sun Microsystems, Inc. All rights reserved.
+ 
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions
+ are met:
+ 
+ - Redistributions of source code must retain the above copyright
+   notice, this list of conditions and the following disclaimer.
+ 
+ - Redistribution in binary form must reproduce the above copyright
+   notice, this list of conditions and the following disclaimer in
+   the documentation and/or other materials provided with the
+   distribution.
+ 
+ Neither the name of Sun Microsystems, Inc. or the names of
+ contributors may be used to endorse or promote products derived
+ from this software without specific prior written permission.
+ 
+ This software is provided "AS IS," without a warranty of any
+ kind. ALL EXPRESS OR IMPLIED CONDITIONS, REPRESENTATIONS AND
+ WARRANTIES, INCLUDING ANY IMPLIED WARRANTY OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE OR NON-INFRINGEMENT, ARE HEREBY
+ EXCLUDED. SUN AND ITS LICENSORS SHALL NOT BE LIABLE FOR ANY DAMAGES
+ SUFFERED BY LICENSEE AS A RESULT OF USING, MODIFYING OR
+ DISTRIBUTING THE SOFTWARE OR ITS DERIVATIVES. IN NO EVENT WILL SUN
+ OR ITS LICENSORS BE LIABLE FOR ANY LOST REVENUE, PROFIT OR DATA, OR
+ FOR DIRECT, INDIRECT, SPECIAL, CONSEQUENTIAL, INCIDENTAL OR
+ PUNITIVE DAMAGES, HOWEVER CAUSED AND REGARDLESS OF THE THEORY OF
+ LIABILITY, ARISING OUT OF THE USE OF OR INABILITY TO USE SOFTWARE,
+ EVEN IF SUN HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+ 
+ You acknowledge that Software is not designed, licensed or intended
+ for use in the design, construction, operation or maintenance of
+ any nuclear facility.
+ $Id: build.xml,v 1.11 2002/11/22 22:37:06 vijaysr Exp $ -->
+
+<!DOCTYPE project [
+  <!ENTITY commonAntCommands SYSTEM "config/common-ant.xml">
+  <!ENTITY appServerAntCommands SYSTEM "config/app-server-ant.xml">
+]>
+
+<project name="blueprints" default="core" basedir=".">
+
+  <!-- path to root -->
+  <property name="root.dir" value="."/>
+
+  &commonAntCommands; <!-- include common ant commands -->
+
+  <property name="adventure.javadocs.dir" value="docs/api"/>
+
+  <target name="core">
+    <ant dir="components" target="core" inheritAll="false" inheritRefs="false"/>
+    <ant dir="waf/src" target="core" inheritAll="false" inheritRefs="false"/>
+    <ant dir="apps" target="core" inheritAll="false" inheritRefs="false"/>     
+  </target>
+
+  <target name="deploy-apps">
+    <ant dir="apps" target="deploy-apps" inheritAll="false" inheritRefs="false"/>     
+  </target>
+
+  <target name="verify">
+    <ant dir="apps" target="verify" inheritAll="false" inheritRefs="false"/>     
+  </target>
+
+  <target name="undeploy-apps">
+    <ant dir="apps" target="undeploy-apps" inheritAll="false" inheritRefs="false"/>
+  </target>
+
+  <target name="docs" depends="core">
+    <echo message="Generating API Javadocs...."/>
+    <mkdir dir="${adventure.javadocs.dir}"/>    
+    <javadoc packagenames="com.sun.j2ee.blueprints.*"
+             destdir="${adventure.javadocs.dir}"
+             author="false" version="true" use="true"
+             windowtitle="Java Adventure Builder Demo API"
+             doctitle="Java Adventure Builder Demo"
+             bottom="Copyright &#169; 2001 Sun Microsystems Inc. All Rights Reserved.">
+      <classpath>
+        <path refid="javadocs.classpath"/>
+        <pathelement path="components/encodingfilter/build/classes"/>
+        <pathelement path="components/servicelocator/build/classes"/>
+        <pathelement path="components/populate/build/classes"/>
+        <pathelement path="components/util/tracer/build/classes"/>
+        <pathelement path="waf/build/classes"/>
+        <pathelement path="apps/adventure/build/classes"/>
+        <pathelement path="apps/opc/build/classes"/>
+      </classpath>
+      <sourcepath>
+        <pathelement path="components/encodingfilter/src"/>
+        <pathelement path="components/servicelocator/src"/>
+        <pathelement path="components/populate/src"/>
+        <pathelement path="components/util/tracer/src"/>
+        <pathelement path="waf/src"/>
+        <pathelement path="waf/src/controller"/>
+        <pathelement path="waf/src/view/taglibs"/>
+        <pathelement path="waf/src/view/template"/>
+        <pathelement path="apps/adventure/src"/>
+        <pathelement path="apps/opc/src"/>
+      </sourcepath>
+    </javadoc>
+  </target>
+
+  <target name="cleanall">
+    <ant dir="components" target="clean" inheritAll="false" inheritRefs="false"/>
+    <ant dir="waf/src" target="clean" inheritAll="false" inheritRefs="false"/>
+    <ant dir="apps" target="clean" inheritAll="false" inheritRefs="false"/>
+    <delete dir="${adventure.javadocs.dir}"/>
+  </target>
+
+  <target name="all" depends="core, docs"/>
+</project>

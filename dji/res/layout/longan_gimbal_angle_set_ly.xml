@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.device.common.view.set.view.LonganGimbalAngleSetView xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent">
+    <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent">
+        <RelativeLayout android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x7f0b012f">
+            <TextView android:textSize="@dimen/rl" android:textColor="@color/om" android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@id/b3e" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_marginLeft="@dimen/ft" android:text="@string/longan_gimbal_set_angle_pitch" />
+            <TextView android:textSize="@dimen/rq" android:textColor="@color/om" android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@id/b3f" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_marginLeft="@dimen/fj" android:text="0" android:layout_toRightOf="@id/b3e" android:alpha="0.8" />
+            <TextView android:textSize="@dimen/rq" android:textColor="@color/om" android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@id/b3g" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_marginRight="@dimen/ft" android:text="0" android:layout_alignParentRight="true" android:alpha="0.8" />
+            <TextView android:textSize="@dimen/rl" android:textColor="@color/om" android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@id/b3h" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_marginRight="@dimen/fj" android:text="@string/longan_gimbal_set_angle_yaw" android:layout_toLeftOf="@id/b3g" />
+        </RelativeLayout>
+        <View android:background="@color/oq" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x33333331" />
+        <RelativeLayout android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x7f0b012f">
+            <TextView android:textColor="@color/om" android:gravity="top|bottom|center_vertical|fill_vertical|center|fill" android:id="@id/b3i" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_marginLeft="@dimen/ft" android:text="@string/longan_gimbal_set_angle_pitch_aim" android:layout_alignParentLeft="true" />
+            <TextView android:textSize="@dimen/rp" android:textColor="@color/ot" android:gravity="top|bottom|center_vertical|fill_vertical|center|fill" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_marginLeft="@dimen/gj" android:text="[-90,30]" android:layout_toRightOf="@id/b3i" />
+            <EditText android:id="@id/b3j" android:layout_width="UNKNOWN_DATA_0x7f0b012f" android:layout_height="match_parent" android:layout_margin="@dimen/fj" android:hint="@string/longan_gimbal_set_input_hint" android:layout_alignParentRight="true" style="@style/em" />
+        </RelativeLayout>
+        <View android:background="@color/oq" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x33333331" />
+        <RelativeLayout android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x7f0b012f">
+            <TextView android:textColor="@color/om" android:gravity="top|bottom|center_vertical|fill_vertical|center|fill" android:id="@id/b3k" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_marginLeft="@dimen/ft" android:text="@string/longan_gimbal_set_angle_yaw_aim" android:layout_alignParentLeft="true" />
+            <TextView android:textSize="@dimen/rp" android:textColor="@color/ot" android:gravity="top|bottom|center_vertical|fill_vertical|center|fill" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_marginLeft="@dimen/gj" android:text="[-320,320]" android:layout_toRightOf="@id/b3k" />
+            <EditText android:id="@id/b3l" android:layout_width="UNKNOWN_DATA_0x7f0b012f" android:layout_height="match_parent" android:layout_margin="@dimen/fj" android:hint="@string/longan_gimbal_set_input_hint" android:layout_alignParentRight="true" style="@style/em" />
+        </RelativeLayout>
+        <View android:background="@color/oq" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x33333331" />
+        <RelativeLayout android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x7f0b0133">
+            <dji.device.common.view.DJIStateTextView android:textColor="@color/om" android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@id/b3m" android:background="@drawable/white_line_btn_bg" android:layout_width="UNKNOWN_DATA_0x7f0b00ff" android:layout_height="UNKNOWN_DATA_0x7f0b0123" android:text="@string/timelapse_confirm_btn_text" android:layout_centerInParent="true" />
+        </RelativeLayout>
+        <View android:background="@color/oq" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x33333331" />
+    </LinearLayout>
+</dji.device.common.view.set.view.LonganGimbalAngleSetView>

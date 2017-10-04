@@ -1,0 +1,4 @@
+org/openscience/cdk/test/AssociationTest.java
+org/openscience/cdk/test/tools/GenerateFragmentsTest.java
+org/openscience/cdk/test/MexperimentalTests.java
+org/openscience/cdk/test/io/VASPReaderTest.java

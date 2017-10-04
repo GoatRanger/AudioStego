@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" style="@style/g2"
+    <LinearLayout android:orientation="horizontal" style="@style/g2">
+        <TextView android:id="@id/bqz" android:text="@string/setting_ui_hd_osd_switch" style="@style/gh" />
+        <Switch android:id="@id/br0" style="@style/gg" />
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/bv2" android:layout_width="match_parent" android:layout_height="wrap_content"
+        <LinearLayout android:layout_height="UNKNOWN_DATA_0x7f0b0350" style="@style/g2">
+            <TextView android:text="@string/setting_ui_hd_osd_top_margin" style="@style/gh" />
+            <dji.setting.ui.widget.DJINumberProgress android:id="@id/bv3" android:layout_width="UNKNOWN_DATA_0x7f0b036e" android:layout_height="match_parent" />
+        </LinearLayout>
+        <LinearLayout android:layout_height="UNKNOWN_DATA_0x7f0b0350" style="@style/g2">
+            <TextView android:text="@string/setting_ui_hd_osd_left_margin" style="@style/gh" />
+            <dji.setting.ui.widget.DJINumberProgress android:id="@id/bv4" android:layout_width="UNKNOWN_DATA_0x7f0b036e" android:layout_height="match_parent" />
+        </LinearLayout>
+        <LinearLayout android:layout_height="UNKNOWN_DATA_0x7f0b0350" style="@style/g2">
+            <TextView android:text="@string/setting_ui_hd_osd_bottom_margin" style="@style/gh" />
+            <dji.setting.ui.widget.DJINumberProgress android:id="@id/bv5" android:layout_width="UNKNOWN_DATA_0x7f0b036e" android:layout_height="match_parent" />
+        </LinearLayout>
+        <LinearLayout android:layout_height="UNKNOWN_DATA_0x7f0b0350" style="@style/g2">
+            <TextView android:text="@string/setting_ui_hd_osd_right_margin" style="@style/gh" />
+            <dji.setting.ui.widget.DJINumberProgress android:id="@id/bv6" android:layout_width="UNKNOWN_DATA_0x7f0b036e" android:layout_height="match_parent" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

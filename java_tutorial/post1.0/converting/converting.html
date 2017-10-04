@@ -1,0 +1,226 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>How to Convert Your Program</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="deprecation.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#converting" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="techniques.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: JDK(TM) 1.1 -- And Beyond!
+<br>
+<b>Lesson</b>: Migrating to 1.1
+</font>
+
+<h2>
+How to Convert Your Program
+</h2>
+<blockquote>
+This section tells you how to convert programs that use deprecated API.
+This section does not tell you how to use the JDK's new features unless
+a new feature's API replaces deprecated API. For example, this section
+doesn't discuss substituting RMI for your existing networking code,
+since the original networking code is still valid. However, this
+section does tell you how to update to the new AWT event system, since
+the API for the old AWT event system is deprecated.
+
+<p>
+This section has four subsections:
+
+<ul>
+<li> <a href="#instructions">General Instructions</a>
+     <br>
+     Provides step-by-step instructions on how to convert your
+     programs.
+<li> <a href="techniques.html">Special Coding Techniques</a>
+     <br>
+     Describes a couple of techniques 
+     for writing code that works in both 1.0 and 1.1.
+<li> <a href="convertingIO.html">How to Convert Code that Uses I/O</a>
+     <br>
+     Shows you how to convert code that uses deprecated API in <code>java.io</code>.
+<li> <a href="convertingAWT.html">How to Convert Code that Uses the AWT</a>
+     <br>
+     Gives detailed directions on converting programs that have a GUI.
+</ul>
+
+</blockquote>
+<h3>
+<a name="instructions">
+General Instructions
+</a>
+</h3>
+
+<ol>
+<li> First, save a copy of the original program -- 
+     both the Java source code 
+     (<code>.java</code> files)
+     and the Java bytecodes
+     (<code>.class</code> files).
+     You'll need the copy until all the Java runtime systems
+     the program might execute
+     in have been converted to 1.1 or a later release.
+
+     Here's an example of saving a copy of a program on a UNIX system:
+<blockquote><pre>
+% <b>cp MyClass.java MyClass.java.orig</b>
+% <b>cp MyClass.class MyClass.class.orig</b>
+</pre></blockquote>
+
+<li> Get a list of the deprecated API the program uses
+     by compiling the program
+     with deprecation warnings turned on.
+     Make <em>sure</em> you're using a 1.1 compiler.
+     Here's an example of compiling on a UNIX or Windows system:
+<blockquote><pre>
+% <b>javac -deprecation MyClass.java</b>
+</pre></blockquote>
+     <p>
+     If your program
+     calls or overrides any deprecated methods,
+     the compiler displays a warning.
+     For example:
+
+<blockquote><pre>
+MyClass.java:18: Note: The method boolean handleEvent(
+java.awt.Event) in class java.awt.Component has been deprecated,
+and class MyClass overrides it.
+    public boolean handleEvent(Event event) {
+                   ^
+MyClass.java:26: Note: The method boolean handleEvent(
+java.awt.Event) in class java.awt.Component has been deprecated.
+        return super.handleEvent(event);
+                                ^
+Note: MyClass.java uses a deprecated API.  Please consult the
+documentation for a better alternative.
+2 warnings
+</pre></blockquote>
+     <p>
+
+     <strong>Note:</strong> 
+     The original JDK 1.1 compiler 
+     warns you only when a program <em>calls</em>
+     a deprecated method,
+     not when it <em>overrides</em> it.
+     Starting with 1.1.1, the Java compiler warns you  
+     of both overridden and called deprecated methods.
+<p>
+<li> Now that you have identified where your program uses deprecated
+     API, modify the program to use new alternative API instead.
+     The following sections can help you find the best alternative API:
+     <ul>
+     <li>
+     <a href="convertingIO.html">How to Convert Code that Uses I/O</a>,
+     for programs that use deprecated <code>java.io</code> API.
+     <li>
+     <a href="convertingAWT.html">How to Convert Code that Uses the AWT</a>,
+     for programs with GUIs.
+     <li>
+     <a href="deprecated.html">Alternatives to Deprecated
+     Methods in <code>java.lang</code>, 
+     <code>java.net</code>, and 
+     <code>java.util</code></a>,
+     for programs that use deprecated API in the remaining 1.0 packages.
+     (Note that <code>java.applet</code> contains
+     no deprecated methods or classes.)
+     <li>
+     <a href="listsAndTables.html">Lists and Tables</a>,
+     for reference material that lists all new packages and classes
+     and lists all of the deprecated API and their alternatives.
+     </ul>
+
+<p>
+<li> Once your program compiles without warnings,
+     test it by executing it.
+     It should work as well as or better than it worked before.
+     <p>
+     If your program doesn't work the way you expected it to,
+     then you have probably either
+     implemented a new feature incorrectly
+     or encountered an incompatible change.
+     See the relevant section in this tutorial
+     for help implementing any new features.
+     See <a href="compatibility.html">JDK 1.1 Compatibility</a>
+     for a list of incompatible changes between 1.0 and 1.1.
+
+</ol>
+
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="deprecation.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#converting" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="techniques.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

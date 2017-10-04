@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.setting.ui.SettingUIStageView xmlns:android="http://schemas.android.com/apk/res-auto" setting_ui:layout_width="match_parent" setting_ui:layout_height="match_parent" setting_ui:titleText="@string/setting_ui_general">
+    <ScrollView style="@style/gk">
+        <com.dji.sdktools.view.EditorLayout setting_ui:layout_width="match_parent" setting_ui:layout_height="match_parent" />
+    </ScrollView>
+</dji.setting.ui.SettingUIStageView>

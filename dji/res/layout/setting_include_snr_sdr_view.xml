@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res-auto" phantom:layout_width="match_parent" phantom:layout_height="match_parent">
+    <LinearLayout phantom:orientation="vertical" phantom:id="@id/ax7" phantom:visibility="visible" phantom:layout_height="wrap_content" style="@style/g2">
+        <dji.setting.ui.rc.FreqSnrSdrView phantom:id="@id/ax9" phantom:layout_width="match_parent" phantom:layout_height="UNKNOWN_DATA_0x7f0b0322" phantom:layout_centerHorizontal="true" />
+        <TextView phantom:textSize="@dimen/wn" phantom:id="@id/ax_" phantom:visibility="gone" phantom:text="@string/setting_ui_hd_channel_desc_auto" phantom:layout_alignTop="@id/ax9" phantom:layout_centerHorizontal="true" style="@style/gh" />
+        <LinearLayout phantom:gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:orientation="horizontal" phantom:layout_width="wrap_content" phantom:layout_height="UNKNOWN_DATA_0x1401" phantom:layout_marginBottom="@dimen/uf">
+            <ImageView phantom:background="@color/hr" phantom:layout_width="UNKNOWN_DATA_0x7f0b0329" phantom:layout_height="UNKNOWN_DATA_0x7f0b0355" phantom:layout_marginLeft="@dimen/uf" />
+            <TextView phantom:layout_marginLeft="8dp" phantom:text="@string/setting_ui_hd_channel_desc_stable" phantom:layout_centerVertical="true" style="@style/gt" />
+            <ImageView phantom:background="@color/hs" phantom:layout_width="UNKNOWN_DATA_0x7f0b0329" phantom:layout_height="UNKNOWN_DATA_0x7f0b0355" phantom:layout_marginLeft="30dp" />
+            <TextView phantom:layout_marginLeft="8dp" phantom:text="@string/setting_ui_hd_channel_desc_unstable" phantom:layout_centerVertical="true" style="@style/gt" />
+            <ImageView phantom:background="@color/hp" phantom:layout_width="UNKNOWN_DATA_0x7f0b0329" phantom:layout_height="UNKNOWN_DATA_0x7f0b0355" phantom:layout_marginLeft="30dp" />
+            <TextView phantom:layout_marginLeft="8dp" phantom:text="@string/setting_ui_hd_channel_desc_current" phantom:layout_centerVertical="true" style="@style/gt" />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

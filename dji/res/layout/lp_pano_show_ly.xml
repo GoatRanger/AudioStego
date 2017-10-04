@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.phone.pano.DJILPPanoDisplayer xmlns:android="http://schemas.android.com/apk/res-auto" longan:background="@color/a_" longan:visibility="gone" longan:layout_width="match_parent" longan:layout_height="match_parent">
+    <RelativeLayout longan:id="@id/b4s" longan:background="@color/a_" longan:layout_width="match_parent" longan:layout_height="match_parent">
+        <ImageView longan:id="@id/bbb" longan:layout_width="match_parent" longan:layout_height="match_parent" longan:scaleType="centerInside" longan:layout_centerInParent="true" />
+        <ImageView longan:id="@id/bbc" longan:layout_width="UNKNOWN_DATA_0x2801" longan:layout_height="UNKNOWN_DATA_0x2801" longan:src="@drawable/longan_pano_cancle" longan:scaleType="center" longan:layout_alignParentTop="true" longan:layout_alignParentRight="true" />
+    </RelativeLayout>
+    <RelativeLayout longan:id="@id/b4v" longan:background="@color/a_" longan:visibility="gone" longan:layout_width="match_parent" longan:layout_height="match_parent"
+        <RelativeLayout longan:id="@id/bbd" longan:layout_width="wrap_content" longan:layout_height="wrap_content" longan:layout_centerInParent="true">
+            <ImageView longan:id="@id/b4x" longan:layout_width="wrap_content" longan:layout_height="wrap_content" longan:src="@drawable/longan_panoing" longan:scaleType="center" longan:layout_centerHorizontal="true" />
+            <dji.device.common.view.progressbar.LonganHorizontalProgressBar longan:layout_gravity="left|right|center_horizontal|fill_horizontal|center|fill|start|end" longan:id="@id/b4y" longan:background="@color/j5" longan:padding="5dp" longan:layout_width="UNKNOWN_DATA_0x7f0b03b3" longan:layout_height="wrap_content" longan:layout_marginTop="@dimen/fx" longan:progress="0" longan:layout_below="@id/b4x" longan:progress_unreached_color="@color/os" longan:progress_reached_color="@color/ax" longan:progress_reached_bar_height="4dp" longan:progress_unreached_bar_height="4dp" longan:progress_text_visibility="1" />
+        </RelativeLayout>
+        <TextView longan:textSize="@dimen/rr" longan:textColor="@color/om" longan:layout_width="wrap_content" longan:layout_height="wrap_content" longan:layout_marginTop="@dimen/gl" longan:text="@string/lp_pano_stitching_txt" longan:layout_below="@id/bbd" longan:layout_centerHorizontal="true" />
+    </RelativeLayout>
+</dji.phone.pano.DJILPPanoDisplayer>

@@ -1,0 +1,155 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Retrieving Component Types</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="isArray.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#array" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="newInstance.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: The Reflection API
+<br>
+<b>Lesson</b>: Working with Arrays
+</font>
+
+<h2>
+Retrieving Component Types
+</h2>
+<blockquote>
+The component type is the type of an array's elements. For example, the 
+component type of the <code>arrowKeys</code> array in the following line of code is 
+<code>Button</code>:
+
+<blockquote><pre>
+Button[] arrowKeys = new Button[4];
+</pre></blockquote>
+
+The component type of a multidimensional array is an array. 
+In the next line of code,
+the component type of the array named <code>matrix</code> is <code>int[]</code>:
+
+<blockquote><pre>
+int[][] matrix = new int[100][100];
+</pre></blockquote>
+
+By invoking the <code>getComponentType</code> method against the <code>Class</code> object that 
+represents an array, you can retrieve the component type of the array's 
+elements. 
+
+<p>
+The sample program that follows invokes the <code>getComponentType</code> method and prints 
+out the class name of each array's component type.
+
+<blockquote><pre>
+import java.lang.reflect.*;
+import java.awt.*;
+
+class SampleComponent {
+
+   public static void main(String[] args) {
+      int[] ints = new int[2];
+      Button[]  buttons = new Button[6];
+      String[][] twoDim = new String[4][5];
+
+      printComponentType(ints);
+      printComponentType(buttons);
+      printComponentType(twoDim);
+   }
+
+   static void printComponentType(Object array) {
+      Class arrayClass = array.getClass();
+      String arrayName = arrayClass.getName();
+      Class componentClass = arrayClass.getComponentType();
+      String componentName = componentClass.getName();
+      System.out.println("Array: " + arrayName + 
+         ", Component: " + componentName);
+   }
+}
+
+</pre></blockquote>
+
+The output of the sample program is:
+
+<blockquote><pre>
+Array: [I, Component: int
+Array: [Ljava.awt.Button;, Component: java.awt.Button
+Array: [[Ljava.lang.String;, Component: [Ljava.lang.String;
+</pre></blockquote>
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="isArray.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#array" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="newInstance.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

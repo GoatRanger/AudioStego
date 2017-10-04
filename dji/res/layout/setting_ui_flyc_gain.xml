@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:gravity="top|bottom|center_vertical|fill_vertical|center|fill" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+    <TextView android:text="@string/setting_ui_flyc_gain_title" android:layout_centerVertical="true" style="@style/gf" />
+    <dji.setting.ui.widget.DividerLinearLayout android:orientation="horizontal" style="@style/g2">
+        <TextView android:gravity="top|bottom|center_vertical|fill_vertical|center|fill" android:text="@string/setting_ui_flyc_gain_tilt" style="@style/gh" />
+        <TextView android:id="@id/brh" android:layout_marginRight="@dimen/tv" android:text="@string/setting_ui_flyc_limit_height_range" style="@style/g6" />
+        <EditText android:id="@id/bri" android:text="0" android:layout_alignParentRight="true" android:layout_centerVertical="true" style="@style/g8" />
+    </dji.setting.ui.widget.DividerLinearLayout>
+    <dji.setting.ui.widget.DividerLinearLayout android:orientation="horizontal" style="@style/g2">
+        <TextView android:gravity="top|bottom|center_vertical|fill_vertical|center|fill" android:text="@string/setting_ui_flyc_gain_brake" style="@style/gh" />
+        <TextView android:id="@id/brj" android:layout_marginRight="@dimen/tv" android:text="@string/setting_ui_flyc_limit_height_range" style="@style/g6" />
+        <EditText android:id="@id/brk" android:text="0" android:layout_alignParentRight="true" android:layout_centerVertical="true" style="@style/g8" />
+    </dji.setting.ui.widget.DividerLinearLayout>
+    <LinearLayout android:orientation="horizontal" android:id="@id/brl" style="@style/g2">
+        <TextView android:gravity="top|bottom|center_vertical|fill_vertical|center|fill" android:id="@id/bqz" android:text="@string/setting_ui_flyc_gain_yaw_endpoint" style="@style/gh" />
+        <TextView android:id="@id/brm" android:layout_marginRight="@dimen/tv" android:text="@string/setting_ui_flyc_limit_height_range" style="@style/g6" />
+        <EditText android:id="@id/brn" android:text="0" android:layout_alignParentRight="true" android:layout_centerVertical="true" style="@style/g8" />
+    </LinearLayout>
+</LinearLayout>

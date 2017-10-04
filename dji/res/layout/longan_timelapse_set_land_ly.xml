@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res-auto" phantom:orientation="vertical" phantom:layout_width="match_parent" phantom:layout_height="match_parent">
+    <TextView phantom:textColor="@color/om" phantom:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" phantom:background="@color/am" phantom:layout_width="match_parent" phantom:layout_height="UNKNOWN_DATA_0x7f0b04e3" phantom:text="@string/longan_timelapse_setting" phantom:alpha="0.8" />
+    <TextView phantom:id="@id/b9_" phantom:layout_marginLeft="@dimen/a6h" phantom:text="@string/longan_timelapse_mode_title" style="@style/ew" />
+    <RelativeLayout phantom:id="@id/b9a" phantom:background="@color/am" phantom:layout_width="match_parent" phantom:layout_height="UNKNOWN_DATA_0x7f0b04e2">
+        <LinearLayout phantom:orientation="horizontal" phantom:background="@drawable/longan_timelapse_mode_bg" phantom:clickable="true" phantom:layout_width="wrap_content" phantom:layout_height="wrap_content" phantom:layout_centerInParent="true">
+            <TextView phantom:id="@id/b4n" phantom:clickable="false" phantom:layout_width="UNKNOWN_DATA_0x7f0b04e9" phantom:layout_height="UNKNOWN_DATA_0x7f0b04e1" phantom:text="@string/longan_timelapse_stationary" style="@style/ev" />
+            <TextView phantom:id="@id/b4o" phantom:clickable="false" phantom:layout_width="UNKNOWN_DATA_0x7f0b04e9" phantom:layout_height="UNKNOWN_DATA_0x7f0b04e1" phantom:text="@string/longan_timelapse_motion" style="@style/ev" />
+        </LinearLayout>
+    </RelativeLayout>
+    <TextView phantom:id="@id/b9b" phantom:layout_marginLeft="@dimen/a6h" phantom:text="@string/longan_timelapse_interval_title" style="@style/ew" />
+    <RelativeLayout phantom:id="@id/b9c" phantom:background="@color/am" phantom:layout_width="match_parent" phantom:layout_height="UNKNOWN_DATA_0x7f0b04e2">
+        <ImageView phantom:background="@drawable/longan_whee_position_land" phantom:layout_width="wrap_content" phantom:layout_height="wrap_content" phantom:layout_alignParentBottom="true" phantom:layout_centerHorizontal="true" />
+        <antistatic.spinnerwheel.WheelHorizontalView phantom:id="@id/b9d" phantom:layout_width="match_parent" phantom:layout_height="UNKNOWN_DATA_0x7f0b0507" phantom:layout_marginLeft="0dp" phantom:layout_marginRight="0dp" phantom:layout_centerInParent="true" phantom:isAllVisible="true" phantom:itemsDimmedAlpha="80" phantom:isCyclic="false" />
+    </RelativeLayout>
+    <TextView phantom:id="@id/b9e" phantom:layout_marginLeft="@dimen/a6h" phantom:text="@string/longan_timelapse_duration_title" style="@style/ew" />
+    <RelativeLayout phantom:id="@id/b9f" phantom:background="@color/am" phantom:layout_width="match_parent" phantom:layout_height="UNKNOWN_DATA_0x7f0b04e2"
+        <RelativeLayout phantom:id="@id/b9g" phantom:layout_width="match_parent" phantom:layout_height="match_parent">
+            <ImageView phantom:background="@drawable/longan_whee_position_land" phantom:layout_width="wrap_content" phantom:layout_height="wrap_content" phantom:layout_alignParentBottom="true" phantom:layout_centerHorizontal="true" />
+            <antistatic.spinnerwheel.WheelHorizontalView phantom:id="@id/b9h" phantom:layout_width="match_parent" phantom:layout_height="UNKNOWN_DATA_0x7f0b0507" phantom:layout_marginLeft="0dp" phantom:layout_marginRight="0dp" phantom:layout_centerInParent="true" phantom:isAllVisible="true" phantom:itemsDimmedAlpha="80" phantom:isCyclic="false" />
+        </RelativeLayout>
+        <ImageView phantom:id="@id/b9i" phantom:visibility="gone" phantom:layout_width="wrap_content" phantom:layout_height="wrap_content" phantom:src="@drawable/longan_timelapse_motion_pic" phantom:layout_centerInParent="true" />
+    </RelativeLayout>
+    <LinearLayout phantom:orientation="vertical" phantom:id="@id/b9j" phantom:layout_width="match_parent" phantom:layout_height="wrap_content">
+        <TextView phantom:id="@id/b9k" phantom:layout_marginLeft="@dimen/a6h" phantom:text="@string/longan_timelapse_generate_video" style="@style/ew" />
+        <RelativeLayout phantom:id="@id/b9l" phantom:background="@color/am" phantom:layout_width="match_parent" phantom:layout_height="UNKNOWN_DATA_0x7f0b04e6">
+            <TextView phantom:textColor="@color/om" phantom:id="@id/b9m" phantom:layout_width="wrap_content" phantom:layout_height="wrap_content" phantom:text="@string/longan_timelapse_generate_video_continue" phantom:layout_centerInParent="true" phantom:alpha="0.8" />
+        </RelativeLayout>
+    </LinearLayout>
+    <RelativeLayout phantom:id="@id/b9n" phantom:layout_width="match_parent" phantom:layout_height="UNKNOWN_DATA_0x7f0b04e3" phantom:layout_marginTop="@dimen/a6_">
+        <Button phantom:textSize="20sp" phantom:textColor="@color/fd" phantom:id="@id/b9o" phantom:background="@color/j5" phantom:layout_width="match_parent" phantom:layout_height="wrap_content" phantom:text="@string/longan_timelapse_start" phantom:layout_centerInParent="true" />
+    </RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="10"
+   name=""
+   committed-date="2005-02-01T05:59:34.421875Z"
+   url="svn://192.168.2.2/IT105Editor/docs/jalopy/api/de/hunsicker/jalopy/plugin/console/class-use"
+   last-author="Karl"
+   kind="dir"
+   uuid="0daf4267-3229-f84b-9084-f3c94b025f38"
+   revision="55"/>
+<entry
+   committed-rev="10"
+   name="ConsolePlugin.html"
+   text-time="2005-03-02T06:14:29.750000Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="c5cce76e8f2773e08d322b720ea70204"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:29.734375Z"/>
+</wc-entries>

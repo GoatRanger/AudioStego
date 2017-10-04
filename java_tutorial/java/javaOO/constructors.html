@@ -1,0 +1,226 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Providing Constructors for Your Classes</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="classbody.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#javaOO" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="variables.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Learning the Java Language
+<br>
+<b>Lesson</b>: Classes and Inheritance
+</font>
+
+<h2>
+Providing Constructors for Your Classes
+</h2>
+<blockquote>
+All Java classes have constructors that are used to initialize a new
+object of that type. A constructor has the same name as the class. For
+example, the name of the <code>Stack</code> class's constructor
+is <code>Stack</code>, the name
+of the <code>Rectangle</code> class's constructor is <code>Rectangle</code>,
+and the name of the
+<code>Thread</code> class's constructor is <code>Thread</code>.
+<code>Stack</code> defines a single
+constructor:
+<blockquote><pre>
+public Stack() {
+    items = new Vector(10);
+}
+</pre></blockquote>
+Java supports name overloading for constructors so that a class can
+have any number of constructors, all of which have the same name.
+Following is another constructor that could be defined by
+<code>Stack</code>. This particular constructor sets the initial size
+of the stack according to its parameter:
+<blockquote><pre>
+public Stack(int initialSize) {
+    items = new Vector(initialSize);
+}
+</pre></blockquote>
+Both constructors share the same name, <code>Stack</code>, but they
+have different parameter lists. The compiler differentiates these
+constructors based on the number of parameters in the list and their
+types.
+<p>
+Typically, a constructor uses its arguments to initialize the new
+object's state. When creating an object, choose the constructor whose
+arguments best reflect how you want to initialize the new object.
+<p>
+Based on the number and type of the arguments that you pass into the
+constructor, the compiler can determine which constructor to use. The
+compiler knows that when you write the following code, it should use
+the constructor that requires a single integer argument:
+<blockquote><pre>
+new Stack(10);
+</pre></blockquote>
+Similarly, when you write the following code, the compiler chooses the
+no-argument constructor or the default constructor:
+<blockquote><pre>
+new Stack();
+</pre></blockquote>
+When writing your own class, you don't have to provide constructors for
+it. The default constructor is automatically provided by the runtime
+system for any class that contains no constructors. The default
+provided by the runtime system doesn't do anything. So, if you want to
+perform some initialization, you will have to write some constructors
+for your class.
+<p>
+The constructor for the following subclass of <code>Thread</code> performs
+animation, sets up some default values, such as the frame speed and the
+number of images, and then loads the images:
+<blockquote><pre>
+class AnimationThread extends Thread {
+    int framesPerSecond;
+    int numImages;
+    Image[] images;
+
+    AnimationThread(int fps, int num) {
+
+        super("AnimationThread");
+        this.framesPerSecond = fps;
+        this.numImages = num;
+
+        this.images = new Image[numImages];
+        for (int i = 0; i &lt;= numImages; i++) {
+            . . .
+            // <em>Load all the images.</em>
+            . . .
+        }
+    }  
+                              . . .
+}
+</pre></blockquote>
+Note how the body of a constructor is like the body of a method; that
+is, it contains local variable declarations, loops, and other
+statements. However, one line in the <code>AnimationThread</code>
+constructor that you wouldn't see in a method is the second line:
+<blockquote><pre>
+super("AnimationThread");
+</pre></blockquote>
+This line invokes a constructor provided by the superclass of
+<code>AnimationThread</code>, namely, <code>Thread</code>.
+This particular <code>Thread</code> constructor
+takes a <code>String</code> that sets the name of <code>Thread</code>.
+Often a constructor wants
+to take advantage of initialization code written in a class's
+superclass. Indeed, some classes must call their superclass constructor
+in order for the object to work properly. If present, the superclass
+constructor must be the first statement in the subclass's constructor:
+An object should perform the higher-level initialization first.
+<p>
+You can specify what other objects
+can create instances of your class
+by using an access specifier in the constructors'
+declaration:
+<p>
+<dl>
+<dt>
+<code>private</code>
+<dd>
+No other class can instantiate your class. Your class may contain
+public class methods (sometimes called factory methods), and those
+methods can construct an object and return it, but no other classes
+can.
+<dt>
+<code>protected</code>
+<dd>
+Only subclasses of the class and classes in the same package
+can create instances of it.
+<dt>
+<code>public</code>
+<dd>
+Any class can create an instance of your class. 
+<dt>
+<em>no specifier</em> gives package access
+<dd>
+Only classes within the same package as your class can construct an
+instance of it.
+</dl>
+Constructors provide a way to initialize a new object.
+<a href="classvars.html#initializing">
+Initializing Instance and Class Members</a>
+describes other ways you can
+provide for the initialization of your class and a new object created
+from the class. That section also discusses when and why you would use
+each technique.
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="classbody.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#javaOO" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="variables.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

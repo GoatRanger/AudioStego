@@ -1,0 +1,227 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Design Decisions</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="ofInterest.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#bingo" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="UIdiagrams.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Putting It All Together
+<br>
+<b>Lesson</b>: BINGO!
+</font>
+
+<h2>
+Design Decisions
+</h2>
+<blockquote>
+</blockquote>
+<h3>Packages</h3>
+<blockquote>
+All of the classes that make up the Player and Game applications
+are organized into three packages: <code>bingo.player</code>, <code>bingo.game</code>,
+and <code>bingo.shared</code>. This organization is straightforward and
+is seemingly an obvious choice: The code for the Player application
+goes in the <code>bingo.player</code> package, the code for the Game
+application goes in the <code>bingo.game</code> package, and all the
+classes that are used by both go in <code>bingo.shared</code>. Seems
+reasonable enough.
+<p>
+However, it's worth a few words to explain the benefits of this organization,
+why we didn't use <em>more</em> packages, and why certain classes were put
+in <code>bingo.shared</code> when they aren't actually shared.
+<p>
+Organizing the classes into packages provides these main benefits:
+<ul>
+<li>
+The first benefit is simply the benefit of having the classes organized
+into groups. The BINGO game is comprised of about 50 classes.
+This is a substantial enough number to justify grouping them by
+functionality.
+If all of the classes were in a single package, then they'd also
+be in a single directory. It would be difficult to find classes
+and keep them straight.
+<li>
+By dividing the classes into packages, the classes can use Java's
+access levels to restrict or allow access to member variables and
+methods based on package membership. If all of the classes were in
+the same package, the classes wouldn't have the fine-grain control
+over access as they now enjoy. [PENDING: example of this?]
+<li>
+[PENDING: more?]
+</ul>
+<p>
+The BINGO classes could have been further divided into more packages:
+The exceptions and error handling classes could have
+all been separated into their own package.
+The "listener" classes could have been separated into their own
+package, or the UI classes could have been in their own package.
+When deciding on the package structure, we decided that three
+packages would sufficiently divide the classes into appropriate
+functional groups and those packages would also be sufficiently
+populated. We decided to use three packages because we felt that
+a further divisioin would splinter the classes unnecessarily.
+We used class names to help group related classes within the three
+packages (for example, all of the exception classes have names
+that end in "Exception").
+<p>
+Like other areas of object-oriented design, many
+decisions like this are purely a judgment call. It's more of an art
+than a science and reflects personal style. You will find
+many programmers making different choices in areas such as this one.
+<p>
+Some classes and interfaces that are in <code>bingo.shared</code> are
+only used by the Game application (such as <code>Constants</code>).
+And some classes and interfaces that are in <code>bingo.shared</code>
+are only used by the Player application (such as <code>Utilities</code>).
+So, why aren't these classes in the application specific packages?
+<p>
+The packages represent a conceptual organization as well as a 
+practical one. A class that is used by only one of the applications
+but lives in <code>bingo.shared</code> is one that <em>might</em>
+be useful to other applications but is not directly manipulated
+by the code in the application in which it's used.
+<p>
+[PENDING: find out if there are other classes whose package is
+a bit unusual or interesting?]
+<p>
+[PENDING: anything else to say about packages?]
+</blockquote>
+
+<h3>Subclasses and Other OO Design Decisions</h3>
+<ul>
+<li>
+talk about division of labor and the choice to isolate
+certain things from the RingMaster (which could do it all).
+<li>
+bingo.game.ControlPane subclasses JPanel (why not just use one?)
+<li>
+discuss parentage of thread subclasses (BallAnnouncer and GamesThread)
+<li>
+discuss parentage of ListenerThread hierarchy
+<li>
+discuss parentage of Exception hierarchy
+<li>
+discuss interesting and exemplary choices of access levels
+<li>
+discuss the Parameters abstract class  (why we chose to make it
+abstract and the access permissions and the overriding done
+by its subclasses)
+<li>
+Make some classes final and discuss them?
+</ul>
+
+<h3>Use of Interfaces</h3>
+<ul>
+<li>
+BagOfBalls is an interface so that you can swap in your
+own class (RandomBag)
+<li>
+"implements Constants" is interesting because there are no methods
+in Constants just constants....class gets direct access to them
+(GameParameters.java, RegistrarImpl.java, SocketGate.java)
+Applies equally well to States.java implemented by RingMaster
+<li>
+Some classes implement Serializable...why
+<li>
+Explain the *Listener interface and the hierarchy
+
+</ul>
+
+
+<p>
+Where does the following belong:
+
+<p>
+It's interesting how we designed the UI elements that update themselves
+based on broadcast messages from the Game. Where does this go? Is this
+an OO thing or a UI thing?
+
+<p>
+A thought:
+we should highlight somehow the intended function of some classes.
+For example in shared there are collection of UI classes and listener
+things that are grouped by functionality. Shared also contains miscellaneous
+"helper" classes. Perhaps we should further divide things into more packages?
+Even if we don't change the package structure, we have to find a way
+to make these relationships and functions more obvious...class names?
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="ofInterest.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#bingo" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="UIdiagrams.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

@@ -1,0 +1,616 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="36"
+   name=""
+   committed-date="2005-02-01T06:13:37.812500Z"
+   url="svn://192.168.2.2/NetBuilder/src/gui"
+   last-author="Karl"
+   kind="dir"
+   uuid="0daf4267-3229-f84b-9084-f3c94b025f38"
+   revision="55"/>
+<entry
+   committed-rev="36"
+   name="j-rewind.gif"
+   text-time="2005-03-02T06:28:44.265625Z"
+   committed-date="2005-02-01T06:13:37.812500Z"
+   checksum="626a6c944d99f82a608953c653b6c7b9"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:28:42.468750Z"/>
+<entry
+   committed-rev="36"
+   name="HubRenderer.java"
+   text-time="2005-03-02T06:28:44.281250Z"
+   committed-date="2005-02-01T06:13:37.812500Z"
+   checksum="f71412fbb6a065f84167bb3228ff037e"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:28:42.484375Z"/>
+<entry
+   committed-rev="36"
+   name="MailRenderer.java"
+   text-time="2005-03-02T06:28:44.328125Z"
+   committed-date="2005-02-01T06:13:37.812500Z"
+   checksum="0c19f4894cb75dd6917b6d6b7ca08210"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:28:42.500000Z"/>
+<entry
+   committed-rev="36"
+   name="PickBar.java"
+   text-time="2005-03-02T06:28:44.359375Z"
+   committed-date="2005-02-01T06:13:37.812500Z"
+   checksum="9e82594e4e3061b17ea02873d1a82a18"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:28:42.515625Z"/>
+<entry
+   committed-rev="36"
+   name="NetBuilderFrame_AboutBox.java"
+   text-time="2005-03-02T06:28:44.359375Z"
+   committed-date="2005-02-01T06:13:37.812500Z"
+   checksum="885fa53d7e911b3b3c81a07a14e0372b"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:28:42.500000Z"/>
+<entry
+   committed-rev="36"
+   name="GuideDevice.java"
+   text-time="2005-03-02T06:28:44.375000Z"
+   committed-date="2005-02-01T06:13:37.812500Z"
+   checksum="84c18e2abf6a2d9869db2d51bb2ada08"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:28:42.531250Z"/>
+<entry
+   committed-rev="36"
+   name="Descriptor.java"
+   text-time="2005-03-02T06:28:44.375000Z"
+   committed-date="2005-02-01T06:13:37.812500Z"
+   checksum="7f8b6015dedf1c1b6f7761efd7bcb62a"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:28:42.531250Z"/>
+<entry
+   committed-rev="36"
+   name="DisplayPanel.java"
+   text-time="2005-03-02T06:28:44.406250Z"
+   committed-date="2005-02-01T06:13:37.812500Z"
+   checksum="49637676d3f93b9e429eaf37ee56fc1e"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:28:42.562500Z"/>
+<entry
+   committed-rev="36"
+   name="BaseConnector.java"
+   text-time="2005-03-02T06:28:44.390625Z"
+   committed-date="2005-02-01T06:13:37.812500Z"
+   checksum="16f8c636190b623623a34173fee3b3a3"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:28:42.546875Z"/>
+<entry
+   committed-rev="36"
+   name="BaseLink.java"
+   text-time="2005-03-02T06:28:44.406250Z"
+   committed-date="2005-02-01T06:13:37.812500Z"
+   checksum="00301d97233f93fa84e5058d271dcf8b"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:28:42.578125Z"/>
+<entry
+   committed-rev="36"
+   name="BaseService.java"
+   text-time="2005-03-02T06:28:44.437500Z"
+   committed-date="2005-02-01T06:13:37.812500Z"
+   checksum="ceb7944c682fad42c2d1115f8a792140"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:28:42.593750Z"/>
+<entry
+   committed-rev="36"
+   name="ScorePanel.java"
+   text-time="2005-03-02T06:28:44.421875Z"
+   committed-date="2005-02-01T06:13:37.812500Z"
+   checksum="bf2a32c13d5e853efcce63b147ccbc74"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:28:42.578125Z"/>
+<entry
+   committed-rev="36"
+   name="PersonRenderer.java"
+   text-time="2005-03-02T06:28:44.437500Z"
+   committed-date="2005-02-01T06:13:37.812500Z"
+   checksum="db12011793f15065a31057609696bae9"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:28:42.609375Z"/>
+<entry
+   committed-rev="36"
+   name="j-stop.gif"
+   text-time="2005-03-02T06:28:44.453125Z"
+   committed-date="2005-02-01T06:13:37.812500Z"
+   checksum="200dc1ab51e43590b595d81033dd7884"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:28:42.625000Z"/>
+<entry
+   committed-rev="36"
+   name="DesktopRenderer.java"
+   text-time="2005-03-02T06:28:44.453125Z"
+   committed-date="2005-02-01T06:13:37.812500Z"
+   checksum="d757d6623551bf2f4e2f418583b3de53"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:28:42.609375Z"/>
+<entry
+   committed-rev="36"
+   name="ControlPanel.java"
+   text-time="2005-03-02T06:28:44.468750Z"
+   committed-date="2005-02-01T06:13:37.812500Z"
+   checksum="308fd2da56cc83f0a373da384051c4f4"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:28:42.625000Z"/>
+<entry
+   committed-rev="36"
+   name="NICRenderer.java"
+   text-time="2005-03-02T06:28:44.468750Z"
+   committed-date="2005-02-01T06:13:37.812500Z"
+   checksum="9ce0f23f0a7ee5d0cb520601013376dd"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:28:42.640625Z"/>
+<entry
+   committed-rev="36"
+   name="BoilerRenderer.java"
+   text-time="2005-03-02T06:28:44.500000Z"
+   committed-date="2005-02-01T06:13:37.812500Z"
+   checksum="9ef383e70b0eb2c8187ed227b8d12de1"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:28:42.656250Z"/>
+<entry
+   committed-rev="36"
+   name="MessagePanel.java"
+   text-time="2005-03-02T06:28:44.515625Z"
+   committed-date="2005-02-01T06:13:37.812500Z"
+   checksum="5f110bb6e2de7043945c059c64b0985c"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:28:42.656250Z"/>
+<entry
+   committed-rev="36"
+   name="WebRenderer.java"
+   text-time="2005-03-02T06:28:44.515625Z"
+   committed-date="2005-02-01T06:13:37.812500Z"
+   checksum="2144e443351d9d932319b01ea9c37f85"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:28:42.671875Z"/>
+<entry
+   committed-rev="36"
+   name="NetworkConnector.java"
+   text-time="2005-03-02T06:28:44.531250Z"
+   committed-date="2005-02-01T06:13:37.812500Z"
+   checksum="9c918a7a0875dd300ebe5a07c3e5af04"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:28:42.671875Z"/>
+<entry
+   committed-rev="36"
+   name="NICtenRenderer.java"
+   text-time="2005-03-02T06:28:44.531250Z"
+   committed-date="2005-02-01T06:13:37.812500Z"
+   checksum="450efc6c88b9a370a896ba3cfc7c5bba"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:28:42.687500Z"/>
+<entry
+   committed-rev="36"
+   name="j-play.gif"
+   text-time="2005-03-02T06:28:44.531250Z"
+   committed-date="2005-02-01T06:13:37.812500Z"
+   checksum="b0b715684ef916d10cf68b095cdb77fa"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:28:42.703125Z"/>
+<entry
+   committed-rev="36"
+   name="GuideRenderer.java"
+   text-time="2005-03-02T06:28:44.546875Z"
+   committed-date="2005-02-01T06:13:37.812500Z"
+   checksum="27d9544117ec219e12481f628fc9a425"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:28:42.703125Z"/>
+<entry
+   committed-rev="36"
+   name="closeFile.gif"
+   text-time="2005-03-02T06:28:44.546875Z"
+   committed-date="2005-02-01T06:13:37.812500Z"
+   checksum="04b1281095aad444bed81515cf63dfbe"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:28:42.718750Z"/>
+<entry
+   committed-rev="36"
+   name="BaseDevice.java"
+   text-time="2005-03-02T06:28:44.562500Z"
+   committed-date="2005-02-01T06:13:37.812500Z"
+   checksum="2ba1135552b9d608a7c9242a4df32977"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:28:42.734375Z"/>
+<entry
+   committed-rev="36"
+   name="NetBuilder.java"
+   text-time="2005-03-02T06:28:44.578125Z"
+   committed-date="2005-02-01T06:13:37.812500Z"
+   checksum="4a0b3457e6462f212f24b38bae23418e"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:28:42.750000Z"/>
+<entry
+   committed-rev="36"
+   name="TurbineRenderer.java"
+   text-time="2005-03-02T06:28:44.578125Z"
+   committed-date="2005-02-01T06:13:37.812500Z"
+   checksum="812319f5e9300b6e22563383aad577c8"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:28:42.781250Z"/>
+<entry
+   committed-rev="36"
+   name="BasePerson.java"
+   text-time="2005-03-02T06:28:44.593750Z"
+   committed-date="2005-02-01T06:13:37.812500Z"
+   checksum="da9fc03b0e467f538436ff1fb103f835"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:28:42.796875Z"/>
+<entry
+   committed-rev="36"
+   name="ControlBar.java"
+   text-time="2005-03-02T06:28:44.625000Z"
+   committed-date="2005-02-01T06:13:37.812500Z"
+   checksum="455f5e86f1069daed658d85475e5079b"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:28:42.859375Z"/>
+<entry
+   committed-rev="36"
+   name="nicsmall.png"
+   text-time="2005-03-02T06:28:44.609375Z"
+   committed-date="2005-02-01T06:13:37.812500Z"
+   checksum="3ce4b29b7be1cb00cec257dcbd1b4853"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:28:42.828125Z"/>
+<entry
+   committed-rev="36"
+   name="GridPanel.java"
+   text-time="2005-03-02T06:28:44.609375Z"
+   committed-date="2005-02-01T06:13:37.812500Z"
+   checksum="6fdb11b80a03457d37439c55eca55e68"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:28:42.859375Z"/>
+<entry
+   committed-rev="36"
+   name="BuilderPanel.java"
+   text-time="2005-03-02T06:28:44.656250Z"
+   committed-date="2005-02-01T06:13:37.812500Z"
+   checksum="3245af80830639374216c16ff1b74556"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:28:43.000000Z"/>
+<entry
+   committed-rev="36"
+   name="Foundation.java"
+   text-time="2005-03-02T06:28:44.625000Z"
+   committed-date="2005-02-01T06:13:37.812500Z"
+   checksum="9697581dcc8229a90cc48c1bf440ef34"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:28:42.937500Z"/>
+<entry
+   committed-rev="36"
+   name="RouterRenderer.java"
+   text-time="2005-03-02T06:28:44.687500Z"
+   committed-date="2005-02-01T06:13:37.812500Z"
+   checksum="29a780acc1b2ff6c04ce414a551e2702"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:28:43.031250Z"/>
+<entry
+   committed-rev="36"
+   name="StatusBar.java"
+   text-time="2005-03-02T06:28:44.718750Z"
+   committed-date="2005-02-01T06:13:37.812500Z"
+   checksum="9db1332bb9574b17b7492e8a6eca69d9"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:28:43.093750Z"/>
+<entry
+   committed-rev="36"
+   name="BasicRenderer.java"
+   text-time="2005-03-02T06:28:44.718750Z"
+   committed-date="2005-02-01T06:13:37.812500Z"
+   checksum="bb16daa3d04cf65dde1d98ae96f3a584"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:28:43.078125Z"/>
+<entry
+   committed-rev="36"
+   name="CostCounter.java"
+   text-time="2005-03-02T06:28:44.687500Z"
+   committed-date="2005-02-01T06:13:37.812500Z"
+   checksum="0e19f6fc802239b5cca1402eb4427473"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:28:43.062500Z"/>
+<entry
+   committed-rev="36"
+   name="SimControlPanel.java"
+   text-time="2005-03-02T06:28:44.750000Z"
+   committed-date="2005-02-01T06:13:37.812500Z"
+   checksum="81835322d93cb250c0250aefd74da7c5"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:28:43.109375Z"/>
+<entry
+   committed-rev="36"
+   name="server.png"
+   text-time="2005-03-02T06:28:44.734375Z"
+   committed-date="2005-02-01T06:13:37.812500Z"
+   checksum="d2741c24b59667156e30f1f551445b5b"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:28:43.093750Z"/>
+<entry
+   committed-rev="36"
+   name="NIChundredRenderer.java"
+   text-time="2005-03-02T06:28:44.750000Z"
+   committed-date="2005-02-01T06:13:37.812500Z"
+   checksum="032be592e5d9f877c3bde63568258483"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:28:43.125000Z"/>
+<entry
+   committed-rev="36"
+   name="nic.png"
+   text-time="2005-03-02T06:28:44.765625Z"
+   committed-date="2005-02-01T06:13:37.812500Z"
+   checksum="bacb74abfe40d96d74089b412a035c7c"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:28:43.125000Z"/>
+<entry
+   committed-rev="36"
+   name="linksys-router.png"
+   text-time="2005-03-02T06:28:44.781250Z"
+   committed-date="2005-02-01T06:13:37.812500Z"
+   checksum="5e650026ffc6a15e964dbc8977b657ed"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:28:43.156250Z"/>
+<entry
+   committed-rev="36"
+   name="linksys-router-firewall.png"
+   text-time="2005-03-02T06:28:44.781250Z"
+   committed-date="2005-02-01T06:13:37.812500Z"
+   checksum="47b4979e10572a47bab7e87938cd9cdc"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:28:43.171875Z"/>
+<entry
+   committed-rev="36"
+   name="hub.png"
+   text-time="2005-03-02T06:28:44.796875Z"
+   committed-date="2005-02-01T06:13:37.812500Z"
+   checksum="2385a2dd37cff53270282feda2dfd187"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:28:43.203125Z"/>
+<entry
+   committed-rev="36"
+   name="crestmiddle.gif"
+   text-time="2005-03-02T06:28:44.828125Z"
+   committed-date="2005-02-01T06:13:37.812500Z"
+   checksum="b81ff2ba827d2f9828823861fb1f0c38"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:28:43.250000Z"/>
+<entry
+   committed-rev="36"
+   name="router.png"
+   text-time="2005-03-02T06:28:44.796875Z"
+   committed-date="2005-02-01T06:13:37.812500Z"
+   checksum="677fe7ba1f845beaf5ba138631d5ec98"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:28:43.234375Z"/>
+<entry
+   committed-rev="36"
+   name="SteamConnector.java"
+   text-time="2005-03-02T06:28:44.828125Z"
+   committed-date="2005-02-01T06:13:37.812500Z"
+   checksum="a2789c5927a606e75c57e74791721828"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:28:43.265625Z"/>
+<entry
+   committed-rev="36"
+   name="NICgigRenderer.java"
+   text-time="2005-03-02T06:28:44.843750Z"
+   committed-date="2005-02-01T06:13:37.812500Z"
+   checksum="f92299e67064df1cf9d274f1e40aa626"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:28:43.312500Z"/>
+<entry
+   committed-rev="36"
+   name="j-pause.gif"
+   text-time="2005-03-02T06:28:44.875000Z"
+   committed-date="2005-02-01T06:13:37.812500Z"
+   checksum="88599e18aad37bf8437807fbc98ee763"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:28:43.968750Z"/>
+<entry
+   committed-rev="36"
+   name="FirewallRouterRenderer.java"
+   text-time="2005-03-02T06:28:44.890625Z"
+   committed-date="2005-02-01T06:13:37.812500Z"
+   checksum="3c5479e77bb5ff37f7d0bf153f5ea0a5"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:28:44.015625Z"/>
+<entry
+   committed-rev="36"
+   name="Ground.java"
+   text-time="2005-03-02T06:28:44.906250Z"
+   committed-date="2005-02-01T06:13:37.812500Z"
+   checksum="aee501ab9d170fb60f74285a43a2b01d"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:28:44.031250Z"/>
+<entry
+   committed-rev="36"
+   name="PickTabs.java"
+   text-time="2005-03-02T06:28:44.921875Z"
+   committed-date="2005-02-01T06:13:37.812500Z"
+   checksum="12599f148c71088943ae4b1f4ead9cbb"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:28:44.062500Z"/>
+<entry
+   committed-rev="36"
+   name="DataRenderer.java"
+   text-time="2005-03-02T06:28:44.906250Z"
+   committed-date="2005-02-01T06:13:37.812500Z"
+   checksum="0b4c8cc89f5dcceb48cdfa8c4da59f15"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:28:44.046875Z"/>
+<entry
+   committed-rev="36"
+   name="computer.png"
+   text-time="2005-03-02T06:28:44.921875Z"
+   committed-date="2005-02-01T06:13:37.812500Z"
+   checksum="c9236f6662f7eda22cb64e6d7938b4b6"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:28:44.078125Z"/>
+<entry
+   committed-rev="36"
+   name="PickPanelHolder.java"
+   text-time="2005-03-02T06:28:44.937500Z"
+   committed-date="2005-02-01T06:13:37.812500Z"
+   checksum="e5d9b905874054026bc649013405fb8d"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:28:44.078125Z"/>
+<entry
+   committed-rev="36"
+   name="FileRenderer.java"
+   text-time="2005-03-02T06:28:44.953125Z"
+   committed-date="2005-02-01T06:13:37.812500Z"
+   checksum="8e711accf9190b20de6045be339977be"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:28:44.109375Z"/>
+<entry
+   committed-rev="36"
+   name="PickPanel.java"
+   text-time="2005-03-02T06:28:44.937500Z"
+   committed-date="2005-02-01T06:13:37.812500Z"
+   checksum="6a6de283b2118ffe159f95221a444b50"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:28:44.093750Z"/>
+<entry
+   committed-rev="36"
+   name="CondenserRenderer.java"
+   text-time="2005-03-02T06:28:44.953125Z"
+   committed-date="2005-02-01T06:13:37.812500Z"
+   checksum="5ca25b4bc8849ff95e197059bf3fb1c4"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:28:44.125000Z"/>
+<entry
+   committed-rev="36"
+   name="NetBuilderFrame.java"
+   text-time="2005-03-02T06:28:44.968750Z"
+   committed-date="2005-02-01T06:13:37.812500Z"
+   checksum="0c73bfcf503149030357c08e20654891"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:28:44.140625Z"/>
+<entry
+   committed-rev="36"
+   name="help.gif"
+   text-time="2005-03-02T06:28:45.000000Z"
+   committed-date="2005-02-01T06:13:37.812500Z"
+   checksum="d622e4d592e16754af7159861535b15a"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:28:44.171875Z"/>
+<entry
+   committed-rev="36"
+   name="BaseConnectorRenderer.java"
+   text-time="2005-03-02T06:28:44.968750Z"
+   committed-date="2005-02-01T06:13:37.812500Z"
+   checksum="3e363456361a74ed719fd46382495eaf"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:28:44.156250Z"/>
+<entry
+   committed-rev="36"
+   name="MasterMenu.java"
+   text-time="2005-03-02T06:28:45.000000Z"
+   committed-date="2005-02-01T06:13:37.812500Z"
+   checksum="c95a38f9d42315ec10c3cdfff8938465"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:28:44.187500Z"/>
+<entry
+   committed-rev="36"
+   name="openFile.gif"
+   text-time="2005-03-02T06:28:45.015625Z"
+   committed-date="2005-02-01T06:13:37.812500Z"
+   checksum="f2fb8ae5f1051c132e912f1f77f8c79d"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:28:44.203125Z"/>
+<entry
+   committed-rev="36"
+   name="PickCell.java"
+   text-time="2005-03-02T06:28:45.015625Z"
+   committed-date="2005-02-01T06:13:37.812500Z"
+   checksum="b2c4591a42952622882e804f5be48cca"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:28:44.218750Z"/>
+<entry
+   committed-rev="36"
+   name="rj45.png"
+   text-time="2005-03-02T06:28:45.031250Z"
+   committed-date="2005-02-01T06:13:37.812500Z"
+   checksum="08c1623d7e6aee8e5ec41d30d0077e11"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:28:44.218750Z"/>
+<entry
+   committed-rev="36"
+   name="ServerRenderer.java"
+   text-time="2005-03-02T06:28:45.203125Z"
+   committed-date="2005-02-01T06:13:37.812500Z"
+   checksum="c9e59e103553889179314e5dc0ac63c2"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:28:44.234375Z"/>
+</wc-entries>

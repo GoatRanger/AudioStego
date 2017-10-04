@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="52"
+   name=""
+   committed-date="2005-02-25T22:14:35.936250Z"
+   url="svn://192.168.2.2/ProblemSets/src/eecs"
+   last-author="karl"
+   kind="dir"
+   uuid="0daf4267-3229-f84b-9084-f3c94b025f38"
+   revision="55"/>
+<entry
+   name="problem"
+   kind="dir"/>
+</wc-entries>

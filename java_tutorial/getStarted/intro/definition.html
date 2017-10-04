@@ -1,0 +1,185 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>About the Java Technology</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#intro" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="cando.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Getting Started
+<br>
+<b>Lesson</b>: The Java Technology Phenomenon
+</font>
+
+<h2>
+About the Java Technology
+</h2>
+<blockquote>
+
+Java technology is both a programming language and a platform.
+
+</blockquote>
+<h3>The Java Programming Language</h3>
+<blockquote>
+
+<p>
+The Java programming language is a high-level language that can be characterized 
+by all of the following buzzwords:
+<blockquote>
+<table>
+<tr> <td><li>Simple</td><td><li>Architecture neutral</td> </tr>
+<tr> <td><li>Object oriented</td><td><li>Portable</td> </tr>
+<tr> <td><li>Distributed</td><td><li>High performance</td> </tr>
+<tr> <td><li>Interpreted</td><td><li>Multithreaded</td> </tr>
+<tr> <td><li>Robust</td><td><li>Dynamic</td> </tr>
+<tr> <td><li>Secure</td><td> </td> </tr>
+</table>
+</blockquote>
+<p>
+Each of the preceding buzzwords is explained in
+
+<a target="_blank" href="http://java.sun.com/docs/white/langenv/"><font color="#009bbb"><em>The Java Language Environment</em></font></a><a target="_blank" href="http://java.sun.com/docs/white/langenv/"><img src="../../images/otherIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (outside of the tutorial)"></a> , a white paper written by James Gosling and Henry McGilton.<p>
+ 
+With most programming languages, you either compile or interpret 
+a program so that you can run it on your computer. The Java 
+programming language is unusual in that a program is both 
+compiled and interpreted. With the compiler, first you translate 
+a program into an intermediate language called <em>Java bytecodes</em>
+—the platform-independent codes interpreted by the interpreter on 
+the Java platform. The interpreter parses and runs each Java 
+bytecode instruction on the computer. Compilation happens just 
+once; interpretation occurs each time the program is executed. 
+The following figure illustrates how this works.
+
+<p><center><IMG SRC="../../figures/getStarted/g1.gif" WIDTH="533" HEIGHT="125 " ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p>
+You can think of Java bytecodes as the machine code instructions for
+the <em>Java Virtual Machine</em> (Java VM). Every Java interpreter, whether 
+it's a development tool or a Web browser that can run applets, is an 
+implementation of the Java VM.
+<p>
+Java bytecodes help make "write once, run anywhere" possible. You can compile 
+your program into bytecodes on any platform that has a Java compiler. The 
+bytecodes can then be run on any implementation of the Java VM. That means that 
+as long as a computer has a Java VM, the same program written in the Java 
+programming language can run on Windows 2000, a Solaris workstation, or on an 
+iMac.
+
+<p><center><IMG SRC="../../figures/getStarted/helloWorld.gif" WIDTH="465" HEIGHT="218 " ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p>
+</blockquote>
+
+<h3>The Java Platform</h3>
+<blockquote>
+A <em>platform</em> is the hardware or software environment in which a program 
+runs. We've already mentioned some of the most popular platforms like Windows 
+2000, Linux, Solaris, and MacOS. Most platforms can be described as a 
+combination of the operating system and hardware. The Java platform differs from 
+most other platforms in that it's a software-only platform that runs on top of 
+other hardware-based platforms.
+<p>
+The Java platform has two components:
+<ul>
+<li>
+The <em>Java Virtual Machine</em> (Java VM) 
+<li>
+The <em>Java Application Programming Interface</em> (Java API)
+</ul>
+You've already been introduced to the Java VM. It's the base for the Java 
+platform and is ported onto various hardware-based platforms.
+<p>
+The Java API is a large collection of ready-made software components that 
+provide many useful capabilities, such as graphical user interface (GUI) 
+widgets. The Java API is grouped into libraries of related classes and 
+interfaces; these libraries are known as <em>packages</em>. The next section,
+<a href="cando.html">What Can Java Technology Do?</a>, 
+highlights what functionality some of the packages in the Java API provide.
+<p>
+The following figure depicts a program that's running on the Java platform. As 
+the figure shows, the Java API and the virtual machine insulate the program from 
+the hardware.
+
+<p><center><IMG SRC="../../figures/getStarted/g3.gif" WIDTH="268" HEIGHT="108" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p>
+Native code is code that after you compile it, the compiled code runs on a 
+specific hardware platform. As a platform-independent environment, the Java 
+platform can be a bit slower than native code. However, smart compilers, 
+well-tuned interpreters, and just-in-time bytecode compilers can bring 
+performance close to that of native code without threatening portability.
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#intro" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="cando.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

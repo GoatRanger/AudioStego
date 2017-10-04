@@ -1,0 +1,138 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Converting Objects to Strings</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="modifying.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#data" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="andback.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Learning the Java Language
+<br>
+<b>Lesson</b>: Object Basics and Simple Data Objects
+</font>
+
+<h2>
+Converting Objects to Strings
+</h2>
+<blockquote>
+</blockquote>
+<h3>The <code>toString</code> Method</h3>
+<blockquote>
+It's often convenient or necessary to convert an object to a <code>String</code>
+because you need to pass it to a method that accepts only <code>String</code> values.
+The <code>reverseIt</code> method used earlier in this lesson
+uses <code>StringBuffer</code>'s <code>toString</code> method
+to convert the <code>StringBuffer</code> to a <code>String</code> object before returning the <code>String</code>.
+
+<blockquote><pre>
+class ReverseString {
+    public static String reverseIt(String source) {
+        int i, len = source.length();
+        StringBuffer dest = new StringBuffer(len);
+
+        for (i = (len - 1); i &gt;= 0; i--) {
+            dest.append(source.charAt(i));
+        }
+        return <strong>dest.toString()</strong>;
+    }
+}
+</pre></blockquote>
+<p>
+All classes inherit <code>toString</code> from the <code>Object</code> class
+and many classes in the <code>java.lang</code> package override this method to
+provide an implementation that is meaningful to that class.
+For example, the "type wrapper" classes--<code>Character</code>,
+<code>Integer</code>, <code>Boolean</code>,
+and the others--all override <code>toString</code> to provide a
+<code>String</code> representation of the object.
+</blockquote>
+
+<h3>The valueOf Method</h3>
+<blockquote>
+As a convenience, the <code>String</code> class provides the class method
+<code>valueOf</code>, You can use <code>valueOf</code> to convert
+variables of different types to <code>String</code>s. For example, to print the
+value of pi:
+<blockquote><pre>
+System.out.println(String.valueOf(Math.PI));
+</pre></blockquote>
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="modifying.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#data" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="andback.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

@@ -1,0 +1,10 @@
+org/openscience/cdk/test/MvalencycheckTests*.class
+org/openscience/cdk/test/tools/DeduceBondOrderTestFromExplicitHydrogensAndCharges*.class
+org/openscience/cdk/test/tools/ValencyCheckerTest*.class
+org/openscience/cdk/test/tools/ValencyHybridCheckerTest*.class
+org/openscience/cdk/test/tools/DeduceBondOrderTestFromExplicitHydrogens*.class
+org/openscience/cdk/test/tools/HydrogenAdder3Test*.class
+org/openscience/cdk/test/tools/SaturationCheckerTest*.class
+org/openscience/cdk/test/tools/DeduceBondOrderTestFromHybridization*.class
+org/openscience/cdk/test/tools/HydrogenAdderTest*.class
+org/openscience/cdk/test/tools/HydrogenAdder2Test*.class

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res-auto" phantom:background="@color/ab" phantom:clickable="true" phantom:layout_width="match_parent" phantom:layout_height="match_parent" phantom:splitMotionEvents="false">
+    <include phantom:id="@id/b20" phantom:layout_width="wrap_content" phantom:layout_height="UNKNOWN_DATA_0x7f0b0404" phantom:layout_marginTop="@dimen/a0d" phantom:layout_centerHorizontal="true" layout="@layout/longan_camera_mode_view_land" />
+    <RelativeLayout phantom:id="@id/b21" phantom:layout_width="match_parent" phantom:layout_height="UNKNOWN_DATA_0x7f0b0400" phantom:layout_below="@id/b20">
+        <TextView phantom:id="@id/b22" phantom:layout_marginLeft="@dimen/a0_" phantom:text="@string/longan_timelapse_iso_title" style="@style/el" />
+        <RelativeLayout phantom:id="@id/b23" phantom:background="@color/am" phantom:layout_width="match_parent" phantom:layout_height="UNKNOWN_DATA_0x7f0b0414" phantom:layout_below="@id/b22" phantom:layout_centerHorizontal="true">
+            <ImageView phantom:id="@id/b24" phantom:background="@drawable/longan_whee_position_land" phantom:layout_width="wrap_content" phantom:layout_height="wrap_content" phantom:layout_alignParentBottom="true" phantom:layout_centerHorizontal="true" />
+            <RelativeLayout phantom:layout_width="match_parent" phantom:layout_height="UNKNOWN_DATA_0x7f0b046e" phantom:layout_centerVertical="true">
+                <antistatic.spinnerwheel.WheelHorizontalView phantom:id="@id/b25" phantom:paddingTop="5dp" phantom:paddingBottom="5dp" phantom:layout_width="match_parent" phantom:layout_height="UNKNOWN_DATA_0x7f0b046e" phantom:layout_marginTop="0dp" phantom:layout_marginBottom="0dp" phantom:layout_centerInParent="true" phantom:visibleItems="3" phantom:itemsDimmedAlpha="80" phantom:isCyclic="false" />
+                <dji.publics.DJIUI.DJITextView phantom:textSize="@dimen/a38" phantom:textColor="@color/fd" phantom:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" phantom:id="@id/b26" phantom:paddingBottom="3dp" phantom:layout_width="wrap_content" phantom:layout_height="UNKNOWN_DATA_0x7f0b046e" phantom:text="100" phantom:layout_alignBottom="@id/b25" phantom:layout_centerHorizontal="true" phantom:djiTextFace="2" />
+            </RelativeLayout>
+            <dji.device.common.view.DJIStateImageViewCompat phantom:id="@id/b27" phantom:padding="@dimen/n4" phantom:visibility="visible" phantom:layout_width="UNKNOWN_DATA_0x7f0b011e" phantom:layout_height="UNKNOWN_DATA_0x7f0b011e" phantom:src="@drawable/camera_isoauto_normal" phantom:scaleType="centerInside" phantom:adjustViewBounds="true" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" />
+        </RelativeLayout>
+    </RelativeLayout>
+    <RelativeLayout phantom:id="@id/b28" phantom:layout_width="match_parent" phantom:layout_height="UNKNOWN_DATA_0x7f0b0400" phantom:layout_below="@id/b21">
+        <TextView phantom:id="@id/b29" phantom:layout_marginLeft="@dimen/a0_" phantom:text="@string/longan_timelapse_aperture_title" style="@style/el" />
+        <RelativeLayout phantom:id="@id/b2_" phantom:background="@color/am" phantom:layout_width="match_parent" phantom:layout_height="UNKNOWN_DATA_0x7f0b0414" phantom:layout_below="@id/b29" phantom:layout_centerHorizontal="true">
+            <ImageView phantom:id="@id/b2a" phantom:background="@drawable/longan_whee_position_land" phantom:layout_width="wrap_content" phantom:layout_height="wrap_content" phantom:layout_alignParentBottom="true" phantom:layout_centerHorizontal="true" />
+            <RelativeLayout phantom:layout_width="match_parent" phantom:layout_height="UNKNOWN_DATA_0x7f0b046e" phantom:layout_centerVertical="true">
+                <antistatic.spinnerwheel.WheelHorizontalView phantom:id="@id/b2b" phantom:paddingTop="5dp" phantom:paddingBottom="5dp" phantom:layout_width="match_parent" phantom:layout_height="UNKNOWN_DATA_0x7f0b046e" phantom:layout_marginTop="0dp" phantom:layout_marginBottom="0dp" phantom:layout_centerInParent="true" phantom:visibleItems="3" phantom:itemsDimmedAlpha="80" phantom:isCyclic="false" />
+            </RelativeLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+    <RelativeLayout phantom:id="@id/b2c" phantom:layout_width="match_parent" phantom:layout_height="UNKNOWN_DATA_0x7f0b0400" phantom:layout_below="@id/b28">
+        <TextView phantom:id="@id/b2d" phantom:layout_marginLeft="@dimen/a0_" phantom:text="@string/longan_timelapse_shutter_title" style="@style/el" />
+        <RelativeLayout phantom:id="@id/b2e" phantom:background="@color/am" phantom:layout_width="match_parent" phantom:layout_height="UNKNOWN_DATA_0x7f0b0414" phantom:layout_below="@id/b2d" phantom:layout_centerHorizontal="true">
+            <ImageView phantom:id="@id/b2f" phantom:background="@drawable/longan_whee_position_land" phantom:layout_width="wrap_content" phantom:layout_height="wrap_content" phantom:layout_alignParentBottom="true" phantom:layout_centerHorizontal="true" />
+            <antistatic.spinnerwheel.WheelHorizontalView phantom:id="@id/b2g" phantom:paddingTop="5dp" phantom:paddingBottom="5dp" phantom:layout_width="match_parent" phantom:layout_height="UNKNOWN_DATA_0x7f0b046e" phantom:layout_marginTop="0dp" phantom:layout_marginBottom="0dp" phantom:layout_centerVertical="true" phantom:visibleItems="3" phantom:itemsDimmedAlpha="80" phantom:isCyclic="false" />
+        </RelativeLayout>
+    </RelativeLayout>
+    <RelativeLayout phantom:id="@id/b2h" phantom:layout_width="match_parent" phantom:layout_height="UNKNOWN_DATA_0x7f0b0400" phantom:layout_below="@id/b2c">
+        <TextView phantom:id="@id/b2i" phantom:layout_marginLeft="@dimen/a0_" phantom:text="@string/longan_timelapse_ev_title" style="@style/el" />
+        <RelativeLayout phantom:id="@id/b2j" phantom:background="@color/am" phantom:layout_width="match_parent" phantom:layout_height="UNKNOWN_DATA_0x7f0b0414" phantom:layout_below="@id/b2i" phantom:layout_centerHorizontal="true">
+            <ImageView phantom:id="@id/b2k" phantom:background="@drawable/longan_whee_position_land" phantom:layout_width="wrap_content" phantom:layout_height="wrap_content" phantom:layout_alignParentBottom="true" phantom:layout_centerHorizontal="true" />
+            <antistatic.spinnerwheel.WheelHorizontalView phantom:id="@id/b2l" phantom:paddingTop="5dp" phantom:paddingBottom="5dp" phantom:layout_width="match_parent" phantom:layout_height="UNKNOWN_DATA_0x7f0b046e" phantom:layout_marginTop="0dp" phantom:layout_marginBottom="0dp" phantom:layout_centerVertical="true" phantom:visibleItems="3" phantom:itemsDimmedAlpha="80" phantom:isCyclic="false" />
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

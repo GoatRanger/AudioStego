@@ -1,0 +1,141 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Setting the Locale</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="../intro/index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#locale" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="create.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+
+<br>
+<font size="-1">
+<b>Trail</b>: Internationalization
+</font>
+
+<h2>
+Lesson: Setting the Locale
+</h2>
+<blockquote>
+An internationalized program can display information differently
+throughout the world. For example, the program will display different
+messages in Paris, Tokyo, and New York. If the localization process has
+been fine-tuned, the program will display different messages in New
+York and London to account for the differences between American and
+British English. How does an internationalized program identify the
+appropriate language and region of its end users? Easy. It references a
+<CODE>Locale</CODE> object. 
+<P>
+A <CODE>Locale</CODE> object is an identifier for a particular
+combination of language and region. If a class varies its behavior
+according to <CODE>Locale</CODE>, it is said to be
+<EM>locale-sensitive</EM>. For example, the <CODE>NumberFormat</CODE>
+class is locale-sensitive; the format of the number it returns depends
+on the <CODE>Locale</CODE>. Thus <CODE>NumberFormat</CODE> may return a
+number as 902 300 (France), or 902.300 (Germany), or 902,300 (United
+States). <CODE>Locale</CODE> objects are only identifiers. The real
+work, such as formatting and detecting word boundaries, is performed by
+the methods of the locale-sensitive classes.
+<P>
+The following sections explain how to work with <CODE>Locale</CODE> objects:
+
+
+</blockquote>
+<h3> 
+<a href="create.html">Creating a Locale</a>
+</h3> 
+<blockquote>
+When creating a <CODE>Locale</CODE> object, you usually specify a
+language code and a country code. A third parameter, the variant, is
+optional.
+</blockquote>
+
+<h3> 
+<a href="identify.html">Identifying Available Locales</a>
+</h3> 
+<blockquote>
+Locale-sensitive classes support only certain <CODE>Locale </CODE>
+definitions. This section shows you how to determine which <CODE>Locale
+</CODE> definitions are supported.</DD>
+</blockquote>
+
+<h3> 
+<a href="scope.html">The Scope of a Locale</a>
+</h3> 
+<blockquote>
+On the Java platform you do not specify a global
+<code>Locale</code> by setting an environment variable before running
+the application. Instead you either rely on the default Locale or
+assign a <code>Locale</code> to each locale-sensitive object.
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="../intro/index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#locale" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="create.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

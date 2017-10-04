@@ -1,0 +1,166 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Serializing Objects</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="serialization.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#io" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="providing.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Essential Java Classes
+<br>
+<b>Lesson</b>: I/O: Reading and Writing (but no 'rithmetic)
+</font>
+
+<h2>
+Serializing Objects
+</h2>
+<blockquote>
+Reconstructing an object from a stream requires that the object first
+be written to a stream. So let's start there.
+
+</blockquote>
+<h3>How to Write to an ObjectOutputStream</h3>
+<blockquote>
+Writing objects to a stream is a straightforward process.
+For example, the following gets the current time in milliseconds
+by constructing a <code>Date</code> object and then serializes that object:
+<blockquote><pre>
+FileOutputStream out = new FileOutputStream("theTime");
+ObjectOutputStream s = new ObjectOutputStream(out);
+s.writeObject("Today");
+s.writeObject(new Date());
+s.flush();
+</pre></blockquote>
+<code>ObjectOutputStream</code> must be constructed on another stream.
+This code constructs an <code>ObjectOutputStream</code>
+on a <code>FileOutputStream</code>,
+thereby serializing the object to a file named <code>theTime</code>.
+Next, the string <code>Today</code> and a <code>Date</code> object
+are written to the stream with the <code>writeObject</code> method
+of <code>ObjectOutputStream</code>.
+<p>
+Thus, the <code>writeObject</code> method serializes the specified object, traverses its references to other objects recursively, and writes them all. In this way, relationships between objects are maintained.
+<P>
+<code>ObjectOutputStream</code> implements the <code>DataOutput</code> interface that defines many methods for writing primitive data types, such as <code>writeInt</code>, <code>writeFloat</code>, or <code>writeUTF</code>. You can use these methods to write primitive data types to an <code>ObjectOutputStream</code>.
+<P>
+The <code>writeObject</code> method throws a <code>NotSerializableException</code> if it's given an object that is not serializable. An object is serializable only if its class implements the <code>Serializable</code> interface.
+</blockquote>
+
+<h3>How to Read from an ObjectInputStream</h3>
+<blockquote>
+Once you've written objects and primitive data types to a stream,
+you'll likely want to read them out again and reconstruct the objects.
+This is also straightforward.
+Here's code that reads in the <code>String</code>
+and the <code>Date</code> objects that were written
+to the file named <code>theTime</code> in the previous example:
+<blockquote><pre>
+FileInputStream in = new FileInputStream("theTime");
+ObjectInputStream s = new ObjectInputStream(in);
+String today = (String)s.readObject();
+Date date = (Date)s.readObject();
+</pre></blockquote>
+Like <code>ObjectOutputStream</code>, <code>ObjectInputStream</code>
+must be constructed on another stream. In this example, the objects
+were archived in a file, so the code constructs an
+<code>ObjectInputStream</code> on a <code>FileInputStream</code>. Next,
+the code uses <code>ObjectInputStream</code>'s <code>readObject</code>
+method to read the <code>String</code> and the <code>Date</code>
+objects from the file. The objects must be read from the stream in the
+same order in which they were written. Note that the return value from
+<code>readObject</code> is an object that is cast to and assigned to a
+specific type.
+<p>
+The <code>readObject</code> method deserializes the next object in the
+stream and traverses its references to other objects recursively to
+deserialize all objects that are reachable from it. In this way, it
+maintains the relationships between the objects.
+<p>
+<code>ObjectInputStream</code> stream implements the
+<code>DataInput</code> interface that defines methods for reading
+primitive data types. The methods in <code>DataInput</code> parallel
+those defined in <code>DataOutput</code> for writing primitive data
+types. They include methods such as <code>readInt</code>,
+<code>readFloat</code>, and <code>readUTF</code>. Use these methods to
+read primitive data types from an <code>ObjectInputStream</code>.
+<P>
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="serialization.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#io" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="providing.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

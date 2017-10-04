@@ -1,0 +1,192 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Text</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="shapes.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#overview" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="images.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: 2D Graphics
+<br>
+<b>Lesson</b>: Overview of the Java 2D API
+</font>
+
+<h2>
+Text
+</h2>
+<blockquote>
+When you need to display text, you can use one of the text-oriented
+components, such as the Swing
+<a target="_top" href="../../uiswing/components/label.html">How to Use Labels</a><a target="_top" href="../../uiswing/components/label.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the 2D Graphics trail)"></a> or
+<a target="_top" href="../../uiswing/components/text.html">Using Text Components</a><a target="_top" href="../../uiswing/components/text.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the 2D Graphics trail)"></a> components. When you use a text component, a lot of the work is done
+for you--for example, <CODE>JTextComponent</CODE> objects provide
+built-in support for hit testing and displaying international text.
+<P>
+If you just want to draw a static text string, you can render it
+directly through <CODE>Graphics2D</CODE> by using the
+<CODE>drawString</CODE> method. To specify the font, you use the
+<CODE>Graphics2D</CODE> <CODE>setFont</CODE> method.
+<P>
+If you want to implement your own text-editing routines or need more
+control over the layout of the text than the text components provide,
+you can use the Java 2D text layout classes in <CODE>java.awt.font</CODE>. 
+
+</blockquote>
+<h3>Fonts</h3>
+<blockquote>
+The shapes that a font uses to represent the characters in a string are
+called <EM CLASS="Emphasis">glyphs</EM>. A particular character or
+combination of characters might be represented as one or more glyphs.
+For example, <EM CLASS="Emphasis">&aacute;</EM> might be represented by
+two glyphs, whereas the ligature <EM CLASS="Emphasis">fi</EM> might be
+represented by a single glyph.
+<P>
+A <EM CLASS="Emphasis">font</EM> can be thought of as a collection of
+glyphs. A single font might have many <EM CLASS="Emphasis">faces</EM>,
+such as heavy, medium, oblique, gothic, and regular. All of the faces
+in a font have similar typographic features and can be recognized as
+members of the same <EM CLASS="Emphasis">family</EM>. In other words, a
+collection of glyphs with a particular style form a
+<EM CLASS="Emphasis">font face</EM>; a collection of font faces forms a
+<EM CLASS="Emphasis">font family</EM>; and the collection of font families
+forms the set fonts available on the system.
+<P>
+When you're using the Java 2D API, you specify fonts by using an
+instance of <CODE>Font</CODE>. You can determine what fonts are
+available by calling the static method
+<CODE>GraphicsEnvironment.getLocalGraphicsEnvironment</CODE> and then
+querying the returned <CODE>GraphicsEnvironment</CODE>. The
+<CODE>getAllFonts</CODE> method returns an array that contains
+<CODE>Font</CODE> instances for all of the fonts available on the
+system; <CODE>getAvailableFontFamilyNames</CODE> returns a list of the
+available font families.
+<P>
+The <EM CLASS="ClassName">GraphicsEnvironment</EM> also describes the
+collection of platform rendering devices, such as screens and printers,
+that a Java program can use. This information is used when the system
+performs the conversion from user space to device space during
+rendering.
+
+
+<blockquote><hr><strong>Note:</strong>&nbsp;
+In JDK 1.1 fonts were described by logical names that mapped onto
+different font faces, depending on the fonts that were available on a
+particular platform. For backward compatibility, <CODE>Graphics2D</CODE>
+also supports the specification
+of fonts by logical name. To get a list of the logical font names, call
+<CODE>java.awt.Toolkit.getFontList</CODE>.
+<hr></blockquote>
+</blockquote>
+
+<h3>Text Layout</h3>
+<blockquote>
+Before text can be displayed, it must be laid out so that the
+characters are represented by the appropriate glyphs in the proper
+positions. If you are using Swing, you can let <CODE>JLabel</CODE> or
+<CODE>JTextComponent</CODE> manage text layout for you.
+<CODE>JTextComponent </CODE> supports bidirectional text and is
+designed to handle the needs of most international applications. For
+more information about using Swing text components, see
+<a target="_top" href="../../uiswing/components/text.html">Using Text Components</a><a target="_top" href="../../uiswing/components/text.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the 2D Graphics trail)"></a>.
+ 
+<P>
+If you are not using a Swing text component to automatically display
+text, you can use one of two Java 2D mechanisms for managing text
+layout.
+<UL>
+<LI> If you want to implement your own text-editing routines, you can
+     use the <CODE>TextLayout</CODE> class to manage text layout,
+     highlighting, and hit detection. The facilities provided by
+     <CODE>TextLayout</CODE> handle most common cases, including strings
+     with mixed fonts, mixed languages, and bidirectional text. For more
+     information about <CODE>TextLayout</CODE>, see
+     
+<a target="_blank" href="http://java.sun.com/products/jdk/1.2/docs/guide/2d/spec/j2d-fonts.fm4.html"><font color="#009bbb">Managing Text Layout</font></a><a target="_blank" href="http://java.sun.com/products/jdk/1.2/docs/guide/2d/spec/j2d-fonts.fm4.html"><img src="../../images/otherIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (outside of the tutorial)"></a>      in the <EM CLASS="Emphasis">Java 2D Programmer's Guide</EM>.
+<LI> If you want total control over how text is shaped and positioned,
+     you can construct your own <CODE>GlyphVector</CODE> objects by using
+     <CODE>Font</CODE> and then render each <CODE>GlyphVector</CODE> through
+     <CODE>Graphics2D</CODE>. For more information about implementing your
+     own text layout mechanisms,
+     
+<a target="_blank" href="http://java.sun.com/products/jdk/1.2/docs/guide/2d/spec/j2d-fonts.fm5.html"><font color="#009bbb">Implementing a Custom Text Layout Mechanism</font></a><a target="_blank" href="http://java.sun.com/products/jdk/1.2/docs/guide/2d/spec/j2d-fonts.fm5.html"><img src="../../images/otherIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (outside of the tutorial)"></a>      in the <EM CLASS="Emphasis">Java 2D Programmer's Guide</EM>.
+</UL>
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="shapes.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#overview" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="images.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

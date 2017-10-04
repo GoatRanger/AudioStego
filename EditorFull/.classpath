@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="F:/Karl/Documents/libs/jh.jar"/>
+	<classpathentry kind="lib" path="F:/Karl/Documents/libs/jalopy (2015_11_09 03_33_12 UTC).jar"/>
+	<classpathentry kind="lib" path="F:/Karl/Documents/libs/commons-httpclient-3.0.1.jar"/>
+	<classpathentry kind="lib" path="F:/Karl/Documents/libs/log4j (2015_11_09 03_33_12 UTC).jar"/>
+	<classpathentry kind="lib" path="F:/Karl/Documents/libs/tools (2015_11_09 03_33_12 UTC).jar"/>
+	<classpathentry kind="lib" path="F:/Karl/Documents/libs/cssvalidator (2015_11_09 03_33_12 UTC).jar"/>
+	<classpathentry kind="lib" path="F:/Karl/Documents/libs/flute (2015_11_09 03_33_12 UTC).jar"/>
+	<classpathentry kind="lib" path="F:/Karl/Documents/libs/sac (2015_11_09 03_33_12 UTC).jar"/>
+	<classpathentry kind="lib" path="C:/Program Files (x86)/Java/jdk1.8.0_121/jre/lib/javaws.jar"/>
+	<classpathentry kind="lib" path="F:/Karl/Documents/libs/javax.mail-1.5.6.jar"/>
+	<classpathentry kind="lib" path="F:/Karl/Documents/libs/activation.jar"/>
+	<classpathentry kind="lib" path="F:/Karl/Documents/libs/jakarta-oro (2015_11_09 03_33_12 UTC).jar"/>
+	<classpathentry kind="lib" path="F:/Karl/Documents/libs/jdom (2015_11_09 03_33_12 UTC).jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item Android:state_pressed="true" Android:drawable="@r$drawable/v2_share_contest_banner_item_submit_bg_pressed" />
+    <item Android:state_selected="true" Android:drawable="@r$drawable/v2_share_contest_banner_item_submit_bg_selected" />
+    <item Android:drawable="@r$drawable/v2_share_contest_banner_item_submit_bg" />
+</selector>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res-auto" phantom:background="@color/ag" phantom:clickable="true" phantom:layout_width="match_parent" phantom:layout_height="match_parent"
+    <RelativeLayout phantom:layout_width="UNKNOWN_DATA_0x1f401" phantom:layout_height="UNKNOWN_DATA_0xdc01" phantom:layout_centerInParent="true">
+        <ImageView phantom:id="@id/bdm" phantom:layout_width="wrap_content" phantom:layout_height="wrap_content" phantom:src="@drawable/lp_popup_hold_phone" phantom:layout_alignParentLeft="true" phantom:layout_centerVertical="true" />
+        <RelativeLayout phantom:layout_width="UNKNOWN_DATA_0x12c01" phantom:layout_height="match_parent" phantom:layout_toRightOf="@id/bdm">
+            <dji.publics.DJIUI.DJITextView phantom:textSize="22sp" phantom:textColor="@color/om" phantom:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" phantom:id="@id/b_g" phantom:layout_width="wrap_content" phantom:layout_height="wrap_content" phantom:layout_marginTop="40dp" phantom:text="@string/lp_gimbla_put_phone" phantom:minLines="2" phantom:djiTextFace="1" />
+            <Button phantom:enabled="false" phantom:textColor="@color/om" phantom:id="@id/bdn" phantom:background="@drawable/longan_tutorial_btn_bg" phantom:layout_width="UNKNOWN_DATA_0x6e01" phantom:layout_height="UNKNOWN_DATA_0x2801" phantom:layout_marginTop="30dp" phantom:text="@string/longan_tutorial_continue_btn_text" phantom:layout_below="@id/b_g" phantom:layout_centerHorizontal="true" phantom:alpha="0.89" />
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

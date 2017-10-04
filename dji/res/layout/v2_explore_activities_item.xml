@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res-auto" app:layout_width="match_parent" app:layout_height="wrap_content">
+    <ImageView app:id="@+id/explore_item_placeholder" app:background="@r$drawable/v2_native_explore_activitiy_item_placeholder" app:layout_width="match_parent" app:layout_height="match_parent" app:layout_margin="@dimen/ga" app:src="@r$drawable/v2_native_explore_item_placeholder" app:scaleType="center" app:layout_alignTop="@+id/explore_activities_item_image" app:layout_alignBottom="@+id/explore_activities_item_image" />
+    <dji.pilot2.nativeexplore.view.RoundCImageView app:id="@+id/explore_activities_item_image" app:background="0x106000d" app:padding="@dimen/ga" app:layout_width="match_parent" app:layout_height="match_parent" app:scaleType="centerCrop" app:cornerRadius="@dimen/gw" />
+</RelativeLayout>

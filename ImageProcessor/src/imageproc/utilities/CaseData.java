@@ -1,0 +1,125 @@
+/*
+ * CaseData.java
+ *
+ * Created on January 10, 2001, 4:17 PM
+ */
+
+package imageproc.utilities;
+
+/**
+ *
+ * @author  Karl A. Gossett
+ * @version
+ */
+import java.util.*;
+
+public class CaseData extends java.lang.Object {
+    
+    protected int caseNumber = 0;
+    
+    private ArrayList<Double> featureList;
+    
+    private ArrayList<Double> targetList;
+    
+    private Iterator<Double> featureIterator;
+    
+    private Iterator<Double> targetIterator;
+    
+    /** Creates new CaseData */
+    public CaseData() {
+    }
+    
+    public CaseData (int caseNum) {
+        caseNumber = caseNum;
+        featureList = new ArrayList<Double> ();
+        targetList = new ArrayList<Double> ();
+    }
+    
+    public void addFeature(double featureVal) {
+        featureList.add(new Double(featureVal));
+    }
+    
+    public void addFeature (int index, double featureVal) {
+        featureList.add (index, new Double(featureVal));
+    }
+    
+    public void addTarget(double targetVal) {
+        targetList.add(new Double (targetVal));
+    }
+    
+    public void addTarget (int index, double targetVal) {
+        targetList.add(index, new Double (targetVal));
+    }
+    
+    public void resetFeatureIterator () {
+        featureIterator = featureList.iterator ();
+    }
+    
+    public boolean hasNextFeature () {
+        if (featureIterator == null) {
+            featureIterator = featureList.iterator ();
+        }
+        return featureIterator.hasNext ();
+    }
+    
+    public double nextFeature () {
+        double feature = Double.NaN;
+        if (featureIterator.hasNext ()) {
+            Double df = (Double) featureIterator.next ();
+            feature = df.doubleValue ();
+        }
+        return feature;
+    }
+        
+    public double getFeature(int index) {
+        if (featureList.size() > index) {
+            Double df = (Double) featureList.get (index);
+            return (df.doubleValue ());
+        } else {
+            return Double.NaN;
+        }
+    }
+    
+    public void resetTargetIterator () {
+        targetIterator = targetList.iterator ();
+    }
+    
+    public boolean hasNextTarget () {
+        if (targetIterator == null) {
+            targetIterator = targetList.iterator ();
+        }
+        return targetIterator.hasNext ();
+    }
+    
+    public double nextTarget () {
+        double tgt = 0.0d;
+        if (targetIterator.hasNext ()) {
+            Double dt = (Double) targetIterator.next ();
+            tgt = dt.doubleValue ();
+        }
+        return tgt;
+    }
+        
+    public double getTarget(int index) {
+        if (targetList.size() > index) {
+            Double dt = (Double) targetList.get (index);
+            return (dt.doubleValue ());
+        } else {
+            return Double.NaN;
+        }
+    }
+    
+    public int setCaseNumber(int caseNum) {
+        caseNumber = caseNum;
+        return caseNumber;
+    }
+    
+    public boolean equals (Object c) {
+        if (((CaseData) c).caseNumber == this.caseNumber) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+}

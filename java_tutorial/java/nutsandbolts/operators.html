@@ -1,0 +1,138 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Operators</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="QandE/questions_variables.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#nutsandbolts" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="arithmetic.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Learning the Java Language
+<br>
+<b>Lesson</b>: Language Basics
+</font>
+
+<h2>
+Operators
+</h2>
+<blockquote>
+An operator performs a function on one, two, or three operands. An operator that requires one operand is called a <em>unary operator</em>.
+For example, <code>++</code> is a unary operator that increments
+the value of its operand by 1.
+An operator that requires two operands is a
+<a href="javascript:var meth=openWin; meth('binary operator');" onMouseOver="self.status='Look up binary operator in glossary'; return true;" onMouseOut="self.status=''; return true;"><font color="#00bb00"><em>binary operator</em></font></a><a href="javascript:var meth=openWin; meth('binary operator');" onMouseOver="self.status='Look up binary operator in glossary'; return true;" onMouseOut="self.status=''; return true;"><img src="../../images/glossaryIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the glossary)"></a>.
+For example, <code>=</code> is a binary operator that assigns the value from
+its right-hand operand to its left-hand operand.
+And finally, a <em>ternary operator</em> is one that requires three operands.
+The Java programming language has one ternary operator, <code>?:</code>,
+which is a short-hand <code>if</code>-<code>else</code> statement.
+<p>
+The unary operators support either prefix or postfix notation.
+Prefix notation means that the operator appears <em>before</em> its operand:
+<blockquote><pre>
+operator op             //prefix notation
+</pre></blockquote>
+Postfix notation means that the operator appears <em>after</em> its operand:
+<blockquote><pre>
+op operator             //postfix notation
+</pre></blockquote>
+All of the binary operators use infix notation, which means that
+the operator appears <em>between</em> its operands:
+<blockquote><pre>
+op1 operator op2        //infix notation
+</pre></blockquote>
+The ternary operator is also infix;
+each component of the operator appears between operands:
+<blockquote><pre>
+op1 ? op2 : op3         //infix notation
+</pre></blockquote>
+In addition to performing the operation, an operator returns a value. The return value and its type depend on the operator and the type of its operands. For example, the arithmetic operators, which perform basic arithmetic operations such as addition and subtraction, return numbers-the result of the arithmetic operation. The data type returned by an arithmetic operator depends on the type of its operands: If you add two integers, you get an integer back. An operation is said to <em>evaluate to</em> its result. 
+<p>
+We divide the operators into these categories:
+<ul>
+<li> 
+<a target="_top" href="arithmetic.html">Arithmetic Operators</a><a target="_top" href="arithmetic.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Learning the Java Language trail)"></a><li>
+<a target="_top" href="relational.html">Relational and Conditional Operators</a><a target="_top" href="relational.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Learning the Java Language trail)"></a><li>
+<a target="_top" href="bitwise.html">Shift and Logical Operators</a><a target="_top" href="bitwise.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Learning the Java Language trail)"></a><li>
+<a target="_top" href="assignment.html">Assignment Operators</a><a target="_top" href="assignment.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Learning the Java Language trail)"></a><li>
+<a target="_top" href="other.html">Other Operators</a><a target="_top" href="other.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Learning the Java Language trail)"></a><li>
+<a target="_top" href="opsummary.html">Summary of Operators</a><a target="_top" href="opsummary.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Learning the Java Language trail)"></a><li>
+<a target="_top" href="QandE/questions_operators.html">Questions and Exercises: Operators</a><a target="_top" href="QandE/questions_operators.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Learning the Java Language trail)"></a></ul>
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="QandE/questions_variables.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#nutsandbolts" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="arithmetic.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

@@ -1,0 +1,10 @@
+org/openscience/cdk/test/MvalencycheckTests.java
+org/openscience/cdk/test/tools/DeduceBondOrderTestFromExplicitHydrogensAndCharges.java
+org/openscience/cdk/test/tools/ValencyCheckerTest.java
+org/openscience/cdk/test/tools/ValencyHybridCheckerTest.java
+org/openscience/cdk/test/tools/DeduceBondOrderTestFromExplicitHydrogens.java
+org/openscience/cdk/test/tools/HydrogenAdder3Test.java
+org/openscience/cdk/test/tools/SaturationCheckerTest.java
+org/openscience/cdk/test/tools/DeduceBondOrderTestFromHybridization.java
+org/openscience/cdk/test/tools/HydrogenAdderTest.java
+org/openscience/cdk/test/tools/HydrogenAdder2Test.java

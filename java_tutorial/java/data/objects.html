@@ -1,0 +1,169 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>The Life Cycle of an Object</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#data" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="objectcreation.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Learning the Java Language
+<br>
+<b>Lesson</b>: Object Basics and Simple Data Objects
+</font>
+
+<h2>
+The Life Cycle of an Object
+</h2>
+<blockquote>
+A typical Java program creates many objects,
+which interact with one another by sending each other messages.
+Through these object interactions,
+a Java program can implement a GUI,
+run an animation, or send and receive information over a network.
+Once an object has completed the work for which it was created,
+it is garbage-collected and its resources are recycled
+for use by other objects.
+<p>
+Here's a small program,
+called
+<a target="_blank" href="example/CreateObjectDemo.java"><font color="#bb000f"><code>CreateObjectDemo</code></font></a><a target="_blank" href="example/CreateObjectDemo.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>, that creates three objects:
+one
+<a target="_blank" href="example/Point.java"><font color="#bb000f"><code>Point</code></font></a><a target="_blank" href="example/Point.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a> object
+and two
+<a target="_blank" href="example/Rectangle.java"><font color="#bb000f"><code>Rectangle</code></font></a><a target="_blank" href="example/Rectangle.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a> objects.
+You will need all three source files to compile this program.
+<blockquote><pre>
+public class CreateObjectDemo {
+    public static void main(String[] args) {
+
+        // create a point object and two rectangle objects
+        Point origin_one = new Point(23, 94);
+        Rectangle rect_one = new Rectangle(origin_one, 100, 200);
+        Rectangle rect_two = new Rectangle(50, 100);
+
+        // display rect_one's width, height, and area
+        System.out.println(&quot;Width of rect_one: &quot; + rect_one.width);
+        System.out.println(&quot;Height of rect_one: &quot; + rect_one.height);
+        System.out.println(&quot;Area of rect_one: &quot; + rect_one.area());
+
+        // set rect_two's position
+        rect_two.origin = origin_one;
+
+        // display rect_two's position
+        System.out.println(&quot;X Position of rect_two: &quot; + rect_two.origin.x);
+        System.out.println(&quot;Y Position of rect_two: &quot; + rect_two.origin.y);
+
+        // move rect_two and display its new position
+        rect_two.move(40, 72);
+        System.out.println(&quot;X Position of rect_two: &quot; + rect_two.origin.x);
+        System.out.println(&quot;Y Position of rect_two: &quot; + rect_two.origin.y);
+    }
+}
+</pre></blockquote>
+After creating the objects,
+the program manipulates the objects
+and displays some information about them.
+Here's the output from the program:
+
+<blockquote><pre>
+Width of rect_one: 100
+Height of rect_one: 200
+Area of rect_one: 20000
+X Position of rect_two: 23
+Y Position of rect_two: 94
+X Position of rect_two: 40
+Y Position of rect_two: 72
+</pre></blockquote>
+
+<p>
+This section uses this example to describe the life cycle 
+of an object within a program. From this, you can learn 
+how to write code that creates and uses an object and 
+how the system cleans it up. 
+
+<ul>
+<li>
+<a target="_top" href="objectcreation.html">Creating Objects</a><a target="_top" href="objectcreation.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Learning the Java Language trail)"></a><li>
+<a target="_top" href="usingobject.html">Using Objects</a><a target="_top" href="usingobject.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Learning the Java Language trail)"></a><li>
+<a target="_top" href="garbagecollection.html">Cleaning Up Unused Objects</a><a target="_top" href="garbagecollection.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Learning the Java Language trail)"></a><li>
+<a target="_top" href="objectsummary.html">Summary of Creating and Using Objects</a><a target="_top" href="objectsummary.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Learning the Java Language trail)"></a><li>
+<a target="_top" href="QandE/objects-questions.html">Questions and Exercises: Creating and Using Objects</a><a target="_top" href="QandE/objects-questions.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Learning the Java Language trail)"></a></ul>
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#data" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="objectcreation.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

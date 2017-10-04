@@ -1,0 +1,23 @@
+<project name="BuildHelp" default="build_help" basedir=".">
+  <target name="init">
+    <property name="src.dir" value="./src" />
+    <property name="build.dir" value="./bin" />
+    <property name="jar.dir" value="./install" />
+    <property name="libs.dir" value ="c:\Gossett\libs" />
+    <property name="deploy.dir" value="//usmasvddspider/internal web/courses/it105/resources/it105editorTest" />
+    <property name="javahelp.home" value="c:\jh2.0\javahelp\bin" />
+    <property name="help.dir" value="./help/help" />
+  </target>
+    <target name="build_help" depends="init">
+    <delete dir="JavaHelpSearch" />
+    <java jar="${javahelp.home}/jhindexer.jar" fork="true">
+      <arg value="." />
+    </java>
+  </target>
+  <target name="view" depends="build_help">
+    <java jar="${javahelp.home}/hsviewer.jar" fork="true">
+      <arg value="-helpset c:\gossett\projects\Editor\help\help\editor.hs" />
+    </java>
+  </target>
+</project>
+<!-- to view: java -jar hsviewer.jar -helpset c:\gossett\projects\Editor\help\help\editor.hs -->

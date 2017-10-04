@@ -1,0 +1,183 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Using a BufferedImage for Double Buffering</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="filtering.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#images" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="../printing/index.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: 2D Graphics
+<br>
+<b>Lesson</b>: Manipulating and Displaying Images
+</font>
+
+<h2>
+Using a BufferedImage for Double Buffering
+</h2>
+<blockquote>
+When a graphic is complex or is used repeatedly, you can reduce the
+time it takes to display it by first rendering it to an off-screen
+buffer and then copying the buffer to the screen. This technique,
+called <EM CLASS="Emphasis">double buffering</EM>, is often used for
+animations.
+
+<blockquote><hr><strong>Note:</strong>&nbsp;
+When you are rendering into a Swing component, Swing automatically
+double-buffers the display.
+<hr></blockquote>
+<P>
+A <CODE>BufferedImage</CODE> can easily be used as an off-screen
+buffer. To create a <CODE>BufferedImage</CODE> whose color space,
+depth, and pixel layout exactly match the window into which you're
+drawing, call the <CODE>Component</CODE> <CODE>createImage</CODE>
+method. If you need control over the off-screen image's type or
+transparency, you can construct a <CODE>BufferedImage</CODE> object
+directly and use it as an off-screen buffer.
+<P>
+To draw into the buffered image, you call the <CODE>BufferedImage
+createGraphics</CODE> method to get a <CODE>Graphics2D</CODE> object;
+then you call the appropriate rendering methods on the
+<CODE>Graphics2D</CODE>. All of the Java 2D API rendering features can
+be used when you're rendering to a <CODE>BufferedImage</CODE> that's
+being used as an off-screen buffer.
+<P>
+When you're ready to copy the <CODE>BufferedImage</CODE> to the screen,
+you simply call <CODE>drawImage</CODE> on your component's
+<CODE>Graphics2D</CODE> and pass in the <CODE>BufferedImage</CODE>.
+
+<a name="bufferedshapemover">
+</blockquote>
+<h3>Example: BufferedShapeMover</h3>
+</a>
+<blockquote>
+The following applet allows the user to drag a rectangle around within the
+applet window. Instead of rendering the rectangle at every mouse
+location to provide feedback as the user drags it, a
+<CODE>BufferedImage</CODE> is used as an off-screen buffer. As the
+rectangle is dragged, it is re-rendered into the
+<CODE>BufferedImage</CODE> at each new location and the
+<CODE>BufferedImage</CODE> is blitted to the screen.
+
+<p><center><a href="BufferedShapeMover.html" target="_blank"><IMG SRC="../../figures/2d/2D-55.gif" WIDTH="550" HEIGHT="186" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="Click this figure to run the applet."></a><br><em>This is a picture of the applet's GUI.  To run the applet, click the picture.  The applet will appear in a new browser window.</em></center></p>
+<P>
+The source code for the applet is in
+
+<a target="_blank" href="example-1dot2/BufferedShapeMover.java"><font color="#bb000f"><code>BufferedShapeMover.java</code></font></a><a target="_blank" href="example-1dot2/BufferedShapeMover.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>.
+<p>
+Here is the code used to render into the <CODE>BufferedImage</CODE> and
+display the image on the screen:
+<blockquote><pre>
+public void updateLocation(MouseEvent e){
+    rect.setLocation(last_x + e.getX(),
+                     last_y + e.getY());
+    ...
+    repaint();
+    ...
+    // In the update method...
+    if(firstTime) {
+        Dimension dim = getSize();
+        int w = dim.width;
+        int h = dim.height;
+        area = new Rectangle(dim);
+        bi = (BufferedImage)createImage(w, h);
+        big = bi.createGraphics();
+        rect.setLocation(w/2-50, h/2-25);
+        big.setStroke(new BasicStroke(8.0f));
+        firstTime = false;
+    }
+
+    // Clears the rectangle that was previously drawn.
+    big.setColor(Color.white);
+    big.clearRect(0, 0, area.width, area.height);
+
+    // Draws and fills the newly positioned rectangle
+    // to the buffer.
+    big.setPaint(strokePolka);
+    big.draw(rect);
+    big.setPaint(fillPolka);
+    big.fill(rect);
+
+    // Draws the buffered image to the screen.
+    g2.drawImage(bi, 0, 0, this);
+}
+</pre></blockquote>
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="filtering.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#images" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="../printing/index.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

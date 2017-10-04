@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="10"
+   name=""
+   committed-date="2005-02-01T05:59:34.421875Z"
+   url="svn://192.168.2.2/IT105Editor/docs/jalopy/api/de/hunsicker/jalopy/plugin/class-use"
+   last-author="Karl"
+   kind="dir"
+   uuid="0daf4267-3229-f84b-9084-f3c94b025f38"
+   revision="55"/>
+<entry
+   committed-rev="10"
+   name="AbstractPlugin.Action.html"
+   text-time="2005-03-02T06:14:29.609375Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="494d270a7d9b5c6959431a76119e4518"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:29.484375Z"/>
+<entry
+   committed-rev="10"
+   name="AbstractAppender.html"
+   text-time="2005-03-02T06:14:29.609375Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="961054641344bb2d3f7af11ccc1a4058"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:29.500000Z"/>
+<entry
+   committed-rev="10"
+   name="AbstractPlugin.html"
+   text-time="2005-03-02T06:14:29.625000Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="ffa8e536b16a4c466c1268cdefc2375e"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:29.515625Z"/>
+<entry
+   committed-rev="10"
+   name="ProjectFile.html"
+   text-time="2005-03-02T06:14:29.625000Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="a0826f82ac94b5149ca87355fa293454"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:29.515625Z"/>
+<entry
+   committed-rev="10"
+   name="Editor.html"
+   text-time="2005-03-02T06:14:29.640625Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="667d227df3eb5831a528c2ae48135e31"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:29.531250Z"/>
+<entry
+   committed-rev="10"
+   name="Project.html"
+   text-time="2005-03-02T06:14:29.656250Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="a7206ffb8f700fafbe038410f7214088"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:29.562500Z"/>
+<entry
+   committed-rev="10"
+   name="SwingAppender.html"
+   text-time="2005-03-02T06:14:29.656250Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="ed3402cdb8df905a88ec242e635935a6"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:29.562500Z"/>
+<entry
+   committed-rev="10"
+   name="StatusBar.html"
+   text-time="2005-03-02T06:14:29.671875Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="0d3d7c85f29469e90173f55707c54510"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:29.578125Z"/>
+</wc-entries>

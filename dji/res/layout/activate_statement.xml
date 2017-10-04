@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.pilot2.usercenter.activate.ActivateStatementView xmlns:android="http://schemas.android.com/apk/res-auto" phantom:id="@+id/activate_statement" style="@style/activate_rlayout_style">
+    <dji.publics.DJIUI.DJITextView phantom:id="@+id/activate_statement_product_name" phantom:text="@string/activate_statement_title" phantom:djiTextFace="0" style="@style/activate_des_title" />
+    <TextView phantom:id="@+id/activate_statement_product_desc" phantom:text="@string/activate_statement_content" phantom:layout_below="@+id/activate_statement_product_name" style="@style/activate_des_content" />
+    <TextView phantom:textColor="@color/at" phantom:id="@+id/activate_statement_gimbal_desc" phantom:visibility="gone" phantom:layout_marginTop="@dimen/u_" phantom:text="@string/v2_active_kumquat_desc" phantom:layout_below="@+id/activate_statement_product_desc" phantom:layout_centerHorizontal="true" style="@style/activate_des_content_pad" />
+    <ImageView phantom:id="@+id/activate_statement_product_img" phantom:layout_width="match_parent" phantom:layout_height="wrap_content" phantom:layout_marginTop="@dimen/gh" phantom:src="@r$drawable/n3_app_v4_no_led" phantom:scaleType="centerInside" phantom:layout_below="@+id/activate_statement_product_desc" phantom:layout_centerHorizontal="true" />
+    <Button phantom:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" phantom:id="@+id/btn_activate_statement_continue" phantom:text="@string/next" phantom:singleLine="true" phantom:layout_alignParentBottom="true" style="@style/activate_button_style" />
+</dji.pilot2.usercenter.activate.ActivateStatementView>

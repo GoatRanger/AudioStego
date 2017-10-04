@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:gravity="top|bottom|center_vertical|fill_vertical|center|fill" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content"
+    <LinearLayout android:orientation="horizontal" android:id="@id/br5" style="@style/g2">
+        <TextView android:id="@id/bqz" android:text="@string/setting_ui_flyc_mode" style="@style/gh" />
+        <RadioGroup android:gravity="top|bottom|center_vertical|fill_vertical|center|fill" android:orientation="horizontal" android:id="@id/br6" android:layout_width="wrap_content" android:layout_height="match_parent">
+            <RadioButton android:id="@id/br7" android:checked="true" android:button="0x0" android:text="@string/setting_ui_flyc_mode_normal" android:singleLine="false" style="@style/g4" />
+            <RadioButton android:id="@id/br8" android:layout_marginLeft="25dp" android:button="0x0" android:text="@string/setting_ui_flyc_mode_sport" android:singleLine="false" style="@style/g4" />
+            <RadioButton android:id="@id/br9" android:layout_marginLeft="25dp" android:checked="true" android:button="0x0" android:text="@string/setting_ui_flyc_mode_gentle" android:singleLine="false" style="@style/g4" />
+        </RadioGroup>
+    </LinearLayout>
+    <LinearLayout android:gravity="left|right|center_horizontal|fill_horizontal|center|fill|start|end" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_centerInParent="true"
+        <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="5dp"
+            <LinearLayout android:gravity="left|right|center_horizontal|fill_horizontal|center|fill|start|end" android:layout_gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="0dp" android:layout_weight="1.0">
+                <TextView android:textSize="@dimen/wn" android:layout_marginTop="10dp" android:text="@string/setting_ui_flyc_exp_up" style="@style/g1" />
+                <dji.setting.ui.widget.DJITouchCurveView android:id="@id/br_" android:layout_width="UNKNOWN_DATA_0x7f0b0365" android:layout_height="UNKNOWN_DATA_0x7f0b0365" android:layout_margin="10dp" android:layout_centerHorizontal="true" />
+                <TextView android:textSize="@dimen/wn" android:layout_marginBottom="10dp" android:text="@string/setting_ui_flyc_exp_down" style="@style/g1" />
+                <EditText android:id="@id/bra" android:text="0.10" android:inputType="textCapWords|number|numberSigned|numberDecimal|numberPassword|phone" style="@style/g8" />
+            </LinearLayout>
+            <LinearLayout android:gravity="left|right|center_horizontal|fill_horizontal|center|fill|start|end" android:layout_gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="0dp" android:layout_weight="1.0">
+                <TextView android:textSize="@dimen/wn" android:layout_marginTop="10dp" android:text="@string/setting_ui_flyc_exp_turnright" style="@style/g1" />
+                <dji.setting.ui.widget.DJITouchCurveView android:id="@id/brb" android:layout_width="UNKNOWN_DATA_0x7f0b0365" android:layout_height="UNKNOWN_DATA_0x7f0b0365" android:layout_margin="10dp" android:layout_centerHorizontal="true" />
+                <TextView android:textSize="@dimen/wn" android:layout_marginBottom="10dp" android:text="@string/setting_ui_flyc_exp_turnleft" style="@style/g1" />
+                <EditText android:id="@id/brc" android:text="0.10" android:inputType="textCapWords|number|numberSigned|numberDecimal|numberPassword|phone" style="@style/g8" />
+            </LinearLayout>
+            <LinearLayout android:gravity="left|right|center_horizontal|fill_horizontal|center|fill|start|end" android:layout_gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:orientation="vertical" android:id="@id/brd" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="0dp" android:layout_weight="1.0">
+                <TextView android:textSize="@dimen/wn" android:layout_marginTop="10dp" android:text="@string/setting_ui_flyc_exp_forwardright" style="@style/g1" />
+                <dji.setting.ui.widget.DJITouchCurveView android:id="@id/bre" android:layout_width="UNKNOWN_DATA_0x7f0b0365" android:layout_height="UNKNOWN_DATA_0x7f0b0365" android:layout_margin="10dp" android:layout_centerHorizontal="true" />
+                <TextView android:textSize="@dimen/wn" android:layout_marginBottom="10dp" android:text="@string/setting_ui_flyc_exp_backwardleft" style="@style/g1" />
+                <EditText android:id="@id/brf" android:text="0.10" android:inputType="textCapWords|number|numberSigned|numberDecimal|numberPassword|phone" style="@style/g8" />
+            </LinearLayout>
+        </LinearLayout>
+        <TextView android:id="@id/brg" android:layout_height="wrap_content" android:layout_margin="10dp" android:text="@string/setting_ui_flyc_exp_description" android:singleLine="false" style="@style/gf" />
+    </LinearLayout>
+</LinearLayout>

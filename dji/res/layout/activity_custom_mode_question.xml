@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:background="@color/om" android:layout_width="match_parent" android:layout_height="match_parent">
+    <dji.publics.DJIUI.DJIRelativeLayout android:id="@+id/liveshare_custommode_title_bar_layout" android:background="@color/fb" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x7f0b0280">
+        <Button android:textSize="@dimen/active_txt_sixth" android:textStyle="bold" android:textColor="@color/f0" android:id="@+id/liveshare_question_back" android:background="@color/fb" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/fj" android:text="@string/liveshare_title_bar_btn_cancel" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+        <TextView android:textSize="@dimen/active_txt_sixth" android:textStyle="bold" android:textColor="@color/a_" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/liveshare_custom_mode_questitle_text" android:layout_centerInParent="true" />
+        <dji.publics.DJIUI.DJIImageView android:background="@color/i" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x100" android:layout_alignParentBottom="true" android:contentDescription="@string/app_name" />
+    </dji.publics.DJIUI.DJIRelativeLayout>
+    <include layout="@layout/liveshare_youtube_logo_bar" />
+    <dji.publics.DJIUI.DJITextView android:background="@color/f7" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/g1" android:layout_marginTop="@dimen/fj" android:layout_marginRight="@dimen/g1" android:text="@string/liveshare_custom_mode_question_text" />
+    <ScrollView android:scrollbars="vertical" android:layout_width="match_parent" android:layout_height="match_parent">
+        <RelativeLayout android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:layout_gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/fi" android:layout_marginBottom="@dimen/gl">
+            <ImageView android:background="@r$drawable/youtubelivestream_custommode_help" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerVertical="true" />
+        </RelativeLayout>
+    </ScrollView>
+</LinearLayout>

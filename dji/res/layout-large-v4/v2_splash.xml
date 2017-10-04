@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.publics.DJIUI.DJIOriLayout xmlns:android="http://schemas.android.com/apk/res-auto" phantom:background="@r$drawable/launcher_splash" phantom:layout_width="match_parent" phantom:layout_height="match_parent" phantom:djiDeviceType="1">
+    <dji.publics.DJIUI.DJIRelativeLayout phantom:id="@+id/splash_img_content" phantom:visibility="gone" phantom:layout_width="match_parent" phantom:layout_height="match_parent">
+        <dji.publics.DJIUI.DJIImageView phantom:id="@+id/splash_img" phantom:background="@r$drawable/splash_screen_tablet" phantom:layout_width="match_parent" phantom:layout_height="match_parent" />
+        <dji.pilot.publics.widget.DJIStateTextView phantom:textColor="@color/om" phantom:id="@+id/splash_skip_txt" phantom:background="@r$drawable/splash_skip_bg" phantom:padding="@dimen/fj" phantom:layout_width="wrap_content" phantom:layout_height="wrap_content" phantom:layout_marginTop="@dimen/gw" phantom:layout_marginRight="@dimen/gw" phantom:text="@string/v2_splash_skip" phantom:layout_alignParentRight="true" />
+        <dji.publics.DJIUI.DJIRelativeLayout phantom:id="@+id/content_logo" phantom:background="@color/om" phantom:visibility="gone" phantom:layout_width="match_parent" phantom:layout_height="UNKNOWN_DATA_0x7f0b00ff" phantom:layout_alignParentBottom="true"
+            <dji.publics.DJIUI.DJIRelativeLayout phantom:layout_width="wrap_content" phantom:layout_height="wrap_content" phantom:layout_centerInParent="true">
+                <dji.publics.DJIUI.DJIImageView phantom:id="@+id/splash_app_icon" phantom:layout_width="wrap_content" phantom:layout_height="wrap_content" phantom:src="@drawable/appicon" />
+                <dji.publics.DJIUI.DJIRelativeLayout phantom:layout_width="wrap_content" phantom:layout_height="wrap_content" phantom:layout_marginLeft="@dimen/gw" phantom:layout_toRightOf="@+id/splash_app_icon" phantom:layout_centerVertical="true">
+                    <dji.publics.DJIUI.DJITextView phantom:textSize="@dimen/rk" phantom:id="@+id/splash_logo_name" phantom:layout_width="wrap_content" phantom:layout_height="wrap_content" phantom:text="DJI GO" />
+                    <dji.publics.DJIUI.DJITextView phantom:textSize="@dimen/ro" phantom:layout_width="wrap_content" phantom:layout_height="wrap_content" phantom:text="@string/v2_splash_go_create" phantom:layout_below="@+id/splash_logo_name" />
+                </dji.publics.DJIUI.DJIRelativeLayout>
+            </dji.publics.DJIUI.DJIRelativeLayout>
+        </dji.publics.DJIUI.DJIRelativeLayout>
+        <dji.publics.DJIUI.DJILinearLayout phantom:id="@+id/splash_author_device_ly" phantom:background="@r$drawable/splash_author_device_bg" phantom:layout_width="wrap_content" phantom:layout_height="wrap_content" phantom:layout_marginRight="@dimen/h7" phantom:layout_marginBottom="@dimen/h7" phantom:layout_alignParentRight="true" phantom:layout_alignParentBottom="true">
+            <dji.publics.DJIUI.DJITextView phantom:textSize="@dimen/rq" phantom:textColor="@color/om" phantom:id="@+id/splash_author" phantom:paddingLeft="@dimen/gw" phantom:layout_width="wrap_content" phantom:layout_height="wrap_content" />
+            <dji.publics.DJIUI.DJITextView phantom:textSize="@dimen/rq" phantom:textColor="@color/om" phantom:id="@+id/splash_device" phantom:paddingRight="@dimen/gw" phantom:layout_width="wrap_content" phantom:layout_height="wrap_content" phantom:layout_marginLeft="@dimen/g8" phantom:layout_centerHorizontal="true" />
+        </dji.publics.DJIUI.DJILinearLayout>
+    </dji.publics.DJIUI.DJIRelativeLayout>
+    <dji.publics.DJIUI.DJIRelativeLayout phantom:id="@+id/splash_start_content" phantom:visibility="gone" phantom:layout_width="wrap_content" phantom:layout_height="wrap_content" phantom:layout_centerInParent="true">
+        <dji.publics.DJIUI.DJIImageView phantom:id="@+id/splash_start_app_icon" phantom:layout_width="wrap_content" phantom:layout_height="wrap_content" phantom:src="@drawable/appicon" />
+        <dji.publics.DJIUI.DJIRelativeLayout phantom:layout_width="wrap_content" phantom:layout_height="wrap_content" phantom:layout_marginLeft="@dimen/gw" phantom:layout_toRightOf="@+id/splash_start_app_icon" phantom:layout_centerVertical="true">
+            <dji.publics.DJIUI.DJITextView phantom:textSize="@dimen/rk" phantom:id="@+id/splash_start_logo_name" phantom:layout_width="wrap_content" phantom:layout_height="wrap_content" phantom:text="DJI GO" />
+            <dji.publics.DJIUI.DJITextView phantom:textSize="@dimen/ro" phantom:layout_width="wrap_content" phantom:layout_height="wrap_content" phantom:text="@string/v2_splash_go_create" phantom:layout_below="@+id/splash_start_logo_name" />
+        </dji.publics.DJIUI.DJIRelativeLayout>
+    </dji.publics.DJIUI.DJIRelativeLayout>
+</dji.publics.DJIUI.DJIOriLayout>

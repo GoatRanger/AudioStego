@@ -1,0 +1,317 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Using the Streams</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="overview.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#io" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="filestreams.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Essential Java Classes
+<br>
+<b>Lesson</b>: I/O: Reading and Writing (but no 'rithmetic)
+</font>
+
+<h2>
+Using the Streams
+</h2>
+<blockquote>
+The following table lists <code>java.io</code>'s streams 
+and describes what they do. Note that many times, <code>java.io</code> 
+contains character streams and byte streams that perform 
+the same type of I/O but for different data types.
+<p>
+<TABLE BORDER="1" CELLSPACING="2" CELLPADDING="0">
+  <CAPTION ALIGN="TOP"><H4 CLASS="TableTitle">I/O Streams</H4> </CAPTION>
+  <TR>
+    <TH BGCOLOR="#dbe3f7">
+    Type of I/O</TH> 
+    <TH BGCOLOR="#dbe3f7">
+    Streams</TH> 
+    <TH BGCOLOR="#dbe3f7">
+    Description</TH> 
+  </TR>
+  <TR>
+    <TD ROWSPAN="2" BGCOLOR="#dbe3f7">
+    Memory</TD> 
+    <TD>
+    <P><CODE>CharArrayReader<BR>
+    CharArrayWriter</CODE></P>
+
+    <P><CODE>ByteArrayInputStream<BR>
+    ByteArrayOutputStream</CODE></TD> 
+    <TD>
+    Use these streams to read from and write to memory. You create 
+    these streams on an existing 
+    array and then use the read and write methods to read from or 
+    write to the array.</TD> 
+  </TR>
+  <TR>
+     
+    <TD>
+    <P><CODE>StringReader<BR>
+    StringWriter</CODE></P>
+
+    <P><CODE>StringBufferInputStream</CODE></TD> 
+    <TD>
+    <P><CODE>Use StringReader</CODE> to read characters from a <CODE>String</CODE>
+    in memory. Use <CODE>StringWriter</CODE> to write to a <CODE>String</CODE>.
+    <CODE>StringWriter</CODE> collects the characters written to
+    it in a <CODE>StringBuffer</CODE>, which can then be converted
+    to a <CODE>String</CODE>.</P>
+
+    <P><CODE>StringBufferInputStream</CODE> is similar to <CODE>StringReader</CODE>,
+    except that it reads bytes from a <CODE>StringBuffer</CODE>.</TD>
+  </TR>
+  <TR>
+    <TD BGCOLOR="#dbe3f7">
+    Pipe</TD> 
+    <TD>
+    <P CLASS="CodeCellBody"><CODE>PipedReader<BR>
+    PipedWriter</CODE></P>
+
+    <P CLASS="CodeCellBody"><CODE>PipedInputStream<BR>
+    PipedOutputStream</CODE></TD> 
+    <TD>
+    <P CLASS="CodeCellBody">Implement the input and output components
+    of a pipe. Pipes are used to channel the output from one thread
+    into the input of another. See <CODE>PipedReader</CODE> and <CODE>PipedWriter</CODE>
+    in action in the section <A HREF="pipedstreams.html" CLASS="XRef">How 
+    to Use Pipe Streams</A>.</TD> 
+  </TR>
+  <TR>
+    <TD BGCOLOR="#dbe3f7">
+    <P CLASS="CellBody">File</TD> 
+    <TD>
+    <P CLASS="CodeCellBody"><CODE>FileReader<BR>
+    FileWriter</CODE></P>
+
+    <P CLASS="CodeCellBody"><CODE>FileInputStream<BR>
+    FileOutputStream</CODE></TD> 
+    <TD>
+    <P CLASS="CodeCellBody">Collectively called file streams, these
+    streams are used to read from or write to a file on the native
+    file system. The section <A HREF="filestreams.html" CLASS="XRef">How 
+    to Use File Streams</A>. has an example that uses <CODE>FileReader</CODE>
+    and <CODE>FileWriter</CODE> to copy the contents of one file
+    into another.</TD> 
+  </TR>
+  <TR>
+    <TD BGCOLOR="#dbe3f7">
+    <P CLASS="CellBody">Concatenation</TD> 
+    <TD>
+    <P CLASS="CodeCellBody"><I>N/A</I></P>
+
+    <P CLASS="CodeCellBody"><CODE>SequenceInputStream</CODE></TD> 
+    <TD>
+    <P CLASS="CodeCellBody">Concatenates multiple input streams into
+    one input stream. The section <A HREF="catstreams.html" CLASS="XRef">How 
+    to Concatenate Files</A>. has a short example of this class.</TD> 
+  </TR>
+  <TR>
+    <TD BGCOLOR="#dbe3f7">
+    <P CLASS="CellBody">Object<BR>
+    Serialization</TD> 
+    <TD>
+    <P CLASS="CodeCellBody"><I>N/A</I></P>
+
+    <P CLASS="CodeCellBody"><CODE>ObjectInputStream<BR>
+    ObjectOutputStream</CODE></TD> 
+    <TD>
+    <P CLASS="CodeCellBody">Used to serialize objects. See <A HREF="serialization.html"
+    CLASS="XRef">Object Serialization</A>.</TD> 
+  </TR>
+  <TR>
+    <TD BGCOLOR="#dbe3f7">
+    <P CLASS="CellBody">Data<BR>
+    Conversion</TD> 
+    <TD>
+    <P CLASS="CodeCellBody"><CODE>N/A</CODE>&nbsp;</P>
+
+    <P CLASS="CodeCellBody"><CODE>DataInputStream<BR>
+    DataOutputStream</CODE></TD> 
+    <TD>
+    <P CLASS="CodeCellBody">Read or write primitive data types in
+    a machine-independent format. See <A HREF="dataIO.html" CLASS="XRef">How
+    to Use DataInputStream and DataOutputStream</A>. shows an example
+    of using these two streams.</TD> 
+  </TR>
+  <TR>
+    <TD BGCOLOR="#dbe3f7">
+    <P CLASS="CellBody">Counting</TD> 
+    <TD>
+    <P CLASS="CodeCellBody"><CODE>LineNumberReader</CODE></P>
+
+    <P CLASS="CodeCellBody"><CODE>LineNumberInputStream</CODE></TD> 
+    <TD>
+    <P CLASS="CodeCellBody">Keeps track of line numbers while reading.</TD> 
+  </TR>
+  <TR>
+    <TD BGCOLOR="#dbe3f7">
+    <P CLASS="CellBody">Peeking Ahead</TD> 
+    <TD>
+    <P CLASS="CodeCellBody"><CODE>PushbackReader</CODE></P>
+
+    <P CLASS="CodeCellBody"><CODE>PushbackInputStream</CODE></TD> 
+    <TD>
+    <P CLASS="CodeCellBody">These input streams each have a pushback
+    buffer. When reading data from a stream, it is sometimes useful
+    to peek at the next few bytes or characters in the stream to
+    decide what to do next.</TD> 
+  </TR>
+  <TR>
+    <TD BGCOLOR="#dbe3f7">
+    <P CLASS="CellBody">Printing</TD> 
+    <TD>
+    <P CLASS="CodeCellBody"><CODE>PrintWriter</CODE></P>
+
+    <P CLASS="CodeCellBody"><CODE>PrintStream</CODE></TD> 
+    <TD>
+    <P CLASS="CodeCellBody">Contain convenient printing methods.
+    These are the easiest streams to write to, so you will often
+    see other writable streams wrapped in one of these.</TD> 
+  </TR>
+  <TR>
+    <TD BGCOLOR="#dbe3f7">
+    <P CLASS="CellBody">Buffering</TD> 
+    <TD>
+    <P CLASS="CodeCellBody"><CODE>BufferedReader<BR>
+    BufferedWriter</CODE></P>
+
+    <P CLASS="CodeCellBody"><CODE>BufferedInputStream<BR>
+    BufferedOutputStream</CODE></TD> 
+    <TD>
+    <P CLASS="CodeCellBody">Buffer data while reading or writing,
+    thereby reducing the number of accesses required on the original
+    data source. Buffered streams are typically more efficient than
+    similar nonbuffered streams and are often used with other streams.</TD> 
+  </TR>
+  <TR>
+    <TD BGCOLOR="#dbe3f7">
+    <P CLASS="CellBody">Filtering</TD> 
+    <TD>
+    <P CLASS="CodeCellBody"><CODE>FilterReader<BR>
+    FilterWriter</CODE></P>
+
+    <P CLASS="CodeCellBody"><CODE>FilterInputStream<BR>
+    FilterOutputStream</CODE></TD> 
+    <TD>
+    <P CLASS="CodeCellBody">These abstract classes define the interface
+    for filter streams, which filter data as it's being read or written.
+    The section <A HREF="filtered.html">Working with
+    Filter Streams</A> shows you how to use filter streams and how
+    to implement your own.</TD> 
+  </TR>
+  <TR>
+    <TD BGCOLOR="#dbe3f7">
+    <P CLASS="CellBody">Converting between Bytes and Characters</TD> 
+    <TD>
+    <P CLASS="CodeCellBody"><CODE>InputStreamReader<BR>
+    OutputStreamWriter</CODE></TD> 
+    <TD>
+    <P CLASS="CodeCellBody">A reader and writer pair that forms the
+    bridge between byte streams and character streams.</P>
+
+    <P CLASS="CodeCellBody">An <CODE>InputStreamReader</CODE> reads
+    bytes from an <CODE>InputStream</CODE> and converts them to characters,
+    using the default character encoding or a character encoding
+    specified by name.</P>
+
+    <P CLASS="CodeCellBody">An <CODE>OutputStreamWriter</CODE> converts
+    characters to bytes, using the default character encoding or
+    a character encoding specified by name and then writes those
+    bytes to an <CODE>OutputStream</CODE>.</P>
+
+    <P CLASS="CodeCellBody">You can get the name of the default   character
+    encoding by calling<CODE> System.getProperty(&quot;file.encoding&quot;)</CODE>.</TD> 
+  </TR>
+</TABLE>
+<p>
+
+The next several sections provide examples on how to use several of these streams: 
+<UL>
+   <LI> <A href="filestreams.html">How to Use File Streams</A></LI>
+   <LI><A href="pipedstreams.html">How to Use Pipe Streams</A></LI>
+   <LI><A href="processing.html">How to Wrap a Stream</A></LI>
+   <LI><A href="catstreams.html">How to Concatenate Files</A></LI>
+   <LI><A href="filtered.html">Working with Filter Streams</A></LI>
+</UL>  
+
+<P>
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="overview.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#io" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="filestreams.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

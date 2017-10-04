@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res-auto" style="@style/ff">
+    <LinearLayout set:orientation="vertical" set:layout_width="match_parent" set:layout_height="wrap_content">
+        <TextView set:text="@string/wifi_title" style="@style/fj" />
+        <View style="@style/fc" />
+        <dji.pilot.set.view.base.SetGroupView set:title="@string/set_wifi" set:sub_Layout="@layout/set_layout_wifi" style="@style/fh" />
+        <TextView set:text="@string/subtitle_cache" style="@style/fj" />
+        <View style="@style/fc" />
+        <dji.pilot.set.view.CleanVideoCacheSetterView style="@style/fh" />
+        <dji.pilot.set.view.VideoCacheSetterView style="@style/fh" />
+        <dji.pilot.set.view.AutoClearVideoCacheSetterView style="@style/fh" />
+        <TextView set:text="@string/subtitle_other" style="@style/fj" />
+        <View style="@style/fc" />
+        <dji.pilot.set.view.FormatSdSetterView style="@style/fh" />
+        <dji.pilot.set.view.FormatSSdSetterView set:visibility="gone" style="@style/fh" />
+        <dji.pilot.set.view.base.SetGroupView set:title="@string/fpv_gensetting_about" set:sub_Layout="@layout/set_layout_about" style="@style/fh" />
+    </LinearLayout>
+</ScrollView>

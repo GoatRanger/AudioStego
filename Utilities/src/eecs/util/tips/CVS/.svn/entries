@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="20"
+   name=""
+   committed-date="2005-02-01T06:07:43.375000Z"
+   url="svn://192.168.2.2/Utilities/src/eecs/util/tips/CVS"
+   last-author="Karl"
+   kind="dir"
+   uuid="0daf4267-3229-f84b-9084-f3c94b025f38"
+   revision="53"/>
+<entry
+   committed-rev="20"
+   name="Repository"
+   text-time="2005-03-01T22:03:54.312500Z"
+   committed-date="2005-02-01T06:07:43.375000Z"
+   checksum="6a0fef82eb0b830ed9da2a7d3035a776"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-01T22:03:54.281250Z"/>
+<entry
+   committed-rev="20"
+   name="Root"
+   text-time="2005-03-01T22:03:54.328125Z"
+   committed-date="2005-02-01T06:07:43.375000Z"
+   checksum="32cb84457820006714ba637d03b293bc"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-01T22:03:54.281250Z"/>
+<entry
+   committed-rev="20"
+   name="Entries"
+   text-time="2005-03-01T22:03:54.328125Z"
+   committed-date="2005-02-01T06:07:43.375000Z"
+   checksum="585c01ade4f16c44fd1301f4f17664c3"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-01T22:03:54.296875Z"/>
+</wc-entries>

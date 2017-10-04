@@ -1,0 +1,344 @@
+
+
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>How to Write an Action Listener</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="handling.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#events" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="caretlistener.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Creating a GUI with JFC/Swing
+<br>
+<b>Lesson</b>: Writing Event Listeners
+</font>
+
+<h2>
+How to Write an Action Listener
+</h2>
+<blockquote>
+
+Action listeners are probably the easiest &#151; and most
+common &#151; event handlers to implement.
+You implement an action listener
+to respond to the user's indication
+that some implementation-dependent action should occur.
+
+<p>
+
+When the user clicks a 
+<a target="_top" href="../components/button.html">button</a><a target="_top" href="../components/button.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>, chooses a 
+<a target="_top" href="../components/menu.html">menu item</a><a target="_top" href="../components/menu.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a> or presses Enter in a 
+<a target="_top" href="../components/textfield.html">text field</a><a target="_top" href="../components/textfield.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>, an action event occurs.
+The result is that an <code>actionPerformed</code> message 
+is sent to all action listeners 
+that are registered on the relevant component.
+<p>
+
+Here is the action event handling code from an applet named
+<code>Beeper</code>:
+
+<blockquote><pre>
+public class Beeper ...  implements ActionListener {
+    ...
+    <em>//where initialization occurs:</em>
+        button.addActionListener(this);
+    ...
+    public void actionPerformed(ActionEvent e) {
+	Toolkit.getDefaultToolkit().beep();
+    }
+}
+</pre></blockquote>
+
+The <code>Beeper</code> applet is described
+in this trail's introduction to events,
+<a href="intro.html">Introduction to Event Listeners</a>.
+You can find the entire program in 
+
+<a target="_blank" href="example-1dot4/Beeper.java"><font color="#bb000f"><code>Beeper.java</code></font></a><a target="_blank" href="example-1dot4/Beeper.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>.
+The other example described in that section,
+
+<a target="_blank" href="example-1dot4/MultiListener.java"><font color="#bb000f"><code>MultiListener.java</code></font></a><a target="_blank" href="example-1dot4/MultiListener.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>,
+has two action sources and two action listeners,
+with one listener listening to both sources
+and the other listening to just one.
+
+</blockquote>
+<h3>
+<a name="api">The Action Listener API</a>
+</h3>
+<blockquote>
+
+<p align=center><a name="actionlistener">The ActionListener
+   Interface</a>
+<p><em>Because <code>ActionListener</code> has only one method,
+   it has no corresponding adapter class.</em>
+<table border=1>
+<tr>
+<th align=left>Method</th>
+<th align=left>Purpose</th>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/event/ActionListener.html#actionPerformed(java.awt.event.ActionEvent)"><font color="#8800bb"><font size=2><code>actionPerformed(actionEvent)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/event/ActionListener.html#actionPerformed(java.awt.event.ActionEvent)"></a></td>
+<td> Called just after the user 
+     informs the listened-to component
+     that an action should occur.
+</td>
+</tr>
+</table>
+
+<p align=center><a name="actionevent">The ActionEvent Class</a>
+<p>
+<table border=1>
+<tr>
+<th align=left>Method</th>
+<th align=left>Purpose</th>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/event/ActionEvent.html#getActionCommand()"><font color="#8800bb"><font size=2><code>String getActionCommand()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/event/ActionEvent.html#getActionCommand()"></a></td>
+<td>Returns the string associated with this action.
+    Most objects that can fire action events
+    support a method called <code>setActionCommand</code>
+    that lets you set this string.
+</td>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/event/ActionEvent.html#getModifiers()"><font color="#8800bb"><font size=2><code>int getModifiers()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/event/ActionEvent.html#getModifiers()"></a></td>
+<td>Returns an integer representing
+    the modifier keys the user was pressing
+    when the action event occurred.
+    You can use the <code>ActionEvent</code>-defined constants 
+    <code>SHIFT_MASK</code>,
+    <code>CTRL_MASK</code>,
+    <code>META_MASK</code>, and
+    <code>ALT_MASK</code>
+    to determine which keys were pressed.
+    For example, if the user Shift-selects a menu item,
+    then the following expression is nonzero:
+    <blockquote><pre>
+actionEvent.getModifiers() & ActionEvent.SHIFT_MASK
+    </pre></blockquote>
+</td>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/EventObject.html#getSource()"><font color="#8800bb"><font size=2><code>Object getSource()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/EventObject.html#getSource()"></a><br>
+(<em>in <code>java.util.EventObject</code></em>)
+</td>
+<td>Returns the object that fired the event.
+</td>
+</tr>
+</table>
+
+</blockquote>
+<h3>
+<a name="eg">Examples that Use Action Listeners</a>
+</h3>
+<blockquote>
+
+The following table lists some of the many
+examples that use action listeners.
+
+<p>
+
+<table>
+<tr>
+<th align=left> Example
+</th>
+<th align=left> Where Described
+</th>
+<th align=left> Notes
+
+</th>
+</tr>
+<tr valign=top>
+<td> <a href="example-1dot4/index.html#Beeper"><code>Beeper</code></a>
+</td>
+<td> This section and
+     <a href="intro.html">Introduction to Event Listeners</a>
+</td>
+<td> Contains one button with one action listener
+     that beeps when you click the button.
+
+</td>
+</tr>
+<tr valign=top>
+<td> <a href="example-1dot4/index.html#MultiListener"><code>MultiListener</code></a>
+</td>
+<td> <a href="intro.html">Introduction to Event Listeners</a>
+</td>
+<td> Registers two different action listeners on one button.
+     Also registers the same action listener on two different buttons.
+
+</td>
+</tr>
+<tr valign=top>
+<td> <a href="../components/example-1dot4/index.html#RadioButtonDemo"><code>RadioButtonDemo</code></a>
+</td>
+<td>
+<a target="_top" href="../components/button.html#radiobutton">How to Use Radio Buttons</a><a target="_top" href="../components/button.html#radiobutton"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a></td>
+<td> Registers the same action listener on five radio buttons.
+     The listener uses the <code>getActionCommand</code> method
+     to determine which radio button fired the event.
+
+</td>
+</tr>
+
+<tr valign=top>
+<td> <a href="../components/example-1dot4/index.html#MenuDemo"><code>MenuDemo</code></a>
+</td>
+<td>
+<a target="_top" href="../components/menu.html">How to Use Menus</a><a target="_top" href="../components/menu.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a></td>
+<td> Shows how to listen for action events on menu items.
+</td>
+</tr>
+
+<tr valign=top>
+<td> <a href="../misc/example-1dot4/index.html#DragPictureDemo2"><code>DragPictureDemo2</code></a>
+</td>
+<td>
+<a target="_top" href="../misc/dnd.html#cut">Adding Cut/Copy/Paste Support to Data Transfer</a><a target="_top" href="../misc/dnd.html#cut"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a></td>
+<td>Uses <code>setActionCommand</code> to attach the cut,
+    copy, and paste actions to the menu.  Then uses as
+    action listener to forward the cut/copy/paste actions
+    to the currently focused component.
+</td>
+</tr>
+
+<tr valign=top>
+<td> <a href="../components/example-1dot4/index.html#TextDemo"><code>TextDemo</code></a>
+</td>
+<td>
+<a target="_top" href="../components/textfield.html">How to Use Text Fields</a><a target="_top" href="../components/textfield.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a></td>
+<td> An applet that registers an action listener on a text field.
+</td>
+</tr>
+
+<tr valign=top>
+<td> <a href="../misc/example-1dot4/index.html#IconDemoApplet"><code>IconDemoApplet</code>
+</a>
+</td>
+<td>
+<a target="_top" href="../misc/icon.html">How to Use Icons</a><a target="_top" href="../misc/icon.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a></td>
+<td> Loads an image in an action listener.
+     Because loading an image can take a while,
+     this program uses a <code>SwingWorker</code>
+     to load the image in a background thread.
+
+</td>
+</tr>
+
+<tr valign=top>
+<td> <a href="../components/example-1dot4/index.html#TableDialogEditDemo"><code>TableDialogEditDemo</code></a>
+</td>
+<td>
+<a target="_top" href="../components/table.html">How to Use Tables</a><a target="_top" href="../components/table.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a></td>
+<td> Registers an action listener
+     through a factory method
+     on the OK button of a color chooser dialog.
+
+</td>
+</tr>
+
+<tr valign=top>
+<td> <a href="../components/example-1dot4/index.html#SliderDemo"><code>SliderDemo</code></a>
+</td>
+<td>
+<a target="_top" href="../components/slider.html">How to Use Sliders</a><a target="_top" href="../components/slider.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a></td>
+<td> Registers an action listener on a timer
+     that controls an animation loop.
+
+</td>
+</tr>
+</table>
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="handling.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#events" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="caretlistener.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

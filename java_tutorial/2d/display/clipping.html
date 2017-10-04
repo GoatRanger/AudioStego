@@ -1,0 +1,189 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Clipping the Drawing Region</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="transforming.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#display" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="compositing.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: 2D Graphics
+<br>
+<b>Lesson</b>: Displaying Graphics with Graphics2D
+</font>
+
+<h2>
+Clipping the Drawing Region
+</h2>
+<blockquote>
+Any <CODE>Shape</CODE> can be used as a clipping path that restricts
+the portion of the drawing area that will rendered. The clipping path
+is part of the <CODE>Graphics2D</CODE> context; to set the clip
+attribute, you call <CODE>Graphics2D.setClip</CODE> and pass in the
+<CODE>Shape</CODE> that defines the clipping path you want to use. You
+can shrink the clipping path by calling the <CODE>clip</CODE> method
+and passing in another <CODE>Shape</CODE>; the clip is set to the
+intersection of the current clip and the specified <CODE>Shape</CODE>.
+
+</blockquote>
+<h3>Example: ClipImage</h3>
+<blockquote>
+This example animates a clipping path to reveal different portions of an image. 
+
+<p><center><a href="ClipImage.html" target="_blank"><IMG SRC="../../figures/2d/2D-38.gif  " WIDTH="400" HEIGHT="172" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="Click this figure to run the applet."></a><br><em>This is a picture of the applet's GUI.  To run the applet, click the picture.  The applet will appear in a new browser window.</em></center></p>
+<p>
+
+<a target="_blank" href="example-1dot2/ClipImage.java"><font color="#bb000f"><code>ClipImage.java</code></font></a><a target="_blank" href="example-1dot2/ClipImage.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>
+contains the complete code for this applet.
+The applet requires the
+<a href="example-1dot2/images/clouds.jpg"><code>clouds.jpg</code></a>
+image file.
+
+<P>
+The clipping path is defined by the intersection of an ellipse and a
+rectangle whose dimensions are set randomly. The ellipse is passed to
+the <CODE>setClip</CODE> method, and then <CODE>clip</CODE>
+is called to set the clipping path to the intersection of the ellipse
+and the rectangle.
+<blockquote><pre>
+private Ellipse2D ellipse = new Ellipse2D.Float();
+private Rectangle2D rect = new Rectangle2D.Float();
+...
+ellipse.setFrame(x, y, ew, eh);
+g2.setClip(ellipse);
+rect.setRect(x+5, y+5, ew-10, eh-10);
+g2.clip(rect);
+</pre></blockquote>
+<P>
+</blockquote>
+<p>
+<h3>Example: Starry</h3>
+<blockquote>
+A clipping area can also be created from a text string.  The
+following example creates a <code>TextLayout</code> with the string <i>The
+Starry Night</i>.  Then, it gets the outline of the
+<code>TextLayout</code>.  The <code>TextLayout.getOutline</code> method
+returns a <code>Shape</code> object and a <code> Rectangle</code> is
+created from the bounds of this <code>Shape</code> object.  The bounds
+contains all the pixels the layout can draw.  The color in the graphics
+context is set to blue and the outline shape is drawn, as illustrated by
+the following image and code snippet.
+
+<p><center><IMG SRC="../../figures/2d/starryOutline.gif" WIDTH="425" HEIGHT="64" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p>
+<blockquote>
+<pre>
+FontRenderContext frc = g2.getFontRenderContext();
+Font f = new Font("Helvetica", 1, w/10);
+String s = new String("The Starry Night");
+TextLayout tl = new TextLayout(s, f, frc);
+AffineTransform transform = new AffineTransform();
+Shape outline = textTl.getOutline(null);
+Rectangle r = outline.getBounds();
+transform = g2.getTransform();
+transform.translate(w/2-(r.width/2), h/2+(r.height/2));
+g2.transform(transform);
+g2.setColor(Color.blue);
+g2.draw(outline);   
+</pre>
+</blockquote>
+<p>
+Next, a clipping area is set on the graphics context using the
+<code>Shape</code> object created from <code>getOutline</code>.  The
+<code>starry.gif</code> image,
+which is Van Gogh's famous painting, <i>The Starry
+Night</i>, is drawn into this clipping area starting at the lower left
+corner of the <code>Rectangle</code> object.
+<p>
+<blockquote>
+<pre>
+g2.setClip(outline);
+g2.drawImage(img, r.x, r.y, r.width, r.height, this);
+</pre>
+</blockquote>
+
+<p><center><a href="Starry.html" target="_blank"><IMG SRC="../../figures/2d/starryApp.gif" WIDTH="425" HEIGHT="64" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="Click this figure to run the applet."></a><br><em>This is a picture of the applet's GUI.  To run the applet, click the picture.  The applet will appear in a new browser window.</em></center></p>
+<p>
+
+<a target="_blank" href="example-1dot2/Starry.java"><font color="#bb000f"><code>Starry.java</code></font></a><a target="_blank" href="example-1dot2/Starry.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>
+contains the complete code for this program.
+This applet requires the
+<a href="example-1dot2/images/Starry.gif"><code>Starry.gif</code></a>
+image file.
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="transforming.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#display" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="compositing.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

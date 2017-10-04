@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/v2_coupon_detail" android:layout_width="match_parent" android:layout_height="match_parent">
+    <include android:id="@+id/v2_coupon_header" layout="@layout/v2_coupon_header" />
+    <ScrollView android:id="@+id/v2_coupon_scroll" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/u" android:layout_below="@+id/v2_coupon_header">
+        <include layout="@layout/v2_coupon_mailpic" />
+    </ScrollView>
+    <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/s" android:layout_marginTop="@dimen/u" android:layout_marginRight="@dimen/t" android:layout_below="@+id/v2_coupon_header" android:layout_alignBottom="@+id/v2_coupon_scroll">
+        <include android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@+id/v2_coupon_header" layout="@layout/v2_coupon_loading" />
+        <dji.publics.DJIUI.DJITextView android:textSize="16sp" android:textColor="#4a4a4a" android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@+id/v2_no_net" android:background="@color/om" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:text="@string/v2_net_error" />
+    </RelativeLayout>
+</RelativeLayout>

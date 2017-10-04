@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.device.widget.popview.DJIErrorPopViewCompat xmlns:android="http://schemas.android.com/apk/res-auto" phantom:orientation="vertical" phantom:layout_width="match_parent" phantom:layout_height="match_parent" phantom:baselineAligned="false" phantom:productType_c="1">
+    <include phantom:id="@id/a01" phantom:visibility="invisible" phantom:layout_width="match_parent" phantom:layout_height="wrap_content" layout="@layout/fpv_error_pop_item_c" />
+    <include phantom:id="@id/a02" phantom:visibility="invisible" phantom:layout_width="match_parent" phantom:layout_height="wrap_content" phantom:layout_marginTop="3dp" layout="@layout/fpv_error_pop_item_c" />
+    <include phantom:id="@id/a03" phantom:visibility="invisible" phantom:layout_width="match_parent" phantom:layout_height="wrap_content" phantom:layout_marginTop="3dp" layout="@layout/fpv_error_pop_item_c" />
+    <include phantom:id="@id/a04" phantom:visibility="invisible" phantom:layout_width="match_parent" phantom:layout_height="wrap_content" phantom:layout_marginTop="3dp" layout="@layout/fpv_error_pop_item_c" />
+    <include phantom:id="@id/a05" phantom:visibility="invisible" phantom:layout_width="match_parent" phantom:layout_height="wrap_content" phantom:layout_marginTop="3dp" layout="@layout/fpv_error_pop_item_c" />
+    <include phantom:id="@id/a06" phantom:visibility="invisible" phantom:layout_width="match_parent" phantom:layout_height="wrap_content" phantom:layout_marginTop="3dp" layout="@layout/fpv_error_pop_item_c" />
+</dji.device.widget.popview.DJIErrorPopViewCompat>

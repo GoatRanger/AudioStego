@@ -1,0 +1,79 @@
+package network;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+
+public class Router extends NetworkComponent {
+  Collection links = new ArrayList();
+  
+  // Routing table
+  Collection sinks = new ArrayList();
+  Collection nextStops = new ArrayList();
+
+  public Link findLinkTo(Link exclude, NetworkComponent component) {
+    if (component==null) return null;
+    int maxHops = 18;
+    int minPath = maxHops + 1;
+    Link minLink = null;
+    for (Iterator i = links.iterator(); i.hasNext(); ) {
+      Link link = (Link) i.next();
+      if (link.equals(exclude)) continue;
+      ArrayList visited = new ArrayList();
+      visited.add(exclude);
+      int len;
+      if ((len = link.pathLength(0, maxHops, visited, this, component)) > 0) {
+        if (len < minPath) {
+          minPath = len;
+          minLink = link;
+        }
+      }
+    }
+    return minLink;
+  }
+    
+  public NetworkComponent route(Sink sink) {
+    for (Iterator i = sinks.iterator(), j = nextStops.iterator(); i.hasNext() && j.hasNext(); ) {
+      NetworkComponent component = (NetworkComponent) i.next();
+      if (component.equals(sink)) {
+        NetworkComponent next = (NetworkComponent)j.next();
+        return next;
+      } else {
+        j.next();
+      }
+    }
+    return null;
+  }
+
+  public void addNextStopForSink(NetworkComponent nextStop, Sink sink) {
+    nextStops.add(nextStop);
+    sinks.add(sink);
+  }
+
+  public void addLink(Link link) {
+    links.add(link);
+  }
+  
+  public Collection getLinks() {
+    return links;
+  }
+
+  public void setLinks(Collection collection) {
+    links = collection;
+  }
+
+  public String toString() {
+    StringBuffer sb = new StringBuffer("");
+    sb.append("Router:");
+    sb.append(getName());
+    sb.append("\n");
+    for (Iterator i = links.iterator(); i.hasNext(); ) {
+      Link l = (Link) i.next();
+      sb.append("   ");
+      sb.append(l.toString());
+      sb.append("\n");
+    }
+    return sb.toString();
+  }
+ 
+}

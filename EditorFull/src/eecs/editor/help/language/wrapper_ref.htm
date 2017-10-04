@@ -1,0 +1,472 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Input/Output Command Reference</title>
+  </head>
+  <body>
+    <div id="main">
+		 <h1><a id="CF">Programming Command Reference</a> </h1>
+      <p>Unless otherwise noted, all the methods described in
+      this appendix may be used with both <tt>eecs.Gui</tt> and
+      <tt>eecs.RobotGui</tt>. The exceptions are the commands
+      dealing with the robot (e.g., <tt>pivotLeft</tt>,
+      <tt>goForward)</tt>, which are only available in
+      <tt>eecs.RobotGui</tt>.</p>
+      <h2><a id="F.1">1. Input</a></h2>
+      <h3><a id="F.1.1">1.1 Input from Keyboard</a></h3>
+      <p>Each of the following commands takes a prompt message,
+      pops up a new window on the screen displaying the prompt
+      message, and allows the user to type in an answer. Typing
+      the <tt>enter</tt> key or clicking on <tt>OK</tt> signals
+      the end of the answer.</p>
+			<ul>
+  			<li><strong>getInt</strong>
+    	 	  <ul>
+              <li>Takes a prompt message (a string)</li>
+              <li> Returns the integer typed in by the user as an <tt>int</tt></li>
+              <li> If the value entered by the user is not a valid integer,
+                or if the user clicks on the close button (X),
+                <tt>getInt</tt> displays a warning message and asks
+                again.</li>
+              <li> Example: <br>
+              <tt>int height = 0;</tt><br>
+							<tt>height = getInt(&quot;Enter height in inches:&quot;);</tt></li>
+    			</ul>
+  			</li>
+        <li><strong>getDouble</strong>
+    			<ul>
+              <li> Takes a prompt message (a string)</li>
+              <li> Returns the real number typed in by the user as a
+              <tt>double</tt></li>
+              <li> If the value entered by the user is not a valid real
+              number, or if the user clicks on the close button (X),
+              <tt>getDouble</tt> displays a warning message and asks
+              again.</li>
+              <li> Example: <br>
+              <tt>double weight = 0.0;</tt><br>
+							<tt>weight = getDouble(&quot;Enter weight in kg:&quot;);</tt></li>
+    			</ul>
+  			</li>
+        <li><strong>getString</strong>
+    			<ul>
+            <li> Takes a prompt message (a string)</li>
+            <li> Returns the string typed in by the user</li>
+            <li> If the user clicks <tt>OK</tt> or hits the <tt>enter</tt>
+            key before typing anything else, or if the user clicks on
+            the close button (X), <tt>getString</tt> returns the empty
+            string (&quot;&quot;).</li>
+            <li> Example: <br>
+            <tt>String name = "";</tt><br>
+						<tt>name = getString(&quot;Enter name:&quot;);</tt></li>
+    			</ul>
+  			</li>
+			</ul>
+      <h3><a id="F.1.2">1.2 Input from Buttons</a></h3>
+      <p>Each of the following commands takes a prompt message
+      and some labels, and pops up a new window containing the
+      prompt message and a set of buttons with the given labels.
+      Returns an integer corresponding to the button pressed.
+      This integer will usually be one of the constants
+      <tt>BUTTON1</tt>, <tt>BUTTON2</tt>, or <tt>BUTTON3</tt>,
+      but may be the constant <tt>CANCEL</tt> if the close button
+      (X) was pressed. Hitting the <tt>enter</tt> key is
+      equivalent to clicking the highlighted button (usually
+      <tt>BUTTON1</tt>).</p>
+      <br>
+      <ul>
+    			<li><strong>chooseButton</strong>(two-button version)
+      			<ul>
+        			<li> Takes a prompt message (a string) and two button labels (also strings)</li>
+              <li> Returns the integer constant <tt>BUTTON1</tt> if the left
+              button was pressed, <tt>BUTTON2</tt> if the right button
+              was pressed, or <tt>CANCEL</tt> if the close button (X) was
+              pressed.</li>
+              <li> Example: <br>
+                  <tt>int answer = 0;</tt><br>
+									<tt>answer = chooseButton(&quot;Are you 18 or older?&quot;, &quot;Yes&quot;,
+                  &quot;No&quot;);</tt>
+                  <p id="FigB.1"><img src="images\chooseButton.gif" alt="Example of 2-button input" /></p>
+                  <p>Figure 1: Two-Button Input</p>
+							</li>
+      			</ul>
+    			</li>
+          <li><strong>chooseButton</strong>(three-button version)
+        			<ul>
+              <li> Takes a prompt message (a string) and three button labels
+              (also strings)</li>
+              <li> Returns the integer constant <tt>BUTTON1</tt> if the left
+              button was pressed, <tt>BUTTON2</tt> if the middle button was pressed,
+              <tt>BUTTON3</tt> if the right button was pressed, or
+              <tt>CANCEL</tt> if the close button (X) was pressed.</li>
+              <li> Example:<br>
+              <tt>int color = 0;</tt><br>
+							<tt>color = chooseButton(&quot;Favorite Color?&quot;, &quot;Red&quot;,
+              &quot;Green&quot;,&quot;Blue&quot;);</tt>
+              <p id="tth_fIg2"><img src="images\chooseButton3.gif" alt="Example of 3-button input" /></p>
+							<p>Figure 2: 3-Button Version</p>
+							</li>
+        			</ul>
+    			</li>
+			</ul>
+      
+      <h3><a id="F.1.3">1.3 Input from Lists</a></h3>
+      <p>The following command takes a prompt message and some
+      labels, and pops up a new window containing the prompt
+      message and a list of the labels. Returns an integer
+      corresponding to the list entry selected. To select an
+      entry, first click on the entry to highlight it and then
+      hit the <tt>enter</tt> key or click on <tt>OK</tt> to
+      select the highlighted entry.</p>
+      <br>
+			<ul>
+          <li><strong>chooseFromList</strong>
+        			<ul>
+                  <li> Takes a prompt message (a string) and a set of labels (an
+                  array of strings)</li>
+                  <li> Returns the integer corresponding to the position of the
+                  selected label in the array of strings, or the integer
+                  constant <tt>CANCEL</tt> if the close button (X) was
+                  pressed. Keep in mind that positions start at 0. 
+									<br>
+									So for the example below: <br>
+									choosing &quot;Red&quot; would make color = 0; <br>
+									choosing &quot;Green&quot; would make color = 1; <br>
+									choosing &quot;Blue&quot; would make color = 2; <br>
+									etc....</li>
+                  <li> Example:<br>
+                      <tt>String[] colorArray = { &quot;Red&quot;, &quot;Green&quot;, &quot;Blue&quot;,
+                      Orange&quot;, &quot;Purple&quot; };<br>
+                      int color = 0;<br>
+											color = chooseFromList(&quot;Favorite Color?&quot;, colorArray);</tt>
+                      <p id="tth_fIg3"><img src="images\chooseFromList.gif" alt="Example of list input" /></p>
+                      <p>Figure 3: Choose From List</p></li>
+        			</ul>
+    			</li>
+			</ul>
+      
+      <h2><a id="F.2">2. Output</a></h2>
+      <h3><a id="F.2.1">2.1 Output to Main Output Window</a></h3>
+      <br>
+      <ul>
+    			<li><strong>print</strong>
+      			<ul>
+                <li> Takes a value, which can be a <tt>String</tt>,
+                <tt>int</tt>, <tt>double</tt>, <tt>boolean</tt>, or
+                <tt>char</tt>.</li>
+                <li> Returns nothing.</li>
+                <li> Displays the value in the main output window. Strings are
+                copied verbatim while the other values are first converted
+                into a textual representation.</li>
+                <li> The next <tt>print</tt> or <tt>printLine</tt> command
+                will begin printing where this one left off.</li>
+                <li> Example:<br>
+                <tt>print(&quot;I am &quot; + age + &quot; years old.&quot;);</tt></li>
+  					</ul>
+          
+          </li>
+					<li><strong>printLine</strong>
+  					<ul>
+  					    <li> Just like <tt>print</tt> except that the next
+                <tt>print</tt> or <tt>printLine</tt> command will begin
+                printing at the beginning of the next line instead of where
+                this one left off.</li>
+                <li> Returns nothing.</li>
+                <li> Example:<br>
+                <tt>printLine(&quot;This line ends after me.&quot;);</tt></li>
+            </ul>
+          </li>
+          <li><strong>printLine</strong>
+  					<ul>
+                <li> Takes nothing.</li>
+                <li> Returns nothing.</li>
+                <li> Adds a blank line to the output window.</li>
+                <li> Example:<br>
+                <tt>printLine();</tt></li>
+  					</ul>
+					</li>
+          
+          <li><strong>clearOutput</strong>
+  					<ul>
+                <li> Takes nothing.</li>
+                <li> Returns nothing.</li>
+                <li> Erases all text in the main output window.</li>
+                <li> Example:<br>
+                <tt>clearOutput();</tt></li>
+  					</ul>
+					</li>
+          
+          <li><strong>setOutputTitle</strong> (<em>only in</em> <tt>eecs.Gui</tt>)
+  					<ul>
+                <li> Takes the new title (a string).</li>
+                <li> Returns nothing.</li>
+                <li> Changes the title at the top of the main output window to
+                the given string.</li>
+                <li> Example:<br>
+                <tt>setOutputTitle(&quot;New Title&quot;);</tt></li>
+  					</ul>
+					</li>
+			</ul>
+      <h3><a id="F.2.2">2.2 Output in Separate Window</a></h3>
+      
+			<ul>
+          <li><strong>showMessage</strong>
+      			<ul>
+                <li> The showMessage() command works much print() or printLine(), except the message is displayed in a new pop up window</li>
+                 <li> Takes a value, which can be a <tt>String</tt>,
+                <tt>int</tt>, <tt>double</tt>, <tt>boolean</tt>, or
+                <tt>char</tt>.</li>
+                <li> Returns nothing.</li>
+                <li> Pops up a new window containing the given message, and
+                waits for the user to click <tt>OK</tt> or hit the
+                <tt>enter</tt> key.</li>
+                <li> Example:<br>
+                <tt>showMessage(&quot;Click OK to begin.&quot;);</tt> <br/>
+                <tt>showMessage(&quot;Words to be displayed exactly &quot; + variable);</tt></li>
+      			</ul>
+    			</li>
+          <li><strong>showError</strong>
+  					<ul>
+                <li> Just like <tt>showMessage</tt> except that the new window
+                includes an error icon.</li>
+                <li> Returns nothing.</li>
+                <li> Example:<br>
+                    <tt>showError(&quot;Number must be positive. Try
+                    again.&quot;);</tt></li>
+  					</ul>
+					</li>
+			</ul>
+			<h3><a id="F.2.3">2.3 Aural Output</a> (Text-to-Speech)</h3>
+
+			<ul>
+			  <li><strong>say</strong>
+					  <ul>
+                <li> Takes a value, which can be a <tt>String</tt>,
+                <tt>int</tt>, <tt>double</tt>, or
+                <tt>char</tt>.</li>
+                <li> Returns nothing.</li>
+                <li> Speaks the value/message.</li>
+                <li> Example:<br>
+                <tt>say(&quot;This is how to use text-to-speech&quot;);</tt></li>
+  					</ul>
+					</li>
+					</ul>
+      <h3><a id="F.2.4">2.4 Text Formatting</a></h3>
+      <br>
+			<ul>
+          <li><strong>leftAlign</strong> <em>(for integers and strings)</em>
+  					<ul>
+                <li> Takes a width (an integer) and a value (integer or
+                string).</li>
+                <li> Returns a string with the original value on the left and
+                enough additional spaces on the right to bring the total
+                length of the string up to the designated width.</li>
+                <li> If the original value was an integer, it is first
+                converted into a string.</li>
+                <li> If the textual representation of the integer or string is
+                already at or above the designated width, then no spaces
+                are added, but no existing characters are removed.</li>
+                <li> Example:<br>
+                <tt>printLine(leftAlign(10, variableName));</tt></li>
+  					</ul>
+					</li>
+					
+          <li><strong>leftAlign</strong> <em>(for real numbers)</em>
+  					<ul>
+                <li> Takes a width (an integer), a number of digits to the
+                right of the decimal point, and a double.</li>
+                <li> Returns a string with the original value on the left and
+                enough additional spaces on the right to bring the total
+                length of the string up to the designated width.</li>
+                <li> Returns a string containing a textual representation of
+                the double on the left and enough additional spaces on the
+                right to bring the total length of the string up to the
+                designated width.</li>
+                <li> The textual representation of the number is rounded (if
+                necessary) to include only the indicated number of digits
+                after the decimal point.</li>
+                <li> If, after rounding, the textual representation of the
+                number is already at or above the designated width, then no
+                spaces are added, but no existing characters are
+                removed.</li>
+                <li> Example:<br>
+                <tt>printLine(leftAlign(10, 2, variableName));</tt></li>
+  					</ul>
+					</li>     
+					     
+          <li><strong>rightAlign</strong> <em>(for integers and strings)</em>
+  					<ul>
+                <li> Just like <tt>leftAlign</tt> but spaces are added on the
+                left.</li>
+						</ul>
+					</li>
+          
+          <li><strong>rightAlign</strong> <em>(for real numbers)</em>
+  					<ul>
+                <li> Just like <tt>leftAlign</tt> but spaces are added on the
+                left.</li>
+						</ul>
+					</li>
+                    
+          <li><strong>centerAlign</strong> <em>(for integers and strings)</em>
+					  <ul>
+                <li> Just like <tt>leftAlign</tt> but spaces are added equally
+                on both sides.</li>
+                <li> If an odd number of spaces are required, the extra space
+                is added on the left.</li>
+  					</ul>
+					</li>
+
+          <li><strong>centerAlign</strong> <em>(for real numbers)</em>
+					  <ul>
+                <li> Just like <tt>leftAlign</tt> but spaces are added equally
+                on both sides. If an odd number of spaces are required, the
+                extra space is added on the left.</li>
+  					</ul>
+					</li>
+			</ul>
+      <h2><a id="F.3">3. Files</a></h2>
+      <h3><a id="F.3.1">3.1 Reading From Files</a></h3>
+      <br>
+			<ul>
+      <li><strong>openReadFile</strong> (with explicit filename)
+			<ul>
+      <li> Takes a filename (a string).</li>
+      <li> Returns nothing.</li>
+      <li> Opens the file with the given name so that data can be
+      read from it.</li>
+      <li> Halts the program with an error message if the file does
+      not exist, or if a file is already open for reading.</li>
+      <li> Example:<br>
+      <tt>openReadFile(&quot;hamlet.txt&quot;);</tt></li>
+			</ul>
+			</li>
+      
+      <li><strong>openReadFile</strong> (without explicit filename)
+			<ul>
+      <li> Just like previous command except that it does not take a
+      filename.</li>
+      <li> Allows the user to browse through various folders to find
+      the desired file.</li>
+      <li> Example:<br>
+      <tt>openReadFile();</tt></li>
+			</ul>
+			</li>
+      
+      <li><strong>closeReadFile</strong>
+			<ul>
+      <li> Takes nothing.</li>
+      <li> Returns nothing.</li>
+      <li> Closes the file that is currently open for reading.</li>
+      <li> If no file is currently open for reading, then
+      <tt>closeReadFile</tt> does nothing.</li>
+      <li> Example:<br>
+      <tt>closeReadFile();</tt></li>
+			</ul>
+			</li>
+      
+      <li><strong>readLine</strong>
+			<ul>
+      <li> Takes nothing.</li>
+      <li> Returns a string containing the next line of the file
+      that is currently open for reading.</li>
+      <li> Halts the program with an error message if no file is
+      currently open for reading, or if all the lines of the
+      current file have already been read.</li>
+      <li> Example:<br>
+      <tt>String nextLine = "";<br>
+			nextLine = readLine();</tt></li>
+			</ul>
+			</li>
+      
+      <li><strong>moreToRead</strong>
+			<ul>
+      <li> Takes nothing.</li>
+      <li> Returns a boolean that is true if the file that is
+      currently open has more lines, or false if all the lines of
+      the current file have already been read.</li>
+      <li> Halts the program with an error message if no file is
+      currently open for reading.</li>
+      <li> Example:<br>
+      <tt>while (moreToRead())</tt></li>
+			</ul>
+			</li>
+      </ul>
+			<h3><a id="F.3.2">3.2 Writing To Files</a></h3>
+      <br>
+			<ul>
+      <li><strong>openWriteFile</strong> (with explicit filename)
+			<ul>
+      <li> Takes a filename (a string).</li>
+      <li> Returns nothing.</li>
+      <li> Opens the file with the given name so that data can be
+      written to it.</li>
+      <li> Erases the data currently in the file if a file with that
+      name already exists, or creates a new file if it does not
+      yet exist.</li>
+      <li> Halts the program with an error message if a file is
+      already open for writing, or if it could not open the file
+      for any other reason (for example, you may not have the
+      right permissions in the current folder).</li>
+      <li> Example:<br>
+      <tt>openWriteFile(&quot;results.txt&quot;);</tt></li>
+			</ul>
+			</li>
+      
+      <li><strong>openWriteFile</strong> (without explicit filename)
+<ul>
+      <li> Just like previous command except that it does not take a
+      filename. o Allows the user to browse through various
+      folders to find the desired file.</li>
+      <li> Example:<br>
+      <tt>openWriteFile();</tt></li>
+</ul>
+</li>
+      
+      <li><strong>closeWriteFile</strong> ()
+<ul>
+      <li> Takes nothing.</li>
+      <li> Returns nothing.</li>
+      <li> Closes the file that is currently open for writing.</li>
+      <li> No more data may be written until another file is
+      opened.</li>
+      <li> If no file is currently open for writing, then
+      closeWriteFile does nothing.</li>
+      <li> Example:<br>
+      <tt>closeWriteFile();</tt></li>
+</ul>
+</li>
+      
+      <li><strong>write</strong>
+		<ul>
+      <li> Takes a value, which can be a <tt>String</tt>,
+      <tt>int</tt>, <tt>double</tt>, <tt>boolean</tt>, or
+      <tt>char</tt>.</li>
+      <li> Returns nothing.</li>
+      <li> Writes a textual representation of the value to the file
+      that is currently open for writing.</li>
+      <li> Just like print except that the data is written to a file
+      rather than to the main output window.</li>
+      <li> Halts the program with an error message if no file is
+      currently open for writing.</li>
+      <li> Example:<br>
+      <tt>write(&quot;I am &quot; + age + &quot; years old.&quot;);</tt></li>
+</ul>
+</li>
+      
+      <li><strong>writeLine</strong>
+		<ul>
+      <li> Just like <tt>write</tt> except that, after it has
+      written the textual representation of the current value, it
+      ends the current line so that the next <tt>write</tt> or
+      <tt>writeLine</tt> will start at the beginning of the next
+      line.</li>
+      <li> Just like <tt>printLine</tt> except that the data is
+      written to a file rather than to the main output
+      window.</li>
+      <li> Example:<br>
+      <tt>writeLine(&quot;This line ends after me.&quot;);</tt></li>
+</ul>
+</li>
+</ul>
+    </div>
+  </body>
+</html>

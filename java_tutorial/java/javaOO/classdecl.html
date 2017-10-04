@@ -1,0 +1,163 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>The Class Declaration</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="classes.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#javaOO" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="classbody.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Learning the Java Language
+<br>
+<b>Lesson</b>: Classes and Inheritance
+</font>
+
+<h2>
+The Class Declaration
+</h2>
+<blockquote>
+The left side of the following diagram shows the possible components of
+a class declaration in the order they should or must appear in your
+class declaration. The right side describes their purposes. The
+required components are the class keyword and the class name and are
+shown in bold. All the other components are optional, and each appears
+on a line by itself (thus "<code>extends <em>Super</em></code>"
+is a single component).
+Italics indicates an identifier such as the name of a class or
+interface. If you do not explicitly declare the optional items, the
+Java compiler assumes certain defaults: a nonpublic, nonabstract,
+nonfinal subclass of Object that implements no interfaces.
+
+<p><center><IMG SRC="../../figures/java/14class.gif" WIDTH="415" HEIGHT="178" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p>
+The following list provides a few more details about each class
+declaration component. It also provides references to sections later in
+this trail that talk about what each component means, how to use each,
+and how it affects your class, other classes, and your Java program.
+<p>
+<dl>
+<dt>
+<code>public</code>
+<dd>
+By default, a class can be used only by other classes in the same
+package. The public modifier declares that the class can be used by any
+class regardless of its package. Look in
+<a target="_top" href="../interpack/packages.html">Creating and Using Packages</a><a target="_top" href="../interpack/packages.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Learning the Java Language trail)"></a> for information about how to use modifiers to limit access to
+your classes and how it affects your access to other classes.
+<dt>
+<code>abstract</code>
+<dd>
+Declares that the class cannot be instantiated.
+For a discussion about when abstract classes are appropriate
+and how to write them, see
+<a target="_top" href="abstract.html">Writing Abstract Classes and Methods</a><a target="_top" href="abstract.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Learning the Java Language trail)"></a>.
+<dt>
+<code>final</code>
+<dd>
+Declares that the class cannot be subclassed.
+<a target="_top" href="final.html">Writing Final Classes and Methods</a><a target="_top" href="final.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Learning the Java Language trail)"></a> shows you how to use final and discusses the reasons for using it.
+<dt>
+<code>class <em>NameOfClass</em></code>
+<dd>
+The <code>class</code> keyword indicates to the compiler that this is a
+class declaration and that the name of the class is
+<code><em>NameOfClass</em></code>.
+<dt>
+<code>extends <em>Super</em></code>
+<dd>
+The <code>extends</code> clause identifies <code><em>Super</em></code>
+as the superclass of the class, thereby inserting the class within the
+class hierarchy.
+<p>
+<a target="_top" href="../concepts/practical.html">How Do These Concepts Translate into Code?</a><a target="_top" href="../concepts/practical.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Learning the Java Language trail)"></a> in the
+<a target="_top" href="../concepts/index.html">Object-Oriented Programming Concepts</a><a target="_top" href="../concepts/index.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Learning the Java Language trail)"></a> lesson, showed you a subclass of <code>Applet</code> and talked briefly
+about the responsibilities and benefits of subclasses.
+<a target="_top" href="subclasses.html">Managing Inheritance</a><a target="_top" href="subclasses.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Learning the Java Language trail)"></a> goes into further detail on this subject.
+<dt>
+<code>implements <em>Interfaces</em></code>
+<dd>
+To declare that your class implements one or more interfaces, use the
+keyword implements followed by a comma-separated list of the names of
+the interfaces implemented by the class.
+<a target="_top" href="../concepts/practical.html">How Do These Concepts Translate into Code?</a><a target="_top" href="../concepts/practical.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Learning the Java Language trail)"></a> explained how the <code>ClickMe</code> applet implements an interface.
+Details about writing your own interfaces 
+and how to use them can be found in
+<a target="_top" href="../interpack/interfaces.html">Creating Interfaces</a><a target="_top" href="../interpack/interfaces.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Learning the Java Language trail)"></a>.
+</dl>
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="classes.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#javaOO" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="classbody.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

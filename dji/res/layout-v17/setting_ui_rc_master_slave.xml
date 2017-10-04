@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" style="@style/g2">
+    <TextView android:visibility="gone" android:text="@string/setting_ui_rc_status_desc" style="@style/gf" />
+    <TextView android:id="@id/bwv" android:visibility="gone" android:text="@string/setting_ui_rc_status" style="@style/gh" />
+    <RelativeLayout android:visibility="gone" style="@style/g2">
+        <TextView android:text="@string/setting_ui_rc_status" android:layout_centerVertical="true" style="@style/g6" />
+        <Switch android:id="@id/bww" android:layout_alignParentRight="true" android:layout_centerVertical="true" style="@style/gg" />
+    </RelativeLayout>
+    <LinearLayout android:orientation="horizontal" android:id="@id/bwx" style="@style/g2">
+        <TextView android:text="@string/setting_ui_rc_set_function" style="@style/gh" />
+        <dji.setting.ui.widget.DJISpinnerButton android:id="@id/buz" android:text="close" style="@style/gc" />
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/bwy" android:focusable="true" android:focusableInTouchMode="true" android:visibility="visible" android:layout_width="match_parent" android:layout_height="wrap_content"
+        <LinearLayout android:orientation="horizontal" android:id="@id/bwz" style="@style/g2">
+            <TextView android:id="@id/bx0" android:layout_marginRight="@dimen/ts" android:text="@string/setting_ui_rc_rcname" android:layout_centerVertical="true" style="@style/g6" />
+            <EditText android:id="@id/bx1" android:inputType="text|textCapCharacters|textCapWords|textCapSentences|textAutoCorrect|textAutoComplete|textMultiLine|textImeMultiLine|textNoSuggestions|textUri|textEmailAddress|textEmailSubject|textShortMessage|textLongMessage|textPersonName|textPostalAddress|textPassword|textVisiblePassword|textWebEditText|textFilter|textPhonetic|textWebEmailAddress|textWebPassword|phone" style="@style/g8" />
+            <View android:layout_width="UNKNOWN_DATA_0x1" android:layout_height="UNKNOWN_DATA_0x101" android:layout_weight="1.0" />
+            <TextView android:id="@id/bx2" android:layout_marginRight="@dimen/ts" android:text="@string/setting_ui_rc_connect_pwd" style="@style/g6" />
+            <EditText android:id="@id/bx3" android:maxLength="4" android:inputType="number|numberSigned|numberDecimal|numberPassword|phone" style="@style/g8" />
+        </LinearLayout>
+        <LinearLayout android:orientation="vertical" android:id="@id/bx4" style="@style/g2">
+            <Button android:id="@id/bx5" android:text="@string/setting_ui_rc_getperm" style="@style/g5" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:id="@id/bx6" style="@style/g2">
+            <TextView android:id="@id/bqz" android:text="@string/setting_ui_rc_searching" style="@style/gh" />
+            <Switch android:id="@id/bx7" style="@style/gg" />
+        </LinearLayout>
+        <TextView android:id="@id/bx8" android:text="@string/setting_ui_rc_slave_rclist" style="@style/gh" />
+        <ListView android:id="@id/bx9" android:scrollbars="UNKNOWN_DATA_0x0" android:fadingEdge="UNKNOWN_DATA_0x0" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x1401" android:layout_marginLeft="15dp" android:layout_marginRight="15dp" android:listSelector="0x106000d" android:drawSelectorOnTop="false" android:cacheColorHint="0x106000d" android:divider="#33ffffff" android:dividerHeight="1px" android:choiceMode="singleChoice" android:minHeight="?unknown_attr_ref: 101004d" android:layout_marginStart="15dp" />
+    </LinearLayout>
+</LinearLayout>

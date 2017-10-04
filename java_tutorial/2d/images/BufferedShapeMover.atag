@@ -1,0 +1,5 @@
+<APPLET CODE="BufferedShapeMover.class"
+        codebase="example-1dot2/"
+        archive="bufferedshapemover.jar"
+	WIDTH=550 HEIGHT=250>
+</APPLET>

@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="33"
+   name=""
+   committed-date="2005-02-01T06:11:53.421875Z"
+   url="svn://192.168.2.2/ImageProcessor/src/or/doc/drasys/or/geom/rect2"
+   last-author="Karl"
+   kind="dir"
+   uuid="0daf4267-3229-f84b-9084-f3c94b025f38"
+   revision="55"/>
+<entry
+   committed-rev="33"
+   name="Rect2.html"
+   text-time="2005-03-02T06:25:32.656250Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="1d51364d028aca8e35aa7c6355d99afc"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:32.437500Z"/>
+<entry
+   committed-rev="33"
+   name="WS_FTP.LOG"
+   text-time="2005-03-02T06:25:32.640625Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="3f4ebb6f171f1181743d8b1e0f50b41d"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:32.421875Z"/>
+<entry
+   committed-rev="33"
+   name="LineSegmentI.html"
+   text-time="2005-03-02T06:25:32.671875Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="57f96dfc8ee4a74f16c89bd85d80ed31"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:32.453125Z"/>
+<entry
+   committed-rev="33"
+   name="package-frame.html"
+   text-time="2005-03-02T06:25:32.656250Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="e299718a1415a0775bca8573bc63762c"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:32.453125Z"/>
+<entry
+   committed-rev="33"
+   name="TransformI.html"
+   text-time="2005-03-02T06:25:32.687500Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="4d625011175c05ac9c82fb29ce925fb0"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:32.468750Z"/>
+<entry
+   committed-rev="33"
+   name="package-summary.html"
+   text-time="2005-03-02T06:25:32.687500Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="c329e9d20fe6c4a95b1c57789445b8e9"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:32.484375Z"/>
+<entry
+   committed-rev="33"
+   name="Polygon.html"
+   text-time="2005-03-02T06:25:32.703125Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="42b2c3286748af4fa1ff975722cfb6b6"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:32.500000Z"/>
+<entry
+   committed-rev="33"
+   name="Rect2I.html"
+   text-time="2005-03-02T06:25:32.718750Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="a3411d0fa0d2ca1c5739b8a525284baa"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:32.515625Z"/>
+<entry
+   committed-rev="33"
+   name="package-tree.html"
+   text-time="2005-03-02T06:25:32.703125Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="a0fbc8241260ebf37f3600f3f2c9289c"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:32.515625Z"/>
+<entry
+   committed-rev="33"
+   name="Point.html"
+   text-time="2005-03-02T06:25:32.718750Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="a7577efeb4673e1f74980974110f180b"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:32.531250Z"/>
+<entry
+   committed-rev="33"
+   name="CoordinateSystem.html"
+   text-time="2005-03-02T06:25:32.734375Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="058423647aae9c3f8482236155a9fc9c"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:32.562500Z"/>
+<entry
+   committed-rev="33"
+   name="Range.html"
+   text-time="2005-03-02T06:25:32.734375Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="c869d5a45f823d0b5e1e026edff28f63"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:32.546875Z"/>
+<entry
+   committed-rev="33"
+   name="PolygonI.html"
+   text-time="2005-03-02T06:25:32.750000Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="23e97be765d6ac00ad48875fe77ef9fd"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:32.578125Z"/>
+<entry
+   committed-rev="33"
+   name="PointI.html"
+   text-time="2005-03-02T06:25:32.765625Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="4621194a94fb207324efe2735c031d4d"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:32.593750Z"/>
+<entry
+   committed-rev="33"
+   name="RangeI.html"
+   text-time="2005-03-02T06:25:32.781250Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="d75bd6372a756c1499df46b75f2926b5"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:32.593750Z"/>
+<entry
+   committed-rev="33"
+   name="LineSegment.html"
+   text-time="2005-03-02T06:25:32.781250Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="851b47932dc1453e65b9b7099c493f05"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:32.609375Z"/>
+<entry
+   committed-rev="33"
+   name="Transform.html"
+   text-time="2005-03-02T06:25:32.812500Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="2555a2bb3f2b6459016d69480aed4b01"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:32.625000Z"/>
+</wc-entries>

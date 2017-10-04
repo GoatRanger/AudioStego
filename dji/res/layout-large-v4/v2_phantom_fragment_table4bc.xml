@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent"
+    <LinearLayout android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x1" android:layout_weight="1.5">
+        <CheckBox android:textSize="12sp" android:textColor="@color/a_" android:layout_gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@+id/btn_checkbox" android:paddingLeft="10dp" android:layout_width="wrap_content" android:layout_height="UNKNOWN_DATA_0x1" android:button="@r$drawable/v2_phantom_stat_fly" android:text="@string/phantom_dji_connect_done" android:layout_weight="1.0" />
+        <TextView android:textSize="12sp" android:textColor="@color/lz" android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@+id/btn_text" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x1" android:layout_marginTop="10dp" android:text="@string/phantom_dji_plz_connect" android:layout_weight="1.0" />
+    </LinearLayout>
+    <RelativeLayout android:layout_gravity="left|right|center_horizontal|fill_horizontal|center|fill|start|end" android:background="@color/a_" android:layout_width="UNKNOWN_DATA_0xfa01" android:layout_height="UNKNOWN_DATA_0x1" android:layout_weight="0.8">
+        <Button android:id="@+id/v2plntomcamera" android:background="@color/an" android:layout_width="UNKNOWN_DATA_0x12c01" android:layout_height="match_parent" />
+        <LinearLayout android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerHorizontal="true" android:layout_centerVertical="true">
+            <RelativeLayout android:background="@r$drawable/v2_phantom_camera" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <View android:layout_width="UNKNOWN_DATA_0x2801" android:layout_height="wrap_content" />
+            <TextView android:textColor="@color/om" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/phantom_dji_camera" />
+        </LinearLayout>
+    </RelativeLayout>
+    <View android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x1" android:layout_weight="1.0" />
+</LinearLayout>

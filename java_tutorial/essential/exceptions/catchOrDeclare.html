@@ -1,0 +1,169 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Java's Catch or Specify Requirement</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="firstencounter.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#exceptions" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="dealing.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Essential Java Classes
+<br>
+<b>Lesson</b>: Handling Errors with Exceptions
+</font>
+
+<h2>
+Java's Catch or Specify Requirement
+</h2>
+<blockquote>
+As stated previously, Java requires that a method either catch or
+specify all checked exceptions that can be thrown within the scope of
+the method. This requirement has several components
+that need further description: "catch", "specify," "checked exceptions,"
+and "exceptions that can be thrown within the scope of the method."
+
+</blockquote>
+<h3>Catch</h3>
+<blockquote>
+A method can catch an exception by providing an exception handler for
+that type of exception. The next page, <a href=dealing.html>Dealing with Exceptions</a>,
+introduces an example program, talks about catching exceptions, and shows you how
+to write an exception handler for the example program.
+</blockquote>
+
+<h3>Specify</h3>
+<blockquote>
+If a method chooses not to catch an exception, the method must
+specify that it can throw that exception. Why did the Java designers make this requirement?
+Because any exception that can be thrown by a method is really part of
+the method's public programming interface: callers of a method must know
+about the exceptions that a method can throw in order to intelligently
+and consciously decide what to do about those exceptions. Thus, in the method
+signature you specify the exceptions that the method can throw.
+<p>
+The next page, <a href=dealing.html>Dealing with Exceptions</a>,
+talks about specifying exceptions that a method throws and shows you how to do it.
+</blockquote>
+
+<h3>Checked Exceptions</h3>
+<blockquote>
+Java has different types of exceptions, including I/O Exceptions, 
+runtime exceptions, and exceptions of your own creation, to name a few.
+Of interest to us in this discussion are runtime exceptions. Runtime
+exceptions are those exceptions that occur within the Java runtime system.
+This includes arithmetic exceptions (such as when dividing by zero), pointer
+exceptions (such as trying to access an object through a null reference),
+and indexing exceptions (such as attempting to access an array element
+through an index that is too large or too small).
+<p>
+Runtime exceptions can occur anywhere in a program and in a typical
+program can be very numerous. The cost of checking for runtime exceptions
+often exceeds the benefit of catching or specifying them. Thus the compiler
+does not require that you catch or specify runtime exceptions, although
+you can. <em>Checked exceptions</em> are exceptions that are not runtime exceptions
+and are checked by the compiler; the compiler checks that these
+exceptions are caught or specified.
+<p>
+Some consider this a loophole in Java's exception handling mechanism,
+and programmers are tempted to make all exceptions runtime exceptions.
+In general, this is not recommended.
+<a href=runtime.html>Runtime Exceptions--The Controversy</a> contains a thorough
+discussion about when and how to use runtime exceptions.
+</blockquote>
+
+<h3>Exceptions that can be thrown within the scope of the method</h3>
+<blockquote>
+The statement "exceptions that can be thrown within the scope of the method"
+may seem obvious at first: just look for the <code>throw</code> statement.
+However, this statement includes more than just the exceptions that can be thrown
+directly by the method: the key is in the phrase <em>within the scope of</em>.
+This phrase includes any exception that can be thrown while the flow of control
+remains within the method. This statement includes both
+<ul>
+<li>
+Exceptions that are thrown directly by the method with Java's <code>throw</code>
+statement.
+<li>
+Exceptions that are thrown indirectly by the method through calls to other
+methods
+</ul>
+</blockquote>
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="firstencounter.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#exceptions" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="dealing.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

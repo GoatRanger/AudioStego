@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="33"
+   name=""
+   committed-date="2005-02-01T06:11:53.421875Z"
+   url="svn://192.168.2.2/ImageProcessor/src/jcgi"
+   last-author="Karl"
+   kind="dir"
+   uuid="0daf4267-3229-f84b-9084-f3c94b025f38"
+   revision="55"/>
+<entry
+   committed-rev="33"
+   name="Makefile"
+   text-time="2005-03-02T06:25:39.250000Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="50c242a4c8bd92978f03cb356c730caf"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:39.218750Z"/>
+<entry
+   committed-rev="33"
+   name="jcgi.c"
+   text-time="2005-03-02T06:25:39.250000Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="8c8508ae17b04216dec91fc038decec9"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:39.234375Z"/>
+</wc-entries>

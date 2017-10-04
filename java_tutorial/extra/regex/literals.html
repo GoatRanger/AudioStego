@@ -1,0 +1,179 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>String Literals</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="test_harness.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#regex" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="char_classes.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Bonus
+<br>
+<b>Lesson</b>: Regular Expressions
+</font>
+
+<h2>
+String Literals
+</h2>
+<blockquote>
+<!--String Literals-->
+
+
+The most basic form of pattern matching supported by this API is the match of 
+a string literal. For example, if the regular expression is <code>foo</code>, and the input string is <code>foo</code>, 
+the match will succeed because these strings are identical. 
+Try this out by creating a text file <CODE>regex.txt</CODE> and putting the text "foo" on lines 1 and 2. 
+The first line is the regular expression, and the second line is the input string.
+Save this file in the same directory as 
+<a target="_blank" href="example-1dot4/RegexTestHarness.java"><font color="#bb000f"><code>RegexTestHarness.java</code></font></a><a target="_blank" href="example-1dot4/RegexTestHarness.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>. When you run this code (type <code>java RegexTestHarness</code> on the command line), you should get the following output:
+
+<blockquote><pre> 
+Current REGEX is: foo
+Current INPUT is: foo
+I found the text "foo" starting at index 0 and ending at index 3.
+</pre></blockquote> 
+
+This match was a success. Note that while the input string is 3 
+characters long, the start index is 0 and the end index is 3. 
+By convention, ranges are inclusive
+of the beginning index and exclusive of the end index, 
+as shown in the following figure:
+
+<p><center><IMG SRC="../../figures/extra/cells.gif" WIDTH="329" HEIGHT="119" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p>
+ Each character in the string resides in 
+its own <I>cell</I>, with the index positions pointing between each cell. 
+The string "foo" starts at index 0 and ends at index 3, even though 
+the characters themselves only occupy cells 0, 1, and 2. 
+<P>
+With subsequent matches, you'll notice some overlap; the start index for the 
+next match is the same as the end index of the previous match:
+
+<blockquote><pre> 
+Current REGEX is: foo
+Current INPUT is: foofoofoo
+I found the text "foo" starting at index 0 and ending at index 3.
+I found the text "foo" starting at index 3 and ending at index 6.
+I found the text "foo" starting at index 6 and ending at index 9.
+</pre></blockquote> 
+
+
+
+<H3>Metacharacters</H3>
+This API also supports a number of special characters which can 
+affect the way a pattern is matched.
+In your <CODE>regex.txt</CODE> file, change the regular expression to <code>cat<B>.</B></code>. and the input string to <code>cats</code>.   
+Here's the result: 
+
+<blockquote><pre>
+Current REGEX is: cat.
+Current INPUT is: cats
+I found the text "cats" starting at index 0 and ending at index 4.
+</pre></blockquote> 
+
+The match still succeeds, even though the period 
+(<B>.</B>) is not present in the input string.  
+
+It succeeds because the period is a <I>metacharacter</I>--a character 
+with special meaning interpreted by the matcher. The  metacharacter 
+"." means "any character" which is why the match in our example succeeds.
+<P>
+
+The metacharacters supported by this API are: <CODE>([{\^$|)?*+.</CODE>
+
+<blockquote><hr><strong>Note:</strong>&nbsp;In certain situations the special characters listed above will <I>not</I> 
+be treated as metacharacters. You'll encounter this as you learn more about how 
+regular expressions are constructed. You can, however, use this list to check whether or not a specific character will ever be considered a metacharacter. 
+For example, the characters <code>!</code> <code>@</code> and 
+<code>#</code> never carry a special meaning.
+<hr></blockquote>
+
+<P>
+There are two ways to force a metacharacter to be treated as 
+an ordinary character:
+<UL>
+<li>precede the metacharacter with a backslash, or 
+<li>enclose it within <code>\Q</code> (which starts the quote) and 
+<code>\E</code> (which ends it).
+</UL>
+
+When using this technique, the <code>\Q</code> and <code>\E</code>  
+can be placed at any location within the expression, provided 
+that the <code>\Q</code> comes first. 
+<P>
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="test_harness.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#regex" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="char_classes.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

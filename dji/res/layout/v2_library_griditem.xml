@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.publics.DJIUI.DJIRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent">
+    <ImageView android:id="@+id/lib_bg_imge" android:background="#ffeaeaea" android:layout_width="UNKNOWN_DATA_0x7f0b02d2" android:layout_height="wrap_content" />
+    <ImageView android:id="@+id/lib_grid_image" android:layout_width="UNKNOWN_DATA_0x7f0b02d2" android:layout_height="wrap_content" android:src="@r$drawable/v2_photo_defalut" android:scaleType="centerCrop" />
+    <View android:id="@+id/bg_view" android:background="@r$drawable/v2_lib_select_bg" android:visibility="gone" android:layout_width="UNKNOWN_DATA_0x7f0b0119" android:layout_height="UNKNOWN_DATA_0x7f0b0119" android:layout_marginLeft="@dimen/gw" android:layout_marginTop="@dimen/gw" />
+    <ImageView android:id="@+id/lib_grid_check" android:background="@r$drawable/v2_library_itemselect_false" android:layout_width="UNKNOWN_DATA_0x7f0b0119" android:layout_height="UNKNOWN_DATA_0x7f0b0119" android:layout_marginLeft="5dp" android:layout_marginTop="5dp" />
+    <View android:id="@+id/v2_lib_selectview" android:layout_width="UNKNOWN_DATA_0x7f0b0133" android:layout_height="UNKNOWN_DATA_0x7f0b0133" />
+    <TextView android:textSize="@dimen/rp" android:textColor="@color/p7" android:id="@+id/lib_grid_duration" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="8dp" android:layout_marginBottom="8dp" android:text="234" android:layout_alignRight="@+id/lib_grid_image" android:layout_alignBottom="@+id/lib_grid_image" style="@style/bn" />
+</dji.publics.DJIUI.DJIRelativeLayout>

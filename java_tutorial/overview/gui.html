@@ -1,0 +1,201 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Advanced GUI Building</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="essential.html" target="_top"><img src="../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="./TOC.html" target="_top"><img src="../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="networking.html" target="_top"><img src="../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="./index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../search.html" target="_top">Search</a>
+<br><a href="../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Overview
+</font>
+
+<h2>
+Advanced GUI Building
+</h2>
+<blockquote>
+The Java 2D API, JavaBeans, and the Sound engine provide advanced
+functionality for building interesting, modular, and more usable user
+interfaces.
+
+</blockquote>
+<h3><a href="../2d/index.html">2D Graphics</a></h3>
+<blockquote>
+The Java 2D API, introduced in JDK 1.2, gives you everything you need
+to enhance the appearance of your GUI with shapes, color, stylized
+text, foreign-language text, and image processing. The Java 2D API also
+introduces a printing model that gives you more control, power, and
+flexibility in application-level printing.
+<P>
+The <CODE>java.awt</CODE>
+and the <CODE>java.awt.image</CODE>
+packages are enhanced.
+New packages are <CODE>java.awt.color</CODE>,
+<CODE>java.awt.font</CODE>, <CODE>java.awt.geom</CODE>,
+and <CODE>java.awt.print</CODE>. 
+
+<UL>
+<LI> The <CODE>java.awt</CODE>
+package includes the new <CODE>Graphics2D</CODE>
+class for better geometry, transformation, color, and text rendering,
+and has enhanced color and font capabilities. The
+<CODE>Color</CODE>
+class supports a full range of color spaces,
+and the <CODE>Font</CODE>
+class supports any font on the system. You also get more texture map
+and fill pattern options; image compositing and transparency
+capabilities; more line widths, end caps, line styles, and dash
+patterns; and a flexible device model.
+<LI> The <CODE>java.awt.color</CODE>
+package supports high-quality color output, using profiles and a full
+array of color spaces for defining device-dependent and
+device-independent color attributes.
+<LI> The <CODE>java.awt.font</CODE>
+package supports glyphs and text with multiple fonts that can be
+transformed and drawn into a graphics context.
+<LI> The <CODE>java.awt.geom</CODE>
+package lets you create a wide range of shapes, including arbitrary and
+point-by-point paths; perform affine transformations (transformations
+that maintain parallel lines); and use float and/or double precision in
+most cases.
+<LI> The <CODE>java.awt.image</CODE>
+package supports a full range of image-processing capabilities,
+including affine transformation, amplitude scaling, lookup-table
+modification, color conversions, and convolutions.
+The <CODE>BufferedImage</CODE>
+class describes an image with an accessible buffer of image data
+consisting of color model and data layout information.
+<LI> The <CODE>java.awt.print</CODE>
+package introduces for the Microsoft Windows and Solaris platforms a printing model
+whereby the printing system drives the printing process to give you
+more control, power, and flexibility in application-level printing. The
+Java 2D printing system can print all Java 2D regular and composite
+graphics, and supports soft collating, reverse-order printing, and
+booklet printing.
+</UL>
+</blockquote>
+
+<h3><a href="../sound/index.html">Sound</a></h3>
+<blockquote>
+Before JDK 1.2, only applets could play sound and only one sound format
+was supported. JDK 1.2 adds an <CODE>Applet</CODE>
+class method, <CODE>newAudioClip</CODE>, that enables all kinds of
+programs to load and play sounds. The Sound engine in JDK 1.2 adds
+support for several sound formats, including AIFF, WAV, MIDI, and RMF.
+</blockquote>
+
+<h3><a href="../javabeans/index.html">JavaBeans</a></h3>
+<blockquote>
+Introduced in JDK 1.1, JavaBeans let you build reusable and
+interchangeable software components that can be visually constructed
+and manipulated in builder tools. JavaBeans can be simple, such as
+pushbuttons or dialog boxes, or more complex, such as spreadsheets and
+calendars. Individual JavaBeans vary in functionality, but most have
+the following features in common:
+
+<UL>
+<LI> Introspection, which allows a builder tool to analyze how a Bean works.
+<LI> Customization, which allows a user to alter the appearance and
+the behavior of a Bean.
+<LI> Events, which allow Beans to fire events and to inform builder
+tools about events.
+<LI> Properties, which allow Beans to be manipulated programmatically
+and to support customization.
+<LI> Persistence, which allows customized Beans in an application
+builder to have their states saved and restored. Typically persistence
+is used with an application builder's Save and Load menu commands to
+restore any work that has gone into constructing an application.
+</UL>
+
+In JDK 1.2 JavaBeans includes an extensible and standard runtime
+containment and services protocol, as well as drag-and-drop support.
+When a Bean is introduced to its environment, it knows it is running
+inside the Java Virtual Machine (JVM) and has access to the core Java
+API. The protocol provides a standard way to nest Beans within other
+Beans and to have the nested Bean be able to access additional runtime
+services from its environment. Also, the environment or containing Bean
+can extend its capabilities directly to the nested Bean.
+<P>
+Drag-and-drop support means that Java and non-Java applications can
+readily share data. JavaBeans Drag and Drop works with the JFC
+accessibility API and can be extended to support diverse input
+devices.
+
+
+</blockquote>
+
+<img src="../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="essential.html" target="_top"><img src="../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="./TOC.html" target="_top"><img src="../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="networking.html" target="_top"><img src="../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="./index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../search.html" target="_top">Search</a>
+<br><a href="../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

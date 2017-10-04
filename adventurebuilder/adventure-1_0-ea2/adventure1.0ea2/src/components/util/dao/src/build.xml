@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+<!-- Copyright 2003 Sun Microsystems, Inc. All rights reserved.
+ 
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions
+ are met:
+ 
+ - Redistributions of source code must retain the above copyright
+   notice, this list of conditions and the following disclaimer.
+ 
+ - Redistribution in binary form must reproduce the above copyright
+   notice, this list of conditions and the following disclaimer in
+   the documentation and/or other materials provided with the
+   distribution.
+ 
+ Neither the name of Sun Microsystems, Inc. or the names of
+ contributors may be used to endorse or promote products derived
+ from this software without specific prior written permission.
+ 
+ This software is provided "AS IS," without a warranty of any
+ kind. ALL EXPRESS OR IMPLIED CONDITIONS, REPRESENTATIONS AND
+ WARRANTIES, INCLUDING ANY IMPLIED WARRANTY OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE OR NON-INFRINGEMENT, ARE HEREBY
+ EXCLUDED. SUN AND ITS LICENSORS SHALL NOT BE LIABLE FOR ANY DAMAGES
+ SUFFERED BY LICENSEE AS A RESULT OF USING, MODIFYING OR
+ DISTRIBUTING THE SOFTWARE OR ITS DERIVATIVES. IN NO EVENT WILL SUN
+ OR ITS LICENSORS BE LIABLE FOR ANY LOST REVENUE, PROFIT OR DATA, OR
+ FOR DIRECT, INDIRECT, SPECIAL, CONSEQUENTIAL, INCIDENTAL OR
+ PUNITIVE DAMAGES, HOWEVER CAUSED AND REGARDLESS OF THE THEORY OF
+ LIABILITY, ARISING OUT OF THE USE OF OR INABILITY TO USE SOFTWARE,
+ EVEN IF SUN HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+ 
+ You acknowledge that Software is not designed, licensed or intended
+ for use in the design, construction, operation or maintenance of
+ any nuclear facility.
+ $Id: build.xml,v 1.2 2002/11/20 01:49:59 vijaysr Exp $ -->
+
+<!DOCTYPE project [
+  <!ENTITY commonAntCommands SYSTEM "../../../../config/common-ant.xml">
+  <!ENTITY appServerAntCommands SYSTEM "../../../../config/app-server-ant.xml">
+]>
+
+<project name="dao" default="core" basedir=".">
+
+  <!-- path to root -->
+  <property name="root.dir" value="../../../.."/>
+
+  <property name="dao.home" value=".."/>
+
+  <!-- The destination directory for the build -->
+  <property name="build.dir" value="${dao.home}/build"/>
+
+  &commonAntCommands; <!-- include common ant commands -->
+
+  <property name="dao.buildjardir" value="${build.dir}/jar"/>
+  <property name="dao.src" value="${dao.home}/src"/>
+  <property name="dao.client.jar" value="daoutils.jar"/>
+
+  <!-- The components used by dao -->
+  <property name="dao.components.basedir" value="../../.."/>
+
+  <!-- ServiceLocator Component -->
+  <property name="dao.servicelocator.home"  
+                value="${dao.components.basedir}/servicelocator"/>
+  <property name="dao.servicelocator.jar" 
+                value="${dao.servicelocator.home}/build/servicelocator.jar"/>
+
+  <path id="dao.classpath">
+    <path refid="compile.classpath" />
+    <pathelement path="${dao.servicelocator.jar}"/>
+  </path>
+
+  <!-- Title displayed on the banner when this component is built -->
+  <property name="banner.title" value="Building dao Component"/>
+
+  <!-- various properties for Javadocs -->
+  <property name="javadocs.windowtitle" value="Daoutil Component API"/>
+  <property name="javadocs.doctitle" value="Daoutil Component"/>
+  <path id="javadocs.classpath">
+    <path refid="dao.classpath"/>
+  </path>
+  <path id="javadocs.sourcepath">
+    <pathelement path="${dao.src}"/>
+  </path>
+
+  <target name="compile">
+    <mkdir dir="${classes.dir}"/>
+    <javac srcdir="${dao.src}"
+           debug="${javac.debug}"
+           destdir="${classes.dir}"
+	   includes="com/**">
+      <classpath refid="dao.classpath"/>
+    </javac>
+  </target>
+
+ <target name="clientjar">
+    <delete dir="${dao.buildjardir}" quiet="true"/>
+    <mkdir dir="${dao.buildjardir}"/>
+    <copy todir="${dao.buildjardir}" >
+     <fileset dir= "${classes.dir}"/>
+    </copy>
+    <jar jarfile="${build.dir}/${dao.client.jar}" basedir="${dao.buildjardir}" />
+    <delete dir="${dao.buildjardir}"/>
+ </target>
+
+  <target name="components">
+    <ant dir="${dao.servicelocator.home}/src" target="core" inheritAll="false" inheritRefs="false"/>
+  </target>
+
+  <target name="core" depends="banner,components,compile,clientjar" />
+  <target name="all" depends="core,javadocs" />
+
+</project>
+

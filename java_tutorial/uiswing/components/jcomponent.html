@@ -1,0 +1,850 @@
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>The JComponent Class</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="model.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#components" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="text.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Creating a GUI with JFC/Swing
+<br>
+<b>Lesson</b>: Using Swing Components
+</font>
+
+<h2>
+The JComponent Class
+</h2>
+<blockquote>
+
+With the exception of top-level containers,
+all Swing components whose names begin with "J"
+descend from the
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JComponent.html"><font color="#8800bb"><code>JComponent</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JComponent.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> class.
+For example,
+<code>JPanel</code>,
+<code>JScrollPane</code>,
+<code>JButton</code>, and
+<code>JTable</code>
+all inherit from <code>JComponent</code>.
+However, <code>JFrame</code> and <code>JDialog</code> don't
+because they implement top-level containers.
+
+<p>
+
+The <code>JComponent</code> class
+extends the
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Container.html"><font color="#8800bb"><code>Container</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Container.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> class,
+which itself extends
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html"><font color="#8800bb"><code>Component</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>.
+The <code>Component</code> class includes everything from
+providing layout hints
+to supporting painting and events.
+The <code>Container</code> class has support
+for adding components to the container and
+laying them out.
+This section's
+<a href="#api">API tables</a> summarize the most often used
+methods of <code>Component</code> and <code>Container</code>,
+as well as of <code>JComponent</code>.
+
+<a name="jcomponent">
+</blockquote>
+<h3>
+JComponent Features
+</h3>
+</a>
+<blockquote>
+
+The <code>JComponent</code> class provides
+the following functionality to its descendants:
+
+<ul>
+<li> <a href="#tooltips">Tool tips</a>
+<li> <a href="#borders">Painting and borders</a>
+<li> <a href="#plug">Application-wide pluggable look and feel</a>
+<li> <a href="#properties">Custom properties</a>
+<li> <a href="#layout">Support for layout</a>
+<li> <a href="#access">Support for accessibility</a>
+<li> <a href="#dnd">Support for drag and drop</a>
+<li> <a href="#buffer">Double buffering</a>
+<li> <a href="#keyboardAction">Key bindings</a>
+</ul>
+
+<dl>
+<dt> <a name="tooltips"><strong>Tool tips</strong></a>
+<dd> By specifying a string
+     with the <code>setToolTipText</code> method,
+     you can provide help to users of a component.
+     When the cursor pauses over the component,
+     the specified string is displayed in a small window
+     that appears near the component.
+     See <a href="tooltip.html">How to Use Tool Tips</a>
+     for more information.
+<p>
+<dt> <a name="borders"><strong>Painting and borders</strong></a>
+<dd> The <code>setBorder</code> method allows you
+     to specify the border
+     that a component displays around its edges.
+     To paint the inside of a component,
+     override the <code>paintComponent</code> method.
+    See
+<a target="_top" href="../misc/border.html">How to Use Borders</a><a target="_top" href="../misc/border.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>    and
+<a target="_top" href="../14painting/index.html">Performing Custom Painting</a><a target="_top" href="../14painting/index.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>    for details.
+</dd>
+
+
+<p>
+<dt> <a name="plug"><strong>Application-wide pluggable look and feel</strong></a>
+<dd> Behind the scenes, each <code>JComponent</code> object
+     has a corresponding <code>ComponentUI</code> object
+     that performs all the drawing, event handling, size determination,
+     and so on for that <code>JComponent</code>.
+     Exactly which <code>ComponentUI</code> object is used
+     depends on the current look and feel,
+     which you can set using the <code>UIManager.setLookAndFeel</code>
+     method.  See
+<a target="_top" href="../misc/plaf.html">How to Set the Look and Feel</a><a target="_top" href="../misc/plaf.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>     for details.
+<p>
+<dt> <a name="properties"><strong>Custom properties</strong></a>
+<dd> You can associate one or more properties
+     (name/object pairs)
+     with any <code>JComponent</code>.
+     For example,
+     a layout manager might use properties
+     to associate a constraints object
+     with each <code>JComponent</code> it manages.
+     You put and get properties using the
+     <code>putClientProperty</code> and
+     <code>getClientProperty</code> methods.
+     For general information about properties, see
+<a target="_top" href="../../essential/attributes/properties.html">Using Properties to Manage Program Attributes</a><a target="_top" href="../../essential/attributes/properties.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.
+
+     <p>
+<dt> <a name="layout"><strong>Support for layout</strong></a>
+<dd> Although the <code>Component</code> class
+     provides layout hint methods such as
+     <code>getPreferredSize</code> and <code>getAlignmentX</code>,
+     it doesn't provide any way to set these layout hints,
+     short of creating a subclass and overriding the methods.
+     To give you another way to set layout hints,
+     the <code>JComponent</code> class adds
+     setter methods &#151;
+     <code>setPreferredSize</code>,
+     <code>setMinimumSize</code>,
+     <code>setMaximumSize</code>,
+     <code>setAlignmentX</code>, and
+     <code>setAlignmentY</code>.
+     See
+<a target="_top" href="../layout/index.html">Laying Out Components Within a Container</a><a target="_top" href="../layout/index.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>     for more information.
+
+<p>
+<dt> <a name="access"><strong>Support for accessibility</strong></a>
+<dd> The <code>JComponent</code> class provides
+     API and basic functionality
+     to help assistive technologies
+     such as screen readers
+     get information from Swing components,
+     For more information about accessibility, see
+<a target="_top" href="../misc/access.html">How to Support Assistive Technologies</a><a target="_top" href="../misc/access.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.
+</dd>
+
+<p>
+<dt> <a name="dnd"><strong>Support for drag and drop</strong></a>
+<dd>
+The <code>JComponent</code> class provides API
+to set a component's transfer handler,
+which is the basis for Swing's
+drag and drop support.
+See
+<a target="_top" href="../misc/dnd.html">How to Use Drag and Drop and Data Transfer</a><a target="_top" href="../misc/dnd.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a> for details.
+</dd>
+</dt>
+
+<p>
+<dt> <a name="buffer"><strong>Double buffering</strong></a>
+<dd> Double buffering smooths on-screen painting.
+     For details, see
+<a target="_top" href="../14painting/index.html">Performing Custom Painting</a><a target="_top" href="../14painting/index.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.
+</dd>
+
+
+
+<p>
+<dt> <a name="keyboardAction"><strong>Key bindings</strong></a>
+<dd>
+
+This feature makes components react
+when the user presses a key on the keyboard.
+For example,
+in many look and feels when a button has the focus,
+typing the Space key is equivalent to
+a mouse click on the the button.
+The look and feel automatically sets up
+the bindings between pressing and releasing the Space key
+and the resulting effects on the button.
+For more information about key bindings, see
+<a target="_top" href="../misc/keybinding.html">How to Use Key Bindings</a><a target="_top" href="../misc/keybinding.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.
+</dl>
+
+<p>
+
+</blockquote>
+<a name="api">
+<h3>
+The JComponent API
+</h3>
+</a>
+<blockquote>
+The <code>JComponent</code> class provides many new methods
+and inherits many methods
+from <code>Component</code> and <code>Container</code>.
+The following tables summarize the methods
+we use the most.
+
+<UL>
+  <LI><A HREF="#complookapi">Customizing Component Appearance</A>
+  <LI><A HREF="#stateapi">Setting and Getting Component State</A>
+  <LI><A HREF="#eventapi">Handling Events</A>
+  <LI><A HREF="#custompaintingapi">Painting Components</A>
+  <LI><A HREF="#containmentapi">Dealing with the Containment Hierarchy</A>
+  <LI><A HREF="#layoutapi">Laying Out Components</A>
+  <LI><A HREF="#sizeapi">Getting Size and Position Information</A>
+  <LI><A HREF="#absoluteapi">Specifying Absolute Size and Position</A>
+</UL>
+
+<p>
+
+<TABLE BORDER="1">
+<caption><A NAME="complookapi">
+<b>Customizing Component Appearance</b>
+</A></caption>
+<TR> <th> Method </th><th> Purpose</th>
+  <TR>
+    <TD>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JComponent.html#setBorder(javax.swing.border.Border)"><font color="#8800bb"><font size=2><code>void setBorder(Border)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JComponent.html#setBorder(javax.swing.border.Border)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JComponent.html#getBorder()"><font color="#8800bb"><font size=2><code>Border getBorder()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JComponent.html#getBorder()"></a>    </TD>
+    <TD>
+    Set or get the border of the component.
+    See
+<a target="_top" href="../misc/border.html">How to Use Borders</a><a target="_top" href="../misc/border.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>    for details.
+</TD>
+  </TR>
+  <TR>
+    <TD>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JComponent.html#setForegroundColor(java.awt.Color)"><font color="#8800bb"><font size=2><code>void setForeground(Color)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JComponent.html#setForegroundColor(java.awt.Color)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JComponent.html#setBackground(java.awt.Color)"><font color="#8800bb"><font size=2><code>void setBackground(Color)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JComponent.html#setBackground(java.awt.Color)"></a>    <td>
+    Set the foreground or background color for the component.
+    The foreground is generally the color used
+    to draw the text in a component.
+    The background is (not surprisingly)
+    the color of the background
+    areas of the component,
+    assuming that the component is opaque.
+    </td>
+    </tr>
+
+    <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#getForeground()"><font color="#8800bb"><font size=2><code>Color getForeground()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#getForeground()"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#getBackground()"><font color="#8800bb"><font size=2><code>Color getBackground()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#getBackground()"></a>    <TD>
+    Get the foreground or background color for the component.
+    </TD>
+  </TR>
+  <TR>
+    <TD>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JComponent.html#setOpaque(boolean)"><font color="#8800bb"><font size=2><code>void setOpaque(boolean)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JComponent.html#setOpaque(boolean)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JComponent.html#isOpaque()"><font color="#8800bb"><font size=2><code>boolean isOpaque()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JComponent.html#isOpaque()"></a>    </td>
+    <TD>
+    Set or get whether the component is opaque.
+    An opaque component fills its background with its background color.
+  </TR>
+  <TR>
+    <TD>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#setFont(java.awt.Font)"><font color="#8800bb"><font size=2><code>void setFont(Font)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#setFont(java.awt.Font)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#getFont()"><font color="#8800bb"><font size=2><code>Font getFont()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#getFont()"></a>    <TD>
+    Set or get the component's font.
+    If a font has not been set for the component,
+    the font of its parent is returned.
+  </TR>
+  <TR>
+    <TD>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#getFontMetrics(java.awt.Font)"><font color="#8800bb"><font size=2><code>FontMetrics getFontMetrics(Font)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#getFontMetrics(java.awt.Font)"></a>    <TD>
+    Get the font metrics for the specified font.</TD>
+  </TR>
+  <TR>
+    <TD>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#setCursor(java.awt.Cursor)"><font color="#8800bb"><font size=2><code>void setCursor(Cursor)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#setCursor(java.awt.Cursor)"></a><br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#getCursor()"><font color="#8800bb"><font size=2><code>Cursor getCursor()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#getCursor()"></a>    <TD>
+    Set or get the cursor displayed over the component
+    and all components it contains
+    (except for children that have their own cursor set).
+    Example: 
+<code>aPanel.setCursor( Cursor.getPredefinedCursor( Cursor.WAIT_CURSOR));</code>
+    </TD>
+  </TR>
+</TABLE>
+
+
+<p>
+
+<TABLE BORDER="1">
+<caption><A NAME="stateapi">
+<b>Setting and Getting Component State</b>
+</A></caption>
+<TR> <th> Method </th> <th> Purpose</th>
+  <TR>
+    <TD>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JComponent.html#setToolTipText(java.lang.String)"><font color="#8800bb"><font size=2><code>void setToolTipText(String)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JComponent.html#setToolTipText(java.lang.String)"></a>    <TD>
+    Set the text to display in a tool tip.
+    See <a href="tooltip.html">How to Use Tool Tips</a>
+    for more information.</TD>
+  </TR>
+  <TR>
+    <TD>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#setName(java.lang.String)"><font color="#8800bb"><font size=2><code>void setName(String)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#setName(java.lang.String)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#getName()"><font color="#8800bb"><font size=2><code>String getName()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#getName()"></a>    <TD>
+    Set or get the name of the component.
+    This can be useful when you need to associate text
+    with a component that doesn't display text.
+   </TD>
+  </TR>
+  <TR>
+    <TD>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#isShowing()"><font color="#8800bb"><font size=2><code>boolean isShowing()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#isShowing()"></a>    <TD>
+    Determine whether the component is showing on screen.
+    This means that the component must be visible,
+    and it must be in a container that is visible and showing.</TD>
+  </TR>
+  <TR>
+    <TD>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#setEnabled(boolean)"><font color="#8800bb"><font size=2><code>void setEnabled(boolean)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#setEnabled(boolean)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#isEnabled()"><font color="#8800bb"><font size=2><code>boolean isEnabled()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#isEnabled()"></a>    </TD>
+    <TD>
+    Set or get whether the component is enabled.
+    An enabled component can respond
+    to user input and generate events.</TD>
+  </TR>
+  <TR>
+    <TD>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JComponent.html#setVisible(boolean)"><font color="#8800bb"><font size=2><code>void setVisible(boolean)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JComponent.html#setVisible(boolean)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JComponent.html#isVisible()"><font color="#8800bb"><font size=2><code>boolean isVisible()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JComponent.html#isVisible()"></a>    </TD>
+    <TD>
+    Set or get whether the component is visible.
+    Components are initially visible,
+    with the exception of top-level components.
+  </TR>
+</TABLE>
+
+<p>
+
+<TABLE BORDER="1">
+<caption><A NAME="eventapi">
+<b>Handling Events</b>
+<br>
+(see
+<a target="_top" href="../events/index.html">Writing Event Listeners</a><a target="_top" href="../events/index.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a> for details)
+</A></caption>
+<TR> <th> Method </th> <th> Purpose</th>
+  <TR>
+    <TD>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#addMouseListener(java.awt.event.MouseListener)"><font color="#8800bb"><font size=2><code>void addMouseListener(MouseListener)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#addMouseListener(java.awt.event.MouseListener)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#removeMouseListener(java.awt.event.MouseListener)"><font color="#8800bb"><font size=2><code>void removeMouseListener(MouseListener)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#removeMouseListener(java.awt.event.MouseListener)"></a>    </TD>
+    <TD>
+    Add or remove a
+<a target="_top" href="../events/mouselistener.html">mouse listener</a><a target="_top" href="../events/mouselistener.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>    to or from the component.
+    Mouse listeners are notified
+    when the user uses the mouse to interact with
+    the listened-to component.</TD>
+  </TR>
+  <TR>
+    <TD>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#addMouseMotionListener(java.awt.event.MouseMotionListener)"><font color="#8800bb"><font size=2><code>void addMouseMotionListener(MouseMotionListener)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#addMouseMotionListener(java.awt.event.MouseMotionListener)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#removeMouseMotionListener(java.awt.event.MouseMotionListener)"><font color="#8800bb"><font size=2><code>void removeMouseMotionListener(MouseMotionListener)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#removeMouseMotionListener(java.awt.event.MouseMotionListener)"></a>    </TD>
+    <TD>
+    Add or remove a
+<a target="_top" href="../events/mousemotionlistener.html">mouse motion listener</a><a target="_top" href="../events/mousemotionlistener.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>    to or from the component.
+    Mouse motion listeners are notified
+    when the user moves the mouse within
+    the listened-to component's bounds.</TD>
+
+  </TR>
+  <TR>
+    <TD>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#addKeyListener(java.awt.event.KeyListener)"><font color="#8800bb"><font size=2><code>void addKeyListener(KeyListener)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#addKeyListener(java.awt.event.KeyListener)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#removeKeyListener(java.awt.event.KeyListener)"><font color="#8800bb"><font size=2><code>void removeKeyListener(KeyListener)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#removeKeyListener(java.awt.event.KeyListener)"></a>    <TD>
+    Add or remove a
+<a target="_top" href="../events/keylistener.html">key listener</a><a target="_top" href="../events/keylistener.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>    to or from the component.
+    Key listeners are notified
+    when the user types at the keyboard
+    and the listened-to component has the keyboard focus.</TD>
+  </TR>
+  <TR>
+    <TD>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#addComponentListener(java.awt.event.ComponentListener)"><font color="#8800bb"><font size=2><code>void addComponentListener(ComponentListener)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#addComponentListener(java.awt.event.ComponentListener)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#removeComponentListener(java.awt.event.ComponentListener)"><font color="#8800bb"><font size=2><code>void removeComponentListener(ComponentListener)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#removeComponentListener(java.awt.event.ComponentListener)"></a>    </font></code>
+    <TD>
+    Add or remove a
+<a target="_top" href="../events/componentlistener.html">component listener</a><a target="_top" href="../events/componentlistener.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>    to or from the component.
+    Component listeners are notified
+    when the listened-to component is hidden, shown, moved, or resized.</TD>
+  </TR>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JComponent.html#setTransferHandler(javax.swing.TransferHandler)"><font color="#8800bb"><font size=2><code>void setTransferHandler(TransferHandler)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JComponent.html#setTransferHandler(javax.swing.TransferHandler)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JComponent.html#getTransferHandler()"><font color="#8800bb"><font size=2><code>TransferHandler getTransferHandler()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JComponent.html#getTransferHandler()"></a>    </td>
+    <td>Set or remove the <code>transferHandler</code> property.
+        The <code>TransferHandler</code> supports exchanging data
+        via cut, copy, or paste to/from a clipboard as well a
+        drag and drop. See
+<a target="_top" href="../../dnd/index.html">Drag and Drop</a><a target="_top" href="../../dnd/index.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>        for more details. Introduced in 1.4.
+    </td>
+  </tr>
+  <TR>
+    <TD>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#contains(int, int)"><font color="#8800bb"><font size=2><code>boolean contains(int, int)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#contains(int, int)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#contains(java.awt.Point)"><font color="#8800bb"><font size=2><code>boolean contains(Point)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#contains(java.awt.Point)"></a>    </TD>
+    <TD>
+    Determine whether the specified point is within the component.
+    The argument should be specified
+    in terms of the component's coordinate system.
+    The two <code>int</code> arguments specify <em>x</em> and <em>y</em> coordinates,
+    respectively.</TD>
+  </TR>
+  <TR>
+    <TD>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Container.html#getComponentAt(int, int)"><font color="#8800bb"><font size=2><code>Component getComponentAt(int, int)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Container.html#getComponentAt(int, int)"></a><br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Container.html#getComponentAt(java.awt.Point)"><font color="#8800bb"><font size=2><code>Component getComponentAt(Point)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Container.html#getComponentAt(java.awt.Point)"></a>    </TD>
+    <TD>
+    Return the component that contains the specified <em>x, y</em> position.
+    The top-most child component is returned
+    in the case where components overlap.
+    This is determined by finding the component closest to the index 0
+    that claims to contain the given point via
+    <code>Component.contains()</code>.</TD>
+  </TR>
+</TABLE>
+
+<p>
+
+<TABLE BORDER="1">
+<caption><A NAME="custompaintingapi">
+<b>Painting Components</b>
+<br>
+(see
+<a target="_top" href="../14painting/index.html">Performing Custom Painting</a><a target="_top" href="../14painting/index.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a> for details)
+</A></caption>
+<TR> <th> Method </th> <th> Purpose</th>
+  <TR>
+    <TD>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#repaint()"><font color="#8800bb"><font size=2><code>void repaint()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#repaint()"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#repaint(int, int, int, int)"><font color="#8800bb"><font size=2><code>void repaint(int, int, int, int)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#repaint(int, int, int, int)"></a>    </TD>
+    <TD>
+    Request that all or part of the component be repainted.
+    The four <code>int</code> arguments specify
+    the bounds (<em>x</em>, <em>y</em>, width, height, in that order)
+    of the rectangle to be painted.
+    </TD>
+  </TR>
+  <TR>
+    <TD>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JComponent.html#repaint(java.awt.Rectangle)"><font color="#8800bb"><font size=2><code>void repaint(Rectangle)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JComponent.html#repaint(java.awt.Rectangle)"></a>    </TD>
+    <TD>
+    Request that the specified area within the component be repainted.
+    </TD>
+  </TR>
+  <TR>
+    <TD>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JComponent.html#revalidate()"><font color="#8800bb"><font size=2><code>void revalidate()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JComponent.html#revalidate()"></a>    </TD>
+    <TD>
+    Request that the component and its affected containers
+    be laid out again.
+    You shouldn't generally need to invoke this method
+    unless you explicitly change a component's size/alignment hints
+    after it's visible
+    or
+    change a containment hierarchy after it's visible.
+    You might need to invoke <code>repaint</code>
+    after <code>revalidate</code>.
+    </TD>
+  <TR>
+    <TD>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JComponent.html#paintComponent(java.awt.Graphics)"><font color="#8800bb"><font size=2><code>void paintComponent(Graphics)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JComponent.html#paintComponent(java.awt.Graphics)"></a>    </TD>
+    <TD>
+    Paint the component.
+    Override this method to implement painting
+    for custom components.</TD>
+  </TR>
+</TABLE>
+
+<P>
+<TABLE BORDER="1">
+<caption><A NAME="containmentapi">
+<b>Dealing with the Containment Hierarchy</b>
+<br>
+      (see
+<a target="_top" href="toplevel.html">Using Top-Level Containers</a><a target="_top" href="toplevel.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a> for more information)
+</A></caption>
+<TR> <th> Method </th> <th> Purpose</th>
+  <TR>
+    <TD>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Container.html#add(java.awt.Component)"><font color="#8800bb"><font size=2><code>Component add(Component)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Container.html#add(java.awt.Component)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Container.html#add(java.awt.Component, int)"><font color="#8800bb"><font size=2><code>Component add(Component, int)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Container.html#add(java.awt.Component, int)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Container.html#add(java.awt.Component, java.lang.Object)"><font color="#8800bb"><font size=2><code>void add(Component, Object)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Container.html#add(java.awt.Component, java.lang.Object)"></a>    </TD>
+    <TD>
+    Add the specified component to this container.
+    The one-argument version of this method adds
+    the component to the end of the container.
+    When present, the <code>int</code> argument indicates the
+    new component's position within the container.
+    When present, the <code>Object</code> argument
+    provides layout constraints to the current layout manager.</TD>
+  </TR>
+  <TR>
+    <TD>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Container.html#remove(int)"><font color="#8800bb"><font size=2><code>void remove(int)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Container.html#remove(int)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Container.html#remove(java.awt.Component)"><font color="#8800bb"><font size=2><code>void remove(Component)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Container.html#remove(java.awt.Component)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Container.html#removeAll()"><font color="#8800bb"><font size=2><code>void removeAll()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Container.html#removeAll()"></a>    </TD>
+    <TD>
+    Remove one of or all of the components from this container.
+    When present, the <code>int</code> argument indicates the
+    position within the container of the component to remove.
+  </TR>
+  <TR>
+    <TD>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JComponent.html#getRootPane()"><font color="#8800bb"><font size=2><code>JRootPane getRootPane()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JComponent.html#getRootPane()"></a>    </TD>
+    <TD>
+    Get the root pane that contains the component.</TD>
+  </TR>
+  <TR>
+    <TD>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JComponent.html#getTopLevelAncestor()"><font color="#8800bb"><font size=2><code>Container getTopLevelAncestor()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JComponent.html#getTopLevelAncestor()"></a>    </TD>
+    <TD>
+    Get the topmost container for the component &#151;
+    a <code>Window</code>, <code>Applet</code>, or null
+    if the component hasn't been added to any container.</TD>
+  </TR>
+  <TR>
+    <TD>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#getParent()"><font color="#8800bb"><font size=2><code>Container getParent()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#getParent()"></a>    </TD>
+    <TD>
+    Get the component's immediate container.</TD>
+  </TR>
+  <TR>
+    <TD>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Container.html#getComponentCount()"><font color="#8800bb"><font size=2><code>int getComponentCount()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Container.html#getComponentCount()"></a>    </TD>
+    <TD>
+    Get the number of components in this container.</TD>
+  </TR>
+  <TR>
+    <TD>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Container.html#getComponent(int)"><font color="#8800bb"><font size=2><code>Component getComponent(int)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Container.html#getComponent(int)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Container.html#getComponents()"><font color="#8800bb"><font size=2><code>Component[] getComponents()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Container.html#getComponents()"></a>    </TD>
+    <TD>
+    Get the one of or all of the components in this container.
+    The <code>int</code> argument indicates
+    the position of the component to get.
+    </TD>
+  </TR>
+</TABLE>
+
+<p>
+
+<TABLE BORDER="1">
+<caption><a NAME="layoutapi">
+<b>Laying Out Components</b>
+<br>
+      (see
+<a target="_top" href="../layout/index.html">Laying Out Components Within a Container</a><a target="_top" href="../layout/index.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a> for more information)
+</a></caption>
+
+<TR> <th> Method </th> <th> Purpose</th>
+  <TR>
+    <TD>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JComponent.html#setPreferredSize(java.awt.Dimension)"><font color="#8800bb"><font size=2><code>void setPreferredSize(Dimension)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JComponent.html#setPreferredSize(java.awt.Dimension)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JComponent.html#setMaximumSize(java.awt.Dimension)"><font color="#8800bb"><font size=2><code>void setMaximumSize(Dimension)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JComponent.html#setMaximumSize(java.awt.Dimension)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JComponent.html#setMinimumSize(java.awt.Dimension)"><font color="#8800bb"><font size=2><code>void setMinimumSize(Dimension)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JComponent.html#setMinimumSize(java.awt.Dimension)"></a>    </TD>
+    <TD>
+    Set the component's preferred, maximum, or minimum size,
+    measured in pixels.
+    The preferred size indicates the best size for the component.
+    The component should be no larger than its maximum size
+    and no smaller than its minimum size.
+    Be aware that these are hints only
+    and might be ignored by certain layout managers.
+    </TD>
+  </TR>
+  <TR>
+    <TD>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#getPreferredSize()"><font color="#8800bb"><font size=2><code>Dimension getPreferredSize()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#getPreferredSize()"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#getMaximumSize()"><font color="#8800bb"><font size=2><code>Dimension getMaximumSize()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#getMaximumSize()"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#getMinimumSize()"><font color="#8800bb"><font size=2><code>Dimension getMinimumSize()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#getMinimumSize()"></a>    </TD>
+    <TD>
+    Get the preferred, maximum, or minimum size of the component,
+    measured in pixels.
+    For non-<code>JComponent</code> subclasses,
+    which don't have the corresponding setter methods,
+    you can set a component's preferred, maximum, or minimum size
+    by creating a subclass and overriding these methods.
+    </TD>
+  </TR>
+  <TR>
+    <TD>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JComponent.html#setAlignmentX(float)"><font color="#8800bb"><font size=2><code>void setAlignmentX(float)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JComponent.html#setAlignmentX(float)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JComponent.html#setAlignmentY(float)"><font color="#8800bb"><font size=2><code>void setAlignmentY(float)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JComponent.html#setAlignmentY(float)"></a>    </TD>
+    <TD>
+    Set the alignment along the
+    <em>x-</em> or
+    <em>y-</em> axis.
+    These values indicate how the component would like to be aligned
+    relative to other components.
+    The value should be a number between 0 and 1 where 0 represents
+    alignment along the origin, 1 is aligned the furthest away from
+    the origin, and 0.5 is centered, and so on.
+    Be aware that these are hints only
+    and might be ignored by certain layout managers.
+    </TD>
+  </TR>
+  <TR>
+    <TD>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#getAlignmentX()"><font color="#8800bb"><font size=2><code>float getAlignmentX()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#getAlignmentX()"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#getAlignmentY()"><font color="#8800bb"><font size=2><code>float getAlignmentY()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#getAlignmentY()"></a>    </TD>
+    <TD>
+    Get the alignment of the component along the
+    <em>x-</em> or
+    <em>y-</em> axis.
+    For non-<code>JComponent</code> subclasses,
+    which don't have the corresponding setter methods,
+    you can set a component's alignment
+    by creating a subclass and overriding these methods.
+    </TD>
+  </TR>
+  <TR>
+    <TD>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Container.html#setLayout(java.awt.LayoutManager)"><font color="#8800bb"><font size=2><code>void setLayout(LayoutManager)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Container.html#setLayout(java.awt.LayoutManager)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Container.html#getLayout()"><font color="#8800bb"><font size=2><code>LayoutManager getLayout()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Container.html#getLayout()"></a>    </TD>
+    <TD>
+    Set or get the component's layout manager.
+    The layout manager is responsible for sizing and positioning
+    the components within a container.
+    </TD>
+  </TR>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Container.html#applyComponentOrientation(java.awt.ComponentOrientation)"><font color="#8800bb"><font size=2><code>void applyComponentOrientation(ComponentOrientation)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Container.html#applyComponentOrientation(java.awt.ComponentOrientation)"></a>    </td>
+    <td>Set the <code>ComponentOrientation</code> property of this container
+        and all the components contained within it.
+	See 
+<a target="_top" href="../layout/using.html#orientation">Setting the Container's Orientation</a><a target="_top" href="../layout/using.html#orientation"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>        for more information.
+        Introduced in 1.4.
+    </td>
+  </tr>
+</TABLE>
+
+<p>
+
+<TABLE BORDER="1">
+<caption><A NAME="sizeapi">
+<b>Getting Size and Position Information</b>
+<br>
+</A></caption>
+<TR> <th> Method </th> <th> Purpose</th>
+  <TR>
+    <TD>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#getWidth()"><font color="#8800bb"><font size=2><code>int getWidth()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#getWidth()"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#getHeight()"><font color="#8800bb"><font size=2><code>int getHeight()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#getHeight()"></a>    </TD>
+    <TD>
+    Get the current width or height of the component
+    measured in pixels.</TD>
+  </TR>
+  <TR>
+    <TD>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#getSize()"><font color="#8800bb"><font size=2><code>Dimension getSize()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#getSize()"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#getSize(java.awt.Dimension)"><font color="#8800bb"><font size=2><code>Dimension getSize(Dimension)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#getSize(java.awt.Dimension)"></a>    </TD>
+    <TD>
+    Get the component's current size measured in pixels.
+    When using the one-argument version of this method,
+    the caller is responsible for creating the <code>Dimension</code>
+    instance in which the result is returned.
+    </TD>
+  </TR>
+  <TR>
+    <TD>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#getX()"><font color="#8800bb"><font size=2><code>int getX()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#getX()"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#getY()"><font color="#8800bb"><font size=2><code>int getY()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#getY()"></a>    </TD>
+    <TD>
+    Get the current <em>x</em> or y coordinate of the component's origin
+    relative to the parent's upper left corner
+    measured in pixels.
+    </TD>
+  </TR>
+  <TR>
+    <TD>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#getBounds()"><font color="#8800bb"><font size=2><code>Rectangle getBounds()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#getBounds()"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#getBounds(java.awt.Rectangle)"><font color="#8800bb"><font size=2><code>Rectangle getBounds(Rectangle)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#getBounds(java.awt.Rectangle)"></a>    </TD>
+    <TD>
+    Get the bounds of the component measured in pixels.
+    The bounds specify the component's width, height,
+    and origin relative to its parent.
+    When using the one-argument version of this method,
+    the caller is responsible for creating the <code>Rectangle</code>
+    instance in which the result is returned.</TD>
+  </TR>
+
+  <TR>
+    <TD>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#getLocation()"><font color="#8800bb"><font size=2><code>Point getLocation()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#getLocation()"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#getLocation(java.awt.Point)"><font color="#8800bb"><font size=2><code>Point getLocation(Point)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#getLocation(java.awt.Point)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#getLocationOnScreen()"><font color="#8800bb"><font size=2><code>Point getLocationOnScreen()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#getLocationOnScreen()"></a>    </td>
+    <TD>
+    Gets the current location of the component
+    relative to the parent's upper left corner
+    measured in pixels.
+    When using the one-argument version of <code>getLocation</code> method,
+    the caller is responsible for creating the <code>Point</code>
+    instance in which the result is returned.
+    The <code>getLocationOnScreen</code> method returns the position
+    relative to the upper left corner of the screen.</TD>
+  <TR>
+    <TD>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Container.html#getInsets()"><font color="#8800bb"><font size=2><code>Insets getInsets()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Container.html#getInsets()"></a>    </TD>
+    <TD>
+    Get the size of the component's border.</TD>
+  </TR>
+
+</TABLE>
+
+<p>
+
+<TABLE BORDER="1">
+<caption><A NAME="absoluteapi">
+<b>Specifying Absolute Size and Position</b>
+<br>
+      (see
+<a target="_top" href="../layout/none.html">Doing Without a Layout Manager (Absolute Positioning)</a><a target="_top" href="../layout/none.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a> for more information)
+</A></caption>
+<TR> <th> Method </th> <th> Purpose</th>
+  <TR>
+    <TD>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#setLocation(int, int)"><font color="#8800bb"><font size=2><code>void setLocation(int, int)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#setLocation(int, int)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#setLocation(java.awt.Point)"><font color="#8800bb"><font size=2><code>void setLocation(Point)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#setLocation(java.awt.Point)"></a>    </TD>
+    <TD>
+    Set the location of the component, in pixels,
+    relative to the parent's upper left corner.
+    The two <code>int</code> arguments specify <em>x</em> and <em>y</em>,
+    in that order.
+    Use these methods to position a component
+    when you aren't using a layout manager.</TD>
+  </TR>
+  <TR>
+    <TD>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#setSize(int, int)"><font color="#8800bb"><font size=2><code>void setSize(int, int)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#setSize(int, int)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#setSize(java.awt.Dimension)"><font color="#8800bb"><font size=2><code>void setSize(Dimension)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#setSize(java.awt.Dimension)"></a>    </TD>
+    <TD>
+    Set the size of the component measured in pixels.
+    The two <code>int</code> arguments specify width and height,
+    in that order.
+    Use these methods to size a component
+    when you aren't using a layout manager.</TD>
+  </TR>
+  <TR>
+    <TD>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#setBounds(int, int, int, int)"><font color="#8800bb"><font size=2><code>void setBounds(int, int, int, int)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#setBounds(int, int, int, int)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#setBounds(java.awt.Rectangle)"><font color="#8800bb"><font size=2><code>void setBounds(Rectangle)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#setBounds(java.awt.Rectangle)"></a>    </TD>
+    <TD>
+    Set the size and location
+    relative to the parent's upper left corner,
+    in pixels,
+    of the component.
+    The four <code>int</code> arguments specify <em>x</em>, <em>y</em>, width, and height,
+    in that order.
+    Use these methods to position and size a component
+    when you aren't using a layout manager.</TD>
+  </TR>
+</TABLE>
+
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="model.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#components" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="text.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

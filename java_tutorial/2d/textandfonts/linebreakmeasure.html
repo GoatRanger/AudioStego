@@ -1,0 +1,173 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Drawing Multiple Lines of Text</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="fontselection.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#textandfonts" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="../images/index.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: 2D Graphics
+<br>
+<b>Lesson</b>: Working with Text and Fonts
+</font>
+
+<h2>
+Drawing Multiple Lines of Text
+</h2>
+<blockquote>
+If you have a paragraph of styled text that you would like to fit within a
+specific width, you can use <code>LineBreakMeasurer</code>, which allows  
+styled text to be broken into lines that fit within a particular visual
+advance.  As you learned in the
+<A HREF="../display/index.html">Displaying Graphics with
+Graphics2D</A> trail, a <code>TextLayout</code> object represents
+unchangeable, styled character data, but it also allows access to layout
+information.  The <code>getAscent</code> and <code>getDescent</code>
+methods of <code>TextLayout</code> return information about the font that
+is used to position the lines in the component.  The text is stored as an
+<code>AttributedCharacterIterator</code> so the font and point size
+attributes can be stored with the text. 
+
+</blockquote>
+<h3>Example: LineBreakSample</h3>
+<blockquote>
+
+The following applet positions a paragraph of styled text within a
+component, using <code>LineBreakMeasurer</code>, <code>TextLayout</code>
+and <code>AttributedCharacterIterator</code>.
+
+<p>
+
+<p><center><a href="LineBreakSample.html" target="_blank"><IMG SRC="../../figures/2d/LineBreak.gif" WIDTH="408" HEIGHT="206" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="Click this figure to run the applet."></a><br><em>This is a picture of the applet's GUI.  To run the applet, click the picture.  The applet will appear in a new browser window.</em></center></p>
+The complete code for this program is in
+
+<a target="_blank" href="example-1dot2/LineBreakSample.java"><font color="#bb000f"><code>LineBreakSample.java</code></font></a><a target="_blank" href="example-1dot2/LineBreakSample.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>.
+<p>
+
+The following code creates an iterator with the string
+<code>vanGogh</code>.  The start and end of the iterator is retrieved and
+a new <code>LineBreakMeasurer</code> is created from the iterator.
+<blockquote>
+<pre>
+AttributedCharacterIterator paragraph = vanGogh.getIterator();
+paragraphStart = paragraph.getBeginIndex();
+paragraphEnd = paragraph.getEndIndex();
+        
+lineMeasurer = new LineBreakMeasurer(paragraph,
+                            new FontRenderContext(null, false, false));
+</pre>
+</blockquote>
+The size of the window is used to determine where the line should break
+and a <code>TextLayout</code> object is created for each line in the
+paragraph.
+
+<blockquote><pre>
+Dimension size = getSize();
+float formatWidth = (float) size.width;    
+float drawPosY = 0;
+lineMeasurer.setPosition(paragraphStart);
+        
+while (lineMeasurer.getPosition() < paragraphEnd) {    
+   TextLayout layout = lineMeasurer.nextLayout(formatWidth);
+
+   // Move y-coordinate by the ascent of the layout.
+   drawPosY += layout.getAscent();
+        
+   /* Compute pen x position.  If the paragraph is
+      right-to-left, we want to align the TextLayouts
+      to the right edge of the panel. 
+    */
+   float drawPosX;
+   if (layout.isLeftToRight()) {
+       drawPosX = 0;
+   }
+   else {
+     drawPosX = formatWidth - layout.getAdvance();
+   }
+            
+   // Draw the TextLayout at (drawPosX, drawPosY). 
+   layout.draw(graphics2D, drawPosX, drawPosY);
+            
+   // Move y-coordinate in preparation for next layout.
+   drawPosY += layout.getDescent() + layout.getLeading();
+}
+</pre></blockquote>
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="fontselection.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#textandfonts" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="../images/index.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

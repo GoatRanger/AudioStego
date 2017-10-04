@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:background="@color/ah" android:fitsSystemWindows="true" android:layout_width="match_parent" android:layout_height="match_parent">
+    <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent"
+        <LinearLayout android:orientation="vertical" android:id="@+id/v2_local_music_player" android:background="@color/a_" android:visibility="invisible" android:layout_width="match_parent" android:layout_height="wrap_content"
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/fw" android:layout_marginRight="@dimen/fw">
+                <ImageView android:id="@+id/v2_local_music_play_button" android:padding="@dimen/g8" android:layout_width="UNKNOWN_DATA_0x7f0b0138" android:layout_height="UNKNOWN_DATA_0x7f0b0138" android:src="@r$drawable/v2_local_music_palyer_button_selector" />
+                <RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent">
+                    <LinearLayout android:id="@+id/v2_local_music_infomation" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/fj">
+                        <TextView android:textSize="@dimen/rl" android:textStyle="bold" android:textColor="@color/om" android:ellipsize="end" android:id="@+id/v2_local_music_name_text" android:layout_width="UNKNOWN_DATA_0x1" android:layout_height="wrap_content" android:text="--" android:singleLine="true" android:layout_weight="1.0" />
+                        <TextView android:textSize="@dimen/rl" android:textColor="@r$color/v2_local_music_grey" android:id="@+id/v2_local_music_playtime_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/g1" android:layout_marginRight="@dimen/g1" android:text="--:--" android:layout_alignParentRight="true" />
+                    </LinearLayout>
+                    <TextView android:textSize="@dimen/rl" android:textColor="@r$color/v2_local_music_grey" android:ellipsize="end" android:id="@+id/v2_local_music_album_name_text" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/ga" android:text="--" android:singleLine="true" android:layout_below="@+id/v2_local_music_infomation" />
+                </RelativeLayout>
+            </LinearLayout>
+            <RelativeLayout android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x7f0b0516"
+                <RelativeLayout android:id="@+id/v2_local_music_clip_background_father" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x7f0b0517" android:layout_marginBottom="@dimen/gr" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true">
+                    <ImageView android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x7f0b0517" android:layout_marginLeft="@dimen/g0" android:layout_marginRight="@dimen/g0" android:src="@r$drawable/v2_local_music_view_grid_background" android:scaleType="centerCrop" />
+                </RelativeLayout>
+                <dji.pilot2.nativeaudio.view.AudioCursor android:id="@+id/v2_local_music_cursor_father" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="match_parent">
+                    <ImageView android:layout_width="wrap_content" android:layout_height="match_parent" android:src="@r$drawable/v2_local_music_cursor" android:scaleType="centerCrop" />
+                </dji.pilot2.nativeaudio.view.AudioCursor>
+            </RelativeLayout>
+            <TextView android:textSize="@dimen/rl" android:textColor="@r$color/v2_local_music_grey" android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:paddingTop="@dimen/fr" android:paddingBottom="@dimen/fr" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/v2_local_music_tip" />
+        </LinearLayout>
+        <ListView android:id="@+id/play_list" android:background="@color/ai" android:layout_width="match_parent" android:layout_height="match_parent" android:divider="#38444b" android:dividerHeight="1px" />
+    </LinearLayout>
+    <dji.publics.DJIUI.DJIRelativeLayout android:gravity="left|right|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@+id/v2_save_cover" android:background="@r$color/v2_multimoment_save_background_cover" android:visibility="invisible" android:layout_width="match_parent" android:layout_height="match_parent"
+        <dji.publics.DJIUI.DJIRelativeLayout android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@+id/v2_cutmoment_black_background" android:background="@r$drawable/v2_cutmoment_save_background" android:layout_width="UNKNOWN_DATA_0x7f0b0022" android:layout_height="UNKNOWN_DATA_0x7f0b0021" android:layout_marginTop="@dimen/fw">
+            <dji.publics.DJIUI.DJILinearLayout android:gravity="left|right|center_horizontal|fill_horizontal|center|fill|start|end" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <ImageView android:id="@+id/ProgressBar01" android:background="@r$anim/progress_animation_list" android:layout_width="UNKNOWN_DATA_0x7f0b0119" android:layout_height="UNKNOWN_DATA_0x7f0b0119" />
+                <dji.publics.DJIUI.DJILinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/gw">
+                    <dji.publics.DJIUI.DJITextView android:textSize="@dimen/rk" android:textColor="@color/om" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ve_create_moments_save_moments" />
+                    <dji.publics.DJIUI.DJITextView android:textSize="@dimen/rk" android:textColor="@color/om" android:id="@+id/v2_cutmoment_save_progress_tips" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/gw" android:text="0%" />
+                </dji.publics.DJIUI.DJILinearLayout>
+            </dji.publics.DJIUI.DJILinearLayout>
+        </dji.publics.DJIUI.DJIRelativeLayout>
+    </dji.publics.DJIUI.DJIRelativeLayout>
+</RelativeLayout>

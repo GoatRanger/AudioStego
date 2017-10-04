@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.publics.DJIUI.DJILinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent">
+    <dji.publics.DJIUI.DJIRelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_weight="1.0">
+        <dji.publics.DJIUI.DJILinearLayout android:orientation="horizontal" android:id="@id/am7" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true">
+            <dji.publics.DJIUI.DJIImageView android:id="@id/am8" android:paddingTop="10dp" android:paddingBottom="10dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/gs_point_interest_set_hot_point" android:layout_centerInParent="true" android:contentDescription="@string/app_name" />
+            <dji.publics.DJIUI.DJILinearLayout android:layout_gravity="top|bottom|center_vertical|fill_vertical|center|fill" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="15dp">
+                <dji.publics.DJIUI.DJITextView android:textSize="12dp" android:textColor="#ffffff" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/gsnew_gs_point_of_insterest_cur_height_label" />
+                <dji.pilot.dji_groundstation.ui.views.CurHeightView android:textSize="18dp" android:textColor="@color/h_" android:id="@id/am9" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            </dji.publics.DJIUI.DJILinearLayout>
+        </dji.publics.DJIUI.DJILinearLayout>
+        <dji.publics.DJIUI.DJITextView android:textSize="12dp" android:textColor="@color/om" android:layout_gravity="left|right|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@id/am_" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@id/am7" android:layout_centerHorizontal="true" />
+    </dji.publics.DJIUI.DJIRelativeLayout>
+    <dji.publics.DJIUI.DJITextView android:textSize="13dp" android:textColor="#ffffff" android:id="@id/aiz" android:paddingTop="10dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="35dp" android:text="@string/gsnew_gs_point_of_insterest_set_hot_point_desc" android:layout_above="@id/aiy" android:lineSpacingMultiplier="1.3" />
+</dji.publics.DJIUI.DJILinearLayout>

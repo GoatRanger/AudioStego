@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.device.common.view.DJIRadioGroup xmlns:android="http://schemas.android.com/apk/res-auto" phantom:orientation="vertical" phantom:background="@color/j5" phantom:layout_width="wrap_content" phantom:layout_height="wrap_content" phantom:splitMotionEvents="true">
+    <RelativeLayout phantom:background="@color/j5" phantom:layout_width="match_parent" phantom:layout_height="match_parent" phantom:layout_weight="1.0" />
+    <dji.phone.customui.DJILPRotationRelativeLayout phantom:layout_gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" phantom:id="@id/bbm" phantom:background="@color/j5" style="@style/eq">
+        <RadioButton phantom:id="@id/bbn" phantom:background="@drawable/lp_selector_handle_mode_longexposure_4s" phantom:layout_width="match_parent" phantom:layout_height="wrap_content" phantom:checked="false" phantom:button="0x0" phantom:layout_centerInParent="true" />
+    </dji.phone.customui.DJILPRotationRelativeLayout>
+    <dji.phone.customui.DJILPRotationRelativeLayout phantom:layout_gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" phantom:background="@color/j5" style="@style/eq">
+        <RadioButton phantom:id="@id/bbo" phantom:background="@drawable/lp_selector_handle_mode_longexposure_8s" phantom:layout_width="match_parent" phantom:layout_height="wrap_content" phantom:button="0x0" phantom:layout_centerInParent="true" />
+    </dji.phone.customui.DJILPRotationRelativeLayout>
+    <dji.phone.customui.DJILPRotationRelativeLayout phantom:layout_gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" phantom:background="@color/j5" style="@style/eq">
+        <RadioButton phantom:id="@id/bbp" phantom:background="@drawable/lp_selector_handle_mode_longexposure_16s" phantom:layout_width="match_parent" phantom:layout_height="wrap_content" phantom:button="0x0" phantom:layout_centerInParent="true" />
+    </dji.phone.customui.DJILPRotationRelativeLayout>
+    <dji.phone.customui.DJILPRotationRelativeLayout phantom:layout_gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" phantom:background="@color/j5" style="@style/eq">
+        <RadioButton phantom:id="@id/bbq" phantom:background="@drawable/lp_selector_handle_mode_longexposure_32s" phantom:layout_width="match_parent" phantom:layout_height="wrap_content" phantom:button="0x0" phantom:layout_centerInParent="true" />
+    </dji.phone.customui.DJILPRotationRelativeLayout>
+    <dji.phone.customui.DJILPRotationRelativeLayout phantom:layout_gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" phantom:background="@color/j5" style="@style/eq">
+        <RadioButton phantom:id="@id/bbr" phantom:background="@drawable/lp_selector_handle_mode_longexposure_infinity" phantom:layout_width="match_parent" phantom:layout_height="wrap_content" phantom:button="0x0" phantom:layout_centerInParent="true" />
+    </dji.phone.customui.DJILPRotationRelativeLayout>
+    <RelativeLayout phantom:layout_gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" phantom:background="@color/j5" style="@style/eq" />
+    <RelativeLayout phantom:layout_gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" phantom:background="@color/j5" style="@style/eq" />
+    <RelativeLayout phantom:background="@color/j5" phantom:layout_width="match_parent" phantom:layout_height="match_parent" phantom:layout_weight="1.0" />
+</dji.device.common.view.DJIRadioGroup>

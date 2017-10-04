@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.setting.ui.SettingUIStageView xmlns:android="http://schemas.android.com/apk/res-auto" setting_ui:layout_width="match_parent" setting_ui:layout_height="match_parent" setting_ui:titleText="@string/setting_ui_battery_non_smart_info_title">
+    <ScrollView style="@style/gk">
+        <LinearLayout style="@style/gj">
+            <dji.setting.ui.battery.nonsmart.VoltageView setting_ui:titleText="@string/setting_ui_battery_voltage_desc" style="@style/g2" />
+            <dji.setting.ui.battery.nonsmart.CellNum setting_ui:titleText="@string/setting_ui_battery_non_smart_cells" style="@style/g2" />
+            <dji.setting.ui.battery.nonsmart.LowVoltageWarningView setting_ui:titleText="@string/setting_ui_battery_non_smart_low_warning" style="@style/g2" />
+            <dji.setting.ui.battery.nonsmart.LowVoltageSeriousWarningView setting_ui:titleText="@string/setting_ui_battery_non_smart_serious_low_warning" style="@style/g2" />
+            <dji.setting.ui.battery.nonsmart.LowVoltageAction setting_ui:titleText="@string/setting_ui_battery_non_smart_low_voltage_action" style="@style/g2" />
+            <dji.setting.ui.battery.nonsmart.SeriousLowVoltageAction setting_ui:titleText="@string/setting_ui_battery_non_smart_serious_low_voltage_action" style="@style/g2" />
+        </LinearLayout>
+    </ScrollView>
+</dji.setting.ui.SettingUIStageView>

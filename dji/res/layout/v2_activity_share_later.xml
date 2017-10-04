@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res-auto" attr:background="@color/om" attr:fitsSystemWindows="@r$bool/is_fix_system" attr:layout_width="match_parent" attr:layout_height="match_parent"
+    <RelativeLayout attr:id="@+id/v2_sharelater_header" attr:background="@color/om" attr:layout_width="match_parent" attr:layout_height="UNKNOWN_DATA_0x7f0b0083">
+        <dji.pilot.publics.widget.DJIStateTextView attr:textSize="18sp" attr:textColor="#1088f2" attr:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" attr:id="@+id/v2_sharelater_finish" attr:layout_width="UNKNOWN_DATA_0x5001" attr:layout_height="match_parent" attr:layout_marginRight="@dimen/gw" attr:text="@string/v2_upgrade_activity_finish_btn" attr:layout_alignParentRight="true" />
+    </RelativeLayout>
+    <TextView attr:textSize="26sp" attr:textColor="#4a4a4a" attr:id="@+id/v2_sharelater_txt1" attr:layout_width="wrap_content" attr:layout_height="wrap_content" attr:layout_marginTop="@dimen/gq" attr:text="@string/v2_share_contest_share_suc_txt" attr:layout_below="@+id/v2_sharelater_header" attr:layout_centerHorizontal="true" />
+    <dji.publics.DJIUI.DJITextView attr:textSize="12sp" attr:textColor="#9b9b9b" attr:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" attr:id="@+id/v2_sharelater_txt2" attr:layout_width="match_parent" attr:layout_height="wrap_content" attr:layout_marginTop="10dp" attr:text="@string/v2_sharelater_txt1" attr:layout_below="@+id/v2_sharelater_txt1" />
+    <RelativeLayout attr:id="@+id/v2_sharelater_sharemore" attr:layout_width="UNKNOWN_DATA_0x12c01" attr:layout_height="wrap_content" attr:layout_marginTop="25dp" attr:layout_below="@+id/v2_sharelater_txt2" attr:layout_centerHorizontal="true">
+        <LinearLayout attr:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" attr:orientation="horizontal" attr:id="@+id/v2_sharelater_sharemore_v" attr:layout_width="match_parent" attr:layout_height="wrap_content">
+            <View attr:background="#d8d8d8" attr:layout_width="UNKNOWN_DATA_0x1" attr:layout_height="UNKNOWN_DATA_0x40000031" attr:layout_weight="0.8" />
+            <dji.publics.DJIUI.DJITextView attr:textSize="15sp" attr:textColor="#9b9b9b" attr:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" attr:layout_width="UNKNOWN_DATA_0x1" attr:layout_height="wrap_content" attr:layout_marginLeft="15dp" attr:layout_marginRight="15dp" attr:text="@string/v2_sharelater_txt2" attr:layout_weight="1.0" />
+            <View attr:background="#d8d8d8" attr:layout_width="UNKNOWN_DATA_0x1" attr:layout_height="UNKNOWN_DATA_0x40000031" attr:layout_weight="0.8" />
+        </LinearLayout>
+        <LinearLayout attr:orientation="vertical" attr:id="@+id/v2_sharelater_buttons" attr:layout_width="match_parent" attr:layout_height="UNKNOWN_DATA_0xc801" attr:layout_marginTop="15dp" attr:layout_below="@+id/v2_sharelater_sharemore_v" />
+    </RelativeLayout>
+    <RelativeLayout attr:id="@+id/v2_share_later_contests_banner" attr:layout_width="match_parent" attr:layout_height="wrap_content" attr:layout_alignParentBottom="true" /> />

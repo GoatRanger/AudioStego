@@ -1,0 +1,967 @@
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Text Component Features</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="text.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#components" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="textapi.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Creating a GUI with JFC/Swing
+<br>
+<b>Lesson</b>: Using Swing Components
+</font>
+
+<h2>
+Text Component Features
+</h2>
+<blockquote>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html"><font color="#8800bb"><code>JTextComponent</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> is the foundation for Swing's text components,
+and provides these customizable
+features for all of its descendants:
+
+<ul>
+<li> A model, known as a <em>document</em>,
+     to manage the component's content.
+<li> A view, which is in charge of displaying the
+     component on screen. 
+<li> A controller, known as an <em>editor kit</em>,
+     that can read and write text
+     and that implements editing capabilities with
+<a target="_top" href="../misc/action.html">actions</a><a target="_top" href="../misc/action.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.
+
+<li> Support for infinite undo and redo.
+<li> Pluggable caret and support for caret change listeners
+     and navigation filters.
+</ul>
+
+This section uses the application shown below
+to explore these capabilities.
+Although the demo application
+contains a customized instance of <code>JTextPane</code>,
+the capabilities discussed in this section
+are inherited by all of <code>JTextComponent</code>'s subclasses.
+
+<p><center><IMG SRC="../../figures/uiswing/components/TextComponentDemo.gif" WIDTH="376" HEIGHT="348" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="A snapshot of TextComponentDemo, which contains a customized text pane and a standard text area"></center></p>
+The upper text component is the customized text pane.
+The lower text component is an instance of <code>JTextArea</code>,
+which serves as a log that reports all changes
+made to the contents of the text pane.
+The status line at the bottom of the window reports either
+the location of the selection or the position of the caret,
+depending on whether text is selected.
+
+<blockquote><hr><strong>Try this:</strong>&nbsp;
+<ol>
+<li> <a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/components/example-1dot4/TextComponentDemo.jnlp">Run TextComponentDemo</a> using
+<a target="_top" href="../../information/javawebstart.html">Java<sup><font size=-2>TM</font></sup> Web Start</a><a target="_top" href="../../information/javawebstart.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.    Or, to compile and run the example yourself,
+     consult the
+     <a href="example-1dot4/index.html#TextComponentDemo">example index</a>.
+
+<li> Use the mouse to select text and place the cursor
+     in the text pane.
+     Information about the selection and cursor
+     is displayed at the bottom of the window.
+<li> Enter text by typing at the keyboard.
+     You can move the caret around using four emacs key bindings:
+     <code>CTRL-B</code> (backward one character),
+     <code>CTRL-F</code> (forward one character),
+     <code>CTRL-N</code> (down one line), and
+     <code>CTRL-P</code> (up one line).
+<li> Bring up the <strong>Edit</strong> menu,
+     and use its various menu items to perform editing
+     on the text in the text pane.
+     Make a selection in the text area
+     at the bottom of the window.
+     Because the text area is uneditable,
+     only some of the <strong>Edit</strong> menu's commands,
+     like <strong>copy-to-clipboard</strong>, work.
+     It's important to note, though,
+     that the menu operates on both text components.
+<li> Use the items in the <strong>Style</strong> menu
+     to apply different styles to the text in the text pane.
+</ol>
+<hr></blockquote>
+
+Using this example application as a reference point,
+this section covers these topics:
+<ul>
+<li> <a href="#commands">Associating Text Actions with Menus and Buttons</a>
+<li> <a href="#bindingkeystrokes">Associating Text Actions with Key Strokes</a>
+<li> <a href="#undo">Implementing Undo and Redo</a>
+<li> <a href="#document">Concepts: About Documents</a>
+<li> <a href="#filter">Implementing a Document Filter</a>
+<li> <a href="#doclisteners">Listening for Changes on a Document</a>
+<li> <a href="#caret">Listening for Caret and Selection Changes</a>
+<li> <a href="#editorkits">Concepts: About Editor Kits</a>
+</ul>
+
+</blockquote>
+<a name="commands">
+<h3>Associating Text Actions with Menus and Buttons</h3>
+</a> 
+<blockquote> 
+All Swing text components supports standard
+editing commands such as cut, copy, paste, and
+inserting characters.
+Each editing command is represented and implemented by an
+<code>Action</code></a> object.
+(You can learn about actions by reading 
+<a target="_top" href="../misc/action.html">How to Use Actions</a><a target="_top" href="../misc/action.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.)
+Actions makes it easy for you to associate a command
+with a GUI component, such as a menu item or button,
+and therefore build a GUI around a text component.
+
+<p>
+You can invoke the <code>getActions</code> method on any
+text component to get an array containing
+all of the actions supported by it.
+Often it's convenient to load the array of actions
+into a <code>HashMap</code> so your program can retrieve
+an action by name.
+Here's the code from <code>TextComponentDemo</code>
+that gets the actions from the text pane and loads
+them into a <code>HashMap</code>:
+
+<blockquote><pre>
+private void createActionTable(JTextComponent textComponent) {
+    actions = new HashMap();
+    Action[] actionsArray = textComponent.getActions();
+    for (int i = 0; i < actionsArray.length; i++) {
+        Action a = actionsArray[i];
+        actions.put(a.getValue(Action.NAME), a);
+    }
+}    
+</pre></blockquote>
+
+Here's a convenient method for retrieving an
+action by its name from the hash map:
+
+<blockquote><pre>
+private Action getActionByName(String name) {
+    return (Action)(actions.get(name));
+}
+</pre></blockquote>
+
+You can use both methods verbatim in your programs.
+
+<p>
+Now let's look at how the <strong>Cut</strong> menu item is created and
+associated with the action of removing text from the text component:
+
+<blockquote><pre>
+protected JMenu createEditMenu() {
+    JMenu menu = new JMenu("Edit");
+    ...
+    menu.add(getActionByName(DefaultEditorKit.cutAction));
+    ...
+</pre></blockquote>
+
+This code gets the action by name using the handy
+method shown previously.
+It then adds the action to the menu.
+That's all you need to do. The menu
+and the action take care of everything else.
+You'll note that the name of the action
+comes from
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/DefaultEditorKit.html"><font color="#8800bb"><code>DefaultEditorKit</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/DefaultEditorKit.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>.
+This kit provides actions for basic text editing
+and is the superclass for all the editor kits provided by Swing.
+So its capabilities are available to all text components
+unless overridden by a customization.
+
+<p>
+For efficiency,
+text components share actions.
+The <code>Action</code> object returned by
+<code>getActionByName(DefaultEditorKit.cutAction)</code>
+is shared by the uneditable <code>JTextArea</code>
+at the bottom of the window.
+This has two important ramifications:
+
+<ul>
+<li> Generally speaking, you shouldn't modify
+     <code>Action</code> objects you get from editor kits.
+     If you do, the changes affect
+     all text components in your program.
+<li> <code>Action</code> objects can operate
+     on other text components in the program,
+     perhaps more than you intended.
+     In this example, even though it's uneditable,
+     the <code>JTextArea</code> shares
+     actions with the <code>JTextPane</code>.
+     (Select some text in the text area,
+     then choose the <code>cut-to-clipboard</code> menu item.
+     You'll hear a beep because the text area is uneditable.)
+     If you don't want to share,
+     consider instantiating the <code>Action</code> object yourself.
+     <code>DefaultEditorKit</code> defines a number of
+     useful <code>Action</code> subclasses.
+</ul>
+
+Here's the code that creates the <strong>Style</strong> menu and puts the
+<strong>Bold</strong> menu item in it:
+
+<blockquote><pre>
+protected JMenu createStyleMenu() {
+    JMenu menu = new JMenu("Style");
+ 
+    Action action = new StyledEditorKit.BoldAction();
+    action.putValue(Action.NAME, "Bold");
+    menu.add(action);
+    ...
+</pre></blockquote>
+
+The <code>StyledEditorKit</code>
+provides <code>Action</code> subclasses to implement
+editing commands for styled text.
+You'll note that
+instead of getting the action from the editor kit,
+this code creates an
+instance of the <code>BoldAction</code> class.
+Thus, this action is not shared with any other text component,
+and changing its name won't affect any other text component.
+
+
+</blockquote>
+<a name="bindingkeystrokes">
+<h3>Associating Text Actions with Key Strokes</h3>
+</a> 
+<blockquote> 
+
+In addition to associating an action with a GUI component,
+you can also associate an action with a key stroke,
+using a text component's input map.
+Input maps are described in
+<a target="_top" href="../misc/keybinding.html">How to Use Key Bindings</a><a target="_top" href="../misc/keybinding.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.
+
+<p>
+The text pane in the <code>TextComponentDemo</code>
+supports four key bindings not provided by default.
+
+<ul>
+<li> <code>CTRL-B</code> for moving the caret backward one character
+<li> <code>CTRL-F</code> for moving the caret forward one character
+<li> <code>CTRL-N</code> for moving the caret down one line
+<li> <code>CTRL-P</code> for moving the caret up one line
+</ul>
+
+The following code 
+adds the <code>CTRL-B</code> key binding
+to the text pane.
+The code for adding the other three is similar.
+
+<blockquote><pre>
+InputMap inputMap = textPane.getInputMap();
+
+KeyStroke key = KeyStroke.getKeyStroke(KeyEvent.VK_B,
+                                       Event.CTRL_MASK);
+inputMap.put(key, DefaultEditorKit.backwardAction);
+</pre></blockquote>
+
+<p>
+The code starts off by getting the text component's input map.
+Next, it gets a
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/KeyStroke.html"><font color="#8800bb"><code>KeyStroke</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/KeyStroke.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> object representing the
+<code>CTRL-B</code> key sequence.
+Finally, the code binds the key stroke 
+to the <code>Action</code> 
+that moves the cursor backward.
+
+<blockquote><hr><strong>Version note:</strong>&nbsp;Before 1.3, you needed to use a
+<code>JTextComponent</code> feature called a <em>keymap</em>
+to associate key strokes with actions.
+The keymap API still exists and works,
+but it is now implemented in terms of the key binding
+infrastructure added in 1.3.
+Here's the pre-1.3 equivalent of the preceding code:
+
+<blockquote><pre>
+//PRE-1.3 CODE
+Keymap keymap = textPane.addKeymap("MyEmacsBindings",
+				   textPane.getKeymap());
+
+Action action = getActionByName(DefaultEditorKit.backwardAction);
+KeyStroke key = KeyStroke.getKeyStroke(KeyEvent.VK_B,
+                                       Event.CTRL_MASK);
+keymap.addActionForKeyStroke(key, action);
+...
+textPane.setKeymap(keymap);
+</pre></blockquote>
+<hr></blockquote>
+
+
+</blockquote>
+<a name="undo">
+<h3>Implementing Undo and Redo</h3>
+</a> 
+<blockquote> 
+
+Implementing undo and redo has two parts:
+<ul>
+<li> <a href="#undoableedits">Remembering undoable edits</a>.
+<li> <a href="#undoredoactions">Implementing the undo and redo commands</a>
+     and providing a user interface for them.
+</ul>
+
+<p>
+<a name="undoableedits">
+<strong>Part 1: Remembering Undoable Edits</strong>
+</a>
+<br>
+To support undo and redo, a text component must remember
+each edit that occurs,
+the order of edits,
+and what it takes to undo each edit.
+The example program uses 
+an instance of the
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/undo/UndoManager.html"><font color="#8800bb"><code>UndoManager</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/undo/UndoManager.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> class
+to manage its list of undoable edits.
+The undo manager is created 
+where the member variables are declared:
+<blockquote><pre>
+protected UndoManager undo = new UndoManager();
+</pre></blockquote>
+Now, let's look at how the program finds out about
+undoable edits and adds them to the undo manager.
+<p>
+A document notifies interested listeners
+whenever an undoable edit occurs on its content.
+An important step in implementing
+undo and redo is to register an undoable edit listener on the
+document of the text component.
+The following code adds an instance of <code>MyUndoableEditListener</code>
+to the text pane's document:
+<blockquote><pre>
+lsd.addUndoableEditListener(new MyUndoableEditListener());
+</pre></blockquote>
+The undoable edit listener used in our example
+adds the edit to the undo manager's list:
+<blockquote><pre>
+protected class MyUndoableEditListener
+          implements UndoableEditListener
+{
+    public void undoableEditHappened(UndoableEditEvent e) {
+        //Remember the edit and update the menus
+        undo.addEdit(e.getEdit());
+        undoAction.updateUndoState();
+        redoAction.updateRedoState();
+    }
+}  
+</pre></blockquote>
+Note that this method updates two objects:
+<code>undoAction</code> and <code>redoAction</code>.
+These are the action objects attached to the <strong>Undo</strong>
+and <strong>Redo</strong> menu items, respectively.
+The next step shows you how the menu items are created
+and the implementation of the two actions.
+For general information about undoable edit listeners
+and undoable edit events,
+see
+<a href="../events/undoableeditlistener.html">
+How to Write an Undoable Edit Listener</a>.
+
+
+<blockquote><hr><strong>Note:</strong>&nbsp;By default, undoable edits can be
+as fine-grained as single key presses.
+It is possible, with some effort,
+to group edits so that (for example)
+a series of key presses is combined
+into one undoable edit.
+The implementation would require
+defining a class
+that intercepts undoable edit events
+from the document, 
+combining them if appropriate
+and forwarding the results to your undoable edit listener.
+<hr></blockquote>
+
+
+<p>
+<a name="undoredoactions">
+<strong>Part 2: Implementing the Undo and Redo Commands</strong>
+</a>
+<br>
+The first step in this part of implementing undo and redo is
+to create the actions to put in the <strong>Edit</strong> menu.
+<blockquote><pre>
+JMenu menu = new JMenu("Edit");
+
+//Undo and redo are actions of our own creation
+undoAction = new UndoAction();
+menu.add(undoAction);
+
+redoAction = new RedoAction();
+menu.add(redoAction);
+...
+</pre></blockquote>
+The undo and redo actions are implemented by
+custom <code>AbstractAction</code> subclasses:
+<code>UndoAction</code> and <code>RedoAction</code>, respectively.
+These classes are inner classes of the example's primary class.
+<p>
+When the user invokes the <strong>Undo</strong> command,
+<code>UndoAction</code>'s <code>actionPerformed</code> method,
+shown here, gets called:
+<blockquote><pre>
+public void actionPerformed(ActionEvent e) {
+    try {
+        undo.undo();
+    } catch (CannotUndoException ex) {
+        System.out.println("Unable to undo: " + ex);
+        ex.printStackTrace();
+    }
+    updateUndoState();
+    redoAction.updateRedoState();
+}
+</pre></blockquote>
+This method calls the undo manager's <code>undo</code>
+method and updates the menu items to reflect the new undo/redo state.
+<p>
+Similarly, when the user invokes the <strong>Redo</strong> command,
+the <code>actionPerformed</code> method in <code>RedoAction</code>
+gets called:
+<blockquote><pre>
+public void actionPerformed(ActionEvent e) {
+    try {
+        undo.redo();
+    } catch (CannotRedoException ex) {
+        System.out.println("Unable to redo: " + ex);
+        ex.printStackTrace();
+    }
+    updateRedoState();
+    undoAction.updateUndoState();
+}
+</pre></blockquote>
+This method is similar except that it calls
+the undo manager's <code>redo</code> method.
+<p>
+Much of the code in the <code>UndoAction</code>
+and <code>RedoAction</code> classes is dedicated to
+enabling and disabling the actions as appropriate for
+the current state, and changing the names of the menu
+items to reflect the edit to be undone or redone.
+
+<blockquote><hr><strong>Note:</strong>&nbsp;
+The implementation of undo and redo in <code>TextComponentDemo</code>
+was taken from the <code>NotePad</code> demo that comes with the 
+Java 2 SDK.
+Many programmers will also be able to copy this implementation of
+undo/redo without modification.
+<hr></blockquote>
+
+
+</blockquote>
+<a name="document">
+<h3>Concepts: About Documents</h3>
+</a>
+<blockquote>
+Like other Swing components, 
+a text component separates its data (known as the
+<em>model</em>) from its view of the data.
+If you are not yet familiar with the model-view split
+used by Swing components,
+refer to
+<a href="model.html">
+Using Models</a>.
+<p>
+A text component's model is known as
+a <em>document</em>
+and is an instance of a class that implements the
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/Document.html"><font color="#8800bb"><code>Document</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/Document.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> interface.
+A document provides these services for a text component:
+<ul>
+<li> Contains the text. A document stores the textual
+     content in <code>Element</code> objects,
+     which can represent any logical text structure,
+     such as paragraphs, text runs that share styles, and so on.
+     We do not cover <code>Element</code>s.
+     However,
+<a target="_blank" href="http://java.sun.com/products/jfc/tsc/index.html"><font color="#009bbb"><em>The Swing Connection</em></font></a><a target="_blank" href="http://java.sun.com/products/jfc/tsc/index.html"><img src="../../images/otherIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (outside of the tutorial)"></a>     has at least
+     one article on the subject.
+<li> Provides support for editing the text through
+     the <code>remove</code> and <code>insertString</code> methods.
+<li> Notifies document listeners
+     and undoable edit listeners of changes to the text.
+<li> Manages <code>Position</code> objects,
+     which track a particular location within the text
+     even as the text is modified.
+<li> Allows you to get information about the text, such as its length,
+     and segments of the text as a string.
+</ul>
+
+The Swing text package contains
+a subinterface of <code>Document</code>,
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/StyledDocument.html"><font color="#8800bb"><code>StyledDocument</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/StyledDocument.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>, that adds support for marking up the text with styles.
+One <code>JTextComponent</code> subclass,
+<code>JTextPane</code>,
+requires that its document be a <code>StyledDocument</code>
+rather than merely a <code>Document</code>.
+<p>
+The <code>javax.swing.text</code> package provides
+the following hierarchy of document classes,
+which implement specialized documents for the
+various <code>JTextComponent</code> subclasses:
+
+<p><center><IMG SRC="../../figures/uiswing/components/10model.gif" WIDTH="444" HEIGHT="187" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="The hierarchy of document classes that javax.swing.text provides."></center></p>
+A <code>PlainDocument</code> is the default
+document for text fields, password fields, and text areas.
+<code>PlainDocument</code> provides a basic container for text
+where all the text is displayed in the same font.
+Even though an editor pane is a styled text component,
+it uses an instance of <code>PlainDocument</code> by default.
+The default document for a
+standard <code>JTextPane</code> in an instance of
+<code>DefaultStyledDocument</code> &#151;
+a container
+for styled text in no particular format.
+However,
+the document instance used by any particular editor pane
+or text pane depends on the type of content bound to it.
+If you use <code>setPage</code>
+to load text into an editor pane or text pane,
+the document instance used by the pane might change.
+Refer to
+<a href="editorpane.html">How to Use Editor Panes and Text Panes</a>
+for details.
+
+<p>
+Although you can set the document of a text component,
+it's usually easier to let it be set automatically,
+and use a 
+<em>document filter</em>
+ if necessary
+to change how the text component's data is set.
+You can implement certain customizations
+either by installing a document filter
+or by replacing a text component's document
+with one of your own,
+For example,
+the text pane in <code>TextComponentDemo</code>
+has a document filter that
+limits the number of characters the text pane can contain.
+</blockquote>
+
+<a name="filter">
+<h3>Implementing a Document Filter</h3>
+</a>
+<blockquote>
+
+To implement a document filter,
+you create a subclass of 
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/DocumentFilter.html"><font color="#8800bb"><code>DocumentFilter</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/DocumentFilter.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> and then attach it to a document using the
+<code>setFilter</code> method defined in
+<code>AbstractDocument</code>.
+Although it's possible to have
+documents that don't descend from <code>AbstractDocument</code>,
+by default Swing text components use
+<code>AbstractDocument</code> subclasses for their documents.
+
+<p>
+The <code>TextComponentDemo</code> application has a document filter,
+<a target="_blank" href="example-1dot4/DocumentSizeFilter.java"><font color="#bb000f"><code>DocumentSizeFilter</code></font></a><a target="_blank" href="example-1dot4/DocumentSizeFilter.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>,
+that limits the number of characters that the text pane can contain.
+Here's the code 
+that creates the filter
+and attaches it to the text pane's document:
+
+<blockquote><pre>
+<em>...//Where member variables are declared:</em>
+JTextPane textPane;
+AbstractDocument doc;
+static final int MAX_CHARACTERS = 300;
+...
+textPane = new JTextPane();
+...
+StyledDocument styledDoc = textPane.getStyledDocument();
+if (styledDoc instanceof AbstractDocument) {
+    doc = (AbstractDocument)styledDoc;
+    doc.setDocumentFilter(new DocumentSizeFilter(MAX_CHARACTERS));
+} 
+</pre></blockquote>
+
+To limit the characters allowed in the document,
+<code>DocumentSizeFilter</code> overrides <code>DocumentFilter</code>'s
+<code>insertString</code> method, which
+is called each time text is inserted into the document.
+It also overrides the <code>replace</code> method,
+which is most likely to be called when the user changes text
+by pasting it in.
+In general, text insertion can be the result of
+the user typing or pasting text in,
+or because of a call to <code>setText</code>.
+Here is <code>DocumentSizeFilter</code>'s
+implementation of <code>insertString</code>:
+
+<blockquote><pre>
+public void insertString(FilterBypass fb, int offs,
+                         String str, AttributeSet a)
+    throws BadLocationException {
+
+    if ((fb.getDocument().getLength() + str.length()) <= maxCharacters)
+        super.insertString(fb, offs, str, a);
+    else
+        Toolkit.getDefaultToolkit().beep();
+}
+</pre></blockquote>
+
+<p>
+The code for <code>replace</code> 
+is similar. 
+The
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/DocumentFilter.FilterBypass.html"><font color="#8800bb"><code>FilterBypass</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/DocumentFilter.FilterBypass.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> parameter to the methods defined by <code>DocumentFilter</code>
+is simply an object that enables updating the document
+in a thread-safe way.
+
+<p>
+Because the preceding document filter
+is only concerned about additions to the document's data,
+it only overrides the <code>insertString</code>
+and <code>replace</code> methods.
+Most document filters would override 
+<code>DocumentFilter</code>'s <code>remove</code> method, as well.
+
+
+</blockquote>
+<a name="doclisteners">
+<h3>Listening for Changes on a Document</h3>
+</a>
+<blockquote>
+
+You can register two different types of listeners on
+a document: document listeners and undoable edit listeners.
+This subsection covers document listeners.
+For information about undoable edit listeners,
+refer to 
+<a href="#undo">Implementing Undo and Redo</a>.
+
+<p>
+A document notifies registered document listeners
+of changes to the document.
+Use a document listener to react
+when text is inserted or removed from a document,
+or when the style of some of the text changes.
+
+<p>
+The <code>TextComponentDemo</code> program uses a document
+listener to update the change log whenever a change is made
+to the text pane. The following line of code registers an instance of
+<code>MyDocumentListener</code> as a listener on the
+text pane's document:
+
+<blockquote><pre>
+doc.addDocumentListener(new MyDocumentListener());
+</pre></blockquote>
+
+Here's the implementation of <code>MyDocumentListener</code>:
+
+<blockquote><pre>
+protected class MyDocumentListener implements DocumentListener {
+    public void insertUpdate(DocumentEvent e) {
+        displayEditInfo(e);
+    }
+    public void removeUpdate(DocumentEvent e) {
+        displayEditInfo(e);
+    }
+    public void changedUpdate(DocumentEvent e) {
+        displayEditInfo(e);
+    }
+    private void displayEditInfo(DocumentEvent e) {
+            Document document = (Document)e.getDocument();
+            int changeLength = e.getLength();
+            changeLog.append(e.getType().toString() + ": "
+                + changeLength + " character"
+                + ((changeLength == 1) ? ". " : "s. ")
+                + " Text length = " + document.getLength()
+                + "." + newline);
+    }
+} 
+</pre></blockquote>
+
+The listener implements three methods for handling
+three different types of document events:
+insertion, removal, and style changes.
+<code>StyledDocument</code>s can fire all three types of events.
+<code>PlainDocument</code>s fire events only for insertion and removal.
+For general information about document listeners
+and document events,
+see
+<a href="../events/documentlistener.html">
+How to Write a Document Listener</a>.
+
+<p>
+<a name="dontdothis"></a>
+Remember that the document filter for this text pane limits
+the number of characters allowed in the document.
+If you try to add more text than the document filter allows,
+the document filter blocks the change and the listener's
+<code>insertUpdate</code> method is not called.
+Document listeners are notified of changes only if
+the change has already occurred.
+
+<p>
+Sometimes, you might be tempted to change the
+document's text from within a document listener.
+<strong> 
+However, you should never modify the contents of
+a text component from within a document listener.
+</strong>
+In fact, if you do, your program will likely deadlock!
+Instead, you can use a formatted text field
+or provide a document filter.
+
+
+</blockquote>
+<a name="caret">
+<h3>Listening for Caret and Selection Changes</h3>
+</a> 
+<blockquote> 
+The <code>TextComponentDemo</code> program uses
+a caret listener to display
+the current position of the caret or,
+if text is selected,
+the extent of the selection.
+<p>
+The caret listener class in this example is a <code>JLabel</code> subclass.
+Here's the code that creates the caret listener label
+and makes it a caret listener of the text pane:
+
+<blockquote><pre>
+//Create the status area
+CaretListenerLabel caretListenerLabel = new CaretListenerLabel(
+						"Caret Status");
+...
+textPane.addCaretListener(caretListenerLabel);
+</pre></blockquote>
+
+A caret listener must implement one method, <code>caretUpdate</code>,
+which is called each time the caret moves or the selection changes.
+Here's the <code>CaretListenerLabel</code>
+implementation of <code>caretUpdate</code>:
+<blockquote><pre>
+public void caretUpdate(CaretEvent e) {
+    //Get the location in the text
+    int dot = e.getDot();
+    int mark = e.getMark();
+    if (dot == mark) {  // no selection
+        try {
+            Rectangle caretCoords = textPane.modelToView(dot);
+            //Convert it to view coordinates
+            setText("caret: text position: " + dot +
+                    ", view location = [" +
+                    caretCoords.x + ", " + caretCoords.y + "]" +
+                    newline);
+        } catch (BadLocationException ble) {
+            setText("caret: text position: " + dot + newline);
+        }
+     } else if (dot < mark) {
+        setText("selection from: " + dot + " to " + mark + newline);
+     } else {
+        setText("selection from: " + mark + " to " + dot + newline);
+     }
+}
+
+</pre></blockquote>
+
+As you can see, this listener updates its text label
+to reflect the current state of the caret or selection.
+The listener gets the information to display from the
+caret event object.
+For general information about caret listeners
+and caret events,
+see
+<a href="../events/caretlistener.html">
+How to Write a Caret Listener</a>.
+
+<p>
+As with document listeners, a caret listener is passive.
+It reacts to changes in the caret or in the selection but
+does not change the caret or the selection.
+If you want to change the caret or selection,
+then you should use a <em>navigation filter</em>
+or a custom caret instead.
+
+<p>
+Implementing a navigation filter is similar to 
+implementing a document filter.
+First, you write a subclass of
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/NavigationFilter.html"><font color="#8800bb"><code>NavigationFilter</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/NavigationFilter.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>. You then attach an instance of it to a text component with the
+<code>setNavigationFilter</code> method.
+
+<p>
+You might create a custom caret
+to customize the appearance of a caret.
+To create a caret,
+write a class that implements the
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/Caret.html"><font color="#8800bb"><code>Caret</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/Caret.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> interface &#151;
+perhaps by extending the
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/DefaultCaret.html"><font color="#8800bb"><code>DefaultCaret</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/DefaultCaret.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> class.
+Then provide an instance of your class as an argument
+to <code>setCaret</code> on a text component.
+
+</blockquote>
+<a name="editorkits">
+<h3>Concepts: About Editor Kits</h3>
+</a>
+<blockquote>
+<p>
+Under the hood,
+text components use an <code>EditorKit</code>
+to tie the various pieces of the text component together.
+It provides the view factory, document, caret, and actions.
+An editor kit also reads and writes documents of
+a particular format.
+Although all text components use editor kits,
+some components hide theirs.
+You can't set or get the editor kit used by
+a text field or text area.
+Editor panes and text panes provide the
+<code>getEditorKit</code> method to get the current editor kit
+and the <code>setEditorKit</code> method to change it.
+
+<p>
+For all components,
+<code>JTextComponent</code> provides
+API for you to indirectly invoke
+or customize some editor kit capabilities.
+For example, <code>JTextComponent</code> provides
+<code>read</code> and <code>write</code> methods,
+which invoke the editor kit's <code>read</code> and
+<code>write</code> methods.
+<code>JTextComponent</code> also provides
+a method, <code>getActions</code>,
+which returns all of the actions supported by a component.
+<p>
+The Swing text package provides these editor kits:
+<dl>
+<dt>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/DefaultEditorKit.html"><font color="#8800bb"><code>DefaultEditorKit</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/DefaultEditorKit.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a><dd> Reads and writes plain text,
+     and provides a basic set of editing commands.
+     Details of how the text system treats newlines
+     are in the <code>DefaultEditorKit</code> API documentation.
+     (To summarize: The '\n' character is used internally,
+     but the document or platform line separators are used
+     when writing files.)
+     All the other editor kits are descendants of 
+     <code>DefaultEditorKit</code>.
+
+<dt>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/StyledEditorKit.html"><font color="#8800bb"><code>StyledEditorKit</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/StyledEditorKit.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a><dd> Reads and writes styled text, and
+     provides a minimal set of actions for styled text.
+     This class is a subclass of <code>DefaultEditorKit</code>
+     and is the editor kit used by <code>JTextPane</code>
+     by default.
+
+<dt>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/html/HTMLEditorKit.html"><font color="#8800bb"><code>HTMLEditorKit</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/html/HTMLEditorKit.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a><dd>Reads, writes, and edits HTML. This is a subclass of
+    <code>StyledEditorKit</code>.
+
+<dt> <code>RTFEditorKit</code>
+<dd>Reads, writes, and edits RTF. This is a subclass of
+    <code>StyledEditorKit</code>.
+
+</dl>
+
+Each of the editor kits above has been registered
+with the <code>JEditorPane</code>
+class and associated with the text format
+that the kit reads, writes, and edits.
+When a file is loaded into an editor pane,
+the pane checks the format of the file against its
+registered kits.
+If a registered kit is found that supports
+that file format, the pane uses the kit to read the
+file, display, and edit it.
+Thus, the editor pane effectively transforms
+itself into an editor for that text format.
+You can extend <code>JEditorPane</code>
+to support your own text format by creating
+an editor kit for it, and then using
+<code>JEditorPane</code>'s <code>registerEditorKitForContentType</code>
+to associate your kit with your text format.
+
+</blockquote>
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="text.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#components" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="textapi.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

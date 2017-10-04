@@ -1,0 +1,171 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Setting Field Values</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="get.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#object" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="invoke.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: The Reflection API
+<br>
+<b>Lesson</b>: Manipulating Objects
+</font>
+
+<h2>
+Setting Field Values
+</h2>
+<blockquote>
+Some debuggers allow  users to change field values during a debugging 
+session.  
+If you are writing a tool that has this capability, you must call 
+one of the 
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/reflect/Field.html"><font color="#8800bb"><code>Field</code> </font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/reflect/Field.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>class's <code>set</code> methods. To modify the value of a field, perform the 
+following steps:
+
+<ol>
+<li>
+Create a <code>Class</code> object.  
+For more information, see the section
+<a href="../class/getClass.html">Retrieving Class Objects</a>.
+<li>
+Create a <code>Field</code> object by invoking <code>getField</code> on the <code>Class</code> object.  
+The section
+<a href="../class/getFields.html">Identifying Class Fields</a>
+shows you how.
+<li>
+Invoke the appropriate <code>set</code> method on the <code>Field</code> object.
+</ol>
+
+<p>
+The <code>Field</code> class provides several <code>set</code> methods.  Specialized methods, such as 
+<code>setBoolean</code> and <code>setInt</code>, are for modifying primitive types. If the field you 
+want to change is an object invoke the <code>set</code> method.  You can call <code>set</code> to 
+modify a primitive type, but you must use the appropriate wrapper object for 
+the value parameter.
+
+<p>
+The sample program that follows
+modifies the <code>width</code> field of a <code>Rectangle</code> object 
+by invoking the <code>set</code> method. 
+Since the <code>width</code> is a primitive type, an <code>int</code>, the value passed by <code>set</code> is an 
+<code>Integer</code>, which is an object wrapper.
+
+
+
+<blockquote><pre>
+import java.lang.reflect.*;
+import java.awt.*;
+
+class SampleSet {
+
+   public static void main(String[] args) {
+      Rectangle r = new Rectangle(100, 20);
+      System.out.println("original: " + r.toString());
+      modifyWidth(r, new Integer(300));
+      System.out.println("modified: " + r.toString());
+   }
+
+   static void modifyWidth(Rectangle r, Integer widthParam ) {
+      Field widthField;
+      Integer widthValue;
+      Class c = r.getClass();
+      try {
+        widthField = c.getField("width");
+        widthField.set(r, widthParam);
+      } catch (NoSuchFieldException e) {
+          System.out.println(e);
+      } catch (IllegalAccessException e) {
+          System.out.println(e);
+      }
+   }
+}
+</pre></blockquote>
+
+The output of the sample program verifies that the <code>width</code> 
+changed from 100 to 300:
+
+<blockquote><pre>
+original: java.awt.Rectangle[x=0,y=0,width=100,height=20]
+modified: java.awt.Rectangle[x=0,y=0,width=300,height=20]
+</pre></blockquote>
+
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="get.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#object" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="invoke.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

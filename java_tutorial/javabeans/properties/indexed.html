@@ -1,0 +1,269 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Indexed Properties</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="constrained.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#properties" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="../events/index.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: JavaBeans(TM)
+<br>
+<b>Lesson</b>: Properties
+</font>
+
+<h2>
+Indexed Properties
+</h2>
+<blockquote>
+<blockquote>
+<hr>
+<p>
+To get the most out of this section, read the following
+documentation:
+<ul>
+  <li>Section 7.2 of the 
+<a target="_blank" href="http://java.sun.com/beans/spec.html"><font color="#009bbb">JavaBeans API Specification</font></a><a target="_blank" href="http://java.sun.com/beans/spec.html"><img src="../../images/otherIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (outside of the tutorial)"></a>  <li>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/IndexedPropertyDescriptor.html"><font color="#8800bb"><code>IndexedPropertyDescriptor</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/IndexedPropertyDescriptor.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>      class
+  <li>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/PropertyEditor.html"><font color="#8800bb"><code>PropertyEditor</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/PropertyEditor.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>      interface
+  <li>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/PropertyEditorSupport.html"><font color="#8800bb"><code>PropertyEditorSupport</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/PropertyEditorSupport.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>      class
+</ul>
+<hr></blockquote>
+
+<p>
+Indexed properties represent collections of values
+accessed, like an array, by index. The indexed property
+design patterns are
+<blockquote><pre>
+//Methods to access the entire indexed property array
+public &lt;PropertyType&gt;[] get&lt;PropertyName&gt;();
+public void set&lt;PropertyName&gt;(&lt;PropertyType&gt;[] value);
+
+//Methods to access individual values
+public &lt;PropertyType&gt; get&lt;PropertyName&gt;(int index);
+public void set&lt;PropertyName&gt;(int index, &lt;PropertyType&gt; value);
+</pre></blockquote>
+
+Conforming to these patterns lets builder tools know
+that your Bean contains an indexed property.
+
+<p>
+The <code>OurListBox</code> demo Bean illustrates how
+to use an indexed property.
+<code>OurListBox</code> extends the
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/List.html"><font color="#8800bb"><code>List</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/List.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>      class
+to provide a
+Bean that presents the user with a list of choices: Choices
+that you can provide and change at design time. Here's
+an illustration of an <code>OurListBox</code> instance:
+
+<p><center><IMG SRC="../../figures/javabeans/OurListBoxNoPropSheet.gif" WIDTH="275" HEIGHT="192" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p>
+<code>OurListBox</code> exposes the <code>item</code>
+indexed property with the following accessor methods:
+<blockquote><pre>
+public void setItems(String[] indexprop) {
+    String[] oldValue=fieldIndexprop;
+    fieldIndexprop=indexprop;
+    populateListBox();
+    support.firePropertyChange("items",oldValue, indexprop);
+}
+
+public void setItems(int index, String indexprop) {
+    String[] oldValue=fieldIndexprop;
+    fieldIndexprop[index]=indexprop;
+    populateListBox();
+    support.firePropertyChange("Items",oldValue, fieldIndexprop);
+}
+ 
+public String[] getItems() {
+    return fieldIndexprop;
+}
+    
+public String getItems(int index) {
+    return getItems()[index];
+}
+</pre></blockquote>
+
+<p>
+When an item is set by one of the <code>setItems()</code> methods,
+<code>OurListBox</code> is populated with the contents of a
+<code>String</code> array.
+
+<p>
+Indexed properties are almost as easily
+exposed to builder tools as simple properties. Writing an indexed property
+editor, though, requires writing a custom property editor. 
+
+</blockquote>
+<h3>Indexed Property Editors</h3>
+<blockquote>
+<p>
+The <code> OurListBox</code> demo Bean provides
+an associated <code>IndexPropertyEditor</code> which is a
+good example of how to implement an indexed property editor.
+The following illustration shows an <code>OurListBox</code>
+instance in the BeanBox, the Properties sheet which contains
+an entry for the indexed property <code>items</code>, and
+the <code>IndexPropertyEditor</code> which pops up when
+the <code>items</code> property entry is clicked:
+
+<p><center><a href="../../figures/javabeans/OurListBoxWithEditor.gif" target="_top"><IMG SRC="../../figures/javabeans/OurListBoxWithEditor.gif" WIDTH="460" HEIGHT="377" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></a><br><em>This figure has been reduced to fit on the page. <br> Click the image to view it at its natural size.</em></center></p>
+<p>
+Implementing <code>IndexPropertyEditor</code>
+is the same as implementing any
+<a href="../customization/index.html">custom property editor</a>:
+
+<ol>
+  <li><b>Implement the <code>PropertyEditor</code> interface</b>:
+<blockquote><pre>
+public class IndexPropertyEditor extends Panel
+       implements PropertyEditor, ActionListener {
+</pre></blockquote>
+      You can use the <code>PropertyEditorSupport</code> class,
+      either by subclassing or as an inner class.
+  <li><b>Denote the custom editor in a related <code>BeanInfo</code> class</b>.
+      <code>OurListBox</code> has a related
+      <code>OurListBoxBeanInfo</code> class that contains
+      the following code:
+<blockquote><pre>
+itemsprop.setPropertyEditorClass(
+    IndexPropertyEditor.class);
+</pre></blockquote>
+      <p>
+   <li><b>Make the property editor a source for bound property events</b>.
+       The property editor will register property listeners,
+       and fire property change events at those listeners. This is
+       how the property changes are propagated back to the Bean
+       (via the property sheet). So <code>IndexPropertyEditor</code>
+       instantiates an inner <code>PropertyChangeSupport</code> class:
+<blockquote><pre>
+private PropertyChangeSupport support =
+           new PropertyChangeSupport(this);
+</pre></blockquote>
+       Provides the ability for objects to register their
+       interest in being notified when a property is edited:
+<blockquote><pre>
+public void addPropertyChangeListener(
+                PropertyChangeListener l)
+{
+    support.addPropertyChangeListener(l);
+}
+
+public void removePropertyChangeListener(
+                PropertyChangeListener l)
+{
+    support.removePropertyChangeListener(l);
+}
+</pre></blockquote>
+       And fires property change events at those listeners:
+<blockquote><pre>
+public void actionPerformed(ActionEvent evt) {
+    if (evt.getSource() == addButton) {
+        listBox.addItem(textBox.getText());
+        textBox.setText("");
+        support.firePropertyChange("", null, null);
+    } else if (evt.getSource()== textBox) {
+        listBox.addItem(textBox.getText());
+        textBox.setText("");
+        support.firePropertyChange("",null,null);
+    }
+    ...
+}
+</pre></blockquote>
+</ol>
+
+<p>
+<code>IndexPropertyEditor</code> maintains <code>listbox</code>
+as a proxy for <code>OurListBox</code>. When a change is made to
+<code>listbox</code>, a property change event is fired to all
+listeners.
+
+<p>
+When the Properties sheet, which is registered as an
+<code>IndexPropertyEditor</code> listener, receives a
+property change event from <code>IndexPropertyEditor</code>,
+the Properties sheet calls
+<code>IndexPropertyEditor.getValue</code> to
+retrieve the new or changed items and update
+the Bean.
+</blockquote>
+<p>
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="constrained.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#properties" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="../events/index.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

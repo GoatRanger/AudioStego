@@ -1,0 +1,360 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Bean Customization</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="../beaninfo/index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#customization" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="../persistence/index.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+
+<br>
+<font size="-1">
+<b>Trail</b>: JavaBeans(TM)
+</font>
+
+<h2>
+Lesson: Bean Customization
+</h2>
+<blockquote>
+<p>
+<blockquote>
+<hr>
+To prepare yourself for learning about property
+editors and customizers, read
+the following documentation:
+<ul>
+  <li>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/PropertyEditor.html"><font color="#8800bb"><code>PropertyEditor</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/PropertyEditor.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>      interface
+  <li>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/PropertyEditorSupport.html"><font color="#8800bb"><code>PropertyEditorSupport</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/PropertyEditorSupport.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>       class
+  <li>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/PropertyEditorManager.html"><font color="#8800bb"><code>PropertyEditorManager</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/PropertyEditorManager.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>       class
+  <li>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/Customizer.html"><font color="#8800bb"><code>Customizer</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/Customizer.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>       interface
+  <li>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/BeanInfo.html"><font color="#8800bb"><code>BeanInfo</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/BeanInfo.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>       interface
+</ul>
+<hr></blockquote>
+
+<p>
+A Bean's appearance and behavior can be customized at
+design time within Beans-compliant builder tools.
+Typically there are two ways to customize a Bean:
+<ul>
+  <li>By using a <i>property editor</i>.
+      Each Bean property has its own property editor. 
+      A builder tool usually displays a Bean's property
+      editors in a <i>property sheet</i>.
+      A property editor is associated
+      with, and edits a particular property type.
+  <li>By using <i>customizers</i>. 
+      Customizers give you complete GUI control over Bean
+      customization. Customizers are used where property
+      editors are not practical or applicable.
+      Unlike a property editor, which is associated with a property,
+      a customizer is associated with a Bean.
+</ul>
+
+</blockquote>
+<h3>Property Editors</h3>
+<p>
+A property editor is a tool for customizing a particular
+property <i>type</i>. Property editors are displayed in, or activated
+from property sheets. A property sheet will determine
+a property's type, search for a relevant
+property editor, and display the property's current
+value in a relevant way.
+<p>
+Property editors must implement the <code>PropertyEditor</code>
+interface. <code>PropertyEditor</code> provides methods that specify
+how a property should be displayed in a property sheet.
+<p>
+Here is the BeanBox's Properties sheet containing
+<code>OurButton</code> properties:
+
+<p><center><IMG SRC="../../figures/javabeans/OurButtonProperties.gif" WIDTH="232" HEIGHT="279" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p>
+You begin the process of editing these properties
+by clicking on the property entry in the sheet.
+<ul>
+  <li>The <code>label</code> and
+      <code>fontSize</code> properties are displayed
+      in an editable text box. Changes can be made in place.
+
+  <li>The <code>largeFont</code> and <code>debug</code>
+      properties are selection boxes with discrete choices.
+
+  <li>Clicking on the <code>foreground</code>, <code>background</code>,
+      and <code>font</code> entries brings up separate panels.
+</ul>
+How each of these is displayed depends on which
+<code>PropertyEditor</code> methods you implement
+to return non-null (or equivalent) values.
+
+
+<p>
+For example, the <code>int</code> property
+editor implements the <code>setAsText</code> method.
+This indicates to the property sheet that the
+property can be displayed as a <code>String</code>,
+hence an editable text box will be used.
+<p>
+The <code>Color</code> and <code>Font</code> property editors
+use a separate panel, and merely use the property sheet to display
+the current property value. The editor is displayed by clicking
+on that value.
+
+To display the current property value "sample" within
+the property sheet you need to override <code>isPaintable</code>
+to return <code>true</code>, and override <code>paintValue</code>
+to paint the current property value in a rectangle in the property sheet.
+Here's how <code>ColorEditor</code> implements
+<code>paintValue</code>:
+<blockquote><pre>
+public void paintValue(java.awt.Graphics gfx, java.awt.Rectangle box) {
+    Color oldColor = gfx.getColor();
+    gfx.setColor(Color.black);
+    gfx.drawRect(box.x, box.y, box.width-3, box.height-3);
+    gfx.setColor(color);
+    gfx.fillRect(box.x+1, box.y+1, box.width-4, box.height-4);
+    gfx.setColor(oldColor);
+}
+</pre></blockquote>
+To support the custom property editor, you need to override
+two more methods: Override <code>supportsCustomEditor</code> to
+return true, and override <code>getCustomEditor</code> to
+return a custom editor instance.
+<code>ColorEditor.getCustomEditor</code> returns <code>this</code>.
+
+<p>
+Additionally, the <code>PropertyEditorSupport</code>
+class maintains a <code>PropertyChangeListener</code>
+list, and fires property change event notifications
+to those listeners when a bound property is changed.
+
+<h3><a name=findEditor>How Property Editors are Associated with Properties</a></h3>
+<p>
+Property editors are discovered and  associated
+with a given property by
+<ul>
+  <li>Explicit association via a
+      <code>BeanInfo</code> object.
+      The <code>Molecule</code> demo Bean uses this technique.
+      Within the <code>MoleculeBeanInfo</code> class,
+      the <code>Molecule</code>
+      Bean's property editor is set with the following
+      line of code:
+<blockquote><pre>
+pd.setPropertyEditorClass(MoleculeNameEditor.class);
+</pre></blockquote>
+      <p>
+
+  <li>Explicit registration via
+      <code>java.Beans.PropertyEditorManager.registerEditor</code>.
+       This method takes a pair of arguments: The class type, and
+       the editor to be associated with that type.
+      <p>
+
+  <li>Name search. If a class has no explicitly associated property
+      editor, then the <code>PropertyEditorManager</code>
+      searchs for that class's property editor by:
+      <ul>
+      <li>Appending "Editor" to the fully qualified class name.
+          For example, for the <code>java.beans.ComplexNumber</code> class,
+          the property editor manager would search for the
+          <code>java.beans.ComplexNumberEditor</code> class.
+      <li>Appending "Editor" to the class name and searching
+          a class search path. The default class path for the
+          BeanBox is <code>sun.beans.editors</code>.
+      </ul>
+</ul>
+
+<h3>The BDK Property Editors</h3>
+<p>
+The BDK provides property editors for 
+the primitive data types like <code>int</code>,
+<code>boolean</code>, and <code>float</code>, and
+<code>Color</code> and <code>Font</code> class types.
+The source code for these property editors is in
+<code>beans/apis/sun/beans/editors</code>.
+These sources make a good starting point for writing your
+own property editors. Some things to note about
+the BDK property editors:
+<ul>
+ <li>All the "number" properties are represented as
+     <code>String</code> objects.
+     The <code>IntEditor</code> overrides
+     <code>PropertyEditorSupport.setAsText</code>.
+ <li>The <code>boolean</code> property editor is
+     a menu of discrete choices that overrides
+     the <code>PropertyEditorSupport.getTags</code>
+     method to return a <code>String[]</code> containing
+     "True" and "False":
+<blockquote><pre>
+public String[] getTags() {
+    String result[] = { "True", "False" };
+    return result;
+}
+</pre></blockquote>
+ <li>The <code>Color</code> and <code>Font</code> property
+     editors implement <i>custom</i> property editors. Because
+     these objects require a more sophisticated interface
+     to be easily edited a separate component pops up to
+     do the property editing. Overriding
+     <code>supportsCustomEditor</code>
+     to return true signals the property sheet that this
+     property's editor is a custom component. The
+     <code>isPaintable</code>
+     and <code>paintValue</code> methods are also
+     overridden to provide color and font painting in
+     the editors property sheet sample areas.
+</ul>
+
+<p>
+Note that if no property editor is found for a property,
+the BeanBox will not display that property in the 
+Properties sheet. 
+
+
+<h3><a name=customizer>Customizers</a></h3>
+<p>
+When you use a Bean <i>Customizer</i>, you get
+complete control over how to configure or edit
+a Bean. A Customizer is like an application that
+specifically targets a Bean's customization. Sometimes
+properties are insufficient for representing a Bean's
+configurable attributes.
+Customizers are used where sophisticated instructions
+would be needed to change a Bean, and where
+property editors are too primitive to achieve
+Bean customization.
+
+<p>
+All customizers must:
+<ul>
+ <li>Extend <code>java.awt.Component</code> or one of
+     its subclasses.
+ <li>Implement the <code>java.beans.Customizer</code> interface
+     This means implementing methods to register
+     <code>PropertyChangeListener</code> objects, and
+     firing property change events at those listeners when
+     a change to the target Bean has occurred.
+ <li>Implement a default constructor.
+ <li>Associate the customizer with its target class
+     via <code>BeanInfo.getBeanDescriptor</code>.
+</ul>
+
+<p>
+If a Bean that has an associated Customizer is
+dropped into the BeanBox, you will notice a
+"Customize..." item on the Edit menu.
+
+<h3>BDK Customizers</h3>
+
+<p>
+The <code>OurButtonCustomizer</code> serves as an example
+that demonstrates the mechanics of building a customizer.
+<code>OurButtonCustomizer</code>:
+<ul>
+ <li>Extends <code>java.awt.Panel</code> (a <code>Component</code>
+     subclass).
+ <li>Implements the <code>Customizer</code> interface, and
+     uses a <code>PropertyChangeSupport</code> object to
+     manage <code>PropertyChangeListener</code>
+     registration and notification. 
+     See the <a href="../properties/bound.html">bound property</a>
+     section for a <code>PropertyChangeSupport</code> description.
+ <li>Implements a default constructor:
+<blockquote><pre>
+public OurButtonCustomizer() {
+    setLayout(null);
+}
+</pre></blockquote>
+
+ <li>Is associated with its target class, <code>ExplicitButton</code>,
+     by the following <code>ExplicitButtonBeanInfo</code> code: 
+<blockquote><pre>
+public BeanDescriptor getBeanDescriptor() {
+    return new BeanDescriptor(beanClass, customizerClass);
+}
+...
+private final static Class customizerClass =
+                            OurButtonCustomizer.class;
+</pre></blockquote>
+</ul>
+
+<p>
+The <code>BridgeTester</code> and <code>JDBC Select</code>
+demo Beans also have customizers.
+
+<p>
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="../beaninfo/index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#customization" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="../persistence/index.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

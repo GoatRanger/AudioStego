@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res-auto" set:orientation="vertical" set:layout_width="match_parent" set:layout_height="match_parent">
+    <View set:layout_marginTop="@dimen/a57" style="@style/fc" />
+    <dji.pilot.set.view.base.SetGroupView set:orientation="horizontal" set:id="@id/bne" set:visibility="gone" set:title="@string/set_camera" set:sub_Layout="@layout/lp_set_layout_camera" style="@style/fh">
+        <ImageView set:layout_width="UNKNOWN_DATA_0x7f0b04a4" set:layout_height="UNKNOWN_DATA_0x7f0b04a4" set:src="@drawable/set_camera" set:scaleType="center" />
+        <include layout="@layout/set_item_group" />
+    </dji.pilot.set.view.base.SetGroupView>
+    <dji.pilot.set.view.base.SetGroupView set:orientation="horizontal" set:id="@id/bnf" set:visibility="visible" set:title="@string/set_camera" set:sub_Layout="@layout/set_layout_camera" style="@style/fh">
+        <ImageView set:layout_width="UNKNOWN_DATA_0x7f0b04a4" set:layout_height="UNKNOWN_DATA_0x7f0b04a4" set:src="@drawable/set_camera" set:scaleType="center" />
+        <include layout="@layout/set_item_group" />
+    </dji.pilot.set.view.base.SetGroupView>
+    <dji.pilot.set.view.base.SetGroupView set:orientation="horizontal" set:id="@id/bng" set:visibility="visible" set:title="@string/set_gimbal" set:sub_Layout="@layout/set_layout_gimbal" style="@style/fh">
+        <ImageView set:layout_width="UNKNOWN_DATA_0x7f0b04a4" set:layout_height="UNKNOWN_DATA_0x7f0b04a4" set:src="@drawable/set_gimbal" set:scaleType="center" />
+        <include layout="@layout/set_item_group" />
+    </dji.pilot.set.view.base.SetGroupView>
+    <dji.pilot.set.view.base.SetGroupView set:orientation="horizontal" set:id="@id/bnh" set:visibility="gone" set:title="@string/set_gimbal" set:sub_Layout="@layout/lp_set_layout_gimbal" style="@style/fh">
+        <ImageView set:layout_width="UNKNOWN_DATA_0x7f0b04a4" set:layout_height="UNKNOWN_DATA_0x7f0b04a4" set:src="@drawable/set_gimbal" set:scaleType="center" />
+        <include layout="@layout/set_item_group" />
+    </dji.pilot.set.view.base.SetGroupView>
+    <dji.pilot.set.view.base.SetGroupView set:orientation="horizontal" set:id="@id/bni" set:title="@string/set_general" set:sub_Layout="@layout/set_layout_general" style="@style/fh">
+        <ImageView set:layout_width="UNKNOWN_DATA_0x7f0b04a4" set:layout_height="UNKNOWN_DATA_0x7f0b04a4" set:src="@drawable/set_general" set:scaleType="center" />
+        <include layout="@layout/set_item_group" />
+    </dji.pilot.set.view.base.SetGroupView>
+    <dji.pilot.set.view.base.SetGroupView set:orientation="horizontal" set:id="@id/bnj" set:visibility="gone" set:title="@string/set_general" set:sub_Layout="@layout/lp_set_layout_general" style="@style/fh">
+        <ImageView set:layout_width="UNKNOWN_DATA_0x7f0b04a4" set:layout_height="UNKNOWN_DATA_0x7f0b04a4" set:src="@drawable/set_general" set:scaleType="center" />
+        <include layout="@layout/set_item_group" />
+    </dji.pilot.set.view.base.SetGroupView>
+    <dji.pilot.set.view.LiveSetectPlatformView set:orientation="horizontal" set:id="@id/bnk" set:visibility="gone" set:title="@string/lp_live_enter" set:sub_Layout="@layout/lp_live_layout_enter" style="@style/fh">
+        <ImageView set:layout_width="UNKNOWN_DATA_0x7f0b04a4" set:layout_height="UNKNOWN_DATA_0x7f0b04a4" set:src="@drawable/set_livestream" set:scaleType="center" />
+        <include layout="@layout/set_item_group" />
+    </dji.pilot.set.view.LiveSetectPlatformView>
+</LinearLayout>

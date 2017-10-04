@@ -1,0 +1,172 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>What Applets Can and Can't Do</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="containerMethods.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#overview" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="test.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Writing Applets
+<br>
+<b>Lesson</b>: Overview of Applets
+</font>
+
+<h2>
+What Applets Can and Can't Do
+</h2>
+<blockquote>
+This page gives an overview of both the restrictions applets face
+and the special capabilities they have.
+You'll find more details in the
+<a target="_top" href="../practical/security.html">Security Restrictions</a><a target="_top" href="../practical/security.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Writing Applets trail)"></a> lesson.
+
+
+</blockquote>
+<h3>Security Restrictions</h3>
+<blockquote>
+
+Every browser implements security policies 
+to keep applets from compromising system security.
+This section describes the security policies
+that current browsers adhere to.
+However, the implementation of the security policies 
+differs from browser to browser.
+Also, security policies are subject to change.
+For example, if a browser
+is developed for use only in trusted environments,
+then its security policies will likely be
+much more lax than those described here.
+
+<p>
+
+Current browsers impose the following restrictions
+on any applet that is loaded over the network:
+
+<ul>
+<li> An applet cannot load libraries or define native methods.
+<li> It cannot ordinarily read or write files
+     on the host that's executing it.
+<li> It cannot make network connections
+     except to the host that it came from.
+<li> It cannot start any program on the host that's executing it.
+<li> It cannot read certain system properties.
+<li> Windows that an applet brings up
+     look different than windows that an application brings up.
+</ul>
+
+Each browser has a <code>SecurityManager</code> object 
+that implements its security policies.
+When a <code>SecurityManager</code> detects a violation,
+it throws a <code>SecurityException</code>.
+Your applet can catch this <code>SecurityException</code>
+and react appropriately.
+
+
+</blockquote>
+<h3>Applet Capabilities</h3>
+<blockquote>
+
+The <code>java.applet</code> package provides an API
+that gives applets some capabilities
+that applications don't have.
+For example, applets can play sounds, 
+which other programs can't do yet.
+
+<p>
+
+Here are some other things that current browers and other
+applet viewers let applets do:
+<ul>
+<li> Applets can usually make network connections to the host they came from.
+<li> Applets running within a Web browser
+     can easily cause HTML documents to be displayed.
+<li> Applets can invoke public methods
+     of other applets on the same page.
+<li> Applets that are loaded from the local file system
+     (from a directory in the user's <code>CLASSPATH</code>)
+     have none of the restrictions
+     that applets loaded over the network do.
+<li> Although most applets stop running once you leave their page,
+     they don't have to.
+</ul>
+
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="containerMethods.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#overview" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="test.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

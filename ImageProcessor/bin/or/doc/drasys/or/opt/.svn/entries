@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="33"
+   name=""
+   committed-date="2005-02-01T06:11:53.421875Z"
+   url="svn://192.168.2.2/ImageProcessor/src/or/doc/drasys/or/opt"
+   last-author="Karl"
+   kind="dir"
+   uuid="0daf4267-3229-f84b-9084-f3c94b025f38"
+   revision="55"/>
+<entry
+   committed-rev="33"
+   name="OptError.html"
+   text-time="2005-03-02T06:25:28.343750Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="76ef6e29bdd7ee0497cda4089781533e"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:28.000000Z"/>
+<entry
+   committed-rev="33"
+   name="OptException.html"
+   text-time="2005-03-02T06:25:28.359375Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="a35ad3d103256a74cc30c8e6eac432f6"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:28.015625Z"/>
+<entry
+   committed-rev="33"
+   name="package-frame.html"
+   text-time="2005-03-02T06:25:28.375000Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="e8a30a49c476477e3b2b0d839bc20e0c"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:28.031250Z"/>
+<entry
+   committed-rev="33"
+   name="package-summary.html"
+   text-time="2005-03-02T06:25:28.375000Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="9a27ef681b2321016c8f8224c89ec242"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:28.046875Z"/>
+<entry
+   name="lp"
+   kind="dir"/>
+<entry
+   committed-rev="33"
+   name="package-tree.html"
+   text-time="2005-03-02T06:25:28.390625Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="3afcb9981108d6a7536153dd10f9ba8f"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:28.046875Z"/>
+</wc-entries>

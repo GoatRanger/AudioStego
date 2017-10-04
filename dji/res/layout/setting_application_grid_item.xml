@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.publics.DJIUI.DJIRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:paddingTop="@dimen/fj" android:paddingBottom="@dimen/fj" android:layout_width="UNKNOWN_DATA_0x7f0b0133" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/ga">
+    <dji.publics.DJIUI.DJIImageView android:id="@+id/setting_application_image" android:layout_width="UNKNOWN_DATA_0x7f0b012f" android:layout_height="UNKNOWN_DATA_0x7f0b012f" android:src="@r$drawable/flight_record_top_altitude" android:layout_centerHorizontal="true" />
+    <dji.publics.DJIUI.DJITextView android:textSize="@dimen/i_" android:ellipsize="marquee" android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@+id/setting_application_name" android:layout_width="UNKNOWN_DATA_0x7f0b0133" android:layout_height="wrap_content" android:layout_marginTop="@dimen/gw" android:maxLines="1" android:layout_below="@+id/setting_application_image" android:layout_centerHorizontal="true" />
+</dji.publics.DJIUI.DJIRelativeLayout>

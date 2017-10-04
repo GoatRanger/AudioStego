@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.device.camera.view.osd.DJICameraInfoBarLongan xmlns:android="http://schemas.android.com/apk/res-auto" phantom:id="@id/b0q" phantom:layout_width="wrap_content" phantom:layout_height="UNKNOWN_DATA_0x7f0b00ff">
+    <dji.publics.DJIUI.DJILinearLayout phantom:id="@id/b0r" phantom:visibility="visible" phantom:layout_width="wrap_content" phantom:layout_height="UNKNOWN_DATA_0x7f0b0123" phantom:layout_marginLeft="@dimen/gw">
+        <LinearLayout phantom:orientation="horizontal" phantom:background="@drawable/longan_camera_radius_bg" phantom:layout_width="wrap_content" phantom:layout_height="UNKNOWN_DATA_0x7f0b0123">
+            <dji.device.camera.view.focus.LonganFocusExposureSwitchView phantom:id="@id/b0s" phantom:visibility="gone" phantom:layout_width="UNKNOWN_DATA_0x7f0b0123" phantom:layout_height="UNKNOWN_DATA_0x7f0b0123" phantom:src="@drawable/camera_switch_focus" phantom:scaleType="centerInside" phantom:adjustViewBounds="true" phantom:contentDescription="@string/app_name" />
+            <dji.device.camera.view.focus.LonganAfInfiniteSwitcher phantom:id="@id/b0t" phantom:visibility="gone" phantom:layout_width="UNKNOWN_DATA_0x7f0b0123" phantom:layout_height="UNKNOWN_DATA_0x7f0b0123" phantom:layout_marginLeft="@dimen/ga" phantom:layout_marginRight="@dimen/ga" phantom:src="@drawable/ic_focus_af" phantom:scaleType="centerInside" phantom:adjustViewBounds="true" phantom:contentDescription="@string/app_name" />
+        </LinearLayout>
+        <LinearLayout phantom:layout_gravity="left|right|center_horizontal|fill_horizontal|center|fill|start|end" phantom:orientation="horizontal" phantom:id="@id/b0u" phantom:background="@drawable/longan_preview_status_bg" phantom:layout_width="wrap_content" phantom:layout_height="UNKNOWN_DATA_0x7f0b0123" phantom:layout_marginLeft="@dimen/gw" phantom:layout_marginTop="@dimen/gw">
+            <dji.device.camera.view.focus.LonganAMFTextview phantom:textSize="@dimen/rq" phantom:textStyle="bold" phantom:textColor="@color/om" phantom:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" phantom:layout_gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:id="@id/b0v" phantom:paddingLeft="5dp" phantom:paddingRight="5dp" phantom:visibility="gone" phantom:layout_width="wrap_content" phantom:layout_height="UNKNOWN_DATA_0x7f0b011e" phantom:layout_marginLeft="5dp" phantom:text="@string/longan_fpv_camera_amf" phantom:djiTextFace="2" />
+            <LinearLayout phantom:layout_gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:id="@id/b0w" phantom:visibility="gone" phantom:layout_width="wrap_content" phantom:layout_height="wrap_content" phantom:layout_marginLeft="@dimen/a63">
+                <dji.publics.DJIUI.DJIImageView phantom:layout_gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:id="@id/b0x" phantom:layout_width="wrap_content" phantom:layout_height="wrap_content" phantom:src="@drawable/longan_osmo_handlewheel" />
+                <RelativeLayout phantom:layout_width="UNKNOWN_DATA_0x7f0b0132" phantom:layout_height="wrap_content" />
+                <dji.publics.DJIUI.DJITextView phantom:textSize="13sp" phantom:textColor="@color/om" phantom:gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:id="@id/b0y" phantom:layout_width="UNKNOWN_DATA_0x7f0b0127" phantom:layout_height="wrap_content" phantom:layout_marginLeft="@dimen/a64" phantom:text="@string/longan_top_bar_follow_focus_Focus" />
+                <RelativeLayout phantom:layout_width="UNKNOWN_DATA_0x7f0b012d" phantom:layout_height="wrap_content" />
+            </LinearLayout>
+        </LinearLayout>
+    </dji.publics.DJIUI.DJILinearLayout>
+    <dji.publics.DJIUI.DJILinearLayout phantom:layout_gravity="left|right|center_horizontal|fill_horizontal|center|fill|start|end" phantom:orientation="horizontal" phantom:id="@id/b0z" phantom:background="@drawable/longan_preview_status_bg" phantom:layout_width="wrap_content" phantom:layout_height="UNKNOWN_DATA_0x7f0b0123" phantom:layout_marginLeft="@dimen/gw" phantom:layout_marginTop="@dimen/gw">
+        <dji.publics.DJIUI.DJITextView phantom:id="@id/b10" phantom:layout_marginLeft="5dp" phantom:text="N/A" phantom:djiTextFace="2" style="@style/dq" />
+        <dji.publics.DJIUI.DJITextView phantom:id="@id/b11" phantom:layout_marginLeft="@dimen/a63" phantom:text="ISO" style="@style/dp" />
+        <dji.publics.DJIUI.DJITextView phantom:id="@id/b12" phantom:layout_marginLeft="@dimen/a64" phantom:text="N/A" style="@style/dq" />
+        <dji.publics.DJIUI.DJITextView phantom:id="@id/b13" phantom:layout_marginLeft="@dimen/a64" phantom:text="S" style="@style/dp" />
+        <dji.publics.DJIUI.DJITextView phantom:id="@id/b14" phantom:layout_marginLeft="@dimen/a64" phantom:text="N/A" style="@style/dq" />
+        <dji.publics.DJIUI.DJITextView phantom:id="@id/b15" phantom:layout_marginLeft="@dimen/a64" phantom:text="f/" style="@style/dp" />
+        <dji.publics.DJIUI.DJITextView phantom:id="@id/b16" phantom:layout_marginLeft="@dimen/a64" phantom:text="N/A" style="@style/dq" />
+        <dji.publics.DJIUI.DJITextView phantom:id="@id/b17" phantom:layout_marginLeft="@dimen/a64" phantom:text="EV" style="@style/dp" />
+        <dji.publics.DJIUI.DJITextView phantom:id="@id/b18" phantom:layout_marginLeft="@dimen/a64" phantom:text="N/A" style="@style/dq" />
+        <dji.publics.DJIUI.DJITextView phantom:gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:id="@id/b19" phantom:visibility="gone" phantom:layout_marginLeft="@dimen/a63" phantom:text="N/A" style="@style/dq" />
+        <dji.publics.DJIUI.DJITextView phantom:id="@id/b1_" phantom:visibility="gone" phantom:layout_marginLeft="@dimen/a64" phantom:text="N/A" style="@style/dq" />
+        <dji.publics.DJIUI.DJITextView phantom:gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:id="@id/b1a" phantom:visibility="gone" phantom:layout_marginLeft="@dimen/a63" phantom:text="N/A" style="@style/dq" />
+        <dji.publics.DJIUI.DJITextView phantom:gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:id="@id/b1b" phantom:layout_marginLeft="@dimen/a63" phantom:text="N/A" style="@style/dq" />
+        <dji.publics.DJIUI.DJITextView phantom:gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:id="@id/b1c" phantom:layout_marginLeft="@dimen/a64" phantom:text="N/A" style="@style/dq" />
+        <dji.publics.DJIUI.DJIImageView phantom:gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:layout_gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:id="@id/a8c" phantom:layout_width="wrap_content" phantom:layout_height="wrap_content" phantom:layout_marginLeft="@dimen/a63" phantom:src="@drawable/longan_battery_error" phantom:scaleType="center" />
+        <dji.publics.DJIUI.DJITextView phantom:id="@id/a8d" phantom:layout_marginLeft="@dimen/a64" phantom:text="N/A" style="@style/dq" />
+        <dji.publics.DJIUI.DJIImageView phantom:layout_gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:id="@id/b1d" phantom:layout_width="wrap_content" phantom:layout_height="wrap_content" phantom:layout_marginLeft="@dimen/a63" phantom:src="@drawable/longan_statebar_wifi_0" phantom:scaleType="center" />
+        <dji.publics.DJIUI.DJILinearLayout phantom:gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:layout_gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:orientation="horizontal" phantom:id="@id/b1e" phantom:paddingRight="5dp" phantom:clickable="true" phantom:layout_width="wrap_content" phantom:layout_height="match_parent" phantom:layout_marginLeft="5dp">
+            <View phantom:id="@id/b1f" phantom:background="@color/or" phantom:layout_width="UNKNOWN_DATA_0x40000031" phantom:layout_height="match_parent" />
+            <TextView phantom:textSize="13sp" phantom:textColor="@color/p8" phantom:id="@id/b1g" phantom:padding="0dp" phantom:layout_width="wrap_content" phantom:layout_height="wrap_content" phantom:layout_marginLeft="5dp" phantom:text="AE" phantom:alpha="0.7" />
+            <ImageView phantom:id="@id/b1h" phantom:layout_width="wrap_content" phantom:layout_height="wrap_content" phantom:layout_marginLeft="3dp" phantom:src="@drawable/longan_selector_ae_lock" phantom:scaleType="center" />
+        </dji.publics.DJIUI.DJILinearLayout>
+    </dji.publics.DJIUI.DJILinearLayout>
+</dji.device.camera.view.osd.DJICameraInfoBarLongan>

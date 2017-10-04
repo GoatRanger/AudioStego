@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" style="@style/g2"
+    <LinearLayout android:orientation="horizontal" style="@style/g2">
+        <TextView android:id="@id/byq" android:layout_height="wrap_content" style="@style/gh" />
+        <dji.setting.ui.widget.DJISpinnerButton android:id="@id/byr" android:layout_width="UNKNOWN_DATA_0x7f0b032d" android:layout_alignParentRight="true" style="@style/gc" />
+    </LinearLayout>
+    <ImageView android:id="@id/bys" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/w8" android:src="@drawable/setting_ui_stop_motor_kumquat" />
+    <TextView android:id="@id/byt" style="@style/g6" />
+</LinearLayout>

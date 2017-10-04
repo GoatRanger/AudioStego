@@ -1,0 +1,244 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Methods for Adding UI Components</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="componentMethods.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#overview" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="security.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Writing Applets
+<br>
+<b>Lesson</b>: Overview of Applets
+</font>
+
+<h2>
+Methods for Adding UI Components
+</h2>
+<blockquote>
+The <code>Simple</code> applet's display code
+(implemented in its <code>paint</code> method)
+is flawed:
+It doesn't support scrolling.  
+Once the text it displays reaches the end of the display rectangle,
+you can't see any new text.
+Here's an example of the problem:
+
+<p><center><a href="../../figures/applet/4init.gif" target="_top"><IMG SRC="../../figures/applet/4init.gif" WIDTH="460" HEIGHT="20" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></a><br><em>This figure has been reduced to fit on the page. <br> Click the image to view it at its natural size.</em></center></p>
+<p>
+
+The simplest cure for this problem
+is to use a pre-made user interface (UI) component 
+that has the right behavior.
+<p>
+
+<strong>
+Note:
+</strong>
+This page glosses over many details.
+To really learn about using UI components,
+go to 
+<a href="../../ui/index.html">Creating a User Interface (AWT Only)</a>.
+
+</blockquote>
+<h3>Pre-Made UI Components</h3>
+<blockquote>
+The AWT supplies the following UI components
+(the class that implements each component is listed in parentheses):
+<ul>
+<li> Buttons (<code>java.awt.Button</code>)
+<li> Checkboxes (<code>java.awt.Checkbox</code>)
+<li> Single-line text fields (<code>java.awt.TextField</code>)
+<li> Larger text display and editing areas (<code>java.awt.TextArea</code>)
+<li> Labels (<code>java.awt.Label</code>)
+<li> Lists (<code>java.awt.List</code>)
+<li> Pop-up lists of choices (<code>java.awt.Choice</code>)
+<li> Sliders and scrollbars (<code>java.awt.Scrollbar</code>)
+<li> Drawing areas (<code>java.awt.Canvas</code>)
+<li> Menus (<code>java.awt.Menu</code>, <code>java.awt.MenuItem</code>, <code>java.awt.CheckboxMenuItem</code>)
+<li> Containers (<code>java.awt.Panel</code>, <code>java.awt.Window</code> and its subclasses)
+</ul>
+</blockquote>
+
+<h3>Methods for Using UI Components in Applets</h3>
+<blockquote>
+Because the <code>Applet</code> class inherits from the AWT <code>Container</code> class,
+it's easy to add components to applets
+and to use layout managers to control the components' onscreen positions.
+Here are some of the <code>Container</code> methods an applet can use:
+<dl>
+<dt> <code>add</code>
+<dd> Adds the specified <code>Component</code>.
+<dt> <code>remove</code>
+<dd> Removes the specified <code>Component</code>.
+<dt> <code>setLayout</code>
+<dd> Sets the layout manager.
+</dl>
+</blockquote>
+
+<h3>Adding a Non-Editable Text Field to the <code>Simple</code> Applet</h3>
+<blockquote>
+To make the <code>Simple</code> applet use a scrolling, non-editable text field,
+we can use the <code>TextField</code> class.
+Here is the revised 
+<a target="_blank" href="example/ScrollingSimple.java"><font color="#bb000f"><code>source code</code></font></a><a target="_blank" href="example/ScrollingSimple.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>.
+The changes are shown below.
+
+<blockquote><pre>
+<em>//Importing java.awt.Graphics is no longer necessary
+//since this applet no longer implements the paint method.</em>
+. . .
+import java.awt.TextField;
+
+    public class ScrollingSimple extends Applet {
+
+    <em>//Instead of using a StringBuffer, use a TextField:</em>
+    TextField field;
+
+    public void init() {
+        <em>//Create the text field and make it uneditable.</em>
+        field = new TextField();
+        field.setEditable(false);
+
+	<em>//Set the layout manager so that the text field will be</em>
+	<em>//as wide as possible.</em>
+        setLayout(new java.awt.GridLayout(1,0));
+
+	<em>//Add the text field to the applet.</em>
+        add(field);
+        validate();
+
+        addItem("initializing... ");
+    }
+
+    . . .
+
+    void addItem(String newWord) {
+        <em>//This used to append the string to the StringBuffer;
+        //now it appends it to the TextField.</em>
+        String t = field.getText();
+        System.out.println(newWord);
+        field.setText(t + newWord);
+        repaint();
+    }
+
+    <em>//The paint method is no longer necessary,
+    //since the TextField repaints itself automatically.</em>
+</pre></blockquote>
+<p>
+
+The revised <code>init</code> method 
+creates an uneditable text field (a <code>TextField</code> instance).
+It sets the applet's layout manager to one
+that makes the text field as wide as possible
+(you'll learn about layout managers in
+<a target="_top" href="../../ui/layout/index.html">Laying Out Components within a Container</a><a target="_top" href="../../ui/layout/index.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Writing Applets trail)"></a>)
+and then adds the text field to the applet.
+
+<p>
+
+After all this,
+the <code>init</code> method
+calls the <code>validate</code> method
+(which <code>Applet</code> inherits from <code>Component</code>).
+Invoking <code>validate</code> once
+after adding one or more <code>Component</code>s to an applet
+is a bit of voodoo
+that ensures that the <code>Component</code>s draw themselves onscreen.
+If you want to delve into the arcane reasons
+why <code>validate</code> works,
+read 
+<a target="_top" href="../../ui/components/peer.html">Details of the Component Architecture</a><a target="_top" href="../../ui/components/peer.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Writing Applets trail)"></a>.
+
+<p>
+
+Below is the resulting applet.
+<p>
+<applet code=ScrollingSimple.class codebase=example/ width=460 height=30>
+<blockquote>
+<hr>
+You can't run applets.
+Here's what you'd see if you could:
+<p><center><IMG SRC="../../figures/applet/5init.gif" WIDTH="380" HEIGHT="28" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p>
+<hr></blockquote>
+</applet>
+
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="componentMethods.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#overview" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="security.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

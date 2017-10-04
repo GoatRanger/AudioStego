@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res-auto" app:orientation="horizontal" app:layout_width="match_parent" app:layout_height="wrap_content">
+    <View app:layout_width="UNKNOWN_DATA_0x1" app:layout_height="UNKNOWN_DATA_0x7f0b0110" app:layout_weight="1.0" />
+    <LinearLayout app:orientation="vertical" app:layout_width="UNKNOWN_DATA_0x1" app:layout_height="wrap_content" app:layout_weight="3.0"
+        <LinearLayout app:orientation="horizontal" app:background="@color/om" app:padding="@dimen/fj" app:layout_width="match_parent" app:layout_height="wrap_content" app:layout_marginBottom="@dimen/fj">
+            <RelativeLayout app:layout_width="UNKNOWN_DATA_0x1" app:layout_height="match_parent" app:layout_marginRight="@dimen/fj" app:layout_weight="1.0">
+                <dji.pilot2.mine.view.FixRatioImageView app:id="@+id/thumbnail" app:layout_width="match_parent" app:layout_height="match_parent" app:scaleType="centerCrop" app:width_weight="220.0" app:height_weight="300.0" />
+                <dji.pilot.publics.widget.DJIStateTextView app:textSize="@dimen/rp" app:textColor="@color/om" app:id="@+id/guide_location" app:background="@color/ai" app:paddingLeft="@dimen/h7" app:paddingTop="@dimen/ga" app:paddingRight="@dimen/h7" app:paddingBottom="@dimen/ga" app:layout_width="wrap_content" app:layout_height="wrap_content" app:layout_alignLeft="@+id/thumbnail" app:layout_alignBottom="@+id/thumbnail" />
+            </RelativeLayout>
+            <LinearLayout app:orientation="vertical" app:layout_width="UNKNOWN_DATA_0x1" app:layout_height="match_parent" app:layout_weight="2.0">
+                <dji.pilot.publics.widget.DJIStateTextView app:textStyle="bold" app:textColor="@r$color/standard3_0_primary_text_color" app:id="@+id/title_text" app:padding="@dimen/ga" app:layout_width="wrap_content" app:layout_height="wrap_content" app:singleLine="true" />
+                <LinearLayout app:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" app:orientation="horizontal" app:layout_width="wrap_content" app:layout_height="wrap_content">
+                    <ImageView app:layout_width="wrap_content" app:layout_height="UNKNOWN_DATA_0x7f0b02c3" app:src="@r$drawable/ic_s_location_nor" />
+                    <dji.pilot.publics.widget.DJIStateTextView app:textSize="@dimen/rp" app:textColor="@r$color/standard3_0_secondary_text_color" app:id="@+id/location_count" app:padding="@dimen/ga" app:layout_width="wrap_content" app:layout_height="wrap_content" app:singleLine="true" />
+                </LinearLayout>
+                <dji.pilot.publics.widget.DJIStateTextView app:textColor="@r$color/standard3_0_primary_text_color" app:id="@+id/description_text" app:padding="@dimen/ga" app:layout_width="match_parent" app:layout_height="UNKNOWN_DATA_0x1" app:maxLines="4" app:layout_weight="1.0" />
+                <LinearLayout app:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" app:orientation="horizontal" app:padding="@dimen/ga" app:layout_width="wrap_content" app:layout_height="wrap_content">
+                    <dji.pilot2.usercenter.widget.DJIProfileRoundImageView app:id="@+id/user_icon" app:layout_width="UNKNOWN_DATA_0x7f0b011e" app:layout_height="UNKNOWN_DATA_0x7f0b011e" />
+                    <dji.pilot.publics.widget.DJIStateTextView app:textColor="@r$color/standard3_0_secondary_text_color" app:id="@+id/user_name" app:layout_width="wrap_content" app:layout_height="wrap_content" app:layout_marginLeft="@dimen/fj" app:singleLine="true" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+        <View app:layout_width="match_parent" app:layout_height="UNKNOWN_DATA_0x7f0b011c" />
+    </LinearLayout>
+    <View app:layout_width="UNKNOWN_DATA_0x1" app:layout_height="UNKNOWN_DATA_0x7f0b0110" app:layout_weight="1.0" />
+</LinearLayout>

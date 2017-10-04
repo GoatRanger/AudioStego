@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.publics.DJIUI.DJIRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:background="@r$drawable/nfz_dg_bg" android:layout_width="match_parent" android:layout_height="match_parent" android:baselineAligned="false">
+    <dji.pilot.fpv.view.DJIStageView android:id="@+id/nfz_dlg_stageview" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_centerInParent="true" android:animateFirstView="true" />
+</dji.publics.DJIUI.DJIRelativeLayout>

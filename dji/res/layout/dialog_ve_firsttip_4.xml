@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res-auto" app:id="@+id/ve_tip_dialog" app:fitsSystemWindows="@r$bool/is_fix_system" app:layout_width="match_parent" app:layout_height="match_parent">
+    <dji.pilot2.widget.DJIFirstTipCover app:id="@+id/v2_first_tip_ringview" app:layout_width="match_parent" app:layout_height="match_parent" app:v2_radius="12dp" app:v2_ringEraserLeft="0dp" app:v2_ringEraserTop="0dp" />
+    <dji.publics.DJIUI.DJILinearLayout app:gravity="left|right|center_horizontal|fill_horizontal|center|fill|start|end" app:orientation="vertical" app:id="@+id/v2_first_tip_dialog_body" app:layout_width="wrap_content" app:layout_height="wrap_content" app:layout_marginLeft="0dp" app:layout_marginTop="0dp">
+        <dji.publics.DJIUI.DJIImageView app:id="@+id/v2_first_tip_arrow_id" app:layout_width="wrap_content" app:layout_height="wrap_content" app:layout_marginLeft="0dp" app:src="@r$drawable/v2_first_tip_arrow_upward" />
+        <RelativeLayout app:background="@r$drawable/v2_first_tip_background" app:layout_width="UNKNOWN_DATA_0x7f0b0038" app:layout_height="wrap_content"
+            <RelativeLayout app:padding="@dimen/as" app:layout_width="match_parent" app:layout_height="wrap_content" app:layout_marginRight="@dimen/au" app:layout_centerInParent="true">
+                <TextView app:textSize="@dimen/av" app:textColor="@color/i" app:gravity="left|right|center_horizontal|fill_horizontal|center|fill|start|end" app:id="@+id/ve_tip_title" app:paddingTop="@dimen/au" app:paddingBottom="@dimen/au" app:layout_width="match_parent" app:layout_height="wrap_content" app:layout_marginRight="@dimen/as" app:maxWidth="@dimen/ar" app:text="@string/ve_beginners_guide_moment_detailed" app:singleLine="false" />
+                <ImageView app:id="@+id/divide_tip" app:background="@color/ga" app:layout_width="match_parent" app:layout_height="UNKNOWN_DATA_0x40000031" app:layout_marginTop="@dimen/at" app:layout_marginRight="@dimen/as" app:layout_marginBottom="@dimen/at" app:layout_below="@+id/ve_tip_title" />
+                <dji.pilot.publics.widget.DJIStateTextView app:textSize="@dimen/av" app:textColor="@color/h" app:gravity="left|right|center_horizontal|fill_horizontal|center|fill|start|end" app:id="@+id/ve_tip_btn" app:paddingTop="@dimen/au" app:layout_width="match_parent" app:layout_height="wrap_content" app:layout_marginRight="@dimen/as" app:text="@string/ve_beginners_guide_done" app:layout_below="@+id/divide_tip" />
+            </RelativeLayout>
+        </RelativeLayout>
+    </dji.publics.DJIUI.DJILinearLayout>
+</RelativeLayout>

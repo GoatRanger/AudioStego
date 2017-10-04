@@ -1,0 +1,569 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2003 Sun Microsystems, Inc. All rights reserved.
+ 
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions
+ are met:
+ 
+ - Redistributions of source code must retain the above copyright
+   notice, this list of conditions and the following disclaimer.
+ 
+ - Redistribution in binary form must reproduce the above copyright
+   notice, this list of conditions and the following disclaimer in
+   the documentation and/or other materials provided with the
+   distribution.
+ 
+ Neither the name of Sun Microsystems, Inc. or the names of
+ contributors may be used to endorse or promote products derived
+ from this software without specific prior written permission.
+ 
+ This software is provided "AS IS," without a warranty of any
+ kind. ALL EXPRESS OR IMPLIED CONDITIONS, REPRESENTATIONS AND
+ WARRANTIES, INCLUDING ANY IMPLIED WARRANTY OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE OR NON-INFRINGEMENT, ARE HEREBY
+ EXCLUDED. SUN AND ITS LICENSORS SHALL NOT BE LIABLE FOR ANY DAMAGES
+ SUFFERED BY LICENSEE AS A RESULT OF USING, MODIFYING OR
+ DISTRIBUTING THE SOFTWARE OR ITS DERIVATIVES. IN NO EVENT WILL SUN
+ OR ITS LICENSORS BE LIABLE FOR ANY LOST REVENUE, PROFIT OR DATA, OR
+ FOR DIRECT, INDIRECT, SPECIAL, CONSEQUENTIAL, INCIDENTAL OR
+ PUNITIVE DAMAGES, HOWEVER CAUSED AND REGARDLESS OF THE THEORY OF
+ LIABILITY, ARISING OUT OF THE USE OF OR INABILITY TO USE SOFTWARE,
+ EVEN IF SUN HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+ 
+ You acknowledge that Software is not designed, licensed or intended
+ for use in the design, construction, operation or maintenance of
+ any nuclear facility.
+ $Id: sun-j2ee-ri.xml,v 1.8 2003/03/08 03:09:07 sk140329 Exp $ -->
+
+<j2ee-ri-specific-information>
+
+  <enterprise-beans>
+    <module-name>opcEJB.jar</module-name>
+    <unique-id>0</unique-id>
+    <ejb>
+      <ejb-name>PoEndpointEJB</ejb-name>
+      <gen-classes/>
+      <webservice-endpoint>
+        <port-component-name>PurchaseOrderIntfPort</port-component-name>
+        <endpoint-address-uri>webservice/PoEndpointEJB</endpoint-address-uri>
+      </webservice-endpoint>
+    </ejb>
+
+    <ejb>
+      <ejb-name>OtEndpointEJB</ejb-name>
+      <gen-classes/>
+      <webservice-endpoint>
+        <port-component-name>OrderTrackingIntfPort</port-component-name>
+        <endpoint-address-uri>webservice/OtEndpointEJB</endpoint-address-uri>
+      </webservice-endpoint>
+    </ejb>
+
+   <ejb>
+      <ejb-name>OrderTrackingTimerBean</ejb-name>
+      <jndi-name>ejb/local/opc/OrderTrackingTimer</jndi-name>
+      <ior-security-config>
+        <transport-config>
+          <integrity>supported</integrity>
+          <confidentiality>supported</confidentiality>
+          <establish-trust-in-target>supported</establish-trust-in-target>
+          <establish-trust-in-client>supported</establish-trust-in-client>
+        </transport-config>
+        <as-context>
+          <auth-method>username_password</auth-method>
+          <realm>default</realm>
+          <required>true</required>
+        </as-context>
+        <sas-context>
+          <caller-propagation>supported</caller-propagation>
+        </sas-context>
+      </ior-security-config> 
+      <ejb-ref>
+        <ejb-ref-name>ejb/local/processmanager/ProcessManager</ejb-ref-name>
+        <jndi-name></jndi-name>
+      </ejb-ref>  
+      <gen-classes />
+   </ejb>
+
+    <ejb>
+      <ejb-name>ContactInfoBean</ejb-name>
+      <jndi-name>ejb/local/opc/po/ContactInfo</jndi-name>
+      <gen-classes/>
+      <ejb20-cmp>
+        <sql-statement>
+          <operation>storeRow</operation>
+          <sql>UPDATE "ContactInfoBeanTable" SET "__PurchaseOrderBean_billingInfo_poId" = ?  , "__PurchaseOrderBean_shippingInfo_poId" = ?  , "city" = ?  , "country" = ?  , "email" = ?  , "familyName" = ?  , "givenName" = ?  , "phone" = ?  , "postalCode" = ?  , "state" = ?  , "streetName1" = ?  , "streetName2" = ?  WHERE "__PMPrimaryKey" = ? </sql>
+        </sql-statement>
+        <sql-statement>
+          <operation>loadRow</operation>
+          <sql>SELECT "__PurchaseOrderBean_billingInfo_poId" , "__PurchaseOrderBean_shippingInfo_poId" , "city" , "country" , "email" , "familyName" , "givenName" , "phone" , "postalCode" , "state" , "streetName1" , "streetName2" FROM "ContactInfoBeanTable" WHERE "__PMPrimaryKey" = ? </sql>
+        </sql-statement>
+        <sql-statement>
+          <operation>deleteRow</operation>
+          <sql>DELETE FROM "ContactInfoBeanTable" WHERE "__PMPrimaryKey" = ? </sql>
+        </sql-statement>
+        <sql-statement>
+          <operation>createRow</operation>
+          <sql>INSERT INTO "ContactInfoBeanTable" ( "__PMPrimaryKey" , "__PurchaseOrderBean_billingInfo_poId" , "__PurchaseOrderBean_shippingInfo_poId" , "city" , "country" , "email" , "familyName" , "givenName" , "phone" , "postalCode" , "state" , "streetName1" , "streetName2" ) VALUES (  ?  ,  ?  ,  ?  ,  ?  ,  ?  ,  ?  ,  ?  ,  ?  ,  ?  ,  ?  ,  ?  ,  ?  ,  ?  )</sql>
+        </sql-statement>
+        <sql-statement>
+          <operation>findByPrimaryKey</operation>
+          <sql>SELECT "__PMPrimaryKey" FROM "ContactInfoBeanTable" WHERE "__PMPrimaryKey" = ? </sql>
+        </sql-statement>
+        <sql-statement>
+          <operation>deleteTable</operation>
+          <sql>DROP TABLE "ContactInfoBeanTable"</sql>
+        </sql-statement>
+        <sql-statement>
+          <operation>createTable</operation>
+          <sql>CREATE TABLE "ContactInfoBeanTable" ("__PMPrimaryKey" LONGINT , "__PurchaseOrderBean_billingInfo_poId" VARCHAR(255) , "__PurchaseOrderBean_shippingInfo_poId" VARCHAR(255) , "city" VARCHAR(255) , "country" VARCHAR(255) , "email" VARCHAR(255) , "familyName" VARCHAR(255) , "givenName" VARCHAR(255) , "phone" VARCHAR(255) , "postalCode" VARCHAR(255) , "state" VARCHAR(255) , "streetName1" VARCHAR(255) , "streetName2" VARCHAR(255), CONSTRAINT "pk_ContactInfoBeanTabl" PRIMARY KEY ("__PMPrimaryKey") )</sql>
+        </sql-statement>
+        <create-table-deploy>true</create-table-deploy>
+        <delete-table-undeploy>true</delete-table-undeploy>
+      </ejb20-cmp>
+    </ejb>
+    <ejb>
+      <ejb-name>ActivityBean</ejb-name>
+      <jndi-name>ejb/local/opc/po/Activity</jndi-name>
+      <gen-classes/>
+      <ejb20-cmp>
+        <sql-statement>
+          <operation>storeRow</operation>
+          <sql>UPDATE "ActivityBeanTable" SET "activityId" = ?  , "endDate" = ?  , "headCount" = ?  , "location" = ?  , "name" = ?  , "price" = ?  , "startDate" = ?  WHERE "__PMPrimaryKey" = ? </sql>
+        </sql-statement>
+        <sql-statement>
+          <operation>loadRow</operation>
+          <sql>SELECT "activityId" , "endDate" , "headCount" , "location" , "name" , "price" , "startDate" FROM "ActivityBeanTable" WHERE "__PMPrimaryKey" = ? </sql>
+        </sql-statement>
+        <sql-statement>
+          <operation>deleteRow</operation>
+          <sql>DELETE FROM "ActivityBeanTable" WHERE "__PMPrimaryKey" = ? </sql>
+        </sql-statement>
+        <sql-statement>
+          <operation>createRow</operation>
+          <sql>INSERT INTO "ActivityBeanTable" ( "__PMPrimaryKey" , "activityId" , "endDate" , "headCount" , "location" , "name" , "price" , "startDate" ) VALUES (  ?  ,  ?  ,  ?  ,  ?  ,  ?  ,  ?  ,  ?  ,  ?  )</sql>
+        </sql-statement>
+        <sql-statement>
+          <operation>findByPrimaryKey</operation>
+          <sql>SELECT "__PMPrimaryKey" FROM "ActivityBeanTable" WHERE "__PMPrimaryKey" = ? </sql>
+        </sql-statement>
+        <sql-statement>
+          <operation>deleteTable</operation>
+          <sql>DROP TABLE "ActivityBeanTable"</sql>
+        </sql-statement>
+        <sql-statement>
+          <operation>createTable</operation>
+          <sql>CREATE TABLE "ActivityBeanTable" ("__PMPrimaryKey" LONGINT , "activityId" VARCHAR(255) , "endDate" LONGINT NOT NULL , "headCount" INTEGER NOT NULL , "location" VARCHAR(255) , "name" VARCHAR(255) , "price" REAL NOT NULL , "startDate" LONGINT NOT NULL, CONSTRAINT "pk_ActivityBeanTabl" PRIMARY KEY ("__PMPrimaryKey") )</sql>
+        </sql-statement>
+        <create-table-deploy>true</create-table-deploy>
+        <delete-table-undeploy>true</delete-table-undeploy>
+      </ejb20-cmp>
+    </ejb>
+    <ejb>
+      <ejb-name>TransportationBean</ejb-name>
+      <jndi-name>ejb/local/opc/po/Transportation</jndi-name>
+      <gen-classes/>
+      <ejb20-cmp>
+        <sql-statement>
+          <operation>storeRow</operation>
+          <sql>UPDATE "TransportationBeanTable" SET "__PurchaseOrderBean_departureFlightInfo_poId" = ?  , "__PurchaseOrderBean_returnFlightInfo_poId" = ?  , "carrier" = ?  , "departureDate" = ?  , "departureTime" = ?  , "destination" = ?  , "origin" = ?  , "price" = ?  , "transportationId" = ?  , "travelClass" = ?  WHERE "__PMPrimaryKey" = ? </sql>
+        </sql-statement>
+        <sql-statement>
+          <operation>loadRow</operation>
+          <sql>SELECT "__PurchaseOrderBean_departureFlightInfo_poId" , "__PurchaseOrderBean_returnFlightInfo_poId" , "carrier" , "departureDate" , "departureTime" , "destination" , "origin" , "price" , "transportationId" , "travelClass" FROM "TransportationBeanTable" WHERE "__PMPrimaryKey" = ? </sql>
+        </sql-statement>
+        <sql-statement>
+          <operation>deleteRow</operation>
+          <sql>DELETE FROM "TransportationBeanTable" WHERE "__PMPrimaryKey" = ? </sql>
+        </sql-statement>
+        <sql-statement>
+          <operation>createRow</operation>
+          <sql>INSERT INTO "TransportationBeanTable" ( "__PMPrimaryKey" , "__PurchaseOrderBean_departureFlightInfo_poId" , "__PurchaseOrderBean_returnFlightInfo_poId" , "carrier" , "departureDate" , "departureTime" , "destination" , "origin" , "price" , "transportationId" , "travelClass" ) VALUES (  ?  ,  ?  ,  ?  ,  ?  ,  ?  ,  ?  ,  ?  ,  ?  ,  ?  ,  ?  ,  ?  )</sql>
+        </sql-statement>
+        <sql-statement>
+          <operation>findByPrimaryKey</operation>
+          <sql>SELECT "__PMPrimaryKey" FROM "TransportationBeanTable" WHERE "__PMPrimaryKey" = ? </sql>
+        </sql-statement>
+        <sql-statement>
+          <operation>deleteTable</operation>
+          <sql>DROP TABLE "TransportationBeanTable"</sql>
+        </sql-statement>
+        <sql-statement>
+          <operation>createTable</operation>
+          <sql>CREATE TABLE "TransportationBeanTable" ("__PMPrimaryKey" LONGINT , "__PurchaseOrderBean_departureFlightInfo_poId" VARCHAR(255) , "__PurchaseOrderBean_returnFlightInfo_poId" VARCHAR(255) , "carrier" VARCHAR(255) , "departureDate" LONGINT NOT NULL , "departureTime" VARCHAR(255) , "destination" VARCHAR(255) , "origin" VARCHAR(255) , "price" REAL NOT NULL , "transportationId" VARCHAR(255) , "travelClass" VARCHAR(255), CONSTRAINT "pk_TransportationBeanTabl" PRIMARY KEY ("__PMPrimaryKey") )</sql>
+        </sql-statement>
+        <create-table-deploy>true</create-table-deploy>
+        <delete-table-undeploy>true</delete-table-undeploy>
+      </ejb20-cmp>
+    </ejb>
+    <ejb>
+      <ejb-name>CreditCardBean</ejb-name>
+      <jndi-name>ejb/local/opc/po/CreditCard</jndi-name>
+      <gen-classes/>
+      <ejb20-cmp>
+        <sql-statement>
+          <operation>storeRow</operation>
+          <sql>UPDATE "CreditCardBeanTable" SET "__PurchaseOrderBean_creditCard_poId" = ?  , "cardExpiryDate" = ?  , "cardNumber" = ?  , "cardType" = ?  WHERE "__PMPrimaryKey" = ? </sql>
+        </sql-statement>
+        <sql-statement>
+          <operation>loadRow</operation>
+          <sql>SELECT "__PurchaseOrderBean_creditCard_poId" , "cardExpiryDate" , "cardNumber" , "cardType" FROM "CreditCardBeanTable" WHERE "__PMPrimaryKey" = ? </sql>
+        </sql-statement>
+        <sql-statement>
+          <operation>deleteRow</operation>
+          <sql>DELETE FROM "CreditCardBeanTable" WHERE "__PMPrimaryKey" = ? </sql>
+        </sql-statement>
+        <sql-statement>
+          <operation>createRow</operation>
+          <sql>INSERT INTO "CreditCardBeanTable" ( "__PMPrimaryKey" , "__PurchaseOrderBean_creditCard_poId" , "cardExpiryDate" , "cardNumber" , "cardType" ) VALUES (  ?  ,  ?  ,  ?  ,  ?  ,  ?  )</sql>
+        </sql-statement>
+        <sql-statement>
+          <operation>findByPrimaryKey</operation>
+          <sql>SELECT "__PMPrimaryKey" FROM "CreditCardBeanTable" WHERE "__PMPrimaryKey" = ? </sql>
+        </sql-statement>
+        <sql-statement>
+          <operation>deleteTable</operation>
+          <sql>DROP TABLE "CreditCardBeanTable"</sql>
+        </sql-statement>
+        <sql-statement>
+          <operation>createTable</operation>
+          <sql>CREATE TABLE "CreditCardBeanTable" ("__PMPrimaryKey" LONGINT , "__PurchaseOrderBean_creditCard_poId" VARCHAR(255) , "cardExpiryDate" VARCHAR(255) , "cardNumber" VARCHAR(255) , "cardType" VARCHAR(255), CONSTRAINT "pk_CreditCardBeanTabl" PRIMARY KEY ("__PMPrimaryKey") )</sql>
+        </sql-statement>
+        <create-table-deploy>true</create-table-deploy>
+        <delete-table-undeploy>true</delete-table-undeploy>
+      </ejb20-cmp>
+    </ejb>
+    <ejb>
+      <ejb-name>PurchaseOrderBean</ejb-name>
+      <jndi-name>ejb/local/opc/po/PurchaseOrder</jndi-name>
+      <gen-classes/>
+      <ejb20-cmp>
+        <sql-statement>
+          <operation>storeRow</operation>
+          <sql>UPDATE "PurchaseOrderBeanTable" SET "_billingInfo___PMPrimaryKey" = ?  , "_creditCard___PMPrimaryKey" = ?  , "_departureFlightInfo___PMPrimaryKey" = ?  , "_lodging___PMPrimaryKey" = ?  , "_returnFlightInfo___PMPrimaryKey" = ?  , "_shippingInfo___PMPrimaryKey" = ?  , "departureCity" = ?  , "emailId" = ?  , "endDate" = ?  , "headCount" = ?  , "locale" = ?  , "orderDate" = ?  , "startDate" = ?  , "totalPrice" = ?  , "userId" = ?  WHERE "poId" = ? </sql>
+        </sql-statement>
+        <sql-statement>
+          <operation>loadRow</operation>
+          <sql>SELECT "_billingInfo___PMPrimaryKey" , "_creditCard___PMPrimaryKey" , "_departureFlightInfo___PMPrimaryKey" , "_lodging___PMPrimaryKey" , "_returnFlightInfo___PMPrimaryKey" , "_shippingInfo___PMPrimaryKey" , "departureCity" , "emailId" , "endDate" , "headCount" , "locale" , "orderDate" , "startDate" , "totalPrice" , "userId" FROM "PurchaseOrderBeanTable" WHERE "poId" = ? </sql>
+        </sql-statement>
+        <sql-statement>
+          <operation>deleteRow</operation>
+          <sql>DELETE FROM "PurchaseOrderBeanTable" WHERE "poId" = ? </sql>
+        </sql-statement>
+        <sql-statement>
+          <operation>createRow</operation>
+          <sql>INSERT INTO "PurchaseOrderBeanTable" ( "_billingInfo___PMPrimaryKey" , "_creditCard___PMPrimaryKey" , "_departureFlightInfo___PMPrimaryKey" , "_lodging___PMPrimaryKey" , "_returnFlightInfo___PMPrimaryKey" , "_shippingInfo___PMPrimaryKey" , "departureCity" , "emailId" , "endDate" , "headCount" , "locale" , "orderDate" , "poId" , "startDate" , "totalPrice" , "userId" ) VALUES (  ?  ,  ?  ,  ?  ,  ?  ,  ?  ,  ?  ,  ?  ,  ?  ,  ?  ,  ?  ,  ?  ,  ?  ,  ?  ,  ?  ,  ?  ,  ?  )</sql>
+        </sql-statement>
+        <sql-statement>
+          <operation>findByPrimaryKey</operation>
+          <sql>SELECT "poId" FROM "PurchaseOrderBeanTable" WHERE "poId" = ? </sql>
+        </sql-statement>
+        <sql-statement>
+          <operation>deleteTable</operation>
+          <sql>DROP TABLE "PurchaseOrderBeanTable"</sql>
+        </sql-statement>
+        <sql-statement>
+          <operation>createTable</operation>
+          <sql>CREATE TABLE "PurchaseOrderBeanTable" ("_billingInfo___PMPrimaryKey" LONGINT , "_creditCard___PMPrimaryKey" LONGINT , "_departureFlightInfo___PMPrimaryKey" LONGINT , "_lodging___PMPrimaryKey" LONGINT , "_returnFlightInfo___PMPrimaryKey" LONGINT , "_shippingInfo___PMPrimaryKey" LONGINT , "departureCity" VARCHAR(255) , "emailId" VARCHAR(255) , "endDate" LONGINT NOT NULL , "headCount" INTEGER NOT NULL , "locale" VARCHAR(255) , "orderDate" LONGINT NOT NULL , "poId" VARCHAR(255) , "startDate" LONGINT NOT NULL , "totalPrice" REAL NOT NULL , "userId" VARCHAR(255), CONSTRAINT "pk_PurchaseOrderBeanTabl" PRIMARY KEY ("poId") )</sql>
+        </sql-statement>
+        <create-table-deploy>true</create-table-deploy>
+        <delete-table-undeploy>true</delete-table-undeploy>
+      </ejb20-cmp>
+    </ejb>
+    <ejb>
+      <ejb-name>LodgingBean</ejb-name>
+      <jndi-name>ejb/local/opc/po/Lodging</jndi-name>
+      <gen-classes/>
+      <ejb20-cmp>
+        <sql-statement>
+          <operation>storeRow</operation>
+          <sql>UPDATE "LodgingBeanTable" SET "__PurchaseOrderBean_lodging_poId" = ?  , "endDate" = ?  , "location" = ?  , "lodgingId" = ?  , "name" = ?  , "noNights" = ?  , "noRooms" = ?  , "pricePerNight" = ?  , "startDate" = ?  WHERE "__PMPrimaryKey" = ? </sql>
+        </sql-statement>
+        <sql-statement>
+          <operation>loadRow</operation>
+          <sql>SELECT "__PurchaseOrderBean_lodging_poId" , "endDate" , "location" , "lodgingId" , "name" , "noNights" , "noRooms" , "pricePerNight" , "startDate" FROM "LodgingBeanTable" WHERE "__PMPrimaryKey" = ? </sql>
+        </sql-statement>
+        <sql-statement>
+          <operation>deleteRow</operation>
+          <sql>DELETE FROM "LodgingBeanTable" WHERE "__PMPrimaryKey" = ? </sql>
+        </sql-statement>
+        <sql-statement>
+          <operation>createRow</operation>
+          <sql>INSERT INTO "LodgingBeanTable" ( "__PMPrimaryKey" , "__PurchaseOrderBean_lodging_poId" , "endDate" , "location" , "lodgingId" , "name" , "noNights" , "noRooms" , "pricePerNight" , "startDate" ) VALUES (  ?  ,  ?  ,  ?  ,  ?  ,  ?  ,  ?  ,  ?  ,  ?  ,  ?  ,  ?  )</sql>
+        </sql-statement>
+        <sql-statement>
+          <operation>findByPrimaryKey</operation>
+          <sql>SELECT "__PMPrimaryKey" FROM "LodgingBeanTable" WHERE "__PMPrimaryKey" = ? </sql>
+        </sql-statement>
+        <sql-statement>
+          <operation>deleteTable</operation>
+          <sql>DROP TABLE "LodgingBeanTable"</sql>
+        </sql-statement>
+        <sql-statement>
+          <operation>createTable</operation>
+          <sql>CREATE TABLE "LodgingBeanTable" ("__PMPrimaryKey" LONGINT , "__PurchaseOrderBean_lodging_poId" VARCHAR(255) , "endDate" LONGINT NOT NULL , "location" VARCHAR(255) , "lodgingId" VARCHAR(255) , "name" VARCHAR(255) , "noNights" INTEGER NOT NULL , "noRooms" INTEGER NOT NULL , "pricePerNight" REAL NOT NULL , "startDate" LONGINT NOT NULL, CONSTRAINT "pk_LodgingBeanTabl" PRIMARY KEY ("__PMPrimaryKey") )</sql>
+        </sql-statement>
+        <create-table-deploy>true</create-table-deploy>
+        <delete-table-undeploy>true</delete-table-undeploy>
+      </ejb20-cmp>
+    </ejb>
+    <join-object>
+      <name>com.sun.j2ee.blueprints.opc.purchaseorder.ejb.PurchaseOrderBean_activities_ActivityBean_</name>
+      <ejb20-cmp>
+        <sql-statement>
+          <operation>storeRow</operation>
+          <sql>UPDATE "PurchaseOrderBean_activities_ActivityBean_Table" SET "_PurchaseOrderBean_poId" = ?  WHERE "_ActivityBean___PMPrimaryKey" = ? </sql>
+        </sql-statement>
+        <sql-statement>
+          <operation>findBySourceKey</operation>
+          <sql>SELECT "_ActivityBean___PMPrimaryKey" FROM "PurchaseOrderBean_activities_ActivityBean_Table" WHERE "_PurchaseOrderBean_poId" = ? </sql>
+        </sql-statement>
+        <sql-statement>
+          <operation>deleteRow</operation>
+          <sql>DELETE FROM "PurchaseOrderBean_activities_ActivityBean_Table" WHERE "_ActivityBean___PMPrimaryKey" = ? </sql>
+        </sql-statement>
+        <sql-statement>
+          <operation>loadRow</operation>
+          <sql>SELECT "_PurchaseOrderBean_poId" FROM "PurchaseOrderBean_activities_ActivityBean_Table" WHERE "_ActivityBean___PMPrimaryKey" = ? </sql>
+        </sql-statement>
+        <sql-statement>
+          <operation>findByPrimaryKey</operation>
+          <sql>SELECT "_ActivityBean___PMPrimaryKey" FROM "PurchaseOrderBean_activities_ActivityBean_Table" WHERE "_ActivityBean___PMPrimaryKey" = ? </sql>
+        </sql-statement>
+        <sql-statement>
+          <operation>deleteTable</operation>
+          <sql>DROP TABLE "PurchaseOrderBean_activities_ActivityBean_Table"</sql>
+        </sql-statement>
+        <sql-statement>
+          <operation>createRow</operation>
+          <sql>INSERT INTO "PurchaseOrderBean_activities_ActivityBean_Table" ( "_ActivityBean___PMPrimaryKey" , "_PurchaseOrderBean_poId" ) VALUES (  ?  ,  ?  )</sql>
+        </sql-statement>
+        <sql-statement>
+          <operation>createTable</operation>
+          <sql>CREATE TABLE "PurchaseOrderBean_activities_ActivityBean_Table" ("_ActivityBean___PMPrimaryKey" LONGINT , "_PurchaseOrderBean_poId" VARCHAR(255), CONSTRAINT "pk_PurchaseOrderBean_activities_ActivityBean_Tabl" PRIMARY KEY ("_ActivityBean___PMPrimaryKey") )</sql>
+        </sql-statement>
+        <sql-statement>
+          <operation>findBySinkKey</operation>
+          <sql>SELECT "_PurchaseOrderBean_poId" FROM "PurchaseOrderBean_activities_ActivityBean_Table" WHERE "_ActivityBean___PMPrimaryKey" = ? </sql>
+        </sql-statement>
+        <create-table-deploy>true</create-table-deploy>
+        <delete-table-undeploy>true</delete-table-undeploy>
+      </ejb20-cmp>
+      <source>
+        <name>PurchaseOrderBean</name>
+        <field>activities</field>
+      </source>
+      <sink>
+        <name>ActivityBean</name>
+      </sink>
+    </join-object>
+    <cmpresource>
+      <ds-jndi-name>jdbc/adventure/AdventureDB</ds-jndi-name>
+      <default-resource-principal>
+        <name>adventureuser</name>
+        <password>adventure</password>
+      </default-resource-principal>
+    </cmpresource>
+
+  </enterprise-beans>
+
+  <enterprise-beans>
+    <module-name>uidgen-ejb.jar</module-name>
+    <unique-id>1</unique-id>
+    <ejb>
+      <ejb-name>CounterEJB</ejb-name>
+      <jndi-name>ejb/local/uidgen/Counter</jndi-name>
+      <ior-security-config>
+        <transport-config>
+          <integrity>supported</integrity>
+          <confidentiality>supported</confidentiality>
+          <establish-trust-in-target>supported</establish-trust-in-target>
+          <establish-trust-in-client>supported</establish-trust-in-client>
+        </transport-config>
+        <as-context>
+          <auth-method>username_password</auth-method>
+          <realm>default</realm>
+          <required>true</required>
+        </as-context>
+        <sas-context>
+          <caller-propagation>supported</caller-propagation>
+        </sas-context>
+      </ior-security-config>
+      <gen-classes />
+      <ejb20-cmp>
+        <sql-statement>
+          <operation>loadRow</operation>
+          <sql>SELECT "counter" FROM "CounterEJBTable" WHERE "name" = ? </sql>
+        </sql-statement>
+        <sql-statement>
+          <operation>storeRow</operation>
+          <sql>UPDATE "CounterEJBTable" SET "counter" = ?  WHERE "name" = ? </sql>
+        </sql-statement>
+        <sql-statement>
+          <operation>deleteRow</operation>
+          <sql>DELETE FROM "CounterEJBTable" WHERE "name" = ? </sql>
+        </sql-statement>
+        <sql-statement>
+          <operation>findByPrimaryKey</operation>
+          <sql>SELECT "name" FROM "CounterEJBTable" WHERE "name" = ? </sql>
+        </sql-statement>
+        <sql-statement>
+          <operation>deleteTable</operation>
+          <sql>DROP TABLE "CounterEJBTable"</sql>
+        </sql-statement>
+        <sql-statement>
+          <operation>createRow</operation>
+          <sql>INSERT INTO "CounterEJBTable" ( "counter" , "name" ) VALUES (  ?  ,  ?  )</sql>
+        </sql-statement>
+        <sql-statement>
+          <operation>createTable</operation>
+          <sql>CREATE TABLE "CounterEJBTable" ("counter" INTEGER NOT NULL , "name" VARCHAR(255), CONSTRAINT "pk_CounterEJBTabl" PRIMARY KEY ("name") )</sql>
+        </sql-statement>
+        <create-table-deploy>true</create-table-deploy>
+        <delete-table-undeploy>true</delete-table-undeploy>
+      </ejb20-cmp>
+    </ejb>
+    <ejb>
+      <ejb-name>UniqueIdGeneratorEJB</ejb-name>
+      <jndi-name>ejb/local/uidgen/UniqueIdGenerator</jndi-name>
+      <ior-security-config>
+        <transport-config>
+          <integrity>supported</integrity>
+          <confidentiality>supported</confidentiality>
+          <establish-trust-in-target>supported</establish-trust-in-target>
+          <establish-trust-in-client>supported</establish-trust-in-client>
+        </transport-config>
+        <as-context>
+          <auth-method>username_password</auth-method>
+          <realm>default</realm>
+          <required>true</required>
+        </as-context>
+        <sas-context>
+          <caller-propagation>supported</caller-propagation>
+        </sas-context>
+      </ior-security-config>
+      <ejb-ref>
+        <ejb-ref-name>ejb/local/uidgen/Counter</ejb-ref-name>
+        <jndi-name></jndi-name>
+      </ejb-ref>
+      <gen-classes />
+    </ejb>
+    <cmpresource>
+      <ds-jndi-name>jdbc/adventure/AdventureDB</ds-jndi-name>
+      <default-resource-principal>
+        <name>adventureuser</name>
+        <password>adventure</password>
+      </default-resource-principal>
+    </cmpresource>
+  </enterprise-beans>
+
+  <enterprise-beans>
+    <module-name>processmanager-ejb.jar</module-name>
+    <unique-id>2</unique-id>
+    <ejb>
+      <ejb-name>ManagerEJB</ejb-name>
+      <jndi-name>ejb/local/processmanager/Manager</jndi-name>
+      <ior-security-config>
+        <transport-config>
+          <integrity>supported</integrity>
+          <confidentiality>supported</confidentiality>
+          <establish-trust-in-target>supported</establish-trust-in-target>
+          <establish-trust-in-client>supported</establish-trust-in-client>
+        </transport-config>
+        <as-context>
+          <auth-method>username_password</auth-method>
+          <realm>default</realm>
+          <required>true</required>
+        </as-context>
+        <sas-context>
+          <caller-propagation>supported</caller-propagation>
+        </sas-context>
+      </ior-security-config>
+      <gen-classes />
+      <ejb20-cmp>
+        <sql-statement>
+          <operation>storeRow</operation>
+          <sql>UPDATE "ManagerEJBTable" SET "status" = ?  WHERE "orderId" = ? </sql>
+        </sql-statement>
+        <sql-statement>
+          <operation>loadRow</operation>
+          <sql>SELECT "status" FROM "ManagerEJBTable" WHERE "orderId" = ? </sql>
+        </sql-statement>
+        <sql-statement>
+          <operation>deleteRow</operation>
+          <sql>DELETE FROM "ManagerEJBTable" WHERE "orderId" = ? </sql>
+        </sql-statement>
+        <sql-statement>
+          <operation>createRow</operation>
+          <sql>INSERT INTO "ManagerEJBTable" ( "orderId" , "status" ) VALUES (  ?  ,  ?  )</sql>
+        </sql-statement>
+        <sql-statement>
+          <operation>deleteTable</operation>
+          <sql>DROP TABLE "ManagerEJBTable"</sql>
+        </sql-statement>
+        <sql-statement>
+          <operation>findByPrimaryKey</operation>
+          <sql>SELECT "orderId" FROM "ManagerEJBTable" WHERE "orderId" = ? </sql>
+        </sql-statement>
+        <sql-statement>
+          <operation>createTable</operation>
+          <sql>CREATE TABLE "ManagerEJBTable" ("orderId" VARCHAR(255) , "status" VARCHAR(255), CONSTRAINT "pk_ManagerEJBTabl" PRIMARY KEY ("orderId") )</sql>
+        </sql-statement>
+        <create-table-deploy>true</create-table-deploy>
+        <delete-table-undeploy>true</delete-table-undeploy>
+        <sql-statement>
+          <method>
+            <ejb-name>ManagerEJB</ejb-name>
+            <method-intf>LocalHome</method-intf>
+            <method-name>findOrdersByStatus</method-name>
+            <method-params>
+              <method-param>java.lang.String</method-param>
+            </method-params>
+          </method>
+          <sql>SELECT DISTINCT "a"."orderId" FROM "ManagerEJBTable" "a" WHERE ("a"."status"  = ? )</sql>
+        </sql-statement>
+        <sql-statement>
+          <method>
+            <ejb-name>ManagerEJB</ejb-name>
+            <method-intf>LocalHome</method-intf>
+            <method-name>findIncompleteOrders</method-name>
+            <method-params></method-params>
+          </method>
+          <sql>SELECT DISTINCT "a"."orderId"  FROM "ManagerEJBTable" "a" WHERE ("a"."status" IN('PENDING','APPROVED','SHIPPED_PART'))</sql>
+        </sql-statement>
+      </ejb20-cmp>
+    </ejb>
+    <ejb>
+      <ejb-name>ProcessManagerEJB</ejb-name>
+      <jndi-name>ejb/local/processmanager/ProcessManager</jndi-name>
+      <ior-security-config>
+        <transport-config>
+          <integrity>supported</integrity>
+          <confidentiality>supported</confidentiality>
+          <establish-trust-in-target>supported</establish-trust-in-target>
+          <establish-trust-in-client>supported</establish-trust-in-client>
+        </transport-config>
+        <as-context>
+          <auth-method>username_password</auth-method>
+          <realm>default</realm>
+          <required>true</required>
+        </as-context>
+        <sas-context>
+          <caller-propagation>supported</caller-propagation>
+        </sas-context>
+      </ior-security-config>
+      <ejb-ref>
+        <ejb-ref-name>ejb/local/processmanager/Manager</ejb-ref-name>
+        <jndi-name></jndi-name>
+      </ejb-ref>
+      <gen-classes />
+    </ejb>
+    <cmpresource>
+      <ds-jndi-name>jdbc/adventure/AdventureDB</ds-jndi-name>
+      <default-resource-principal>
+        <name>adventureuser</name>
+        <password>adventure</password>
+      </default-resource-principal>
+    </cmpresource>
+  </enterprise-beans>
+
+</j2ee-ri-specific-information>

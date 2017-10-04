@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.pilot.fpv.sport.MergeSportAttitudeView xmlns:android="http://schemas.android.com/apk/res-auto" app:background="@r$drawable/merge_sport_rmp_bg" app:layout_width="UNKNOWN_DATA_0x7f0b00ff" app:layout_height="UNKNOWN_DATA_0x7f0b00ff">
+    <ImageView app:layout_width="match_parent" app:layout_height="match_parent" app:src="@r$drawable/merge_sport_ball_bg" app:contentDescription="@string/app_name" />
+    <dji.pilot.publics.widget.DJIClipView app:id="@+id/merge_sport_attitude_pgb" app:layout_width="match_parent" app:layout_height="match_parent" app:initialAngle="90.0" app:isUseSrcSize="false" app:shape="oval" app:src="@r$drawable/merge_sport_ball_color_bg" />
+    <dji.publics.DJIUI.DJILinearLayout app:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" app:orientation="vertical" app:layout_width="wrap_content" app:layout_height="wrap_content" app:layout_marginTop="@dimen/gx" app:layout_centerHorizontal="true">
+        <dji.publics.DJIUI.DJITextView app:textSize="@dimen/rq" app:textStyle="bold" app:id="@+id/merge_sport_attitude_rpm_tv" app:layout_width="UNKNOWN_DATA_0x7f0b0138" style="@style/bm" />
+        <dji.publics.DJIUI.DJITextView app:textSize="@dimen/rn" app:textStyle="bold" app:id="@+id/merge_sport_attitude_rpm_desc_tv" app:layout_marginTop="@dimen/fpv_attitude_sport_rpm" app:text="@string/unit_rpm" style="@style/bm" />
+    </dji.publics.DJIUI.DJILinearLayout>
+</dji.pilot.fpv.sport.MergeSportAttitudeView>

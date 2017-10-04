@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.publics.DJIUI.DJILinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent"
+    <dji.publics.DJIUI.DJILinearLayout android:orientation="horizontal" android:padding="@dimen/fj" android:layout_width="match_parent" android:layout_height="match_parent">
+        <dji.publics.DJIUI.DJIImageView android:gravity="top|bottom|center_vertical|fill_vertical|center|fill" android:layout_gravity="top|bottom|center_vertical|fill_vertical|center|fill" android:id="@+id/fpv_redundancy_system_history_item_img" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@r$drawable/fpv_redundancy_system__status_green" android:contentDescription="@string/app_name" />
+        <dji.publics.DJIUI.DJITextView android:textSize="@dimen/rq" android:gravity="top|bottom|center_vertical|fill_vertical|center|fill" android:layout_gravity="top|bottom|center_vertical|fill_vertical|center|fill" android:id="@+id/fpv_redundancy_system_history_item_desc" android:paddingRight="@dimen/fj" android:clickable="false" android:layout_width="UNKNOWN_DATA_0x1" android:layout_height="wrap_content" android:singleLine="false" android:layout_weight="1.0" android:layout_toRightOf="@+id/fpv_redundancy_system_history_item_img" />
+        <dji.publics.DJIUI.DJITextView android:textSize="@dimen/rq" android:gravity="top|bottom|center_vertical|fill_vertical|center|fill" android:layout_gravity="top|bottom|center_vertical|fill_vertical|center|fill" android:id="@+id/fpv_redundancy_system_history_item_time" android:clickable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    </dji.publics.DJIUI.DJILinearLayout>
+    <dji.publics.DJIUI.DJIImageView android:visibility="visible" android:layout_margin="0dp" style="@style/FpvGenSettingDivider" />
+</dji.publics.DJIUI.DJILinearLayout>

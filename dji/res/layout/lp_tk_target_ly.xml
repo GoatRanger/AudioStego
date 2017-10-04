@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.phone.tracking.view.DJILPTrackTargetView xmlns:android="http://schemas.android.com/apk/res/android" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content">
+    <dji.phone.tracking.view.TrackingBGView android:id="@id/bd6" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/ft" android:layout_centerHorizontal="true" />
+    <TextView android:textSize="@dimen/rp" android:textColor="@color/ax" android:id="@id/bd7" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0fps" android:layout_centerInParent="true" />
+    <TextView android:textSize="@dimen/rq" android:textColor="@color/om" android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@id/bd8" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x7f0b010a" android:minWidth="@dimen/fm" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" />
+</dji.phone.tracking.view.DJILPTrackTargetView>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res-auto" style="@style/gj">
+    <dji.setting.ui.battery.ShowVoltageView setting_ui:titleText="@string/setting_ui_battery_show_voltage" style="@style/g2" />
+    <dji.setting.ui.battery.DischargeView setting_ui:titleText="@string/setting_ui_battery_discharge_desc" style="@style/g2" />
+    <dji.setting.ui.widget.ItemViewGroup setting_ui:titleText="@string/setting_ui_battery_history_status" setting_ui:subLayout="@layout/setting_ui_group_battery_history" setting_ui:showDivider="false" style="@style/g2" />
+</LinearLayout>

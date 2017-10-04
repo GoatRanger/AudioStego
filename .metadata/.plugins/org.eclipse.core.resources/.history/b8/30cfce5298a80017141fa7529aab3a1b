@@ -1,0 +1,14 @@
+/**
+ * 
+ */
+package event;
+
+/**
+ * @author Karl
+ *
+ */
+interface SimControlListener {
+	
+	void eventChanged();
+
+}

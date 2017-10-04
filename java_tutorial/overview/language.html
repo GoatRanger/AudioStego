@@ -1,0 +1,153 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Advanced Language Topics</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="packaging.html" target="_top"><img src="../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="./TOC.html" target="_top"><img src="../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="tables.html" target="_top"><img src="../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="./index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../search.html" target="_top">Search</a>
+<br><a href="../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Overview
+</font>
+
+<h2>
+Advanced Language Topics
+</h2>
+<blockquote>
+The Java platform provides the JNI and reflection API to provide a way
+to invoke native methods and to get information on loaded classes.
+
+</blockquote>
+<h3><a href="../native1.1/index.html">Java Native Interface</a></h3>
+<blockquote>
+The ability to interface to code written in other programming languages
+has been with the Java programming language since its inception.
+However, for JDK 1.1 the API was completely rewritten and ceremoniously
+renamed the JNI.
+<P>
+The JNI defines a standard naming and calling convention so the Java VM
+can locate and invoke native methods. JNI also offers a set of standard
+interface functions to call from native code to do such things as
+access, manipulate, release, or create objects or to call methods in
+the Java programming language. Finally, the JNI supports an invocation
+to load, initialize, and invoke the Java VM. In JDK 1.2 a number of new
+methods add functionality in the areas of library and version
+management, local reference management, weak global references, array
+operations, string operations, reflection support, and the invocation
+API.
+</blockquote>
+
+<h3><a href="../reflect/index.html">Reflection</a></h3>
+<blockquote>
+Introduced in JDK 1.1, reflection lets a program written in the Java
+programming language access information about the fields, methods, and
+constructors of loaded classes and use reflected field, method, and
+constructor objects to operate within security restrictions on the
+fields, methods, and constructors in other objects. The reflection API
+accommodates applications that need access to either the public members
+of a target object (based on its runtime class) or the members declared
+by a given class.
+<P>
+Some clients, such as the serialization service, development tools, and
+debuggers, need to bypass the default access controls built into the
+Java programming language when they use reflected members or
+constructors. These controls govern how method and constructor
+reflectives can access fields, invoke members, and create new class
+instances according to whether the field, method, or class is public,
+private, or protected.
+<P>
+In JDK 1.2 reflected field, method and constructor objects extend a new
+base class (<CODE>AccessibleObject</CODE>) with a flag field that can
+be set to bypass the default access controls. Flag values for this
+field are either <CODE>True</CODE> or <CODE>False</CODE>, and the
+default flag value is <CODE>False</CODE>. If the flag is
+<CODE>True</CODE>, access checks are bypassed, and the requested
+operation proceeds. If the flag is <CODE>False</CODE>, normal access
+checks are in force.
+<P>
+Setting the flag is under the control of the JDK 1.2 security
+architecture. In addition to the <CODE>AccessibleObject</CODE>
+instance, which has the necessary state and methods to set the flag to
+<CODE>True</CODE>, a <CODE>ReflectPermission</CODE> object is needed.
+The <CODE>ReflectPermission</CODE> object has methods to grant the
+necessary permission in the policy file to allow the reflective
+access.
+
+
+</blockquote>
+
+<img src="../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="packaging.html" target="_top"><img src="../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="./TOC.html" target="_top"><img src="../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="tables.html" target="_top"><img src="../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="./index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../search.html" target="_top">Search</a>
+<br><a href="../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

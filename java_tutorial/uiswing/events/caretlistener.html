@@ -1,0 +1,274 @@
+
+
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>How to Write a Caret Listener</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="actionlistener.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#events" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="changelistener.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Creating a GUI with JFC/Swing
+<br>
+<b>Lesson</b>: Writing Event Listeners
+</font>
+
+<h2>
+How to Write a Caret Listener
+</h2>
+<blockquote>
+
+Caret events occur when the <em>caret</em> &#151; the cursor
+indicating the insertion
+point &#151; in a text component moves
+or when the selection in a text component changes.
+The text component's document can initiate caret events
+when it inserts or removes text, for example.
+
+<h4 align=center><font color=red>[PENDING: Image showing sample caret 
+    forthcoming.]</font></h4>
+
+You can attach a caret listener to an instance of any
+<code>JTextComponent</code> subclass with the
+<code>addCaretListener</code> method. 
+
+<blockquote><hr><strong>Note:</strong>&nbsp;An alternate way of detecting caret changes is to attach a
+listener directly to the caret object itself rather than to
+the text component that manages the caret. 
+A caret fires change events (<em>not</em>
+caret events), so you would need to write a
+<a href="changelistener.html">change listener</a>
+rather than a caret listener.
+<hr></blockquote>
+
+<p>
+Here is the caret event handling code from an application
+called <code>TextComponentDemo</code>:
+
+<blockquote><pre>
+...
+<em>//where initialization occurs</em>
+CaretListenerLabel caretListenerLabel =
+    new CaretListenerLabel("Caret Status");
+...
+textPane.addCaretListener(caretListenerLabel);
+...
+protected class CaretListenerLabel extends JLabel
+                                   implements CaretListener
+{
+    ...
+    //Might not be invoked from the event dispatching thread.
+    public void caretUpdate(CaretEvent e) {
+        displaySelectionInfo(e.getDot(), e.getMark());
+    }
+
+    //This method can be invoked from any thread.  It 
+    //invokes the setText and modelToView methods, which 
+    //must run in the event dispatching thread. We use
+    //invokeLater to schedule the code for execution
+    //in the event dispatching thread.
+    protected void displaySelectionInfo(final int dot,
+                                        final int mark) {
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                if (dot == mark) {  // no selection
+                    ...
+                }
+            });
+        }
+    }
+}
+</pre></blockquote>
+
+<blockquote><hr><strong>Note:</strong>&nbsp;The <code>caretUpdate</code> method is not guaranteed
+to be called in the event-dispatching thread.
+To use any methods inside of <code>caretUpdate</code>
+that update the GUI special
+handling is required to ensure they are executed on
+the event-dispatching thread.  You can do this by wrapping
+the code inside a <code>Runnable</code> and calling
+<code>SwingUtilities.invokeLater</code> on that
+<code>Runnable</code>.
+<hr></blockquote>
+
+You can find a link to the source file for
+<code>TextComponentDemo</code> in the
+<a target="_top" href="../components/example-1dot4/index.html#TextComponentDemo">example index for Using Swing Components</a><a target="_top" href="../components/example-1dot4/index.html#TextComponentDemo"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.  For a discussion about the caret listener aspect
+of the program see
+<a target="_top" href="../components/generaltext.html#caret">Listening for Caret and Selection Changes</a><a target="_top" href="../components/generaltext.html#caret"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a> in
+<a target="_top" href="../components/generaltext.html">Text Component Features</a><a target="_top" href="../components/generaltext.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.
+
+</blockquote>
+<h3>
+<a name="api">The Caret Listener API</a>
+</h3>
+<blockquote>
+
+<p align=center><a name="caretlistener">The CaretListener
+   Interface</a>
+<p><em>Because <code>CaretListener</code> has only one method,
+   it has no corresponding adapter class.</em>
+<table border=1>
+<tr>
+<th align=left>Method</th>
+<th align=left>Purpose</th>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/event/CaretListener.html#caretUpdate(javax.swing.event.CaretEvent)"><font color="#8800bb"><font size=2><code>caretUpdate(CaretEvent)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/event/CaretListener.html#caretUpdate(javax.swing.event.CaretEvent)"></a></td>
+<td>Called when the caret in the listened-to component moves
+    or when the selection in the listened-to component changes.
+</td>
+</tr>
+</table>
+
+<p align=center><a name="caretevent">The CaretEvent Class</a>
+<p>
+<table border=1>
+<tr>
+<th align=left>Method</th>
+<th align=left>Purpose</th>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/event/CaretEvent.html#getDot()"><font color="#8800bb"><font size=2><code>int getDot()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/event/CaretEvent.html#getDot()"></a></td>
+<td>Returns the current location of the caret.
+    If text is selected, the caret marks one end of the selection.
+</td>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/event/CaretEvent.html#getMark()"><font color="#8800bb"><font size=2><code>int getMark()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/event/CaretEvent.html#getMark()"></a></td>
+<td>Returns the other end of the selection.
+    If nothing is selected,
+    the value returned by this method is equal to the
+    value returned by <code>getDot</code>.
+    Note that the dot is not guaranteed to be less than the mark.
+</td>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/EventObject.html#getSource()"><font color="#8800bb"><font size=2><code>Object getSource()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/EventObject.html#getSource()"></a><br>(<em>in <code>java.util.EventObject</code></em>)
+</td>
+<td>Returns the object that fired the event.
+</td>
+</tr>
+</table>
+</blockquote>
+
+<a name="eg">
+<h3>Examples that Use Caret Listeners</h3>
+</a>
+<blockquote>
+The following table lists the
+examples that use caret listeners.
+<p>
+
+<table>
+<tr>
+<th align=left> Example
+</th>
+<th align=left> Where Described
+</th>
+<th align=left> Notes
+
+</th>
+</tr>
+<tr valign=top>
+<td> <a href="../components/example-swing/index.html#TextComponentDemo"><code>TextComponentDemo</code></a>
+</td>
+<td>
+<a target="_top" href="../components/generaltext.html#caret">Listening for Caret and Selection Changes</a><a target="_top" href="../components/generaltext.html#caret"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a></td>
+<td> Uses a listener label to display caret and selection status.
+
+</td>
+</tr>
+</table>
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="actionlistener.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#events" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="changelistener.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

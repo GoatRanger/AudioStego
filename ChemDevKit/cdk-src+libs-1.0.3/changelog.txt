@@ -1,0 +1,437 @@
+------------------------------------------------------------------------
+r8425 | egonw | 2007-06-26 15:39:30 +0200 (Tue, 26 Jun 2007) | 1 line
+
+Created a new changelog with 'svn log' which makes more sense than an outdated, unmaintained XML
+------------------------------------------------------------------------
+r8426 | egonw | 2007-06-26 15:40:13 +0200 (Tue, 26 Jun 2007) | 1 line
+
+Bumped version: about to make a release
+------------------------------------------------------------------------
+r8455 | shk3 | 2007-06-29 14:15:27 +0200 (Fri, 29 Jun 2007) | 1 line
+
+the viewer can now resize the molecule instead of adding scrollbars (requested by a user).
+------------------------------------------------------------------------
+r8510 | shk3 | 2007-07-05 11:08:25 +0200 (Thu, 05 Jul 2007) | 1 line
+
+the hydrogen count of an atom in the cml convertor included the atom itself in the count
+------------------------------------------------------------------------
+r8512 | shk3 | 2007-07-05 11:21:45 +0200 (Thu, 05 Jul 2007) | 1 line
+
+
+------------------------------------------------------------------------
+r8529 | shk3 | 2007-07-10 10:41:20 +0200 (Tue, 10 Jul 2007) | 1 line
+
+added a new test (not sure about the correct results, but the actual ones are strange).
+------------------------------------------------------------------------
+r8530 | shk3 | 2007-07-10 10:42:32 +0200 (Tue, 10 Jul 2007) | 2 lines
+
+the test file for the test just added
+
+------------------------------------------------------------------------
+r8531 | shk3 | 2007-07-10 10:43:38 +0200 (Tue, 10 Jul 2007) | 1 line
+
+changed name of test file
+------------------------------------------------------------------------
+r8583 | shk3 | 2007-07-25 14:02:46 +0200 (Wed, 25 Jul 2007) | 1 line
+
+a new test file for a descriptor
+------------------------------------------------------------------------
+r8584 | shk3 | 2007-07-25 14:03:49 +0200 (Wed, 25 Jul 2007) | 1 line
+
+there was a really stupid bug in this
+------------------------------------------------------------------------
+r8585 | shk3 | 2007-07-25 14:04:28 +0200 (Wed, 25 Jul 2007) | 1 line
+
+added a test
+------------------------------------------------------------------------
+r8587 | shk3 | 2007-07-25 21:17:13 +0200 (Wed, 25 Jul 2007) | 1 line
+
+slight performance increase
+------------------------------------------------------------------------
+r8588 | shk3 | 2007-07-25 22:36:23 +0200 (Wed, 25 Jul 2007) | 1 line
+
+the extra bits of the extended fingerprinter need to be relativ to the size of the extended fingerprint, not to the size of the normal part.
+------------------------------------------------------------------------
+r8589 | shk3 | 2007-07-26 10:04:35 +0200 (Thu, 26 Jul 2007) | 1 line
+
+removed some system.outs
+------------------------------------------------------------------------
+r8590 | shk3 | 2007-07-26 10:13:28 +0200 (Thu, 26 Jul 2007) | 1 line
+
+removed some system.outs
+------------------------------------------------------------------------
+r8591 | shk3 | 2007-07-26 10:14:52 +0200 (Thu, 26 Jul 2007) | 2 lines
+
+this should not have been committed
+
+------------------------------------------------------------------------
+r8624 | egonw | 2007-07-27 16:23:27 +0200 (Fri, 27 Jul 2007) | 1 line
+
+Removed work in progress; does not belong in CDK 1.0
+------------------------------------------------------------------------
+r8625 | egonw | 2007-07-27 16:28:25 +0200 (Fri, 27 Jul 2007) | 1 line
+
+Added list of possible patches to incorporate for release 1.0.2 (cd trunk; svn log -r 8426:HEAD > patches.txt)
+------------------------------------------------------------------------
+r8677 | shk3 | 2007-08-11 23:55:05 +0200 (Sat, 11 Aug 2007) | 1 line
+
+added a trigger to user aromaticity for smiles. Note this is important since without this the smiles generator will generate different smiles for identical molecules.
+------------------------------------------------------------------------
+r8690 | egonw | 2007-08-15 07:40:24 +0200 (Wed, 15 Aug 2007) | 1 line
+
+Added more recent candidate patches
+------------------------------------------------------------------------
+r8703 | shk3 | 2007-08-23 00:55:40 +0200 (Thu, 23 Aug 2007) | 1 line
+
+added rajarshis changes to 1.0 branch
+------------------------------------------------------------------------
+r8707 | egonw | 2007-08-28 09:41:36 +0200 (Tue, 28 Aug 2007) | 1 line
+
+Applied patch 8439 from trunk/: 'Updated entry for Arsenic which is trivalent so maxBondOrderSum should be 3'
+------------------------------------------------------------------------
+r8708 | egonw | 2007-08-28 09:43:54 +0200 (Tue, 28 Aug 2007) | 1 line
+
+Applied patch 8466 from trunk/: 'Fixed title of atom type list'
+------------------------------------------------------------------------
+r8709 | egonw | 2007-08-28 09:48:38 +0200 (Tue, 28 Aug 2007) | 1 line
+
+Applied patch 8483 and 8486 from trunk/: 'Updated to include hyb state labels for some of the missing entries' and 'Fixed some more entries'
+------------------------------------------------------------------------
+r8710 | egonw | 2007-08-28 09:51:32 +0200 (Tue, 28 Aug 2007) | 1 line
+
+Applied patch 8501 and 8502 from trunk/: 'Updated to throw an exception if 3D coordinates are not available'
+------------------------------------------------------------------------
+r8711 | egonw | 2007-08-28 10:10:54 +0200 (Tue, 28 Aug 2007) | 1 line
+
+Applied patch 8517 from trunk/: 'getDescriptorResultType() did return DoubleResult instead of DoubleArrayResult'
+------------------------------------------------------------------------
+r8712 | egonw | 2007-08-28 10:12:57 +0200 (Tue, 28 Aug 2007) | 1 line
+
+Applied patch 8518 (and test in 8519) from trunk/: 'pending fix for z-coordinate sign. Besides the normalization of axes is dispensable'
+------------------------------------------------------------------------
+r8713 | egonw | 2007-08-28 10:14:27 +0200 (Tue, 28 Aug 2007) | 1 line
+
+Applied patch 8520 from trunk/: 'fix rotation angle in testRotate_IAtomContainer_Point2d_double'
+------------------------------------------------------------------------
+r8714 | egonw | 2007-08-28 10:15:53 +0200 (Tue, 28 Aug 2007) | 1 line
+
+Applied patch 8521 from trunk/: 'Updated entry for Arsenic which is trivalent so maxBondOrderSum should be 3 (copied from r8439)'
+------------------------------------------------------------------------
+r8715 | egonw | 2007-08-28 10:17:20 +0200 (Tue, 28 Aug 2007) | 1 line
+
+Applied patch 8525 from trunk/: 'Fixed element symbols'
+------------------------------------------------------------------------
+r8716 | egonw | 2007-08-28 10:18:50 +0200 (Tue, 28 Aug 2007) | 1 line
+
+Applied patch 8535 from trunk/: 'Removed a line which originally for debug purposes and causes the RingPartioner to run twice during each call.'
+------------------------------------------------------------------------
+r8717 | egonw | 2007-08-28 10:19:38 +0200 (Tue, 28 Aug 2007) | 1 line
+
+Applied patch 8537 from trunk/: 'Fixed correct reader to use'
+------------------------------------------------------------------------
+r8718 | egonw | 2007-08-28 10:22:35 +0200 (Tue, 28 Aug 2007) | 1 line
+
+Applied patches 8552 and 8553: 'Linker includes ring atoms, SMILES could be converted to UpperCase' and 'Add test for linkers'
+------------------------------------------------------------------------
+r8719 | egonw | 2007-08-28 10:29:51 +0200 (Tue, 28 Aug 2007) | 1 line
+
+Applied patch 8576: 'Fixed writers: the BufferedReader must not be static; that messes up threaded writing'
+------------------------------------------------------------------------
+r8721 | egonw | 2007-08-28 10:32:51 +0200 (Tue, 28 Aug 2007) | 1 line
+
+Applied patch 8577-8586: adding cdk.conformer by Rajarshi
+------------------------------------------------------------------------
+r8722 | egonw | 2007-08-28 10:42:00 +0200 (Tue, 28 Aug 2007) | 1 line
+
+Applied patch 8596-8612: adding cdk.pcore by Rajarshi
+------------------------------------------------------------------------
+r8723 | egonw | 2007-08-28 10:46:55 +0200 (Tue, 28 Aug 2007) | 1 line
+
+Updated: backlog is up to r8623 now
+------------------------------------------------------------------------
+r8724 | egonw | 2007-08-28 10:47:32 +0200 (Tue, 28 Aug 2007) | 1 line
+
+Applied patch 8623: 'Updated scripts so that testing is performed on the pcore module'
+------------------------------------------------------------------------
+r8725 | egonw | 2007-08-28 10:50:37 +0200 (Tue, 28 Aug 2007) | 1 line
+
+Added patches 8626-8229: deal with zero atom MDL molfiles
+------------------------------------------------------------------------
+r8726 | egonw | 2007-08-28 10:52:34 +0200 (Tue, 28 Aug 2007) | 1 line
+
+Added patches 8630-8632: Added a test case for honoring of IOSettings, Updated the test to honor IOSettings for zero Z-coordinates
+------------------------------------------------------------------------
+r8727 | egonw | 2007-08-28 10:54:38 +0200 (Tue, 28 Aug 2007) | 1 line
+
+Added patches 8633-8634: 'Added a convenience method to get the sum of implicit and explicit hydrogens on an IAtom in an IAtomContainer.'
+------------------------------------------------------------------------
+r8728 | egonw | 2007-08-28 10:56:02 +0200 (Tue, 28 Aug 2007) | 1 line
+
+Applied patch 8638: 'Some possible documentation is added.'
+------------------------------------------------------------------------
+r8729 | egonw | 2007-08-28 10:58:31 +0200 (Tue, 28 Aug 2007) | 1 line
+
+Applied patch 8663: 'Fixed SMARTS to parse (closes #1760968).'
+------------------------------------------------------------------------
+r8730 | egonw | 2007-08-28 11:05:57 +0200 (Tue, 28 Aug 2007) | 1 line
+
+Reverted the pcore patch applied earlier (patches 8722 and 8724): I did not realize it used J5-isms
+------------------------------------------------------------------------
+r8731 | egonw | 2007-08-28 11:07:59 +0200 (Tue, 28 Aug 2007) | 1 line
+
+Applied patch 8648: 'Updated Javadocs'
+------------------------------------------------------------------------
+r8732 | egonw | 2007-08-28 11:11:10 +0200 (Tue, 28 Aug 2007) | 1 line
+
+Applied patches 8673-8676: the SDG improvements by steinbeck
+------------------------------------------------------------------------
+r8733 | egonw | 2007-08-28 11:16:54 +0200 (Tue, 28 Aug 2007) | 1 line
+
+Applied patches 8678 and 8681: 'Applied pathes by Andreas Schueller. Fixes bug #1772609 "NPE with bridged rings in SDG/RingPlacer"'
+------------------------------------------------------------------------
+r8734 | egonw | 2007-08-28 11:18:32 +0200 (Tue, 28 Aug 2007) | 1 line
+
+Applied patch 8679: 'getMorganNumbes may fail due to an overflow of an int. Deprecated old method and added a new one returning a long[] array'
+------------------------------------------------------------------------
+r8735 | egonw | 2007-08-28 11:20:11 +0200 (Tue, 28 Aug 2007) | 1 line
+
+Applied patch 8680: 'Fixed bug #1773119 "SDG wrongly folds short chains connecting two rings". We now calculate the degreeSum of atoms in chains and thereby find the one without terminal atoms. This one is then layed out first.'
+------------------------------------------------------------------------
+r8736 | egonw | 2007-08-28 11:21:42 +0200 (Tue, 28 Aug 2007) | 1 line
+
+Applied patch 8682 from trunk/: 'Applied patch for bug #1772613 (RingSet.getConnectedRings() returns duplicate rings) and added a test case. Also had to correct test case testGetConnectedRings_IRing() in RingSetTest.java.'
+------------------------------------------------------------------------
+r8737 | egonw | 2007-08-28 11:23:21 +0200 (Tue, 28 Aug 2007) | 1 line
+
+Applied patches 8683-8687: more SDG patches from steinbeck
+------------------------------------------------------------------------
+r8738 | egonw | 2007-08-28 11:25:37 +0200 (Tue, 28 Aug 2007) | 1 line
+
+OK, new state of cdk-1.0.x/: back in synch with trunk up to 8690
+------------------------------------------------------------------------
+r8739 | egonw | 2007-08-28 11:31:14 +0200 (Tue, 28 Aug 2007) | 1 line
+
+Compile fixes
+------------------------------------------------------------------------
+r8740 | egonw | 2007-08-28 11:33:28 +0200 (Tue, 28 Aug 2007) | 1 line
+
+Reverted conformer patch: also uses J5 stuff
+------------------------------------------------------------------------
+r8741 | egonw | 2007-08-28 11:38:40 +0200 (Tue, 28 Aug 2007) | 1 line
+
+Fixed project name to not conflict with trunk/cdk
+------------------------------------------------------------------------
+r8742 | egonw | 2007-08-28 11:46:31 +0200 (Tue, 28 Aug 2007) | 1 line
+
+Last few compile fixes
+------------------------------------------------------------------------
+r8743 | egonw | 2007-08-28 16:00:07 +0200 (Tue, 28 Aug 2007) | 1 line
+
+Rather dirty patch to get it compile with Java1.4: need FIXING
+------------------------------------------------------------------------
+r8744 | egonw | 2007-08-28 16:02:55 +0200 (Tue, 28 Aug 2007) | 1 line
+
+Reverted patch 8743: was only meant to commit a change to one file
+------------------------------------------------------------------------
+r8745 | egonw | 2007-08-28 16:05:30 +0200 (Tue, 28 Aug 2007) | 1 line
+
+Rather dirty patch to get it compile with Java1.4: needs FIXING
+------------------------------------------------------------------------
+r8746 | egonw | 2007-08-28 16:05:48 +0200 (Tue, 28 Aug 2007) | 1 line
+
+Removed a test which requires J5
+------------------------------------------------------------------------
+r8747 | egonw | 2007-08-28 16:06:20 +0200 (Tue, 28 Aug 2007) | 1 line
+
+Removed a test which requires J5
+------------------------------------------------------------------------
+r8748 | egonw | 2007-08-28 16:07:16 +0200 (Tue, 28 Aug 2007) | 1 line
+
+Do some magic to load J5-depending classes
+------------------------------------------------------------------------
+r8749 | egonw | 2007-08-28 16:08:43 +0200 (Tue, 28 Aug 2007) | 1 line
+
+Marked classes as requiring Java5
+------------------------------------------------------------------------
+r8750 | egonw | 2007-08-28 16:09:19 +0200 (Tue, 28 Aug 2007) | 1 line
+
+Fixed detection of what to compile with J5
+------------------------------------------------------------------------
+r8753 | shk3 | 2007-08-28 23:40:30 +0200 (Tue, 28 Aug 2007) | 1 line
+
+the enter element stuff had some flaws
+------------------------------------------------------------------------
+r8756 | egonw | 2007-08-29 07:30:10 +0200 (Wed, 29 Aug 2007) | 1 line
+
+Added missing file :(
+------------------------------------------------------------------------
+r8772 | egonw | 2007-08-29 14:31:15 +0200 (Wed, 29 Aug 2007) | 1 line
+
+Should fix creating HTML with J1.4
+------------------------------------------------------------------------
+r8789 | shk3 | 2007-08-31 00:44:30 +0200 (Fri, 31 Aug 2007) | 2 lines
+
+the image export automatically adds a file extension
+
+------------------------------------------------------------------------
+r8812 | shk3 | 2007-09-01 21:14:42 +0200 (Sat, 01 Sep 2007) | 1 line
+
+export does not change screen
+------------------------------------------------------------------------
+r8815 | shk3 | 2007-09-01 21:39:38 +0200 (Sat, 01 Sep 2007) | 1 line
+
+export warns if file already exists
+------------------------------------------------------------------------
+r8822 | shk3 | 2007-09-01 22:04:09 +0200 (Sat, 01 Sep 2007) | 1 line
+
+the image is not set off the border 40 px (til now, labels at the border were cut off)
+------------------------------------------------------------------------
+r8838 | rajarshi | 2007-09-02 16:22:15 +0200 (Sun, 02 Sep 2007) | 1 line
+
+Added latest version of nightly to this branch
+------------------------------------------------------------------------
+r8845 | shk3 | 2007-09-02 18:43:36 +0200 (Sun, 02 Sep 2007) | 1 line
+
+image no longer upside down
+------------------------------------------------------------------------
+r8887 | shk3 | 2007-09-05 19:45:31 +0200 (Wed, 05 Sep 2007) | 2 lines
+
+better comment for canonlabeler
+
+------------------------------------------------------------------------
+r9042 | egonw | 2007-10-14 20:01:54 +0200 (Sun, 14 Oct 2007) | 1 line
+
+Updated; going to try to get a 1.0.2 released
+------------------------------------------------------------------------
+r9043 | egonw | 2007-10-14 20:05:38 +0200 (Sun, 14 Oct 2007) | 1 line
+
+Merged r8691: Added test case for bug #1772609 'NPE with bridged rings in SDG/RingPlacer'.
+------------------------------------------------------------------------
+r9044 | egonw | 2007-10-14 20:07:41 +0200 (Sun, 14 Oct 2007) | 1 line
+
+Merged r8697: Add a method to the query atom container creator which creates an queryatomcontainer. This replaces each pseudoatom to an anyatom.
+------------------------------------------------------------------------
+r9045 | egonw | 2007-10-14 20:09:30 +0200 (Sun, 14 Oct 2007) | 1 line
+
+Merged r8699 and r8700: Added test file by Volker (see cdk-user) for the shortest path problem; JUnit test provided by Volker Haehnke (haehnke - bioinformatik uni-frankfurt de), somewhat rewritten.
+------------------------------------------------------------------------
+r9046 | egonw | 2007-10-14 20:11:06 +0200 (Sun, 14 Oct 2007) | 1 line
+
+Merged r8701: Renamed a variable to comply with http://en.wikipedia.org/wiki/Dijkstra's_algorithm
+------------------------------------------------------------------------
+r9047 | egonw | 2007-10-14 20:13:30 +0200 (Sun, 14 Oct 2007) | 1 line
+
+Merged r8751: Bug fixes for bugs #1783367 'SmilesParser incorrectly assigns double bonds' and #1783381 'SmilesParser uses Molecule instead of IMolecule'. Test case for bug #1783367.
+------------------------------------------------------------------------
+r9048 | egonw | 2007-10-14 20:15:39 +0200 (Sun, 14 Oct 2007) | 1 line
+
+Merged r8754 and r8773: Fix and test case for bug #1783547 and #1783546 'Lost aromaticity in SmilesParser with Biphenyl and Benzene'
+------------------------------------------------------------------------
+r9049 | egonw | 2007-10-14 20:16:50 +0200 (Sun, 14 Oct 2007) | 1 line
+
+Merged r8774: Add a MDL RXN reader which uses the MDLV2000Reader instead of the MDLReader
+------------------------------------------------------------------------
+r9050 | egonw | 2007-10-14 20:23:40 +0200 (Sun, 14 Oct 2007) | 1 line
+
+Merged r8775, r8776, r8777: bug fixes for #150354 #1783774 #1778479 in the SmilesParser, SmilesGenerator and MDLWriter/PseudoAtom.
+------------------------------------------------------------------------
+r9051 | egonw | 2007-10-14 20:25:40 +0200 (Sun, 14 Oct 2007) | 1 line
+
+Merged r8791: Code for v,mass atom two digits mass atom and exception handeling
+------------------------------------------------------------------------
+r9052 | egonw | 2007-10-14 20:26:33 +0200 (Sun, 14 Oct 2007) | 1 line
+
+Merged r8800: Fixed reading of MDL molfiles with exactly 12 columns (==valid) in the bond block
+------------------------------------------------------------------------
+r9053 | egonw | 2007-10-14 20:28:59 +0200 (Sun, 14 Oct 2007) | 1 line
+
+Merged r8802: Made a little more memory efficient by removing unnesscary cloning operations
+------------------------------------------------------------------------
+r9054 | egonw | 2007-10-14 20:29:40 +0200 (Sun, 14 Oct 2007) | 1 line
+
+Merged r8803: Fixed it so that we make a deep copy of the input molecule
+------------------------------------------------------------------------
+r9055 | egonw | 2007-10-14 20:30:46 +0200 (Sun, 14 Oct 2007) | 1 line
+
+Merged r8809: Added code to work on a local copy of theinput molecule
+------------------------------------------------------------------------
+r9056 | egonw | 2007-10-14 20:32:26 +0200 (Sun, 14 Oct 2007) | 1 line
+
+Merged r8811: Updated Javadocs
+------------------------------------------------------------------------
+r9057 | egonw | 2007-10-14 20:35:55 +0200 (Sun, 14 Oct 2007) | 1 line
+
+Merged 8824 8821 8820 8819 8817 8816: Added code to properly work on a local copy
+------------------------------------------------------------------------
+r9058 | egonw | 2007-10-14 21:39:12 +0200 (Sun, 14 Oct 2007) | 1 line
+
+Removed some J5 talk
+------------------------------------------------------------------------
+r9059 | egonw | 2007-10-14 21:39:50 +0200 (Sun, 14 Oct 2007) | 1 line
+
+Updated up to 8843
+------------------------------------------------------------------------
+r9060 | egonw | 2007-10-14 21:44:41 +0200 (Sun, 14 Oct 2007) | 1 line
+
+Merged 8848: Fixed an ArrayIndexOutOfBoundsException
+------------------------------------------------------------------------
+r9061 | egonw | 2007-10-14 21:46:19 +0200 (Sun, 14 Oct 2007) | 1 line
+
+Merged r8850: Removed tainted code (unclear license, no statement) and classes depending on it (closes #1701312)
+------------------------------------------------------------------------
+r9062 | egonw | 2007-10-14 21:47:32 +0200 (Sun, 14 Oct 2007) | 1 line
+
+Merged r8881: The cause for hard to reproduce StructureDiagramGenerator bugs was the undeterministic order of the rings returned by SSSRFinder.findSSSR(). The rings are now sorted by a new method AtomContainerSetManipulator.sort() which uses the new class AtomContainerComparator. Also the safetyCounters in the SDG were made effective. This should prevent all hangs of the SDG in future.
+------------------------------------------------------------------------
+r9063 | egonw | 2007-10-14 21:50:06 +0200 (Sun, 14 Oct 2007) | 1 line
+
+Merged r8883: Added SVN keywords to the copyright comment.
+------------------------------------------------------------------------
+r9064 | egonw | 2007-10-14 21:51:01 +0200 (Sun, 14 Oct 2007) | 1 line
+
+Merged r8884: The molecule ID of diamantane.cml incorrectly was 'cubane'
+------------------------------------------------------------------------
+r9065 | egonw | 2007-10-14 22:04:57 +0200 (Sun, 14 Oct 2007) | 1 line
+
+Merged r8885 and r8886: This commit fixes bugs #1784850, #1677912 and #1714794
+------------------------------------------------------------------------
+r9066 | egonw | 2007-10-14 22:11:39 +0200 (Sun, 14 Oct 2007) | 1 line
+
+Merged r8901: Added a statement to say that the current PDBWriter does not write protein structures
+------------------------------------------------------------------------
+r9067 | egonw | 2007-10-14 22:12:33 +0200 (Sun, 14 Oct 2007) | 1 line
+
+Merged 8903: Applied patch by Bala <bkbsub@gmail.com>: more integers
+------------------------------------------------------------------------
+r9068 | egonw | 2007-10-14 22:14:39 +0200 (Sun, 14 Oct 2007) | 1 line
+
+Merged r8911: Added correct bibliography into javaDoc
+------------------------------------------------------------------------
+r9069 | egonw | 2007-10-14 22:54:58 +0200 (Sun, 14 Oct 2007) | 1 line
+
+Merged 8924-8927: SMARTS updates
+------------------------------------------------------------------------
+r9070 | egonw | 2007-10-14 22:57:14 +0200 (Sun, 14 Oct 2007) | 1 line
+
+Merged r8940: Fixed a recursive smarts matching bug found by Rajarshi
+------------------------------------------------------------------------
+r9071 | egonw | 2007-10-14 23:00:16 +0200 (Sun, 14 Oct 2007) | 1 line
+
+Merged 8942: Updated to take into accout the pathological case of a single atom
+------------------------------------------------------------------------
+r9072 | egonw | 2007-10-14 23:02:38 +0200 (Sun, 14 Oct 2007) | 1 line
+
+Merged 8960 and 8961: Updated the JavaDoc for the recently added primes. Fixed the test for the recently added primes, and split up two situations into separate tests.
+------------------------------------------------------------------------
+r9073 | egonw | 2007-10-14 23:14:23 +0200 (Sun, 14 Oct 2007) | 1 line
+
+Missing ref: merged from trunk, unknown commit
+------------------------------------------------------------------------
+r9074 | egonw | 2007-10-14 23:14:48 +0200 (Sun, 14 Oct 2007) | 1 line
+
+Merged 9041: Fixed bug when reuse the same QueryAtomContainer with RecursiveSmarts
+------------------------------------------------------------------------
+r9075 | egonw | 2007-10-14 23:22:14 +0200 (Sun, 14 Oct 2007) | 1 line
+
+Ready for 1.0.2?
+------------------------------------------------------------------------

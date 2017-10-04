@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="10"
+   name=""
+   committed-date="2005-02-01T05:59:34.421875Z"
+   url="svn://192.168.2.2/IT105Editor/docs/jalopy/api/de/hunsicker/jalopy/swing/class-use"
+   last-author="Karl"
+   kind="dir"
+   uuid="0daf4267-3229-f84b-9084-f3c94b025f38"
+   revision="55"/>
+<entry
+   committed-rev="10"
+   name="ProgressMonitor.html"
+   text-time="2005-03-02T06:14:28.578125Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="9535ae27c9f17dad2e6ca105098a6d1b"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:28.187500Z"/>
+<entry
+   committed-rev="10"
+   name="FooterSettingsPage.html"
+   text-time="2005-03-02T06:14:28.562500Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="ee4b03f7b289dfbe61c76125e706d789"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:28.171875Z"/>
+<entry
+   committed-rev="10"
+   name="BracesSettingsPage.html"
+   text-time="2005-03-02T06:14:28.593750Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="44a03f0aa0b9a98b06aa587786560365"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:28.203125Z"/>
+<entry
+   committed-rev="10"
+   name="CodeInspectorSettingsPage.html"
+   text-time="2005-03-02T06:14:28.593750Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="576a1adb28a83c3488ed8072694b194e"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:28.218750Z"/>
+<entry
+   committed-rev="10"
+   name="SettingsDialog.html"
+   text-time="2005-03-02T06:14:28.609375Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="fcd76965859175e8f2e0e5b98d2dd521"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:28.234375Z"/>
+<entry
+   committed-rev="10"
+   name="AbstractSettingsPage.html"
+   text-time="2005-03-02T06:14:28.609375Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="817000144676a539bece68824cfdeaf6"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:28.250000Z"/>
+<entry
+   committed-rev="10"
+   name="EnvironmentSettingsPage.html"
+   text-time="2005-03-02T06:14:28.625000Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="7e6dfa644c88b56929f2473ba600601b"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:28.250000Z"/>
+<entry
+   committed-rev="10"
+   name="ProgressPanel.html"
+   text-time="2005-03-02T06:14:28.640625Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="69d0dd44858eff439722d00beb13a3d0"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:28.296875Z"/>
+<entry
+   committed-rev="10"
+   name="ProjectSettingsPage.html"
+   text-time="2005-03-02T06:14:28.640625Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="6f727f842877474dd5b5c49d4c04bb65"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:28.281250Z"/>
+<entry
+   committed-rev="10"
+   name="MessagesSettingsPage.html"
+   text-time="2005-03-02T06:14:28.656250Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="d6f6989bb3e6df920dea0a79c4483a27"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:28.312500Z"/>
+<entry
+   committed-rev="10"
+   name="JavadocSettingsPage.html"
+   text-time="2005-03-02T06:14:28.656250Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="d9b4ee0d5531e226eb08fe3942a8a468"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:28.296875Z"/>
+<entry
+   committed-rev="10"
+   name="NamingSettingsPage.html"
+   text-time="2005-03-02T06:14:28.671875Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="3cc28da262bd3d62ec00b6e53ad224f6"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:28.328125Z"/>
+<entry
+   committed-rev="10"
+   name="IndentationSettingsPage.html"
+   text-time="2005-03-02T06:14:28.671875Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="6733de5c16e1143439f2d9a7f246796c"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:28.343750Z"/>
+<entry
+   committed-rev="10"
+   name="GeneralSettingsPage.html"
+   text-time="2005-03-02T06:14:28.687500Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="31bc98cfcf16a15d7ef98f530b542033"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:28.375000Z"/>
+<entry
+   committed-rev="10"
+   name="BlankLinesSettingsPage.html"
+   text-time="2005-03-02T06:14:28.703125Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="70cb61dc85718efaa81f2ef23feba072"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:28.406250Z"/>
+<entry
+   committed-rev="10"
+   name="CommentsSettingsPage.html"
+   text-time="2005-03-02T06:14:28.703125Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="13111a358f4ce765af08f102d1a93474"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:28.437500Z"/>
+<entry
+   committed-rev="10"
+   name="SortingSettingsPage.html"
+   text-time="2005-03-02T06:14:28.718750Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="8ceacba51f268c8607dadbc4d5a7aa59"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:28.453125Z"/>
+<entry
+   committed-rev="10"
+   name="WrappingSettingsPage.html"
+   text-time="2005-03-02T06:14:28.718750Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="7aea09cd9b36d25ae5c0d8b2a6b0aeb4"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:28.468750Z"/>
+<entry
+   committed-rev="10"
+   name="HeaderSettingsPage.html"
+   text-time="2005-03-02T06:14:28.734375Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="631df2e776245b8317b7d4a0e47e1b0d"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:28.484375Z"/>
+<entry
+   committed-rev="10"
+   name="MiscSettingsPage.html"
+   text-time="2005-03-02T06:14:28.734375Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="06ebbcbfd2e79a87d0cbc20b7c8c8653"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:28.500000Z"/>
+<entry
+   committed-rev="10"
+   name="ValidationException.html"
+   text-time="2005-03-02T06:14:28.750000Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="4c77be9712c8b0daa5b04569a594d637"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:28.531250Z"/>
+<entry
+   committed-rev="10"
+   name="WhitespaceSettingsPage.html"
+   text-time="2005-03-02T06:14:28.765625Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="d7d719dfba258d487d1d0c5720de08fb"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:28.531250Z"/>
+<entry
+   committed-rev="10"
+   name="ImportsSettingsPage.html"
+   text-time="2005-03-02T06:14:28.765625Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="3c02b191b73ddaf83fc5b8e24d6d0a06"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:28.546875Z"/>
+</wc-entries>

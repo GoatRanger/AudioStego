@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.pilot.publics.widget.DJIScrollBar xmlns:android="http://schemas.android.com/apk/res/android" android:background="@r$drawable/fpv_playback_scrollbar_bg" android:layout_width="match_parent" android:layout_height="match_parent">
+    <dji.publics.DJIUI.DJIImageView android:id="@+id/scrollbar_thumb" android:background="@r$drawable/fpv_playback_pos_thumb" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+</dji.pilot.publics.widget.DJIScrollBar>

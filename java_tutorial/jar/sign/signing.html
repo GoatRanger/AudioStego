@@ -1,0 +1,321 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Signing JAR Files</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="intro.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#sign" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="verify.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: JAR Files
+<br>
+<b>Lesson</b>: Signing and Verifying JAR Files
+</font>
+
+<h2>
+Signing JAR Files
+</h2>
+<blockquote>
+The Java<font size="-2"><sup>TM</sup></font> Development Kit 
+contains the tools that you need to sign JAR files. Depending on which 
+version of the Java Development Kit you're using, you will use either:
+<ul>
+<li>the JDK 1.2 <a href="#jarsigner">JAR Signing and Verification Tool</a>
+<li>the JDK 1.1 <a href="#javakey">Java Security Tool</a>
+</ul>
+<hr>
+<a name="jarsigner">
+</blockquote>
+<h3>The JDK 1.2 JAR Signing and Verification Tool</h3>
+</a>
+<blockquote>
+The JAR Signing and Verification Tool is invoked by using the 
+<tt>jarsigner</tt> command, so we'll refer to it as "Jarsigner" 
+for short.
+<p>
+To sign a JAR file, you must first have a private key. 
+Private keys and their associated public-key certificates are stored 
+in password-protected databases called <em>keystores</em>.  A keystore 
+can hold the keys of many potential signers.   Each key in the 
+keystore can be 
+identified by an <em>alias</em> which is typically the name of the 
+signer who owns the key.  The key belonging to Rita Jones 
+might have the alias "rita", for example.
+
+<p>
+The basic form of the command for signing a JAR file is 
+<blockquote><pre>
+jarsigner <i>jar-file alias</i>
+</pre></blockquote>
+In this command:
+<ul>
+<li><tt>jar-file</tt> is the pathname of the JAR file that's to 
+be signed. 
+<li><tt>alias</tt> is the alias identifying the private key 
+that's to be used to sign the JAR file, and the key's associated certificate.
+</ul>
+<p>
+The Jarsigner tool will prompt you for the passwords for the keystore 
+and alias.  
+<p>
+This basic form of the command assumes that the keystore to be used 
+is in a file named <tt>.keystore</tt> in your home directory.  It 
+will create signature and signature block files with names <tt>x.SF</tt> 
+and <tt>x.DSA</tt> respectively, where <tt>x</tt> is the first eight 
+letters of the alias, all converted to upper case. This basic command 
+will <em>overwrite</em> the original JAR file with the signed JAR file. 
+<p>
+In practice, you may want to use this command in conjunction with 
+one or more of these options, which must precede the <tt>jar-file</tt> 
+pathname:
+
+<table cellspacing=3 border=1>
+
+<tr><th>Option</th><th>Description</th></tr>
+<tr><td><tt>-keystore</tt>&nbsp;<i>url</i></td><td>Specifies a keystore to 
+be used if you don't want to use the <tt>.keystore</tt> default 
+database.</td></tr>
+<tr><td><tt>-storepass</tt>&nbsp;<i>password</i></td><td>Allows you to enter 
+the keystore's password on the command line rather than be prompted for it.
+</td></tr>
+<tr><td><tt>-keypass</tt>&nbsp;<i>password</i></td><td>Allows you to enter your 
+alias's password on the command line rather than be prompted for it.</td></tr>
+<tr><td><tt>-sigfile</tt>&nbsp;<i>file</i></td><td>Specifies the base name for 
+the .SF and .DSA files if you don't want the base name to be taken 
+from your alias. <i>file</i> must be composed only of 
+upper case letters (A-Z), numerals (0-9), hyphen (-), and underscore (_).</td></tr>
+<tr><td><tt>-signedjar</tt>&nbsp;<i>file</i></td><td>Specifies the name of the 
+signed JAR file to be generated if you don't want the original unsigned 
+file to be overwritten with the signed file.</td></tr>
+</table>
+
+</blockquote>
+
+<h3>Example</h3>
+<blockquote>
+Let's look at a couple of examples of signing a JAR file with the 
+Jarsigner tool.  In these examples we will assume:
+<ul>
+<li>your alias is "johndoe".
+<li>the keystore you want to use is in a file named "mykeys" in the current 
+working directory.
+<li>the keystore's password is "abc123".
+<li>the password for your alias is "mypass".
+</ul>
+
+Under these assumptions, you could use this command to sign a JAR file named <tt>app.jar</tt>:
+<blockquote><pre>
+jarsigner -keystore mykeys -storepass abc123 
+          -keypass mypass app.jar johndoe
+</blockquote></pre>
+<p>
+Because this command doesn't make use of the <tt>-sigfile</tt> option, 
+the .SF and .DSA files it creates would be named <tt>JOHNDOE.SF</tt> and 
+<tt>JOHNDOE.DSA</tt>. Because the command doesn't use the <tt>-signedjar</tt> 
+option, the resulting signed file will overwrite the original version 
+of <tt>app.jar</tt>.
+<p>
+Let's look at what would happen if you used a different combination 
+of options:
+<blockquote><pre>
+jarsigner -keystore mykeys -sigfile SIG 
+          -signedjar SignedApp.jar app.jar johndoe
+</pre></blockquote>
+<p>
+This time, you would be prompted to enter the passwords for both the 
+keystore and your alias because the passwords aren't specified on the 
+command line.  The signature and 
+signature block files would be named <tt>SIG.SF</tt> and 
+<tt>SIG.DSA</tt>, respectively, and the signed JAR file 
+<tt>SignedApp.jar</tt> would be placed in the current directory. The 
+original unsigned JAR file would remain unchanged.
+</blockquote>
+
+<h3>Jarsigner Reference Page</h3>
+<blockquote>
+Complete reference pages for the JAR Signing and Verification Tool are 
+on-line:
+<ul>
+<li>
+<a target="_blank" href="http://java.sun.com/products/jdk/1.2/docs/tooldocs/win32/jarsigner.html"><font color="#009bbb">Jarsigner reference page with Windows examples</font></a><a target="_blank" href="http://java.sun.com/products/jdk/1.2/docs/tooldocs/win32/jarsigner.html"><img src="../../images/otherIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (outside of the tutorial)"></a> <li>
+<a target="_blank" href="http://java.sun.com/products/jdk/1.2/docs/tooldocs/solaris/jarsigner.html"><font color="#009bbb">Jarsigner reference page with Solaris examples</font></a><a target="_blank" href="http://java.sun.com/products/jdk/1.2/docs/tooldocs/solaris/jarsigner.html"><img src="../../images/otherIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (outside of the tutorial)"></a> </ul>
+<p>
+The Java Development Kit provides the Key and Certificate Management 
+Tool (Keytool) for managing keystores:
+<ul>
+<li>
+<a target="_blank" href="http://java.sun.com/products/jdk/1.2/docs/tooldocs/win32/keytool.html"><font color="#009bbb">Keytool reference page for Windows</font></a><a target="_blank" href="http://java.sun.com/products/jdk/1.2/docs/tooldocs/win32/keytool.html"><img src="../../images/otherIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (outside of the tutorial)"></a> <li>
+<a target="_blank" href="http://java.sun.com/products/jdk/1.2/docs/tooldocs/solaris/keytool.html"><font color="#009bbb">Keytool reference page for Solaris</font></a><a target="_blank" href="http://java.sun.com/products/jdk/1.2/docs/tooldocs/solaris/keytool.html"><img src="../../images/otherIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (outside of the tutorial)"></a> </ul>
+</blockquote>
+
+<hr>
+<a name="javakey">
+<h3>The JDK 1.1 Java Security Tool</h3>
+</a>
+<blockquote>
+If you're working with version 1.1 of the Java Development Kit, you'll use
+the Java Security Tool to sign JAR files.  You invoke the Java Security 
+Tool with the <tt>javakey</tt> command, so we'll call it  
+"Javakey" for short.
+<p>
+The Javakey tool manages a database containing public/private key 
+pairs and related certificates.  In order to sign a JAR file with 
+the Javakey tool, you need to have a public/private key pair in Javakey's  
+database.  The Javakey tool will look for the database at the location 
+specified by the <tt>identity.database</tt> property in the security 
+properties file, <tt>java.security</tt>, located in the 
+<tt>jre/lib/security</tt> directory of the JDK software. The database 
+typically holds 
+key pairs for many different potential signers, each key pair being 
+associated with the username of a signer.
+<p>
+In addition to key pairs, Javakey's database contains certificates for 
+the public keys.  When a certificate is added to the database, Javakey 
+assigns it a unique number for identification purposes.
+<p>
+To sign a file, you must provide Javakey with several pieces of 
+information:
+<ul>
+<li>the username of the key pair to use
+<li>the number of the certificate to use
+<li>the name that the signature and signature block files are to have
+<li>the name that the signed JAR file is to have
+</ul>
+<p>
+You provide this information to Javakey by using a 
+<em>directive file</em>, which is basically a property 
+file that Javakey reads when signing a JAR file.  Here's a sample 
+directive file:
+<blockquote><pre>
+# The signer property specifies the username corresponding to 
+# the key pair that Javakey is to use to sign the JAR file.  
+# In this example, Javakey will sign the file using the key pair 
+# belonging to user "rita". 
+
+signer=rita
+
+# The cert property tells Javakey which certificate to use. Each 
+# certificate in Javakey's database is identified by a number. 
+# To see a list of all the certificates and associated numbers in 
+# the database, use the command 'javakey -ld'.
+
+cert=1
+
+# The signature.file property specifies the name that the signature 
+# file and signature block file are to have.  In this example, 
+# the files will be named SIGFILE.SF and SIGFILE.DSA, respectively. 
+
+signature.file=sigfile
+
+# The out.file property specifies the name that Javakey should give 
+# to the signed JAR file it produces.  This property is optional. 
+# If it's not present, Javakey will give the signed file the name 
+# of the original JAR file, but with a .sig filename extension.
+
+out.file=rita.jar
+</pre></blockquote>
+<p>
+Once your directive file is ready, you sign a JAR file 
+by using a command of this form:
+<blockquote><pre>
+javakey -gs <i>directive-file jar-file</i>
+</pre></blockquote>
+<p>
+In this command:
+<ul>
+<li><tt>-gs</tt> is the option that tells Javakey to 
+sign a JAR file.
+<li><tt>directive-file</tt> is the pathname of the directive file 
+that Javakey should use.
+<li><tt>jar-file</tt> is the pathname of the JAR file that you 
+want to sign.
+</ul>
+<p>
+Javakey will place the signed JAR file in the current directory.
+<p>
+Javakey can perform many other functions related to managing the 
+key/certificate database.  See the on-line JDK documentation for 
+more information about Javakey:
+<ul>
+<li>
+<a target="_blank" href="http://java.sun.com/products/jdk/1.1/docs/tooldocs/win32/javakey.html"><font color="#009bbb">Javakey reference page</font></a><a target="_blank" href="http://java.sun.com/products/jdk/1.1/docs/tooldocs/win32/javakey.html"><img src="../../images/otherIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (outside of the tutorial)"></a>  for Windows<li>
+<a target="_blank" href="http://java.sun.com/products/jdk/1.1/docs/tooldocs/solaris/javakey.html"><font color="#009bbb">Javakey reference page</font></a><a target="_blank" href="http://java.sun.com/products/jdk/1.1/docs/tooldocs/solaris/javakey.html"><img src="../../images/otherIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (outside of the tutorial)"></a>  for Solaris</ul>
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="intro.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#sign" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="verify.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

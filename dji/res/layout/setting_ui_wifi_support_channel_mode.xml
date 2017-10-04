@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content"
+    <LinearLayout android:orientation="horizontal" style="@style/g2">
+        <TextView android:id="@id/bqz" android:text="@string/setting_ui_wifi_support_channel_mode_title" style="@style/gh" />
+        <RadioGroup android:gravity="top|bottom|center_vertical|fill_vertical|center|fill" android:orientation="horizontal" android:id="@id/br6" android:layout_width="wrap_content" android:layout_height="match_parent">
+            <RadioButton android:id="@id/bz3" android:checked="true" android:button="0x0" android:text="2.4G" android:singleLine="false" style="@style/g4" />
+            <RadioButton android:id="@id/bz4" android:layout_marginLeft="25dp" android:checked="true" android:button="0x0" android:text="5G" android:singleLine="false" style="@style/g4" />
+            <RadioButton android:id="@id/bz5" android:layout_marginLeft="25dp" android:button="0x0" android:text="@string/setting_ui_wifi_support_channel_dual_mode" android:singleLine="false" style="@style/g4" />
+        </RadioGroup>
+    </LinearLayout>
+    <View android:background="@color/hy" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x100" />
+    <LinearLayout android:orientation="horizontal" style="@style/g2">
+        <TextView android:id="@id/bz6" android:text="@string/setting_ui_wifi_cur_channel_mode_title" style="@style/gh" />
+        <RadioGroup android:gravity="top|bottom|center_vertical|fill_vertical|center|fill" android:orientation="horizontal" android:id="@id/bz7" android:layout_width="wrap_content" android:layout_height="match_parent">
+            <RadioButton android:id="@id/bz8" android:checked="true" android:button="0x0" android:text="2.4G" android:singleLine="false" style="@style/g4" />
+            <RadioButton android:id="@id/bz9" android:layout_marginLeft="25dp" android:checked="true" android:button="0x0" android:text="5G" android:singleLine="false" style="@style/g4" />
+        </RadioGroup>
+        <TextView android:textSize="@dimen/wm" android:textColor="@color/om" android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@id/bz_" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="25dp" android:text="mode" />
+    </LinearLayout>
+</LinearLayout>

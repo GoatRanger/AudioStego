@@ -1,0 +1,43 @@
+package dji.pilot2.publics.b;
+
+public interface a$i {
+    public static final String R = "https://www.skypixel.com/api/users/";
+    public static final String S = "/follow";
+    public static final String Y = "/unfollow";
+    public static final String Z = "https://www.skypixel.com/api/users/";
+    public static final String aa = "/is_follow";
+    public static final String ab = "https://www.skypixel.com/api/users/";
+    public static final String ac = "/followers";
+    public static final String ad = "/followings";
+    public static final String ae = "https://www.skypixel.com/api/photos/";
+    public static final String af = "https://www.skypixel.com/api/videos/";
+    public static final String ag = "https://www.skypixel.com/api/search_with_keyword";
+    public static final String ah = "/comments";
+    public static final String ai = "https://www.skypixel.com/api/photos/";
+    public static final String aj = "https://www.skypixel.com/api/videos/";
+    public static final String ak = "https://www.skypixel.com/api/users/";
+    public static final String al = "/favorites";
+    public static final String am = "https://www.skypixel.com/api/stories";
+    public static final String an = "/favorites/add";
+    public static final String ao = "/favorites/remove";
+    public static final String ap = "https://www.skypixel.com/api/";
+    public static final String aq = "https://www.skypixel.com/api/stories/";
+    public static final String ar = "/likes/add";
+    public static final String as = "/likes/remove";
+    public static final String ce_ = "https://www.skypixel.com/api/photos/popular";
+    public static final String cf_ = "https://www.skypixel.com/api/videos/popular";
+    public static final String cg_ = "https://www.skypixel.com/api/photos/latest";
+    public static final String ch_ = "https://www.skypixel.com/api/videos/latest";
+    public static final String ci_ = "https://www.skypixel.com/api/users/following";
+    public static final String cj_ = "photos";
+    public static final String ck_ = "videos";
+    public static final String cl_ = "https://www.skypixel.com/api/search/photos";
+    public static final String cm_ = "https://www.skypixel.com/api/search/videos";
+    public static final String cn_ = "https://www.skypixel.com/api/";
+    public static final String co_ = "/likes";
+    public static final String cp_ = "/add";
+    public static final String cq_ = "/remove";
+    public static final String e = "https://www.skypixel.com/";
+    public static final String o = "https://www.skypixel.com/api/mobile/explore/banners_and_ads";
+    public static final String p = "https://www.skypixel.com/api/mobile/pilot/";
+}

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.pilot.fpv.view.DJIMapBoxLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="wrap_content" android:layout_height="wrap_content">
+    <dji.gs.views.EventView android:id="@+id/eventView" android:clickable="true" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <dji.publics.DJIUI.DJIRelativeLayout android:id="@+id/gs_icons_ly" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/fpv_gs_control_margin_top_record" android:layout_marginRight="5dp" android:layout_alignParentRight="true">
+        <dji.pilot.publics.widget.DJIStateImageView android:id="@+id/gs_maptype" android:background="@r$drawable/flight_record_maptype_bg" android:layout_width="UNKNOWN_DATA_0x1b01" android:layout_height="UNKNOWN_DATA_0x1b01" android:src="@r$drawable/gs_map_type" android:layout_alignParentRight="true" />
+        <include android:id="@+id/gs_lock_ly" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="15dp" android:layout_toLeftOf="@+id/gs_maptype" android:layout_alignTop="@+id/gs_maptype" layout="@layout/gs_lock_view" />
+        <dji.pilot.publics.widget.DJIStateImageView android:id="@+id/gs_location" android:background="@r$drawable/gs_maptype_bg" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="15dp" android:src="@r$drawable/expanded_gs_locate_trigger_icon" android:scaleType="center" android:layout_toLeftOf="@+id/gs_lock_ly" android:layout_alignTop="@+id/gs_lock_ly" />
+    </dji.publics.DJIUI.DJIRelativeLayout>
+</dji.pilot.fpv.view.DJIMapBoxLayout>

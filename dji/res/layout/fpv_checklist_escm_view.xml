@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.pilot.fpv.checklist.DJIEscmCheckView xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent" android:baselineAligned="false">
+    <dji.publics.DJIUI.DJIListView android:id="@+id/fpv_checklist_escm_lv" android:fadingEdge="UNKNOWN_DATA_0x0" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_margin="@dimen/n2" android:listSelector="0x106000d" android:drawSelectorOnTop="false" android:cacheColorHint="0x106000d" android:divider="@drawable/camera_other_divider" android:dividerHeight="1px" />
+</dji.pilot.fpv.checklist.DJIEscmCheckView>

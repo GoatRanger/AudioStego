@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <corners android:topLeftRadius="@dimen/leftmenu_second_half_radius" android:topRightRadius="@dimen/leftmenu_second_half_radius" android:bottomLeftRadius="@dimen/leftmenu_second_half_radius" android:bottomRightRadius="@dimen/leftmenu_second_half_radius" />
+    <stroke android:width="1px" android:color="@color/db" />
+    <solid android:color="@color/ak" />
+    <padding android:left="@dimen/leftmenu_second_half_radius" android:right="@dimen/leftmenu_second_half_radius" />
+</shape>

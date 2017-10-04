@@ -1,0 +1,201 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Threads: Doing Two or More Tasks At Once</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="../exceptions/index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#threads" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="definition.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+
+<br>
+<font size="-1">
+<b>Trail</b>: Essential Java Classes
+</font>
+
+<h2>
+Lesson: Threads: Doing Two or More Tasks At Once
+</h2>
+<blockquote>
+Below are three copies of an applet that animates different
+sorting algorithms. No, this lesson is not about sorting algorithms.
+But these applets do provide a visual aid to understanding a powerful
+capability of the Java<font size=-2><sup>TM</sup></font> platform--threads.
+<pre>
+                    <strong>Bi-Directional</strong>
+<strong>Bubble Sort</strong>         <strong>Bubble Sort</strong>        <strong>Quick Sort</strong>
+<applet codebase=example code=SortItem.class width=100 height=100><param name="alg" value="BubbleSort">
+</applet>     <applet
+codebase=example code=SortItem.class width=100 height=100><param name="alg" value="BidirectionalBubbleSort"></applet>     <applet
+codebase=example code=SortItem.class width=100 height=100><param name="alg" value="QSort"></applet>
+</pre>
+
+Now start each of the applets, one by one, by clicking on
+them with the mouse. 
+You can see each applet working its way through the data, sorting it, with
+shorter lines on top and longer lines on bottom.
+While the applets are
+sorting, also notice that you can scroll the page
+or bring up one of your browser’s panels.
+All this is due to <em>threads</em>. 
+
+
+</blockquote>
+<h3><a href=definition.html>What Is a Thread?</a>
+</h3>
+<blockquote>
+A thread--sometimes called an <em>execution context</em> or
+a <em>lightweight process</em>--is a single sequential flow of control
+within a program.
+You use threads to isolate tasks. When you run one of these sorting
+applets, it creates a thread that performs the sort operation. Each
+thread is a sequential flow of control within the same program (the
+browser). Each sort operation runs independently from the others, but
+at the same time.
+
+</blockquote>
+<h3><a href=timer.html>Using the Timer and TimerTask Classes</a>
+</h3>
+<blockquote>
+Thread programming can be tricky.
+Whenever possible, you should use high-level thread API
+such as the <code>java.util.Timer</code> class
+introduced in version 1.3 of the Java platform.
+<code>Timer</code> and its companion class,
+<code>TimerTask</code>,
+are useful when your program
+must perform a task repeatedly
+or after a delay.
+
+
+</blockquote>
+<h3><a href=customizing.html>Customizing a Thread's run Method</a>
+</h3>
+<blockquote>
+Basic support for threads in all versions of the Java platform is in the 
+<code>java.lang.Thread</code> class.
+It provides a thread API and all the generic
+behavior for threads.
+These behaviors include starting, sleeping, running,
+yielding, and having a priority.
+To implement a thread using the <code>Thread</code> class,
+you need to provide it with a <code>run</code> method
+that performs the thread’s task.
+</blockquote>
+
+<h3><a href=lifecycle.html>The Life Cycle of a Thread</a>
+</h3>
+<blockquote>
+Once you know how to get a <code>Thread</code> to
+do something, you need to understand its life cycle.
+</blockquote>
+
+<h3><a href=priority.html>Understanding Thread Priority</a>
+</h3>
+<blockquote>
+A thread's priority affects when it runs in relation to
+other threads. This section talks about how
+this affects your programs.
+</blockquote>
+
+<h3><a href=multithreaded.html>Synchronizing Threads</a>
+</h3>
+<blockquote>
+The first sample programs in this lesson use either one thread or
+multiple threads that run asynchronously. However, it is often useful
+to use multiple threads that share data and therefore must synchronize
+their activities. In this section you will learn how to
+synchronize threads and how to avoid problems such as starvation and
+deadlock.
+</blockquote>
+
+<h3><a href=group.html>Grouping Threads</a>
+</h3>
+<blockquote>
+This section shows you how to group threads and what you can do with a
+group of threads.
+</blockquote>
+
+<h3><a href=summary.html>Summary</a>
+</h3>
+<blockquote>
+When you've completed this lesson on threads, you will have toured the
+intricacies of threads in the Java platform,
+including the life cycle of a thread
+(as represented by its state), scheduling, thread groups, and synchronization.
+The Java platform supports multithreaded programs through the
+language, the libraries, and the runtime system. This summary page highlights
+the features in the Java platform that support threads
+and gives you links to further documentation about those features.
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="../exceptions/index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#threads" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="definition.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

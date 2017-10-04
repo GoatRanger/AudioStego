@@ -1,0 +1,167 @@
+package network;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+
+public class Network {
+  
+  public static int MAX_TTL = 24;
+  private String name = "Network";
+  private Collection sources = new ArrayList();
+  private Collection sinks = new ArrayList();
+  private Collection links = new ArrayList();
+  private Collection routers = new ArrayList();
+  private Collection hubs = new ArrayList();
+
+  public static void setMaxTTL(int ttl) {
+    MAX_TTL = ttl;
+  }
+  public void removeAll() {
+    sources.clear();
+    sinks.clear();
+    links.clear();
+    routers.clear();
+    hubs.clear();
+  }
+  
+  public void resetAll() {
+    Iterator i = sources.iterator();
+    while (i.hasNext()) {
+      ((NetworkComponent)i.next()).reset();
+    }
+    i = sinks.iterator();
+    while (i.hasNext()) {
+      ((NetworkComponent)i.next()).reset();
+    }
+    i = links.iterator();
+    while (i.hasNext()) {
+      ((NetworkComponent)i.next()).reset();
+    }
+    i = routers.iterator();
+    while (i.hasNext()) {
+      ((NetworkComponent)i.next()).reset();
+    }
+    i = hubs.iterator();
+    while (i.hasNext()) {
+      ((NetworkComponent)i.next()).reset();
+    }
+    
+  }
+  public void addSource(Source source) {
+    sources.add(source);
+  }
+  
+  public void removeSource(Source source) {
+    sources.remove(source);
+  }
+
+  public void addSink(Sink sink) {
+    sinks.add(sink);
+  }
+  
+  public void removeSink(Sink sink) {
+    sinks.remove(sink);
+  }
+
+  public void addLink(Link link) {
+    links.add(link);
+  }
+  
+  public void removeLink(Link link) {
+    links.remove(link);
+  }
+
+  public void addRouter(Router router) {
+    routers.add(router);
+  }
+  
+  public void removeRouter(Router router) {
+    routers.remove(router);
+  }
+
+  public void addHub(Hub hub) {
+    hubs.add(hub);
+  }
+  
+  public void removeHub(Hub hub) {
+    hubs.remove(hub);
+  }
+
+  public Collection getHubs() {
+    return hubs;
+  }
+
+  public Collection getLinks() {
+    return links;
+  }
+
+  public Collection getRouters() {
+    return routers;
+  }
+
+  public Collection getSinks() {
+    return sinks;
+  }
+
+  public Collection getSources() {
+    return sources;
+  }
+
+  public void setHubs(Collection collection) {
+    hubs = collection;
+  }
+
+  public void setLinks(Collection collection) {
+    links = collection;
+  }
+
+  public void setRouters(Collection collection) {
+    routers = collection;
+  }
+
+  public void setSinks(Collection collection) {
+    sinks = collection;
+  }
+
+  public void setSources(Collection collection) {
+    sources = collection;
+  }
+  
+  public String toString() {
+    StringBuffer sb = new StringBuffer("");
+    sb.append(name);
+    sb.append("\n");
+    for (Iterator i = sources.iterator(); i.hasNext();) {
+      Source s = (Source) i.next();
+      sb.append("  ");
+      sb.append(s.toString()); 
+      sb.append("\n");
+    }
+    for (Iterator i = sinks.iterator(); i.hasNext();) {
+      Sink s = (Sink) i.next();
+      sb.append("  ");
+      sb.append(s.toString()); 
+      sb.append("\n");
+    }
+    for (Iterator i = links.iterator(); i.hasNext();) {
+      Link l = (Link) i.next();
+      sb.append("  ");
+      sb.append(l.toString()); 
+      sb.append("\n");
+    }
+    for (Iterator i = routers.iterator(); i.hasNext();) {
+      Router r = (Router) i.next();
+      sb.append("  ");
+      sb.append(r.toString()); 
+      sb.append("\n");
+    }
+    for (Iterator i = hubs.iterator(); i.hasNext();) {
+      Hub h = (Hub) i.next();
+      sb.append("  ");
+      sb.append(h.toString()); 
+      sb.append("\n");
+    }
+    return sb.toString();
+  }
+}

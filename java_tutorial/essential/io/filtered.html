@@ -1,0 +1,165 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Working with Filter Streams</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="catstreams.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#io" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="dataIO.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Essential Java Classes
+<br>
+<b>Lesson</b>: I/O: Reading and Writing (but no 'rithmetic)
+</font>
+
+<h2>
+Working with Filter Streams
+</h2>
+<blockquote>
+The <code>java.io</code> package provides a set of abstract classes that define and partially implement <I>filter streams</I>. A filter stream filters data as it's being read from or written to the stream. The filter streams are 
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/io/FilterInputStream.html"><font color="#8800bb"><code>FilterInputStream</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/io/FilterInputStream.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> or
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/io/FilterOutputStream.html"><font color="#8800bb"><code>FilterOutputStream</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/io/FilterOutputStream.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>, 
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/io/FilterInputStream.html"><font color="#8800bb"><code>FilterInputStream</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/io/FilterInputStream.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>,  and 
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/io/FilterOutputStream.html"><font color="#8800bb"><code>FilterOutputStream</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/io/FilterOutputStream.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>.
+A filter stream is constructed on another stream (the <I> underlying</I> stream). The <code>read</code> method in a readable  filter stream reads input from the underlying stream, filters it, and passes on the filtered data to the caller. The <code> write</code> method in a writable filter stream filters the data  and then writes it to the underlying stream. The filtering done  by the streams depends on the stream. Some streams buffer the data, some count data as it goes by, and others convert data to another form. 
+<P>
+Most filter streams provided by the <code>java.io</code> package  are subclasses of <code>FilterInputStream</code> and <code> FilterOutputStream</code> and are listed here:
+<ul>
+<li>
+<code>DataInputStream</code> and <code>DataOutputStream</code>
+<li>
+<code>BufferedInputStream</code> and <code>BufferedOutputStream</code>
+<li>
+<code>LineNumberInputStream</code>
+<li>
+<code>PushbackInputStream</code>
+<li>
+<code>PrintStream</code> (This is an output stream.)
+</ul>
+
+The <code>java.io</code> package contains only one subclass of <code> FilterReader: PushbackReader</code>. So this section focuses on filter byte streams. 
+<P>
+This section shows you how to use filter streams by presenting an 
+example that uses a  <code>DataInputStream</code> and a 
+<code>DataOutputStream</code>.  This section also covers how to 
+subclass <code>FilterInputStream</code> and 
+<code>FilterOutputStream</code> to create your own filter streams.
+</blockquote>
+<h3>Using Filter Streams</h3>
+<blockquote>
+To use a filter input or output stream, attach the filter stream 
+to another input or output stream when you create it. 
+For example, you can attach a filter stream  
+to the standard input stream, as in the following code:
+<blockquote><pre>
+BufferedReader d = new BufferedReader(new DataInputStream(System.in));
+String input;
+
+while ((input = d.readLine()) != null) {
+    ... //<I>do something interesting here</I>
+}
+</pre></blockquote>
+
+Note that the <code>readLine</code> method has been deprecated in the <code>DataInputStream</code>; 
+therefore we've wrapped it in a <code>BufferedReader</code>. 
+</blockquote>
+
+<h3><a href="dataIO.html">How to Use DataInputStream and DataOutputStream</a></h3>
+<blockquote>
+This page provides and explains an example of using <code>DataInputStream</code> and
+<code>DataOutputStream</code>, two filtered streams that can read and write primitive data types.
+</blockquote>
+
+<h3><a href="writingFiltered.html">Writing Your Own Filtered Streams</a></h3>
+<blockquote>
+Many programmers find that they need to implement their own streams 
+that filter or process data as it is being written to or read from 
+the stream. Sometimes the processing is independent of the format of  the 
+data, such as counting various items in the stream, and sometimes the 
+processing is directly related to the data itself or the format of the 
+data, such as reading and writing data that is contained in rows and 
+columns. Often, these programmers subclass <code>FilterOutputStream </code> and 
+<code>FilterInputStream</code> to achieve their goals.  This section 
+describes an example of how to subclass <code>FileInputStream</code> 
+and <code>FilterOutputStream</code> to create your own filtered  streams. 
+<P>
+
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="catstreams.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#io" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="dataIO.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

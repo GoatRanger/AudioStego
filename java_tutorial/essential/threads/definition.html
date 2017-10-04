@@ -1,0 +1,144 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>What Is a Thread?</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#threads" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="timer.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Essential Java Classes
+<br>
+<b>Lesson</b>: Threads: Doing Two or More Tasks At Once
+</font>
+
+<h2>
+What Is a Thread?
+</h2>
+<blockquote>
+All programmers are familiar with writing sequential programs.
+You've probably written a program that displays "Hello World!"
+or sorts a list of names or computes a list of prime numbers.
+These are sequential programs.
+That is, each has a beginning, an execution
+sequence, and an end. At any given time during the runtime of the
+program, there is a single point of execution.
+<p>
+A thread is similar to the sequential programs described previously. A
+single thread also has a beginning, a sequence, and an end and at any
+given time during the runtime of the thread, there is a single point of
+execution. However, a thread itself is not a program; it cannot run on
+its own. Rather, it runs within a program. The following figure shows
+this relationship.
+
+<p><center><IMG SRC="../../figures/essential/11thread.gif" WIDTH="246" HEIGHT="121" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p>
+
+<blockquote><hr><strong>Definition:</strong>&nbsp; A thread is a single sequential
+flow of control within a program.
+<hr></blockquote>
+<p>
+There is nothing new in the concept of a single thread.
+The real hoopla surrounding threads is not about a single
+sequential thread. Rather, it's about the use of multiple threads
+in a single program, running at the same time and performing
+different tasks. This is illustrated by the following figure:
+
+<p><center><IMG SRC="../../figures/essential/12thread.gif" WIDTH="359" HEIGHT="121" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p>
+<p>
+The HotJava Web browser is an example of a multithreaded application.
+Within the HotJava browser you can scroll a page while it's downloading
+an applet or image, play animation and sound concurrently, print
+a page in the background while you download a new page, or watch
+three sorting algorithms race to the finish. You are used to life
+operating in a concurrent fashion...so why not your browser?
+<p>
+Some texts use the name <em>lightweight process</em> instead
+of thread. A thread is similar to a real process in that a thread
+and a running program are both a single sequential flow of control.
+However, a thread is considered lightweight because it runs within
+the context of a full-blown program and takes advantage of the
+resources allocated for that program and the program's environment.
+<p>
+As a sequential flow of control, a thread must carve out some of
+its own resources within a running program. (It must have its
+own execution stack and program counter for example.) The code
+running within the thread works only within that context. Thus,
+some other texts use <em>execution context</em> as a synonym for thread.
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#threads" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="timer.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

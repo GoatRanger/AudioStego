@@ -1,0 +1,179 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Step 3: Sign the Data</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="step2.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#api" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="step4.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Security in JDK 1.1
+<br>
+<b>Lesson</b>: Using the Security API to Generate Public and Private Keys
+</font>
+
+<h2>
+Step 3: Sign the Data
+</h2>
+<blockquote>
+<p>After we have created a public and private key, we are ready
+to sign the data.
+
+<p>In this example we will sign the data contained in a file.
+We get the file name from the command line.
+
+<p>A digital signature is created (or verified) using an instance of 
+the Signature class.
+
+<p>Signing data is done with the following steps:
+
+<p><b>Get a Signature Object</b>:
+
+<blockquote>
+
+The following gets a Signature object for generating (or verifying)
+signatures using the DSA algorithm. Note that this is the same
+algorithm for which we generated keys in the previous step,
+<a href = "step2.html">Step 2</a>.
+
+<pre>
+            Signature dsa = Signature.getInstance("SHA/DSA"); 
+</pre>
+
+<p>Note: When specifying the signature algorithm name,
+you should also include the name of the message digest algorithm used
+by the signature algorithm. The DSA algorithm is defined to use the
+SHA-1 message digest algorithm. "SHA" is often used to refer to the
+SHA-1 algorithm.
+
+</blockquote>
+
+
+<p><b>Initialize the Signature Object</b>
+
+<blockquote>
+
+<P>Before a Signature object can be used for signing (or
+verifying), it must be initialized. The initialization
+method for signing requires a private key.
+We extract and use the private key from the key pair 
+generated in the previous step:
+
+<pre>
+            PrivateKey priv = pair.getPrivate();
+
+            dsa.initSign(priv);
+</pre></blockquote>
+
+
+<p><b>Supply the Signature Object the Data to be Signed</b>
+
+<blockquote>
+
+Our example will use the data from the file whose name is
+specified as the first (and only) command-line argument.
+We will read in the data a byte at a time, and supply it to
+the Signature object by calling the <code>update</code> method:
+
+<pre>
+            FileInputStream fis = new FileInputStream(args[0]);
+            byte b;
+            while (fis.available() != 0) {
+                b = (byte) fis.read();
+                dsa.update(b);
+                };
+
+            fis.close();
+</pre></blockquote>
+
+
+<p><b>Generate the Signature</b>
+
+<blockquote>
+
+<p>Once we have supplied all the data to the Signature object,
+we can generate the digital signature of that data:
+
+<pre>
+            byte[] sig = dsa.sign();
+</pre>
+
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="step2.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#api" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="step4.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

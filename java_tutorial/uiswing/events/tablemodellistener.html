@@ -1,0 +1,256 @@
+
+
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>How to Write a Table Model Listener</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="propertychangelistener.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#events" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="treeexpansionlistener.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Creating a GUI with JFC/Swing
+<br>
+<b>Lesson</b>: Writing Event Listeners
+</font>
+
+<h2>
+How to Write a Table Model Listener
+</h2>
+<blockquote>
+
+Each 
+<a target="_top" href="../components/table.html"><code>JTable</code></a><a target="_top" href="../components/table.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a> object has a table model that holds its data.
+When a table model listener is registered on the table model,
+the listener is notified every time the table model's data changes.
+The <code>JTable</code> itself 
+automatically uses a table model listener 
+to make its GUI reflect the current state of the table model.
+You register a table model listener using the <code>TableModel</code>
+<code>addTableModelListener</code> method.
+
+</blockquote>
+<h3>
+<a name="api">The Table Model Listener API</a>
+</h3>
+<blockquote>
+
+<p align=center><a name="tablemodellistener">The TableModelListener
+   Interface</a>
+<p><em>Because <code>TableModelListener</code> has only one method,
+   it has no corresponding adapter class.</em>
+<table border=1>
+<tr>
+<th align=left>Method</th>
+<th align=left>Purpose</th>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/event/TableModelListener.html#tableChanged(javax.swing.event.TableModelEvent)"><font color="#8800bb"><font size=2><code>tableChanged(TableModelEvent)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/event/TableModelListener.html#tableChanged(javax.swing.event.TableModelEvent)"></a></td>
+<td> Called when the structure of or data in the table has changed.
+</td>
+</tr>
+</table>
+ 
+<p align=center><a name="tablemodelevent">The TableModelEvent API</a>
+<p>
+<table border=1>
+<tr>
+<th align=left>Method</th>
+<th align=left>Purpose</th>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/EventObject.html#getSource()"><font color="#8800bb"><font size=2><code>Object getSource()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/EventObject.html#getSource()"></a><br>(<em>in <code>java.util.EventObject</code></em>)
+</td>
+<td>Return the object that fired the event.
+</td>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/event/TableModelEvent.html#getFirstRow()"><font color="#8800bb"><font size=2><code>int getFirstRow()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/event/TableModelEvent.html#getFirstRow()"></a></td>
+<td> Return the index of the first row that changed.
+     <code>TableModelEvent.HEADER_ROW</code>
+     specifies the table header.
+</td>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/event/TableModelEvent.html#getLastRow()"><font color="#8800bb"><font size=2><code>int getLastRow()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/event/TableModelEvent.html#getLastRow()"></a></td>
+<td> The last row that changed.
+     Again, <code>HEADER_ROW</code> is a possible value.
+</td>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/event/TableModelEvent.html#getColumn()"><font color="#8800bb"><font size=2><code>int getColumn()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/event/TableModelEvent.html#getColumn()"></a></td>
+<td> Return the index of the column that changed.
+     The constant <code>TableModelEvent.ALL_COLUMNS</code>
+     specifies that all the columns might have changed.
+</td>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/event/TableModelEvent.html#getType()"><font color="#8800bb"><font size=2><code>int getType()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/event/TableModelEvent.html#getType()"></a></td>
+<td> Shat happened to the changed cells.
+     The returned value is one of the following:
+     <code>TableModelEvent.INSERT</code>,
+     <code>TableModelEvent.DELETE</code>, or
+     <code>TableModelEvent.UPDATE</code>.
+</td>
+</tr>
+</table>
+</blockquote>
+
+<a name="eg">
+<h3>Examples that Use Table Model Listeners</h3>
+</a>
+<blockquote>
+The following table lists the
+examples that use table model listeners.
+<p>
+
+<table>
+<tr>
+<th align=left> Example
+</th>
+<th align=left> Where Described
+</th>
+<th align=left> Notes
+
+</th>
+</tr>
+<tr valign=top>
+<td> 
+<a target="_blank" href="../components/example-1dot4/TableMap.java"><font color="#bb000f"><code>TableMap</code></font></a><a target="_blank" href="../components/example-1dot4/TableMap.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>
+</td>
+<td> 
+<a target="_top" href="../components/table.html#sorting">Sorting and Otherwise Manipulating Data</a><a target="_top" href="../components/table.html#sorting"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a></td>
+<td> A superclass for data-manipulating table models.
+     It implements a table model that sits between
+     a table data model and a <code>JTable</code>.
+     The <code>TableMap</code> listens for table model
+     events from the data model,
+     and then simply forwards them to its table model listeners
+     (such as the <code>JTable</code>).
+
+</td>
+</tr>
+<tr valign=top>
+<td> 
+<a target="_blank" href="../components/example-1dot4/TableSorter.java"><font color="#bb000f"><code>TableSorter</code></font></a><a target="_blank" href="../components/example-1dot4/TableSorter.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>
+</td>
+<td> 
+<a target="_top" href="../components/table.html#sorting">Sorting and Otherwise Manipulating Data</a><a target="_top" href="../components/table.html#sorting"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a></td>
+<td> A sorting table model implemented as a subclass of
+     <code>TableMap</code>. 
+     In addition to forwarding table model events,
+     the <code>tableChanged</code> method
+     keeps track of the number of rows. 
+
+</td>
+</tr>
+<tr valign=top>
+<td> <a href="../components/example-1dot4/index.html#SharedModelDemo"><code>SharedModelDemo</code></a>
+</td>
+<td> &#151;
+</td>
+
+<td> Does <em>not</em> implement a table model listener.
+     Instead, it implements a combined list and table model.
+
+</td>
+</tr>
+</table>
+
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="propertychangelistener.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#events" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="treeexpansionlistener.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

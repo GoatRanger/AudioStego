@@ -1,0 +1,244 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Creating and Using Arrays</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="arrays.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#data" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="arraysOfObjects.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Learning the Java Language
+<br>
+<b>Lesson</b>: Object Basics and Simple Data Objects
+</font>
+
+<h2>
+Creating and Using Arrays
+</h2>
+<blockquote>
+Here's a simple program,
+called
+<a target="_blank" href="example/ArrayDemo.java"><font color="#bb000f"><code>ArrayDemo</code></font></a><a target="_blank" href="example/ArrayDemo.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>, that
+creates the array,
+puts some values in it,
+and displays the values.
+<blockquote><pre>
+public class ArrayDemo {
+    public static void main(String[] args) {
+        int[] anArray;	        // declare an array of integers
+
+        anArray = new int[10];	// create an array of integers
+
+        // assign a value to each array element and print 
+        for (int i = 0; i &lt; anArray.length; i++) {
+            anArray[i] = i;
+            System.out.print(anArray[i] + &quot; &quot;);
+        }
+        System.out.println();
+    }
+}
+</pre></blockquote>
+
+This section covers these topics:
+<ul>
+<li> <a href="#declaring">Declaring a Variable to Refer to an Array</a>
+<li> <a href="#creating">Creating an Array</a>
+<li> <a href="#accessing">Accessing an Array Element</a>
+<li> <a href="#size">Getting the Size of an Array</a>
+<li> <a href="#initializing">Array Initializers</a>
+</ul>
+
+</blockquote>
+<a name="declaring">
+<h3>Declaring a Variable to Refer to an Array</h3>
+</a>
+<blockquote>
+This line of code from the sample program declares an array variable:
+<blockquote><pre>
+int[] anArray;          // declare an array of integers
+</pre></blockquote>
+Like declarations for variables of other types,
+an array declaration has two components:
+the array's type and the array's name.
+An array's type is written <code><em>type</em>[]</code>,
+where <code><em>type</em></code> is the data type
+of the elements contained within the array,
+and <code>[]</code> indicates that this is an array.
+Remember that all of the elements within an array
+are of the same type.
+The sample program uses <code>int[]</code>,
+so the array called <code>anArray</code> will be used to hold integer data.
+Here are declarations for arrays that hold other types of data:
+<blockquote><pre>
+float[] anArrayOfFloats;
+boolean[] anArrayOfBooleans;
+Object[] anArrayOfObjects;
+String[] anArrayOfStrings;
+</pre></blockquote>
+As with declarations for variables of other types,
+the declaration for an array variable
+does not allocate any memory to contain the array elements.
+The sample program must assign a value to <code>anArray</code>
+before the name refers to an array.
+</blockquote>
+
+<a name="creating">
+<h3>Creating an Array</h3>
+</a>
+<blockquote>
+You create an array explicitly using Java's <code>new</code> operator.
+The next statement in the sample program allocates
+an array with enough memory for ten integer elements
+and assigns the array to the variable <code>anArray</code>
+declared earlier.
+<blockquote><pre>
+anArray = new int[10];  // create an array of integers
+</pre></blockquote>
+In general, when creating an array,
+you use the <code>new</code> operator,
+plus the data type of the array elements,
+plus the number of elements desired enclosed within square brackets ('[' and ']').
+<blockquote><pre>
+new <em>elementType</em>[<em>arraySize</em>]
+</pre></blockquote>
+If the <code>new</code> statement were omitted from the sample program,
+the compiler would print an error like the following one and compilation would fail.
+<blockquote><pre>
+ArrayDemo.java:4: Variable anArray may not have been initialized.
+</pre></blockquote>
+</blockquote>
+
+<a name="accessing">
+<h3>Accessing an Array Element</h3>
+</a>
+<blockquote>
+Now that some memory has been allocated for the array,
+the program assign values to the array elements:
+<blockquote><pre>
+for (int i = 0; i &lt; anArray.length; i++) {
+    anArray[i] = i;
+    System.out.print(anArray[i] + " ");
+
+}
+</pre></blockquote>
+This part of the code shows that to reference an array element,
+either to assign a value to it, or to access the value,
+you append square brackets to the array name.
+The value between the square brackets indicates
+(either with a variable or some other expression)
+the index of the element to access.
+Note that in Java, array indices begin at 0 and end at the array length minus 1.
+</blockquote>
+
+<a name="size">
+<h3>Getting the Size of an Array</h3>
+</a>
+<blockquote>
+To get the size of an array,
+you write
+<blockquote><pre>
+<em>arrayname</em>.length
+</pre></blockquote>
+Be careful:
+Programmers new to the Java programming language
+are tempted to follow <code>length</code> with an empty
+set of parenthesis. This doesn't work because
+<code>length</code> is not a method. 
+<code>length</code> is a property provided by the Java platform for all arrays.
+<p>
+The <code>for</code> loop in our sample program
+iterates over each element of <code>anArray</code>,
+assigning values to its elements.
+The <code>for</code> loop uses <code>anArray.length</code>
+to determine when to terminate the loop.
+</blockquote>
+
+<a name="initializing">
+<h3>Array Initializers</h3>
+</a>
+<blockquote>
+The Java programming language provides a shortcut syntax
+for creating and initializing an array.
+Here's an example of this syntax:
+<blockquote><pre>
+boolean[] answers = { true, false, true, true, false };
+</pre></blockquote>
+The length of the array is determined by the number
+of values provided between { and }.
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="arrays.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#data" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="arraysOfObjects.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

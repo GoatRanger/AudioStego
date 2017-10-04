@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Catching and Handling Exceptions</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="theexample.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#exceptions" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="try.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Essential Java Classes
+<br>
+<b>Lesson</b>: Handling Errors with Exceptions
+</font>
+
+<h2>
+Catching and Handling Exceptions
+</h2>
+<blockquote>
+Now that you've familiarized yourself with the <code>ListOfNumbers</code>
+class and where the exceptions can be thrown within it, you can learn how
+to write exception handlers to catch and handle those exceptions.
+<p>
+The three sections that follow cover the three components of an exception handler --
+the <code>try</code>, <code>catch</code>, and <code>finally</code> blocks.
+They show you how
+to write an exception handler for the 
+<code>ListOfNumbers</code> class's <code>writeList</code> method,
+described in
+<a href=theexample.html>The ListOfNumbers Example</a>. 
+Next, you'll walk through the resulting <code>writeList</code> method
+and see what occurs within the example code during various scenarios.
+
+</blockquote>
+<h3><a href=try.html>The <code>try</code> Block</a></h3>
+<blockquote>
+The first step in writing an exception handler is to enclose the 
+statements that might throw an exception within a <code>try</code> block.
+
+The <code>try</code> block is said to <em>govern</em> the statements
+enclosed within it and defines the scope of any exception handlers
+(established by subsequent <code>catch</code> blocks) associated with it.
+</blockquote>
+
+<h3><a href=catch.html>The <code>catch</code> Block(s)</a></h3>
+<blockquote>
+Next, you associate exception handlers with a <code>try</code> block by
+providing one or more <code>catch</code> blocks directly
+after the <code>try</code> block.
+</blockquote>
+
+<h3><a href=finally.html>The <code>finally</code> Block</a></h3>
+<blockquote>
+Java's <code>finally</code> block provides a mechanism that allows your
+method to clean up after itself regardless of what happens within the <code>try</code>
+block. Use the <code>finally</code> block to close files or release
+other system resources.
+</blockquote>
+
+<h3><a href=putItTogether.html>Putting It All Together</a></h3>
+<blockquote>
+The previous sections describe how to construct the <code>try</code>,
+<code>catch</code>, and <code>finally</code> code blocks for the <code>writeList</code>
+example. Now, let's walk through the code and investigate what happens
+during three scenarios.
+</blockquote>
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="theexample.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#exceptions" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="try.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

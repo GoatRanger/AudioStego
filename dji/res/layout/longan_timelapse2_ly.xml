@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.phone.timelapse.DJILPTimelapseSetView xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:background="@color/af" android:visibility="gone" android:clickable="true" android:layout_width="UNKNOWN_DATA_0x7f0b010d" android:layout_height="UNKNOWN_DATA_0x7f0b03b3" android:layout_centerVertical="true">
+    <RelativeLayout android:id="@id/b8e" android:background="@color/af" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x7f0b0127">
+        <TextView android:textSize="@dimen/rp" android:textColor="@color/ax" android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@id/b8f" android:paddingLeft="@dimen/fj" android:paddingRight="@dimen/fj" android:layout_width="wrap_content" android:layout_height="match_parent" android:text="@string/longan_timelapse_back" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+        <TextView android:textSize="@dimen/rl" android:id="@id/b8g" android:text="@string/longan_timelapse2_title" android:layout_centerInParent="true" style="@style/bm" />
+    </RelativeLayout>
+    <FrameLayout android:id="@id/b8h" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <include android:id="@id/b8i" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x7f0b0117" layout="@layout/longan_timelapse2_motion_ly" />
+        <include android:id="@id/b8j" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x7f0b0117" layout="@layout/longan_timelapse2_static_ly" />
+    </FrameLayout>
+    <Button android:enabled="false" android:textColor="@color/pm" android:id="@id/b8k" android:background="@drawable/selector_trans_black" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x7f0b012c" android:text="@string/longan_timelapse2_start_txt" style="@style/bm" />
+</dji.phone.timelapse.DJILPTimelapseSetView>

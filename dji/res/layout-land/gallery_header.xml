@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:paddingLeft="3dp" android:paddingRight="3dp" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x7f0b0083">
+    <dji.pilot.publics.widget.DJIStateImageView android:id="@+id/v2_hgplayback_leftbutton" android:layout_width="UNKNOWN_DATA_0x2801" android:layout_height="match_parent" android:src="@r$drawable/v2_explore_arrow_left_back" android:scaleType="centerInside" android:layout_alignParentLeft="true" />
+    <dji.publics.DJIUI.DJITextView android:textSize="16sp" android:textColor="#d8d8d8" android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@+id/v2_hgplayback_title" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_centerInParent="true" />
+    <dji.pilot.publics.widget.DJIStateTextView android:textSize="16sp" android:textColor="#1fa3f6" android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@+id/v2_hgplayback_right" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_marginRight="10dp" android:layout_alignParentRight="true" />
+    <View android:background="#999999" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x7f0b0110" android:layout_alignParentBottom="true" />
+</RelativeLayout>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="33"
+   name=""
+   committed-date="2005-02-01T06:11:53.421875Z"
+   url="svn://192.168.2.2/ImageProcessor/src/or/doc/drasys/or/alg"
+   last-author="Karl"
+   kind="dir"
+   uuid="0daf4267-3229-f84b-9084-f3c94b025f38"
+   revision="55"/>
+<entry
+   committed-rev="33"
+   name="SearchI.html"
+   text-time="2005-03-02T06:25:34.296875Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="db3b8cee1ad90c2fdae94f7ebe1db376"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:34.187500Z"/>
+<entry
+   committed-rev="33"
+   name="WS_FTP.LOG"
+   text-time="2005-03-02T06:25:34.312500Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="619dec9da58cbb20e71cd62053cdf630"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:34.203125Z"/>
+<entry
+   committed-rev="33"
+   name="SequentialSearch.html"
+   text-time="2005-03-02T06:25:34.312500Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="8007c400d8dfd111dd7f0f7185a27af9"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:34.218750Z"/>
+<entry
+   committed-rev="33"
+   name="SortI.html"
+   text-time="2005-03-02T06:25:34.328125Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="885b61c9b326c5ad9d882b3dbd2f1778"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:34.234375Z"/>
+<entry
+   committed-rev="33"
+   name="package-frame.html"
+   text-time="2005-03-02T06:25:34.328125Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="81366c5f16c8a3409cf039664eda33e1"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:34.234375Z"/>
+<entry
+   committed-rev="33"
+   name="QuickSort.html"
+   text-time="2005-03-02T06:25:34.343750Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="be29543ce7300f9def34d7fa2815c6fb"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:34.250000Z"/>
+<entry
+   committed-rev="33"
+   name="package-summary.html"
+   text-time="2005-03-02T06:25:34.343750Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="df7b60454134bf0ccfb587ef7ba608d2"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:34.265625Z"/>
+<entry
+   committed-rev="33"
+   name="package-tree.html"
+   text-time="2005-03-02T06:25:34.359375Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="2195e8ea20ed349cc0cd156f90f7ba50"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:34.265625Z"/>
+<entry
+   committed-rev="33"
+   name="BinarySearch.html"
+   text-time="2005-03-02T06:25:34.359375Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="57e6ebe6822d10472bad8f544036ffed"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:34.281250Z"/>
+</wc-entries>

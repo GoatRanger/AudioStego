@@ -1,0 +1,247 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Simple Properties</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#properties" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="bound.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: JavaBeans(TM)
+<br>
+<b>Lesson</b>: Properties
+</font>
+
+<h2>
+Simple Properties
+</h2>
+<blockquote>
+<p>
+<blockquote>
+<hr>
+To get the most out of this section, first read
+Chapters 7, <i>Properties</i>, and Chapter 8,
+<i>Introspection</i>, of the
+
+<a target="_blank" href="http://java.sun.com/beans/spec.html"><font color="#009bbb">JavaBeans API Specification</font></a><a target="_blank" href="http://java.sun.com/beans/spec.html"><img src="../../images/otherIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (outside of the tutorial)"></a> .<hr></blockquote>
+
+<p>
+Properties are aspects of a Bean's
+appearance and behavior that are changeable
+at design time. Properties are <code>private</code>
+values accessed through <i>getter</i> and <i>setter</i>
+methods.
+Property getter and setter method names follow specific rules,
+called <i>design patterns</i>.
+By using these design pattern-based method names, JavaBeans-enabled
+builder tools (and the BeanBox) can
+
+<ul>
+ <li>Discover a Bean's properties
+ <li>Determine the properties' read/write attributes
+ <li>Determine the properties' types
+ <li>Locate an appropriate
+     <a href="../customization/index.html">property editor</a>
+     for each property type
+ <li>Display the properties' (usually in a property sheet)
+ <li>Alter those properties (at design time)
+</ul>
+
+<p>
+For example, a builder tool, on introspecting your
+Bean, discovers two methods:
+<blockquote><pre>
+public Color getColor() { ... }
+public void setColor(Color c) { ... }
+</pre></blockquote>
+
+From this the builder tool infers that
+a property named color exists, that it is readable and writeable,
+and that it's type is <code>Color</code>. 
+Further, the builder tool can attempt to
+<a href="../customization/index.html#findEditor">locate
+a property editor</a> for that type, and display the
+property (usually in a property sheet) 
+so it can be edited.
+ 
+</blockquote>
+<h3>Adding a Color Property to SimpleBean</h3>
+<blockquote>
+<p>
+Make the following changes to <code>SimpleBean.java</code> to add a
+color property:
+ 
+<ol>
+ <li>Create and initialize a private instance variable.
+<blockquote><pre>
+private Color color = Color.green; 
+</pre></blockquote>
+ <li>Write a <code>public</code> getter method.
+<blockquote><pre>
+public Color getColor(){
+    return color;
+} 
+</pre></blockquote>
+ <li>Write a <code>public</code> setter method.
+<blockquote><pre>
+public void setColor(Color newColor){
+    color = newColor;
+    repaint();
+}
+</pre></blockquote>
+ <li>Override the <code>paint()</code> method inherited from
+     <code>Canvas</code>.
+<blockquote><pre>
+public void paint(Graphics g) {
+    g.setColor(color);
+    g.fillRect(20, 5, 20, 30);
+}
+</pre></blockquote>
+ <li>Compile the Bean, load it in the ToolBox, and
+     create an instance in the BeanBox.
+</ol>
+ 
+<p>
+The results are:
+<ul>
+ <li><code>SimpleBean</code> will be displayed with a green centered
+     rectangle.
+ <li>The Properties sheet will contain a new <code>Color</code> property.
+     The introspection mechanism will also search for a
+     <code>Color</code> property editor. A <code>Color</code> property editor is
+     one of the default editors supplied with the BeanBox, and is
+     assigned as <code>SimpleBean</code>'s <code>Color</code> property editor.
+     Click on the <code>Color</code> property in the Properties sheet
+     to run this editor. Section 9.2 of the
+     
+<a target="_blank" href="http://java.sun.com/beans/spec.html"><font color="#009bbb">JavaBeans API Specification</font></a><a target="_blank" href="http://java.sun.com/beans/spec.html"><img src="../../images/otherIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (outside of the tutorial)"></a>  discusses property editors.</ul>
+<p>
+The following figure shows
+the revised <code>SimpleBean</code> instance within the BeanBox, 
+<code>SimpleBean</code>'s new <code>Color</code> property within
+the Properties sheet,
+and the <code>Color</code> property editor shipped with the BeanBox.
+
+
+<p><center><a href="../../figures/javabeans/property.gif" target="_top"><IMG SRC="../../figures/javabeans/property.gif" WIDTH="460" HEIGHT="289" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></a><br><em>This figure has been reduced to fit on the page. <br> Click the image to view it at its natural size.</em></center></p> 
+<p>
+You can change the color property by menu, or by
+RGB value. Try changing colors.
+
+<p>
+Here is the complete <code>SimpleBean</code> source code, revised to
+add a <code>color</code> property.
+
+<blockquote><pre>
+package sunw.demo.simple;
+ 
+import java.awt.*;
+import java.io.Serializable;
+ 
+public class SimpleBean extends Canvas
+                        implements Serializable{
+ 
+    private Color color = Color.green;
+ 
+    //property getter method
+    public Color getColor(){
+        return color;
+    }
+ 
+    //property setter method. Sets new SimpleBean
+    //color and repaints.
+    public void setColor(Color newColor){
+        color = newColor;
+        repaint();
+    }
+ 
+    public void paint(Graphics g) {
+        g.setColor(color);
+        g.fillRect(20, 5, 20, 30);
+    }
+ 
+    //Constructor sets inherited properties
+    public SimpleBean(){
+        setSize(60,40);
+        setBackground(Color.red);
+    }
+}
+</pre></blockquote> 
+<p>
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#properties" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="bound.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

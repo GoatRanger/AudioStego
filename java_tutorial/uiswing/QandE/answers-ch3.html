@@ -1,0 +1,232 @@
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Answers: Using Swing Components</title>
+<script language="JavaScript">
+
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="questions-ch3.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#components" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="../misc/index.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="../components/index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Creating a GUI with JFC/Swing
+<br>
+<b>Lesson</b>: Using Swing Components
+</font>
+
+<H2>Answers: Using Swing Components</H2>
+
+<BLOCKQUOTE>
+  <P>Use the information in this lesson and the component <A HREF="../components/componentlist.html">how-to
+  sections</A> to help you complete these questions and exercises.</P>
+</BLOCKQUOTE>
+
+<H3>Questions</H3>
+
+<BLOCKQUOTE>
+  <P><FONT COLOR="#ff0000">Question 1:</FONT> Find the component
+  that best fits each of the following needs. Write down both the
+  component&#146;s common name (such as &#147;frame&#148;) and
+  find the component's how-to page online. [<I>Hint: </I>You can
+  use <A HREF="../components/components.html">A Visual Index to
+  the Swing Components</A> to help you answer this question.]</P>
+  <BLOCKQUOTE> 
+    <P><FONT COLOR="#ff0000">Question 1a</FONT>: A component that lets the user 
+      pick a color.<BR>
+      <FONT COLOR="#009900">Answer 1a</FONT>: <a href="http://java.sun.com/docs/books/tutorial/uiswing/components/colorchooser.html">color 
+      chooser</a><BR>
+      <BR>
+      <FONT COLOR="#ff0000">Question 1b:</FONT> A component that displays an icon, 
+      but that doesn&#146;t react to user clicks.<BR>
+      <FONT COLOR="#009900">Answer 1b</FONT>: <a href="http://java.sun.com/docs/books/tutorial/uiswing/components/label.html">label</a><BR>
+      <BR>
+      <FONT COLOR="#ff0000">Question 1c:</FONT> A component that looks like a 
+      button and that, when pressed, brings up a menu of items for the user to 
+      choose from.<BR>
+      <FONT COLOR="#009900">Answer 1c</FONT>: <a href="http://java.sun.com/docs/books/tutorial/uiswing/components/combobox.html">uneditable 
+      combo box</a><BR>
+      <BR>
+      <FONT COLOR="#ff0000">Question 1d: </FONT>A container that looks like a 
+      frame, but that appears (usually with other, similar containers) within 
+      a real frame.<BR>
+      <FONT COLOR="#009900">Answer 1d</FONT>: <a href="http://java.sun.com/docs/books/tutorial/uiswing/components/internalframe.html">internal 
+      frame</a><BR>
+      <BR>
+      <FONT COLOR="#ff0000">Question 1e:</FONT> A container that lets the user 
+      determine how two components share a limited amount of space.<BR>
+      <FONT COLOR="#009900">Answer 1e</FONT>: <a href="http://java.sun.com/docs/books/tutorial/uiswing/components/splitpane.html">split 
+      pane</a></P>
+  </BLOCKQUOTE>
+  <P><FONT COLOR="#ff0000">Question 2:</FONT> Which method do you
+  use to add a menu bar to a top-level container such as a <CODE>JFrame</CODE>?<BR>
+    <FONT COLOR="#009900">Answer 2</FONT>: <code><a href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFrame.html#setJMenuBar(javax.swing.JMenuBar)">setJMenuBar</a></code></P>
+
+  <P><FONT COLOR="#ff0000">Question 3: </FONT>Which method do you
+  use to specify the default button for a top-level container such
+  as a <CODE>JFrame</CODE> or <CODE>JDialog</CODE>?<BR>
+    <FONT COLOR="#009900">Answer 3</FONT>: <code>JRootPane</code>'s <code><a href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JRootPane.html#setDefaultButton(javax.swing.JButton)">setDefaultButton</a></code> 
+    method. (You get the top-level container's root pane using the <code><a href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/RootPaneContainer.html#getRootPane()">getRootPane</a></code> 
+    method defined by the <code>RootPaneContainer</code> interface, which every 
+    top-level container implements.)</P>
+
+  <P><FONT COLOR="#ff0000">Question 4:</FONT> Which method do you
+  use to enable and disable components such as <CODE>JButton</CODE>s?
+  What class is it defined in?<BR>
+    <FONT COLOR="#009900">Answer 4</FONT>: <code><a href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#setEnabled(boolean)">setEnabled</a></code>, 
+    which is defined in the <code>Component</code> class</P>
+
+  <P><FONT COLOR="#ff0000">Question 5a:</FONT> Which Swing components use <code><a href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/ListSelectionModel.html">ListSelectionModel</a></code>? 
+    [<I>Hint:</I> The &#147;Use&#148; link at the top of the specification for 
+    each interface and class takes you to a page showing where in the API that 
+    interface or class is referenced.]<BR>
+    <FONT COLOR="#009900">Answer 5a</FONT>: <code><a href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JList.html">JList</a></code> 
+    and <code><a href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTable.html">JTable</a></code></P>
+  <BLOCKQUOTE>
+    <P><FONT COLOR="#ff0000">Question 5b: </FONT>Do those components
+    use any other models to handle other aspects of the components&#146;
+    state? If so, list the other models&#146; types.<BR>
+      <FONT COLOR="#009900">Answer 5b</FONT>: <code>JList</code> also uses a <code>ListModel</code>, 
+      which holds the list's data. <code>JTable</code> uses a <code>TableModel</code> 
+      to hold its data and a <code>TableColumnModel</code> to manage the table's 
+      columns.</P>
+  </BLOCKQUOTE>
+  <P><FONT COLOR="#ff0000">Question 6:</FONT> Which type of model
+  holds a text component&#146;s content?<BR>
+    <FONT COLOR="#009900">Answer 6</FONT>: <code><a href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/Document.html">Document</a></code><BR>
+  </P>
+</BLOCKQUOTE>
+
+<H3>Exercises</H3>
+
+<BLOCKQUOTE>
+  <P><FONT COLOR="#ff0000">Exercise 1.</FONT> Implement a program
+  with a GUI that looks like the one shown below. Put the main
+  method in a class named <CODE>MyDemo1</CODE>.</P>
+  <BLOCKQUOTE>
+    <P><IMG SRC="../../figures/uiswing/QandE/MyDemo1.gif" WIDTH="165" HEIGHT="99"
+      ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="MyDemo1.gif"> 
+  </BLOCKQUOTE>
+  <P><FONT COLOR="#009900">Answer 1</FONT>: See <a target="source" href="example-1dot4/MyDemo1.java"><font color="#bb000f"><code>MyDemo1.java</code></font></a><a href="example-1dot4/MyDemo1.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt="(in a .java source file)"></a>. 
+    Here's the code that adds the bold, italicized text:</P>
+	
+	<blockquote><pre>JLabel label = new JLabel(&quot;My Demo&quot;);
+frame.getContentPane().add(BorderLayout.CENTER, label);
+label.setFont(label.getFont().deriveFont(Font.ITALIC | Font.BOLD));
+label.setHorizontalAlignment(JLabel.CENTER)</pre>
+</blockquote>
+
+<p>     
+  <FONT COLOR="#ff0000">Exercise 2.</FONT> Make a copy of <CODE>MyDemo1.java</CODE> 
+  named <CODE>MyDemo2.java</CODE>. Add a menu bar to <CODE>MyDemo2</CODE>. <br>
+  <FONT COLOR="#009900">Answer 2</FONT>: See <a target="source" href="example-1dot4/MyDemo2.java"><font color="#bb000f"><code>MyDemo2.java</code></font></a><a href="example-1dot4/MyDemo2.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt="(in a .java source file)"></a>. 
+  The menu bar can be implemented
+   with this code:  
+</p>
+
+<blockquote>
+<pre>JMenu menu = new JMenu("Menu");
+JMenuBar mb = new JMenuBar();
+mb.add(menu);
+frame.setJMenuBar(mb);</pre>
+</blockquote>
+  
+  <P> <FONT COLOR="#ff0000">Exercise 3. </FONT>Copy <CODE>MyDemo1.java</CODE> 
+    to <CODE>MyDemo3.java</CODE>. Add a button (<CODE>JButton</CODE>) to <CODE>MyDemo3.java</CODE>. 
+    Make it the default button.<BR>
+    <FONT COLOR="#009900">Answer 3</FONT>: See <a target="source" href="example-1dot4/MyDemo3.java"><font color="#bb000f"><code>MyDemo3.java</code></font></a><a href="example-1dot4/MyDemo3.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt="(in a .java source file)"></a>. 
+    Here's the code that adds the button
+    and makes it the default button:</P>
+	
+ <blockquote>
+<pre>JButton b = new JButton(&quot;A button&quot;);
+frame.getContentPane().add(BorderLayout.PAGE_END, b);
+frame.getRootPane().setDefaultButton(b);</pre>
+ </blockquote>
+ 
+  <P>&nbsp; </P>
+
+</blockquote>
+
+<!--END PAGE-->
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="questions-ch3.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#components" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="../misc/index.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="../components/index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>
+

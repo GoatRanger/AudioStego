@@ -1,0 +1,164 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<!--NewPage-->
+<html>
+
+<head>
+<title>Installing and Using Java[tm] Web Start</title>
+</head>
+
+<body BGCOLOR="#ffffff">
+
+<!--    HEADER    -->
+<h1>
+Installing and Using Java<sup><font size=-2>TM</font></sup> Web Start
+</h1>
+
+<p>
+<IMG SRC="../images/shoeline2.GIF" ALIGN="BOTTOM" BORDER="0" WIDTH="202"
+    HEIGHT="25" NATURALSIZEFLAG="3">
+<IMG SRC="../images/shoeline2.GIF" ALIGN="BOTTOM" BORDER="0" WIDTH="202"
+    HEIGHT="25" NATURALSIZEFLAG="3">
+<blockquote>
+
+The newest examples in the Tutorial 
+can be run using
+Java<sup><font size=-2>TM</font></sup> Web Start software.
+This page answers some of the most common questions about Java Web Start
+and gives some troubleshooting tips.
+If you don't find the answer to your question or problem here,
+you might find it in the
+<a target="_blank" href="http://java.sun.com/products/javawebstart/"><font color="#009bbb">Java Web Start documentation</font></a><a target="_blank" href="http://java.sun.com/products/javawebstart/"><img src="../images/otherIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (outside of the tutorial)"></a>.
+
+<blockquote><hr><strong>Note:</strong>&nbsp; This is an early, incomplete draft.  
+ If you have specific suggestions for this page,
+ please <a href="../forms/sendusmail.html" target="_top">tell us</a>.  Thanks!
+<hr></blockquote>
+
+Common questions:
+<ul>
+<li>
+<a href="#download">
+Where do I get Java Web Start?
+</a>
+
+<li>
+<a href="#install">
+How do I install it?
+</a>
+
+<li>
+<a href="#customize">
+How do I customize it?
+</a>
+
+
+</ul>
+
+Problems you might encounter:
+<ul>
+<li>
+<a href="#proxy">
+My browser seems to find the JNLP file, 
+but Java Web Start says it can't find it.
+</a>
+</ul>
+
+</blockquote>
+<h3>Common Questions</h3>
+<blockquote>
+<dl>
+<dt>
+<a name="download">
+<b>Where do I get Java Web Start?</b>
+</a>
+<dd>
+First off, you might not need to.
+If you've downloaded and installed J2SE v 1.4.1, 
+then Java Web Start was automatically downloaded
+and, for many common browser and platform configurations,
+installed.
+
+<p>
+If you don't yet have Java Web Start,
+we recommend that you download and install the latest version of J2SE,
+in either JRE (runtime) or SDK (development) form.
+For more information, see the Java Web Start
+<a target="_blank" href="http://java.sun.com/products/javawebstart/download.html"><font color="#009bbb">download instructions</font></a><a target="_blank" href="http://java.sun.com/products/javawebstart/download.html"><img src="../images/otherIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (outside of the tutorial)"></a>.
+
+<dt>
+<a name="install">
+<b>How do I install it?</b>
+</a>
+<dd>
+First, make sure you don't already have Java Web Start installed.
+You can do so by clicking on a JNLP link, 
+such as this one:
+<a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/components/example-1dot4/FormattedTextFieldDemo.jnlp">FormattedTextFieldDemo</a>.
+If clicking that link doesn't cause Java Web Start to launch,
+follow the instructions in the Java Web Start
+<a target="_blank" href="http://java.sun.com/products/javawebstart/1.2/docs/installguide.html"><font color="#009bbb">installation guide</font></a><a target="_blank" href="http://java.sun.com/products/javawebstart/1.2/docs/installguide.html"><img src="../images/otherIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (outside of the tutorial)"></a>.
+If Java Web Start launches but the application doesn't run,
+see <a href="#problems">Problems You Might Encounter</a>.
+</dt>
+
+<br>
+<dt>
+<a name="customize">
+<b>How do I customize it?</b>
+</a>
+<dd>
+Use the Java Web Start <a href="player.jnlp">Application Manager</a>.
+For example, if you want to add a particular version of the
+Java runtime environment (JRE)
+or prevent an existing JRE version from being used by Java Web Start,
+choose the 
+<b>File &gt; Preferences</b> menu item
+and then, from the dialog that appears, the <b>Java</b> tab.
+The controls that you then see allow you to
+find, add, remove, enable, and disable
+each release of the JRE.
+</dd>
+
+</dl>
+
+</blockquote>
+<h3>
+<a name=problems>
+Problems You Might Encounter
+</a>
+</h3>
+<blockquote>
+<dl>
+
+<dt>
+<a name=proxy>
+<b>My browser seems to find the JNLP file, 
+but Java Web Start says it can't find it.</b>
+</a>
+<dd>
+This situation usually happens when your browser and your copy
+of Java Web Start have different proxy settings.
+To fix this problem:
+<ol>
+<li> Launch the Java Web Start <a href="player.jnlp">Application Manager</a>.
+<li> Choose the <b>File &gt; Preferences</b> menu item.
+<li> Choose the <b>General</b> tab from the window that appears.
+<li> Set the proxy to a better value.
+     For example, if you're behind a firewall and <b>Use Browser</b>
+     is selected,
+     try selecting <b>Manual</b>
+     and entering 
+     an HTTP proxy server
+     and port (often 8080).
+     If you aren't behind a firewall,
+     try selecting <b>None</b>.
+     Or, if <b>Use Browser</b> is initially unselected,
+     try selecting it.
+</ol>
+These instructions were tested with Java Web Start version 1.2.
+</dl>
+
+
+</blockquote>
+</body>
+</html>

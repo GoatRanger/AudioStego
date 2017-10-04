@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.pilot.fpv.camera.newfn.sub.DJICameraCenterPointView xmlns:android="http://schemas.android.com/apk/res-auto" app:layout_width="match_parent" app:layout_height="match_parent" app:splitMotionEvents="false">
+    <dji.publics.DJIUI.DJILinearLayout app:orientation="vertical" app:layout_width="match_parent" app:layout_height="wrap_content" app:baselineAligned="false" app:divider="@drawable/camera_other_divider" app:showDividers="middle|end" app:dividerPadding="0dp">
+        <include app:id="@id/kq" layout="@layout/camera_newfn_custom_item" />
+        <include app:id="@id/kr" layout="@layout/camera_newfn_custom_item" />
+        <include app:id="@id/ks" layout="@layout/camera_newfn_custom_item" />
+        <include app:id="@id/kt" layout="@layout/camera_newfn_custom_item" />
+        <include app:id="@id/ku" layout="@layout/camera_newfn_custom_item" />
+        <include app:id="@id/kv" layout="@layout/camera_newfn_custom_item" />
+        <include app:id="@id/kw" layout="@layout/camera_newfn_custom_item" />
+        <include app:id="@id/kx" layout="@layout/camera_newfn_custom_item" />
+        <include app:id="@id/ky" layout="@layout/camera_custom_color_item" />
+    </dji.publics.DJIUI.DJILinearLayout>
+</dji.pilot.fpv.camera.newfn.sub.DJICameraCenterPointView>

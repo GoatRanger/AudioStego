@@ -1,0 +1,415 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Bean Context #1: Containment Only</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="overview.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#beancontext" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="services.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: JavaBeans(TM)
+<br>
+<b>Lesson</b>: Using the BeanContext API
+</font>
+
+<h2>
+Bean Context #1: Containment Only
+</h2>
+<blockquote>
+<P>The &quot;containment&quot; portion of the Extensible Runtime Containment and Services Protocol is defined by
+the <code>BeanContext</code> interface. In its most basic form, a <code>BeanContext</code> is used to
+logically
+group a set of related java beans, bean contexts, or arbitrary objects.
+ JavaBeans nested into a <code>BeanContext</code> are known as &quot;child&quot; beans.
+
+Once nested, a child bean can query its <code>BeanContext</code>
+for various membership information, as illustrated in the following
+examples. 
+</P>
+
+
+<P><A NAME="containment_scenarios"></A> Here are some possible <code>BeanContext</code> containment
+scenarios:</P>
+
+<P>
+<IMG SRC="../../figures/javabeans/empty_beancontext.jpg" WIDTH="200" HEIGHT="130" ALT=""></P>
+
+<P>
+<IMG SRC="../../figures/javabeans/single.jpg" WIDTH="400" HEIGHT="150" ALT=""></P>
+
+<P>
+<IMG SRC="../../figures/javabeans/3beans.jpg" WIDTH="300" HEIGHT="180" ALT=""></P>
+
+<P>
+<IMG SRC="../../figures/javabeans/2contexts.jpg" WIDTH="250" HEIGHT="200" ALT=""></P>
+<P>
+The sample code presented in this chapter uses instances of the 
+<code>BeanContextSupport</code> helper class to provide the basic <code>BeanContext</code>
+functionality. A <code>BeanContextSupport</code> object is simply a concrete
+implementation of the <code>BeanContext</code> interface.
+</P>
+
+<P>With a <code>BeanContextSupport</code> instance, it is possible to:</P>
+
+<UL>
+<LI>Add an object, bean, or <code>BeanContext</code>:
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/beancontext/BeanContextSupport.html#add(java.lang.Object)"><font color="#8800bb"><code>boolean add(Object o)</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/beancontext/BeanContextSupport.html#add(java.lang.Object)"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>
+<LI>Remove an object, bean, or <code>BeanContext</code>:
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/beancontext/BeanContextSupport.html#remove(java.lang.Object)"><font color="#8800bb"><code>boolean remove(Object o)</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/beancontext/BeanContextSupport.html#remove(java.lang.Object)"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>
+<LI>Add a <code>BeanContextMembershipListener</code>:
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/beancontext/BeanContextSupport.html#addBeanContextMembershipListener(java.beans.beancontext.BeanContextMembershipListener)"><font color="#8800bb"><code>void addBeanContextMembershipListener(BeanContextMembershipListener bcml)</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/beancontext/BeanContextSupport.html#addBeanContextMembershipListener(java.beans.beancontext.BeanContextMembershipListener)"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>
+<LI>Remove a <code>BeanContextMembershipListener</code>:
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/beancontext/BeanContextSupport.html#removeBeanContextMembershipListener(java.beans.beancontext.BeanContextMembershipListener)"><font color="#8800bb"><code>void removeBeanContextMembershipListener(BeanContextMembershipListener bcml)</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/beancontext/BeanContextSupport.html#removeBeanContextMembershipListener(java.beans.beancontext.BeanContextMembershipListener)"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>
+<LI>Get all JavaBean or <code>BeanContext</code> instances currently
+    nested in this <code>BeanContext</code> as an array or as an Iterator:
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/beancontext/BeanContextSupport.html#toArray()"><font color="#8800bb"><code>Object[] toArray()</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/beancontext/BeanContextSupport.html#toArray()"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>, 
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/beancontext/BeanContextSupport.html#toArray(java.lang.Object[])"><font color="#8800bb"><code>Object[] toArray(Object[] a)</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/beancontext/BeanContextSupport.html#toArray(java.lang.Object[])"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>, and
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/beancontext/BeanContextSupport.html#iterator()"><font color="#8800bb"><code>Iterator iterator()</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/beancontext/BeanContextSupport.html#iterator()"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>
+<LI>Determine whether or not a specified object
+    is currently a child of the <code>BeanContext</code>:
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/beancontext/BeanContextSupport.html#contains(java.lang.Object)"><font color="#8800bb"><code>boolean contains(Object o)</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/beancontext/BeanContextSupport.html#contains(java.lang.Object)"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>
+<LI>Get the number of children currently nested in this <code>BeanContext</code>:
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/beancontext/BeanContextSupport.html#size()"><font color="#8800bb"><code>int size()</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/beancontext/BeanContextSupport.html#size()"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>
+<LI>Determine whether or not the <code>BeanContext</code> currently has zero children:
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/beancontext/BeanContextSupport.html#isEmpty()"><font color="#8800bb"><code>boolean isEmpty()</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/beancontext/BeanContextSupport.html#isEmpty()"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>
+<LI>Instantiate a new JavaBean instance as a child of the target <code>BeanContext</code>:
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/beancontext/BeanContextSupport.html#instantiateChild(java.lang.String)"><font color="#8800bb"><code>Object instantiateChild(String beanName)</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/beancontext/BeanContextSupport.html#instantiateChild(java.lang.String)"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a></UL>
+
+<P>The following test programs, which are run from the command line, illustrate the use of these methods.</P>
+<P>The comments in the source code explain the purpose of each.</P>
+
+<A NAME="example1"></A>
+<B>File:
+<a target="_blank" href="example-1dot2/Example1.java"><font color="#bb000f"><code>Example1.java</code></font></a><a target="_blank" href="example-1dot2/Example1.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a></B>
+
+<blockquote><pre>
+import java.beans.beancontext.*;
+
+/**
+ * A test program that adds a bean to a beancontext, and
+ * reports on various aspects of the context's membership state. 
+ * This program also shows that a bean's getBeanContext() method 
+ * can be called to get a reference to its enclosing context.
+ */
+public class Example1 {
+    private static BeanContextSupport context = new BeanContextSupport(); // The BeanContext
+    private static BeanContextChildSupport bean = new BeanContextChildSupport(); // The JavaBean
+  
+    public static void main(String[] args) {
+        report();  
+
+        // Add the bean to the context
+        System.out.println(&quot;Adding bean to context...&quot;);
+        context.add(bean);
+
+        report();
+    }
+
+    private static void report() {
+        // Print out a report of the context's membership state.
+        System.out.println(&quot;=============================================&quot;);
+
+        // Is the context empty?
+        System.out.println(&quot;Is the context empty? &quot; + context.isEmpty());
+
+        // Has the context been set for the child bean?
+        boolean result = (bean.getBeanContext()!=null);
+        System.out.println(&quot;Does the bean have a context yet? &quot; + result);
+
+        // Number of children in the context
+        System.out.println(&quot;Number of children in the context: &quot; + context.size());
+
+        // Is the specific bean a member of the context?
+        System.out.println(&quot;Is the bean a member of the context? &quot; + context.contains(bean));
+
+        // Equality test
+        if (bean.getBeanContext() != null) {
+            boolean isEqual = (bean.getBeanContext()==context); // true means both references point to the same object
+            System.out.println(&quot;Contexts are the same? &quot; + isEqual);
+        }
+        System.out.println(&quot;=============================================&quot;);   
+    }
+}
+</pre></blockquote>
+
+<b>Output</b>:
+<blockquote><pre>
+=============================================
+Is the context empty? true
+Does the bean have a context yet? false
+Number of children in the context: 0
+Is the bean a member of the context? false
+=============================================
+Adding bean to context...
+=============================================
+Is the context empty? false
+Does the bean have a context yet? true
+Number of children in the context: 1
+Is the bean a member of the context? true
+Contexts are the same? true
+=============================================
+</pre></blockquote>
+
+<A NAME="example2" </a></A>
+<B>File:
+<a target="_blank" href="example-1dot2/Example2.java"><font color="#bb000f"><code>Example2.java</code></font></a><a target="_blank" href="example-1dot2/Example2.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a></B>
+
+<blockquote><pre>
+import java.beans.beancontext.*;
+
+/**
+ * Test program that adds 100 beans to a context,
+ * and calls size() to report the number of beans
+ * currently nested. Finally,
+ * this test calls toArray() to get references to
+ * all child beans. 
+ */
+public class Example2 {
+    public static void main(String[] args) {
+
+        // A BeanContext 
+        BeanContextSupport context = new BeanContextSupport(); 
+
+        // Many JavaBeans
+        BeanContextChildSupport[] beans = new BeanContextChildSupport[100];
+
+        System.out.println(&quot;Number of children in the context: &quot; + context.size());
+
+        // Create the beans and add them to the context
+        for (int i = 0; i &lt; beans.length; i++) {
+            beans[i] = new BeanContextSupport();
+            context.add(beans[i]);
+        }
+        System.out.println(&quot;Number of children in the context: &quot; + context.size());
+
+        // Context now has 100 beans in it, get references to them all
+        Object[] children = context.toArray();
+        System.out.println(&quot;Number of objects retrieved from the context: &quot; + children.length);
+    }
+}
+</pre></blockquote>
+
+<B>Output:</B>
+<blockquote><pre>
+Number of children in the context: 0
+Number of children in the context: 100
+Number of objects retrieved from the context: 100
+</pre></blockquote>
+
+<A NAME="example3"></A>
+<B>File:
+<a target="_blank" href="example-1dot2/Example3.java"><font color="#bb000f"><code>Example3.java</code></font></a><a target="_blank" href="example-1dot2/Example3.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a></B>
+
+<blockquote><pre>
+import java.beans.beancontext.*;
+import java.io.*;
+
+/**
+ * An example of how to use the instantiateChild() convenience method
+ * to create a bean automatically nested into a bean context.
+ */
+public class Example3 {
+    public static void main(String[] args) {
+        BeanContextSupport context = new BeanContextSupport();
+        System.out.println(&quot;Number of children nested into the context: &quot; + context.size());
+
+        BeanContextChildSupport child = null;
+        try {
+            child = (BeanContextChildSupport)context.instantiateChild(&quot;java.beans.beancontext.BeanContextChildSupport&quot;);
+        }
+        catch(IOException e){
+            System.out.println(&quot;IOException occurred: &quot; + e.getMessage());
+        }
+        catch(ClassNotFoundException e){
+            System.out.println(&quot;Class not found: &quot; + e.getMessage());
+        }
+        System.out.println(&quot;Number of children nested into the context: &quot; + context.size());
+    }
+}
+</pre></blockquote>
+
+<b>Output</b>:
+<blockquote><pre>
+Number of children nested into the context: 0
+Number of children nested into the context: 1
+</pre></blockquote>
+
+<P><A NAME="membership"></A>
+<H3>BeanContextMembershipEvent Notification</H3>
+<P>The <code>BeanContext</code> API uses the standard Java event
+model to register listeners and deliver events.
+For an overview of this standard event model,
+refer to
+<a target="_top" href="../../uiswing/learn/example2.html#handlingEvents">Handling Events</a><a target="_top" href="../../uiswing/learn/example2.html#handlingEvents"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the JavaBeans(TM) trail)"></a>.
+For details about handling specific events, see
+<a target="_top" href="../../uiswing/events/index.html">Writing Event Listeners</a><a target="_top" href="../../uiswing/events/index.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the JavaBeans(TM) trail)"></a>.
+</P>
+<P>In a basic <code>BeanContext</code>, the event classes and interfaces involved are:
+
+<UL>
+<LI>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/beancontext/BeanContextMembershipEvent.html"><font color="#8800bb"><code>java.beans.beancontext.BeanContextMembershipEvent</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/beancontext/BeanContextMembershipEvent.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>: Encapsulates the list of children added to, or removed from, the membership of
+a particular <code>BeanContext</code>.
+An instance of this event is fired whenever a successful add(), remove(), retainAll(),
+removeAll(), or clear() is invoked on a given <code>BeanContext</code> instance.
+
+<LI>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/beancontext/BeanContextMembershipListener.html"><font color="#8800bb"><code>java.beans.BeanContextMembershipListener</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/beancontext/BeanContextMembershipListener.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>: Objects
+wishing to receive BeanContextMembershipEvents implement this interface.
+It defines methods
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/beancontext/BeanContextMembershipListener.html#childrenAdded(java.beans.beancontext.BeanContextMembershipEvent)"><font color="#8800bb"><code>void childrenAdded(BeanContextMembershipEvent bcme)</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/beancontext/BeanContextMembershipListener.html#childrenAdded(java.beans.beancontext.BeanContextMembershipEvent)"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> and 
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/beancontext/BeanContextMembershipListener.html#childrenRemoved(java.beans.beancontext.BeanContextMembershipEvent)"><font color="#8800bb"><code>void childrenRemoved(BeanContextMembershipEvent bcme)</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/beancontext/BeanContextMembershipListener.html#childrenRemoved(java.beans.beancontext.BeanContextMembershipEvent)"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>, which are called when a child is added to or removed
+from a given <code>BeanContext</code> instance.
+</UL>
+
+<P><A NAME="bcme_sample"></A>
+<H3>BeanContextMembershipEvent Notification: Sample Code</H3>
+
+<b>
+File:
+<a target="_blank" href="example-1dot2/MembershipTest.java"><font color="#bb000f"><code>MembershipTest.java</code></font></a><a target="_blank" href="example-1dot2/MembershipTest.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a></b>
+
+<blockquote><pre>
+import java.beans.beancontext.*;
+
+/**
+ * A simple test program to illustrate delivery
+ * of the BeanContextMembershipEvent.
+ */
+public class MembershipTest {
+    public static void main(String[] args) {
+        BeanContextSupport context = new BeanContextSupport(); // the context
+        MyMembershipListener listener = new MyMembershipListener(); 
+        BeanContextChildSupport bean = new BeanContextChildSupport(); // a JavaBean
+        context.addBeanContextMembershipListener(listener); // now listening!
+        context.add(bean);
+        context.remove(bean);
+    }
+}
+
+/**
+ * A custom implementation of the BeanContextMembershipListener interface.
+ */
+class MyMembershipListener implements BeanContextMembershipListener {
+    public void childrenAdded(BeanContextMembershipEvent bcme) {
+        System.out.println(&quot;Another bean has been added to the context.&quot;);
+    }
+
+    public void childrenRemoved(BeanContextMembershipEvent bcme) {
+        System.out.println(&quot;A bean has been removed from the context.&quot;);
+    }
+}
+</pre></blockquote>
+
+<B>Output:</B>
+<blockquote><pre>
+Another bean has been added to the context.
+A bean has been removed from the context.
+</pre></blockquote>
+
+<H3>The same example, implemented using an anonymous inner class</H3>
+
+<blockquote><pre>
+import java.beans.beancontext.*;
+
+public class MembershipTest {
+    public static void main(String[] args) {
+        BeanContextSupport context = new BeanContextSupport();
+        context.addBeanContextMembershipListener(new BeanContextMembershipListener() {
+            public void childrenAdded(BeanContextMembershipEvent bcme) {
+                System.out.println(&quot;Another bean has been added to the context.&quot;);
+            }
+
+            public void childrenRemoved(BeanContextMembershipEvent bcme) {
+                System.out.println(&quot;A bean has been removed from the context.&quot;);
+            }
+        });
+        BeanContextChildSupport bean = new BeanContextChildSupport();
+        context.add(bean);
+        context.remove(bean);
+    }
+}
+</pre></blockquote>
+
+<B>Output:</B>
+<blockquote><pre>
+Another bean has been added to the context.
+A bean has been removed from the context.
+</pre></blockquote>
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="overview.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#beancontext" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="services.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

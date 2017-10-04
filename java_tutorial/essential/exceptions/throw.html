@@ -1,0 +1,164 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>The throw Statement</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="throwing.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#exceptions" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="throwable.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Essential Java Classes
+<br>
+<b>Lesson</b>: Handling Errors with Exceptions
+</font>
+
+<h2>
+The throw Statement
+</h2>
+<blockquote>
+All Java methods use the <code>throw</code> statement to throw an exception.
+The <code>throw</code> statement requires a single argument: a
+<em>throwable</em> object. In the Java system, throwable objects
+are instances of any subclass of the
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/Throwable.html"><font color="#8800bb"><code>Throwable</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/Throwable.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> class.
+Here's an example of a <code>throw</code> statement:
+<blockquote><pre>
+throw <em>someThrowableObject</em>;
+</pre></blockquote>
+
+If you attempt to throw an object that is not throwable, the compiler
+refuses to compile your program and displays an error message similar
+to the following:
+<blockquote><pre>
+testing.java:10: Cannot throw class java.lang.Integer;
+it must be a subclass of class java.lang.Throwable.
+            throw new Integer(4);
+            ^
+</pre></blockquote>
+The next page, <a href=throwable.html>The <code>Throwable</code> Class and Its Subclasses</a>,
+talks more about the <code>Throwable</code> class.
+
+<p>
+[PENDING: EmptyStackException is not a checked exception, so technically
+pop doesn't have to use the throws clause]
+<p>
+Let's look at the <code>throw</code> statement in context.
+The following method is taken from a class that implements a common
+stack object. The <code>pop</code> method removes the top element
+from the stack and returns it:
+<blockquote><pre>
+public Object pop() <strong>throws EmptyStackException</strong> {
+    Object obj;
+
+    if (size == 0)
+        <strong>throw new EmptyStackException();</strong>
+
+    obj = objectAt(size - 1);
+    setObjectAt(size - 1, null);
+    size--;
+    return obj;
+}
+</pre></blockquote>
+The <code>pop</code> method checks to see if there are any elements on the
+stack. If the stack is empty (its size is equal to 0), then <code>pop</code>
+instantiates a new <code>EmptyStackException</code> object and throws it. The <code>EmptyStackException</code>
+class is defined in the <code>java.util</code> package. Later pages in
+this lesson describe how you can create your own exception classes. For now,
+all you really need to remember is that you can throw only objects that inherit
+from the <code>java.lang.Throwable</code> class.
+
+</blockquote>
+<h3>The <code>throws</code> Clause</h3>
+<blockquote>
+You'll notice that the declaration of the <code>pop</code> method contains this
+clause:
+<blockquote><pre>
+throws EmptyStackException
+</pre></blockquote>
+The <code>throws</code> clause specifies that the method can throw an <code>EmptyStackException</code>.
+As you know, the Java language requires that methods either catch or
+specify all checked exceptions that can be thrown within the scope of
+that method. You do this with the <code>throws</code>
+clause of the method declaration. For more information about this requirement
+see <a href="catchOrDeclare.html">Java's Catch or Specify Requirement</a>.
+Also, <a href="declaring.html">Specifying the Exceptions Thrown by a Method</a>
+shows you in more detail how a method can specify the exceptions it can throw.
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="throwing.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#exceptions" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="throwable.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

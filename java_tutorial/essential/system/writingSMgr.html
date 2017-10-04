@@ -1,0 +1,237 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Writing a Security Manager</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="securityIntro.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#system" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="installSMgr.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Essential Java Classes
+<br>
+<b>Lesson</b>: Accessing System Resources
+</font>
+
+<h2>
+Writing a Security Manager
+</h2>
+<blockquote>
+To write your own security manager, you must create a subclass
+of the SecurityManager class. Your SecurityManager subclass
+overrides various methods from SecurityManager to customize
+the verifications and approvals needed in your Java application.
+<p>
+This page walks through an example security manager
+that restricts reading and writing to the file system.
+To get approval from the security manager, a method that opens
+a file for reading invokes one of SecurityManager's <code>checkRead()</code>
+methods. Similarly, a method that opens a file for writing invokes
+one of SecurityManager's <code>checkWrite()</code> methods. If the security
+manager approves the operation then the <code>check<em>XXX</em>()</code> method
+returns, otherwise <code>check<em>XXX</em>()</code> throws a SecurityException.
+<p>
+To impose a stricter policy on file system accesses, our example SecurityManager
+subclass must override SecurityManager's <code>checkRead()</code> and
+<code>checkWrite()</code> methods. SecurityManager provides three versions
+of <code>checkRead()</code> and two versions of <code>checkWrite()</code>. Each of
+which should verify whether the application is allowed to open
+a file for I/O. A policy frequently implemented by browsers is that applets
+loaded over the network cannot read from or write to the local file system
+unless the user approves it.
+<p>
+The policy implemented by our example prompts the user for a password when
+the application attempts to open a file for reading or for writing.
+If the password is correct then the access is allowed.
+<p>
+All security managers must be a subclass of SecurityManager. Thus, our
+
+<a target="_blank" href="example-1dot1/PasswordSecurityManager.java"><font color="#bb000f"><code>PasswordSecurityManager</code></font></a><a target="_blank" href="example-1dot1/PasswordSecurityManager.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a> class extends
+SecurityManager.
+<blockquote><pre>
+class PasswordSecurityManager extends SecurityManager {
+    . . .
+}
+</pre></blockquote>
+Next, PasswordSecurityManager declares a private instance variable <code>password</code>
+to contain the password that the user must enter in order to allow
+the restricted file system accesses. The password is set upon construction:
+<blockquote><pre>
+PasswordSecurityManager(String password) {
+    super();
+    this.password = password;
+}
+</pre></blockquote>
+The next method in the PasswordSecurityManager class is a private helper
+method named <code>accessOK()</code>. This method prompts the user
+for a password and verifies it. If the user enters a valid
+password, the method returns true; otherwise, it returns false.
+<blockquote><pre>
+private boolean accessOK() {
+    int c;
+    DataInputStream dis = new DataInputStream(System.in);
+    String response;
+
+    System.out.println("What's the secret password?");
+    try {
+        response = dis.readLine();
+        if (response.equals(password))
+            return true;
+        else
+            return false;
+    } catch (IOException e) {
+        return false;
+    }
+} 
+</pre></blockquote>
+Finally at the end of the PasswordSecurityManager class are the three
+overridden <code>checkRead()</code> methods and the two overridden
+<code>checkWrite()</code> methods:
+<blockquote><pre>
+public void checkRead(FileDescriptor filedescriptor) {
+    if (!accessOK())
+        throw new SecurityException("Not a Chance!");
+}
+public void checkRead(String filename) {
+    if (!accessOK())
+        throw new SecurityException("No Way!");
+}
+public void checkRead(String filename, Object executionContext) {
+    if (!accessOK())
+        throw new SecurityException("Forget It!");
+}
+public void checkWrite(FileDescriptor filedescriptor) {
+    if (!accessOK())
+        throw new SecurityException("Not!");
+}
+public void checkWrite(String filename) {
+    if (!accessOK())
+        throw new SecurityException("Not Even!");
+}
+</pre></blockquote>
+All the <code>check<em>XXX</em>()</code> methods call <code>accessOK()</code>
+to prompt the user for a password. If access is <em>not</em> OK,
+then <code>check<em>XXX</em>()</code> throws a SecurityException. Otherwise,
+<code>check<em>XXX</em>()</code> returns normally. Note that SecurityException
+is a runtime exception, and as such does not need to be declared in
+the <code>throws</code> clause of these methods.
+<p>
+<code>checkRead()</code> and <code>checkWrite()</code> are just a few of the
+many of SecurityManager's
+<code>check<em>XXX</em>()</code> methods that verify various kinds of operations.
+You can override or add any number of <code>check<em>XXX</em>()</code> methods to
+implement your security policy. You do not need to override all of
+SecurityManager's <code>check<em>XXX</em>()</code> methods, just the ones
+that you want to customize. However, the default implementation provided
+by the SecurityManager class for all <code>check<em>XXX</em>()</code>
+methods throws a SecurityException. In other words, by default the
+SecurityManager class disallows all operations that are subject to
+security restrictions. So you may find that you have to override
+many of SecurityManager's <code>check<em>XXX</em>()</code> methods
+to get the behavior you want.
+<p>
+All of SecurityManager's <code>check<em>XXX</em>()</code> methods operate in the
+same way:
+<ul>
+<li>
+If access is allowed, the method returns.
+<li>
+If access is not allowed, the method throws a SecurityException.
+</ul>
+Make sure that you implement your overridden <code>check<em>XXX</em>()</code>
+methods in this manner.
+
+<p>
+Well, that's it for our SecurityManager subclass. As you can see
+implementing a SecurityManager is simple. You just:
+<ul>
+<li>
+Create a SecurityManager subclass.
+<li>
+Override a few methods.
+</ul>
+The tricky part is determining which methods to override and implementing
+your security policy.
+<a href="more.html">Deciding What SecurityManager Methods to Override</a> 
+will help you figure out which methods you should override depending
+on what types of operations you'd like to protect.
+The <a href="installSMgr.html">next page</a> shows you how to install the
+PasswordSecurityManager class as the on-duty security manager for your Java
+application.
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="securityIntro.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#system" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="installSMgr.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.pilot.fpv.view.DJIGimbalRollFineTuneView xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:background="@drawable/radius_corner_bg" android:layout_width="match_parent" android:layout_height="wrap_content" android:baselineAligned="false">
+    <include android:layout_width="match_parent" android:layout_height="wrap_content" layout="@layout/dlg_titlebar_view" />
+    <dji.publics.DJIUI.DJIRelativeLayout android:paddingLeft="5dp" android:paddingTop="7dp" android:paddingRight="5dp" android:paddingBottom="7dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <dji.pilot.publics.widget.DJIStateImageView android:id="@id/a1o" android:padding="7dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/fpv_adjust_left" android:layout_alignParentLeft="true" android:layout_centerVertical="true" android:contentDescription="@string/app_name" />
+        <dji.publics.DJIUI.DJITextView android:textSize="@dimen/rl" android:id="@id/a1p" android:background="@drawable/camera_ev_value_bg" android:paddingLeft="@dimen/n2" android:paddingTop="@dimen/n3" android:paddingRight="@dimen/n2" android:paddingBottom="@dimen/n3" android:layout_centerInParent="true" style="@style/bm" />
+        <dji.pilot.publics.widget.DJIStateImageView android:id="@id/a1q" android:padding="7dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/fpv_adjust_right" android:layout_alignParentRight="true" android:layout_centerVertical="true" android:contentDescription="@string/app_name" />
+    </dji.publics.DJIUI.DJIRelativeLayout>
+</dji.pilot.fpv.view.DJIGimbalRollFineTuneView>

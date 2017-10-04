@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="53"
+   name=""
+   committed-date="2005-02-25T22:16:45.420625Z"
+   url="svn://192.168.2.2/IT105Editor"
+   last-author="karl"
+   kind="dir"
+   uuid="0daf4267-3229-f84b-9084-f3c94b025f38"
+   revision="55"/>
+<entry
+   name="src"
+   kind="dir"/>
+<entry
+   name="docs"
+   kind="dir"/>
+<entry
+   committed-rev="10"
+   name="jarDocs.bat"
+   text-time="2005-03-02T06:14:31.421875Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="1d015e4c15e2a9a75127da3b73552ec4"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:31.390625Z"/>
+<entry
+   committed-rev="10"
+   name="build.xml"
+   text-time="2005-03-02T06:14:31.437500Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="378295b79d3e740aab3d0475aabbe8df"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:31.406250Z"/>
+</wc-entries>

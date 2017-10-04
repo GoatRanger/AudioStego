@@ -1,0 +1,412 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Tables of JDK Features</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="language.html" target="_top"><img src="../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="./TOC.html" target="_top"><img src="../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="./end.html" target="_top"><img src="../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="./index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../search.html" target="_top">Search</a>
+<br><a href="../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Overview
+</font>
+
+<h2>
+Tables of JDK Features
+</h2>
+<blockquote>
+The following table summarizes features added to JDK 1.1 and enhanced
+in JDK 1.2. The first column in the table identifies the trails in this
+tutorial in which you can find more information.
+
+<p>
+<a name="table1"></a>
+<TABLE BORDER="1">
+<CAPTION>
+</blockquote>
+<h3>Features Added to JDK 1.1 and Enhanced in JDK 1.2</h3>
+</CAPTION>
+<TR>
+<TH>
+Trail
+</TH>
+<TH>
+Package
+</TH>
+<TH>
+JDK 1.1
+</TH>
+<TH>
+JDK 1.2 Enhancements
+</TH>
+</TR>
+<TR>
+<TD>
+<A HREF="../i18n/index.html">Internationalization</A>
+</TD>
+
+<TD>
+<code>
+java.text<BR>
+java.io
+</code>
+</TD>
+<TD>
+Handles international languages and scripts
+</TD>
+<TD>
+Input method framework and minor API changes
+</TD>
+</TR>
+
+<TR>
+<TD>
+<A HREF="../sound/index.html">
+Sound</A>
+
+</TD>
+<TD>
+<code>
+java.applet
+</code>
+</TD>
+<TD>
+Same as for 1.0.
+</TD>
+<TD>
+Support for non-applet sound; more sound formats.
+</TD>
+</TR>
+<TR>
+<TD>
+<A HREF="../javabeans/index.html">
+JavaBeans</A>
+
+</TD>
+<TD>
+<code>
+java.beans
+</code>
+</TD>
+<TD>
+Reusable software components that can be manipulated in a GUI
+</TD>
+<TD>
+Runtime containment and services protocol; drag-and-drop support
+</TD>
+</TR>
+<TR>
+<TD>
+<A HREF="../security1.2/index.html">
+Security</A>
+
+</TD>
+<TD>
+<code>
+java.security
+</code>
+</TD>
+<TD>
+Digital signature and message digest API. Applets confined to secure
+environment and digitally signed JAR files
+</TD>
+<TD>
+Policy-oriented architecture; API to support cryptographic services and
+key management; fine-grain access control for applets and applications
+</TD>
+</TR>
+<TR>
+<TD>
+<A HREF="../jdbc/index.html">
+JDBC Database Access</A>
+
+</TD>
+<TD>
+<code>
+java.sql
+</code>
+</TD>
+<TD>
+Standard API to issue and process SQL statements
+</TD>
+<TD>
+Result sets that scroll forward and backward, batch updates, persistent
+object storage, character stream support, and full precision
+<CODECLASS="Code-in-tbl">java.math.BigDecimal</CODE> values
+</TD>
+</TR>
+<TR>
+<TD>
+<A HREF="../rmi/index.html">
+Remote Method Invocation</A>
+
+</TD>
+<TD>
+<CODE>
+java.rmi</CODE>
+
+</TD>
+<TD>
+Method-based standard API for network communications
+</TD>
+<TD>
+Remote object activation, downloadable socket factories, and minor
+enhancements
+</TD>
+</TR>
+<TR>
+<TD>
+<A HREF="../jar/index.html">
+JAR File Format</A>
+
+</TD>
+<TD>
+<CODE>
+java.util.jar</CODE>
+
+</TD>
+<TD>
+Mechanism to bundle and to sign Java program files
+</TD>
+<TD>
+Enhanced command line JAR tool, new API for reading and writing JAR
+files, ability to reference JAR files at a specified URL
+</TD>
+</TR>
+<TR>
+<TD>
+<A HREF="../native1.1/index.html">
+Java Native Interface</A>
+
+</TD>
+<TD>
+NA
+
+</TD>
+<TD>
+Standard naming and calling conventions for native method invocation
+</TD>
+<TD>
+New methods for library and version management, local reference
+management, weak global references, array operations, string
+operations, reflection support, and the invocation API
+</TD>
+</TR>
+<TR>
+<TD>
+<A HREF="../reflect/index.html">
+Reflection</A>
+
+</TD>
+<TD>
+<CODE>
+java.lang.reflect</CODE>
+
+</TD>
+<TD>
+Accesses information on fields, methods, and constructors of loaded classes
+</TD>
+<TD>
+Ability to bypass JDK 1.2 access controls
+</TD>
+</TR>
+</TABLE>
+
+<P>
+The next table summarizes features added to JDK 1.2.
+The first column in the table identifies the trails in this
+tutorial in which you can find more information.
+<p>
+<a name="table2"></a>
+<TABLE BORDER="1">
+<CAPTION>
+<h3 CLASS="TableTitle">Summary of Features Added to JDK 1.2</h3>
+</CAPTION>
+<TR>
+<TH>
+Trail
+</TH>
+<TH>
+Package
+</TH>
+<TH>
+JDK 1.2
+</TH>
+</TR>
+<TR>
+<TD>
+<A HREF="../collections/index.html">
+Collections</A>
+
+</TD>
+<TD>
+<CODE>
+java.util</CODE>
+
+</TD>
+<TD>
+Groups and manipulates objects of different types
+</TD>
+</TR>
+<TR>
+<TD>
+<A HREF="../2d/index.html">2D Graphics </A>
+</TD>
+<TD>
+<CODE>
+java.awt<BR>
+java.awt.color <BR>
+java.awt.geom <BR>
+java.awt.image <BR>
+java.awt.print</CODE>
+
+</TD>
+<TD>
+API for designing more interesting and user-friendly interfaces,
+handling color, processing images, addressing multilingual
+requirements, using stylized text, and printing
+</TD>
+</TR>
+<TR>
+<TD>
+<a href="../uiswing/components/index.html">Swing Components</a>
+
+</TD>
+<TD>
+<P CLASS="TAB-Table-Body11">
+<CODE>
+javax.swing
+<br>
+javax.swing.*
+<br>
+javax.swing.*.*</CODE>
+
+</TD>
+<TD>
+<P>
+Provides a rich set of GUI components; features include model-UI
+separation and a pluggable look and feel
+</TD>
+</TR>
+<TR>
+<TD>
+<A HREF="../idl/index.html">
+Java IDL</A>
+
+</TD>
+<TD>
+<CODE>
+org.omg.CORBA <BR>
+org.omg.CosNaming</CODE>
+
+</TD>
+<TD>
+Invokes a transparent remote operation
+</TD>
+</TR>
+<TR>
+<TD>
+<A HREF="../ext/index.html">
+Java Extension Mechanism</A>
+
+</TD>
+<TD>
+NA
+
+</TD>
+<TD>
+Adds extensions to core platform
+</TD>
+</TR>
+<TR>
+<TD>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/ref/package-summary.html"><font color="#8800bb">Reference Objects</font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/ref/package-summary.html"><img src="../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>
+</TD>
+<TD>
+<CODE> java.lang.ref</CODE>
+
+</TD>
+<TD>
+Creates a reference to an object so a program can maintain a reference
+to that object after it is eligible for garbage collection
+</TD>
+</TR>
+</TABLE>
+
+
+</blockquote>
+
+<img src="../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="language.html" target="_top"><img src="../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="./TOC.html" target="_top"><img src="../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="./end.html" target="_top"><img src="../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="./index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../search.html" target="_top">Search</a>
+<br><a href="../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

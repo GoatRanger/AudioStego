@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+                                                            
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+                                                            
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=iso-8859-1">
+  <title>Customer Mini-Application &gt; Building the Mini-Application</title>
+</head>
+ <body>
+               &nbsp;               
+<table border="0" cellspacing="0" cellpadding="5" width="100%" style="">
+               <tbody>
+                  <tr>
+               <td bgcolor="#000033"><b><font color="#ccccff"><a href="index.html">
+   Customer Mini-Application</a></font></b> &nbsp; <font color="#ffffff">
+   &gt; <b>Building the Mini-Application</b></font></td>
+                <td bgcolor="#000033">                                  
+                                                               
+      <div align="Right"><b><font color="#ccccff"><a href="http://java.sun.com/j2ee/blueprints/">
+         Java BluePrints</a></font></b></div>
+               </td>
+               </tr>
+                                                         
+  </tbody>              
+</table>
+                              
+<div align="Justify">        
+<h1> Building the Mini-Application</h1>
+     We use <a href="http://jakarta.apache.org/ant/index.html">Ant</a>, that
+  comes bundled with J2EE 1.4 Beta Reference Implementation, to build&nbsp;
+  the source code. Ant is a Java-based build tool like <i>make</i>, &nbsp;
+ which has been developed&nbsp; under the auspices of the <a href="http://www.apache.org/">
+      Apache Software&nbsp; Foundation</a>.<br>
+<br>
+     This section explains how to build the application binaries for the
+customer  mini-application. Building all the application binaries&nbsp; and&nbsp;
+performing&nbsp;  other tasks with Ant involves invoking <tt>ant</tt>&nbsp;
+from &lt;adventure.home&gt;/src/miniapps/customer/src  directory of the mini-application
+installation.<br>
+             <br>
+             Before building the application, you need to configure the &lt;adventure.home&gt;/src/build.properties 
+      file to match your enviroment. You need to set the following properties: 
+     <br>
+                         
+<table cellpadding="5" cellspacing="0" border="1" width="525" align="Center">
+               <tbody>
+                 <tr>
+                   <td valign="Top" align="Center" width="17%"><b>Property
+ Name</b><br>
+                   </td>
+                   <td valign="Top" align="Center" width="37%"><b>Description</b><br>
+                   </td>
+                   <td valign="Top" align="Center" width="37%"><b>Examples</b><br>
+                   </td>
+                 </tr>
+                 <tr align="Left">
+                   <td valign="Top" width="17%">j2ee.server.name<br>
+                   </td>
+                   <td valign="Top" width="37%">Host name of the server where 
+  the   J2EE   SDK is installed<br>
+                   </td>
+                   <td valign="Top" width="37%">localhost<br>
+                   </td>
+                 </tr>
+                 <tr align="Left">
+                   <td valign="Top" width="17%">j2ee.server.port<br>
+                   </td>
+                   <td valign="Top" width="37%">HTTP port where the J2EE
+SDK   can   be  accessed<br>
+                   </td>
+                   <td valign="Top" width="37%">8000 &nbsp;&nbsp; &nbsp;
+      </td>
+                 </tr>
+                 <tr align="Left">
+                   <td valign="Top">j2ee.home<br>
+                   </td>
+                   <td valign="Top">The absolute path to the directory where
+  J2EE   SDK   is installed<br>
+                   </td>
+                   <td valign="Top">c:\j2sdkee1.4 (on Windows) or /home/mydir/j2sdkee1.4 
+  &nbsp; (on&nbsp; Unix)<br>
+                   </td>
+                 </tr>
+                                                                   
+  </tbody>             
+</table>
+   <b>Note: On Windows, while writing the paths in the build.properties files,&nbsp; 
+ you need to escape the "\" properly by using "\\" instead. So, for example,&nbsp; 
+ to set j2ee.home to c:\j2sdkee1.4, the entry in the properties file will 
+be j2ee.home=c:\\j2sdkee1.4</b>.<br>
+                         
+<p>To build the application binaries on Unix, open a shell prompt   and enter
+     these commands: </p>
+                 <pre>cd &lt;adventure.home&gt;/src/miniapps/customer/src<br>ant [argument]</pre>
+               To build the application binaries on Windows, open a shell 
+prompt    and   enter  these commands:      <pre>cd &lt;adventure.home&gt;\src\miniapps\customer\src<br>ant [argument]</pre>
+   For the above command to work, your PATH environment variable must have
+ been set as explained in the <a href="../../../../docs/installing.html">
+installation  instructions</a>  and ANT_HOME environment&nbsp; variable,
+if any, should  not point to any other version of <tt>ant</tt> your system
+may have. When  <tt>ant</tt> is invoked without any arguments, all the application&nbsp;
+binaries are built. The binaries are placed in the following folders: &nbsp;
+&nbsp; &nbsp; <pre>&lt;adventure.home&gt;/src/miniapps/customer/build/customer.ear<br><pre></pre></pre>
+     The following table lists possible arguments when invoking <tt>ant</tt>
+    : &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+ &nbsp;    
+<center> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;     
+<p>Arguments for <tt>ant</tt>&nbsp;</p>
+             </center>
+                         
+<center>             
+<table border="1" cellspacing="0" cellpadding="5" width="386">
+               <caption><br>
+          </caption>        
+</table>
+        </center>
+        <br>
+               
+<center>        
+<table border="1" cellspacing="0" cellpadding="5" width="386">
+          <caption>                                 </caption><col width="81"><col width="283">
+           <tbody>
+                  <tr>
+               <th width="81">Option</th>
+                <th width="283">Purpose</th>
+               </tr>
+                <tr>
+               <td width="81"><tt>core</tt></td>
+                <td width="283">Builds everything. (This is the default build 
+  target.)</td>
+               </tr>
+                <tr>
+               <td width="81"><tt>clean</tt></td>
+                <td width="283">Cleans out the build output directories.</td>
+               </tr>
+                <tr>
+               <td width="81"><tt>deploy</tt></td>
+                <td width="283">Deploys the application binaries.</td>
+               </tr>
+                                                                        
+           
+  </tbody>              
+</table>
+              </center>
+                                 
+<h4> </h4>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+  &nbsp;  </div>
+               
+<hr size="3" noshade="">               
+<p><a href="../../../../docs/copyright.html">Copyright &copy; 2003 Sun Microsystems,&nbsp;
+Inc. All Rights Reserved.</a> </p>
+              <br>
+             <br>
+            <br>
+           <br>
+          <br>
+                 
+</body>
+</html>

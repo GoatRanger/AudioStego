@@ -1,0 +1,205 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Managing Source and Class Files</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="usepkgs.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#interpack" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="summary-package.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Learning the Java Language
+<br>
+<b>Lesson</b>: Interfaces and Packages
+</font>
+
+<h2>
+Managing Source and Class Files
+</h2>
+<blockquote>
+Many implementations of the Java platform rely on hierarchical 
+    file systems to manage source and class files, although <I>The 
+    Java Language Specification</I> does not require this. The strategy 
+    is as follows. 
+<P>
+    You put the source code for a class or an interface in a text 
+    file whose name is the simple name of the class or the interface 
+    and whose extension is <CODE>.java</CODE>. Then you put the source 
+    file in a directory whose name reflects the name of the package 
+    to which the class or the interface belongs. For example, the 
+    source code for the <CODE>Rectangle</CODE> class would be in 
+    a file named <CODE>Rectangle.java</CODE>, and the file would be in a directory 
+    named <CODE>graphics</CODE>. The <CODE>graphics</CODE> directory 
+    might be anywhere on the file system. The figure below shows how 
+    this works. 
+
+
+<p><center><IMG SRC="../../figures/java/package1.gif" WIDTH="350" HEIGHT="76" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p><P>
+    The qualified name of the package member and the path name to 
+    the file are parallel, assuming the UNIX file name separator 
+    slash (/): <BR> 
+
+    <P><CENTER>
+    <TABLE rules="none" BORDER="0" frame="void" CELLSPACING="2" CELLPADDING="4">
+      <TR>
+        <TD WIDTH="50%" VALIGN="TOP">
+        <B>class name</B></TD>
+        <TD WIDTH="50%" VALIGN="TOP">
+        <CODE>graphics.Rectangle</CODE></TD>
+      </TR>
+      <TR>        
+        <TD WIDTH="50%" VALIGN="TOP">
+        <B>pathname to file</B></TD>
+        <TD WIDTH="50%" VALIGN="TOP">  
+        <CODE>graphics/Rectangle.java</CODE></TD>
+      </TR>
+    </TABLE>
+  </CENTER>
+
+<P>
+    As you may recall, by convention a company uses its reversed 
+    Internet domain name in its package names. The fictional company  
+    whose Internet domain name is <CODE>taranis.com</CODE> would  
+    precede all its package names with <CODE>com.taranis</CODE>.  
+    Each component of the package name corresponds to a subdirectory.  
+    So if Taranis had a <CODE>graphics</CODE> package that contained  
+    a <CODE>Rectangle.java</CODE> 
+    source file, it would be contained in a series of subdirectories, 
+    as shown below.<BR>
+
+<p><center><IMG SRC="../../figures/java/package2.gif" WIDTH="420" HEIGHT="127" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p><P>
+
+    When you compile a source file, the compiler creates a different 
+    output file for each class and interface defined in it. The base 
+    name of the output file is the name of the class or the interface, 
+    and its extension is <CODE>.class</CODE>, as shown in the following figure. 
+
+<p><center><IMG SRC="../../figures/java/package3.gif" WIDTH="520" HEIGHT="133" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p><P>
+
+    Like a <CODE>.java</CODE> file, a <CODE>.class</CODE> file should 
+    also be in a series of directories that reflect the package name. 
+    However, it does not have to be in the same directory as its 
+    source. You could arrange your source and class directories separately, 
+    as shown below.
+
+<p><center><IMG SRC="../../figures/java/package4.gif" WIDTH="310" HEIGHT="158" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p>
+<P>
+    By doing this, you can give the classes directory to other programmers 
+    without revealing your sources. <P>
+    Why all the bother about directories and file names? You need 
+    to manage your source and class files in this manner so that 
+    the compiler and the interpreter can find all the classes and 
+    interfaces your program uses. When the compiler encounters a 
+    new class as its compiling your program, it must be able to find 
+    the class so as to resolve names, do type checking, and so on. 
+    Similarly, when the interpreter encounters a new class as its 
+    running your program, it must be able to find the class to invoke 
+    its methods, and so on. Both the compiler and the interpreter 
+    search for classes in each directory or ZIP file listed in your 
+    class path. <P>
+
+
+
+<blockquote><hr><strong>Definition:</strong>&nbsp;
+A <I>class path</I> is an ordered list of directories or ZIP files in which to search  
+      for class files. 
+<hr></blockquote>
+<p>
+Each directory listed in the class path is a top-level 
+    directory in which package directories appear. From the top-level 
+    directory, the compiler and the interpreter can construct the 
+    rest of the path, based on the package and the class name for 
+    the class. For example, the class path entry for the directory 
+    structure shown in the previous diagram would include <CODE>classes</CODE> 
+    but not <CODE>com</CODE> or any of the directories below <CODE>com</CODE>. 
+    Both the compiler and the interpreter construct the path name 
+    to a <CODE>.class</CODE> file with its full package name.  
+
+<P>
+    By default, the compiler and the interpreter search the current 
+    directory and the ZIP file containing the Java platform class 
+    files. In other words, the current directory and the Java platform 
+    class files are automatically in your class path. Most, if not 
+    all, classes can be found in these two locations. So its likely 
+    that you don't have to worry about your class path. In some cases, 
+    however, you might have to set your class path. 
+    
+    
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="usepkgs.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#interpack" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="summary-package.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

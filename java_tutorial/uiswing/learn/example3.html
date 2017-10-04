@@ -1,0 +1,158 @@
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Example Three: <code>CelsiusConverter</code></title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="example2.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#learn" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="example4.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Creating a GUI with JFC/Swing
+<br>
+<b>Lesson</b>: Learning Swing by Example
+</font>
+
+<h2>
+Example Three: <code>CelsiusConverter</code>
+</h2>
+<blockquote>
+<!--User Interfaces that Swing: A Quick Start Guide-->
+<!--Example Three: CelsiusConverter-->
+
+Our next example, 
+<a target="_blank" href="example-1dot4/CelsiusConverter.java"><font color="#bb000f"><code>CelsiusConverter</code></font></a><a target="_blank" href="example-1dot4/CelsiusConverter.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>is actually useful: It is a simple 
+conversion tool. The user enters a temperature in 
+degrees Celsius and clicks the <code>Convert...</code> 
+button, and a label displays the equivalent in degrees Fahrenheit. 
+
+<p><center><IMG SRC="../../figures/uiswing/learn/7CelsiusConverter.gif" WIDTH="303" HEIGHT="85" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="The CelsiusConverter GUI"></center></p>
+Let's examine the code to see how <code>CelsiusConverter</code> 
+parses the number entered in the <code>JTextField</code>. First, 
+here's the code that sets up the <code>JTextField</code>: 
+
+<blockquote><pre>
+JTextField tempCelsius = null;
+...
+tempCelsius = new JTextField(5);
+</pre></blockquote>
+
+The integer argument passed in the <code>JTextField</code> 
+constructor--<code>5</code> in the example--indicates the 
+number of columns in the field. This number is used along 
+with metrics provided by the current font to calculate 
+the field's preferred width, which is used by layout 
+managers. This number does not limit 
+how many character the user can enter.
+
+<P>
+We want to perform the conversion when the user clicks the 
+button or presses Enter in the text field. To do so, we 
+add an action event listener to the <code>convertTemp</code> 
+button and <code>tempCelsius</code> text field. 
+<blockquote><pre>
+convertTemp.addActionListener(this);
+tempCelsius.addActionListener(this);
+...
+public void actionPerformed(ActionEvent event) {
+    	//Parse degrees Celsius as a double and convert to Fahrenheit.
+    int tempFahr = (int)((Double.parseDouble(tempCelsius.getText())) 
+                         * 1.8 + 32);
+    	fahrenheitLabel.setText(tempFahr + " Fahrenheit");
+}
+</pre></blockquote>
+
+The event-handling code goes into the <code>actionPerformed</code> 
+method. It calls the <code>getText</code> method on the text 
+field, <code>tempCelsius</code>, to retrieve the data within 
+it. Next it uses the  <code>parseDouble</code> method to 
+parse the text as a double-precision floating-point number 
+before converting the temperature and casting the result 
+to an integer. Finally, it calls the <code>setText</code> 
+method on the <code>fahrenheitLabel</code> to make the 
+label display the converted temperature.
+
+<p>
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="example2.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#learn" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="example4.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

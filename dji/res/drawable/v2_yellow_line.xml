@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="line">
+    <size android:height="2dp" android:width="10dp" />
+    <solid android:color="@r$color/v2_audio_color_yellow" />
+    <stroke android:width="2dp" android:color="@r$color/v2_audio_color_yellow" />
+</shape>

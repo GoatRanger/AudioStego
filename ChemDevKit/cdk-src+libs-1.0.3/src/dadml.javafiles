@@ -1,0 +1,3 @@
+org/openscience/cdk/test/internet/DADMLTest.java
+org/openscience/cdk/internet/DADMLResult.java
+org/openscience/cdk/internet/DADMLReader.java

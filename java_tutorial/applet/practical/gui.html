@@ -1,0 +1,215 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Using the AWT to Create a GUI</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="ui.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#practical" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="stdout.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Writing Applets
+<br>
+<b>Lesson</b>: Practical Considerations when Writing Applets
+</font>
+
+<h2>
+Using the AWT to Create a GUI
+</h2>
+<blockquote>
+This page discusses the few issues
+that are particular to applet GUIs.
+Some of the information in this section
+might not make sense until you've read the 
+<a target="_top" href="../../ui/index.html">Creating a User Interface (AWT Only)</a><a target="_top" href="../../ui/index.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Writing Applets trail)"></a> trail.
+That trail discusses all the GUI concepts referred to on this page
+and gives many examples of applet GUIs.
+
+<p>
+<dl>
+<dt> <strong>An <code>Applet</code> is a <code>Panel</code>.</strong>
+<dd> Because <code>Applet</code> is a subclass of the AWT
+<a target="_blank" href="http://java.sun.com/products/archive/jdk/1.1/index.html/java.awt.Panel.html"><font color="#8800bb"><code>Panel</code> class</font></a><a target="_blank" href="http://java.sun.com/products/archive/jdk/1.1/index.html/java.awt.Panel.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>,
+     applets can contain other
+<a target="_blank" href="http://java.sun.com/products/archive/jdk/1.1/index.html/java.awt.Component.html"><font color="#8800bb"><code>Components</code></font></a><a target="_blank" href="http://java.sun.com/products/archive/jdk/1.1/index.html/java.awt.Component.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>,
+     just as any <code>Panel</code> can.
+     <code>Applet</code>s inherit <code>Panel</code>'s default layout manager:
+<a target="_blank" href="http://java.sun.com/products/archive/jdk/1.1/index.html/java.awt.FlowLayout.html"><font color="#8800bb"><code>FlowLayout</code></font></a><a target="_blank" href="http://java.sun.com/products/archive/jdk/1.1/index.html/java.awt.FlowLayout.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>.
+     As <code>Panel</code>s (and thus <code>Component</code>s), <code>Applet</code>s participate
+     in the AWT drawing and event hierarchy.
+     <p>
+<dt> <strong>Applets appear in pre-existing browser windows.</strong>
+<dd> This has two implications.
+     First, unlike GUI-based applications,
+     applets don't have to create a window to display themselves in.
+     They can, if they have a good reason,
+     but they often just display themselves within the browser window.
+     Second, depending on the browser implementation,
+     your applet's components might not be shown
+     unless your applet calls <code>validate</code>
+     after adding components to itself.
+     Fortunately, calling <code>validate</code> can't hurt.
+     <p>
+<dt> <strong>The applet background color might not match the page color.</strong>
+<dd> By default, applets have a light gray background color.
+     HTML pages, however, can have other background colors
+     and can use background patterns.
+     If the applet designer and page designer
+     aren't careful,
+     the applet's different background color
+     can cause it to stick out on the page
+     or cause noticeable flashing when the applet is drawn.
+     One solution is to define an applet parameter
+     that specifies the applet's background color.
+     The <code>Applet</code> subclass can use <code>Component</code>'s 
+     <code>setBackground</code> method 
+     to set its background to the user-specified color.
+     Using the background color parameter,
+     the page designer can choose an applet color
+     that works well with the page colors.
+     You'll learn about parameters in
+<a target="_top" href="../appletsonly/param.html">Defining and Using Applet Parameters</a><a target="_top" href="../appletsonly/param.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Writing Applets trail)"></a>,    and about the <code>Component</code> class and drawing in the
+<a target="_top" href="../../ui/index.html">Creating a User Interface (AWT Only)</a><a target="_top" href="../../ui/index.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Writing Applets trail)"></a>     trail.
+     <p>
+<dt> <strong>Each applet has a user-specified, pre-determined size.</strong>
+<dd> Because the <code>&lt;APPLET&gt;</code> tag requires that the applet's
+     width and height be specified,
+     and because browsers don't necessarily allow applets
+     to resize themselves,
+     applets must make do with a fixed amount of space
+     that might not be ideal.
+     Even if the amount of space is ideal for one platform,
+     the platform-specific parts of the applet 
+     (such as buttons)
+     might require a different amount of space on another platform.
+     You can compensate by recommending
+     that pages that include your applet
+     specify a little more space
+     than might be necessary,
+     and by using flexible layouts,
+     such as the AWT-provided <code>GridBagLayout</code> and <code>BorderLayout</code> classes,
+     that adapt well to extra space.
+     <p>
+<dt> <strong>Applets load images
+     using the <code>Applet getImage</code> methods.</strong>
+<dd> The <code>Applet</code> class provides a convenient form of <code>getImage</code>
+     that lets you specify a base URL as one argument,
+     followed by a second argument
+     that specifies the image file location, relative to the base URL.
+     The <code>Applet getCodeBase</code>
+     and <code>getDocumentBase</code> methods
+     provide the base URLs that most applets use.
+     Images that an applet always needs, 
+     or needs to rely on as a backup,
+     are usually specified relative
+     to where the applet's code was loaded from
+     (the <em>code base</em>).
+     Images that are specified by the applet user
+     (often with parameters in the HTML file)
+     are usually relative
+     to the page that includes the applet 
+     (the <em>document base</em>).
+     <p>
+<dt> <strong>Applet classes (and often the data files they use)
+     are loaded over the network, which can be slow.</strong>
+<dd> Applets can do several things to decrease the perceived startup time.
+     The <code>Applet</code> subclass can be a small one
+     that immediately displays a status message.
+     If some of the applet's classes or data aren't used right away,
+     the applet can preload the classes or data 
+     in a background thread.
+     <p>
+     For example, the 
+     
+<a target="_blank" href="../../ui/layout/example/AppletButton.java"><font color="#bb000f"><code>AppletButton</code></font></a><a target="_blank" href="../../ui/layout/example/AppletButton.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>
+     class <code>start</code> method
+     launches a thread that
+     gets the 
+<a target="_blank" href="http://java.sun.com/products/archive/jdk/1.1/index.html/java.lang.Class.html"><font color="#8800bb"><code>Class</code></font></a><a target="_blank" href="http://java.sun.com/products/archive/jdk/1.1/index.html/java.lang.Class.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>     object for the window the button brings up.
+     The applet's main purpose in doing so
+     is to make sure the class name the user specified is valid.
+     An added benefit is that getting the <code>Class</code> object forces
+     the class file to be loaded before the class is instantiated.
+     When the user requests that the window be created,
+     the applet instantiates the window class much quicker
+     than if the applet still had to load the window class file.
+     <p>
+</dl>
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="ui.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#practical" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="stdout.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

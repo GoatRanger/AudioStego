@@ -1,0 +1,199 @@
+<project name="CDK" default="html" basedir=".">
+
+    <property file="build.props"/>
+
+    <!-- $Id: javadoc.xml 10283 2008-03-02 15:27:28Z egonw $ -->
+
+    <property name="xom.jar" value="xom.jar" />
+    <property name="jaxen.jar" value="jaxen.jar" />
+    <property name="com-sun-javadoc.jar" value="com-sun-javadoc.jar" />
+    <property name="com-sun-tools-doclets-Taglet.jar" value="com-sun-tools-doclets-Taglet.jar" />
+
+    <property name="vecmath.src" value="gcj/vecmath" />
+    <property name="vecmath.javadoc.dir" value="doc/vecmath/api" />
+
+    <property name="src" value="src" />
+    <property name="javadoc.dir" value="doc/api" />
+    <property name="doxygen.dir" value="doc/doxygen" />
+
+    <property name="pathtojava3d" value="" />
+    <property name="build" value="build" />
+    <property name="lib" value="jar" />
+
+    <path id="project.class.path">
+        <pathelement location="." />
+        <fileset dir="${lib}">
+            <include name="*.jar" />
+        </fileset>
+        <fileset dir="${lib}/libio">
+            <include name="*.jar" />
+        </fileset>
+        <fileset dir="${pathtojava3d}">
+            <include name="*.jar" />
+        </fileset>
+    </path>
+
+    <taskdef name="doxygen" classname="org.doxygen.tools.DoxygenTask"
+            classpath="develjar/ant_doxygen.jar" />
+
+    <target name="doxygen" id="doxygen">
+        <mkdir dir="${doxygen.dir}" />
+        <doxygen>
+            <property name="INPUT" value="src/" />
+            <property name="PROJECT_NAME" value="The Chemistry Development Kit" />
+            <property name="OUTPUT_DIRECTORY" value="${doxygen.dir}" />
+            <property name="OPTIMIZE_OUTPUT_JAVA" value="YES" />
+            <property name="UML_LOOK" value="YES" />
+            <property name="ALIASES" value='"cdk.module=Is part of the CDK module:"' />
+        </doxygen>
+    </target>
+
+    <target name="html" depends="check, compileTaglets">
+        <mkdir dir="${javadoc.dir}" />
+
+        <!-- Call javacc target in build.xml to re-generate the source code -->
+        <ant antfile="build.xml" target="check"/>
+        <ant antfile="build.xml" target="runDoclet"/>
+        <ant antfile="build.xml" target="javacc"/>
+        <tstamp>
+            <format property="TODAY_SVN" pattern="yyyyMMdd" locale="en" />
+        </tstamp>
+        <javadoc destdir="${javadoc.dir}" failonerror="true"
+                 author="true" version="true" use="true"
+                 public="true" maxmemory="256m"
+                 windowtitle="CDK API - version ${TODAY_SVN}">
+            <classpath>
+                <pathelement location="." />
+                <fileset dir="${lib}">
+                    <include name="*.jar" />
+                </fileset>
+                 <dirset dir="src">
+                     <include name="net/**/*"/>
+                 </dirset>
+            </classpath>
+            <fileset dir="${src}">
+              <include name="org/openscience/cdk/**/*.java" />
+              <exclude name="org/openscience/cdk/test/**/*.java"/>
+              <excludesfile name="${build}/java1.5+.javafiles" if="isNotJava15+"/>
+            </fileset>
+            <tag name="cdk.set" scope="all" description="Belongs to the set:" />
+            <tag name="cdk.keyword" scope="all" description="Keywords:" />
+            <tag name="cdk.created" scope="all" description="Created on:" />
+            <tag name="cdk.require" scope="all" description="Requires:" />
+            <tag name="cdk.depends" scope="all" description="Required library to be able to run this class:" />
+            <tag name="cdk.builddepends" scope="all" description="Required library to be able to compile this class:" />
+            <tag name="cdk.todo" scope="all" description="To do:" />
+            <tag name="cdk.license" scope="all" description="License:" />
+            <taglet name="net.sf.cdk.tools.doclets.CDKCiteTaglet" path="${lib}/${xom.jar}:${lib}/${jaxen.jar}:doc/javadoc" />
+            <taglet name="net.sf.cdk.tools.doclets.CDKModuleTaglet" path="${lib}/${xom.jar}:${lib}/${jaxen.jar}:doc/javadoc" />
+            <taglet name="net.sf.cdk.tools.doclets.CDKBugTaglet" path="${lib}/${xom.jar}:${lib}/${jaxen.jar}:doc/javadoc" />
+            <taglet name="net.sf.cdk.tools.doclets.CDKDictRefTaglet" path="${lib}/${xom.jar}:${lib}/${jaxen.jar}:doc/javadoc" />
+        </javadoc>
+    </target>
+
+    <target name="vecmath.html">
+        <mkdir dir="${vecmath.javadoc.dir}" />
+
+        <javadoc destdir="${vecmath.javadoc.dir}"
+                 author="true" version="true" use="true"
+                 public="true"
+                 windowtitle="VecMath API">
+            <classpath refid="project.class.path" />
+            <packageset dir="${vecmath.src}" defaultexcludes="yes">
+                <include name="javax/vecmath/**" />
+            </packageset>
+        </javadoc>
+    </target>
+
+  <target name="jjdoc" description="Create JJDoc documentation from the .jj file">   
+    <mkdir dir="doc/iupac-parser"/>
+    <jjdoc target="${src}/org/openscience/cdk/iupac/parser/NomParser.jj"
+      outputfile="doc/iupac-parser/ParserBNF.html"
+      javacchome="jar"/>
+  </target>
+
+    <!-- The doclet used in the following targets cannot be put in CVS because it is 
+         licensed otherwise, but it can be downloaded from:
+
+         http://java.sun.com/j2se/javadoc/doccheck/
+
+      -->
+
+    <target name="doccheck">
+      <antcall target="doccheck-module"><param name="module" value="interfaces"/></antcall>
+      <antcall target="doccheck-module"><param name="module" value="core"/></antcall>
+      <antcall target="doccheck-module"><param name="module" value="data"/></antcall>
+      <antcall target="doccheck-module"><param name="module" value="datadebug"/></antcall>
+      <antcall target="doccheck-module"><param name="module" value="nonotify"/></antcall>
+      <antcall target="doccheck-module"><param name="module" value="standard"/></antcall>
+      <antcall target="doccheck-module"><param name="module" value="io"/></antcall>
+      <antcall target="doccheck-module"><param name="module" value="inchi"/></antcall>
+      <antcall target="doccheck-module"><param name="module" value="extra"/></antcall>
+      <antcall target="doccheck-module"><param name="module" value="render"/></antcall>
+      <antcall target="doccheck-module"><param name="module" value="reaction"/></antcall>
+      <antcall target="doccheck-module"><param name="module" value="libio-cml"/></antcall>
+      <antcall target="doccheck-module"><param name="module" value="libiomd"/></antcall>
+      <antcall target="doccheck-module"><param name="module" value="libio-biojava"/></antcall>
+      <antcall target="doccheck-module"><param name="module" value="builder3d"/></antcall>
+      <antcall target="doccheck-module"><param name="module" value="smiles"/></antcall>
+      <antcall target="doccheck-module"><param name="module" value="smarts"/></antcall>
+      <antcall target="doccheck-module"><param name="module" value="forcefield"/></antcall>
+      <antcall target="doccheck-module"><param name="module" value="qsar"/></antcall>
+      <antcall target="doccheck-module"><param name="module" value="experimental"/></antcall>
+      <antcall target="doccheck-module"><param name="module" value="svg"/></antcall>
+      <antcall target="doccheck-module"><param name="module" value="smarts"/></antcall>
+      <antcall target="doccheck-module"><param name="module" value="structgen"/></antcall>
+      <antcall target="doccheck-module"><param name="module" value="valencycheck"/></antcall>
+    </target>
+
+    <target name="doccheck-module">
+        <mkdir dir="reports/javadoc/${module}/"/>
+        <javadoc private="false" public="true"
+                 destdir="reports/javadoc/${module}/"
+                 excludepackagenames="org.openscience.cdk.test.*">
+            <classpath refid="project.class.path" />
+
+            <doclet name="com.sun.tools.doclets.doccheck.DocCheck"
+                    path="develjar/doccheck.jar" />
+            <fileset dir="${src}">
+              <includesfile name="${build}/${module}.javafiles"/>
+            </fileset>
+            <sourcepath>
+                <pathelement path="${src}"/>
+            </sourcepath>
+        </javadoc>
+    </target>
+
+  <target id="check" name="check">
+    <condition property="isMacOsX">
+      <and>
+        <os family="mac"/>
+        <os family="unix"/>
+      </and>
+    </condition>
+  </target>
+
+  <target name="compileTaglets" id="compileTaglets" depends="check, compileTaglets.MacOSX, compileTaglets.Other" />
+
+  <target name="compileTaglets.MacOSX" id="compileTaglets.MacOSX" if="isMacOsX">
+    <javac srcdir="src" destdir="doc/javadoc"
+           includes="*Taglet.java" debug="on" optimize="off"/>
+  </target>
+
+  <target name="compileTaglets.Other" id="compileTaglets.Other" unless="isMacOsX">
+    <javac srcdir="src" destdir="doc/javadoc"
+         includes="net/sf/cdk/tools/**/*.java" debug="on" optimize="off">
+      <classpath>
+        <fileset dir="${lib}">
+          <include name="${xom.jar}" />
+          <include name="${com-sun-javadoc.jar}" />
+          <include name="${com-sun-tools-doclets-Taglet.jar}" />
+        </fileset>
+      </classpath>
+    </javac>
+  </target>
+
+</project>
+
+
+

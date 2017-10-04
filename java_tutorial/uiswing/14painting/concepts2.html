@@ -1,0 +1,466 @@
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Introduction to Painting Concepts</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="concepts.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#14painting" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="practice.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Creating a GUI with JFC/Swing
+<br>
+<b>Lesson</b>: Performing Custom Painting
+</font>
+
+<h2>
+Introduction to Painting Concepts
+</h2>
+<blockquote>
+This section gives an overview
+of what you need to know
+before you write code that paints Swing components.
+It concentrates on the coordinate system, 
+including how borders restrict the coordinates available for painting,
+and on the <code>Graphics</code> object
+passed in to paint methods.
+Although most of the API discussed isn't specific to Swing components,
+we concentrate on
+what <code>JComponent</code>s need.
+For information on actually painting,
+you should refer to the API documentation for the
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Graphics.html"><font color="#8800bb"><code>Graphics</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Graphics.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> class and to the
+<a target="_top" href="../../2d/index.html">2D Graphics</a><a target="_top" href="../../2d/index.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a> trail.
+
+</blockquote>
+<h3>
+<a name="coord">The Coordinate System</a>
+</h3>
+<blockquote>
+
+Each component has its own integer coordinate system,
+ranging from (0, 0) to (<em>width</em> - 1, <em>height</em> - 1),
+where <em>width</em> and <em>height</em>
+are the size of the component in pixels.
+As the following figure shows,
+the upper left corner of a component's painting area is (0, 0).
+The <em>x</em> coordinate increases to the right,
+and the <em>y</em> coordinate increases downward.
+
+<p><center><IMG SRC="../../figures/uiswing/14painting/13ui33.gif" WIDTH="254" HEIGHT="137" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="A component's coordinate system."></center></p><p>
+
+
+When painting, 
+you must take into account not only the component's size
+but also the size of the component's border, if any.
+For example, a border that paints a one-pixel line
+around a component
+effectively changes the top leftmost corner 
+of the component's non-background painting area from (0,0)
+to (1,1) and
+reduces the width and the height of the painting area 
+by two pixels each (one pixel per side).
+The following figure demonstrates this:
+
+<p><center><IMG SRC="../../figures/uiswing/14painting/border.gif" WIDTH="384" HEIGHT="172" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="Remember to account for the component's border."></center></p><font color=gray>
+[PENDING: This figure will change to match the previous one better,
+and to be clearer and more correct.]
+</font>
+
+<p>
+You can get the width and height of any <code>JComponent</code>
+using its <code>getWidth</code> and 
+<code>getHeight</code> methods.
+The <code>getSize</code> method
+is another option
+that works for all <code>Component</code>s.
+To determine the border size,
+use the <code>getInsets</code> method.
+Here is some code that a component might use
+to determine the width and height
+available for custom painting:
+
+<blockquote><pre>
+protected void paintComponent(Graphics g) {
+    ...
+    Insets insets = getInsets();
+    int currentWidth = getWidth() - insets.left - insets.right;
+    int currentHeight = getHeight() - insets.top - insets.bottom;
+    ...
+    ...<em>/* First painting occurs at (x,y), where x is at least
+      insets.left, and y is at least insets.top. */...</em>
+}
+</pre></blockquote>
+
+<p>
+
+To familiarize yourself with the coordinate system,
+you can play with the CoordinatesDemo application,
+which features a component implemented using
+an inner class named <code>CoordinateArea</code>.
+The <code>CoordinateArea</code> has
+a preferred size of 400x75
+and a solid red border that
+occupies 5 pixels at the left and bottom,
+and 1 pixel at the top and right.
+Like any good component,
+it starts painting its innards (a 20x20-pixel gray grid)
+where the border ends &#151;
+in this case, at (5,1).
+The <code>CoordinateArea</code> also paints a dot 
+where the user clicks.
+As you can see from the following figure,
+a label at the bottom of the GUI
+displays information about the cursor and click location.
+
+<p><center><IMG SRC="../../figures/uiswing/14painting/CoordinatesDemo.gif" WIDTH="410" HEIGHT="124" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="CoordinatesDemo"></center></p>
+<blockquote><hr><strong>Try this:</strong>&nbsp;
+<ol>
+<li> <a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/14painting/example-1dot4/CoordinatesDemo.jnlp">Run CoordinatesDemo</a> using
+<a target="_top" href="../../information/javawebstart.html">Java<sup><font size=-2>TM</font></sup> Web Start</a><a target="_top" href="../../information/javawebstart.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.    Or, to compile and run the example yourself,
+     consult the
+     <a href="example-1dot4/index.html#CoordinatesDemo">example index</a>.
+
+<li> Move the cursor over the <code>CoordinateArea</code>,
+     including its red border.
+     <br>
+     Note the location of the cursor,
+     as displayed at the bottom of the window.
+     (Until bug #
+<a target="_blank" href="http://developer.java.sun.com/developer/bugParade/bugs/4777616.html"><font color="#009bbb">4777616</font></a><a target="_blank" href="http://developer.java.sun.com/developer/bugParade/bugs/4777616.html"><img src="../../images/otherIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (outside of the tutorial)"></a>     is fixed, when you run CoordinatesDemo using Java Web
+     Start the size of the main component won't be 400x75 &#151;
+     it'll be taller.)
+
+<li> Move the cursor to 
+     the center of the <code>CoordinateArea</code>
+     and click.
+     <br>
+     A 7x7 dot appears,
+     and the label at the bottom of the window
+     displays its location, as well as the cursor's current location.
+
+<li> Move the cursor to be near or barely within
+     the red border on the left or bottom and click.
+     <br>
+     The dot that appears looks smaller than 7x7
+     because it's obscured by the border.
+     The component's painting code paints it fully,
+     but because the <code>paintBorder</code> method
+     is called after <code>paintComponent</code>,
+     the border is painted on top of the dot.
+     If the border didn't completely paint over its area
+     in an opaque color,
+     you would be able to see more of the dot.
+</ol>
+<hr></blockquote>
+
+<p>
+The SelectionDemo example shown in the following figure
+is another that can give you a feeling for coordinates.
+It paints a continuously updating rectangle,
+which the user sets by dragging the mouse.
+To avoid unnecessary painting,
+the component's mouse-dragged and mouse-released event handler
+uses a version of the <code>repaint</code> method
+that specifies which area of the component needs to be repainted.
+
+<p><center><IMG SRC="../../figures/uiswing/14painting/SelectionDemo.gif" WIDTH="510" HEIGHT="149" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="More fun with coordinates"></center></p>
+You can 
+<b><a href=http://javaweb.sfbay/~kwalrath/tutorial/uiswing/14painting/example-1dot4/SelectionDemo.jnlp>run SelectionDemo</a></b>
+using 
+<a target="_top" href="../../information/javawebstart.html">Java Web Start</a><a target="_top" href="../../information/javawebstart.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.    Or, to compile and run the example yourself,
+     consult the
+     <a href="example-1dot4/index.html#SelectionDemo">example index</a>.
+
+<p>
+The code is in
+<a target="_blank" href="example-1dot4/SelectionDemo.java"><font color="#bb000f"><code>SelectionDemo.java</code></font></a><a target="_blank" href="example-1dot4/SelectionDemo.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>.
+The following snippet
+shows how <code>repaint</code>
+is invoked by the event handler for
+mouse-dragged and mouse-released events.
+The handler gets the current cursor location,
+updates the selection rectangle,
+calculates the total area to be repainted,
+and then specifies that area to the <code>repaint</code> method.
+Note that the total area to be repainted
+is equal to the previously painted area
+plus the newly selected area.
+This way, it cleans up the previous painting,
+avoiding the faux pas of 
+leaving behind ghost images of the selection rectangle.
+
+<blockquote><pre>
+void updateSize(MouseEvent e) {
+    int x = e.getX();
+    int y = e.getY();
+    <em>...//save previous selection rectangle (rectToDraw)
+       //in previousRectDrawn...
+       //calculate new values for rectToDraw...</em>
+    Rectangle totalRepaint = rectToDraw.union(previousRectDrawn);
+    repaint(totalRepaint.x, totalRepaint.y,
+            totalRepaint.width, totalRepaint.height);
+}
+</pre></blockquote>
+
+Here is the code that paints the selection rectangle
+on top of the image:
+
+<blockquote><pre>
+g.drawRect(rectToDraw.x, rectToDraw.y, 
+           rectToDraw.width - 1, rectToDraw.height - 1)
+</pre></blockquote>
+
+<blockquote><hr><strong>Note:</strong>&nbsp;The last two arguments
+to <code>drawRect</code>
+have "- 1"
+because the painting system draws lines
+just below the specified rectangle,
+instead of within the specified rectangle.
+The same rule 
+of specifying one less than the desired width
+applies to other <code>draw<em>Xxx</em></code> methods.
+For <code>fill<em>Xxx</em></code> methods,
+on the other hand,
+you specify exactly the desired width and height in pixels.
+
+<p>
+Here are examples of painting two rectangles of
+the same size, one filled and one not:
+
+<blockquote><pre>
+g.fillRect(x, y, rectWidth, rectHeight);
+g.drawRect(x, y, rectWidth - 1, rectHeight - 1);
+</pre></blockquote>
+ 
+<hr></blockquote>
+
+
+</blockquote>
+<h3>
+The Graphics Object and Graphics2D
+</h3>
+<blockquote>
+
+The
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Graphics.html"><font color="#8800bb"><code>Graphics</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Graphics.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> object passed into the <code>paintComponent</code> method
+provides both a context 
+and some methods for simple painting.
+In almost every case, <code>Graphics</code> objects
+are actually 
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Graphics2D.html"><font color="#8800bb"><code>Graphics2D</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Graphics2D.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> objects.
+The <code>Graphics2D</code> class
+extends <code>Graphics</code>
+to provide more sophisticated control
+over geometry, coordinate transformations, 
+color management,
+and text layout.
+You can cast any <code>Graphics</code> parameter
+into a <code>Graphics2D</code> object
+as long as your program 
+uses the Java 2 platform (1.2 or later)
+and doesn't use the old printing API.
+
+<blockquote><hr><strong>Version note:</strong>&nbsp;The old printing API
+is centered around the
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/PrintJob.html"><font color="#8800bb"><code>java.awt.PrintJob</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/PrintJob.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> class.
+A 
+<a target="_top" href="../../2d/printing/index.html">newer printing API</a><a target="_top" href="../../2d/printing/index.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a> centered around
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/print/PrinterJob.html"><font color="#8800bb"><code>java.awt.print.PrinterJob</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/print/PrinterJob.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> was introduced in 1.2;
+it uses <code>Graphics2D</code>.
+In 1.4.1, Java Plug-in
+printing was updated to use the newer printing API.
+<hr></blockquote>
+</ul>
+
+<p>
+The painting methods defined by <code>Graphics</code>
+include such standbys as
+<code>drawRect</code>, 
+<code>fillRect</code>, and
+<code>drawLine</code>.
+The <code>Graphics2D</code> class adds more flexible methods such as 
+<code>draw(Shape)</code> and
+<code>fill(Shape)</code>.
+
+<p>
+The graphics context provided by a <code>Graphics</code> object
+consists of state
+such as
+the current painting color,
+the current font,
+and
+the current painting area.
+The <code>Graphics2D</code> class
+adds more state, such as
+the alpha compositing mode,
+stroke, rendering hints, and color patterns
+such as textures and gradients.
+
+<p>
+In <code>JComponent</code>s,
+the <code>Graphics</code> object
+is initialized
+just before it's passed to
+<code>paintComponent</code>,
+so that its color and font 
+are set to the foreground color and font of the component.
+The same <code>Graphics</code> object
+is then passed to the <code>paintBorder</code>
+and <code>paintChildren</code> methods.
+This reuse is efficient
+but can lead to trouble if painting code
+permanently changes the <code>Graphics</code> object's state.
+For example, permanently changing the alpha compositing mode 
+of a <code>Graphics2D</code> object
+could cause the component's border or children to be painted incorrectly.
+To avoid problems, remember this rule:
+
+<blockquote>
+<hr>
+     <b>The <code>Graphics</code> object
+     should have the same state when you're finished painting
+     as it had when you started.</b>
+<hr>
+</blockquote>
+
+<p>
+You can take two approaches
+to avoid permanently changing the <code>Graphics</code> object:
+either restore the 
+<code>Graphics</code> object's original state,
+or use a copy of the original object.
+If you take the first approach,
+you don't need to bother restoring the font and color,
+since those properties are usually set before painting.
+Here's an example of the first approach:
+
+<blockquote><pre>
+<em>//Example of restoring the Graphics object's state</em>
+Graphics2D g2d = (Graphics2D)g;
+g2d.translate(x, y);   //set the transform
+...
+g2d.translate(-x, -y); //go back to the original transform
+</pre></blockquote>
+
+Here's an example of the second approach:
+
+<blockquote><pre>
+<em>//Example of copying the Graphics object</em>
+Graphics2D g2d = (Graphics2D)g.create(); //copy g
+g2d.translate(x, y);
+...
+g2d.dispose(); //release the copy's resources
+</pre></blockquote>
+
+The advantage of the first approach is
+that it doesn't create extra objects.
+The advantage of the second
+is that it's easy and guaranteed to succeed,
+no matter how much state you change.
+
+<p>
+
+
+<p>
+
+When writing your painting code,
+keep in mind that you can't depend on
+any graphics context except what's provided
+by the <code>Graphics</code> object.
+For example, 
+if you specify a painting area to <code>repaint</code>,
+you can't rely on
+the same painting area being specified in the next call
+to <code>paintComponent</code>.
+For one thing, multiple repaint requests can be coalesced 
+into a single <code>paintComponent</code> call.
+For another,
+the painting system occasionally calls <code>paintComponent</code>
+on its own, without any repaint request from your program &#151;
+for example,
+in response to first being shown
+or to a window that obscured it being moved.
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="concepts.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#14painting" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="practice.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:background="@color/om" android:layout_width="match_parent" android:layout_height="wrap_content"
+    <RelativeLayout android:layout_width="UNKNOWN_DATA_0x7f0b012f" android:layout_height="UNKNOWN_DATA_0x7f0b012f" android:layout_centerInParent="true">
+        <dji.pilot.publics.widget.DJIStateImageView android:id="@+id/share_image" android:layout_width="UNKNOWN_DATA_0x7f0b0127" android:layout_height="UNKNOWN_DATA_0x7f0b0127" android:scaleType="fitCenter" android:layout_centerInParent="true" />
+        <dji.pilot.publics.widget.DJIStateImageView android:id="@+id/v2_shareactivity_select" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@r$drawable/v2_shareactivity_select" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" />
+    </RelativeLayout>
+</RelativeLayout>

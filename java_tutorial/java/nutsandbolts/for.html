@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>The for Statement</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="while.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#nutsandbolts" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="if.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Learning the Java Language
+<br>
+<b>Lesson</b>: Language Basics
+</font>
+
+<h2>
+The for Statement
+</h2>
+<blockquote>
+
+The
+<a href="javascript:var meth=openWin; meth('for');" onMouseOver="self.status='Look up for in glossary'; return true;" onMouseOut="self.status=''; return true;"><font color="#00bb00"><em>for</em></font></a><a href="javascript:var meth=openWin; meth('for');" onMouseOver="self.status='Look up for in glossary'; return true;" onMouseOut="self.status=''; return true;"><img src="../../images/glossaryIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the glossary)"></a> statement provides a compact way
+to iterate over a range of values.
+The general form of the <code>for</code> statement
+can be expressed like this:
+<blockquote><pre>
+for (<em>initialization</em>; <em>termination</em>; <em>increment</em>) {
+    <em>statement</em>
+}
+</pre></blockquote>
+The <code><em>initialization</em></code> is an expression that initializes the loop-it's executed once at the beginning of the loop. The <code><em>termination </em></code> expression determines when to terminate the loop. 
+This expression is evaluated at the top of each iteration of the loop. When the expression evaluates to <code>false</code>, the loop terminates. Finally, <code><em>increment</em></code>  is an expression that gets invoked after each iteration through the loop. All these components are optional. In fact, to write an infinite loop, you omit all three expressions:
+<blockquote><pre>
+for ( ; ; ) {    // infinite loop
+    ...
+}
+</pre></blockquote>
+
+
+
+<p>
+Often <code>for</code> loops are used to iterate
+over the elements in an array, or the characters in a string.
+The following sample,
+
+<a target="_blank" href="example/ForDemo.java"><font color="#bb000f"><code>ForDemo</code></font></a><a target="_blank" href="example/ForDemo.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>,
+uses a <code>for</code> statement to iterate over the elements of
+an array and print them:
+<blockquote><pre>
+public class ForDemo {
+    public static void main(String[] args) {
+        int[] arrayOfInts = { 32, 87, 3, 589, 12, 1076,
+                              2000, 8, 622, 127 };
+
+        <font color="red">for (int i = 0; i < arrayOfInts.length; i++) {
+            System.out.print(arrayOfInts[i] + " ");
+        }</font>
+        System.out.println();
+    }
+}
+</pre></blockquote>
+The output of the program is:
+<code>32 87 3 589 12 1076 2000 8 622 127</code>.
+<p>
+Note that you can declare a local variable within the initialization expression of a <code>for</code> loop. The scope of this variable extends from its declaration to the end of the block governed by the <code>for</code> statement so it can be used in the termination and increment expressions as well. If the variable that controls a <code>for</code> loop is not needed outside of the loop, it's best to declare the variable in the initialization expression. The names <code>i</code>, <code>j</code>, and <code>k</code> are often used to control <code>for</code> loops; declaring them within the <code>for</code> loop initialization expression limits their life-span and reduces errors.
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="while.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#nutsandbolts" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="if.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

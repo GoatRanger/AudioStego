@@ -1,0 +1,340 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Bean Persistence</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="../customization/index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#persistence" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="../beancontext/index.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+
+<br>
+<font size="-1">
+<b>Trail</b>: JavaBeans(TM)
+</font>
+
+<h2>
+Lesson: Bean Persistence
+</h2>
+<blockquote>
+A Bean persists by having its properties, fields, and state information
+saved and restored to and from storage. The mechanism that
+makes persistence possible is called <i>serialization</i>. When
+a Bean instance is serialized, it is converted into a data stream and
+written to storage. Any applet, application, or tool that
+uses that Bean can then "reconstitute" it by
+<i>deserialization</i>.
+JavaBeans uses the JDK's
+object serialization API for its serialization needs.
+
+<blockquote><hr><strong>Version note:</strong>&nbsp;As of v 1.4, you can save beans in XML format
+     using the <em>long-term persistence</em> mechanism.
+     The API for this support is summarized in
+<a target="_blank" href="http://java.sun.com/j2se/1.4/docs/guide/beans/changes14.html"><font color="#009bbb">API Enhancements to the JavaBeans Component API in v1.4</font></a><a target="_blank" href="http://java.sun.com/j2se/1.4/docs/guide/beans/changes14.html"><img src="../../images/otherIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (outside of the tutorial)"></a>.
+Information on the XML format
+and on how to implement long-term persistence for non-beans
+is in two articles in 
+<em>The Swing Connection</em> &#151;
+<a target="_blank" href="http://java.sun.com/products/jfc/tsc/articles/persistence3/"><font color="#009bbb">XML Schema</font></a><a target="_blank" href="http://java.sun.com/products/jfc/tsc/articles/persistence3/"><img src="../../images/otherIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (outside of the tutorial)"></a> and
+<a target="_blank" href="http://java.sun.com/products/jfc/tsc/articles/persistence4/"><font color="#009bbb">Using XMLEncoder</font></a><a target="_blank" href="http://java.sun.com/products/jfc/tsc/articles/persistence4/"><img src="../../images/otherIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (outside of the tutorial)"></a>, respectively.
+</ul>
+<hr></blockquote>
+
+<p>
+All Beans must persist. To persist, your Beans must
+support serialization by implementing either the
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/io/Serializable.html"><font color="#8800bb"><code>java.io.Serializable</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/io/Serializable.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> interface, or the
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/io/Externalizable.html"><font color="#8800bb"><code>java.io.Externalizable</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/io/Externalizable.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> interface. These interfaces offer you the choice between
+automatic serialization, and "roll your own".
+As long as one class in a class's inheritance hierarchy
+implements <code>Serializable</code> or
+<code>Externalizable</code>, that class is serializable.
+
+<blockquote><hr><strong>Note:</strong>&nbsp; For complete information on serialization,
+see the
+<a target="_blank" href="http://java.sun.com/products/jdk/1.2/docs/guide/serialization/"><font color="#009bbb">Java Object Serialization</font></a><a target="_blank" href="http://java.sun.com/products/jdk/1.2/docs/guide/serialization/"><img src="../../images/otherIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (outside of the tutorial)"></a> web site and the
+<a target="_top" href="../../essential/io/serialization.html">Object Serialization</a><a target="_top" href="../../essential/io/serialization.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the JavaBeans(TM) trail)"></a> trail.
+<hr></blockquote>
+
+
+</blockquote>
+<h3>Controlling Serialization</h3>
+<p>
+You can control the level of serialization that your
+Beans undergo:
+
+<ul>
+  <li>Automatic: implement <code>Serializable</code>. Everything gets
+      serialized by the Java serialization software.
+  <li>Selectively exclude fields you do not want serialized
+      by marking with the <code>transient</code>
+      (or <code>static</code>) modifier.
+  <li>Writing Beans to a specific file format: implement
+      <code>Externalizable</code>, and its two methods.
+</ul>
+
+<h3>Default Serialization: The Serializable Interface</h3>
+<p>
+The <code>Serializable</code> interface provides automatic
+serialization by using the Java Object Serialization tools.
+<code>Serializable</code> declares no methods; it acts as a marker,
+telling the Object Serialization tools that your Bean class is serializable. 
+Marking your class with <code>Serializable</code> means you
+are telling the Java Virtual Machine (JVM) that you have made sure your class
+will work with default serialization. Here are some
+important points about working with the <code>Serializable</code>
+interface:
+<ul>
+  <li>Classes that implement <code>Serializable</code> must have
+      a <em>no-argument constructor</em>. This constructor will
+      be called when an object is "reconstituted" from a
+      <code>.ser</code> file.
+  <li>You don't need to implement <code>Serializable</code> in
+      your class if if it is already implemented in a superclass
+      (but you do need to make sure works correctly and as you
+      expect with default serialization).
+  <li>All fields but static and transient are serialized. Use
+      the <code>transient</code> modifier to specify fields you do not
+      want serialized, and to specify classes that are not serializable.
+</ul>
+<p>
+The BeanBox writes serialized Beans to a file with
+a <i>.ser</i> extension.
+
+<p>
+The <code>OurButton</code> demo Bean uses default serialization to make its
+properties persist. <code>OurButton</code> only added <code>Serializable</code>
+to its class definition to make use of default serialization:
+
+<blockquote><pre>
+public class OurButton extends Component implements Serializable,...
+</pre></blockquote>
+
+<p>
+If you drop an <code>OurButton</code> instance into the BeanBox, the
+properties sheet displays OurButton's properties. To ascertain
+that serialization is working
+<ol>
+  <li>Change some <code>OurButton</code> properties. For example
+      change the font size and colors.
+  <li>Serialize the changed <code>OurButton</code> instance by selecting
+      the File|SerializeComponent... BeanBox menu item. A
+      file browser will pop up.
+  <li>Put the <code>.ser</code> file in a
+      <a href="../../jar/index.html">JAR file</a> with a suitable manifest.
+  <li>Clear the BeanBox form by selecting the File|Clear menu item.
+  <li>Reload the serialized instance by selecting the
+      File|LoadJar menu item.
+</ol>
+      
+The <code>OurButton</code> instance will appear in the BeanBox with your
+property changes intact. By implementing <code>Serializable</code>
+in your class, simple, primitive properties and fields can be
+serialized. For more complex class members, different
+techniques must be used, as described in the following sections.
+
+<h3>Selective Serialization Using the transient Keyword</h3>
+<p>
+To exclude fields from serialization in a <code>Serializable</code> object
+from serialization, mark the fields
+with the <code>transient</code> modifier.
+<blockquote><pre>
+transient int Status;
+</pre></blockquote>
+Default serialization will not serialize <code>transient</code> and
+<code>static</code> fields.
+
+<h3>Selective Serialization: writeObject and readObject</h3>
+
+<p>
+If your serializable class contains either of the
+following two methods (the signatures must be exact), then
+the default serialization will not take place.
+
+<blockquote><pre>
+private void writeObject(java.io.ObjectOutputStream out)
+    throws IOException;
+private void readObject(java.io.ObjectInputStream in)
+    throws IOException, ClassNotFoundException;
+</pre></blockquote>
+
+<p>
+You can control how more complex objects are serialized,
+by writing your own implementations of the
+<code>writeObject</code> and <code>readObject</code>
+methods.
+Implement <code>writeObject</code> when you need to exercise
+greater control over what gets serialized, when you need
+to serialize objects that default serialization cannot handle,
+or when you need to add data to the serialization stream that
+is not an object data member.
+Implement <code>readObject</code> to reconstruct the
+data stream you wrote with <code>writeObject</code>.
+
+<h3>Example: The Molecule Demo Bean</h3>
+<p>
+The <code>Molecule</code> demo keeps a version number in a static
+field. Since static fields are not serialized by default,
+<code>writeObject</code> and <code>readObject</code> are 
+implemented to serialize this field. Here is 
+the <code>writeObject</code> and <code>readObject</code>
+implementations in <code>Molecule.java</code>:
+
+<blockquote><pre>
+private void writeObject(java.io.ObjectOutputStream s)
+                         throws java.io.IOException {
+    s.writeInt(ourVersion);
+    s.writeObject(moleculeName);
+}
+
+private void readObject(java.io.ObjectInputStream s)
+                        throws java.lang.ClassNotFoundException,
+                               java.io.IOException {
+    // Compensate for missing constructor.
+    reset();
+    if (s.readInt() != ourVersion) {
+        throw new IOException("Molecule.readObject: version mismatch");
+    }
+    moleculeName = (String) s.readObject();
+}
+</pre></blockquote>
+
+<p>
+These implementations limit the fields serialized to
+<code>ourVersion</code> and <code>moleculeName</code>. 
+Any other data in the class will not be serialized.
+
+<p>
+It is best to use the <code>ObjectInputStream</code>'s
+<code>defaultWriteObject</code> and <code>defaultReadObject</code>
+before doing your own specific stream writing. For example:
+
+<blockquote><pre>
+private void writeObject(java.io.ObjectOutputStream s)
+                         throws java.io.IOException {
+    //First write out defaults
+    s.defaultWriteObject();
+    //...
+}
+
+private void readObject(java.io.ObjectInputStream s)
+                        throws java.lang.ClassNotFoundException,
+                               java.io.IOException {
+    //First read in defaults
+    s.defaultReadObject();
+    //...
+}
+</pre></blockquote>
+
+
+<h3>The Externalizable Interface</h3>
+<p>
+Use the <code>Externalizable</code> interface
+when you need complete control over your Bean's serialization
+(for example, when writing and reading a specific file format).
+You need to implement 
+two methods: <code>readExternal</code> and
+<code>writeExternal</code>. <code>Externalizable</code>
+classes must also have a no-argument constructor.
+
+<h3>Example: The BlueButton and OrangeButton Demo Beans</h3>
+<p>
+When you run the BeanBox, you will see two
+Beans named <code>BlueButton</code> and 
+<code>OrangeButton</code> in the ToolBox.
+These two Beans are actually serialized
+instances of the <code>ExternalizableButton</code>
+class.
+
+<p>
+<code>ExternalizableButton</code> implements
+the <code>Externalizable</code> interface. This
+means it does all its own serialization, by
+implementing <code>Externalizable.readExternal</code>
+and <code>Externalizable.writeExternal</code>.
+
+The <code>BlueButtonWriter</code> program
+is used by the buttons makefile to create 
+an <code>ExternalizableButton</code> instance,
+change its <code>background</code> property
+to blue, and write the Bean out to the file
+<code>BlueButton.ser</code>. Another button, <code>OrangeButton</code>,
+is created the same way using <code>OrangeButtonWriter</code>.
+The button <code>makefile</code> then puts these <code>.ser</code>
+files in <code>buttons.jar</code>, where the ToolBox
+can find and reconstitute them.
+
+
+
+
+<p>
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="../customization/index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#persistence" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="../beancontext/index.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

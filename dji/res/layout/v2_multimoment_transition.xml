@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent">
+    <dji.publics.DJIUI.DJIImageView android:id="@+id/v2_multimoment_transition" android:background="@r$color/grey_not_selected" android:paddingTop="@dimen/ga" android:paddingBottom="@dimen/ga" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@r$drawable/v2_multimoment_transitions" android:scaleType="centerCrop" android:adjustViewBounds="true" android:layout_centerInParent="true" android:contentDescription="" />
+</RelativeLayout>

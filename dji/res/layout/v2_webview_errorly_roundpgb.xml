@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent">
+    <dji.publics.DJIUI.DJIRelativeLayout android:id="@+id/v2_webpage_error_ly" android:background="@r$color/v2_mine_backgound" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent">
+        <dji.publics.DJIUI.DJILinearLayout android:gravity="left|right|center_horizontal|fill_horizontal|center|fill|start|end" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true">
+            <dji.publics.DJIUI.DJIImageView android:background="@r$drawable/v2_explore_wifi_img" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <dji.publics.DJIUI.DJITextView android:textSize="@dimen/rk" android:textColor="@r$color/v2_explore_error_txt" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/v2_explore_network_error" />
+            <dji.publics.DJIUI.DJITextView android:textSize="@dimen/rl" android:textColor="@r$color/grey_not_selected" android:layout_gravity="left|right|center_horizontal|fill_horizontal|center|fill|start|end" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/fj" android:text="@string/v2_explore_no_network_detail" />
+            <dji.pilot.publics.widget.DJIStateTextView android:textSize="@dimen/ro" android:textColor="@r$color/v2_explore_reload_txt" android:layout_gravity="left|right|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@+id/v2_explore_reload_btn" android:background="@r$drawable/v2_explore_reload_btn_bg" android:paddingLeft="@dimen/ft" android:paddingTop="@dimen/gw" android:paddingRight="@dimen/ft" android:paddingBottom="@dimen/gw" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/fj" android:text="@string/v2_explore_reload" />
+        </dji.publics.DJIUI.DJILinearLayout>
+    </dji.publics.DJIUI.DJIRelativeLayout>
+    <dji.publics.DJIUI.DJIImageView android:id="@+id/before_webpage_load_pgb" android:background="@r$anim/progress_animation_list" android:visibility="gone" android:layout_width="UNKNOWN_DATA_0x7f0b0112" android:layout_height="UNKNOWN_DATA_0x7f0b0112" android:layout_centerInParent="true" />
+</RelativeLayout>

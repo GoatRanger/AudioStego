@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="10"
+   name=""
+   committed-date="2005-02-01T05:59:34.421875Z"
+   url="svn://192.168.2.2/IT105Editor/docs/jalopy/api/index-files"
+   last-author="Karl"
+   kind="dir"
+   uuid="0daf4267-3229-f84b-9084-f3c94b025f38"
+   revision="55"/>
+<entry
+   committed-rev="10"
+   name="index-8.html"
+   text-time="2005-03-02T06:14:24.343750Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="1784603f2d487ab2616a34004d6bc098"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:23.968750Z"/>
+<entry
+   committed-rev="10"
+   name="index-9.html"
+   text-time="2005-03-02T06:14:24.343750Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="5d6b5beb75120bd95a6773bf61b74b2b"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:23.984375Z"/>
+<entry
+   committed-rev="10"
+   name="index-10.html"
+   text-time="2005-03-02T06:14:24.375000Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="8e9dc13ae31195c7a7562d2b401541aa"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:24.000000Z"/>
+<entry
+   committed-rev="10"
+   name="index-11.html"
+   text-time="2005-03-02T06:14:24.390625Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="27e0b936b7e051f5f999bea064f23c4d"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:24.015625Z"/>
+<entry
+   committed-rev="10"
+   name="index-20.html"
+   text-time="2005-03-02T06:14:24.390625Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="1db4e270c967d55eeef1dc7177cb38ed"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:24.000000Z"/>
+<entry
+   committed-rev="10"
+   name="index-12.html"
+   text-time="2005-03-02T06:14:24.406250Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="df4bf5c412de80c128eaa9b67f23fa61"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:24.046875Z"/>
+<entry
+   committed-rev="10"
+   name="index-21.html"
+   text-time="2005-03-02T06:14:24.406250Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="90a93942d08aaaa3a7dc3d0827c5533d"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:24.031250Z"/>
+<entry
+   committed-rev="10"
+   name="index-13.html"
+   text-time="2005-03-02T06:14:24.437500Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="51f5cdfdf5feb9bfe881f63565ad0ac5"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:24.093750Z"/>
+<entry
+   committed-rev="10"
+   name="index-22.html"
+   text-time="2005-03-02T06:14:24.421875Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="86f58bd7894a15137ad63736d4fa9bfb"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:24.078125Z"/>
+<entry
+   committed-rev="10"
+   name="index-23.html"
+   text-time="2005-03-02T06:14:24.453125Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="33e7ee216d4a91990f9606327bac8178"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:24.140625Z"/>
+<entry
+   committed-rev="10"
+   name="index-14.html"
+   text-time="2005-03-02T06:14:24.437500Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="6a372e6e7d3a6aadd4c320a481db0a8b"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:24.109375Z"/>
+<entry
+   committed-rev="10"
+   name="index-15.html"
+   text-time="2005-03-02T06:14:24.484375Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="cabb664b779222a235b35cb403c855c5"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:24.156250Z"/>
+<entry
+   committed-rev="10"
+   name="index-24.html"
+   text-time="2005-03-02T06:14:24.453125Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="a55e9b7a188f1128972a64963441a4be"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:24.140625Z"/>
+<entry
+   committed-rev="10"
+   name="index-16.html"
+   text-time="2005-03-02T06:14:24.500000Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="6ec37c079d36276b38979d7bdc830877"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:24.187500Z"/>
+<entry
+   committed-rev="10"
+   name="index-17.html"
+   text-time="2005-03-02T06:14:24.500000Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="88d110b3741e3e9055d91fafb1c6051d"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:24.187500Z"/>
+<entry
+   committed-rev="10"
+   name="index-18.html"
+   text-time="2005-03-02T06:14:24.515625Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="1353902ececeee13c64ae8cedddf19c0"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:24.203125Z"/>
+<entry
+   committed-rev="10"
+   name="index-19.html"
+   text-time="2005-03-02T06:14:24.531250Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="f6a7dae6a798d4521f6c19fadbf4f6e1"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:24.218750Z"/>
+<entry
+   committed-rev="10"
+   name="index-1.html"
+   text-time="2005-03-02T06:14:24.531250Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="9b8111552bf23424da1b471d4d625a77"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:24.234375Z"/>
+<entry
+   committed-rev="10"
+   name="index-2.html"
+   text-time="2005-03-02T06:14:24.546875Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="32529035680e9daea2511f245ceafdef"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:24.250000Z"/>
+<entry
+   committed-rev="10"
+   name="index-3.html"
+   text-time="2005-03-02T06:14:24.562500Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="210076033ed09a922c240629df5150bb"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:24.265625Z"/>
+<entry
+   committed-rev="10"
+   name="index-4.html"
+   text-time="2005-03-02T06:14:24.562500Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="281fb421bbf08d9dd6c8679f7c9941f6"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:24.281250Z"/>
+<entry
+   committed-rev="10"
+   name="index-5.html"
+   text-time="2005-03-02T06:14:24.578125Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="5ab98261062f52e642dcca12a31be783"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:24.296875Z"/>
+<entry
+   committed-rev="10"
+   name="index-6.html"
+   text-time="2005-03-02T06:14:24.578125Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="9d409b541bd9efa63c2fb568cb2b2872"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:24.312500Z"/>
+<entry
+   committed-rev="10"
+   name="index-7.html"
+   text-time="2005-03-02T06:14:24.593750Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="99e760d73b16f60f8e8796324e7279fb"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:24.312500Z"/>
+</wc-entries>

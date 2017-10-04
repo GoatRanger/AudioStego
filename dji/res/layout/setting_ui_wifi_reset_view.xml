@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" style="@style/g2"
+    <LinearLayout android:orientation="horizontal" style="@style/g2">
+        <TextView android:text="@string/setting_ui_reset_wifi_title" style="@style/gh" />
+        <Button android:id="@id/bz2" android:text="@string/setting_ui_reset_wifi_btn_txt" style="@style/g4" />
+    </LinearLayout>
+    <LinearLayout android:gravity="top|bottom|center_vertical|fill_vertical|center|fill" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/w8">
+        <TextView android:text="@string/setting_ui_reset_wifi_desc" style="@style/g6" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,173 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>2D Graphics</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="../index.html" target="_top"><img src="../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="TOC.html" target="_top"><img src="../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Trail Contents"></a>
+<a href="./overview/index.html" target="_top"><img src="../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../index.html" target="_top">Start of Tutorial</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../search.html" target="_top">Search</a>
+<br><a href="../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<h2>
+Trail: 2D Graphics
+</h2>
+<blockquote>
+</blockquote>
+<h3>
+<em>by <a href="../information/bios.html#adair">Deborah Adair</a>, <a href="../information/bios.html#ball">Jennifer Ball</a> and Monica Pawlan</em> 
+</h3>
+
+This trail introduces you to the Java 2D API and shows you how to
+display and print 2D graphics in your Java programs. The Java 2D API
+enables you to easily
+<UL>
+<LI> Draw lines of any thickness
+<LI> Fill shapes with gradients and textures
+<LI> Move, rotate, scale, and shear text and graphics
+<LI> Composite overlapping text and graphics
+</UL>
+
+For example, you could use the Java 2D API to display complex charts
+and graphs that use various line and fill styles to distinguish sets of
+data, like those shown in the following figure.
+
+<p><center><IMG SRC="../figures/2d/2D-1.gif" WIDTH="410" HEIGHT="102" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p>
+<P>
+The Java 2D API also enables you to store and to manipulate image
+data--for example, you can easily perform image-filter operations, such
+as blur and sharpen, as shown in the following figure.
+
+<p><center><IMG SRC="../figures/2d/2D-2.gif" WIDTH="323" HEIGHT="72" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p>
+<P>
+This trail covers the most common uses of the Java 2D APIs and briefly
+describes some of the more advanced features. For additional
+information about using the Java 2D APIs, see the
+
+<a target="_blank" href="http://java.sun.com/products/jdk/1.2/docs/guide/2d/spec/j2d-title.fm.html"><font color="#009bbb">Java 2D Programmer's Guide</font></a><a target="_blank" href="http://java.sun.com/products/jdk/1.2/docs/guide/2d/spec/j2d-title.fm.html"><img src="../images/otherIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (outside of the tutorial)"></a>. Additional sample programs illustrating the Java 2D
+API features are also
+
+<a target="_blank" href="http://java.sun.com/products/java-media/2D/samples/index.html"><font color="#009bbb">available online</font></a><a target="_blank" href="http://java.sun.com/products/java-media/2D/samples/index.html"><img src="../images/otherIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (outside of the tutorial)"></a>.
+<blockquote><hr><strong>Note:</strong>&nbsp;The sample applets in this trail can be run with the JDK 1.2 Applet
+Viewer, a browser with Java Plug-in 1.2 installed, or a JDK 1.2
+compatible browser.
+<hr></blockquote>
+
+The Java 2D APIs are closely integrated with the Abstract Windowing
+Toolkit (AWT). If you are not familiar with AWT, you might find it
+useful to review the AWT documentation, which you can
+<a href="../information/download.html#OLDui">download</a>.
+
+<p>
+<a href="overview/index.html">
+<img src="../images/security1_2Header.gif" align=left width=20 height=20 border=0>
+<b>Overview of the Java 2D API</b></a>
+introduces the key Java 2D concepts and describes the Java 2D rendering model.
+
+<p>
+<a href="display/index.html">
+<img src="../images/security1_2Header.gif" align=left width=20 height=20 border=0>
+<b>Displaying Graphics with Graphics2D</b></a>
+teaches you how to set up the Graphics2D rendering context
+to use fancy stroke and fill styles, perform transformations, clip the
+drawing region, composite overlapping graphics, and specify rendering
+preferences.
+
+<p>
+<a href="textandfonts/index.html">
+<img src="../images/security1_2Header.gif" align=left width=20 height=20 border=0>
+<strong>Working with Text and Fonts</strong></a>
+shows you how to use a <code>Font</code> object to
+create a font with desired attributes, and to derive
+a new font by changing the attributes, determine the names of the 
+fonts that are available on your system and position text within a
+component.
+
+<p>
+<a href="images/index.html">
+<img src="../images/security1_2Header.gif" align=left width=20 height=20 border=0>
+<b>Manipulating and Displaying Images</b></a>
+his lesson explains how to implement double buffering and how to
+perform image-filter operations with <code>BufferedImage</code> objects.
+
+<p>
+<a href="printing/index.html">
+<img src="../images/security1_2Header.gif" align=left width=20 height=20 border=0>
+<b>Printing</b></a>
+teaches you how to render 2D graphics to a printer and how to print
+complex documents.
+
+<p>
+<a href="problems/index.html">
+<img src="../images/security1_2Header.gif" align=left width=20 height=20 border=0>
+<b>Solving Common 2D Graphics Problems</b></a> 
+gives the solutions to some problems you might encounter when 
+writing 2D applets and applications.
+
+
+</blockquote>
+
+<img src="../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="../index.html" target="_top"><img src="../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="TOC.html" target="_top"><img src="../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Trail Contents"></a>
+<a href="./overview/index.html" target="_top"><img src="../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../index.html" target="_top">Start of Tutorial</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../search.html" target="_top">Search</a>
+<br><a href="../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res-auto" app:layout_width="match_parent" app:layout_height="wrap_content">
+    <LinearLayout app:orientation="horizontal" app:layout_width="match_parent" app:layout_height="wrap_content">
+        <include app:id="@+id/v2_new_academy_video_childl" app:layout_width="UNKNOWN_DATA_0x1" app:layout_height="wrap_content" app:layout_marginLeft="@dimen/bz" app:layout_marginTop="@dimen/c1" app:layout_weight="1.0" layout="@layout/v2_new_academy_video_cview_child" />
+        <include app:id="@+id/v2_new_academy_video_childr" app:layout_width="UNKNOWN_DATA_0x1" app:layout_height="wrap_content" app:layout_marginLeft="@dimen/bz" app:layout_marginTop="@dimen/c1" app:layout_marginRight="@dimen/c0" app:layout_weight="1.0" layout="@layout/v2_new_academy_video_cview_child" />
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.pilot.visual.view.DJIRedTipView xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent">
+    <dji.publics.DJIUI.DJIRelativeLayout android:id="@+id/visual_point_tip_up_ly" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x1">
+        <dji.publics.DJIUI.DJIImageView android:id="@+id/visual_point_tip_up_area_img" android:background="@color/gk" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:contentDescription="@string/app_name" />
+        <dji.publics.DJIUI.DJIImageView android:id="@+id/visual_point_tip_up_img" android:background="@r$drawable/visual_pitch_up" android:layout_width="wrap_content" android:layout_height="match_parent" android:contentDescription="@string/app_name" />
+        <dji.publics.DJIUI.DJIImageView android:id="@+id/visual_point_tip_up_dash_img" android:background="@r$drawable/dash_horizontal" android:visibility="gone" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x201" android:layout_alignParentBottom="true" android:contentDescription="@string/app_name" />
+    </dji.publics.DJIUI.DJIRelativeLayout>
+    <dji.publics.DJIUI.DJIRelativeLayout android:id="@+id/visual_point_tip_down_ly" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x1" android:layout_alignParentBottom="true">
+        <dji.publics.DJIUI.DJIImageView android:id="@+id/visual_point_tip_down_area_img" android:background="@color/gk" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:contentDescription="@string/app_name" />
+        <dji.publics.DJIUI.DJIImageView android:id="@+id/visual_point_tip_down_img" android:background="@r$drawable/visual_pitch_down" android:layout_width="wrap_content" android:layout_height="match_parent" android:contentDescription="@string/app_name" />
+        <dji.publics.DJIUI.DJIImageView android:id="@+id/visual_point_tip_down_dash_img" android:background="@r$drawable/dash_horizontal" android:visibility="gone" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x201" android:layout_alignParentTop="true" android:contentDescription="@string/app_name" />
+    </dji.publics.DJIUI.DJIRelativeLayout>
+</dji.pilot.visual.view.DJIRedTipView>

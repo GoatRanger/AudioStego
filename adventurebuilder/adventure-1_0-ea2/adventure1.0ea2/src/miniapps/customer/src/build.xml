@@ -1,0 +1,166 @@
+<?xml version="1.0"?>
+<!-- Copyright 2003 Sun Microsystems, Inc. All rights reserved.
+ 
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions
+ are met:
+ 
+ - Redistributions of source code must retain the above copyright
+   notice, this list of conditions and the following disclaimer.
+ 
+ - Redistribution in binary form must reproduce the above copyright
+   notice, this list of conditions and the following disclaimer in
+   the documentation and/or other materials provided with the
+   distribution.
+ 
+ Neither the name of Sun Microsystems, Inc. or the names of
+ contributors may be used to endorse or promote products derived
+ from this software without specific prior written permission.
+ 
+ This software is provided "AS IS," without a warranty of any
+ kind. ALL EXPRESS OR IMPLIED CONDITIONS, REPRESENTATIONS AND
+ WARRANTIES, INCLUDING ANY IMPLIED WARRANTY OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE OR NON-INFRINGEMENT, ARE HEREBY
+ EXCLUDED. SUN AND ITS LICENSORS SHALL NOT BE LIABLE FOR ANY DAMAGES
+ SUFFERED BY LICENSEE AS A RESULT OF USING, MODIFYING OR
+ DISTRIBUTING THE SOFTWARE OR ITS DERIVATIVES. IN NO EVENT WILL SUN
+ OR ITS LICENSORS BE LIABLE FOR ANY LOST REVENUE, PROFIT OR DATA, OR
+ FOR DIRECT, INDIRECT, SPECIAL, CONSEQUENTIAL, INCIDENTAL OR
+ PUNITIVE DAMAGES, HOWEVER CAUSED AND REGARDLESS OF THE THEORY OF
+ LIABILITY, ARISING OUT OF THE USE OF OR INABILITY TO USE SOFTWARE,
+ EVEN IF SUN HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+ 
+ You acknowledge that Software is not designed, licensed or intended
+ for use in the design, construction, operation or maintenance of
+ any nuclear facility.
+ $Id: build.xml,v 1.10 2002/11/21 22:45:20 inder Exp $ -->
+
+<!DOCTYPE project [
+  <!ENTITY commonAntCommands SYSTEM "../../../config/common-ant.xml">
+  <!ENTITY appServerAntCommands SYSTEM "../../../config/app-server-ant.xml">
+]>
+
+<project name="customerapp" default="core" basedir=".">
+
+  <!-- path to root -->
+  <property name="root.dir" value="../../.."/> 
+
+  <property name="customerapp.home" value=".."/>
+
+  <!-- The destination directory for the build -->
+  <property name="build.dir" value="${customerapp.home}/build"/>
+
+  &commonAntCommands; <!-- include common ant commands -->
+
+  <property name="customerapp.src" value="${customerapp.home}/src"/>
+  <property name="customerapp.temp.jar.build" value="${build.dir}/jartemp"/>
+  <property name="customerapp.temp.war.build" value="${build.dir}/wartemp"/>
+  <property name="customerapp.srcdocroot" value="${customerapp.src}/docroot"/>
+  <property name="customerapp.web.jar" value="${build.dir}/customer-web.jar"/>
+
+  <property name="customerapp.components.basedir" value="../../../components"/>
+
+  <!-- The Customer Component -->
+  <property name="customerapp.customer.home" value="${customerapp.components.basedir}/customer"/>
+  <property name="customerapp.customer.web.jar" value="${customerapp.customer.home}/build/customer-web.jar"/>
+
+  <!-- The Service Locator Component -->
+  <property name="customerapp.servloc.home" value="${customerapp.components.basedir}/servicelocator"/>
+  <property name="customerapp.servloc.jar" value="${customerapp.servloc.home}/build/servicelocator.jar"/>
+
+  <!-- The Tracer Component -->
+  <property name="customerapp.tracer.home" value="${customerapp.components.basedir}/util/tracer"/>
+  <property name="customerapp.tracer.jar" value="${customerapp.tracer.home}/build/tracer.jar"/>
+
+  <!-- The Daoutils Component -->
+  <property name="customerapp.daoutil.home" value="${customerapp.components.basedir}/util/dao"/>
+  <property name="customerapp.daoutil.jar" value="${customerapp.daoutil.home}/build/daoutils.jar"/>
+
+  <path id="customerapp.classpath">
+    <path refid="compile.classpath" />
+    <pathelement path="${customerapp.tracer.jar}"/>
+    <pathelement path="${customerapp.daoutil.jar}"/>
+    <pathelement path="${customerapp.servloc.jar}"/>
+    <pathelement path="${customerapp.customer.web.jar}"/>
+  </path>
+
+  <!-- Application Module to be deployed -->
+  <property name="application.module" value="${build.dir}/customer.ear"/>
+   <!-- Banner Title for build -->
+  <property name="banner.title" value="Customer Mini-Application"/>
+
+  <!-- various properties for Javadocs -->
+  <property name="javadocs.windowtitle" value="Customerapp Component API"/>
+  <property name="javadocs.doctitle" value="Customerapp Component"/>
+  <path id="javadocs.classpath">
+    <path refid="customerapp.classpath"/>
+    <pathelement path="${customerapp.tracer.home}/build/classes"/>
+    <pathelement path="${customerapp.daoutil.home}/build/classes"/>
+    <pathelement path="${customerapp.servloc.home}/build/classes"/>
+    <pathelement path="${customerapp.customer.home}/build/classes"/>
+  </path>
+  <path id="javadocs.sourcepath">
+    <pathelement path="${customerapp.tracer.home}/src"/>
+    <pathelement path="${customerapp.daoutil.home}/src"/>
+    <pathelement path="${customerapp.servloc.home}/src"/>
+    <pathelement path="${customerapp.customer.home}/src"/>
+    <pathelement path="${customerapp.src}"/>
+  </path>
+
+  <target name="compile">
+    <mkdir dir="${classes.dir}"/>
+    <javac srcdir="${customerapp.src}"
+           debug="${javac.debug}"
+           destdir="${classes.dir}"
+	   includes="com/**">
+      <classpath refid="customerapp.classpath"/>
+    </javac>
+  </target>
+
+  <target name="war">
+    <mkdir dir="${customerapp.temp.war.build}"/>
+    <!-- copy in the customerapp classes  -->
+    <copy todir="${customerapp.temp.war.build}/WEB-INF/classes">
+     <fileset dir="${classes.dir}" excludes="**/cvs/**" />
+    </copy>
+    <!-- copy in the customer application docroot  -->
+    <copy todir="${customerapp.temp.war.build}">
+     <fileset dir="${customerapp.srcdocroot}" excludes="**/cvs/**" />
+    </copy>
+    <!-- copy in the customer component web jar-->
+    <copy file="${customerapp.customer.web.jar}" todir="${customerapp.temp.war.build}/WEB-INF/lib" />
+    <!-- copy in the servicelocator component jar-->
+    <copy file="${customerapp.servloc.jar}" todir="${customerapp.temp.war.build}/WEB-INF/lib" />
+    <!-- copy in the tracer component jar-->
+    <copy file="${customerapp.tracer.jar}" todir="${customerapp.temp.war.build}/WEB-INF/lib" />
+    <!-- copy in the dao util component jar-->
+    <copy file="${customerapp.daoutil.jar}" todir="${customerapp.temp.war.build}/WEB-INF/lib" />
+    <!-- copy in the web deployment descriptor-->
+    <copy file="web.xml" todir="${customerapp.temp.war.build}/WEB-INF" />
+    <!-- make the war file -->
+    <delete file="${customerapp.temp.war.build}/customer.war"/>
+    <jar jarfile="${build.dir}/customer.war" basedir="${customerapp.temp.war.build}" />
+    <delete dir="${customerapp.temp.war.build}"/>
+  </target>
+
+ <target name="ear">
+    <mkdir dir="${customerapp.temp.jar.build}"/>
+    <mkdir dir="${customerapp.temp.jar.build}/META-INF"/>
+    <copy file="application.xml" todir="${customerapp.temp.jar.build}/META-INF/" />
+    <copy file="sun-j2ee-ri.xml" todir="${customerapp.temp.jar.build}/META-INF/" />
+    <copy file="${build.dir}/customer.war" todir="${customerapp.temp.jar.build}" />
+    <delete file="${application.module}"/>
+    <jar jarfile="${application.module}" basedir="${customerapp.temp.jar.build}" />
+    <delete dir="${customerapp.temp.jar.build}"/>
+  </target>
+  
+  <target name="customer-component">
+    <ant dir="${customerapp.customer.home}/src" target="core" inheritAll="false" inheritRefs="false"/>
+  </target>
+  
+  <target name="core" depends="banner,customer-component,compile,war,ear" />
+  
+  <target name="all" depends="core,javadocs" />
+  
+</project>
+

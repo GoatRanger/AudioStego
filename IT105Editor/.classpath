@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry excluding="BugList|CVS/|editor.jarContent|editordocs.jarContent|edu/CVS/|edu/usma/CVS/|edu/usma/eecs/CVS/|edu/usma/eecs/it/CVS/|edu/usma/eecs/it/gauntlet/CVS/|edu/usma/eecs/it/gauntlet/checkers/CVS/|eecs/CVS/|eecs/editor/CVS/|eecs/editor/images/CVS/|eecs/editor/language/CVS/|eecs/editor/text/CVS/|eecs/editor/util/CVS/|eecs/syntax/CVS/|eecs/syntax/Lexer/CVS/|jedit/CVS/" kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="/Utilities"/>
+	<classpathentry kind="src" path="/Problem Sets"/>
+	<classpathentry kind="lib" path="F:/Karl/Documents/libs/jh.jar"/>
+	<classpathentry kind="lib" path="F:/Karl/Documents/libs/tools (2015_11_09 03_33_12 UTC).jar"/>
+	<classpathentry kind="lib" path="F:/Karl/Documents/libs/jalopy (2015_11_09 03_33_12 UTC).jar"/>
+	<classpathentry kind="lib" path="F:/Karl/Documents/libs/cssvalidator (2015_11_09 03_33_12 UTC).jar"/>
+	<classpathentry kind="lib" path="F:/Karl/Documents/libs/flute (2015_11_09 03_33_12 UTC).jar"/>
+	<classpathentry kind="lib" path="F:/Karl/Documents/libs/sac (2015_11_09 03_33_12 UTC).jar"/>
+	<classpathentry kind="lib" path="F:/Karl/Documents/libs/log4j (2015_11_09 03_33_12 UTC).jar"/>
+	<classpathentry kind="lib" path="F:/Karl/Documents/libs/jakarta-oro (2015_11_09 03_33_12 UTC).jar"/>
+	<classpathentry kind="lib" path="F:/Karl/Documents/libs/jdom (2015_11_09 03_33_12 UTC).jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

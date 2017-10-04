@@ -1,0 +1,180 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Taking Advantage of the Applet API</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="../overview/index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#appletsonly" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="data.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+
+<br>
+<font size="-1">
+<b>Trail</b>: Writing Applets
+</font>
+
+<h2>
+Lesson: Taking Advantage of the Applet API
+</h2>
+<blockquote>
+The applet API lets you take advantage
+of the close relationship
+that applets have with Web browsers.
+The API is provided by the <code>java.applet</code> package --
+mainly by the <code>Applet</code> class
+and the <code>AppletContext</code> interface.
+Thanks to the applet API,
+applets can do the following:
+
+<ul>
+<li> Be notified by the browser of milestones.
+<li> Load data files specified relative to the URL
+     of the applet or the page in which it is running.
+<li> Display short status strings.
+<li> Make the browser display a document.
+<li> Find other applets running in the same page.
+<li> Play sounds.
+<li> Get parameters specified by the user in the 
+     <code>&lt;APPLET&gt;</code> tag.
+</ul>
+<p>
+
+This lesson discusses each of these topics in turn,
+except for the milestone methods
+(<code>init</code>, <code>start</code>, and so on),
+which are explained in 
+<a target="_top" href="../overview/appletMethods.html">Methods for Milestones</a><a target="_top" href="../overview/appletMethods.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Writing Applets trail)"></a>.
+For information about how to use non-applet-specific API in an applet,
+see the 
+<a target="_top" href="../practical/index.html">Practical Considerations when Writing Applets</a><a target="_top" href="../practical/index.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Writing Applets trail)"></a> lesson.
+
+<p>
+
+The <code>Applet</code>
+<code>getCodeBase</code> and <code>getDocumentBase</code> methods
+get information from the browser
+about where the applet and its HTML page came from.
+<a href="data.html">Finding and Loading Data Files</a>
+describes
+how to use these methods to help you load your applet's data files,
+such as images.
+
+<p>
+
+<a href="showStatus.html">Displaying Short Status Strings</a>
+describes how to make an applet
+display a string on the status line
+of the application in which it is running.
+
+<p>
+
+<a href="browser.html">Displaying Documents in the Browser</a>
+tells you how to use the two
+<code>showDocument</code> methods to request
+that the browser visit a particular URL.
+
+<p>
+
+Using the <code>AppletContext</code>
+<code>getApplet</code> and <code>getApplets</code> methods,
+an applet can get the <code>Applet</code> objects
+for other applets running on the same page.
+Once an applet has another's <code>Applet</code> object,
+the applet can send messages to it.
+<a href="iac.html">Sending Messages to Other Applets</a>
+provides details and example applets that
+communicate with each other.
+
+<p>
+
+The <code>Applet</code> class and <code>AudioClip</code> interface
+provide support for playing sounds.
+The <a href="sound.html">Playing Sounds</a> section
+tells you about this support and
+includes an example of using sound in an applet.
+
+<p>
+
+You can improve the versatility of your applet by providing parameters.
+<a href="param.html">Defining and Using Applet Parameters</a> 
+describes how to decide which parameters to provide,
+how to implement them,
+and how to inform the user about them.
+
+<p>
+
+Finally, 
+<a href="html.html">Using the <code>&lt;APPLET&gt;</code> Tag</a>
+tells you how to
+customize an applet by editing its HTML tag.
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="../overview/index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#appletsonly" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="data.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

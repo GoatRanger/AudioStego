@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="33"
+   name=""
+   committed-date="2005-02-01T06:11:53.421875Z"
+   url="svn://192.168.2.2/ImageProcessor/src/or/doc/drasys/or/linear/algebra"
+   last-author="Karl"
+   kind="dir"
+   uuid="0daf4267-3229-f84b-9084-f3c94b025f38"
+   revision="55"/>
+<entry
+   committed-rev="33"
+   name="AlgebraException.html"
+   text-time="2005-03-02T06:25:32.093750Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="eec9f3a13e36f21b5759dcfd8d972829"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:31.765625Z"/>
+<entry
+   committed-rev="33"
+   name="Algebra.html"
+   text-time="2005-03-02T06:25:32.109375Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="0808a9f08edf98acd30e02415977a082"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:31.796875Z"/>
+<entry
+   committed-rev="33"
+   name="CroutPivot.html"
+   text-time="2005-03-02T06:25:32.109375Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="d0e1a730cd34d363496ee15d1406bbfc"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:31.843750Z"/>
+<entry
+   committed-rev="33"
+   name="SVDecompositionI.html"
+   text-time="2005-03-02T06:25:32.125000Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="09cc7f78fce14c1e3ce6e0c5e02aaf1d"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:31.906250Z"/>
+<entry
+   committed-rev="33"
+   name="WS_FTP.LOG"
+   text-time="2005-03-02T06:25:32.125000Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="2807d41aec92da468ed68af4a5c49aa4"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:31.937500Z"/>
+<entry
+   committed-rev="33"
+   name="QRIteration.html"
+   text-time="2005-03-02T06:25:32.140625Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="b23334df765d0df85708c8c5539d5167"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:31.968750Z"/>
+<entry
+   committed-rev="33"
+   name="package-frame.html"
+   text-time="2005-03-02T06:25:32.140625Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="c9523c9935432f1f7495568e1ea60146"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:31.984375Z"/>
+<entry
+   committed-rev="33"
+   name="DecompositionI.html"
+   text-time="2005-03-02T06:25:32.156250Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="f6755c9a688668e355ccda6732a1986a"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:32.000000Z"/>
+<entry
+   committed-rev="33"
+   name="package-summary.html"
+   text-time="2005-03-02T06:25:32.171875Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="be437febf405374e7c953491f738f0e6"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:32.000000Z"/>
+<entry
+   committed-rev="33"
+   name="AlgebraI.html"
+   text-time="2005-03-02T06:25:32.171875Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="6eabfb8c58ae9bda59834e9740d815f4"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:32.015625Z"/>
+<entry
+   committed-rev="33"
+   name="LUDecompositionI.html"
+   text-time="2005-03-02T06:25:32.187500Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="39227d8b9a8d20223f47e5f010f0eaaf"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:32.062500Z"/>
+<entry
+   committed-rev="33"
+   name="AlgebraError.html"
+   text-time="2005-03-02T06:25:32.187500Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="517979e4f5e782cb7f62376e6ecd0f6f"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:32.062500Z"/>
+<entry
+   committed-rev="33"
+   name="package-tree.html"
+   text-time="2005-03-02T06:25:32.203125Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="73fffb54f0c8e6d5d11181f11aa079fb"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:32.078125Z"/>
+</wc-entries>

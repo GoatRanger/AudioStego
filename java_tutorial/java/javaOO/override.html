@@ -1,0 +1,184 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Overriding Methods</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="subclass.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#javaOO" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="objectclass.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Learning the Java Language
+<br>
+<b>Lesson</b>: Classes and Inheritance
+</font>
+
+<h2>
+Overriding Methods
+</h2>
+<blockquote>
+The ability of a subclass to override a method in its superclass allows
+a class to inherit from a superclass whose behavior is "close enough"
+and then override methods as needed.
+<p>
+For example, all classes are descendents of the <code>Object</code> class.
+<code>Object</code> contains the <code>toString</code> method,
+which returns a <code>String</code> object containing
+the name of the object's class and its hash code. Most, if not all,
+classes will want to override this method and print out something
+meaningful for that class.
+<p>
+Let's resurrect the <code>Stack</code> class example
+and override the <code>toString</code> method.
+The output of <code>toString</code> should be
+a textual representation of the object.
+For the <code>Stack</code> class,
+a list of the items in the stack would be appropriate
+<blockquote><pre>
+public class Stack
+{
+    private Vector items;
+
+    // <em>code for Stack's methods and constructor not shown</em>
+
+    // overrides Object's toString method
+    public String toString() {
+        int n = items.size();
+        StringBuffer result = new StringBuffer();
+        result.append("[");
+        for (int i = 0; i < n; i++) {
+            result.append(items.elementAt(i).toString());
+            if (i < n-1) result.append(",");
+        }
+        result.append("]");
+        return result.toString();
+    }
+}
+</pre></blockquote>
+The return type, method name, and number and type of the parameters for
+the overriding method must match those in the overridden method. The
+overriding method can have a different throws clause as long as it
+doesn't declare any types not declared by the throws clause in the
+overridden method. Also, the access specifier for the overriding method
+can allow more access than the overridden method, but not less. For
+example, a <code>protected</code> method in the superclass can be made
+<code>public</code> but not <code>private</code>.
+
+</blockquote>
+<h3>Calling the Overridden Method</h3>
+<blockquote>
+Sometimes, you don't want to completely override a method. Rather, you
+want to add more functionality to it. To do this, simply call the
+overridden method using the <code>super</code> keyword.
+For example,
+<blockquote><pre>
+super.<em>overriddenMethodName</em>();
+</pre></blockquote>
+</blockquote>
+
+<h3>Methods a Subclass Cannot Override</h3>
+<blockquote>
+A subclass cannot override methods that are declared final
+in the superclass (by definition, final methods cannot be overridden).
+If you attempt to override a final method, the compiler displays an error
+message similar to the following and refuses to compile the program:
+<blockquote><pre>
+FinalTest.java:7: Final methods can't be overridden.
+Method void iamfinal() is final in class ClassWithFinalMethod.
+    void iamfinal() {
+         ^
+1 error
+</pre></blockquote>
+Also, a subclass cannot override methods
+that are declared <code>static</code> in the superclass.
+In other words, a subclass cannot override a class method.
+A subclass can <em>hide</em> a <code>static</code> method in
+the superclass by declaring a <code>static</code> method in
+the subclass with the same signature as the <code>static</code>
+method in the superclass.
+</blockquote>
+
+<h3>Methods a Subclass Must Override</h3>
+<blockquote>
+A subclass must override methods that are declared abstract in the
+superclass, or the subclass itself must be abstract. The upcoming
+<a href="abstract.html">Writing Abstract Classes and Methods</a>
+section discusses abstract classes and methods in detail.
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="subclass.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#javaOO" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="objectclass.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

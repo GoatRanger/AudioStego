@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.pilot.set.view.DJILPCameraSetGroupView xmlns:android="http://schemas.android.com/apk/res-auto" style="@style/ff">
+    <LinearLayout set:orientation="vertical" set:layout_width="match_parent" set:layout_height="wrap_content"
+        <LinearLayout set:orientation="vertical" set:layout_width="match_parent" set:layout_height="wrap_content">
+            <dji.pilot.set.view.DJILPTrackingConfigView style="@style/fh" />
+            <View style="@style/fc" />
+            <dji.pilot.set.view.DJILPPanoConfigView style="@style/fh" />
+            <TextView set:text="@string/set_camera" style="@style/fj" />
+            <View style="@style/fc" />
+            <dji.pilot.set.view.DJILPCameraStorageSetView set:id="@id/bch" style="@style/fh" />
+            <dji.pilot.set.view.DJILPShutterStabilityTimeView set:visibility="gone" style="@style/fh" />
+            <dji.pilot.set.view.DJILPRestCameraSettingView style="@style/fh" />
+        </LinearLayout>
+    </LinearLayout>
+</dji.pilot.set.view.DJILPCameraSetGroupView>

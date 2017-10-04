@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="10"
+   name=""
+   committed-date="2005-02-01T05:59:34.421875Z"
+   url="svn://192.168.2.2/IT105Editor/src/eecs/syntax/Lexer"
+   last-author="Karl"
+   kind="dir"
+   uuid="0daf4267-3229-f84b-9084-f3c94b025f38"
+   revision="55"/>
+<entry
+   committed-rev="10"
+   name="PlainLexer.java"
+   text-time="2005-03-02T06:14:18.015625Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="46da47ee722798fa3ad46ee7d10ad949"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:17.375000Z"/>
+<entry
+   committed-rev="10"
+   name="PropertiesLexer.lex"
+   text-time="2005-03-02T06:14:18.000000Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="863dd46747e504fca5a81c35c9edd630"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:17.359375Z"/>
+<entry
+   committed-rev="10"
+   name="HTMLLexer.java"
+   text-time="2005-03-02T06:14:18.031250Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="4d35578fab4b60c95f0783c5083c6d15"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:17.515625Z"/>
+<entry
+   committed-rev="10"
+   name="PlainToken.java"
+   text-time="2005-03-02T06:14:18.031250Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="5045a2d978f3ed682bed9bc00c518a37"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:17.500000Z"/>
+<entry
+   committed-rev="10"
+   name="HTMLToken.java"
+   text-time="2005-03-02T06:14:18.046875Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="e3b675d3d520ec4bce7a4e8192ee315a"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:17.546875Z"/>
+<entry
+   committed-rev="10"
+   name="JavaScriptLexer.java"
+   text-time="2005-03-02T06:14:18.062500Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="8620b9952569ebb48587ad568ffb1835"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:17.593750Z"/>
+<entry
+   committed-rev="10"
+   name="COPYING.TXT"
+   text-time="2005-03-02T06:14:18.062500Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="12054f5169e943d681f7bbd1b96520af"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:17.562500Z"/>
+<entry
+   committed-rev="10"
+   name="JavaScriptToken.java"
+   text-time="2005-03-02T06:14:18.078125Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="772c4d4627fdbc517a0d8d801162d6ff"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:17.609375Z"/>
+<entry
+   committed-rev="10"
+   name="PlainLexer.lex"
+   text-time="2005-03-02T06:14:18.093750Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="1a1eab3128e996511b5ecc4e41e3ea73"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:17.625000Z"/>
+<entry
+   committed-rev="10"
+   name="HTMLLexer.lex"
+   text-time="2005-03-02T06:14:18.093750Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="91015891c6440184d41313083255941f"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:17.734375Z"/>
+<entry
+   name="CVS"
+   kind="dir"/>
+<entry
+   committed-rev="10"
+   name="JavaScriptLexer.lex"
+   text-time="2005-03-02T06:14:18.109375Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="baaf66024f9d583c6a185fbd0ef6af56"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:17.750000Z"/>
+<entry
+   committed-rev="10"
+   name="package.html"
+   text-time="2005-03-02T06:14:18.109375Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="7e663125b87ed2ff2aeb186afd6d2a0e"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:17.750000Z"/>
+<entry
+   committed-rev="10"
+   name="Lexer.java"
+   text-time="2005-03-02T06:14:18.125000Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="7d269c73b348e4fb1d065fba9ce99b78"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:17.765625Z"/>
+<entry
+   committed-rev="10"
+   name="Token.java"
+   text-time="2005-03-02T06:14:18.125000Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="e222b34bc8c9d0f123defd809cc123f3"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:17.796875Z"/>
+<entry
+   committed-rev="10"
+   name="JavaLexer.java"
+   text-time="2005-03-02T06:14:18.140625Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="b6896641c2866d3ed2f0dbb160b50ecb"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:17.796875Z"/>
+<entry
+   committed-rev="10"
+   name="JavaToken.java"
+   text-time="2005-03-02T06:14:18.140625Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="d51319e1400079bb1fe6062e51df2f00"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:17.828125Z"/>
+<entry
+   committed-rev="10"
+   name="CLexer.java"
+   text-time="2005-03-02T06:14:18.156250Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="e2e89523b3ea2e5e5984c96bdd195285"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:17.843750Z"/>
+<entry
+   committed-rev="10"
+   name="CToken.java"
+   text-time="2005-03-02T06:14:18.171875Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="a350651ec00cb6beff37d60f6aa2f80c"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:17.859375Z"/>
+<entry
+   committed-rev="10"
+   name="JavaLexer.lex"
+   text-time="2005-03-02T06:14:18.187500Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="1a7993dc2b911d927f9f2f6da4ba51c1"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:17.890625Z"/>
+<entry
+   committed-rev="10"
+   name="CLexer.lex"
+   text-time="2005-03-02T06:14:18.187500Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="8bdf8114bd0efc0ec742923c3d76a3e2"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:17.906250Z"/>
+<entry
+   committed-rev="10"
+   name="PropertiesLexer.java"
+   text-time="2005-03-02T06:14:18.203125Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="f395447e174b94ea6dcaa7d9d1d829e0"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:17.921875Z"/>
+<entry
+   committed-rev="10"
+   name="HTMLLexer2.lex"
+   text-time="2005-03-02T06:14:18.203125Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="75b1054543cf7abb7b88d0fe9aadb18e"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:17.937500Z"/>
+<entry
+   committed-rev="10"
+   name="Makefile"
+   text-time="2005-03-02T06:14:18.218750Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="1d16f59a62eae6250193dc8d7aaed553"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:17.953125Z"/>
+<entry
+   committed-rev="10"
+   name="PropertiesToken.java"
+   text-time="2005-03-02T06:14:18.234375Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="a80d80eb61b08dde2336da91fa5c5e1c"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:17.984375Z"/>
+</wc-entries>

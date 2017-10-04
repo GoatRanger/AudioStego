@@ -1,0 +1,46 @@
+package dji.pilot2.publics.b;
+
+public interface a$h {
+    public static final String A = "http://click.dji.com/api/publishers/account_last_update?";
+    public static final String B = "http://10.11.0.50:5735/feedback/?platform=Android&lang=";
+    public static final String C = "http://djistatic.com/feedback/?platform=Android&lang=";
+    public static final String D = "http://www.djiexplore.com/feedback?platform=android&language";
+    public static final String E = "http://www.djiexplore.com/feedback?platform=android&language";
+    public static final String F = "http://www.dji.com/cn/support/wechat-repair-trace";
+    public static final String Q = "http://www.dji.com/support/wechat-repair-trace";
+    public static final String T = "http://explore.djivideos.com/livechat_redirection/jp";
+    public static final String U = "http://explore.djivideos.com/livechat_redirection/fr";
+    public static final String V = "http://explore.djivideos.com/livechat_redirection/";
+    public static final String W = "https://repair.dji.com/cn/support_wx/RepairTrace";
+    public static final String X = "https://repair.dji.com/en/support_wx/RepairTrace";
+    public static final String a = "http://10.11.0.50:8090/ly/message.html";
+    public static final String b = "https://www.skypixel.com/";
+    public static final String bX_ = "https://www.skypixel.com/pilot/tags";
+    public static final String bY_ = "http://%1$s.dji.com%2$s?dji_from=dji-pilot-app";
+    public static final String bZ_ = "http://%1$s.dbeta.me%2$s?dji_from=dji-pilot-app";
+    public static final String c = "https://www.aasky.net/";
+    public static final String ca_ = "http://explore.djivideos.com/livechat_redirection/cn";
+    public static final String cb_ = "http://explore.djivideos.com/livechat_redirection/en";
+    public static final String cc_ = "https://repair.dji.com/ja/support_wx/RepairTrace";
+    public static final String cd_ = "https://repair.dji.com/zh-tw/support_wx/RepairTrace";
+    public static final String d = "https://skypixel.dbeta.me/pilot/tags";
+    public static final String f = "http://bbs.dbeta.me/forum.php?";
+    public static final String g = "http://bbs.dji.com/forum.php?";
+    public static final String h = "http://forum.dji.com/forum.php?";
+    public static final String i = "https://www.skypixel.com/api/giftcards/has_new_giftcard?token=";
+    public static final String j = "https://www.skypixel.com/api/giftcards/has_new_giftcard?token=";
+    public static final String k = "http://bbs.dbeta.me/point.php?";
+    public static final String l = "http://bbs.dji.com/point.php?";
+    public static final String m = "http://forum.dji.com/point.php?";
+    public static final String n = "from=dji-pilot-app&token=%1$s&display_type=%2$s&locale=%3$s&source=dpa&redirect_type=unlimited&redirect_url=%4$s";
+    public static final String q = "https://www.dji.com/user/login_from_other";
+    public static final String r = "http://www.dbeta.me/user/login_from_other";
+    public static final String s = "from=dji-pilot-app&token=%1$s&display_type=%2$s&locale=%3$s&redirect_type=unlimited&redirect_url=%4$s";
+    public static final String t = "http://u.dji.com/%1$s/pilot_minisite";
+    public static final String u = "http://u.dbeta.me/%1$s/pilot_minisite";
+    public static final String v = "http://u.dji.com/%1$s/pilot/orders";
+    public static final String w = "http://u.dbeta.me/%1$s/pilot/orders";
+    public static final String x = "http://10.11.0.50:8090/config/notice-count";
+    public static final String y = "http://10.11.0.50:8090/profile/";
+    public static final String z = "https://mydjiflight.dji.com/api/v2/flight_log/profile?user_id=";
+}

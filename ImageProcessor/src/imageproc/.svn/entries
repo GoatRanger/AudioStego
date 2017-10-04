@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="33"
+   name=""
+   committed-date="2005-02-01T06:11:53.421875Z"
+   url="svn://192.168.2.2/ImageProcessor/src/imageproc"
+   last-author="Karl"
+   kind="dir"
+   uuid="0daf4267-3229-f84b-9084-f3c94b025f38"
+   revision="55"/>
+<entry
+   committed-rev="33"
+   name="LineDetector.java"
+   text-time="2005-03-02T06:25:38.812500Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="b004e0b9e0c165e4ed9af573381d037a"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:37.625000Z"/>
+<entry
+   committed-rev="33"
+   name="ImageDialog.java"
+   text-time="2005-03-02T06:25:38.828125Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="f53a3b760c5460d85db70d6110aa372e"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:37.640625Z"/>
+<entry
+   name="database"
+   kind="dir"/>
+<entry
+   committed-rev="33"
+   name="Classifier.java"
+   text-time="2005-03-02T06:25:38.843750Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="923ddf30990e8f1f9435b7b29627cf6b"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:37.828125Z"/>
+<entry
+   committed-rev="33"
+   name="Main.java"
+   text-time="2005-03-02T06:25:38.859375Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="0bb3ee73e4c27ef2dbb0a5fd1392df61"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:37.875000Z"/>
+<entry
+   committed-rev="33"
+   name="CrystalClassifier.java"
+   text-time="2005-03-02T06:25:38.875000Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="127e817402f6c36c93f980e23522aaf8"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:37.921875Z"/>
+<entry
+   committed-rev="33"
+   name="DataFileWriter.java"
+   text-time="2005-03-02T06:25:38.890625Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="38cbb3d7f665bc474a21f52c213f108e"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:37.937500Z"/>
+<entry
+   committed-rev="33"
+   name="LawsTexture.java"
+   text-time="2005-03-02T06:25:38.890625Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="0b70432c1c87e7d0f274277e24caa67d"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:37.953125Z"/>
+<entry
+   committed-rev="33"
+   name="ClassifierGUI.java"
+   text-time="2005-03-02T06:25:38.906250Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="613ca6a2c64c7beb937c5121b1ead768"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:37.953125Z"/>
+<entry
+   name="utilities"
+   kind="dir"/>
+<entry
+   committed-rev="33"
+   name="imageproc.bat"
+   text-time="2005-03-02T06:25:38.921875Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="3f7ff6add980f45dff6251c1f8225886"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:38.781250Z"/>
+<entry
+   committed-rev="33"
+   name="Triage.java"
+   text-time="2005-03-02T06:25:38.921875Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="ac83d73cfb859eb3cbc0c88c2c998443"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:38.796875Z"/>
+</wc-entries>

@@ -1,0 +1,123 @@
+<?xml version="1.0"?>
+<!-- Copyright 2003 Sun Microsystems, Inc. All rights reserved.
+ 
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions
+ are met:
+ 
+ - Redistributions of source code must retain the above copyright
+   notice, this list of conditions and the following disclaimer.
+ 
+ - Redistribution in binary form must reproduce the above copyright
+   notice, this list of conditions and the following disclaimer in
+   the documentation and/or other materials provided with the
+   distribution.
+ 
+ Neither the name of Sun Microsystems, Inc. or the names of
+ contributors may be used to endorse or promote products derived
+ from this software without specific prior written permission.
+ 
+ This software is provided "AS IS," without a warranty of any
+ kind. ALL EXPRESS OR IMPLIED CONDITIONS, REPRESENTATIONS AND
+ WARRANTIES, INCLUDING ANY IMPLIED WARRANTY OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE OR NON-INFRINGEMENT, ARE HEREBY
+ EXCLUDED. SUN AND ITS LICENSORS SHALL NOT BE LIABLE FOR ANY DAMAGES
+ SUFFERED BY LICENSEE AS A RESULT OF USING, MODIFYING OR
+ DISTRIBUTING THE SOFTWARE OR ITS DERIVATIVES. IN NO EVENT WILL SUN
+ OR ITS LICENSORS BE LIABLE FOR ANY LOST REVENUE, PROFIT OR DATA, OR
+ FOR DIRECT, INDIRECT, SPECIAL, CONSEQUENTIAL, INCIDENTAL OR
+ PUNITIVE DAMAGES, HOWEVER CAUSED AND REGARDLESS OF THE THEORY OF
+ LIABILITY, ARISING OUT OF THE USE OF OR INABILITY TO USE SOFTWARE,
+ EVEN IF SUN HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+ 
+ You acknowledge that Software is not designed, licensed or intended
+ for use in the design, construction, operation or maintenance of
+ any nuclear facility.
+ $Id: build.xml,v 1.10 2002/11/20 01:49:58 vijaysr Exp $ -->
+
+<!DOCTYPE project [
+  <!ENTITY commonAntCommands SYSTEM "../../../config/common-ant.xml">
+  <!ENTITY appServerAntCommands SYSTEM "../../../config/app-server-ant.xml">
+]>
+
+<project name="signon" default="core" basedir=".">
+
+  <!-- path to root -->
+  <property name="root.dir" value="../../.."/> 
+
+  <property name="signon.home" value=".."/>
+
+  <!-- The destination directory for the build -->
+  <property name="build.dir" value="${signon.home}/build"/>
+
+  &commonAntCommands; <!-- include common ant commands -->
+
+  <property name="signon.src" value="${signon.home}/src"/>
+  <property name="signon.buildjardir" value="${build.dir}/jar"/>
+  <property name="signon.client.jar" value="signon-web.jar"/>
+
+  <!-- The components used by signon -->
+  <property name="signon.components.basedir" value="../.."/>
+
+  <!-- DAO util Component -->
+  <property name="signon.daoutil.home"  
+                value="${signon.components.basedir}/util/dao"/>
+  <property name="signon.daoutil.jar" 
+                value="${signon.daoutil.home}/build/daoutils.jar"/>
+
+  <!-- Tracer Component -->
+  <property name="signon.tracer.home" value="${signon.components.basedir}/util/tracer"/>
+  <property name="signon.tracer.jar" value="${signon.tracer.home}/build/tracer.jar"/>
+
+  <path id="signon.classpath">
+    <path refid="compile.classpath" />
+    <pathelement path="${signon.tracer.jar}"/>
+    <pathelement path="${signon.daoutil.jar}"/>
+  </path>
+
+  <!-- Title displayed on the banner when this component is built -->
+  <property name="banner.title" value="Building Signon Component"/>
+
+  <!-- various properties for Javadocs -->
+  <property name="javadocs.windowtitle" value="Signon Component API"/>
+  <property name="javadocs.doctitle" value="Signon Component"/>
+  <path id="javadocs.classpath">
+    <path refid="signon.classpath"/>
+    <pathelement path="${signon.tracer.home}/build/classes"/>
+    <pathelement path="${signon.daoutil.home}/build/classes"/>
+  </path>
+  <path id="javadocs.sourcepath">
+    <pathelement path="${signon.tracer.home}/src"/>
+    <pathelement path="${signon.daoutil.home}/src"/>
+    <pathelement path="${signon.src}"/>
+  </path>
+ 
+  <target name="compile">
+    <mkdir dir="${classes.dir}"/>
+    <javac srcdir="${signon.src}"
+           debug="${javac.debug}"
+           destdir="${classes.dir}"
+	   includes="com/**">
+      <classpath refid="signon.classpath"/>
+    </javac>
+  </target>
+
+ <target name="clientjar">
+    <delete dir="${signon.buildjardir}" quiet="true"/>
+    <mkdir dir="${signon.buildjardir}"/>
+    <copy todir="${signon.buildjardir}" >
+     <fileset dir= "${classes.dir}"/>
+    </copy>
+    <jar jarfile="${build.dir}/${signon.client.jar}" basedir="${signon.buildjardir}" />
+    <delete dir="${signon.buildjardir}"/>
+ </target>
+
+  <target name="components">
+    <ant dir="${signon.tracer.home}/src" target="core" inheritAll="false" inheritRefs="false"/>
+    <ant dir="${signon.daoutil.home}/src" target="core" inheritAll="false" inheritRefs="false"/>
+  </target>
+
+  <target name="core" depends="banner,components,compile,clientjar" />
+  <target name="all" depends="core,javadocs" />
+
+</project>

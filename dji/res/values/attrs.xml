@@ -1,0 +1,694 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="a">
+        <item>1</item>
+    </attr>
+    <attr name="b">
+        <item>64</item>
+    </attr>
+    <attr name="c">
+        <item>32</item>
+    </attr>
+    <attr name="d">
+        <item>8</item>
+    </attr>
+    <attr name="e">
+        <item>4</item>
+        <item>1</item>
+    </attr>
+    <attr name="f">
+        <item>4</item>
+        <item>0</item>
+    </attr>
+    <attr name="g">
+        <item>1</item>
+    </attr>
+    <attr name="h">
+        <item>65</item>
+    </attr>
+    <attr name="i">
+        <item>4</item>
+        <item>0</item>
+    </attr>
+    <attr name="j">
+        <item>1</item>
+    </attr>
+    <attr name="k">
+        <item>65536</item>
+        <item>1</item>
+        <item>0</item>
+    </attr>
+    <attr name="l">
+        <item>1</item>
+    </attr>
+    <attr name="m">
+        <item>1</item>
+    </attr>
+    <attr name="n">
+        <item>4</item>
+    </attr>
+    <attr name="o">
+        <item>8</item>
+    </attr>
+    <attr name="p">
+        <item>4</item>
+    </attr>
+    <attr name="q">
+        <item>64</item>
+    </attr>
+    <attr name="r">
+        <item>4</item>
+    </attr>
+    <attr name="s">
+        <item>4</item>
+    </attr>
+    <attr name="t">
+        <item>1</item>
+    </attr>
+    <attr name="u">
+        <item>4</item>
+    </attr>
+    <attr name="v">
+        <item>8</item>
+    </attr>
+    <attr name="w">
+        <item>3</item>
+    </attr>
+    <attr name="x">
+        <item>1</item>
+    </attr>
+    <attr name="y">
+        <item>8</item>
+    </attr>
+    <attr name="z">
+        <item>17</item>
+    </attr>
+    <attr name="a0">
+        <item>17</item>
+    </attr>
+    <attr name="a1">
+        <item>65</item>
+    </attr>
+    <attr name="a2">
+        <item>65</item>
+    </attr>
+    <attr name="a3">
+        <item>65</item>
+    </attr>
+    <attr name="a4">
+        <item>65536</item>
+        <item>0</item>
+    </attr>
+    <attr name="a5">
+        <item>64</item>
+    </attr>
+    <attr name="a6">
+        <item>64</item>
+    </attr>
+    <attr name="a7">
+        <item>16</item>
+    </attr>
+    <attr name="a8">
+        <item>16</item>
+    </attr>
+    <attr name="a9">
+        <item>64</item>
+    </attr>
+    <attr name="a_">
+        <item>64</item>
+    </attr>
+    <attr name="aa">
+        <item>64</item>
+    </attr>
+    <attr name="ab">
+        <item>16</item>
+    </attr>
+    <attr name="ac">
+        <item>64</item>
+    </attr>
+    <attr name="ad">
+        <item>65536</item>
+        <item>1</item>
+        <item>0</item>
+    </attr>
+    <attr name="ae">
+        <item>1</item>
+    </attr>
+    <attr name="af">
+        <item>1</item>
+    </attr>
+    <attr name="ag">
+        <item>16</item>
+    </attr>
+    <attr name="ah">
+        <item>64</item>
+    </attr>
+    <attr name="ai">
+        <item>64</item>
+    </attr>
+    <attr name="aj">
+        <item>64</item>
+    </attr>
+    <attr name="ak">
+        <item>8</item>
+    </attr>
+    <attr name="al">
+        <item>8</item>
+    </attr>
+    <attr name="am">
+        <item>64</item>
+    </attr>
+    <attr name="an">
+        <item>64</item>
+    </attr>
+    <attr name="ao">
+        <item>64</item>
+    </attr>
+    <attr name="ap">
+        <item>64</item>
+    </attr>
+    <attr name="aq">
+        <item>64</item>
+    </attr>
+    <attr name="ar">
+        <item>65</item>
+    </attr>
+    <attr name="as">
+        <item>17</item>
+    </attr>
+    <attr name="at">
+        <item>17</item>
+    </attr>
+    <attr name="au">
+        <item>65</item>
+    </attr>
+    <attr name="av">
+        <item>64</item>
+    </attr>
+    <attr name="aw">
+        <item>16</item>
+    </attr>
+    <attr name="ax">
+        <item>8</item>
+    </attr>
+    <attr name="ay">
+        <item>1</item>
+    </attr>
+    <attr name="az">
+        <item>9</item>
+    </attr>
+    <attr name="b0">
+        <item>1</item>
+    </attr>
+    <attr name="b1">
+        <item>65536</item>
+        <item>1</item>
+        <item>0</item>
+    </attr>
+    <attr name="b2">
+        <item>65536</item>
+        <item>3</item>
+        <item>0</item>
+        <item>2</item>
+        <item>1</item>
+    </attr>
+    <attr name="b3">
+        <item>64</item>
+    </attr>
+    <attr name="b4">
+        <item>64</item>
+    </attr>
+    <attr name="b5">
+        <item>64</item>
+    </attr>
+    <attr name="b6">
+        <item>32</item>
+    </attr>
+    <attr name="b7">
+        <item>32</item>
+    </attr>
+    <attr name="b8">
+        <item>1</item>
+    </attr>
+    <attr name="b9">
+        <item>8</item>
+    </attr>
+    <attr name="b_">
+        <item>4</item>
+        <item>3</item>
+    </attr>
+    <attr name="ba">
+        <item>4</item>
+        <item>3</item>
+    </attr>
+    <attr name="bb">
+        <item>17</item>
+    </attr>
+    <attr name="bc">
+        <item>17</item>
+    </attr>
+    <attr name="bd">
+        <item>17</item>
+    </attr>
+    <attr name="be">
+        <item>65</item>
+    </attr>
+    <attr name="bf">
+        <item>65</item>
+    </attr>
+    <attr name="bg">
+        <item>65</item>
+    </attr>
+    <attr name="bh">
+        <item>4</item>
+        <item>3</item>
+    </attr>
+    <attr name="bi">
+        <item>4</item>
+        <item>3</item>
+    </attr>
+    <attr name="bj">
+        <item>17</item>
+    </attr>
+    <attr name="bk">
+        <item>17</item>
+    </attr>
+    <attr name="bl">
+        <item>17</item>
+    </attr>
+    <attr name="bm">
+        <item>65</item>
+    </attr>
+    <attr name="bn">
+        <item>65</item>
+    </attr>
+    <attr name="bo">
+        <item>65</item>
+    </attr>
+    <attr name="bp">
+        <item>64</item>
+    </attr>
+    <attr name="bq">
+        <item>65536</item>
+        <item>11</item>
+        <item>2</item>
+        <item>3</item>
+        <item>5</item>
+        <item>4</item>
+        <item>10</item>
+        <item>9</item>
+        <item>6</item>
+        <item>0</item>
+        <item>1</item>
+        <item>7</item>
+        <item>8</item>
+    </attr>
+    <attr name="br">
+        <item>8</item>
+    </attr>
+    <attr name="bs">
+        <item>8</item>
+    </attr>
+    <attr name="bt">
+        <item>17</item>
+    </attr>
+    <attr name="bu">
+        <item>2</item>
+    </attr>
+    <attr name="bv">
+        <item>65536</item>
+        <item>2</item>
+        <item>1</item>
+        <item>0</item>
+    </attr>
+    <attr name="bw">
+        <item>32</item>
+    </attr>
+    <attr name="bx">
+        <item>8</item>
+    </attr>
+    <attr name="by">
+        <item>64</item>
+    </attr>
+    <attr name="bz">
+        <item>1</item>
+    </attr>
+    <attr name="c0">
+        <item>1</item>
+    </attr>
+    <attr name="c1">
+        <item>65536</item>
+        <item>0</item>
+        <item>4</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </attr>
+    <attr name="c2">
+        <item>32</item>
+    </attr>
+    <attr name="c3">
+        <item>32</item>
+    </attr>
+    <attr name="c4">
+        <item>32</item>
+    </attr>
+    <attr name="c5">
+        <item>32</item>
+    </attr>
+    <attr name="c6">
+        <item>32</item>
+    </attr>
+    <attr name="c7">
+        <item>8</item>
+    </attr>
+    <attr name="c8">
+        <item>8</item>
+    </attr>
+    <attr name="c9">
+        <item>8</item>
+    </attr>
+    <attr name="c_">
+        <item>8</item>
+    </attr>
+    <attr name="ca">
+        <item>8</item>
+    </attr>
+    <attr name="cb">
+        <item>8</item>
+    </attr>
+    <attr name="cc">
+        <item>8</item>
+    </attr>
+    <attr name="cd">
+        <item>8</item>
+    </attr>
+    <attr name="ce">
+        <item>8</item>
+    </attr>
+    <attr name="cf">
+        <item>8</item>
+    </attr>
+    <attr name="cg">
+        <item>8</item>
+    </attr>
+    <attr name="ch">
+        <item>4</item>
+        <item>0</item>
+    </attr>
+    <attr name="ci">
+        <item>65536</item>
+        <item>1</item>
+        <item>0</item>
+    </attr>
+    <attr name="cj">
+        <item>65536</item>
+        <item>1</item>
+        <item>0</item>
+    </attr>
+    <attr name="ck">
+        <item>17</item>
+    </attr>
+    <attr name="cl">
+        <item>17</item>
+    </attr>
+    <attr name="cm">
+        <item>17</item>
+    </attr>
+    <attr name="cn">
+        <item>17</item>
+    </attr>
+    <attr name="co">
+        <item>131072</item>
+        <item>3</item>
+        <item>0</item>
+        <item>4</item>
+        <item>1</item>
+        <item>2</item>
+        <item>1</item>
+        <item>2</item>
+    </attr>
+    <attr name="cp">
+        <item>9</item>
+    </attr>
+    <attr name="cq">
+        <item>1</item>
+    </attr>
+    <attr name="cr">
+        <item>1</item>
+    </attr>
+    <attr name="cs">
+        <item>1</item>
+    </attr>
+    <attr name="ct">
+        <item>9</item>
+    </attr>
+    <attr name="cu">
+        <item>1</item>
+    </attr>
+    <attr name="cv">
+        <item>1</item>
+    </attr>
+    <attr name="cw">
+        <item>131072</item>
+        <item>1</item>
+        <item>0</item>
+    </attr>
+    <attr name="cx">
+        <item>9</item>
+    </attr>
+    <attr name="cy">
+        <item>9</item>
+    </attr>
+    <attr name="cz">
+        <item>9</item>
+    </attr>
+    <attr name="d0">
+        <item>17</item>
+    </attr>
+    <attr name="d1">
+        <item>1</item>
+    </attr>
+    <attr name="d2">
+        <item>1</item>
+    </attr>
+    <attr name="d3">
+        <item>4</item>
+    </attr>
+    <attr name="d4">
+        <item>4</item>
+    </attr>
+    <attr name="d5">
+        <item>16</item>
+    </attr>
+    <attr name="d6">
+        <item>64</item>
+    </attr>
+    <attr name="d7">
+        <item>65</item>
+    </attr>
+    <attr name="d8">
+        <item>17</item>
+    </attr>
+    <attr name="d9">
+        <item>1</item>
+    </attr>
+    <attr name="d_">
+        <item>65</item>
+    </attr>
+    <attr name="da">
+        <item>17</item>
+    </attr>
+    <attr name="db">
+        <item>1</item>
+    </attr>
+    <attr name="dc">
+        <item>65</item>
+    </attr>
+    <attr name="dd">
+        <item>64</item>
+    </attr>
+    <attr name="de">
+        <item>64</item>
+    </attr>
+    <attr name="df">
+        <item>16</item>
+    </attr>
+    <attr name="dg">
+        <item>16</item>
+    </attr>
+    <attr name="dh">
+        <item>16</item>
+    </attr>
+    <attr name="di">
+        <item>1</item>
+    </attr>
+    <attr name="dj">
+        <item>1</item>
+    </attr>
+    <attr name="dk">
+        <item>1</item>
+    </attr>
+    <attr name="dl">
+        <item>16</item>
+    </attr>
+    <attr name="dm">
+        <item>16</item>
+    </attr>
+    <attr name="dn">
+        <item>64</item>
+    </attr>
+    <attr name="do">
+        <item>16</item>
+    </attr>
+    <attr name="dp">
+        <item>64</item>
+    </attr>
+    <attr name="dq">
+        <item>4</item>
+    </attr>
+    <attr name="dr">
+        <item>8</item>
+    </attr>
+    <attr name="ds">
+        <item>65536</item>
+        <item>1</item>
+        <item>0</item>
+    </attr>
+    <attr name="dt">
+        <item>64</item>
+    </attr>
+    <attr name="du">
+        <item>64</item>
+    </attr>
+    <attr name="dv">
+        <item>16</item>
+    </attr>
+    <attr name="dw">
+        <item>2</item>
+    </attr>
+    <attr name="dx">
+        <item>65536</item>
+        <item>1</item>
+        <item>2</item>
+        <item>0</item>
+    </attr>
+    <attr name="dy">
+        <item>65536</item>
+        <item>0</item>
+        <item>2</item>
+        <item>1</item>
+    </attr>
+    <attr name="dz">
+        <item>65536</item>
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </attr>
+    <attr name="e0">
+        <item>65536</item>
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </attr>
+    <attr name="e1">
+        <item>8</item>
+    </attr>
+    <attr name="e2">
+        <item>2</item>
+    </attr>
+    <attr name="e3">
+        <item>2</item>
+    </attr>
+    <attr name="e4">
+        <item>65536</item>
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </attr>
+    <attr name="e5">
+        <item>65536</item>
+        <item>-3</item>
+        <item>-4</item>
+        <item>-2</item>
+    </attr>
+    <attr name="e6">
+        <item>8</item>
+    </attr>
+    <attr name="e7">
+        <item>2</item>
+    </attr>
+    <attr name="e8">
+        <item>4</item>
+    </attr>
+    <attr name="e9">
+        <item>4</item>
+    </attr>
+    <attr name="e_">
+        <item>4</item>
+    </attr>
+    <attr name="ea">
+        <item>64</item>
+    </attr>
+    <attr name="eb">
+        <item>65536</item>
+        <item>6</item>
+        <item>0</item>
+        <item>1</item>
+        <item>4</item>
+        <item>2</item>
+        <item>5</item>
+        <item>3</item>
+    </attr>
+    <attr name="ec">
+        <item>2</item>
+    </attr>
+    <attr name="ed">
+        <item>2</item>
+    </attr>
+    <attr name="ee">
+        <item>1</item>
+    </attr>
+    <attr name="ef">
+        <item>2</item>
+    </attr>
+    <attr name="eg">
+        <item>1</item>
+    </attr>
+    <attr name="eh">
+        <item>8</item>
+    </attr>
+    <attr name="ei">
+        <item>1</item>
+    </attr>
+    <attr name="ej">
+        <item>1</item>
+    </attr>
+    <attr name="ek">
+        <item>2</item>
+    </attr>
+    <attr name="el">
+        <item>4</item>
+    </attr>
+    <attr name="em">
+        <item>4</item>
+    </attr>
+    <attr name="en">
+        <item>4</item>
+    </attr>
+    <attr name="eo">
+        <item>4</item>
+    </attr>
+    <attr name="ep">
+        <item>2</item>
+    </attr>
+    <attr name="eq">
+        <item>2</item>
+    </attr>
+    <attr name="er">
+        <item>1</item>
+    </attr>
+    <attr name="es">
+        <item>8</item>
+    </attr>
+</resources>

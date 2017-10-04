@@ -1,0 +1,182 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>I/O: Reading and Writing (but no 'rithmetic)</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="../threads/index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#io" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="overview.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+
+<br>
+<font size="-1">
+<b>Trail</b>: Essential Java Classes
+</font>
+
+<h2>
+Lesson: I/O: Reading and Writing (but no 'rithmetic)
+</h2>
+<blockquote>
+Often a program needs to bring in information from an external source or to send out information to an external destination. The information can be anywhere: in a file, on disk, somewhere on the network, in memory, or in another program. Also, the informa­tion can be of any type: objects, characters, images, or sounds. This chapter covers the Java&#153; platform classes that your programs can use to read and to write data.
+
+<h3><a href="overview.html">Overview of I/O Streams</a>
+</h3>
+<blockquote>
+This section describes each type of stream and shows the classes in
+<code>java.io</code>
+that implement them according to the division in the class hierarchy.
+</blockquote>
+<h3><a href="datasinks.html">Using the Streams</a>
+</h3>
+<blockquote>
+This section has several "how-to" pages to show you how to use selected streams based on their purpose:
+<ul>
+<li>
+<a href="filestreams.html">How to Use File Streams</a>
+<li>
+<a href="pipedstreams.html">How to Use Pipe Streams</a>
+<li>
+<a href="processing.html">How to Wrap a Stream</a>
+<li>
+<a href="catstreams.html">How to Concatenate Files</a>
+<li>
+<a href="filtered.html">Working with Filter Streams</a>
+</ul>
+</blockquote>
+
+<h3><a href="serialization.html">Object Serialization</a></h3>
+<blockquote>
+Two of the byte streams,
+<code>ObjectInputStream</code> and <code>ObjectOutputStream</code>,
+are specialized streams that let you read and write objects.
+Reading and writing objects is a process
+known as <em>object serialization</em>.
+Object serialization has many uses,
+including remote method invocation (RMI).
+In addition to the object streams,
+<code>java.io</code> has other classes and interfaces
+that define the API to help classes perform serialization for its instances.
+</blockquote>
+
+<h3><a href="rafs.html">Working with Random Access Files</a></h3>
+<blockquote>
+The character and byte streams are all sequential access streams. In
+contrast,
+<code>RandomAccessFile</code> lets you randomly access
+the contents of a file.
+This section talks about how to
+use random access files.
+It also provides a special section that shows
+you how to write filters for objects that implement the
+<code>DataInput</code> and <code>DataOutput</code> interfaces.
+Filters implemented in this fashion are more
+flexible than regular filter streams because they can be used on random
+access files and on some sequential files.
+</blockquote>
+
+<h3><a href="rest.html">And the Rest ...</a></h3>
+<blockquote>
+This section introduces the remaining classes in <code>java.io</code>.
+</blockquote>
+
+<h3><a href="summary.html">Summary</a></h3>
+<blockquote>
+A summary of the key points covered in this trail.
+</blockquote>
+
+<h3><a href="QandE/questions.html">Questions and Exercises</a></h3>
+<blockquote>
+Test what you've learned in this trail by trying these questions and exercises.
+</blockquote>
+
+
+
+<h3>The I/O Classes in Action</h3>
+<blockquote>
+Many of the examples in the next trail,
+<a target="_top" href="../../networking/index.html">Custom Networking</a><a target="_top" href="../../networking/index.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Essential Java Classes trail)"></a> use the I/O streams described in this lesson
+to read from and write to <code>URL</code>s,
+<code>URLConnection</code>s, and <code>Socket</code>s.
+</blockquote>
+
+<p>
+
+<blockquote><hr><strong>Security consideration:</strong>&nbsp;
+Some I/O operations are subject to approval by the current security
+manager. The example programs contained in these lessons are standalone
+applications, which by default have no security manager. This code
+might not work in an applet depending on the in which browser or viewer
+it is running.
+See
+<a target="_top" href="../../applet/practical/security.html">Security Restrictions</a><a target="_top" href="../../applet/practical/security.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Essential Java Classes trail)"></a> for information about the security restrictions placed on applets.
+<hr></blockquote>
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="../threads/index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#io" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="overview.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

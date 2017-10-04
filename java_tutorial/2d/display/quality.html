@@ -1,0 +1,135 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Controlling Rendering Quality</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="compositing.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#display" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="complexshapes.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: 2D Graphics
+<br>
+<b>Lesson</b>: Displaying Graphics with Graphics2D
+</font>
+
+<h2>
+Controlling Rendering Quality
+</h2>
+<blockquote>
+You can use the <CODE>Graphics2D</CODE> rendering hints attribute to
+specify whether you want objects to be rendered as quickly as possible
+or whether you prefer that the rendering quality be as high as
+possible.
+<P>
+To set or change the rendering hints attribute in the <CODE>Graphics2D</CODE>
+context, you can construct a <CODE>RenderingHints</CODE> object and
+pass it into <CODE>Graphics2D</CODE> <CODE>setRenderingHints. </CODE>
+If you just want to set one hint, you can call <CODE>Graphics2D</CODE>
+<CODE>setRenderingHint</CODE> and specify the key-value pair for the
+hint you want to set. (The key-value pairs are defined in the
+<CODE>RenderingHints</CODE> class.)
+<P>
+For example, to set a preference for antialiasing to be used if
+possible, you could use <CODE>setRenderingHint</CODE>:
+<blockquote><pre>
+g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING,aliasing);
+</pre></blockquote>
+
+
+<blockquote><hr><strong>Note:</strong>&nbsp;
+Not all platforms support modification of the rendering mode, so
+specifying rendering hints does not guarantee that they will be
+used.
+<hr></blockquote>
+<P>
+<CODE>RenderingHints</CODE> supports the following types of hints:
+<UL>
+<LI> Alpha interpolation--default, quality, or speed
+<LI> Antialiasing--default, on, or off
+<LI> Color rendering-default, quality, or speed
+<LI> Dithering--default, disable, or enable
+<LI> Fractional metrics--default, on, or off
+<LI> Interpolation--nearest-neighbor, bilinear, or bicubic
+<LI> Rendering--default, quality, or speed
+<LI> Text antialiasing--default, on, or off
+</UL>
+<P>
+When a hint is set to default, the platform rendering default is used is used. 
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="compositing.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#display" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="complexshapes.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

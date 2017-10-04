@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="0x1020000" android:drawable="@r$drawable/battery_status_bg" />
+    <item android:id="0x102000d">
+        <clip android:drawable="@r$drawable/battery_status_progress" android:clipOrientation="horizontal" />
+    </item>
+    <item android:id="0x102000f">
+        <clip android:drawable="@r$drawable/battery_status_progress" android:clipOrientation="horizontal" />
+    </item>
+</layer-list>

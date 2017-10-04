@@ -1,0 +1,659 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Your First Cup of Java (for Mac OS)</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="unix.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#cupojava" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="../intro/index.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Getting Started
+<br>
+<b>Lesson</b>: Your First Cup of Java
+</font>
+
+<h2>
+Your First Cup of Java (for Mac OS)
+</h2>
+<blockquote>
+<a NAME="top"></a>
+
+<table BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH="680" NOSAVE >
+<tr NOSAVE>
+<td NOSAVE>
+<table BORDER=0 CELLSPACING=2 CELLPADDING=0 WIDTH="500" NOSAVE >
+
+<tr NOSAVE>
+<td ROWSPAN="2" NOSAVE>
+<center>
+<p><center><IMG SRC="../../figures/getStarted/butlersm.gif" WIDTH="86" HEIGHT="96" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p></center>
+</td>
+
+<TD>
+<BLOCKQUOTE>
+<B><FONT face="Arial, Helvetica"><FONT color=#707070>Detailed Instructions
+<BR>for Your First Program</FONT></FONT></B> 
+<P>
+The following instructions will help you write your first Java program.
+These instructions are for users of the Mac OS platform.</P>
+
+
+</BLOCKQUOTE>
+</TD>
+</TR>
+</TABLE>
+
+<TABLE border=0 cellPadding=10 cellSpacing=0 NOSAVE>
+<TR NOSAVE>
+<TD vAlign=top NOSAVE><B><FONT face="Arial, Helvetica"><FONT 
+      color=#0000ff>1. </FONT></FONT></B><A 
+      href="#1">A Checklist</A></TD>
+
+<TD vAlign=top NOSAVE><B><FONT face="Arial, Helvetica"><FONT 
+      color=#ff0000>2. </FONT></FONT></B><A 
+      href="#2">Creating Your First Application</A>
+<BR>
+&nbsp;<FONT size=-1>&nbsp;&nbsp;&nbsp; a. <A 
+      href="#2a">Create 
+      a Java Source File</A></FONT>
+<BR>
+&nbsp;<FONT size=-1>&nbsp;&nbsp;&nbsp; b. <A 
+      href="#2b">Compile 
+      the Source File</A></FONT>
+<BR>
+&nbsp;<FONT size=-1>&nbsp;&nbsp;&nbsp; c. <A 
+      href="#2c">Run 
+      the Program</A></FONT>
+</TD>
+</TR>
+
+<TR NOSAVE>
+<TD vAlign=top NOSAVE><B><FONT face="Arial, Helvetica"><FONT 
+      color=#990099>3.</FONT><FONT color=#ff00ff> </FONT></FONT></B><A 
+      href="#3">Creating Your First Applet</A></TD>
+<TD vAlign=top NOSAVE><B><FONT face="Arial, Helvetica"><FONT 
+      color=#009900>4. </FONT></FONT></B><A 
+      href="#4">Where to Go from Here</A></TD>
+
+</TR>
+</TABLE>
+
+<blockquote><hr><strong>Note:</strong>&nbsp;If you are using Mac OS X, consult Apple's Web site  
+<a target="_blank" href="http://developer.apple.com/java/index.html"><font color="#009bbb">Mac OS X Java Runtime Environment </font></a><a target="_blank" href="http://developer.apple.com/java/index.html"><img src="../../images/otherIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (outside of the tutorial)"></a> for the latest information. 
+<hr></blockquote>
+
+<P>
+This page was adapted for Mac OS
+by tutorial reader Werner van Mook and updated by Lisa Fenwick.
+
+<H2>
+<HR align=left><BR>
+<A name=1></A><FONT face="Arial, Helvetica, sans-serif"><FONT 
+color=#0000ff>1. </FONT>A Checklist&nbsp;</FONT>
+
+<IMG SRC="../../figures/getStarted/check.gif" WIDTH="31" HEIGHT="35 " ALT=""></H2>
+
+To write your first program, you will need: 
+<OL>
+<LI>
+<B>A development environment for the Java platform.</B>
+You can
+<a target="_blank" href="http://developer.apple.com/java/download.html"><font color="#009bbb">download</font></a><a target="_blank" href="http://developer.apple.com/java/download.html"><img src="../../images/otherIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (outside of the tutorial)"></a>the Macintosh Runtime Environment for Java Software Development Kit
+(MRJ SDK) from Apple's website.
+</li>
+
+<LI>
+<B>A runtime environment for the same version of the Java platform.</B>
+You can
+<a target="_blank" href="http://developer.apple.com/java/download.html"><font color="#009bbb">download</font></a><a target="_blank" href="http://developer.apple.com/java/download.html"><img src="../../images/otherIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (outside of the tutorial)"></a>the Macintosh Runtime Enviroment for Java (MRJ)
+from Apple's website.
+</li>
+
+<LI>
+<B>Stuffit Expander 5.5</B> to open these files. 
+You can
+<a target="_blank" href="http://www.aladdinsys.com/expander/expander_mac_login.html"><font color="#009bbb">download</font></a><a target="_blank" href="http://www.aladdinsys.com/expander/expander_mac_login.html"><img src="../../images/otherIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (outside of the tutorial)"></a>it for free from Aladdin Systems' website.
+
+</li>
+
+<LI><B>A text editor.</B> In this example, we'll use SimpleText, the 
+simple editor included with the Mac OS platforms. To find SimpleText, 
+from the <FONT color=#990099>File</FONT> menu
+select <FONT color=#990099>Find</FONT>,
+type in "SimpleText",
+and then hit the <FONT color=#990099>Find</FONT> button. 
+You might find more then one SimpleText application;
+any one of them should work fine.
+You can easily adapt these instructions if you use a different text editor.
+</LI>
+</OL>
+
+These four items are all you need to write your first Java program. 
+
+
+<H2>
+<HR align=left>
+</H2>
+
+<TABLE border=0 cellPadding=0 cellSpacing=0 width="100%">
+<TR>
+<TD vAlign=top>
+<H2>
+<A name=2></A><FONT face="Arial, Helvetica, sans-serif"><FONT 
+      color=#ff0000>2. </FONT>Creating Your First 
+    Application</FONT></H2>
+</TD>
+
+<TD rowSpan="2">
+<TABLE border=0 cellPadding=5 cellSpacing=2 width="100%">
+<TR>
+<TD>&nbsp;</TD></TR>
+</TABLE>
+</TD>
+
+<TD rowSpan=2 vAlign=top>
+<TABLE border=1 cellPadding=10 cellSpacing=0 width="100%">
+<TR bgColor=#ccffff vAlign=top>
+<TD bgColor=#dbe3f7 vAlign=top><B><FONT 
+	    face="Arial, Helvetica, sans-serif"><FONT color=#990000>Why 
+	    Bytecodes are Cool</FONT></FONT></B> 
+<P><FONT size=-1>So, you've heard that with the Java 
+programming language, you can "write once, run anywhere." 
+This means that when you compile your program, you don't 
+generate instructions for one specific platform. Instead, 
+you generate Java bytecodes, which are instructions for the 
+Java Virtual Machine (Java VM). If your platform--whether 
+it's Microsoft Windows, UNIX, Mac OS, or an Internet browser--has the 
+Java VM, it can understand those 
+bytecodes.</FONT>
+</P>
+</TD>
+</TR>
+</TABLE>
+</TD>
+
+<TD rowSpan=2 vAlign=top>&nbsp;</TD>
+</TR>
+
+<TR>
+<TD vAlign=top>Your first program, <CODE>HelloWorldApp</CODE>, 
+      will simply display the greeting "Hello world!". To create this 
+      program, you will:&nbsp; 
+<UL>
+<LI><B>Create a Java <FONT color=#990099>source file</FONT>.</B> 
+	A source file contains text, written in the Java programming 
+	language, that you and other programmers can understand. You can 
+	use any text editor to create and edit source files.
+<BR>&nbsp; 
+<LI><B>Compile the source file into a <FONT 
+	color=#990099>bytecode file</FONT>.</B> The Java 
+	<I>compiler</I>, <CODE>javac</CODE>, takes your source file and 
+	translates its text into instructions that the <I>Java Virtual 
+	Machine </I>(Java VM) can understand. The compiler puts these 
+	instructions into a bytecode file.
+<BR>&nbsp; 
+<LI><B>Run the program contained in the bytecode file.</B> The 
+	Java VM is implemented by a Java <I>interpreter</I>, 
+	<CODE>java</CODE>. This interpreter takes your bytecode file and 
+	carries out the instructions by translating them into 
+	instructions that your computer can understand.
+</UL>
+
+<p><center><IMG SRC="../../figures/getStarted/helloWorld.gif " WIDTH="465               " HEIGHT="218               " ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p>
+</TD>
+</TR>
+</TABLE>
+
+<P>
+<IMG SRC="../../figures/getStarted/arrow.gif" WIDTH="13" HEIGHT="16" ALT=""><font size=-1><a href="#top">top</a></font>
+
+<BR>
+<HR align=left width="70%">
+<H2>
+<A name="2a"></A> <FONT face="Arial, Helvetica, sans-serif"><FONT 
+color=#ff0000>a.</FONT> Create a Java Source File.</FONT></H2>
+
+<BLOCKQUOTE>
+<P>You have two options:</P>
+<UL>
+<LI>You can save the file
+<CODE>
+<a target="_blank" href="../application/example/HelloWorldApp.java"><font color="#bb000f"><code>HelloWorldApp.java</code></font></a><a target="_blank" href="../application/example/HelloWorldApp.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a></CODE>
+on your computer and avoid a lot of typing. Then, you can go straight to <A 
+    href="#2b">step b</A>.<BR><BR>
+</LI>
+<LI>Or, you can follow these (longer) instructions: </LI>
+</UL>
+<P><B><FONT color=#ff0000>1.</FONT></B> Start SimpleText. In a new 
+  document, type in the following code:</P>
+<TABLE border=1 cellPadding=2 cellSpacing=2 width=500>
+<TR> <TD width="100%"><PRE>
+/** 
+ * The HelloWorldApp class implements an application that
+ * simply displays "Hello World!" to the standard output.
+ */
+class HelloWorldApp {
+    public static void main(String[] args) {
+        System.out.println("Hello World!"); //Display the string.
+    }
+}
+</PRE> </TD> </TR>
+</TABLE>
+
+<BLOCKQUOTE>&nbsp; 
+<TABLE border=1 cellPadding=10 cellSpacing=0 width=450>
+<TR bgColor=#ffffcc>
+<TD bgColor=#ffffdb>
+<TABLE border=0 cellPadding=0 cellSpacing=0 width=402>
+<TR>
+<TD width="77%">
+&nbsp;<B><FONT face="Arial, Helvetica, sans-serif"><FONT 
+		color=#990000>Be Careful When You 
+	      Type</FONT></FONT></B>
+</TD>
+<TD width="13%">
+<IMG SRC="../../figures/getStarted/typeA.gif" WIDTH="30" HEIGHT="30" ALT=""></td>
+
+<td WIDTH="10%">
+<IMG SRC="../../figures/getStarted/typea2.gif" WIDTH="30" HEIGHT="30" ALT=""></td>
+
+</TR>
+</TABLE>
+<P><FONT size=-1>Type all code, commands, and file names 
+	  exactly as shown. The Java compiler and interpreter are 
+	  <B>case-sensitive</B>, so you must capitalize 
+	  consistently.</FONT></P>
+
+<CENTER>
+<P><CODE>HelloWorldApp
+<IMG SRC="../../figures/getStarted/notequal.gif" WIDTH="20" HEIGHT="19" ALT="">&nbsp;helloworldapp</CODE></P></CENTER>
+</TD>
+</TR>
+</TABLE>
+</BLOCKQUOTE>
+<B><FONT color=#ff0000>2.</FONT> </B>Save this code to a file. From the menu 
+  bar, select <FONT color=#990099>File</FONT> &gt; <FONT 
+  color=#990099>Save As</FONT>. In the <FONT color=#990099>Save 
+  As</FONT> dialog box:&nbsp;</BLOCKQUOTE>
+<UL>
+<UL>
+<LI>Specify the folder where you'll save your file. In this example, 
+the folder is <CODE>MRJ SDK 2.2</CODE>.&nbsp; 
+<LI>In the <FONT color=#990099>Save this document as:</FONT> text 
+box, type <CODE>HelloWorldApp.java</CODE>. </LI>
+</UL>
+</UL>
+
+<BLOCKQUOTE>When you're finished, the dialog box should look like this: 
+
+<p><center><IMG SRC="../../figures/getStarted/SimpleText1.gif" WIDTH="357" HEIGHT="251" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p>
+Now click <FONT color=#990099>Save</FONT>, and exit SimpleText. 
+</BLOCKQUOTE>
+
+<P>
+<IMG SRC="../../figures/getStarted/arrow.gif" WIDTH="13" HEIGHT="16" ALT=""><font size=-1><a href="#top">top</a></font>
+<BR>
+
+<HR align=left width="70%">
+
+<H2>
+<A name=2b></A><FONT face="Arial, Helvetica, sans-serif"><FONT 
+color=#ff0000>b. </FONT>Compile the Source File.</FONT>
+</H2>
+
+<BLOCKQUOTE>
+<P>Open the folder <FONT color=#990099>MRJ SDK 2.2</FONT> and it should look something like this:  
+</P>
+
+<p><center><IMG SRC="../../figures/getStarted/Finder1.gif" WIDTH="355" HEIGHT="184" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p>
+<P>Inside there is a folder called <FONT color=#990099>Tools</FONT>. In this folder, there is a 
+  folder called <FONT color=#990099>JDK Tools</FONT>.
+<BR>Open it, and you will see a program called <FONT color=#990099>javac</font>.</P>
+
+<p><center><IMG SRC="../../figures/getStarted/javacicon-mac.gif" WIDTH="36" HEIGHT="51" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p>
+<P>Now drag and drop your <code>HelloWorldApp.java</code> onto the <code>Javac</code> 
+application. <code>Javac</code> will now open and should show you:
+</P>
+
+<p><center><IMG SRC="../../figures/getStarted/javac1.gif" WIDTH="615" HEIGHT="269" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p>
+<P>The text area <FONT color=#990099>Source Files</FONT> shows the 
+absolute path to the <code>.java</code> file we just created. Now there's  
+nothing left to do except click the <FONT color=#990099>Do 
+Javac</FONT> button to compile your code.</P>
+
+<P>If a message like the one
+below is returned without error messages, congratulations. You have successfully compiled your program.</P>
+
+<p><center><a href="../../figures/getStarted/javac2.gif" target="_top"><IMG SRC="../../figures/getStarted/javac2.gif" WIDTH="615" HEIGHT="146" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></a><br><em>This figure has been reduced to fit on the page. <br> Click the image to view it at its natural size.</em></center></p>
+<BLOCKQUOTE>&nbsp; 
+<TABLE border=1 cellPadding=10 cellSpacing=0 height=250 width=541>
+<TR bgColor=#ffcccc>
+<TD bgColor=#ffdddd height=250><B><FONT 
+	  face="Arial, Helvetica, sans-serif"><FONT color=#804000><FONT 
+	  size=+1>Error Explanation</FONT></FONT></FONT></B> 
+<P><B>If you drag and drop your <code>.java</code> file on top of the 
+	  <code>javac</code> program and the file is only moved on top of the <code>javac</code>
+	  application.</B> 
+<P>When you tried to compile and the only thing that happens 
+	  is that your <CODE>.java</CODE> file is copied/moved on top of your <code>javac</code> 
+	  application you need to rebuild your desktop. 
+<P>To rebuild, you have to restart you computer and press 
+	  and hold both the <FONT color=#990099>Apple</FONT> and 
+	  <FONT color=#990099>Alt</FONT> key until you get a 
+	  dialog asking if you really want to rebuild your 
+	  desktop. 
+	  <P>Answer "Yes." When your desktop is finished rebuilding you 
+	  should be able to drag and drop the <CODE>.java</CODE> file on to 
+	  <code>Javac</code>.
+</P>
+</TD>
+</TR>
+</TABLE>
+</BLOCKQUOTE>
+
+<P>
+<BR>The compiler has generated a Java bytecode file, 
+  <CODE>HelloWorldApp.class</CODE>. Look in the same folder where you 
+  saved the <CODE>.java</CODE> file and you will see the <CODE>.class</CODE> file. 
+
+<p><center><IMG SRC="../../figures/getStarted/Finder3.gif" WIDTH="320" HEIGHT="150" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p>
+Now that you have a <CODE>.class</CODE> file, you can run your program.
+</BLOCKQUOTE>
+
+
+<P>
+<IMG SRC="../../figures/getStarted/arrow.gif" WIDTH="13" HEIGHT="16" ALT=""><font size=-1><a href="#top">top</a></font>
+
+<BR>
+<HR align=left width="70%">
+<H2><A name=2c></A><FONT face="Arial, Helvetica, sans-serif"><FONT 
+color=#ff0000>c.</FONT> Run the Program.</FONT>
+</H2>
+
+<BLOCKQUOTE>
+From the <FONT color=#990099>MRJ SDK 2.2</FONT> folder, open 
+the <FONT color=#990099>Tools</FONT> folder, then open the 
+<FONT color=#990099>Application Builders</FONT> folder. 
+Finally open the <FONT color=#990099>JBindery</FONT> folder 
+which contains the application <FONT color=#990099>JBindery</FONT>. </P>
+
+<p><center><IMG SRC="../../figures/getStarted/Jbindicon-mac.gif" WIDTH="48" HEIGHT="48" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p>
+<P>
+Drag and drop the <code>HelloWorldApp.class</code> file in the MRJ SDK 2.2 folder on top 
+of the JBindery icon. 
+
+<blockquote><hr><strong>Note:</strong>&nbsp;A file called <code>HelloWorld.class</code> comes with the
+JBindery file. This is not the file you created.
+<hr></blockquote>
+
+
+<P>
+You should now see the following dialog box:</P>
+
+<p><center><IMG SRC="../../figures/getStarted/JBindery1.gif" WIDTH="499" HEIGHT="357" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p>
+<P>
+Click the <FONT color=#990099>Run</font> button. If you now get:</P>
+
+<p><center><IMG SRC="../../figures/getStarted/output-mac.gif" WIDTH="227" HEIGHT="151" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p>
+<P>
+Congratulations! Your program works.
+</BLOCKQUOTE>
+
+
+<P>
+<IMG SRC="../../figures/getStarted/arrow.gif" WIDTH="13" HEIGHT="16" ALT=""><font size=-1><a href="#top">top</a></font>
+
+<p>
+<HR align=left>
+
+
+<H2><A name=3></A><FONT face="Arial, Helvetica, sans-serif"><FONT 
+color=#990099>3.</FONT><FONT color=#009900> </FONT>Creating Your First 
+Applet</FONT>
+</H2>
+
+<P><CODE>HelloWorldApp</CODE> is an example of a Java 
+<I>application</I>, a standalone program. Now you will create a Java 
+<I>applet </I>called <CODE>HelloWorld</CODE>, which also displays the 
+greeting "Hello world!". Unlike <CODE>HelloWorldApp</CODE>, however, the 
+applet runs in a Java-enabled Web browser such as HotJava, Netscape 
+Navigator, or Microsoft Internet Explorer.</P>
+
+<P>To create this applet, you'll perform the basic steps as before: 
+create a Java source file; compile the source file; and run the 
+program.</P>
+<HR align=left width="70%">
+
+<H2><FONT color=#990099 face="Arial, Helvetica, sans-serif"><A 
+name=3a></A>a. </FONT>Create a Java Source File.
+</H2>
+<BLOCKQUOTE>
+<P>Again, you have two options:</P>
+<UL>
+<LI>You can save the files 
+<a target="_blank" href="../applet/example/HelloWorld.java"><font color="#bb000f"><code>HelloWorld.java</code></font></a><a target="_blank" href="../applet/example/HelloWorld.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>and
+<a target="_blank" href="../applet/example/Hello.html"><font color="#bb000f"><code>Hello.html</code></font></a><a target="_blank" href="../applet/example/Hello.html"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>on your computer and avoid a lot of typing. Then, you can go 
+straight to <A href="#3b">step b</A>.
+<BR>
+<BR>
+<LI>Or, you can follow these instructions: </LI>
+</UL>
+<P>
+<B><FONT color=#990099>1.</FONT></B><FONT color=#990099> 
+</FONT>Start SimpleText. Type the following code into a new document: 
+</P>
+<TABLE border=1 cellPadding=2 cellSpacing=2 width=500>
+<tr> <td width="100%"><pre>
+import java.applet.Applet;
+import java.awt.Graphics;
+
+public class HelloWorld extends Applet {
+    public void paint(Graphics g) {
+        g.drawString("Hello world!", 50, 25);
+    }
+}
+</pre></td></tr>                           
+</TABLE>
+
+<P>Save this code to a file called <CODE>HelloWorld.java</CODE>.</P>
+
+<P><B><FONT color=#990099>2.</FONT> </B>You also need an HTML file to 
+  accompany your applet. Type the following code into a new SimpleText 
+  document:</P>
+
+<TABLE border=1 cellPadding=2 cellSpacing=2 width=500>
+<TR>
+<TD width="100%"><PRE><CODE>&lt;HTML&gt;
+&lt;HEAD&gt;
+&lt;TITLE&gt;A Simple Program&lt;/TITLE&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+Here is the output of my program:
+&lt;APPLET CODE="HelloWorld.class" WIDTH=150 HEIGHT=25&gt;
+&lt;/APPLET&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;
+</CODE></PRE></TD>
+</TR>
+</TABLE>
+
+<P>Save this code to a file called <CODE>Hello.html</CODE>.</P>
+
+<P>Make sure that your files HelloWorld.java and Hello.html are in the 
+  same folder.</P>
+</BLOCKQUOTE>
+
+<HR align=left width="70%">
+
+<H2><FONT face="Arial, Helvetica, sans-serif"><FONT color=#990099><A 
+name=3b></A><FONT face="Arial, Helvetica, sans-serif"><FONT 
+color=#990099></FONT></FONT>b. </FONT>Compile the Source 
+File.</FONT>
+</H2>
+<BLOCKQUOTE>
+<P>Compile the <FONT size=-2>HelloWorld.java</FONT> source file using 
+  javac as before.</P>
+<P>The compiler should generate a Java bytecode file, 
+  <CODE>HelloWorld.class</CODE>. </P></BLOCKQUOTE>
+
+<HR align=left width="70%">
+
+<H2><FONT face="Arial, Helvetica, sans-serif"><FONT color=#990099><A 
+name=3c></A><FONT face="Arial, Helvetica, sans-serif"><FONT 
+color=#990099></FONT></FONT>c. </FONT>Run the Program.</FONT>
+</H2>
+<BLOCKQUOTE>
+<P>Although you can view your applets using a Web browser, you may 
+  find it easier to test your applets using the simple Applet Runner 
+  application that comes with the Java<SUP><FONT size=-2>TM</FONT></SUP> 
+  Platform. To view the HelloWorld applet using Applet Runner, Open the 
+  folder <FONT color=#990099>Apple Applet Runner</FONT> in the MRJ SDK 
+  2.2 folder. There should be an application called Apple Applet 
+  Runner.</P>
+
+<p><center><IMG SRC="../../figures/getStarted/viewericon-mac.gif" WIDTH="106" HEIGHT="48" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p>
+<P>Drag and drop your Hello.html file on this application.</P>
+<P>Now you should see:</P>
+
+<p><center><IMG SRC="../../figures/getStarted/AppleAppletRunner1.gif" WIDTH="175" HEIGHT="78" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p>
+<P>Congratulations! Your applet works.</P>
+</BLOCKQUOTE>
+
+
+<IMG SRC="../../figures/getStarted/arrow.gif" WIDTH="13" HEIGHT="16" ALT=""><FONT size=-1><A href="#top">top</A></FONT> 
+<BR>
+
+<HR align=left>
+
+<H2><A name=4></A><FONT face="Arial, Helvetica, sans-serif"><FONT 
+color=#009900>4. </FONT>Where to Go from Here</FONT>
+</H2>
+<P>To continue your introduction to the Java programming language, check 
+out these trails:</P>
+
+<table BORDER=0 CELLSPACING=2 CELLPADDING=0 WIDTH="450" >
+<tr>
+<td WIDTH="10">&nbsp;</td>
+
+<td WIDTH="86%">
+<a target="_top" href="../../getStarted/index.html">Getting Started</a><a target="_top" href="../../getStarted/index.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Getting Started trail)"></a></td></tr>
+
+<tr>
+<td WIDTH="10">&nbsp;</td>
+
+<td WIDTH="86%">
+<a target="_top" href="../../java/index.html">Learning the Java Language</a><a target="_top" href="../../java/index.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Getting Started trail)"></a></td></tr>
+</TABLE>
+
+<p>
+
+If you have comments about these instructions --
+whether you loved them or had trouble following them --
+please <a href="../../forms/sendusmail.html" target="_top">tell us</a>.
+
+<p>
+
+<IMG SRC="../../figures/getStarted/arrow.gif" WIDTH="13" HEIGHT="16" ALT=""><font size=-1><a href="#top">top</a></font>
+
+<HR>
+
+<H2><CODE><FONT face="Arial, Helvetica, sans-serif">About the 
+Author</FONT> </CODE></H2>
+<P><B>Werner van Mook</B> transformed the original Microsoft Windows Cup of Java to this 
+      Macintosh version.
+<BR>Werner is a Java technology instructor at Sun Microsystems in the Netherlands.
+<BR>After seven 
+        years of delivering Macintosh support, he switched to the Windows 
+        platform and completed his MCSE+I in eleven months. Werner received a B. of Sc. in 
+        Informatics in December 1998. He is also a Certified Java Developer.</P>
+<BR>
+
+Updated 6/13/00 by <B>Lisa Fenwick</B>
+<BR>
+ Lisa worked with <I>The Java Tutorial</I> group as a summer intern 
+ at Sun Microsystems.
+ She is a graduate student at Mills College in Oakland, California, 
+ where she expects to graduate with a Masters in Interdisciplinary 
+ Computer Science in May 2001. 
+
+</TD>
+</TR>
+</TABLE>
+</BLOCKQUOTE>
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="unix.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#cupojava" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="../intro/index.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

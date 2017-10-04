@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.publics.DJIUI.DJILinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="horizontal" android:paddingLeft="1dp" android:paddingBottom="@dimen/n3" android:layout_width="match_parent" android:layout_height="match_parent" android:baselineAligned="false">
+    <include android:id="@+id/playback_album_content_ly1" android:layout_width="UNKNOWN_DATA_0x1" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/n3" android:layout_weight="1.0" layout="@layout/v2_library_griditem" />
+    <include android:id="@+id/playback_album_content_ly2" android:layout_width="UNKNOWN_DATA_0x1" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/n3" android:layout_weight="1.0" layout="@layout/v2_library_griditem" />
+    <include android:id="@+id/playback_album_content_ly3" android:layout_width="UNKNOWN_DATA_0x1" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/n3" android:layout_weight="1.0" layout="@layout/v2_library_griditem" />
+    <include android:id="@+id/playback_album_content_ly4" android:layout_width="UNKNOWN_DATA_0x1" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/n3" android:layout_weight="1.0" layout="@layout/v2_library_griditem" />
+    <include android:id="@+id/playback_album_content_ly5" android:layout_width="UNKNOWN_DATA_0x1" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/n3" android:layout_weight="1.0" layout="@layout/v2_library_griditem" />
+    <include android:id="@+id/playback_album_content_ly6" android:layout_width="UNKNOWN_DATA_0x1" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/n3" android:layout_weight="1.0" layout="@layout/v2_library_griditem" />
+</dji.publics.DJIUI.DJILinearLayout>

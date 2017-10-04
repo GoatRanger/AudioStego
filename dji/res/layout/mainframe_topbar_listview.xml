@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.publics.DJIUI.DJILinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:layout_width="UNKNOWN_DATA_0x7f0b03ac" android:layout_height="UNKNOWN_DATA_0x7f0b0348" android:minWidth="@dimen/dp_135_in_sw320dp" android:minHeight="@dimen/v9">
+    <dji.publics.DJIUI.DJIListView android:id="@+id/mainframe_topbar_listview" android:background="@r$drawable/bg_shadow" android:padding="@dimen/vd" android:scrollbars="vertical" android:fadingEdgeLength="0dp" android:layout_width="match_parent" android:layout_height="match_parent" android:listSelector="0x0" android:drawSelectorOnTop="false" android:cacheColorHint="@color/j5" android:divider="@color/b3" android:dividerHeight="1px" android:overScrollMode="ifContentScrolls" />
+</dji.publics.DJIUI.DJILinearLayout>

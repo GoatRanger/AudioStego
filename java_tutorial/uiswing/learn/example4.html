@@ -1,0 +1,217 @@
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Example Four: An Improved <code>CelsiusConverter</code></title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="example3.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#learn" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="example5.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Creating a GUI with JFC/Swing
+<br>
+<b>Lesson</b>: Learning Swing by Example
+</font>
+
+<h2>
+Example Four: An Improved <code>CelsiusConverter</code>
+</h2>
+<blockquote>
+<!--Learn by Example-->
+<!--Example Three: CelsiusConverter-->
+
+Topics illustrated in this example: 
+<UL>
+  <li><A HREF="#addinghtml">Adding HTML</A>
+  <li><A HREF="#addingicon">Adding an Icon</A>
+  <li><A HREF="#setDefault">Setting the Default Button</A>
+  <li><A HREF="#createFTF">Creating a Formatted Text Field</A>
+</UL>
+
+Now that we’ve examined <code>CelsiusConverter</code>, let’s 
+improve it. First, we’ll spiff it up by adding colored text. 
+Next, we’ll improve the button by making it the default button 
+and adding a graphic. Finally, we’ll refine the text field so 
+that only numbers are accepted. 
+
+<A NAME="addinghtml"></A>
+<h3>Adding HTML</h3>
+<blockquote> 
+
+You can specify the appearance of any Swing component’s text 
+in a couple of ways. First, you can call the <code>setFont</code> 
+method to specify the font and the <code>setColor</code> 
+method to set the color. Second, when you want to vary the 
+font or color within the text or insert formatting such as 
+line breaks, you can use HTML tags.
+<P>
+Buttons, labels, and many other Swing components let you use HTML 
+to specify the format of the text displayed by the component. 
+The following figure shows a revised temperature converter, 
+
+<a target="_blank" href="example-1dot4/CelsiusConverter2.java"><font color="#bb000f"><code>CelsiusConverter2</code></font></a><a target="_blank" href="example-1dot4/CelsiusConverter2.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>, which uses HTML to specify multiple text colors on 
+the <code>fahrenheitLabel</code>. The code follows the figure.
+
+<p><center><IMG SRC="../../figures/uiswing/learn/8CelsiusConverter2.gif" WIDTH="321 " HEIGHT="115" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="The improved CelsiusConverter2 application with colored fonts on the Fahrenheit label and a graphic on the button. "></center></p>
+To use HTML in a component’s text, simply place the 
+<code>&#60;HTML&#62;</code> tag at the beginning of the 
+text string and then use any valid HTML code in the remainder 
+of the string. The preceding code uses the code>&#60;font&#62;</code> 
+tag to specify text color and the HTML code <code>&amp;#176</code> to display the degree symbol. 
+More information on adding HTML to components is available in 
+<a target="_top" href="../components/html.html">Using HTML in Swing Components</a><a target="_top" href="../components/html.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>. 
+
+<blockquote><hr><strong>Note:</strong>&nbsp;Some older releases don’t support HTML text in buttons. In those that don’t (such as Swing 1.1) putting HTML in a button results in an ugly-looking button whose label starts with <code>&#60;HTML&#62;</code>. You can find out when HTML support was added to each component by consulting the Version Note in 
+<a target="_top" href="../components/html.html">Using HTML in Swing Components</a><a target="_top" href="../components/html.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.
+<hr></blockquote>
+
+</blockquote>
+
+
+<A NAME="addingicon"></A>
+<h3>Adding an Icon</h3>
+<blockquote>
+
+Some Swing components can be decorated with an <I>icon</I>--a 
+fixed-size image. A Swing icon is an object that adheres to 
+the <code>Icon</code> interface. Swing provides a particularly 
+useful implementation of the <code>Icon</code> interface: 
+<code>ImageIcon</code>, which paints an icon 
+from a GIF, JPEG, or PNG image. Here's the code that adds the 
+arrow graphic to the <code>convertTemp</code> button:
+
+<blockquote><pre>
+ImageIcon convertIcon = createImageIcon("images/convert.gif", 
+                                        "Convert temperature");
+...
+convertTemp = new JButton(icon);
+</pre></blockquote>
+
+The <code>createImageIcon</code> method (used in the preceding 
+snippet) is one we use in many of our code samples. The first 
+argument specifies the file to load. The second argument 
+provides a description of the icon that assistive technologies 
+can use. For details, see 
+<a target="_top" href="../misc/icon.html">How to Use Icons</a><a target="_top" href="../misc/icon.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.
+</blockquote>
+
+
+
+<A NAME="setDefault"></A>
+<h3>Setting the Default Button</h3>
+<blockquote>
+Only one button in a top-level container can be the default button. The default button typically has a highlighted appearance and acts as though clicked whenever the top-level container has the keyboard focus and the user presses the Enter (or Return) key. The exact implementation depends on the look and feel.
+<P>
+We made the <code>convertTemp</code> button the default button with the following code:
+
+<blockquote><pre>
+//Set the button to be default button in the frame.
+converterFrame.getRootPane().setDefaultButton(convertTemp);
+</pre></blockquote>
+
+Invoking <code>getRootPane().setDefaultButton</code> on a top-level container, such as <code>converterFrame</code> (a <code>JFrame</code>) makes the specified button the default for that container. You might be wondering what a root pane is. Well, every top-level container has one--it works behind the scenes to manage details such as the content pane and the menu bar. You generally don’t need to know anything more about root panes to use Swing components. 
+</blockquote>
+
+
+<A NAME="createFTF"></A>
+<h3>Creating a Formatted Text Field</h3>
+<blockquote>
+In the original <code>CelsiusConverter</code> application, you could enter alphabetic or special characters in the text field. If the <B>Convert</B> button was pressed when the text was invalid, a <code>NumberFormatException</code> was thrown and the <code>FahrenheitLabel</code> was not updated. 
+<P>
+<code>CelsiusConverter2</code> prevents the user from entering anything but a number by replacing the <code>JTextField</code> with a <code>JFormattedTextField</code>. Formatted text fields were added in v1.4. They provide a way for developers to easily specify the legal set of characters that can be entered into a text component. In the following code, we use <code>java.text.DecimalFormat</code> to ensure that the text field accepts only numbers.
+
+<blockquote><pre>
+//Create the format for the text field and the formatted text field
+tempCelsius = new JFormattedTextField(
+                             new java.text.DecimalFormat("##0.0#"));
+</pre></blockquote>
+
+Formatted text fields are covered in depth in 
+<a target="_top" href="../components/formattedtextfield.html">How to Use Formatted Text Fields</a><a target="_top" href="../components/formattedtextfield.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.
+</blockquote>
+
+
+<p>
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="example3.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#learn" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="example5.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

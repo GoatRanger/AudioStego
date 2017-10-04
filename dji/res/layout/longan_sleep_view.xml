@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.device.widget.LonganSleepView xmlns:android="http://schemas.android.com/apk/res-auto" app:background="@color/a_" app:clickable="true" app:layout_width="match_parent" app:layout_height="match_parent" app:alpha="0.8">
+    <TextView app:textSize="25sp" app:textColor="@color/om" app:id="@id/b7x" app:layout_width="wrap_content" app:layout_height="wrap_content" app:layout_marginBottom="@dimen/a26" app:text="@string/longan_sleep_description" app:layout_alignParentBottom="true" app:layout_centerHorizontal="true" />
+    <LinearLayout app:orientation="horizontal" app:id="@id/b7y" app:clickable="true" app:layout_width="wrap_content" app:layout_height="wrap_content" app:layout_marginTop="132dp" app:layout_alignParentTop="true" app:layout_centerHorizontal="true"
+        <LinearLayout app:orientation="vertical" app:layout_width="wrap_content" app:layout_height="wrap_content">
+            <ImageView app:layout_gravity="left|right|center_horizontal|fill_horizontal|center|fill|start|end" app:id="@id/b7z" app:background="@color/j5" app:layout_width="wrap_content" app:layout_height="wrap_content" app:src="@drawable/longan_selector_power_option_sleep" app:scaleType="center" />
+            <TextView app:textSize="16sp" app:textColor="@color/om" app:layout_gravity="left|right|center_horizontal|fill_horizontal|center|fill|start|end" app:layout_width="wrap_content" app:layout_height="UNKNOWN_DATA_0x3201" app:layout_marginTop="10dp" app:text="@string/longan_sleep_power_off" app:alpha="0.69" />
+        </LinearLayout>
+        <LinearLayout app:orientation="vertical" app:layout_width="wrap_content" app:layout_height="wrap_content" app:layout_marginLeft="50dp">
+            <ImageView app:layout_gravity="left|right|center_horizontal|fill_horizontal|center|fill|start|end" app:id="@id/b80" app:background="@color/j5" app:layout_width="wrap_content" app:layout_height="wrap_content" app:src="@drawable/longan_selector_power_option_sleep" app:scaleType="center" />
+            <TextView app:textSize="16sp" app:textColor="@color/om" app:layout_gravity="left|right|center_horizontal|fill_horizontal|center|fill|start|end" app:layout_width="wrap_content" app:layout_height="UNKNOWN_DATA_0x3201" app:layout_marginTop="10dp" app:text="@string/longan_sleep_sleep_mode" app:alpha="0.69" />
+        </LinearLayout>
+        <LinearLayout app:orientation="vertical" app:layout_width="wrap_content" app:layout_height="wrap_content" app:layout_marginLeft="50dp">
+            <ImageButton app:layout_gravity="left|right|center_horizontal|fill_horizontal|center|fill|start|end" app:id="@id/b81" app:background="@color/j5" app:focusable="true" app:clickable="true" app:layout_width="wrap_content" app:layout_height="wrap_content" app:src="@drawable/longan_selector_power_option_lock" app:scaleType="center" />
+            <TextView app:textSize="16sp" app:textColor="@color/om" app:layout_gravity="left|right|center_horizontal|fill_horizontal|center|fill|start|end" app:layout_width="wrap_content" app:layout_height="UNKNOWN_DATA_0x3201" app:layout_marginTop="10dp" app:text="@string/longan_sleep_orientation_lock" app:alpha="0.69" />
+        </LinearLayout>
+    </LinearLayout>
+    <dji.device.common.view.DJIStateImageViewCompat app:id="@id/b82" app:layout_width="UNKNOWN_DATA_0x1901" app:layout_height="UNKNOWN_DATA_0x1901" app:layout_margin="10dp" app:src="@drawable/longan_pano_cancle" app:scaleType="center" app:layout_alignParentLeft="true" app:layout_alignParentTop="true" />
+</dji.device.widget.LonganSleepView>

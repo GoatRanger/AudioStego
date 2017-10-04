@@ -1,0 +1,41 @@
+package com.here.odnp.config;
+
+public class OdnpConfigStatic {
+    public static final long BLE_EMPTY_SCAN_PERIOD = 650;
+    public static final long BLE_SCAN_PERIOD = 550;
+    public static final boolean BUILD_OEM_INTEGRATION = true;
+    public static final boolean BUILD_SDK_INTEGRATION = true;
+    public static final long CELL_NO_CHANGE_LIMITER_TIME = 3000;
+    public static final boolean CELL_USE_CDMA = false;
+    public static final boolean DEBUG_GET_ALL_CELLINFO_API = false;
+    public static final boolean DEBUG_GPS_STATUS = false;
+    public static final boolean DEBUG_LOCATION_EXTRAS = false;
+    public static final boolean DEBUG_LOG_JNI_INFO = false;
+    public static final boolean DEBUG_LOG_TO_FILE = false;
+    public static final boolean DEBUG_NMEA = false;
+    public static final boolean DEBUG_TESTING_API = false;
+    public static final boolean DEBUG_TRACE = false;
+    public static final long GNSS_ACTIVE_MINTIME = 1000;
+    public static final long GNSS_PASSIVE_MINTIME = 500;
+    public static final boolean MEASUREMENT_PLAYBACK_API = true;
+    public static final long MIN_ALARM_TIMER_INTERVAL = 5000;
+    public static final String OEM_CLIENT_CERT_ASSET_PATH = "cert/client_cert.pem";
+    public static final long OEM_MAX_AGE_FOR_LAST_KNOWN = 30000;
+    public static final long OEM_MAX_HIGH_POWER_INTERVAL = 120000;
+    public static final long OEM_MAX_MEDIUM_POWER_INTERVAL = 1800000;
+    public static final long OEM_MIN_DESIRED_INTERVAL = 30000;
+    public static final long OEM_MIN_SMALLEST_INTERVAL = 0;
+    public static final String OEM_PACKAGE_NAME = "com.here.odnp.service";
+    public static final String OEM_SERVICE_CLASS_NAME = "com.here.odnp.service.LocationService";
+    public static final boolean OEM_USER_SPECIFIC_RADIO_MAP_DATA = false;
+    public static final String RADIO_MAP_DOWNLOAD_ROOT = "rmd";
+    public static final boolean RADIO_MAP_MANAGER_API = true;
+    public static final boolean RADIO_MAP_MANAGER_CHECK_NETWORK_PROVIDER = false;
+    public static final long SDK_ABSOLUTE_MIN_INTERVAL = 30000;
+    public static final String SDK_SERVICE_CLASS_NAME = "com.here.services.internal.LocationService";
+    public static final String SW_VERSION = "99.99.99";
+    public static final int SW_VERSION_BUILD = 99;
+    public static final int SW_VERSION_MAJOR = 99;
+    public static final int SW_VERSION_MINOR = 99;
+    public static final boolean USAGE_TRACKING_API = true;
+}

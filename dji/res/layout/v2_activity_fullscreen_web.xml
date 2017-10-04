@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.publics.DJIUI.DJIRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent">
+    <FrameLayout android:id="@+id/sec_explore_fragment_container" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <View android:id="@+id/touch_area" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <dji.pilot.publics.widget.DJIStateImageView android:id="@+id/explore_close_btn" android:layout_width="UNKNOWN_DATA_0x7f0b0127" android:layout_height="UNKNOWN_DATA_0x7f0b0127" android:layout_marginLeft="@dimen/g1" android:layout_marginTop="@dimen/g1" android:src="@drawable/v2_fullscreen_webview_cross" android:scaleType="centerCrop" android:onClick="onClickHandler" />
+</dji.publics.DJIUI.DJIRelativeLayout>

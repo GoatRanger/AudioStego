@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.pilot2.upgrade.ble.BleBannerView xmlns:android="http://schemas.android.com/apk/res/android" android:gravity="left|right|center_horizontal|fill_horizontal|center|fill|start|end" android:background="@r$color/standard3_0_primary_color" android:visibility="gone" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x3701">
+    <LinearLayout android:orientation="horizontal" android:id="@+id/v2_upgrade_tip_one" android:background="@r$color/standard3_0_primary_color" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="match_parent">
+        <dji.publics.DJIUI.DJITextView android:textSize="16sp" android:textColor="@color/om" android:gravity="top|bottom|center_vertical|fill_vertical|center|fill" android:layout_width="wrap_content" android:layout_height="match_parent" android:text="@string/v2_home_ble_notify" android:singleLine="true" />
+        <dji.publics.DJIUI.DJITextView android:textSize="16sp" android:textColor="@color/om" android:gravity="top|bottom|center_vertical|fill_vertical|center|fill" android:id="@+id/v2_home_ble_name_tv" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="match_parent" android:text="(osmo_mobile_xxx)" android:singleLine="true" />
+    </LinearLayout>
+</dji.pilot2.upgrade.ble.BleBannerView>

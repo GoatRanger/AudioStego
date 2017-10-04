@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+    <Button android:id="@+id/v2_phantom_header_bar_record" android:background="@r$drawable/v2_plantom_selector_record" android:visibility="visible" android:layout_width="UNKNOWN_DATA_0x7f0b00ac" android:layout_height="UNKNOWN_DATA_0x7f0b00ac" android:layout_margin="@dimen/df" android:scaleType="centerInside" />
+    <ImageView android:id="@+id/v2_phantom_header_bar_img" android:background="@r$drawable/v2_plantom_ji_icon" android:layout_width="UNKNOWN_DATA_0x7f0b00ac" android:layout_height="UNKNOWN_DATA_0x7f0b00ac" android:scaleType="centerInside" android:layout_centerInParent="true" />
+    <dji.pilot2.upgrade.rollback.LongPressTextView android:id="@+id/v2_phantom_header_bar_more" android:background="@r$drawable/v2_phantom_selector_more" android:layout_width="UNKNOWN_DATA_0x7f0b00ac" android:layout_height="UNKNOWN_DATA_0x7f0b00ac" android:layout_margin="@dimen/df" android:scaleType="centerInside" android:layout_alignParentRight="true" />
+    <View android:id="@+id/mine_button_redpoint" android:background="@r$drawable/v2_tab_redpoint_view" android:visibility="gone" android:layout_width="UNKNOWN_DATA_0x501" android:layout_height="UNKNOWN_DATA_0x501" android:layout_marginTop="15dp" android:layout_marginRight="15dp" android:layout_alignRight="@+id/v2_phantom_header_bar_record" />
+</RelativeLayout>

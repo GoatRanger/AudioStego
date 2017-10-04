@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="33"
+   name=""
+   committed-date="2005-02-01T06:11:53.421875Z"
+   url="svn://192.168.2.2/ImageProcessor/src/or/doc/drasys/or/nonlinear"
+   last-author="Karl"
+   kind="dir"
+   uuid="0daf4267-3229-f84b-9084-f3c94b025f38"
+   revision="55"/>
+<entry
+   committed-rev="33"
+   name="IntegrationI.html"
+   text-time="2005-03-02T06:25:24.125000Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="86f02770d77756bad4f443e4f3b14646"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:23.921875Z"/>
+<entry
+   committed-rev="33"
+   name="FunctionI.html"
+   text-time="2005-03-02T06:25:24.140625Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="3623058ff68b7f70d4205011ac82211a"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:23.937500Z"/>
+<entry
+   committed-rev="33"
+   name="Trapezoidal.html"
+   text-time="2005-03-02T06:25:24.156250Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="57685cd24a46fd581b3299dfff1faeab"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:23.953125Z"/>
+<entry
+   committed-rev="33"
+   name="Bisection.html"
+   text-time="2005-03-02T06:25:24.156250Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="1a646596dd7ab184ad78bd00bacb3973"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:23.984375Z"/>
+<entry
+   committed-rev="33"
+   name="NonlinearError.html"
+   text-time="2005-03-02T06:25:24.171875Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="5a732b2c1e5892cce6fcd259adca5b4b"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:24.000000Z"/>
+<entry
+   committed-rev="33"
+   name="EquationSolution.html"
+   text-time="2005-03-02T06:25:24.187500Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="d831baa936c4069f3c2faf7c45ff74b4"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:24.015625Z"/>
+<entry
+   committed-rev="33"
+   name="package-frame.html"
+   text-time="2005-03-02T06:25:24.187500Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="365ec8b4e41549aea03462e2838fe739"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:24.031250Z"/>
+<entry
+   committed-rev="33"
+   name="Integration.html"
+   text-time="2005-03-02T06:25:24.203125Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="4e2fd87a9d7294e4e60f95a44787310e"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:24.046875Z"/>
+<entry
+   committed-rev="33"
+   name="NonlinearException.html"
+   text-time="2005-03-02T06:25:24.203125Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="020e859ce39153db38b13cbb74eb7a2d"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:24.046875Z"/>
+<entry
+   committed-rev="33"
+   name="package-summary.html"
+   text-time="2005-03-02T06:25:24.218750Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="0f6ca85b21cd25ac8d9cfcdd08ea6244"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:24.062500Z"/>
+<entry
+   committed-rev="33"
+   name="package-tree.html"
+   text-time="2005-03-02T06:25:24.218750Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="276ea6da015a3126ab47a6ccf13b3b25"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:24.078125Z"/>
+<entry
+   committed-rev="33"
+   name="AccuracyException.html"
+   text-time="2005-03-02T06:25:24.234375Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="a7dc4db6683874ed616cbc30c394dcda"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:24.093750Z"/>
+<entry
+   committed-rev="33"
+   name="Simpsons.html"
+   text-time="2005-03-02T06:25:24.234375Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="c34eac6287afba89f54e8e41b04ba508"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:24.093750Z"/>
+<entry
+   committed-rev="33"
+   name="EquationSolutionI.html"
+   text-time="2005-03-02T06:25:24.250000Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="e18b82b1939fadfdd45ea831447acf9e"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:24.109375Z"/>
+</wc-entries>

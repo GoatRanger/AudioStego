@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" style="@style/g2">
+    <RelativeLayout android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x7f0b031f">
+        <TextView android:textColor="#2ab3d0" android:gravity="left|right|center_horizontal|fill_horizontal|center|fill|start|end" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/ts" android:text="@string/setting_ui_hd_signal_desc1" android:singleLine="false" android:layout_alignParentLeft="true" android:layout_alignParentTop="true" />
+        <ImageView android:layout_width="UNKNOWN_DATA_0x7f0b032f" android:layout_height="UNKNOWN_DATA_0x7f0b031f" android:src="@drawable/setting_ui_hd_signal_loc" android:layout_centerInParent="true" />
+        <TextView android:textColor="#2ab3d0" android:gravity="left|right|center_horizontal|fill_horizontal|center|fill|start|end" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/ts" android:text="@string/setting_ui_hd_signal_desc2" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" />
+    </RelativeLayout>
+    <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+        <TextView android:textColor="@color/om" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/setting_ui_hd_signal_desc3" android:singleLine="false" />
+        <TextView android:textColor="@color/gj" android:id="@id/bve" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/setting_ui_hd_signal_desc4" android:singleLine="false" android:drawableLeft="@drawable/setting_ui_warning" android:layout_alignParentRight="true" />
+    </RelativeLayout>
+    <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content"
+        <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content"
+            <LinearLayout android:layout_width="UNKNOWN_DATA_0x1" android:layout_height="match_parent" android:layout_weight="1.0" style="@style/g2">
+                <TextView android:id="@id/bvf" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/ts" android:text="@string/setting_ui_hd_signal_check_aerial" android:layout_centerVertical="true" style="@style/fx" />
+                <TextView android:gravity="left|right|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@id/bvg" android:layout_width="UNKNOWN_DATA_0x1" android:layout_height="wrap_content" android:layout_marginRight="@dimen/ts" android:text="@string/setting_ui_default_str" android:layout_weight="1.0" android:layout_centerVertical="true" style="@style/fx" />
+            </LinearLayout>
+            <ImageView style="@style/g0" />
+            <LinearLayout android:layout_width="UNKNOWN_DATA_0x1" android:layout_weight="1.0" style="@style/g2">
+                <TextView android:id="@id/bvh" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/ts" android:text="@string/setting_ui_hd_signal_check_aerial" android:layout_centerVertical="true" style="@style/fx" />
+                <TextView android:gravity="left|right|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@id/bvi" android:layout_width="UNKNOWN_DATA_0x1" android:layout_height="wrap_content" android:layout_marginRight="@dimen/ts" android:text="@string/setting_ui_default_str" android:layout_weight="1.0" android:layout_centerVertical="true" style="@style/fx" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <ImageView style="@style/fz" />
+    <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content"
+        <LinearLayout android:layout_width="UNKNOWN_DATA_0x1" android:layout_weight="1.0" style="@style/g2">
+            <TextView android:id="@id/bvj" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/ts" android:text="@string/setting_ui_hd_signal_check_aerial" android:layout_centerVertical="true" style="@style/fx" />
+            <TextView android:gravity="left|right|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@id/bvk" android:layout_width="UNKNOWN_DATA_0x1" android:layout_height="wrap_content" android:layout_marginRight="@dimen/ts" android:text="@string/setting_ui_default_str" android:layout_weight="1.0" android:layout_centerVertical="true" style="@style/fx" />
+        </LinearLayout>
+        <ImageView style="@style/g0" />
+        <LinearLayout android:layout_width="UNKNOWN_DATA_0x1" android:layout_weight="1.0" style="@style/g2">
+            <TextView android:id="@id/bvl" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/ts" android:text="@string/setting_ui_hd_signal_check_aerial" android:layout_centerVertical="true" style="@style/fx" />
+            <TextView android:gravity="left|right|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@id/bvm" android:layout_width="UNKNOWN_DATA_0x1" android:layout_height="wrap_content" android:layout_marginRight="@dimen/ts" android:text="@string/setting_ui_default_str" android:layout_weight="1.0" android:layout_centerVertical="true" style="@style/fx" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,4 @@
+org/openscience/cdk/test/AssociationTest*.class
+org/openscience/cdk/test/tools/GenerateFragmentsTest*.class
+org/openscience/cdk/test/MexperimentalTests*.class
+org/openscience/cdk/test/io/VASPReaderTest*.class

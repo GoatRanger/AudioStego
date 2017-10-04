@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.publics.DJIUI.DJILinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:orientation="vertical" android:background="@r$drawable/selector_gensetting_item" android:layout_width="match_parent" android:layout_height="wrap_content">
+    <dji.publics.DJIUI.DJITextView android:textSize="@dimen/rq" android:textColor="@color/om" android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@+id/share_pw_item_tv" android:paddingTop="@dimen/n3" android:paddingBottom="@dimen/n3" android:layout_width="UNKNOWN_DATA_0x7f0b02ad" android:layout_height="wrap_content" android:drawablePadding="@dimen/n3" />
+</dji.publics.DJIUI.DJILinearLayout>

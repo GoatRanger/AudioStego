@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="33"
+   name=""
+   committed-date="2005-02-01T06:11:53.421875Z"
+   url="svn://192.168.2.2/ImageProcessor/src"
+   last-author="Karl"
+   kind="dir"
+   uuid="0daf4267-3229-f84b-9084-f3c94b025f38"
+   revision="55"/>
+<entry
+   name="or"
+   kind="dir"/>
+<entry
+   name="imageproc"
+   kind="dir"/>
+<entry
+   name="ai"
+   kind="dir"/>
+<entry
+   committed-rev="33"
+   name="imageproc.bat"
+   text-time="2005-03-02T06:25:39.265625Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="3f7ff6add980f45dff6251c1f8225886"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:39.203125Z"/>
+<entry
+   name="jcgi"
+   kind="dir"/>
+</wc-entries>

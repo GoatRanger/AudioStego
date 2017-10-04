@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:background="@drawable/longan_camera_mode_bg_port" android:layout_width="wrap_content" android:layout_height="match_parent" android:baselineAligned="false">
+    <TextView android:id="@id/b1l" android:text="@string/longan_camera_mode_m" style="@style/ca" />
+    <TextView android:id="@id/b1k" android:text="@string/longan_camera_mode_a" style="@style/ca" />
+    <TextView android:id="@id/b1j" android:text="@string/longan_camera_mode_s" style="@style/ca" />
+    <TextView android:textSize="@dimen/rp" android:id="@id/b1i" android:text="@string/longan_camera_mode_p" style="@style/ca" />
+</LinearLayout>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:screenOrientation="portrait" android:descendantFocusability="blocksDescendants" android:layout_width="match_parent" android:layout_height="match_parent">
+    <FrameLayout android:id="@id/hb" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_weight="1.0" />
+    <LinearLayout android:orientation="vertical" android:layout_width="UNKNOWN_DATA_0x9601" android:layout_height="wrap_content" android:layout_centerVertical="true">
+        <Button android:layout_gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@id/hc" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="switchMode" />
+        <Button android:layout_gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@id/hd" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="switchCamera" />
+        <Button android:layout_gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@id/he" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="OFF" style="?unknown_attr_ref: 1010049" />
+        <Button android:layout_gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@id/hf" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="HDR" />
+        <Button android:layout_gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@id/hg" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="WB" />
+        <Button android:layout_gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@id/hh" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="scene" />
+    </LinearLayout>
+    <Button android:layout_gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:orientation="vertical" android:id="@id/hi" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="photo" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+    <Button android:orientation="vertical" android:id="@id/hj" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="exposure" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" />
+    <Spinner android:id="@id/hk" android:visibility="gone" android:layout_width="UNKNOWN_DATA_0x6401" android:layout_height="wrap_content" android:layout_alignParentRight="true" />
+</RelativeLayout>

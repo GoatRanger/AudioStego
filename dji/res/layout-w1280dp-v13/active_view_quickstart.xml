@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.publics.DJIUI.DJIRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:background="@color/om" android:layout_width="match_parent" android:layout_height="match_parent"
+    <dji.publics.DJIUI.DJIRelativeLayout android:id="@+id/quick_activity_layout" android:layout_width="match_parent" android:layout_height="match_parent"
+        <dji.publics.DJIUI.DJIRelativeLayout android:id="@+id/header" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/fm" android:layout_centerHorizontal="true">
+            <dji.publics.DJIUI.DJITextView android:textSize="@dimen/quick_titletext_size" android:textStyle="bold" android:textColor="@r$color/v2_quick_button" android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@+id/quick_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/quick_title" android:drawableLeft="@r$drawable/v2_quickstart_safeflag" android:drawablePadding="20dp" />
+        </dji.publics.DJIUI.DJIRelativeLayout>
+        <dji.publics.DJIUI.DJITextView android:textSize="@dimen/quick_contenttext_size" android:textColor="@r$color/v2_quick_text_color" android:gravity="left|right|center_horizontal|fill_horizontal|center|fill|start|end" android:layout_width="UNKNOWN_DATA_0x7f0b02e3" android:layout_height="wrap_content" android:layout_marginTop="30dp" android:text="@string/quick_attention" android:layout_below="@+id/header" android:layout_centerHorizontal="true" />
+        <Button android:textColor="@color/om" android:id="@+id/quick_surebutton" android:background="@r$drawable/v2_main_quickstart_button_selector" android:paddingLeft="@dimen/ft" android:paddingRight="@dimen/ft" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/fn" android:text="@string/quick_begin_button" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" />
+        <Button android:textColor="@r$color/v2_quick_button" android:id="@+id/quick_cancelbutton" android:background="@color/om" android:paddingLeft="5dp" android:paddingRight="5dp" android:paddingBottom="@dimen/fi" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/quick_skip_button" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" />
+    </dji.publics.DJIUI.DJIRelativeLayout>
+    <android.support.v4.view.ViewPager android:id="@+id/quick_fragmentpager" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <LinearLayout android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:orientation="horizontal" android:id="@+id/quick_points" android:visibility="gone" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0xa01" android:layout_marginBottom="30dp" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true">
+        <View android:id="@+id/quick_viewbutton1" android:background="@r$drawable/v2_circle" android:layout_width="UNKNOWN_DATA_0x7f0b00ae" android:layout_height="UNKNOWN_DATA_0x7f0b00ae" />
+        <View android:layout_width="UNKNOWN_DATA_0x7f0b0099" android:layout_height="UNKNOWN_DATA_0x7f0b0099" />
+        <View android:id="@+id/quick_viewbutton2" android:background="@r$drawable/v2_circle" android:layout_width="UNKNOWN_DATA_0x7f0b00ae" android:layout_height="UNKNOWN_DATA_0x7f0b00ae" />
+        <View android:layout_width="UNKNOWN_DATA_0x7f0b0099" android:layout_height="UNKNOWN_DATA_0x7f0b0099" />
+        <View android:id="@+id/quick_viewbutton3" android:background="@r$drawable/v2_circle" android:layout_width="UNKNOWN_DATA_0x7f0b00ae" android:layout_height="UNKNOWN_DATA_0x7f0b00ae" />
+        <View android:layout_width="UNKNOWN_DATA_0x7f0b0099" android:layout_height="UNKNOWN_DATA_0x7f0b0099" />
+        <View android:id="@+id/quick_viewbutton4" android:background="@r$drawable/v2_circle" android:layout_width="UNKNOWN_DATA_0x7f0b00ae" android:layout_height="UNKNOWN_DATA_0x7f0b00ae" />
+        <View android:visibility="gone" android:layout_width="UNKNOWN_DATA_0x7f0b0099" android:layout_height="UNKNOWN_DATA_0x7f0b0099" />
+        <View android:id="@+id/quick_viewbutton5" android:background="@r$drawable/v2_circle" android:visibility="gone" android:layout_width="UNKNOWN_DATA_0x7f0b00ae" android:layout_height="UNKNOWN_DATA_0x7f0b00ae" />
+        <View android:visibility="gone" android:layout_width="UNKNOWN_DATA_0x7f0b0099" android:layout_height="UNKNOWN_DATA_0x7f0b0099" />
+        <View android:id="@+id/quick_viewbutton6" android:background="@r$drawable/v2_circle" android:visibility="gone" android:layout_width="UNKNOWN_DATA_0x7f0b00ae" android:layout_height="UNKNOWN_DATA_0x7f0b00ae" />
+        <View android:visibility="gone" android:layout_width="UNKNOWN_DATA_0x7f0b0099" android:layout_height="UNKNOWN_DATA_0x7f0b0099" />
+        <View android:id="@+id/quick_viewbutton7" android:background="@r$drawable/v2_circle" android:visibility="gone" android:layout_width="UNKNOWN_DATA_0x7f0b00ae" android:layout_height="UNKNOWN_DATA_0x7f0b00ae" />
+        <View android:layout_width="UNKNOWN_DATA_0x7f0b0099" android:layout_height="UNKNOWN_DATA_0x7f0b0099" />
+        <View android:id="@+id/quick_viewbutton8" android:background="@r$drawable/v2_circle" android:layout_width="UNKNOWN_DATA_0x7f0b00ae" android:layout_height="UNKNOWN_DATA_0x7f0b00ae" />
+    </LinearLayout>
+</dji.publics.DJIUI.DJIRelativeLayout>

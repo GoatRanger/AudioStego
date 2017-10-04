@@ -1,0 +1,245 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Strings and the Java Compiler</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="andback.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#data" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="stringsummary.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Learning the Java Language
+<br>
+<b>Lesson</b>: Object Basics and Simple Data Objects
+</font>
+
+<h2>
+Strings and the Java Compiler
+</h2>
+<blockquote>
+
+The Java compiler uses the <code>String</code> and <code>StringBuffer</code> classes behind
+the scenes to handle literal strings and concatenation.
+
+</blockquote>
+<h3>Literal Strings</h3>
+<blockquote>
+In Java, you specify <em>literal strings</em> between double quotes:
+<blockquote><pre>
+"Hello World!"
+</pre></blockquote>
+You can use literal strings anywhere you would use a <code>String</code> object.
+For example, <code>System.out.println</code> accepts a <code>String</code> argument, so you
+could use a literal string in place of a <code>String</code> there.
+<blockquote><pre>
+System.out.println("Might I add that you look lovely today.");
+</pre></blockquote>
+You can also use <code>String</code> methods directly from a literal string.
+<blockquote><pre>
+int len = "Goodbye Cruel World".length();
+</pre></blockquote>
+Because the compiler automatically creates a new <code>String</code> object for
+every literal string it encounters, you can use a literal string
+to initialize a <code>String</code>.
+<blockquote><pre>
+String s = "Hola Mundo";
+</pre></blockquote>
+The above construct is equivalent to, but more efficient than, this one,
+which ends up creating two <code>String</code>s instead of one:
+<blockquote><pre>
+String s = new String("Hola Mundo");
+</pre></blockquote>
+The compiler creates the first string when it encounters
+the literal string <strong>"Hola Mundo!"</strong>, and the
+second one when it encounters <code>new String</code>.
+</blockquote>
+
+<h3>Concatenation and the + Operator</h3>
+<blockquote>
+In the Java programming language, you can use <code>+</code> to concatenate <code>String</code>s together:
+<blockquote><pre>
+String cat = "cat";
+System.out.println("con" + cat + "enation");
+</pre></blockquote>
+This is a little deceptive because, as you know, <code>String</code>s 
+can't be changed. However, behind the scenes the compiler
+uses <code>StringBuffer</code>s to implement concatenation. The above example
+compiles to:
+<blockquote><pre>
+String cat = "cat";
+System.out.println(new StringBuffer().append("con").
+                       append(cat).append("enation").toString());
+</pre></blockquote>
+You can also use the <code>+</code> operator to append values to
+a <code>String</code> that are not themselves <code>String</code>s:
+<blockquote><pre>
+System.out.println("Java's Number " + 1);
+</pre></blockquote>
+The compiler converts the non-<code>String</code> value (the integer <code>1</code>
+in the example) to a <code>String</code> object before performing the concatenation
+operation.
+
+<blockquote><hr><strong>Note to C and C++ Programmers:</strong>&nbsp;The shortcut assignment operator <code>+=</code> when 
+used with  <code>String</code>s may confuse  C and C++ 
+programmers at first. Recall that 
+<code>a += b</code> is equivalent to <code>a = a + b</code>. 
+Let's look at two code samples written in C++ 
+and the Java programming lanaguage:
+<P>
+
+<table>
+<tr>
+  <td>
+<blockquote><pre>
+//C++ code
+string*  s1 = new string("hello");
+string*  s2 = s1;
+(*s1) += " world";
+cout&lt;&lt;*s1&lt;&lt;endl&lt;&lt;*s2&lt;&lt;endl;
+return  0;
+//<strong>s1 = s2 = "hello world"</strong>
+</pre></blockquote>
+  </td>
+
+  <td ALIGN="top">
+<blockquote><pre>
+//Java progamming language code
+String s1 = "hello";
+String s2 = s1;
+s1 += " world";
+System.out.println(s1 + "\n" + s2);
+//<strong>s1 = "hello world" and  s2 = "hello"</strong>
+</pre></blockquote>
+  </td>
+</tr>
+</table>
+In the C++ example, the strings <code>s1</code> 
+and <code>s2</code> print the same result 
+because they both point to the same address. 
+In the Java programming language, <code>String</code>s 
+can't be modified, so the <code>+</code> 
+operator must create a new <code>String</code> when 
+<code>" world"</code> is appended to <code>s1</code>. 
+
+<p>
+The following code sample illustrates that <code>s1</code> 
+and <code>s2</code> point to the same object
+until you use the <code>+=</code> operator to assign a new
+<code>String</code> to <code>s1</code>.
+
+<blockquote><pre>
+//Java programming language code
+String s1 = "hello";
+String s2 = s1;
+System.out.println("s1 = " + s1
+                   + "; s2 = " + s2);
+System.out.println("System.identityHashCode(s1) = "
+                   + System.identityHashCode(s1));
+System.out.println("System.identityHashCode(s2) = "
+                   + System.identityHashCode(s2));
+
+s1 += " world";
+System.out.println("\ns1 = " + s1
+                   + "; s2 = " + s2);
+System.out.println("System.identityHashCode(s1) = "
+                   + System.identityHashCode(s1));
+System.out.println("System.identityHashCode(s2) = "
+                   + System.identityHashCode(s2));
+</pre></blockquote>
+
+Here's the output:
+
+<blockquote><pre>
+s1 = hello; s2 = hello
+System.identityHashCode(s1) = 2452092
+System.identityHashCode(s2) = 2452092
+
+s1 = hello world; s2 = hello
+System.identityHashCode(s1) = 7474923
+System.identityHashCode(s2) = 2452092
+</pre></blockquote>
+<code>s1</code> points to a new 
+address after <code>" world"</code> is appended.
+
+<hr></blockquote>
+
+
+
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="andback.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#data" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="stringsummary.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

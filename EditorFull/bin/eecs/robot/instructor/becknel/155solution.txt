@@ -1,0 +1,496 @@
+Buy: 9/25/2004 $0.00 in the bank, and 19.557 shares of BGS at $51.13
+Your total net worth is $1,000.00
+Sell: 10/5/2004 $1,127.13 in the bank, and 0.0 shares of BGS at $57.63
+Your total net worth is $1,127.13
+Buy: 10/9/2004 $0.00 in the bank, and 21.166 shares of BGS at $53.25
+Your total net worth is $1,127.13
+Sell: 10/14/2004 $1,186.61 in the bank, and 0.0 shares of BGS at $56.06
+Your total net worth is $1,186.61
+Buy: 10/19/2004 $0.00 in the bank, and 21.872 shares of BGS at $54.25
+Your total net worth is $1,186.61
+Sell: 10/26/2004 $1,285.03 in the bank, and 0.0 shares of BGS at $58.75
+Your total net worth is $1,285.03
+Buy: 11/6/2004 $0.00 in the bank, and 20.436 shares of BGS at $62.88
+Your total net worth is $1,285.03
+Sell: 11/9/2004 $1,335.92 in the bank, and 0.0 shares of BGS at $65.37
+Your total net worth is $1,335.92
+Buy: 11/20/2004 $0.00 in the bank, and 18.523 shares of BGS at $72.12
+Your total net worth is $1,335.92
+Sell: 11/22/2004 $1,308.13 in the bank, and 0.0 shares of BGS at $70.62
+Your total net worth is $1,308.13
+Buy: 11/23/2004 $0.00 in the bank, and 18.393 shares of BGS at $71.12
+Your total net worth is $1,308.13
+Sell: 12/7/2004 $1,296.73 in the bank, and 0.0 shares of BGS at $70.50
+Your total net worth is $1,296.73
+Buy: 12/9/2004 $0.00 in the bank, and 17.702 shares of BGS at $73.25
+Your total net worth is $1,296.73
+Sell: 12/12/2004 $1,351.96 in the bank, and 0.0 shares of BGS at $76.37
+Your total net worth is $1,351.96
+Buy: 12/16/2004 $0.00 in the bank, and 18.1 shares of BGS at $74.69
+Your total net worth is $1,351.96
+Sell: 12/19/2004 $1,402.83 in the bank, and 0.0 shares of BGS at $77.50
+Your total net worth is $1,402.83
+Buy: 12/25/2004 $0.00 in the bank, and 16.7 shares of BGS at $84.00
+Your total net worth is $1,402.83
+Sell: 12/28/2004 $1,425.71 in the bank, and 0.0 shares of BGS at $85.37
+Your total net worth is $1,425.71
+Buy: 12/31/2004 $0.00 in the bank, and 17.493 shares of BGS at $81.50
+Your total net worth is $1,425.71
+Sell: 1/9/2005 $1,471.54 in the bank, and 0.0 shares of BGS at $84.12
+Your total net worth is $1,471.54
+Buy: 1/11/2005 $0.00 in the bank, and 17.261 shares of BGS at $85.25
+Your total net worth is $1,471.54
+Sell: 1/17/2005 $1,337.76 in the bank, and 0.0 shares of BGS at $77.50
+Your total net worth is $1,337.76
+Buy: 1/20/2005 $0.00 in the bank, and 18.077 shares of BGS at $74.00
+Your total net worth is $1,337.76
+Sell: 1/27/2005 $1,387.48 in the bank, and 0.0 shares of BGS at $76.75
+Your total net worth is $1,387.48
+Buy: 1/30/2005 $0.00 in the bank, and 18.167 shares of BGS at $76.37
+Your total net worth is $1,387.48
+Sell: 2/11/2005 $1,221.79 in the bank, and 0.0 shares of BGS at $67.25
+Your total net worth is $1,221.79
+Buy: 2/12/2005 $0.00 in the bank, and 17.836 shares of BGS at $68.50
+Your total net worth is $1,221.79
+Sell: 2/19/2005 $1,413.53 in the bank, and 0.0 shares of BGS at $79.25
+Your total net worth is $1,413.53
+Buy: 3/15/2005 $0.00 in the bank, and 30.075 shares of BGS at $47.00
+Your total net worth is $1,413.53
+Sell: 3/25/2005 $1,458.64 in the bank, and 0.0 shares of BGS at $48.50
+Your total net worth is $1,458.64
+Buy: 3/31/2005 $0.00 in the bank, and 32.457 shares of BGS at $44.94
+Your total net worth is $1,458.64
+Sell: 4/7/2005 $1,574.19 in the bank, and 0.0 shares of BGS at $48.50
+Your total net worth is $1,574.19
+Buy: 4/10/2005 $0.00 in the bank, and 34.036 shares of BGS at $46.25
+Your total net worth is $1,574.19
+Sell: 4/12/2005 $1,557.17 in the bank, and 0.0 shares of BGS at $45.75
+Your total net worth is $1,557.17
+Buy: 4/14/2005 $0.00 in the bank, and 33.756 shares of BGS at $46.13
+Your total net worth is $1,557.17
+Sell: 4/18/2005 $1,582.49 in the bank, and 0.0 shares of BGS at $46.88
+Your total net worth is $1,582.49
+Buy: 4/25/2005 $0.00 in the bank, and 30.286 shares of BGS at $52.25
+Your total net worth is $1,582.49
+Sell: 5/2/2005 $1,662.14 in the bank, and 0.0 shares of BGS at $54.88
+Your total net worth is $1,662.14
+Buy: 5/15/2005 $0.00 in the bank, and 30.358 shares of BGS at $54.75
+Your total net worth is $1,662.14
+Sell: 5/19/2005 $1,688.86 in the bank, and 0.0 shares of BGS at $55.63
+Your total net worth is $1,688.86
+Buy: 5/28/2005 $0.00 in the bank, and 31.638 shares of BGS at $53.38
+Your total net worth is $1,688.86
+Sell: 6/8/2005 $1,815.41 in the bank, and 0.0 shares of BGS at $57.38
+Your total net worth is $1,815.41
+Buy: 6/10/2005 $0.00 in the bank, and 31.916 shares of BGS at $56.88
+Your total net worth is $1,815.41
+Sell: 6/13/2005 $1,747.43 in the bank, and 0.0 shares of BGS at $54.75
+Your total net worth is $1,747.43
+Buy: 6/17/2005 $0.00 in the bank, and 32.662 shares of BGS at $53.50
+Your total net worth is $1,747.43
+Sell: 6/19/2005 $1,690.27 in the bank, and 0.0 shares of BGS at $51.75
+Your total net worth is $1,690.27
+Buy: 6/22/2005 $0.00 in the bank, and 34.404 shares of BGS at $49.13
+Your total net worth is $1,690.27
+Sell: 6/25/2005 $1,720.20 in the bank, and 0.0 shares of BGS at $50.00
+Your total net worth is $1,720.20
+Buy: 7/7/2005 $0.00 in the bank, and 29.787 shares of BGS at $57.75
+Your total net worth is $1,720.20
+Sell: 7/13/2005 $1,694.29 in the bank, and 0.0 shares of BGS at $56.88
+Your total net worth is $1,694.29
+Buy: 7/19/2005 $0.00 in the bank, and 31.521 shares of BGS at $53.75
+Your total net worth is $1,694.29
+Sell: 7/21/2005 $1,635.34 in the bank, and 0.0 shares of BGS at $51.88
+Your total net worth is $1,635.34
+Buy: 8/4/2005 $0.00 in the bank, and 25.879 shares of BGS at $63.19
+Your total net worth is $1,635.34
+Sell: 8/6/2005 $1,630.42 in the bank, and 0.0 shares of BGS at $63.00
+Your total net worth is $1,630.42
+Buy: 8/8/2005 $0.00 in the bank, and 26.242 shares of BGS at $62.13
+Your total net worth is $1,630.42
+Sell: 8/12/2005 $1,731.98 in the bank, and 0.0 shares of BGS at $66.00
+Your total net worth is $1,731.98
+Buy: 8/14/2005 $0.00 in the bank, and 26.906 shares of BGS at $64.37
+Your total net worth is $1,731.98
+Sell: 8/17/2005 $1,755.66 in the bank, and 0.0 shares of BGS at $65.25
+Your total net worth is $1,755.66
+Buy: 8/23/2005 $0.00 in the bank, and 28.663 shares of BGS at $61.25
+Your total net worth is $1,755.66
+Sell: 8/25/2005 $1,719.83 in the bank, and 0.0 shares of BGS at $60.00
+Your total net worth is $1,719.83
+Buy: 8/29/2005 $0.00 in the bank, and 29.585 shares of BGS at $58.13
+Your total net worth is $1,719.83
+Sell: 8/31/2005 $1,782.55 in the bank, and 0.0 shares of BGS at $60.25
+Your total net worth is $1,782.55
+Buy: 9/13/2005 $0.00 in the bank, and 27.423 shares of BGS at $65.00
+Your total net worth is $1,782.55
+Sell: 9/15/2005 $1,809.97 in the bank, and 0.0 shares of BGS at $66.00
+Your total net worth is $1,809.97
+Buy: 9/19/2005 $0.00 in the bank, and 26.617 shares of BGS at $68.00
+Your total net worth is $1,809.97
+Sell: 9/27/2005 $1,793.21 in the bank, and 0.0 shares of BGS at $67.37
+Your total net worth is $1,793.21
+Buy: 10/2/2005 $0.00 in the bank, and 28.018 shares of BGS at $64.00
+Your total net worth is $1,793.21
+Sell: 10/5/2005 $1,803.57 in the bank, and 0.0 shares of BGS at $64.37
+Your total net worth is $1,803.57
+Buy: 10/6/2005 $0.00 in the bank, and 27.747 shares of BGS at $65.00
+Your total net worth is $1,803.57
+Sell: 10/8/2005 $1,820.78 in the bank, and 0.0 shares of BGS at $65.62
+Your total net worth is $1,820.78
+Buy: 10/12/2005 $0.00 in the bank, and 27.747 shares of BGS at $65.62
+Your total net worth is $1,820.78
+Sell: 10/15/2005 $1,838.26 in the bank, and 0.0 shares of BGS at $66.25
+Your total net worth is $1,838.26
+Buy: 10/22/2005 $0.00 in the bank, and 25.313 shares of BGS at $72.62
+Your total net worth is $1,838.26
+Sell: 10/25/2005 $1,865.34 in the bank, and 0.0 shares of BGS at $73.69
+Your total net worth is $1,865.34
+Buy: 10/29/2005 $0.00 in the bank, and 27.084 shares of BGS at $68.87
+Your total net worth is $1,865.34
+Sell: 11/3/2005 $1,848.55 in the bank, and 0.0 shares of BGS at $68.25
+Your total net worth is $1,848.55
+Buy: 11/6/2005 $0.00 in the bank, and 28.937 shares of BGS at $63.88
+Your total net worth is $1,848.55
+Sell: 11/11/2005 $1,810.35 in the bank, and 0.0 shares of BGS at $62.56
+Your total net worth is $1,810.35
+Buy: 11/17/2005 $0.00 in the bank, and 30.683 shares of BGS at $59.00
+Your total net worth is $1,810.35
+Sell: 11/25/2005 $1,676.26 in the bank, and 0.0 shares of BGS at $54.63
+Your total net worth is $1,676.26
+Buy: 11/27/2005 $0.00 in the bank, and 31.402 shares of BGS at $53.38
+Your total net worth is $1,676.26
+Sell: 12/9/2005 $1,601.52 in the bank, and 0.0 shares of BGS at $51.00
+Your total net worth is $1,601.52
+Buy: 12/11/2005 $0.00 in the bank, and 33.103 shares of BGS at $48.38
+Your total net worth is $1,601.52
+Sell: 12/17/2005 $1,789.55 in the bank, and 0.0 shares of BGS at $54.06
+Your total net worth is $1,789.55
+Buy: 12/20/2005 $0.00 in the bank, and 33.606 shares of BGS at $53.25
+Your total net worth is $1,789.55
+Sell: 12/28/2005 $1,623.53 in the bank, and 0.0 shares of BGS at $48.31
+Your total net worth is $1,623.53
+Buy: 12/30/2005 $0.00 in the bank, and 34.914 shares of BGS at $46.50
+Your total net worth is $1,623.53
+Sell: 1/5/2006 $2,016.32 in the bank, and 0.0 shares of BGS at $57.75
+Your total net worth is $2,016.32
+Buy: 1/12/2006 $0.00 in the bank, and 32.132 shares of BGS at $62.75
+Your total net worth is $2,016.32
+Sell: 1/17/2006 $2,104.69 in the bank, and 0.0 shares of BGS at $65.50
+Your total net worth is $2,104.69
+Buy: 1/26/2006 $0.00 in the bank, and 32.504 shares of BGS at $64.75
+Your total net worth is $2,104.69
+Sell: 1/29/2006 $2,112.81 in the bank, and 0.0 shares of BGS at $65.00
+Your total net worth is $2,112.81
+Buy: 1/31/2006 $0.00 in the bank, and 33.126 shares of BGS at $63.78
+Your total net worth is $2,112.81
+Sell: 2/1/2006 $2,153.23 in the bank, and 0.0 shares of BGS at $65.00
+Your total net worth is $2,153.23
+Buy: 2/3/2006 $0.00 in the bank, and 33.76 shares of BGS at $63.78
+Your total net worth is $2,153.23
+Sell: 2/7/2006 $2,261.94 in the bank, and 0.0 shares of BGS at $67.00
+Your total net worth is $2,261.94
+Buy: 2/15/2006 $0.00 in the bank, and 33.699 shares of BGS at $67.12
+Your total net worth is $2,261.94
+Sell: 2/23/2006 $2,544.34 in the bank, and 0.0 shares of BGS at $75.50
+Your total net worth is $2,544.34
+Buy: 2/24/2006 $0.00 in the bank, and 33.233 shares of BGS at $76.56
+Your total net worth is $2,544.34
+Sell: 2/27/2006 $2,615.13 in the bank, and 0.0 shares of BGS at $78.69
+Your total net worth is $2,615.13
+Buy: 3/4/2006 $0.00 in the bank, and 32.998 shares of BGS at $79.25
+Your total net worth is $2,615.13
+Sell: 3/10/2006 $2,652.09 in the bank, and 0.0 shares of BGS at $80.37
+Your total net worth is $2,652.09
+Buy: 3/15/2006 $0.00 in the bank, and 35.304 shares of BGS at $75.12
+Your total net worth is $2,652.09
+Sell: 3/17/2006 $2,639.03 in the bank, and 0.0 shares of BGS at $74.75
+Your total net worth is $2,639.03
+Buy: 3/23/2006 $0.00 in the bank, and 33.751 shares of BGS at $78.19
+Your total net worth is $2,639.03
+Sell: 3/30/2006 $2,613.71 in the bank, and 0.0 shares of BGS at $77.44
+Your total net worth is $2,613.71
+Buy: 4/6/2006 $0.00 in the bank, and 36.175 shares of BGS at $72.25
+Your total net worth is $2,613.71
+Sell: 4/14/2006 $2,697.28 in the bank, and 0.0 shares of BGS at $74.56
+Your total net worth is $2,697.28
+Buy: 4/16/2006 $0.00 in the bank, and 36.637 shares of BGS at $73.62
+Your total net worth is $2,697.28
+Sell: 4/18/2006 $2,676.76 in the bank, and 0.0 shares of BGS at $73.06
+Your total net worth is $2,676.76
+Buy: 4/20/2006 $0.00 in the bank, and 35.192 shares of BGS at $76.06
+Your total net worth is $2,676.76
+Sell: 4/24/2006 $2,843.93 in the bank, and 0.0 shares of BGS at $80.81
+Your total net worth is $2,843.93
+Buy: 5/1/2006 $0.00 in the bank, and 34.92 shares of BGS at $81.44
+Your total net worth is $2,843.93
+Sell: 5/3/2006 $2,931.23 in the bank, and 0.0 shares of BGS at $83.94
+Your total net worth is $2,931.23
+Buy: 5/7/2006 $0.00 in the bank, and 36.64 shares of BGS at $80.00
+Your total net worth is $2,931.23
+Sell: 5/9/2006 $2,929.03 in the bank, and 0.0 shares of BGS at $79.94
+Your total net worth is $2,929.03
+Buy: 5/19/2006 $0.00 in the bank, and 36.815 shares of BGS at $79.56
+Your total net worth is $2,929.03
+Sell: 5/22/2006 $3,030.27 in the bank, and 0.0 shares of BGS at $82.31
+Your total net worth is $3,030.27
+Buy: 5/27/2006 $0.00 in the bank, and 35.942 shares of BGS at $84.31
+Your total net worth is $3,030.27
+Sell: 5/31/2006 $3,108.98 in the bank, and 0.0 shares of BGS at $86.50
+Your total net worth is $3,108.98
+Buy: 6/10/2006 $0.00 in the bank, and 40.115 shares of BGS at $77.50
+Your total net worth is $3,108.98
+Sell: 6/12/2006 $2,173.88 in the bank, and 0.0 shares of BGS at $54.19
+Your total net worth is $2,173.88
+Buy: 6/15/2006 $0.00 in the bank, and 39.792 shares of BGS at $54.63
+Your total net worth is $2,173.88
+Sell: 6/21/2006 $2,218.45 in the bank, and 0.0 shares of BGS at $55.75
+Your total net worth is $2,218.45
+Buy: 6/26/2006 $0.00 in the bank, and 39.523 shares of BGS at $56.13
+Your total net worth is $2,218.45
+Sell: 7/3/2006 $2,346.90 in the bank, and 0.0 shares of BGS at $59.38
+Your total net worth is $2,346.90
+Buy: 7/7/2006 $0.00 in the bank, and 39.61 shares of BGS at $59.25
+Your total net worth is $2,346.90
+Sell: 7/10/2006 $2,497.82 in the bank, and 0.0 shares of BGS at $63.06
+Your total net worth is $2,497.82
+Buy: 7/27/2006 $0.00 in the bank, and 37.42 shares of BGS at $66.75
+Your total net worth is $2,497.82
+Sell: 8/9/2006 $2,408.76 in the bank, and 0.0 shares of BGS at $64.37
+Your total net worth is $2,408.76
+Buy: 8/20/2006 $0.00 in the bank, and 35.231 shares of BGS at $68.37
+Your total net worth is $2,408.76
+Sell: 8/24/2006 $2,430.95 in the bank, and 0.0 shares of BGS at $69.00
+Your total net worth is $2,430.95
+Buy: 8/29/2006 $0.00 in the bank, and 35.912 shares of BGS at $67.69
+Your total net worth is $2,430.95
+Sell: 8/31/2006 $2,520.73 in the bank, and 0.0 shares of BGS at $70.19
+Your total net worth is $2,520.73
+Buy: 9/7/2006 $0.00 in the bank, and 35.039 shares of BGS at $71.94
+Your total net worth is $2,520.73
+Sell: 9/14/2006 $2,579.60 in the bank, and 0.0 shares of BGS at $73.62
+Your total net worth is $2,579.60
+Buy: 9/29/2006 $0.00 in the bank, and 33.152 shares of BGS at $77.81
+Your total net worth is $2,579.60
+Sell: 10/8/2006 $2,623.03 in the bank, and 0.0 shares of BGS at $79.12
+Your total net worth is $2,623.03
+Buy: 10/10/2006 $0.00 in the bank, and 33.152 shares of BGS at $79.12
+Your total net worth is $2,623.03
+Sell: 10/19/2006 $2,886.26 in the bank, and 0.0 shares of BGS at $87.06
+Your total net worth is $2,886.26
+Buy: 10/30/2006 $0.00 in the bank, and 30.623 shares of BGS at $94.25
+Your total net worth is $2,886.26
+Sell: 11/6/2006 $3,029.88 in the bank, and 0.0 shares of BGS at $98.94
+Your total net worth is $3,029.88
+Buy: 11/8/2006 $0.00 in the bank, and 30.567 shares of BGS at $99.12
+Your total net worth is $3,029.88
+Sell: 11/19/2006 $2,961.11 in the bank, and 0.0 shares of BGS at $96.87
+Your total net worth is $2,961.11
+Buy: 11/25/2006 $0.00 in the bank, and 30.178 shares of BGS at $98.12
+Your total net worth is $2,961.11
+Sell: 12/1/2006 $3,127.09 in the bank, and 0.0 shares of BGS at $103.62
+Your total net worth is $3,127.09
+Buy: 12/5/2006 $0.00 in the bank, and 34.745 shares of BGS at $90.00
+Your total net worth is $3,127.09
+Sell: 12/7/2006 $3,148.63 in the bank, and 0.0 shares of BGS at $90.62
+Your total net worth is $3,148.63
+Buy: 12/9/2006 $0.00 in the bank, and 33.276 shares of BGS at $94.62
+Your total net worth is $3,148.63
+Sell: 12/15/2006 $2,150.33 in the bank, and 0.0 shares of BGS at $64.62
+Your total net worth is $2,150.33
+Buy: 12/18/2006 $0.00 in the bank, and 34.543 shares of BGS at $62.25
+Your total net worth is $2,150.33
+Sell: 12/21/2006 $2,243.25 in the bank, and 0.0 shares of BGS at $64.94
+Your total net worth is $2,243.25
+Buy: 12/31/2006 $0.00 in the bank, and 48.045 shares of BGS at $46.69
+Your total net worth is $2,243.25
+Sell: 1/3/2007 $2,435.44 in the bank, and 0.0 shares of BGS at $50.69
+Your total net worth is $2,435.44
+Buy: 1/27/2007 $0.00 in the bank, and 36.382 shares of BGS at $66.94
+Your total net worth is $2,435.44
+Sell: 2/8/2007 $2,742.14 in the bank, and 0.0 shares of BGS at $75.37
+Your total net worth is $2,742.14
+Buy: 2/12/2007 $0.00 in the bank, and 35.043 shares of BGS at $78.25
+Your total net worth is $2,742.14
+Sell: 2/14/2007 $2,796.81 in the bank, and 0.0 shares of BGS at $79.81
+Your total net worth is $2,796.81
+Buy: 3/8/2007 $0.00 in the bank, and 29.021 shares of BGS at $96.37
+Your total net worth is $2,796.81
+Sell: 3/11/2007 $3,079.77 in the bank, and 0.0 shares of BGS at $106.12
+Your total net worth is $3,079.77
+Buy: 3/13/2007 $0.00 in the bank, and 29.955 shares of BGS at $102.81
+Your total net worth is $3,079.77
+Sell: 3/16/2007 $3,098.64 in the bank, and 0.0 shares of BGS at $103.44
+Your total net worth is $3,098.64
+Buy: 3/24/2007 $0.00 in the bank, and 30.396 shares of BGS at $101.94
+Your total net worth is $3,098.64
+Sell: 3/28/2007 $3,011.10 in the bank, and 0.0 shares of BGS at $99.06
+Your total net worth is $3,011.10
+Buy: 3/31/2007 $0.00 in the bank, and 31.303 shares of BGS at $96.19
+Your total net worth is $3,011.10
+Sell: 4/5/2007 $3,128.49 in the bank, and 0.0 shares of BGS at $99.94
+Your total net worth is $3,128.49
+Buy: 4/8/2007 $0.00 in the bank, and 31.461 shares of BGS at $99.44
+Your total net worth is $3,128.49
+Sell: 4/15/2007 $3,283.59 in the bank, and 0.0 shares of BGS at $104.37
+Your total net worth is $3,283.59
+Buy: 4/25/2007 $0.00 in the bank, and 31.439 shares of BGS at $104.44
+Your total net worth is $3,283.59
+Sell: 4/27/2007 $3,307.17 in the bank, and 0.0 shares of BGS at $105.19
+Your total net worth is $3,307.17
+Buy: 5/12/2007 $0.00 in the bank, and 32.563 shares of BGS at $101.56
+Your total net worth is $3,307.17
+Sell: 5/17/2007 $3,746.78 in the bank, and 0.0 shares of BGS at $115.06
+Your total net worth is $3,746.78
+Buy: 5/20/2007 $0.00 in the bank, and 32.849 shares of BGS at $114.06
+Your total net worth is $3,746.78
+Sell: 5/29/2007 $3,866.02 in the bank, and 0.0 shares of BGS at $117.69
+Your total net worth is $3,866.02
+Buy: 5/31/2007 $0.00 in the bank, and 33.201 shares of BGS at $116.44
+Your total net worth is $3,866.02
+Sell: 6/16/2007 $3,708.31 in the bank, and 0.0 shares of BGS at $111.69
+Your total net worth is $3,708.31
+Buy: 7/6/2007 $0.00 in the bank, and 55.814 shares of BGS at $66.44
+Your total net worth is $3,708.31
+Sell: 7/8/2007 $3,662.55 in the bank, and 0.0 shares of BGS at $65.62
+Your total net worth is $3,662.55
+Buy: 7/10/2007 $0.00 in the bank, and 56.079 shares of BGS at $65.31
+Your total net worth is $3,662.55
+Sell: 7/12/2007 $3,701.24 in the bank, and 0.0 shares of BGS at $66.00
+Your total net worth is $3,701.24
+Buy: 7/15/2007 $0.00 in the bank, and 58.693 shares of BGS at $63.06
+Your total net worth is $3,701.24
+Sell: 7/21/2007 $3,624.35 in the bank, and 0.0 shares of BGS at $61.75
+Your total net worth is $3,624.35
+Buy: 7/26/2007 $0.00 in the bank, and 58.932 shares of BGS at $61.50
+Your total net worth is $3,624.35
+Sell: 7/28/2007 $3,524.76 in the bank, and 0.0 shares of BGS at $59.81
+Your total net worth is $3,524.76
+Buy: 7/30/2007 $0.00 in the bank, and 56.001 shares of BGS at $62.94
+Your total net worth is $3,524.76
+Sell: 8/11/2007 $3,836.13 in the bank, and 0.0 shares of BGS at $68.50
+Your total net worth is $3,836.13
+Buy: 8/13/2007 $0.00 in the bank, and 56.571 shares of BGS at $67.81
+Your total net worth is $3,836.13
+Sell: 8/15/2007 $3,861.02 in the bank, and 0.0 shares of BGS at $68.25
+Your total net worth is $3,861.02
+Buy: 8/19/2007 $0.00 in the bank, and 55.204 shares of BGS at $69.94
+Your total net worth is $3,861.02
+Sell: 8/21/2007 $3,902.42 in the bank, and 0.0 shares of BGS at $70.69
+Your total net worth is $3,902.42
+Buy: 8/25/2007 $0.00 in the bank, and 53.094 shares of BGS at $73.50
+Your total net worth is $3,902.42
+Sell: 8/26/2007 $3,885.96 in the bank, and 0.0 shares of BGS at $73.19
+Your total net worth is $3,885.96
+Buy: 8/28/2007 $0.00 in the bank, and 53.784 shares of BGS at $72.25
+Your total net worth is $3,885.96
+Sell: 9/9/2007 $3,811.74 in the bank, and 0.0 shares of BGS at $70.87
+Your total net worth is $3,811.74
+Buy: 9/16/2007 $0.00 in the bank, and 56.579 shares of BGS at $67.37
+Your total net worth is $3,811.74
+Sell: 9/19/2007 $3,914.71 in the bank, and 0.0 shares of BGS at $69.19
+Your total net worth is $3,914.71
+Buy: 9/22/2007 $0.00 in the bank, and 58.211 shares of BGS at $67.25
+Your total net worth is $3,914.71
+Sell: 9/26/2007 $4,241.86 in the bank, and 0.0 shares of BGS at $72.87
+Your total net worth is $4,241.86
+Buy: 9/30/2007 $0.00 in the bank, and 57.759 shares of BGS at $73.44
+Your total net worth is $4,241.86
+Sell: 10/1/2007 $4,288.65 in the bank, and 0.0 shares of BGS at $74.25
+Your total net worth is $4,288.65
+Buy: 10/6/2007 $0.00 in the bank, and 50.753 shares of BGS at $84.50
+Your total net worth is $4,288.65
+Sell: 10/10/2007 $4,440.91 in the bank, and 0.0 shares of BGS at $87.50
+Your total net worth is $4,440.91
+Buy: 10/16/2007 $0.00 in the bank, and 48.566 shares of BGS at $91.44
+Your total net worth is $4,440.91
+Sell: 10/21/2007 $4,853.72 in the bank, and 0.0 shares of BGS at $99.94
+Your total net worth is $4,853.72
+Buy: 10/23/2007 $0.00 in the bank, and 48.629 shares of BGS at $99.81
+Your total net worth is $4,853.72
+Sell: 10/25/2007 $4,762.78 in the bank, and 0.0 shares of BGS at $97.94
+Your total net worth is $4,762.78
+Buy: 10/27/2007 $0.00 in the bank, and 48.664 shares of BGS at $97.87
+Your total net worth is $4,762.78
+Sell: 10/31/2007 $4,988.10 in the bank, and 0.0 shares of BGS at $102.50
+Your total net worth is $4,988.10
+Buy: 11/12/2007 $0.00 in the bank, and 47.115 shares of BGS at $105.87
+Your total net worth is $4,988.10
+Sell: 11/14/2007 $5,017.78 in the bank, and 0.0 shares of BGS at $106.50
+Your total net worth is $5,017.78
+Buy: 11/16/2007 $0.00 in the bank, and 47.252 shares of BGS at $106.19
+Your total net worth is $5,017.78
+Sell: 11/22/2007 $5,153.40 in the bank, and 0.0 shares of BGS at $109.06
+Your total net worth is $5,153.40
+Buy: 11/27/2007 $0.00 in the bank, and 47.062 shares of BGS at $109.50
+Your total net worth is $5,153.40
+Sell: 11/29/2007 $5,359.06 in the bank, and 0.0 shares of BGS at $113.87
+Your total net worth is $5,359.06
+Buy: 12/9/2007 $0.00 in the bank, and 41.065 shares of BGS at $130.50
+Your total net worth is $5,359.06
+Sell: 12/20/2007 $5,590.26 in the bank, and 0.0 shares of BGS at $136.13
+Your total net worth is $5,590.26
+Buy: 12/22/2007 $0.00 in the bank, and 42.228 shares of BGS at $132.38
+Your total net worth is $5,590.26
+Sell: 12/24/2007 $5,759.18 in the bank, and 0.0 shares of BGS at $136.38
+Your total net worth is $5,759.18
+Buy: 12/28/2007 $0.00 in the bank, and 43.739 shares of BGS at $131.67
+Your total net worth is $5,759.18
+Sell: 12/30/2007 $5,866.78 in the bank, and 0.0 shares of BGS at $134.13
+Your total net worth is $5,866.78
+Buy: 1/8/2008 $0.00 in the bank, and 75.886 shares of BGS at $77.31
+Your total net worth is $5,866.78
+Sell: 1/21/2008 $5,017.61 in the bank, and 0.0 shares of BGS at $66.12
+Your total net worth is $5,017.61
+Buy: 1/24/2008 $0.00 in the bank, and 76.024 shares of BGS at $66.00
+Your total net worth is $5,017.61
+Sell: 1/29/2008 $5,169.66 in the bank, and 0.0 shares of BGS at $68.00
+Your total net worth is $5,169.66
+Buy: 1/32/2008 $0.00 in the bank, and 76.304 shares of BGS at $67.75
+Your total net worth is $5,169.66
+Sell: 2/11/2008 $4,425.68 in the bank, and 0.0 shares of BGS at $58.00
+Your total net worth is $4,425.68
+Buy: 2/14/2008 $0.00 in the bank, and 80.102 shares of BGS at $55.25
+Your total net worth is $4,425.68
+Sell: 2/20/2008 $4,561.06 in the bank, and 0.0 shares of BGS at $56.94
+Your total net worth is $4,561.06
+Buy: 2/25/2008 $0.00 in the bank, and 72.535 shares of BGS at $62.88
+Your total net worth is $4,561.06
+Sell: 2/28/2008 $4,506.66 in the bank, and 0.0 shares of BGS at $62.13
+Your total net worth is $4,506.66
+Buy: 3/7/2008 $0.00 in the bank, and 71.75 shares of BGS at $62.81
+Your total net worth is $4,506.66
+Sell: 3/13/2008 $4,439.93 in the bank, and 0.0 shares of BGS at $61.88
+Your total net worth is $4,439.93
+Buy: 3/18/2008 $0.00 in the bank, and 69.504 shares of BGS at $63.88
+Your total net worth is $4,439.93
+Sell: 3/22/2008 $4,674.16 in the bank, and 0.0 shares of BGS at $67.25
+Your total net worth is $4,674.16
+Buy: 3/24/2008 $0.00 in the bank, and 67.254 shares of BGS at $69.50
+Your total net worth is $4,674.16
+Sell: 3/29/2008 $4,573.28 in the bank, and 0.0 shares of BGS at $68.00
+Your total net worth is $4,573.28
+Buy: 3/31/2008 $0.00 in the bank, and 69.885 shares of BGS at $65.44
+Your total net worth is $4,573.28
+Sell: 4/7/2008 $4,577.47 in the bank, and 0.0 shares of BGS at $65.50
+Your total net worth is $4,577.47
+Buy: 4/14/2008 $0.00 in the bank, and 72.154 shares of BGS at $63.44
+Your total net worth is $4,577.47
+Sell: 4/17/2008 $4,676.32 in the bank, and 0.0 shares of BGS at $64.81
+Your total net worth is $4,676.32
+Buy: 4/21/2008 $0.00 in the bank, and 70.788 shares of BGS at $66.06
+Your total net worth is $4,676.32
+Sell: 4/25/2008 $4,853.29 in the bank, and 0.0 shares of BGS at $68.56
+Your total net worth is $4,853.29
+Buy: 4/28/2008 $0.00 in the bank, and 73.257 shares of BGS at $66.25
+Your total net worth is $4,853.29
+Sell: 5/7/2008 $4,478.22 in the bank, and 0.0 shares of BGS at $61.13
+Your total net worth is $4,478.22
+Buy: 5/11/2008 $0.00 in the bank, and 78.14 shares of BGS at $57.31
+Your total net worth is $4,478.22
+Sell: 5/13/2008 $4,317.25 in the bank, and 0.0 shares of BGS at $55.25
+Your total net worth is $4,317.25
+Buy: 5/21/2008 $0.00 in the bank, and 84.337 shares of BGS at $51.19
+Your total net worth is $4,317.25
+Congratulations!: 5/29/2008 $0.00 in the bank, and 84.337 shares of BGS at $55.88
+Your total net worth is $4,712.79

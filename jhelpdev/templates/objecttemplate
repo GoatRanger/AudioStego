@@ -1,0 +1,9 @@
+<object classid="java:com.sun.java.help.impl.JHSecondaryViewer">
+	<param name="content" value="popups/dialog.html">
+	<param name="viewerActivator" value=
+	"javax.help.LinkLabel">
+	<param name="iconByID" value="popup_icon">
+	<param name="text" value="? ">
+	<param name="viewerSize" value="700,350">
+	<param name="viewerStyle" value="javax.help.Popup">
+</object>

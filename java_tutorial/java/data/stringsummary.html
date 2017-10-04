@@ -1,0 +1,215 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Summary of Strings</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="stringsAndJavac.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#data" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="QandE/characters-questions.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Learning the Java Language
+<br>
+<b>Lesson</b>: Object Basics and Simple Data Objects
+</font>
+
+<h2>
+Summary of Strings
+</h2>
+<blockquote>
+The following table summarizes the methods found in the
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/String.html"><font color="#8800bb"><code>String</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/String.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> and
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/StringBuffer.html"><font color="#8800bb"><code>StringBuffer</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/StringBuffer.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> classes.
+
+</blockquote>
+<h3>Summary of the String Class</h3>
+<blockquote>
+<table border=1>
+<tr>
+<th>Method or Constructor
+</th>
+<th>Purpose
+
+</th>
+</tr>
+<tr>
+<td><font size=2><code>
+    String()
+    <br>
+    String (byte[])
+    <br>
+    String (byte[], int, int)
+    <br>
+    String (byte[], int, int, String)
+    <br>
+    String (byte[], String)
+    <br>
+    String (char[])
+    <br>
+    String (char[], int, int)
+    <br>
+    String (String)
+    <br>
+    String (StringBuffer)
+    </code></font>
+
+</td>
+<td> Creates a new string object.
+     For all constructors that take arguments,
+     the first argument provides the value for the string.
+</td>
+</tr>
+
+</table>
+
+</blockquote>
+
+
+<h3>Other Interesting Features</h3>
+<blockquote>
+<code>String</code> and <code>StringBuffer</code> provide several 
+other useful ways to manipulate
+string data, including concatenation, comparison, substitution, 
+and conversion to upper and lower case.
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/String.html"><font color="#8800bb"><code>java.lang.String</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/String.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> and
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/StringBuffer.html"><font color="#8800bb"><code>java.lang.StringBuffer</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/StringBuffer.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> summarize and list all of the methods and variables supported by these two classes.
+<P>
+
+Here's a fun program, <CODE>Palindrome</CODE>, that determines whether a string is a palindrome. This program uses many methods from the <CODE>String</CODE> and the <CODE>StringBuffer</CODE> classes:
+
+<blockquote><pre>
+public class Palindrome {
+    public static boolean isPalindrome(String stringToTest) {
+        String workingCopy = removeJunk(stringToTest);
+        String reversedCopy = reverse(workingCopy);
+
+        return reversedCopy.equalsIgnoreCase(workingCopy);
+    }
+
+    protected static String removeJunk(String string) {
+        int i, len = string.length();
+        StringBuffer dest = new StringBuffer(len);
+        char c;
+
+        for (i = (len - 1); i >= 0; i--) {
+            c = string.charAt(i);
+            if (Character.isLetterOrDigit(c)) {
+                dest.append(c);
+            }
+        }
+
+        return dest.toString();
+    }
+
+    protected static String reverse(String string) {
+        StringBuffer sb = new StringBuffer(string);
+
+        return sb.reverse().toString();
+    }
+
+    public static void main(String[] args) {
+        String string = "Madam, I'm Adam.";
+
+        System.out.println();
+        System.out.println("Testing whether the following "
+                           + "string is a palindrome:");
+        System.out.println("    " + string);
+        System.out.println();
+
+        if (isPalindrome(string)) {
+            System.out.println("It IS a palindrome!");
+        } else {
+            System.out.println("It is NOT a palindrome!");
+        }
+        System.out.println();
+    }
+}
+</pre></blockquote>
+
+The output from this program is:
+
+<blockquote><pre>
+Testing whether the following string is a palindrome:
+    Madam, I'm Adam.
+
+It IS a palindrome!
+</pre></blockquote>
+
+
+</blockquote>
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="stringsAndJavac.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#data" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="QandE/characters-questions.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Answers to Questions and Exercises: Managing Inheritance</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="../QandE/inherit-questions.html" target="_top"><img src="../../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../../TOC.html#javaOO" target="_top"><img src="../../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+</td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="../index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../../search.html" target="_top">Search</a>
+<br><a href="../../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+
+<img src="../../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<font size="-1">
+<b>Trail</b>: Learning the Java Language
+<br>
+<b>Lesson</b>: Classes and Inheritance 
+</font>
+
+<h2>
+Answers to Questions and Exercises: Managing Inheritance
+</h2>
+<blockquote>
+</blockquote>
+<H3>Questions</H3>
+<blockquote>
+
+<FONT COLOR="RED">Question 1:</FONT> Consider the following two classes:
+
+<blockquote><pre>
+public class ClassA {
+    public void methodOne(int i) {
+    }
+    public void methodTwo(int i) {
+    }
+    public static void methodThree(int i) {
+    }
+    public static void methodFour(int i) {
+    }
+}
+
+public class ClassB extends ClassA {
+    public static void methodOne(int i) {
+    }
+    public void methodTwo(int i) {
+    }
+    public void methodThree(int i) {
+    }
+    public static void methodFour(int i) {
+    }
+}
+</pre></blockquote>
+
+<blockquote>
+<FONT COLOR="RED">Question 1a:</FONT> Which method overrides a method in the superclass?<BR>
+<FONT COLOR="GREEN"> Answer 1a:</FONT> <code>methodTwo</code>
+
+<P>
+<FONT COLOR="RED">Question 1b:</FONT> Which method hides a method in the superclass?<BR>
+<FONT COLOR="GREEN"> Answer 1b:</FONT> <code>methodFour</code>
+
+<P>
+
+<FONT COLOR="RED">Question 1c:</FONT> What do the other methods do?<BR>
+<FONT COLOR="GREEN"> Answer 1c:</FONT> They generate compile-time errors.
+</blockquote>
+
+<P>
+
+<FONT COLOR="RED">Question 2:</FONT> Consider the 
+<a target="_blank" href="../example/Card.java"><font color="#bb000f"><code>Card</code></font></a><a target="_blank" href="../example/Card.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>, 
+<a target="_blank" href="../example/Deck.java"><font color="#bb000f"><code>Deck</code></font></a><a target="_blank" href="../example/Deck.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>, and 
+<a target="_blank" href="../example/DisplayDeck.java "><font color="#bb000f"><code>DisplayDeck</code></font></a><a target="_blank" href="../example/DisplayDeck.java "><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>  
+classes you wrote in the previous exercise. What <code>Object</code> 
+methods should each of these classes override?
+
+<BR>
+
+<FONT COLOR="GREEN"> Answer 2:</FONT> 
+<code>Card</code> should override <code>equals</code>, 
+<code>hashCode</code>, and <code>toString</code>. 
+<code>Deck</code> could override <code>toString</code>, 
+but you probably wouldn't ever do that.
+
+</blockquote>
+<P>
+
+<!-- Start Exercises -->
+
+<h3>Exercises</h3>
+<blockquote>
+
+<FONT COLOR="RED">Exercise 1:</FONT>  Write the implementations 
+for the methods that you answered in question 2.
+<BR>
+<FONT COLOR="GREEN"> Answer 1:</FONT>
+See 
+<!-- /java/javaOO/example/Card2.java -->
+<a target="_blank" href="../example/Card2.java "><font color="#bb000f"><code>Card2</code></font></a><a target="_blank" href="../example/Card2.java "><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>.
+<P>
+
+<FONT COLOR="RED">Exercise 2:</FONT> Write an abstract class. 
+Write at least two of its nonabstract subclasses.
+<BR>
+<FONT COLOR="GREEN"> Answer 2:</FONT>
+If you <a href="../../../forms/sendusmail.html" target="_top">tell us</a> your solution, we'll post the best one.
+<!-- PENDING -->
+</blockquote>
+
+<P>
+
+
+
+</blockquote>
+
+<img src="../../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="../QandE/inherit-questions.html" target="_top"><img src="../../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../../TOC.html#javaOO" target="_top"><img src="../../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+</td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="../index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../../search.html" target="_top">Search</a>
+<br><a href="../../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

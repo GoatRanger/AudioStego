@@ -1,0 +1,161 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Modifying StringBuffers</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="moreaccessors.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#data" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="conversion.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Learning the Java Language
+<br>
+<b>Lesson</b>: Object Basics and Simple Data Objects
+</font>
+
+<h2>
+Modifying StringBuffers
+</h2>
+<blockquote>
+The <code>reverseIt</code> method uses <code>StringBuffer</code>'s
+<code>append</code> method to
+add a character to the end of the destination string: <code>dest</code>.
+
+<blockquote><pre>
+class ReverseString {
+    public static String reverseIt(String source) {
+        int i, len = source.length();
+        StringBuffer dest = new StringBuffer(len);
+
+        for (i = (len - 1); i &gt;= 0; i--) {
+            <strong>dest.append(source.charAt(i));</strong>
+        }
+        return dest.toString();
+    }
+}
+</pre></blockquote>
+
+If the appended character causes the size of the <code>StringBuffer</code> to grow
+beyond its current capacity, the <code>StringBuffer</code> allocates more memory.
+Because memory allocation is a relatively expensive operation, you can make
+your code more efficient by initializing a <code>StringBuffer</code>'s capacity to a
+reasonable first guess, thereby minimizing the number of times memory
+must be allocated for it. For example, the <code>reverseIt</code> method
+constructs the <code>StringBuffer</code> with an initial capacity equal to the length
+of the source string, ensuring only one memory allocation for <code>dest</code>.
+<p>
+The version of the <code>append</code> method used in <code>reverseIt</code>
+is only one of the <code>StringBuffer</code> methods that appends data to the end of a
+<code>StringBuffer</code>. There are several <code>append</code> methods that append
+data of various types, such as <code>float</code>, <code>int</code>, <code>boolean</code>,
+and even <code>Object</code>, to the end of the <code>StringBuffer</code>. The data is
+converted to a string before the append operation takes place.
+
+</blockquote>
+<h3>Inserting Characters</h3>
+<blockquote>
+At times, you may want to insert data into the middle of a <code>StringBuffer</code>.
+You do this with one of StringBufffer's <code>insert</code> methods.
+This example illustrates how you would insert a string into a <code>StringBuffer</code>:
+<blockquote><pre>
+StringBuffer sb = new StringBuffer("Drink Java!");
+sb.insert(6, "Hot ");
+System.out.println(sb.toString());
+</pre></blockquote>
+This code snippet prints:
+<blockquote><pre>
+Drink Hot Java!
+</pre></blockquote>
+With <code>StringBuffer</code>'s many <code>insert</code> methods,
+you specify the index <em>before</em> which you want the data inserted.
+In the example, "<strong>Hot </strong>" needed to be inserted before the 'J'
+in "<strong>Java</strong>". Indices begin at 0, so the index for 'J' is 6.
+To insert data at the beginning of a <code>StringBuffer</code>, use an index of 0.
+To add data at the end of a <code>StringBuffer</code>, use an index equal to the current
+length of the <code>StringBuffer</code> or use <code>append</code>.
+</blockquote>
+
+<h3>Setting Characters</h3>
+<blockquote>
+Another useful <code>StringBuffer</code> modifier is <code>setCharAt</code>, which
+replaces the character at a specific location in the <code>StringBuffer</code>
+with the character specified in the argument list..
+<code>setCharAt</code> is useful when you want to reuse a <code>StringBuffer</code>.
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="moreaccessors.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#data" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="conversion.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

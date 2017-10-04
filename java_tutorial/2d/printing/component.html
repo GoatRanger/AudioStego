@@ -1,0 +1,168 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Printing the Contents of a Component</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="overview.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#printing" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="pagesetup.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: 2D Graphics
+<br>
+<b>Lesson</b>: Printing
+</font>
+
+<h2>
+Printing the Contents of a Component
+</h2>
+<blockquote>
+Anything that you render to the screen can also be printed. You can
+easily use a Printable job to print the contents of a component.
+
+</blockquote>
+<h3>Example: ShapesPrint</h3>
+<blockquote>
+In this example we use the same rendering code to both display and
+print the contents of a component. When the user clicks the Print
+button, a print job is created, and <CODE>printDialog</CODE> is called
+to display the print dialog. If the user continues with the job, the
+printing process is initiated, and the printing system calls
+<CODE>print</CODE> as necessary to render the job to the printer.
+ 
+<p><center><a href="../../figures/2d/2D-56.gif " target="_top"><IMG SRC="../../figures/2d/2D-56.gif " WIDTH="460" HEIGHT="388" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></a><br><em>This figure has been reduced to fit on the page. <br> Click the image to view it at its natural size.</em></center></p>
+<P>
+<CODE>ShapesPrint</CODE> is the page painter. Its <CODE>print</CODE>
+method calls <CODE>drawShapes</CODE> to perform the imaging for the
+print job. (The <CODE>drawShapes</CODE> method is also called by
+<CODE>paintComponent</CODE> to render to the screen.)
+<blockquote><pre>
+public class ShapesPrint extends JPanel
+                         implements Printable, ActionListener {
+...
+public int print(Graphics g, PageFormat pf, int pi)
+                          throws PrinterException {
+    if (pi &gt;= 1) {
+        return Printable.NO_SUCH_PAGE;
+    }
+    drawShapes((Graphics2D) g);
+    return Printable.PAGE_EXISTS;
+}
+...
+public void drawShapes(Graphics2D g2) {
+    Dimension d = getSize();
+    int gridWidth = 400/6;
+    int gridHeight = 300/2;
+    int rowspacing = 5;
+    int columnspacing = 7;
+    int rectWidth = gridWidth - columnspacing;
+    int rectHeight = gridHeight - rowspacing;
+    ...
+
+    int x = 85;
+    int y = 87;
+    ...
+    g2.draw(new Rectangle2D.Double(x,y,rectWidth,rectHeight));
+    ...
+</pre></blockquote>
+<P>
+The job control code is in the <CODE>ShapesPrint</CODE>
+<CODE>actionPerformed</CODE> method.
+<blockquote><pre>
+public void actionPerformed(ActionEvent e) {
+    if (e.getSource() instanceof JButton) {
+        PrinterJob printJob = PrinterJob.getPrinterJob();
+        printJob.setPrintable(this);
+        if (printJob.printDialog()) {
+            try {
+                printJob.print();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+    }
+}
+</pre></blockquote>
+<P>
+You can find the complete code for this program in
+
+<a target="_blank" href="example-1dot2/ShapesPrint.java"><font color="#bb000f"><code>ShapesPrint.java</code></font></a><a target="_blank" href="example-1dot2/ShapesPrint.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>.
+
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="overview.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#printing" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="pagesetup.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

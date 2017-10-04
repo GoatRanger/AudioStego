@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.publics.DJIUI.DJILinearLayout xmlns:android="http://schemas.android.com/apk/res-auto" LiveShare:layout_gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" LiveShare:orientation="vertical" LiveShare:layout_width="match_parent" LiveShare:layout_height="match_parent">
+    <dji.publics.DJIUI.DJIRelativeLayout LiveShare:layout_width="match_parent" LiveShare:layout_height="UNKNOWN_DATA_0x7f0b0311" />
+    <dji.publics.DJIUI.DJIRelativeLayout LiveShare:layout_width="match_parent" LiveShare:layout_height="wrap_content">
+        <ImageButton LiveShare:id="@+id/liveshare_back_btn" LiveShare:background="@drawable/setting_ui_common_bg" LiveShare:layout_width="UNKNOWN_DATA_0x7f0b0337" LiveShare:layout_height="UNKNOWN_DATA_0x7f0b0337" LiveShare:src="@drawable/setting_ui_root_back" LiveShare:layout_centerVertical="true" />
+        <dji.publics.DJIUI.DJITextView LiveShare:textSize="@dimen/ro" LiveShare:textColor="@color/om" LiveShare:layout_width="wrap_content" LiveShare:layout_height="wrap_content" LiveShare:text="@string/liveshare_base_live_select_type" LiveShare:layout_centerInParent="true" />
+        <dji.publics.DJIUI.DJITextView LiveShare:textColor="@r$color/liveshare_subview_btn_text_color_blue" LiveShare:id="@+id/liveshare_done_tv" LiveShare:layout_width="wrap_content" LiveShare:layout_height="wrap_content" LiveShare:layout_marginRight="@dimen/uf" LiveShare:text="@string/liveshare_base_done" LiveShare:layout_alignParentRight="true" LiveShare:layout_centerVertical="true" />
+    </dji.publics.DJIUI.DJIRelativeLayout>
+    <dji.pilot.liveshare.base.widget.LiveSelectRadioButton LiveShare:id="@+id/liveshare_selector_public" LiveShare:layout_width="match_parent" LiveShare:layout_height="wrap_content" LiveShare:shareType="public" />
+    <dji.pilot.liveshare.base.widget.LiveSelectRadioButton LiveShare:id="@+id/liveshare_selector_friend" LiveShare:layout_width="match_parent" LiveShare:layout_height="wrap_content" LiveShare:shareType="friend" />
+    <dji.pilot.liveshare.base.widget.LiveSelectRadioButton LiveShare:id="@+id/liveshare_selector_private" LiveShare:layout_width="match_parent" LiveShare:layout_height="wrap_content" LiveShare:shareType="private" />
+</dji.publics.DJIUI.DJILinearLayout>

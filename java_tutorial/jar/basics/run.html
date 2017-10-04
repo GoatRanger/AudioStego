@@ -1,0 +1,232 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Running JAR-Packaged Software</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="update.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#basics" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="manifest.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: JAR Files
+<br>
+<b>Lesson</b>: Using JAR Files: The Basics
+</font>
+
+<h2>
+Running JAR-Packaged Software
+</h2>
+<blockquote>
+Now that you've learned how to create JAR files, how do you 
+actually run the code that you've packaged?  Consider these 
+three scenarios:
+<ul>
+<li>Your JAR file contains an applet that is to be run inside 
+a browser.
+<li>Your JAR file contains an application that is to be invoked 
+from the command line. 
+<li>Your JAR file contains code that you want to use as an 
+extension.
+</ul>
+<p>
+
+This section will cover the first two situations. A separate trail 
+in the tutorial on the <a href="../../ext/index.html">extension 
+mechanism</a> covers the use of JAR files as extensions.
+
+
+
+
+</blockquote>
+<h3>Applets Packaged in JAR Files</h3>
+<blockquote>
+To invoke any applet from an HTML file for running inside a browser, 
+you need to use the APPLET tag. 
+(See the <a href="../../applet/index.html">Writing Applets</a> trail 
+for information on applets.)
+If the applet is bundled as a JAR file, the only thing you need to 
+do differently is to use the <em>ARCHIVE</em> parameter to specify 
+the relative path to the JAR file.
+<p>
+As an example, let's use (again!) the TicTacToe demo applet that 
+ships with the Java<font size="-2"><sup>TM</sup></font> Development Kit. 
+The APPLET tag in the HTML file that calls the demo looks like this:
+<blockquote><pre>
+&lt;applet code=TicTacToe.class 
+        width=120 height=120&gt;
+&lt;/applet&gt;
+</pre></blockquote>
+If the TicTacToe demo were packaged in a JAR file named 
+<tt>TicTacToe.jar</tt>, 
+you could modify the APPLET tag with the simple addition of an 
+ARCHIVE parameter:
+<blockquote><pre>
+&lt;applet code=TicTacToe.class 
+        archive="TicTacToe.jar"
+        width=120 height=120&gt;
+&lt;/applet&gt;
+</pre></blockquote>
+The ARCHIVE parameter specifies the relative path to the JAR file that 
+contains <tt>TicTacToe.class</tt>.  This example assumes that 
+the JAR file and the HTML file are in the same directory.  If they're 
+not, you would need to include the JAR file's relative path in the 
+ARCHIVE parameter's value. For example, if the JAR file was one directory 
+below the HTML file in a directory called <tt>applets</tt>, the APPLET 
+tag would look like this:
+<blockquote><pre>
+&lt;applet code=TicTacToe.class 
+        archive="applets/TicTacToe.jar"
+        width=120 height=120&gt;
+&lt;/applet&gt;
+</pre></blockquote>
+</blockquote>
+
+<h3>Applications Packaged in JAR Files - <em>1.1 platform</em></h3>
+<blockquote>
+You can run applications that are bundled as JAR files by using the 
+JDK<font size="-2"><sup>TM</sup></font> 1.1 <tt>jre</tt> tool:
+<blockquote><pre>
+jre -cp <i>app.jar MainClass</i>
+</pre></blockquote>
+<p>
+In version 1.1 of the JDK software, the <tt>-cp</tt> option prepends 
+the <tt>app.jar</tt> file to the system classpath.  <tt>MainClass</tt> 
+identifies the class within the JAR file that is the application's entry 
+point. (Recall that in an application, one of the classes must have a 
+method with the signature 
+<tt>public&nbsp;static&nbsp;void&nbsp;main(String[]&nbsp;args)</tt> that 
+serves as entry or starting point for the application.) 
+</blockquote>
+
+<a name="1.2"></a>
+<h3>JAR Files as Applications - <em>1.2 platform only</em></h3>
+<blockquote>
+In version 1.2 of the JDK software, you can run JAR-packaged 
+applications with the Java interpreter.  The basic command is:
+<blockquote><pre>
+java -jar <i>jar-file</i>
+</pre></blockquote>
+
+The <tt>-jar</tt> flag tells the interpreter 
+that the application is packaged in the JAR file format. 
+<p>
+<blockquote>
+<hr>
+<em><b>Note:</b> The -jar option is not available for interpreters prior to 
+version 1.2 of the Java Development Kit.</em>
+<hr></blockquote>
+<p>
+Before this command will work, however, the runtime environment needs 
+to know which class within the JAR file is the application's entry point. 
+<p>
+To indicate which class is the application's entry point,  
+you must add a <tt>Main-Class</tt> header to the JAR file's 
+<a href="manifest.html">manifest</a>. The header takes the form:
+<blockquote><pre>
+Main-Class: <i>classname</i>
+</pre></blockquote>
+The header's value, <tt>classname</tt>, is the name of the class that's 
+the application's entry point.
+<p>
+To create a JAR file having a manifest with the appropriate 
+<tt>Main-Class</tt> header, you can use the Jar tool's <tt>m</tt> flag 
+as described in the <a href="mod.html">Modifying a Manifest</a> section. You 
+would first prepare a text file consisting of single 
+line with the <tt>Main-Class</tt> header and value.  For example, 
+if your application was the single-class HelloWorld application, 
+the entry point would of course be the HelloWorld class, and your 
+text file would have this line:
+<blockquote><pre>
+Main-Class: HelloWorld
+</pre></blockquote>
+Assuming your text file was in a file called <tt>mainClass</tt>, 
+you could merge it into a JAR file's manifest with a command 
+such as this:
+<blockquote><pre>
+jar cmf mainClass app.jar HelloWorld.class
+</pre></blockquote>
+With your JAR file prepared in this way, you can run the HelloWorld 
+application from the command line:
+<blockquote><pre>
+java -jar app.jar
+</pre></blockquote>
+
+
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="update.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#basics" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="manifest.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

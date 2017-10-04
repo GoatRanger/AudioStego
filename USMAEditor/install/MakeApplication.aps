@@ -1,0 +1,27 @@
+################################################################################
+# An .aps file contains some settings for the exe generator.
+#
+#
+# 'command' the command line to be executed by the generated executable.
+# [mandatory]
+# command=notepad.exe
+command = java -classpath .;activation.jar;cssvalidator.jar;flute.jar;jakarta-oro.jar;jalopy.jar;jdom.jar;log4j.jar;mail.jar;sac.jar;servlet.jar;tools.jar;xerces.jar;editor.jar;editordocs.jar;utility.jar;problemsets.jar eecs.editor.EditorTabbed
+
+# The name of a 32x32 pixels .ico file (without the .ico extension). This icon 
+# is displayed on the Windows Desktop and in other places for the generated 
+# executable.
+# The name must be relative to the project root.
+# [optional]
+# icon = myIcon
+
+# The name of a 16x16 pixels .ico file (without the .ico extension). This icon 
+# is displayed in the Windows Explorer and in other places for the generated 
+# executable.
+# The name must be relative to the project root.
+# [optional]
+# smallIcon = mySmallIcon
+
+# The name of the executable to be generated (without the .exe extension).
+# [optional]
+# executableName = myExe
+executableName = IT105Editor

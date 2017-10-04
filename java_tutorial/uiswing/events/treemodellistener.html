@@ -1,0 +1,250 @@
+
+
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>How to Write a Tree Model Listener</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="treeexpansionlistener.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#events" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="treeselectionlistener.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Creating a GUI with JFC/Swing
+<br>
+<b>Lesson</b>: Writing Event Listeners
+</font>
+
+<h2>
+How to Write a Tree Model Listener
+</h2>
+<blockquote>
+
+By implementing a tree model listener,
+you can detect when the data displayed by a 
+<a target="_top" href="../components/tree.html">tree</a><a target="_top" href="../components/tree.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>
+ changes.
+You might use a tree model listener
+to detect when the user edits tree nodes.
+To see an example and discussion of doing so,
+read
+<a target="_top" href="../components/tree.html#dynamic">Dynamically Changing a Tree</a><a target="_top" href="../components/tree.html#dynamic"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.
+
+
+</blockquote>
+<h3>
+<a name="api">The Tree Model Listener API</a>
+</h3>
+<blockquote>
+
+<p align=center><a name="treemodellistener">The TreeModelListener
+   Interface</a>
+<p><em><code>TreeModelListener</code> has no adapter class.</em>
+<table border=1>
+<tr>
+<th align=left>Method</th>
+<th align=left>Purpose</th>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/event/TreeModelListener.html#treeNodesChanged(javax.swing.event.TreeModelEvent)"><font color="#8800bb"><font size=2><code>treeNodesChanged(TreeModelEvent)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/event/TreeModelListener.html#treeNodesChanged(javax.swing.event.TreeModelEvent)"></a></td>
+<td> Called when one or more sibling nodes have changed in some way.
+</td>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/event/TreeModelListener.html#treeNodesInserted(javax.swing.event.TreeModelEvent)"><font color="#8800bb"><font size=2><code>treeNodesInserted(TreeModelEvent)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/event/TreeModelListener.html#treeNodesInserted(javax.swing.event.TreeModelEvent)"></a></td>
+<td> Called after nodes have been inserted into the tree.
+</td>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/event/TreeModelListener.html#treeNodesRemoved(javax.swing.event.TreeModelEvent)"><font color="#8800bb"><font size=2><code>treeNodesRemoved(TreeModelEvent)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/event/TreeModelListener.html#treeNodesRemoved(javax.swing.event.TreeModelEvent)"></a></td>
+<td> Called after nodes have been removed from the tree.
+</td>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/event/TreeModelListener.html#treeStructureChanged(javax.swing.event.TreeModelEvent)"><font color="#8800bb"><font size=2><code>treeStructureChanged(TreeModelEvent)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/event/TreeModelListener.html#treeStructureChanged(javax.swing.event.TreeModelEvent)"></a></td>
+<td> Called after the tree's structure has drastically changed.
+</td>
+</tr>
+</table>
+
+<p align=center><a name="treemodelevent">The TreeModelEvent API</a>
+<p>
+<table border=1>
+<tr>
+<th align=left>Method</th>
+<th align=left>Purpose</th>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/EventObject.html#getSource()"><font color="#8800bb"><font size=2><code>Object getSource()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/EventObject.html#getSource()"></a><br>(<em>in <code>java.util.EventObject</code></em>)
+</td>
+<td> Return the object that fired the event.
+</td>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/event/TreeModelEvent.html#getChildIndices()"><font color="#8800bb"><font size=2><code>int[] getChildIndices()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/event/TreeModelEvent.html#getChildIndices()"></a></td>
+<td> For <code>treeNodesChanged</code>,
+     <code>treeNodesInserted</code>, and
+     <code>treeNodesRemoved</code>,
+     returns the indices of the changed, inserted, or deleted nodes,
+     respectively.
+     Returns nothing useful for <code>treeStructureChanged</code>.
+</td>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/event/TreeModelEvent.html#getChildren()"><font color="#8800bb"><font size=2><code>Object[] getChildren()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/event/TreeModelEvent.html#getChildren()"></a></td>
+<td> Returns the objects corresponding to the child indices.
+</td>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/event/TreeModelEvent.html#getPath()"><font color="#8800bb"><font size=2><code>Object[] getPath()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/event/TreeModelEvent.html#getPath()"></a></td>
+<td> Returns the path to the parent of the changed, inserted, 
+     or deleted nodes.
+     For <code>treeStructureChanged</code>,
+     returns the path to the node beneath which
+     the structure has changed.
+</td>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/event/TreeModelEvent.html#getTreePath()"><font color="#8800bb"><font size=2><code>TreePath getTreePath()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/event/TreeModelEvent.html#getTreePath()"></a></td>
+<td> Returns the same thing as <code>getPath</code>,
+     but as a 
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/tree/TreePath.html"><font color="#8800bb"><code>TreePath</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/tree/TreePath.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>     object.
+</td>
+</tr>
+</table>
+</blockquote>
+
+<a name="eg">
+<h3>Examples that Use Tree Model Listeners</h3>
+</a>
+<blockquote>
+
+The following table lists the
+examples that use tree expansion listeners.
+
+<p>
+
+<table>
+<tr>
+<th align=left> Example
+</th>
+<th align=left> Where Described
+</th>
+<th align=left> Notes
+
+</th>
+</tr>
+
+<tr valign=top>
+<td> <a href="../components/example-1dot4/index.html#DynamicTreeDemo"><code>DynamicTreeDemo</code></a>
+</td>
+<td>
+<a target="_top" href="../components/tree.html#dynamic">How to Use Trees</a><a target="_top" href="../components/tree.html#dynamic"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a></td>
+
+<td> The <code>DynamicTree</code>
+     class implements a tree model listener to detect
+     when the user has edited a node's data.
+
+</td>
+</tr>
+</table>
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="treeexpansionlistener.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#events" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="treeselectionlistener.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

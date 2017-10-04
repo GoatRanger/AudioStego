@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent">
+    <View android:id="@+id/divider" android:background="@r$color/standard3_0_unable_text_color" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x100" android:layout_marginTop="@dimen/fj" />
+    <LinearLayout android:orientation="horizontal" android:focusable="true" android:focusableInTouchMode="true" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/fj" android:layout_marginBottom="@dimen/fj" android:layout_below="@+id/divider">
+        <EditText android:layout_gravity="top|bottom|center_vertical|fill_vertical|center|fill" android:id="@+id/edit_comment" android:background="@r$drawable/gl_comment_bg" android:layout_width="UNKNOWN_DATA_0x1" android:layout_height="UNKNOWN_DATA_0x7f0b0123" android:layout_marginLeft="@dimen/fj" android:layout_marginRight="@dimen/fj" android:hint="@string/v2_guide_comment_tip" android:layout_weight="1.0" />
+        <dji.pilot.publics.widget.DJIStateTextView android:textColor="@color/om" android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@+id/send_button" android:background="@r$drawable/gl_sendbutton_bg" android:layout_width="UNKNOWN_DATA_0x7f0b0138" android:layout_height="UNKNOWN_DATA_0x7f0b0123" android:layout_marginRight="@dimen/fj" android:text="@string/v2_guide_comment_send" />
+    </LinearLayout>
+</RelativeLayout>

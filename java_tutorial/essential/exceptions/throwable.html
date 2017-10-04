@@ -1,0 +1,158 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>The Throwable Class and Its Subclasses</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="throw.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#exceptions" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="creating.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Essential Java Classes
+<br>
+<b>Lesson</b>: Handling Errors with Exceptions
+</font>
+
+<h2>
+The Throwable Class and Its Subclasses
+</h2>
+<blockquote>
+As you learned on the previous page, you can throw only objects that derive
+from the <code>Throwable</code> class. This includes direct descendants (that is, objects
+that derive directly from the <code>Throwable</code> class) as well as indirect descendants
+(objects that derive from children or grandchildren of the <code>Throwable</code> class).
+
+<p>
+This diagram illustrates the class hierarchy of the <code>Throwable</code> class and its
+most significant subclasses.
+
+<p><center><IMG SRC="../../figures/essential/8object.gif" WIDTH="403" HEIGHT="207" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p>
+As you can see from the diagram, <code>Throwable</code> has two direct descendants:
+<code>Error</code> and <code>Exception</code>.
+
+</blockquote>
+<h3>Errors</h3>
+<blockquote>
+When a dynamic linking failure or some other "hard"
+failure in the virtual machine occurs, the virtual
+machine throws an <code>Error</code>. Typical Java programs
+should not catch <code>Error</code>s. In addition, it's unlikely that
+typical Java programs will ever throw <code>Error</code>s either.
+</blockquote>
+
+<h3>Exceptions</h3>
+<blockquote>
+Most programs throw and catch objects that derive from the
+<code>Exception</code> class. <code>Exception</code>s indicate that a problem occurred
+but that the problem is not a serious systemic problem. Most programs
+you write will throw and catch <code>Exception</code>s.
+<p>
+The <code>Exception</code> class has many descendants defined in the Java packages.
+These descendants indicate various types of exceptions that can occur.
+For example, <code>IllegalAccessException</code> signals that a particular method
+could not be found, and <code>NegativeArraySizeException</code> indicates that a program
+attempted to create an array with a negative size.
+<p>
+One <code>Exception</code> subclass has special meaning in the Java language: <code>RuntimeException</code>.
+</blockquote>
+
+<a name=RuntimeExceptions>
+<h3>Runtime Exceptions</h3>
+</a>
+<blockquote>
+The <code>RuntimeException</code> class represents exceptions that occur within the Java
+virtual machine (during runtime). An example of a runtime exception is
+<code>NullPointerException</code>, which occurs when a method tries to access a member
+of an object through a null reference. A <code>NullPointerException</code> can occur anywhere
+a program tries to dereference a reference to an object. The cost of checking
+for the exception often outweighs the benefit of catching it.
+<p>
+Because runtime exceptions are so ubiquitous and attempting to catch or
+specify all of them all the time would be a fruitless exercise (and a
+fruitful source of unreadable and unmaintainable code), the compiler allows
+runtime exceptions to go uncaught and unspecified.
+<p>
+The Java packages define several <code>RuntimeException</code> classes. You can
+catch these exceptions just like other exceptions. However, a method is not
+required to specify that it throws <code>RuntimeExceptions</code>. In addition, you
+can create your own <code>RuntimeException</code> subclasses.
+<a href=runtime.html>Runtime Exceptions--The Controversy</a> contains a thorough
+discussion of when and how to use runtime exceptions.
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="throw.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#exceptions" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="creating.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

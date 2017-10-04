@@ -1,0 +1,4 @@
+org/openscience/cdk/charges/GasteigerMarsiliPartialCharges*.class
+org/openscience/cdk/charges/GasteigerPEPEPartialCharges*.class
+org/openscience/cdk/charges/InductivePartialCharges*.class
+org/openscience/cdk/charges/AtomTypeCharges*.class

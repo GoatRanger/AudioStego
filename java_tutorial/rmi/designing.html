@@ -1,0 +1,208 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Designing a Remote Interface</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="server.html" target="_top"><img src="../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="./TOC.html" target="_top"><img src="../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="implementing.html" target="_top"><img src="../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="./index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../search.html" target="_top">Search</a>
+<br><a href="../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: RMI
+</font>
+
+<h2>
+Designing a Remote Interface
+</h2>
+<blockquote>
+At the heart of the compute engine is a protocol that allows jobs to be
+submitted to the compute engine, the compute engine to run those jobs,
+and the results of the job to be returned to the client. This protocol
+is expressed in interfaces supported by the compute engine and by the
+objects that are submitted to the compute engine, as shown in the
+following figure.
+
+<p><center><IMG SRC="../figures/rmi/rmi-3.gif" WIDTH="283" HEIGHT="65" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p>
+<P>
+Each of the interfaces contains a single method. The compute engine's
+interface, <CODE>Compute</CODE>, allows jobs to be submitted to the
+engine; the client interface, <CODE>Task,</CODE> defines how the
+compute engine executes a submitted task.
+<P>
+The
+
+<a target="_blank" href="example-1dot2/compute/Compute.java"><font color="#bb000f"><code><CODE>compute.Compute</CODE></code></font></a><a target="_blank" href="example-1dot2/compute/Compute.java"><img src="../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>
+interface defines the remotely
+accessible part--the compute engine itself.
+Here is the remote interface with its single method:
+<blockquote><pre>
+package compute;
+
+import java.rmi.Remote;
+import java.rmi.RemoteException;
+
+public interface Compute extends Remote {
+    Object executeTask(Task t) throws RemoteException;
+}
+</pre></blockquote>
+<P>
+By extending the interface <CODE>java.rmi.Remote</CODE>,
+this interface marks itself as one whose methods can be called from any
+virtual machine. Any object that implements this interface becomes a
+remote object.
+<P>
+As a member of a remote interface, the <CODE>executeTask</CODE> method
+is a remote method. Therefore the method must be defined as being
+capable of throwing a <CODE>java.rmi.RemoteException</CODE>. This
+exception is thrown by the RMI system during a remote method call to
+indicate that either a communication failure or a protocol error has
+occurred. A <CODE>RemoteException</CODE> is a checked exception, so any
+code making a call to a remote method needs to handle this exception by
+either catching it or declaring it in its <CODE>throws</CODE> clause.
+<P>
+The second interface needed for the compute engine defines the type
+<CODE>Task</CODE>. This type is used as the argument to the
+<CODE>executeTask</CODE> method in the <CODE>Compute</CODE> interface.
+The
+
+<a target="_blank" href="example-1dot2/compute/Task.java"><font color="#bb000f"><code><CODE>compute.Task</CODE></code></font></a><a target="_blank" href="example-1dot2/compute/Task.java"><img src="../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>
+interface defines the interface between
+the compute engine and the work that it needs to do, providing the way
+to start the work.
+<blockquote><pre>
+package compute;
+
+import java.io.Serializable;
+
+public interface Task extends Serializable {
+    Object execute();
+}
+</pre></blockquote>
+<P>
+The <CODE>Task</CODE> interface defines a single method,
+<CODE>execute</CODE>, which returns an <CODE>Object</CODE>,
+has no parameters, and throws no exceptions.
+Since the interface does not extend <CODE>Remote</CODE>,
+the method in this interface doesn't need to list
+<CODE>java.rmi.RemoteException</CODE> in its <CODE>throws</CODE>
+clause.
+<P>
+The return value for the <CODE>Compute</CODE>'s <CODE>executeTask</CODE>
+and <CODE>Task</CODE>'s <CODE>execute</CODE> methods is declared to be of type
+<CODE>Object</CODE>. This means that any task that wants to return a
+value of one of the primitive types, such as an <CODE>int</CODE> or a
+<CODE>float</CODE>, needs to create an instance of the equivalent
+wrapper class for that type, such as an <CODE>Integer</CODE> or a
+<CODE>Float</CODE>, and return that object instead.
+<P>
+Note that the <CODE>Task</CODE> interface extends the
+<CODE>java.io.Serializable</CODE> interface. RMI uses the object
+serialization mechanism to transport objects by value between Java
+virtual machines. Implementing <CODE>Serializable</CODE> marks the
+class as being capable of conversion into a self-describing byte stream
+that can be used to reconstruct an exact copy of the serialized object
+when the object is read back from the stream.
+<P>
+Different kinds of tasks can be run by a <CODE>Compute</CODE>
+object as long as they are implementations of the <CODE>Task</CODE>
+type. The classes that implement this interface can contain any data
+needed for the computation of the task and any other methods needed for
+the computation.
+<P>
+Here is how RMI makes this simple compute engine possible.
+Since RMI can assume that the <CODE>Task</CODE>
+objects are written in the Java programming language,
+implementations of the <CODE>Task</CODE>
+object that were previously unknown to the compute engine are
+downloaded by RMI into the compute engine's virtual machine as needed.
+This allows clients of the compute engine to define new kinds of tasks
+to be run on the server machine without needing the code to be
+explicitly installed on that machine. In addition, because the
+<CODE>executeTask</CODE> method returns a <CODE>java.lang.Object</CODE>,
+any type of object can be passed as a return value in the remote call. 
+<P>
+The compute engine, implemented by the <CODE>ComputeEngine</CODE>
+class, implements the <CODE>Compute</CODE>
+interface, allowing different tasks to be submitted to it by calls to
+its <CODE>executeTask</CODE> method. These tasks are run using the
+task's implementation of the <CODE>execute</CODE> method. The compute
+engine reports results to the caller through its return value: an
+<CODE>Object</CODE>.
+</blockquote>
+
+</blockquote>
+
+<img src="../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="server.html" target="_top"><img src="../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="./TOC.html" target="_top"><img src="../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="implementing.html" target="_top"><img src="../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="./index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../search.html" target="_top">Search</a>
+<br><a href="../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>New JavaBeans Features</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="../beancontext/index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#glasgow" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="../end.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+
+<br>
+<font size="-1">
+<b>Trail</b>: JavaBeans(TM)
+</font>
+
+<h2>
+Lesson: New JavaBeans Features
+</h2>
+<blockquote>
+Here is a list of upcoming Beans and Beans-related features:
+
+<ul>
+ <li><b>The Java Activation Framework (JAF)</b>. The JAF is a
+     data typing and command
+     registry API. With the JAF you can discover an arbitrary data
+     object's type, and look command applications or Beans that
+     can process that data type, and activate the appropriate command
+     at a user gesture. For example, a browser can identify a file's
+     data type, and then launch the appropriate plug-in to view
+     or edit the file. The JAF is a Java standard extension. You can get
+     a copy from the JavaBeans
+     
+<a target="_blank" href="http://java.sun.com/beans/glasgow/#activation"><font color="#009bbb">Glasgow web site</font></a><a target="_blank" href="http://java.sun.com/beans/glasgow/#activation"><img src="../../images/otherIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (outside of the tutorial)"></a>. 
+     <p>
+ <li><b>The Extensible Runtime Containment and Services Protocol</b>, also
+     known as <code>beancontext</code>. Previous to this
+     protocol a Bean only knew about and had access to the
+     Java Virtual Machine (JVM) in which the Bean ran, and
+     the core Java APIs. This protocol introduces a
+     standard way for a Bean to discover and access
+     attributes or services provided by a Bean's enclosing
+     environment, and for a Bean's enclosing environment
+     to discover and access a Bean's attributes and services.
+
+     The <code>java.beans.beancontext</code> API introduces 
+     the ability to nest Beans and <i>Bean contexts</i>
+     within a hierarchical structure.
+     At runtime, a Bean can obtain services from its containing enviroment;
+     the Bean can then make use of those services, or propagate those services
+     to any Beans that it contains.
+     <p>
+     <font color="red" size="+1"><b>NEW!</b></font>:
+     Check out our new lesson on beancontext by
+     <a href="../../information/bios.html#hommel">Scott Hommel</a>:
+<a target="_top" href="../beancontext/index.html">Using the BeanContext API</a><a target="_top" href="../beancontext/index.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the JavaBeans(TM) trail)"></a>.
+     <p>
+ <li><b>Drag and Drop Support</b>. The <code>java.awt.dnd</code> API
+     provides support for drag and drop between Java applications
+     and native platform applications.
+
+</ul>
+Check the 
+<a target="_blank" href="http://java.sun.com/beans"><font color="#009bbb">JavaBeans web site</font></a><a target="_blank" href="http://java.sun.com/beans"><img src="../../images/otherIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (outside of the tutorial)"></a> for the latest information.
+
+<p>
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="../beancontext/index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#glasgow" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="../end.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

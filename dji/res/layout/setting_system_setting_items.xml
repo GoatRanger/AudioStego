@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.publics.DJIUI.DJIRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent">
+    <dji.publics.DJIUI.DJILinearLayout android:orientation="vertical" android:id="@+id/mine_menu_main_ly" android:layout_width="match_parent" android:layout_height="match_parent">
+        <dji.pilot2.mine.view.MineButton android:id="@+id/mine_message" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x7f0b012c" />
+        <View android:background="@r$color/v2_mine_profile_border" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x200" />
+        <dji.pilot2.mine.view.MineButton android:id="@+id/mine_dji_collection" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x7f0b012c" />
+        <View android:background="@r$color/v2_mine_profile_border" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x200" />
+        <dji.pilot2.mine.view.MineButton android:id="@+id/mine_dji_more" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x7f0b012c" />
+        <View android:background="@r$color/v2_mine_profile_border" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x200" />
+        <View android:background="@r$color/v2_mine_profile_border" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x200" android:layout_marginTop="@dimen/fj" />
+        <dji.pilot2.mine.view.MineButton android:id="@+id/mine_dji_system_setting" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x7f0b012c" />
+        <View android:background="@r$color/v2_mine_profile_border" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x200" />
+        <dji.pilot2.mine.view.MineButton android:id="@+id/mine_dji_application_setting" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x7f0b012c" />
+        <View android:background="@r$color/v2_mine_profile_border" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x200" />
+    </dji.publics.DJIUI.DJILinearLayout>
+    <dji.publics.DJIUI.DJILinearLayout android:orientation="vertical" android:id="@+id/mine_menu_more_ly" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <dji.pilot2.mine.view.MineButton android:id="@+id/mine_back2main" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x7f0b012f" />
+        <View android:background="@r$color/v2_mine_profile_border" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x200" />
+        <dji.pilot2.mine.view.MineButton android:id="@+id/mine_dji_dds" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x7f0b012f" />
+        <View android:background="@r$color/v2_mine_profile_border" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x200" />
+        <dji.pilot2.mine.view.MineButton android:id="@+id/mine_repair" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x7f0b012f" />
+        <View android:id="@+id/mine_repire_line" android:background="@r$color/v2_mine_profile_border" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x200" />
+        <dji.pilot2.mine.view.MineButton android:id="@+id/mine_contact_dji" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x7f0b012f" />
+        <View android:background="@r$color/v2_mine_profile_border" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x200" />
+        <dji.pilot2.mine.view.MineButton android:id="@+id/mine_feed_back" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x7f0b012f" />
+        <View android:background="@r$color/v2_mine_profile_border" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x200" />
+    </dji.publics.DJIUI.DJILinearLayout>
+</dji.publics.DJIUI.DJIRelativeLayout>

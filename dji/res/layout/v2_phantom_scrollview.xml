@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res-auto" phantom:orientation="horizontal" phantom:id="@+id/v2scrollylinear" phantom:layout_width="match_parent" phantom:layout_height="match_parent">
+    <FrameLayout phantom:layout_width="match_parent" phantom:layout_height="wrap_content">
+        <LinearLayout phantom:orientation="horizontal" phantom:layout_width="match_parent" phantom:layout_height="wrap_content">
+            <ImageView phantom:id="@+id/v2PagerImage" phantom:layout_width="UNKNOWN_DATA_0x1" phantom:layout_height="match_parent" phantom:src="@r$drawable/v2_p3a_icon" phantom:scaleType="fitCenter" phantom:layout_weight="4.0" />
+            <View phantom:layout_width="UNKNOWN_DATA_0x1" phantom:layout_height="wrap_content" phantom:layout_weight="1.0" />
+        </LinearLayout>
+        <RelativeLayout phantom:orientation="vertical" phantom:layout_width="match_parent" phantom:layout_height="match_parent">
+            <dji.publics.DJIUI.DJITextView phantom:textSize="20sp" phantom:textStyle="bold" phantom:textColor="@color/ly" phantom:id="@+id/v2PagerTextView" phantom:layout_width="wrap_content" phantom:layout_height="wrap_content" phantom:layout_marginTop="80dp" phantom:layout_marginRight="20dp" phantom:layout_alignParentRight="true" phantom:djiTextFace="0" />
+            <dji.publics.DJIUI.DJITextView phantom:textSize="14sp" phantom:textColor="@color/m1" phantom:id="@+id/v2PagerTextView3" phantom:layout_width="wrap_content" phantom:layout_height="wrap_content" phantom:layout_marginRight="25dp" phantom:layout_below="@+id/v2PagerTextView" phantom:layout_alignParentRight="true" phantom:djiTextFace="1" />
+            <Button phantom:textSize="14sp" phantom:textColor="@r$drawable/v2_main_tab_textviewbutton_selector" phantom:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" phantom:id="@+id/v2pagerButton1" phantom:background="#00000000" phantom:layout_width="wrap_content" phantom:layout_height="wrap_content" phantom:text="@string/v2_learn_more" phantom:layout_below="@+id/v2PagerTextView3" phantom:layout_alignLeft="@+id/v2PagerTextView" phantom:layout_alignParentRight="true" />
+        </RelativeLayout>
+    </FrameLayout>
+</LinearLayout>

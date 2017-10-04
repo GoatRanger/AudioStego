@@ -1,0 +1,1024 @@
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>How to Use File Choosers</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="editorpane.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#components" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="formattedtextfield.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Creating a GUI with JFC/Swing
+<br>
+<b>Lesson</b>: Using Swing Components
+</font>
+
+<h2>
+How to Use File Choosers
+</h2>
+<blockquote>
+
+File choosers provide a GUI for navigating the file system,
+and then either choosing a file or directory from a list
+or entering the name of a file or directory.
+To display a file chooser, 
+you usually use the <code>JFileChooser</code> API
+to show a modal
+<a href="dialog.html">dialog</a>
+containing the file chooser.
+Another way to present a file chooser is to add an instance of
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFileChooser.html"><font color="#8800bb"><code>JFileChooser</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFileChooser.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> to a container.
+
+<p>
+
+<blockquote><hr><strong>Note:</strong>&nbsp; If you intend to distribute your program as an unsigned
+Java<font size="-2"><sup>TM</sup></font> Web Start application,
+then instead of using the <code>JFileChooser</code> API
+you should use the file services provided
+by the JNLP API.
+These services &#151;
+<code>FileOpenService</code> and <code>FileSaveService</code> &#151;
+not only provide support for choosing files in a restricted environment,
+but also take care of actually opening and saving them.
+An example of using these services is in
+<a href="example-1dot4/index.html#JWSFileChooserDemo">JWSFileChooserDemo</a>.
+Documentation for using the JNLP API is in the
+Java Web Start
+<a target="_blank" href="http://java.sun.com/products/javawebstart/1.2/docs/developersguide.html"><font color="#009bbb">Developer's Guide</font></a><a target="_blank" href="http://java.sun.com/products/javawebstart/1.2/docs/developersguide.html"><img src="../../images/otherIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (outside of the tutorial)"></a>.
+<hr></blockquote>
+
+<p>
+
+The rest of this section discusses how to use 
+the <code>JFileChooser</code> API.
+A <code>JFileChooser</code> object
+only presents the GUI for choosing files.
+Your program is responsible for doing something
+with the chosen file,
+such as opening or saving it.
+Refer to
+<a target="_top" href="../../essential/io/index.html">I/O: Reading and Writing (but no 'rithmetic)</a><a target="_top" href="../../essential/io/index.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a> for information on how to read and write files.
+
+<p>
+The <code>JFileChooser</code> API 
+makes it easy to bring up open and save dialogs.
+The look and feel determines what
+these standard dialogs look like and how they differ.
+In the Java look and feel,
+the save dialog looks the same
+as the open dialog,
+except for the title on the dialog's window
+and the text on the button that approves the operation.
+Here is a picture of the Java look and feel's standard open dialog:
+
+<p><center><IMG SRC="../../figures/uiswing/components/FileChooserOpen14.gif" WIDTH="510" HEIGHT="359" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="A standard 1.4 open dialog shown in the Java look and feel"></center></p>
+<p>
+Here's a snapshot of an application 
+that brings up an open dialog and a save dialog.
+
+<p>
+
+<p><center><IMG SRC="../../figures/uiswing/components/FileChooserDemo14.gif" WIDTH="273" HEIGHT="152" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="A program that brings up an open or save dialog"></center></p><p>
+
+
+<blockquote><hr><strong>Try this:</strong>&nbsp;
+<ol>
+<li> Compile and run 
+     FileChooserDemo.
+See the <a href="example-1dot4/index.html#FileChooserDemo" target="_top">examples index</a> for links to all the files required by this example.<li> Click the <strong>Open a File...</strong> button.
+     Navigate around the file chooser, choose a file,
+     and click the dialog's <strong>Open</strong> button.
+<li> Use the <strong>Save a File...</strong> button
+     to bring up a save dialog.
+     Try to use all of the controls on the file chooser.
+<li> In the source file 
+<a target="_blank" href="example-1dot4/FileChooserDemo.java"><font color="#bb000f"><code>FileChooserDemo.java</code></font></a><a target="_blank" href="example-1dot4/FileChooserDemo.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>,    change the file selection mode to directories-only mode.
+     (Search for <code>DIRECTORIES_ONLY</code> and
+     uncomment the line that contains it.)
+     Then compile and run the example again.
+     You'll only be able to see and select directories,
+     not ordinary files.
+</ol>
+<hr></blockquote>
+
+Bringing up a standard open dialog
+requires only two lines of code:
+<blockquote><pre>
+//Create a file chooser
+final JFileChooser fc = new JFileChooser();
+...
+<em>//In response to a button click:</em>
+int returnVal = fc.showOpenDialog(<em>aComponent</em>);
+</pre></blockquote>
+
+The argument to the <code>showOpenDialog</code> method
+specifies the parent component for the dialog.
+The parent component affects the position of the dialog
+and the frame that the dialog depends on.
+For example, the Java look and feel places the dialog 
+directly over the parent component.
+If the parent component is in a frame,
+then the dialog is dependent on that frame,
+disappearing when the frame is iconified
+and reappearing when the frame is deiconified.
+
+<p>
+
+By default,
+a file chooser that hasn't been shown before
+displays all files in the user's home directory.
+You can specify the file chooser's initial directory
+using one of <code>JFileChooser</code>'s other constructors,
+or you can set the directory
+with the <code>setCurrentDirectory</code> method.
+<p>
+The call to <code>showOpenDialog</code> appears in the
+<code>actionPerformed</code> method of the <strong>Open a File...</strong>
+button's action listener:
+<blockquote><pre>
+public void actionPerformed(ActionEvent e) {
+    //Handle open button action.
+    if (e.getSource() == openButton) {
+        int returnVal = fc.showOpenDialog(FileChooserDemo.this);
+
+        if (returnVal == JFileChooser.APPROVE_OPTION) {
+            File file = fc.getSelectedFile();
+            //This is where a real application would open the file.
+            log.append("Opening: " + file.getName() + "." + newline);
+        } else {
+            log.append("Open command cancelled by user." + newline);
+        }
+   } ...
+}
+</pre></blockquote>
+
+The <code>show<em>Xxx</em>Dialog</code>
+methods return an integer
+that indicates whether the user selected a file.
+Depending on how you use a file chooser, 
+it's often sufficient to check whether the return value is
+<code>APPROVE_OPTION</code> 
+and to do nothing for any other value.
+To get the chosen file
+(or directory, if you set up the file chooser
+to allow directory selections),
+call <code>getSelectedFile</code>
+on the file chooser.
+This method returns an instance of
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/io/File.html"><font color="#8800bb"><code>File</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/io/File.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>.
+<p>
+The example gets the name of the file and
+uses it in the log message.
+You can call other methods on the <code>File</code> object,
+such as <code>getPath</code>,
+<code>isDirectory</code>, or <code>exists</code>
+to get information about the file.
+You can also call other methods such as
+<code>delete</code> and <code>rename</code>
+to change the file in some way.
+Of course, you might also want to open or save the
+file using one of the reader or writer classes
+provided by the Java platform.
+See
+<a target="_top" href="../../essential/io/index.html">I/O: Reading and Writing (but no 'rithmetic)</a><a target="_top" href="../../essential/io/index.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a> for information about using readers and writers to
+read and write data to the file system.
+
+<p>
+The example program uses the same
+instance of <code>JFileChooser</code>
+to display a standard save dialog.
+This time the program calls <code>showSaveDialog</code>:
+<blockquote><pre>
+int returnVal = fc.showSaveDialog(FileChooserDemo.this);
+</pre></blockquote>
+By using the same file chooser instance to display
+its open and save dialogs, the program reaps these benefits:
+<ul>
+<li> The chooser remembers the current directory between
+     uses so the open and save versions automatically share the
+     same current directory.
+<li> You have to customize only one file chooser,
+     and the customizations apply to both the open
+     and save versions of it.
+</ul>
+
+Finally, the example program has commented-out lines of code
+that let you change the file selection mode.
+For example, the following line of code makes the file chooser
+able to select only directories, and not files:
+
+<blockquote><pre>
+fc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+</pre></blockquote>
+
+Another possible selection mode is <code>FILES_AND_DIRECTORIES</code>.
+The default is <code>FILES_ONLY</code>.
+The following picture shows an open dialog 
+with the file selection mode set to <code>DIRECTORIES_ONLY</code>.
+Note that, in the Java look and feel at least, 
+only directories are visible &#151; not files.
+
+<p><center><IMG SRC="../../figures/uiswing/components/FileChooserDirsOnly.gif" WIDTH="510" HEIGHT="359" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="A file chooser in DIRECTORIES_ONLY mode"></center></p>
+
+<p>
+
+If you want to create a file chooser
+for a task other than opening or saving,
+or if you want to customize the file chooser,
+keep reading.
+We'll discuss the following topics:
+
+<ul>
+<li> <a href="#advancedexample">Another Example: FileChooserDemo2</a>
+<li> <a href="#customtask">Using a File Chooser for a Custom Task</a>
+<li> <a href="#filters">Filtering the List of Files</a>
+<li> <a href="#fileview">Customizing the File View</a>
+<li> <a href="#accessory">Providing an Accessory Component</a>
+<li> <a href="#api">The File Chooser API</a>
+<li> <a href="#eg">Examples that Use File Choosers</a>
+</ul>
+
+
+<a name="advancedexample">
+</blockquote>
+<h3>Another Example: FileChooserDemo2</h3>
+</a>
+<blockquote>
+
+Let's look at
+<a href="example-1dot4/index.html#FileChooserDemo2">
+<code>FileChooserDemo2</code></a>,
+a modified version of the previous demo program that
+uses more of the <code>JFileChooser</code> API.
+This example uses a file chooser that has been
+customized in several ways.
+Like the original example, the user invokes
+a file chooser with the push of a button.
+Here's a picture of the file chooser:
+ 
+<p><center><IMG SRC="../../figures/uiswing/components/FileChooserDemo2-14.gif" WIDTH="510" HEIGHT="359" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="A file chooser with various customizations"></center></p><p>
+
+<p>
+As the figure shows, this file chooser
+has been customized for a special task (Attach),
+provides a user-choosable file filter (Just Images),
+uses a special file view for image files,
+and has an accessory component
+that displays a thumbnail sketch of the currently selected
+image file.
+
+<p>
+The remainder of this section shows you the code
+that creates and customizes this file chooser.
+See the <a href="example-1dot4/index.html#FileChooserDemo2" target="_top">examples index</a> for links to all the files required by this example.
+
+
+</blockquote>
+<a name="customtask">
+<h3>Using a File Chooser for a Custom Task</h3>
+</a>
+<blockquote>
+As you've seen, <code>JFileChooser</code>
+provides <code>showOpenDialog</code> for displaying an open dialog
+and <code>showSaveDialog</code> for displaying a save dialog.
+<p>
+The class has another method, <code>showDialog</code>,
+for displaying a file chooser for a custom task in a dialog.
+In the Java look and feel, the only difference between this dialog
+and the other file chooser dialogs is the title on the dialog window
+and the label on the approve button.
+Here's the code from <code>FileChooserDemo2</code>
+that brings up the file chooser dialog for the
+<strong>Attach</strong> task:
+
+<blockquote><pre>
+JFileChooser fc = new JFileChooser();
+int returnVal = fc.showDialog(FileChooserDemo2.this, "Attach");
+</pre></blockquote>
+
+The first argument to the <code>showDialog</code> method
+is the parent component for the dialog.
+The second argument is a <code>String</code> that
+provides both the title for the dialog window
+and the label for the approve button.
+<p>
+Once again, the file chooser doesn't do anything with
+the selected file.
+The program is responsible for implementing the custom task
+for which the file chooser was created.
+</blockquote>
+
+<a name="filters">
+<h3>Filtering the List of Files</h3>
+</a>
+<blockquote>
+By default, a file chooser displays all of the files
+and directories that it detects, except hidden files.
+A program can apply one or more <em>file filters</em>
+to a file chooser so that the chooser shows only some files.
+The file chooser calls the filter's <code>accept</code> method
+for each file to determine whether it should be displayed.
+A file filter accepts or rejects a file based
+on some criteria such as file type, size, ownership, and so on.
+Filters affect the list of files displayed by the file chooser.
+The user can enter the name of any file even if it's not displayed.
+<p>
+<code>JFileChooser</code> supports three different kinds of filtering.
+The filters are checked in the order listed here.
+For example, an application-controlled filter sees only
+those files accepted by the built-in filtering.
+
+<dl>
+<dt> <strong>Built-in filtering</strong>
+<dd> Filtering is set up through specific method calls on a file chooser.
+     Currently the only built-in filter available is for hidden files,
+     such as those that begin with period (.) on UNIX systems.
+     By default, hidden files are not shown.
+     Call <code>setFileHidingEnabled(false)</code> to show
+     hidden files.
+
+<dt> <strong>Application-controlled filtering</strong>
+<dd> The application determines which files are shown.
+     Create a custom subclass of 
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/filechooser/FileFilter.html"><font color="#8800bb"><code>FileFilter</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/filechooser/FileFilter.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>,    instantiate it, and use the instance as an argument to
+     <code>setFileFilter</code>. The file chooser shows only
+     those files that the filter accepts.
+
+<dt> <strong>User-choosable filtering</strong>
+<dd> The file chooser GUI provides a list of filters that the user
+     can choose from. When the user chooses a filter, the file
+     chooser shows only those file accepted by that filter.
+     <code>FileChooserDemo2</code> adds a custom file filter
+     to the list of user-choosable filters:
+<blockquote><pre>
+fc.addChoosableFileFilter(new ImageFilter());
+</pre></blockquote>
+
+    By default, the list of user-choosable filters
+    includes the Accept All filter, 
+    which lets the user see all non-hidden files.
+    This example uses the following code
+    to disable the Accept All filter:
+
+<blockquote><pre>
+fc.setAcceptAllFileFilterUsed(false);
+</pre></blockquote>
+
+     Our custom file filter is implemented in
+     
+<a target="_blank" href="example-1dot4/ImageFilter.java"><font color="#bb000f"><code>ImageFilter.java</code></font></a><a target="_blank" href="example-1dot4/ImageFilter.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>
+     and is a subclass of <code>FileFilter</code>.
+     The <code>ImageFilter</code> class
+     implements the <code>getDescription</code> method
+     to return "Just Images" &#151; a string
+     to put in the list of user-choosable filters.
+     <code>ImageFilter</code> also implements the <code>accept</code> method
+     so that it accepts all directories
+     and any file that has a
+     <code>.png</code>,
+     <code>.jpg</code>, <code>.jpeg</code>, <code>.gif</code>,
+     <code>.tif</code>, or <code>.tiff</code>
+     filename extension.
+<blockquote><pre>
+public boolean accept(File f) {
+    <strong>if (f.isDirectory()) {
+	return true;
+    }</strong>
+
+    String extension = Utils.getExtension(f);
+    if (extension != null) {
+	if (extension.equals(Utils.tiff) ||
+	    extension.equals(Utils.tif) ||
+	    extension.equals(Utils.gif) ||
+	    extension.equals(Utils.jpeg) ||
+	    extension.equals(Utils.jpg) ||
+	    extension.equals(Utils.png)) {
+	        return true;
+	} else {
+	    return false;
+	}
+    }
+
+    return false;
+}
+</pre></blockquote>
+By accepting all directories, this filter allows the
+user to navigate around the file system.
+If the bold lines were omitted from this method,
+the user would be limited to the directory with
+which the chooser was initialized.
+<P>
+The preceding code sample uses the <code>getExtension</code>
+method and several string constants from
+
+<a target="_blank" href="example-1dot4/Utils.java"><font color="#bb000f"><code>Utils.java</code></font></a><a target="_blank" href="example-1dot4/Utils.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>,
+shown here:
+
+<blockquote><pre>
+public class Utils {
+
+    public final static String jpeg = "jpeg";
+    public final static String jpg = "jpg";
+    public final static String gif = "gif";
+    public final static String tiff = "tiff";
+    public final static String tif = "tif";
+    public final static String png = "png";
+
+    /*
+     * Get the extension of a file.
+     */  
+    public static String getExtension(File f) {
+        String ext = null;
+        String s = f.getName();
+        int i = s.lastIndexOf('.');
+
+        if (i > 0 &&  i < s.length() - 1) {
+            ext = s.substring(i+1).toLowerCase();
+        }
+        return ext;
+    }
+}
+</pre></blockquote>
+</a>
+</dl>
+</blockquote>
+
+<a name="fileview">
+<h3>Customizing the File View</h3>
+</a>
+<blockquote>
+In the Java look and feel, the chooser's list shows
+each file's name and displays
+a small icon that represents whether the file is a true file
+or a directory.
+You can customize this <em>file view</em> by 
+creating a custom subclass of
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/filechooser/FileView.html"><font color="#8800bb"><code>FileView</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/filechooser/FileView.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> and using an instance of the class as an argument to 
+<code>setFileView</code>.
+The example uses an instance of a custom class,
+implemented in
+
+<a target="_blank" href="example-1dot4/ImageFileView.java"><font color="#bb000f"><code>ImageFileView.java</code></font></a><a target="_blank" href="example-1dot4/ImageFileView.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>,
+as the file chooser's file view.
+
+<blockquote><pre>
+fc.setFileView(new ImageFileView());
+</pre></blockquote>
+<code>ImageFileView</code> shows a
+different icon for each type of image
+accepted by the image filter described previously.
+<p>
+The <code>ImageFileView</code> class 
+overrides the five abstract methods
+defined in <code>FileView</code> as follows.
+
+<dl>
+
+<dt> <strong><code>String getTypeDescription(File f)</code></strong>
+<dd> Returns a description of the file type.
+     This is not yet used by any look and feel.
+     Here is <code>ImageFileView</code>'s implementation of this method:
+<blockquote><pre>
+public String getTypeDescription(File f) {
+    String extension = Utils.getExtension(f);
+    String type = null;
+
+    if (extension != null) {
+        if (extension.equals(Utils.jpeg) ||
+            extension.equals(Utils.jpg)) {
+            type = "JPEG Image";
+        } else if (extension.equals(Utils.gif)){
+            type = "GIF Image";
+        } else if (extension.equals(Utils.tiff) ||
+                   extension.equals(Utils.tif)) {
+            type = "TIFF Image";
+        } else if (extension.equals(Utils.png)){
+            type = "PNG Image";
+        }
+    }
+    return type;
+}
+</pre></blockquote>
+
+<dt> <strong><code>Icon getIcon(File f)</code></strong>
+<dd> Returns an icon representing the file or its type.
+     Here is <code>ImageFileView</code>'s implementation of this method:
+<blockquote><pre>
+public Icon getIcon(File f) {
+    String extension = Utils.getExtension(f);
+    Icon icon = null;
+
+    if (extension != null) {
+        if (extension.equals(Utils.jpeg) ||
+            extension.equals(Utils.jpg)) {
+            icon = jpgIcon;
+        } else if (extension.equals(Utils.gif)) {
+            icon = gifIcon;
+        } else if (extension.equals(Utils.tiff) ||
+                   extension.equals(Utils.tif)) {
+            icon = tiffIcon;
+        } else if (extension.equals(Utils.png)) {
+            icon = pngIcon;
+        }
+    }
+    return icon;
+}
+</pre></blockquote>
+
+<dt> <strong><code>String getName(File f)</code></strong>
+<dd> Returns the name of the file.
+     Most implementations of this method should return
+     <code>null</code> to indicate that the look and feel
+     should figure it out.
+     Another common implementation returns <code>f.getName()</code>.
+
+<p>
+<dt> <strong><code>String getDescription(File f)</code></strong>
+<dd> Returns a description of the file.
+     This is not yet used by any look and feel.
+     The intent is to describe individual files more specifically.
+     A common implementation of this method returns
+     <code>null</code> to indicate that the look and feel
+     should figure it out.
+
+<p>
+<dt> <strong><code>Boolean isTraversable(File f)</code></strong>
+<dd> Returns whether a directory is traversable.
+     Most implementations of this method should return
+     <code>null</code> to indicate that the look and feel
+     should figure it out.
+     Some applications might want to prevent users from descending
+     into a certain type of directory because it represents a compound document.
+     The <code>isTraversable</code> method
+     should never return <code>true</code> for a non-directory.
+
+</dl>
+
+</blockquote>
+
+<a name="accessory">
+<h3>Providing an Accessory Component</h3>
+</a>
+<blockquote>
+The customized file chooser in
+<code>FileChooserDemo2</code>
+has an accessory component.
+If the currently selected item is a
+PNG, JPEG, TIFF, or GIF image,
+the accessory component
+displays a thumbnail sketch of the image.
+Otherwise, the accessory component is empty.
+Aside from a previewer,
+probably the most common use for the accessory component
+is a panel with more controls on it &#151;
+say, checkboxes that toggle some features.
+<p>
+The example calls the <code>setAccessory</code>
+method to establish an instance of the <code>ImagePreview</code> class,
+implemented in
+
+<a target="_blank" href="example-1dot4/ImagePreview.java"><font color="#bb000f"><code>ImagePreview.java</code></font></a><a target="_blank" href="example-1dot4/ImagePreview.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>,
+as the chooser's accessory component:
+<blockquote><pre>
+fc.setAccessory(new ImagePreview(fc));
+</pre></blockquote>
+Any object that inherits from <code>JComponent</code>
+can be an accessory component.
+The component should 
+have a preferred size that looks good in the file chooser.
+<p>
+The file chooser fires a property change event when the
+user selects an item in the list.
+A program with
+an accessory component must register to receive these events
+to update the accessory component whenever the selection changes.
+In the example, the <code>ImagePreview</code> object itself
+registers for these events.
+This keeps all the code related to the accessory component
+together in one class.
+<p>
+Here is the example's implementation of the
+<code>propertyChange</code> method, which is
+the method called when a property change event is fired:
+<blockquote><pre>
+//<em>where member variables are declared</em>
+File file = null;
+...
+public void propertyChange(PropertyChangeEvent e) {
+    boolean update = false;
+    String prop = e.getPropertyName();
+
+    //If the directory changed, don't show an image.
+    if (JFileChooser.DIRECTORY_CHANGED_PROPERTY.equals(prop)) {
+        file = null;
+        update = true;
+
+    //If a file became selected, find out which one.
+    } else if (JFileChooser.SELECTED_FILE_CHANGED_PROPERTY.equals(prop)) {
+        file = (File) e.getNewValue();
+        update = true;
+    }
+
+    //Update the preview accordingly.
+    if (update) {
+        thumbnail = null;
+        if (isShowing()) {
+            loadImage();
+            repaint();
+        }
+    }
+}
+</pre></blockquote>
+
+If <code>SELECTED_FILE_CHANGED_PROPERTY</code> is the property
+that changed,
+this method gets a <code>File</code> object from the file chooser.
+The <code>loadImage</code> and <code>repaint</code> methods
+use the <code>File</code> to load the image
+and repaint the accessory component.
+</blockquote>
+
+<h3>
+<a name="api">The File Chooser API</a>
+</h3>
+<blockquote>
+The API for using file choosers falls into these categories:
+
+<ul>
+<li><a href="#show">Creating and Showing the File Chooser</a>
+<li><a href="#selection">Selecting Files and Directories</a>
+<li><a href="#navigation">Navigating the File Chooser's List</a>
+<li><a href="#customization">Customizing the File Chooser</a>
+</ul>
+
+<p>
+
+<table border=1>
+<caption><a name="show">Creating and Showing the File Chooser</a></caption>
+<tr>
+<th align=left>Method or Constructor
+</th>
+<th align=left>Purpose
+
+</th>
+</tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFileChooser.html#JFileChooser()"><font color="#8800bb"><font size=2><code>JFileChooser()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFileChooser.html#JFileChooser()"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFileChooser.html#JFileChooser(java.io.File)"><font color="#8800bb"><font size=2><code>JFileChooser(File)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFileChooser.html#JFileChooser(java.io.File)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFileChooser.html#JFileChooser(java.lang.String)"><font color="#8800bb"><font size=2><code>JFileChooser(String)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFileChooser.html#JFileChooser(java.lang.String)"></a>    </td>
+    <td>Create a file chooser instance.
+        The <code>File</code> and <code>String</code> arguments, when present,
+        provide the initial directory.
+
+    </td>
+  </tr>
+  <tr> 
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFileChooser.html#showOpenDialog(java.awt.Component)"><font color="#8800bb"><font size=2><code>int showOpenDialog(Component)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFileChooser.html#showOpenDialog(java.awt.Component)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFileChooser.html#showSaveDialog(java.awt.Component)"><font color="#8800bb"><font size=2><code>int showSaveDialog(Component)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFileChooser.html#showSaveDialog(java.awt.Component)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFileChooser.html#showDialog(java.awt.Component, java.lang.String)"><font color="#8800bb"><font size=2><code>int showDialog(Component, String)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFileChooser.html#showDialog(java.awt.Component, java.lang.String)"></a>    </td>
+    <td>Show a modal dialog containing the file chooser.
+        These methods return <code>APPROVE_OPTION</code> if the user approved
+        the operation and <code>CANCEL_OPTION</code> if the user cancelled it.
+	Another possible return value is <code>ERROR_OPTION</code>,
+	which means an unanticipated error occurred.
+ 
+    </td>
+  </tr>
+</table>
+
+<p>
+
+<table border=1>
+<caption><a name="selection">Selecting Files and Directories</a></caption>
+<tr>
+<th align=left>Method
+</th>
+<th align=left>Purpose
+
+</th>
+</tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFileChooser.html#setSelectedFile(java.io.File)"><font color="#8800bb"><font size=2><code>void setSelectedFile(File)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFileChooser.html#setSelectedFile(java.io.File)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFileChooser.html#getSelectedFile()"><font color="#8800bb"><font size=2><code>File getSelectedFile()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFileChooser.html#getSelectedFile()"></a>    </td>
+    <td>Set or get the currently selected file or (if directory selection
+	has been enabled) directory.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFileChooser.html#setSelectedFiles(java.io.File[])"><font color="#8800bb"><font size=2><code>void setSelectedFiles(File[])</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFileChooser.html#setSelectedFiles(java.io.File[])"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFileChooser.html#getSelectedFiles()"><font color="#8800bb"><font size=2><code>File[] getSelectedFiles()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFileChooser.html#getSelectedFiles()"></a>    </td>
+    <td>Set or get the currently selected files.
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFileChooser.html#setFileSelectionMode(int)"><font color="#8800bb"><font size=2><code>void setFileSelectionMode(int)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFileChooser.html#setFileSelectionMode(int)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFileChooser.html#getFileSelectionMode()"><font color="#8800bb"><font size=2><code>void getFileSelectionMode()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFileChooser.html#getFileSelectionMode()"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFileChooser.html#isDirectorySelectionEnabled()"><font color="#8800bb"><font size=2><code>boolean isDirectorySelectionEnabled()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFileChooser.html#isDirectorySelectionEnabled()"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFileChooser.html#isFileSelectionEnabled()"><font color="#8800bb"><font size=2><code>boolean isFileSelectionEnabled()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFileChooser.html#isFileSelectionEnabled()"></a>    </td>
+    <td>Set the file selection mode. Acceptable values are
+        <code>FILES_ONLY</code> (the default),
+        <code>DIRECTORIES_ONLY</code>, and
+        <code>FILES_AND_DIRECTORIES</code>.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFileChooser.html#setMultiSelectionEnabled(boolean)"><font color="#8800bb"><font size=2><code>void setMultiSelectionEnabled(boolean)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFileChooser.html#setMultiSelectionEnabled(boolean)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFileChooser.html#isMultiSelectionEnabled()"><font color="#8800bb"><font size=2><code>void isMultiSelectionEnabled()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFileChooser.html#isMultiSelectionEnabled()"></a>    </td>
+    <td>Set or get whether multiple files can be selected at once.
+        By default, a user can choose only one file.
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFileChooser.html#setAcceptAllFileFilterUsed(boolean)"><font color="#8800bb"><font size=2><code>void setAcceptAllFileFilterUsed(boolean)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFileChooser.html#setAcceptAllFileFilterUsed(boolean)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFileChooser.html#isAcceptAllFileFilterUsed()"><font color="#8800bb"><font size=2><code>boolean isAcceptAllFileFilterUsed()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFileChooser.html#isAcceptAllFileFilterUsed()"></a>    </td>
+    <td>Set or get whether the <code>AcceptAll</code> file filter is
+        used as an allowable choice in the choosable filter list;
+	the default value is <code>true</code>.
+        Introduced in 1.3.
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFileChooser.html#createDialog(java.awt.Component)"><font color="#8800bb"><font size=2><code>Dialog createDialog(Component)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFileChooser.html#createDialog(java.awt.Component)"></a>    </td>
+    <td>Given a parent component, create and return a new dialog
+        that contains this file chooser,
+	is dependent on the parent's frame,
+	and is centered over the parent.
+	Introduced in 1.4.
+    </td>
+  </tr>
+</table>
+
+<p>
+ 
+<table border=1> 
+<caption><a name="navigation">Navigating the File Chooser's List</a></caption>
+<tr>
+<th align=left>Method
+</th>
+<th align=left>Purpose
+
+</th>
+</tr>
+  <tr> 
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFileChooser.html#ensureFileIsVisible(java.io.File)"><font color="#8800bb"><font size=2><code>void ensureFileIsVisible(File)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFileChooser.html#ensureFileIsVisible(java.io.File)"></a>    </td>
+    <td>Scroll the file chooser's list such that
+        the indicated file is visible.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFileChooser.html#setCurrentDirectory(java.io.File)"><font color="#8800bb"><font size=2><code>void setCurrentDirectory(File)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFileChooser.html#setCurrentDirectory(java.io.File)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFileChooser.html#getCurrentDirectory()"><font color="#8800bb"><font size=2><code>File getCurrentDirectory()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFileChooser.html#getCurrentDirectory()"></a>    </td>
+    <td>Set or get the directory whose files are displayed
+        in the file chooser's list.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFileChooser.html#changeToParentDirectory()"><font color="#8800bb"><font size=2><code>void changeToParentDirectory()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFileChooser.html#changeToParentDirectory()"></a>    </td>
+    <td>Change the list to display the current directory's parent.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFileChooser.html#rescanCurrentDirectory()"><font color="#8800bb"><font size=2><code>void rescanCurrentDirectory()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFileChooser.html#rescanCurrentDirectory()"></a>    </td>
+    <td>Check the file system and update the chooser's list.
+ 
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFileChooser.html#setDragEnabled(boolean)"><font color="#8800bb"><font size=2><code>void setDragEnabled(boolean)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFileChooser.html#setDragEnabled(boolean)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFileChooser.html#getDragEnabled()"><font color="#8800bb"><font size=2><code>boolean getDragEnabled()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFileChooser.html#getDragEnabled()"></a>    </td>
+    <td>Set or get the property that determines whether automatic drag
+        handling is enabled. See
+<a target="_top" href="../../dnd/index.html">Drag and Drop</a><a target="_top" href="../../dnd/index.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>        for more details. Introduced in 1.4.
+    </td>
+  </tr>
+</table>
+
+<p>
+
+<table border=1>
+<caption><a name="customization">Customizing the File Chooser</a></caption>
+<tr>
+<th align=left>Method
+</th>
+<th align=left>Purpose
+
+</th>
+</tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFileChooser.html#setAccessory(javax.swing.JComponent)"><font color="#8800bb"><font size=2><code>void setAccessory(javax.swing.JComponent)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFileChooser.html#setAccessory(javax.swing.JComponent)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFileChooser.html#getAccessory()"><font color="#8800bb"><font size=2><code>JComponent getAccessory()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFileChooser.html#getAccessory()"></a>    </td>
+    <td>Set or get the file chooser's accessory component.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFileChooser.html#setFileFilter(javax.swing.filechooser.FileFilter)"><font color="#8800bb"><font size=2><code>void setFileFilter(FileFilter)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFileChooser.html#setFileFilter(javax.swing.filechooser.FileFilter)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFileChooser.html#getFileFilter()"><font color="#8800bb"><font size=2><code>FileFilter getFileFilter()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFileChooser.html#getFileFilter()"></a>    </td>
+    <td>Set or get the file chooser's primary file filter.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFileChooser.html#setFileView(javax.swing.filechooser.FileView)"><font color="#8800bb"><font size=2><code>void setFileView(FileView)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFileChooser.html#setFileView(javax.swing.filechooser.FileView)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFileChooser.html#getFileView()"><font color="#8800bb"><font size=2><code>FileView getFileView()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFileChooser.html#getFileView()"></a>    </td>
+    <td>Set or get the chooser's file view.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFileChooser.html#getChoosableFileFilters()"><font color="#8800bb"><font size=2><code>FileFilter[] getChoosableFileFilters()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFileChooser.html#getChoosableFileFilters()"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFileChooser.html#addChoosableFileFilter(javax.swing.filechooser.FileFilter)"><font color="#8800bb"><font size=2><code>void addChoosableFileFilter(FileFilter)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFileChooser.html#addChoosableFileFilter(javax.swing.filechooser.FileFilter)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFileChooser.html#removeChoosableFileFilter(javax.swing.filechooser.FileFilter)"><font color="#8800bb"><font size=2><code>boolean removeChoosableFileFilter(FileFilter)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFileChooser.html#removeChoosableFileFilter(javax.swing.filechooser.FileFilter)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFileChooser.html#resetChoosableFileFilters()"><font color="#8800bb"><font size=2><code>void resetChoosableFileFilters()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFileChooser.html#resetChoosableFileFilters()"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFileChooser.html#getAcceptAllFileFilter()"><font color="#8800bb"><font size=2><code>FileFilter getAcceptAllFileFilter()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFileChooser.html#getAcceptAllFileFilter()"></a>    </td>
+    <td>Set, get, or modify the list of user-choosable file filters.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFileChooser.html#setFileHidingEnabled(boolean)"><font color="#8800bb"><font size=2><code>void setFileHidingEnabled(boolean)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFileChooser.html#setFileHidingEnabled(boolean)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFileChooser.html#isFileHidingEnabled()"><font color="#8800bb"><font size=2><code>boolean isFileHidingEnabled()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFileChooser.html#isFileHidingEnabled()"></a>    </td>
+    <td>Set or get whether hidden files are displayed.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFileChooser.html#setControlButtonsAreShown(boolean)"><font color="#8800bb"><font size=2><code>void setControlButtonsAreShown(boolean)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFileChooser.html#setControlButtonsAreShown(boolean)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFileChooser.html#getControlButtonsAreShown()"><font color="#8800bb"><font size=2><code>boolean getControlButtonsAreShown()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JFileChooser.html#getControlButtonsAreShown()"></a>    </td>
+    <td>Set or get the property that indicates whether the Approve
+        and Cancel buttons are shown in the file chooser.  This property
+        is true by default.  Introduced in 1.3.
+    </td>
+  </tr>
+</table>
+
+
+</blockquote>
+
+<h3>
+<a name="eg">Examples that Use File Choosers</a>
+</h3>
+<blockquote>
+This table shows the examples that use <code>JFileChooser</code>
+and where those examples are described.
+<p> <table>
+<tr>
+<th align=left> Example
+</th>
+<th align=left> Where Described
+</th>
+<th align=left> Notes
+
+</th>
+</tr>
+
+<tr>
+<td> <a href="example-1dot4/index.html#FileChooserDemo"><code>FileChooserDemo</code></a>
+</td>
+<td> This section
+</td>
+<td> Displays an open dialog and a save dialog.
+</td>
+</tr>
+
+<tr>
+<td> <a href="example-1dot4/index.html#FileChooserDemo2"><code>FileChooserDemo2</code></a>
+</td>
+<td> This section
+</td>
+<td> Uses a file chooser with custom filtering,
+     a custom file view, and an accessory component.
+
+</td>
+</tr>
+
+<tr>
+<td> 
+<a target="_top" href="../misc/example-1dot4/index.html#DragFileDemo"><code>DragFileDemo</code></a><a target="_top" href="../misc/example-1dot4/index.html#DragFileDemo"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a></td>
+<td> 
+<a target="_top" href="../misc/dnd.html">How to Use Drag and Drop and Data Transfer</a><a target="_top" href="../misc/dnd.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a></td>
+<td> Uses a file chooser directly, without a dialog,
+     and demonstrates dragging files.
+</td>
+</tr>
+
+<tr>
+<td> <a href="example-1dot4/index.html#JWSFileChooserDemo"><code>JWSFileChooserDemo</code></a>
+</td>
+<td> This section
+</td>
+<td> Uses the JNLP API to open and save files.
+</td>
+</tr>
+
+</table>
+
+</blockquote>
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="editorpane.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#components" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="formattedtextfield.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

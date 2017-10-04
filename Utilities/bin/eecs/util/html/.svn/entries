@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="20"
+   name=""
+   committed-date="2005-02-01T06:07:43.375000Z"
+   url="svn://192.168.2.2/Utilities/src/eecs/util/html"
+   last-author="Karl"
+   kind="dir"
+   uuid="0daf4267-3229-f84b-9084-f3c94b025f38"
+   revision="53"/>
+<entry
+   committed-rev="20"
+   name="TestBrowser.java"
+   text-time="2005-03-01T22:03:54.562500Z"
+   committed-date="2005-02-01T06:07:43.375000Z"
+   checksum="e9e259e2668cde996a8f2fca1a5bc0e1"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-01T22:03:54.437500Z"/>
+<entry
+   committed-rev="20"
+   name="BrowserControl.java"
+   text-time="2005-03-01T22:03:54.578125Z"
+   committed-date="2005-02-01T06:07:43.375000Z"
+   checksum="14cbf43c9f1e0b0b98a91a19cef7e89e"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-01T22:03:54.453125Z"/>
+<entry
+   name="CVS"
+   kind="dir"/>
+<entry
+   committed-rev="20"
+   name="PatchedHTMLEditorKit.java"
+   text-time="2005-03-01T22:03:54.578125Z"
+   committed-date="2005-02-01T06:07:43.375000Z"
+   checksum="a5605711e113899fa7ed29944c7d010c"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-01T22:03:54.531250Z"/>
+<entry
+   committed-rev="20"
+   name="SimpleLinkListener.java"
+   text-time="2005-03-01T22:03:54.593750Z"
+   committed-date="2005-02-01T06:07:43.375000Z"
+   checksum="3f9f09d3347d6948a513bcce94654f71"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-01T22:03:54.546875Z"/>
+<entry
+   committed-rev="20"
+   name="package.html"
+   text-time="2005-03-01T22:03:54.593750Z"
+   committed-date="2005-02-01T06:07:43.375000Z"
+   checksum="bd8eb2ef2629b812ceeda3cb9b15265e"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-01T22:03:54.546875Z"/>
+</wc-entries>

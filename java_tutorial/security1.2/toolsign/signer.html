@@ -1,0 +1,135 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Steps for the Code Signer</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#toolsign" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="step1.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Security in Java 2 SDK 1.2
+<br>
+<b>Lesson</b>: Signing Code and Granting It Permissions
+</font>
+
+<h2>
+Steps for the Code Signer
+</h2>
+<blockquote>
+<p>The code signer takes the following steps:
+
+<ol>
+
+<li><a href=step1.html>Download and Try the Sample Application.</a><p>
+
+<li><a href=step2.html>Create a JAR File Containing the 
+Class File</a>,
+using the <code>jar</code> tool.<p>
+
+<li><a href=step3.html>Generate Keys</a>
+ (if they don't already exist),
+using the <code>keytool</code> <code>-genkey</code> command.<p>
+
+<hr>
+<I>Optional Step</I> Generate a certificate 
+signing request (CSR) for the public key certificate</a>,
+and import the response from the certification authority (CA)</a>.
+For simplicity (and since you are only pretending to be Susan Jones),
+this step is omitted. See
+
+<a target="_top" href="../sigcert/index.html#GenCSR">Generating a Certificate Signing Request (CSR) for a Public Key Certificate</a><a target="_top" href="../sigcert/index.html#GenCSR"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Security in Java 2 SDK 1.2 trail)"></a>
+for more information.
+<hr>
+<p>
+
+<li><a href=step4.html>Sign the JAR File</a>, 
+using the <code>jarsigner</code> tool and the private key.<p>
+
+<li><a href=step5.html>Export the Public Key Certificate</a>,
+using the <code>keytool</code> <code>-export</code> command. 
+Then supply the signed JAR file and the 
+certificate to the receiver Ray.
+
+</ol>
+
+<p>These steps are shown in the following figure.
+
+<p><center><a href="../../figures/security1.2/susanSigner.gif" target="_top"><IMG SRC="../../figures/security1.2/susanSigner.gif" WIDTH="460" HEIGHT="224" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></a><br><em>This figure has been reduced to fit on the page. <br> Click the image to view it at its natural size.</em></center></p>
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#toolsign" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="step1.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:paddingLeft="@dimen/yb" android:paddingRight="@dimen/yb" android:layout_width="match_parent" android:layout_height="match_parent"
+    <LinearLayout android:orientation="vertical" android:background="@r$color/v2_mine_item_backgound" android:layout_width="match_parent" android:layout_height="wrap_content"
+        <LinearLayout android:layout_gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@+id/child_linear_layout" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <Space android:id="@+id/v2_profile_spcael" android:layout_width="UNKNOWN_DATA_0x1" android:layout_height="match_parent" android:layout_weight="0.25" />
+            <include android:id="@+id/child1" android:layout_width="UNKNOWN_DATA_0x1" android:layout_height="wrap_content" android:layout_weight="1.0" layout="@layout/v2_profile_list_child_fragment" />
+            <include android:id="@+id/child2" android:layout_width="UNKNOWN_DATA_0x1" android:layout_height="wrap_content" android:layout_weight="1.0" layout="@layout/v2_profile_list_child_fragment" />
+            <include android:id="@+id/child3" android:layout_width="UNKNOWN_DATA_0x1" android:layout_height="wrap_content" android:layout_weight="1.0" layout="@layout/v2_profile_list_child_fragment" />
+            <Space android:id="@+id/v2_profile_spcaer" android:layout_width="UNKNOWN_DATA_0x1" android:layout_height="match_parent" android:layout_weight="0.25" />
+        </LinearLayout>
+        <View android:id="@+id/last_child_margin_view" android:background="@r$color/v2_mine_item_backgound" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x7f0b0100" />
+    </LinearLayout>
+    <View android:id="@+id/group_margin_view" android:background="@color/om" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x7f0b0132" />
+</LinearLayout>

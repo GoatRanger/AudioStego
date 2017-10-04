@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:gravity="left|right|center_horizontal|fill_horizontal|center|fill|start|end" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="match_parent">
+    <TextView android:textSize="@dimen/d5" android:textColor="@r$color/v2_active_title_01" android:gravity="left|right|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@+id/v2_phantom_title_noconnect_introdution" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/gw" android:layout_centerInParent="true" />
+    <Spinner android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@+id/v2_aircraft_type_spinner" android:background="@color/j5" android:layout_width="UNKNOWN_DATA_0x7f0b011a" android:layout_height="UNKNOWN_DATA_0x7f0b012f" android:layout_below="@+id/v2_phantom_title_noconnect_introdution" android:layout_centerInParent="true" android:dropDownWidth="UNKNOWN_DATA_0x7f0b011a" />
+</RelativeLayout>

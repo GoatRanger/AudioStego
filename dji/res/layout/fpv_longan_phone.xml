@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.publics.DJIUI.DJIRelativeLayout xmlns:android="http://schemas.android.com/apk/res-auto" phantom:id="@id/a1u" phantom:background="0x106000c" phantom:layout_width="match_parent" phantom:layout_height="match_parent" phantom:keepScreenOn="true" phantom:splitMotionEvents="false">
+    <FrameLayout phantom:id="@id/a7s" phantom:layout_width="match_parent" phantom:layout_height="match_parent">
+        <dji.phone.preview.DJILPPreviewTexture phantom:id="@id/a1w" phantom:layout_width="match_parent" phantom:layout_height="match_parent" />
+    </FrameLayout>
+    <View phantom:id="@id/a7t" phantom:background="@color/a_" phantom:visibility="invisible" phantom:layout_width="match_parent" phantom:layout_height="match_parent" />
+    <ImageView phantom:id="@id/a7u" phantom:visibility="invisible" phantom:layout_width="match_parent" phantom:layout_height="match_parent" />
+    <ImageView phantom:id="@id/a7v" phantom:visibility="invisible" phantom:layout_width="match_parent" phantom:layout_height="match_parent" />
+    <TextView phantom:textColor="#00ff00" phantom:id="@id/a7w" phantom:visibility="invisible" phantom:layout_width="wrap_content" phantom:layout_height="wrap_content" />
+    <View phantom:id="@id/a7x" phantom:background="0x106000b" phantom:visibility="gone" phantom:layout_width="match_parent" phantom:layout_height="match_parent" phantom:alpha="0.0" />
+    <dji.phone.DJILPTouchLogicView phantom:layout_width="match_parent" phantom:layout_height="match_parent" />
+    <include phantom:layout_width="wrap_content" phantom:layout_height="wrap_content" phantom:layout_alignParentLeft="true" phantom:layout_alignParentTop="true" layout="@layout/lp_tk_target_ly" />
+    <include phantom:id="@id/a7y" layout="@layout/lp_meter_ly" />
+    <dji.phone.customui.DJIRotationRelativeLayout phantom:id="@id/a7z" phantom:layout_width="match_parent" phantom:layout_height="match_parent">
+        <dji.device.common.view.DJIGridLineCompat phantom:id="@id/a1y" phantom:visibility="gone" phantom:layout_width="match_parent" phantom:layout_height="match_parent" phantom:layout_centerInParent="true" phantom:horizontalLines_c="4" phantom:verticalLines_c="4" phantom:horizontalLineColor_c="@color/e8" phantom:verticalLineColor_c="@color/e8" phantom:diagonalLineColor_c="@color/e8" phantom:horizontalLineWidth_c="1px" phantom:verticalLineWidth_c="1px" phantom:diagonalLineWidth_c="1px" />
+        <include phantom:id="@id/a80" phantom:visibility="gone" phantom:layout_width="wrap_content" phantom:layout_height="wrap_content" phantom:layout_centerHorizontal="true" phantom:layout_centerVertical="true" layout="@layout/lp_gimbal_rotation_plan" />
+        <include phantom:id="@id/a79" phantom:visibility="gone" phantom:layout_width="wrap_content" phantom:layout_height="wrap_content" phantom:layout_marginBottom="@dimen/ft" phantom:layout_alignParentBottom="true" phantom:layout_centerHorizontal="true" layout="@layout/lp_record_info_bar_layout" />
+        <include phantom:id="@id/a81" phantom:visibility="gone" phantom:layout_width="wrap_content" phantom:layout_height="wrap_content" phantom:layout_marginBottom="@dimen/ft" phantom:layout_alignParentBottom="true" phantom:layout_centerHorizontal="true" layout="@layout/lp_zoom_info_top_bar_layout" />
+        /&gt;
+        <TextView phantom:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" phantom:id="@id/a82" phantom:background="@color/fs" phantom:visibility="gone" phantom:layout_width="wrap_content" phantom:layout_height="UNKNOWN_DATA_0x7f0b0112" phantom:layout_marginBottom="@dimen/gh" phantom:text="@string/lp_aeaf_lock_tip" phantom:layout_alignParentBottom="true" phantom:layout_centerHorizontal="true" />
+        <View phantom:id="@id/a83" phantom:background="@drawable/left_to_right_wide_mask_bg" phantom:visibility="invisible" phantom:layout_width="UNKNOWN_DATA_0x7f0b0113" phantom:layout_height="match_parent" />
+        <include phantom:id="@id/a84" layout="@layout/lp_preview_quicksetting_bar" />
+        <include phantom:id="@id/a85" layout="@layout/lp_preview_cameracontrol_bar" />
+        <include phantom:id="@id/a86" phantom:visibility="gone" phantom:layout_width="wrap_content" phantom:layout_height="match_parent" phantom:layout_toRightOf="@id/a85" layout="@layout/lp_level1_menu_layout" />
+        <include phantom:id="@id/a87" phantom:visibility="gone" phantom:layout_width="wrap_content" phantom:layout_height="match_parent" phantom:layout_toRightOf="@id/a86" layout="@layout/lp_level2_menu_layout" />
+        <dji.phone.bluetooth.DJILPBleStatusView phantom:id="@id/a88" phantom:padding="@dimen/ft" phantom:layout_width="wrap_content" phantom:layout_height="wrap_content" phantom:layout_marginLeft="@dimen/gv" phantom:src="@drawable/lp_ble_link_fail" phantom:scaleType="centerInside" />
+        <include phantom:id="@id/a89" phantom:visibility="gone" phantom:layout_width="wrap_content" phantom:layout_height="wrap_content" phantom:layout_marginRight="@dimen/g1" phantom:layout_marginBottom="@dimen/g1" phantom:layout_alignParentRight="true" phantom:layout_alignParentBottom="true" layout="@layout/lp_live_share_view" />
+        <dji.phone.customui.DJILPRotationLinearLayout phantom:id="@id/a8_" phantom:visibility="visible" phantom:layout_width="wrap_content" phantom:layout_height="wrap_content" phantom:layout_marginTop="17dp" phantom:layout_marginRight="@dimen/gx" phantom:layout_alignParentRight="true">
+            <LinearLayout phantom:id="@id/a8a" phantom:visibility="gone" phantom:layout_width="wrap_content" phantom:layout_height="wrap_content">
+                <dji.publics.DJIUI.DJIImageView phantom:gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:layout_gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:id="@id/a8b" phantom:visibility="gone" phantom:layout_width="wrap_content" phantom:layout_height="wrap_content" phantom:src="@drawable/ic_battery_charging" phantom:scaleType="center" />
+                <View phantom:layout_width="UNKNOWN_DATA_0x201" phantom:layout_height="match_parent" />
+                <dji.publics.DJIUI.DJIImageView phantom:gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:layout_gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:id="@id/a8c" phantom:layout_width="wrap_content" phantom:layout_height="wrap_content" phantom:src="@drawable/lp_ic_battery_lv1" phantom:scaleType="center" />
+                <View phantom:layout_width="UNKNOWN_DATA_0x201" phantom:layout_height="match_parent" />
+                <dji.publics.DJIUI.DJITextView phantom:id="@id/a8d" phantom:text="N/A" style="@style/dq" />
+                <View phantom:layout_width="UNKNOWN_DATA_0x401" phantom:layout_height="match_parent" />
+            </LinearLayout>
+            <ImageView phantom:gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:layout_gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:id="@id/a8e" phantom:layout_width="wrap_content" phantom:layout_height="wrap_content" phantom:src="@drawable/lp_camera_flash_off" />
+        </dji.phone.customui.DJILPRotationLinearLayout>
+        <include phantom:id="@id/a8f" layout="@layout/lp_ui_switch_ly" />
+        <include phantom:layout_width="wrap_content" phantom:layout_height="UNKNOWN_DATA_0x7f0b0127" phantom:layout_marginLeft="@dimen/fk" phantom:layout_marginBottom="@dimen/ft" phantom:layout_alignParentLeft="true" phantom:layout_alignParentBottom="true" layout="@layout/lp_track_quit_ly" />
+        <include phantom:id="@id/a8g" phantom:layout_width="UNKNOWN_DATA_0x7f0b010f" phantom:layout_height="match_parent" phantom:layout_toLeftOf="@id/a84" phantom:layout_centerVertical="true" layout="@layout/lp_camera_shotcuts_view" />
+        <include phantom:id="@id/a8h" phantom:layout_width="UNKNOWN_DATA_0x7f0b010f" phantom:layout_height="match_parent" phantom:layout_toLeftOf="@id/a84" phantom:layout_centerVertical="true" layout="@layout/lp_gimbal_shortcut_view" />
+        <TextView phantom:textSize="35dp" phantom:textColor="@color/om" phantom:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" phantom:id="@id/a8i" phantom:visibility="gone" phantom:layout_width="wrap_content" phantom:layout_height="wrap_content" phantom:layout_centerHorizontal="true" phantom:layout_centerVertical="true" phantom:djiTextFace="3" />
+        <include phantom:id="@id/a8j" phantom:layout_width="UNKNOWN_DATA_0x7f0b010d" phantom:layout_height="wrap_content" phantom:layout_marginRight="@dimen/gx" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" layout="@layout/longan_timelapse2_ly" />
+        <include phantom:id="@id/a8k" phantom:visibility="invisible" phantom:layout_width="match_parent" phantom:layout_height="match_parent" phantom:layout_alignParentLeft="true" layout="@layout/lp_turorial_ble" />
+        <include phantom:id="@id/a8l" phantom:layout_width="match_parent" phantom:layout_height="match_parent" layout="@layout/lp_pano_show_ly" />
+    </dji.phone.customui.DJIRotationRelativeLayout>
+    <ViewStub phantom:id="@id/a7o" phantom:layout="@layout/longan_fpv_gimbal_roll_finetune_view" phantom:inflatedId="@id/a7n" phantom:layout_width="UNKNOWN_DATA_0xf001" phantom:layout_height="wrap_content" phantom:layout_marginBottom="100dp" phantom:layout_alignParentBottom="true" phantom:layout_centerHorizontal="true" />
+    <ViewStub phantom:id="@id/a8n" phantom:layout="@layout/lp_toturial_view" phantom:inflatedId="@id/a8m" phantom:layout_width="match_parent" phantom:layout_height="match_parent" />
+    <include phantom:id="@id/a8o" phantom:layout_width="UNKNOWN_DATA_0x7f0b01cf" phantom:layout_height="wrap_content" phantom:layout_marginTop="@dimen/fi" phantom:layout_marginRight="@dimen/fj" phantom:layout_alignParentRight="true" layout="@layout/fpv_error_pop_view_litchi_c" />
+</dji.publics.DJIUI.DJIRelativeLayout>

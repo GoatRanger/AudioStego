@@ -1,0 +1,208 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Java Native Interface</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="../index.html" target="_top"><img src="../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="TOC.html" target="_top"><img src="../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Trail Contents"></a>
+<a href="./concepts/index.html" target="_top"><img src="../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../index.html" target="_top">Start of Tutorial</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../search.html" target="_top">Search</a>
+<br><a href="../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<h2>
+Trail: Java Native Interface
+</h2>
+<blockquote>
+<p>
+</blockquote>
+<h3>
+<em>by <a href="../information/bios.html#stearns">Beth Stearns</a></em></h3>
+<p>
+
+
+The lessons in this
+trail show you how to integrate native code with programs written in Java. 
+You will learn how to write 
+<em>native methods</em>. Native methods are methods
+implemented in
+another programming language such as C. 
+
+
+<p>
+<strong>The JNI is for programmers who must take advantage of platform-specific functionality outside of the Java Virtual Machine.  Because of this, it is recommended that only experienced programmers should attempt to write
+native methods or use the Invocation API!</strong>
+<p>
+
+<!--    Overview of the JNI    -->
+<p>
+<a href="concepts/index.html">
+<img src="../images/nativeIcon.gif" align=left width=20 height=20 border=0>
+<b>Overview of the JNI</b>
+</a>
+begins with an introduction to the JNI concepts. 
+
+<!--    Writing Java Programs with Native Methods    -->
+<p>
+<a href="stepbystep/index.html">
+<img src="../images/nativeIcon.gif" align=left width=20 height=20 border=0>
+<b>Writing Java Programs with Native Methods</b>
+</a>
+describes how to compile and run a Java program with a native method. It walks you step by step through a simple example (the "Hello World!" of
+native methods) to illustrate how to write, compile, and run a Java program
+that includes native methods.
+
+<!--    Integrating Java and Native Programs    -->
+<p>
+<a href="integrating/index.html">
+<img src="../images/nativeIcon.gif" align=left width=20 height=20 border=0>
+<b>Integrating Java and Native Programs</B>
+</a>
+shows you how to map Java types to native types.  This lesson includes information about
+passing arguments of various data types into a native method and
+returning values of various data types from a native method.  It also shows how to implement a native method within a Java program.
+
+<!--    INTERACTING WITH JAVA FROM THE NATIVE SIDE    -->
+<p>
+<a href="implementing/index.html">
+<img src="../images/nativeIcon.gif" align=left width=20 height=20 border=0>
+<b>Interacting with Java from the Native Side</b> 
+</a>
+describes many useful functions that your native language
+code can use to access Java objects and their members, create Java
+objects, throw exceptions, and more.
+
+<!--    INVOKING THE JAVA VIRTUAL MACHINE    -->
+<p>
+<a href="invoking/index.html">
+<img src="../images/nativeIcon.gif" align=left width=20 height=20 border=0>
+<b>Invoking the Java Virtual Machine</b> 
+</a>
+explains how to invoke the Java Virtual Machine from your native application.
+
+<!--    SUMMARY    -->
+<p>
+<a href="summary/index.html">
+<img src="../images/nativeIcon.gif" align=left width=20 height=20 border=0>
+<b>Summary of the JNI</b> 
+</a>
+lists the JNI methods and mapping tables to remind you of what you've learned.
+
+
+<p>
+
+<blockquote><hr><strong>Note:</strong>&nbsp;<TABLE WIDTH = 85% BORDER = "0">
+<TR>
+<TD>
+
+<a href="http://www.amazon.com/exec/obidos/ASIN/0201325772/javasoftsunmicroA/002-7429305-8183042">
+<p><center><IMG SRC="../figures/native1.1/../../images/bookcovers/native.gif" WIDTH="111" HEIGHT="140" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p></a>
+ </TD>
+<FONT SIZE = "-1">Available now from 
+<a target="_blank" href="http://www.amazon.com/exec/obidos/ASIN/0201325772/javasoftsunmicroA/002-7429305-8183042"><font color="#009bbb">amazon.com</font></a><a target="_blank" href="http://www.amazon.com/exec/obidos/ASIN/0201325772/javasoftsunmicroA/002-7429305-8183042"><img src="../images/otherIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (outside of the tutorial)"></a> </FONT> 
+<TD>
+For more complete
+information, refer to the new book, <em>The Java<SUP><FONT SIZE="-2">TM</FONT></SUP> 
+Native Interface: Programmer's Guide and Specification</em> 
+written by Sheng Liang. Published by Addison Wesley Longman, Inc. June 1999.
+ <P>
+This book is the definitive resource and a comprehensive guide to working with the JNI.
+Entirely up-to-date, the book offers a tutorial, a detailed description
+of JNI features and programming techniques, JNI design justifications, and 
+the official specification for all JNI types and functions. 
+
+</TD>
+</TR>
+</TABLE>
+
+<hr></blockquote>
+<P>
+
+
+<blockquote><hr><strong>Security consideration:</strong>&nbsp;
+Note that the ability to load dynamic libraries is subject to
+approval by the current security manager. When working with native
+methods, you must load dynamic libraries. Some applets may not be
+able to use native methods because  
+the browser or viewer they are running in restricts the ability to load dynamic libraries. See
+<a target="_top" href="../applet/practical/security.html">Security Restrictions</a><a target="_top" href="../applet/practical/security.html"><img src="../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Java Native Interface trail)"></a> for information about the security restrictions placed on applets.
+
+<hr>
+<strong>Note:</strong> MacOS programmers should refer to 
+
+<a target="_blank" href="http://devworld.apple.com/java/"><font color="#009bbb">MacOS Runtime for Java</font></a><a target="_blank" href="http://devworld.apple.com/java/"><img src="../images/otherIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (outside of the tutorial)"></a>.
+<hr></blockquote>
+
+<font size=-1>
+Programmers interested in writing native
+methods in releases prior to 1.1 can
+<a href="ftp://ftp.javasoft.com/docs/tut-native1dot0.zip">download</a>
+the old version of this trail.
+It describes native methods for the 1.0.2 release of the JDK.
+</font>
+
+</blockquote>
+
+<img src="../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="../index.html" target="_top"><img src="../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="TOC.html" target="_top"><img src="../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Trail Contents"></a>
+<a href="./concepts/index.html" target="_top"><img src="../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../index.html" target="_top">Start of Tutorial</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../search.html" target="_top">Search</a>
+<br><a href="../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

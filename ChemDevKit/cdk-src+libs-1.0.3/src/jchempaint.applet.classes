@@ -1,0 +1,4 @@
+org/openscience/cdk/applications/jchempaint/applet/JChemPaintViewerOnlyApplet*.class
+org/openscience/cdk/applications/jchempaint/applet/JChemPaintEditorApplet*.class
+org/openscience/cdk/applications/jchempaint/applet/JChemPaintAbstractApplet*.class
+org/openscience/cdk/applications/jchempaint/applet/AppletCanvas*.class

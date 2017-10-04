@@ -1,0 +1,3 @@
+org/openscience/cdk/test/MforcefieldTests*.class
+org/openscience/cdk/test/modeling/forcefield/ForceFieldTests*.class
+org/openscience/cdk/test/modeling/forcefield/TestPotentialFunction*.class

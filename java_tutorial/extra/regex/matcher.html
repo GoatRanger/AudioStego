@@ -1,0 +1,357 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Methods of the Matcher Class</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="pattern.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#regex" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="pse.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Bonus
+<br>
+<b>Lesson</b>: Regular Expressions
+</font>
+
+<h2>
+Methods of the Matcher Class
+</h2>
+<blockquote>
+<!--Methods of the Matcher class-->
+
+This section describes how to use the methods of the 
+<code>Matcher</code> class we have not yet covered. 
+For convenience, the methods listed below 
+are grouped according to functionality.
+
+<H4>Index Methods</H4>
+<I>Index methods</I> provide useful index values that 
+show precisely where the match was found in the input string: 
+<UL>
+<LI>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/regex/Matcher.html#start()"><font color="#8800bb"><code>public int start()</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/regex/Matcher.html#start()"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a><LI>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/regex/Matcher.html#start(int)"><font color="#8800bb"><code>public int start(int group)</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/regex/Matcher.html#start(int)"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a><LI>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/regex/Matcher.html#end()"><font color="#8800bb"><code>public int end()</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/regex/Matcher.html#end()"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a><LI>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/regex/Matcher.html#end(int)"><font color="#8800bb"><code>public int end(int group)</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/regex/Matcher.html#end(int)"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a></UL>
+
+
+<H4>Study Methods</H4>
+<I>Study methods</I> review the input string and return a boolean 
+indicating whether or not the pattern is found.
+<UL>
+<LI>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/regex/Matcher.html#lookingAt()"><font color="#8800bb"><code>public boolean lookingAt()</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/regex/Matcher.html#lookingAt()"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>
+<LI>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/regex/Matcher.html#find()"><font color="#8800bb"><code>public boolean find()</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/regex/Matcher.html#find()"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>
+<LI>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/regex/Matcher.html#find(int)"><font color="#8800bb"><code>public boolean find(int start)</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/regex/Matcher.html#find(int)"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>
+<LI>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/regex/Matcher.html#matches()"><font color="#8800bb"><code>public boolean matches()</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/regex/Matcher.html#matches()"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a></UL>
+
+<H4>Replacement Methods</H4>
+<I>Replacement methods</I> are useful methods for replacing 
+text in an input string.
+<UL>
+<LI>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/regex//Matcher.html#appendReplacement(java.lang.StringBuffer, java.lang.String)"><font color="#8800bb"><code>public Matcher appendReplacement(StringBuffer sb, String replacement)</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/regex//Matcher.html#appendReplacement(java.lang.StringBuffer, java.lang.String)"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a><LI>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/regex/Matcher.html#appendTail(java.lang.StringBuffer)"><font color="#8800bb"><code> public StringBuffer appendTail(StringBuffer sb)</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/regex/Matcher.html#appendTail(java.lang.StringBuffer)"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>
+<LI>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/regex/Matcher.html#replaceAll(java.lang.String)"><font color="#8800bb"><code>public String replaceAll(String replacement)</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/regex/Matcher.html#replaceAll(java.lang.String)"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>
+<LI>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/regex/Matcher.html#replaceFirst(java.lang.String)"><font color="#8800bb"><code>public String replaceFirst(String replacement)</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/regex/Matcher.html#replaceFirst(java.lang.String)"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a></UL>
+
+
+<H3>Using the <code>start</code> and <code>end</code> Methods</H3>
+
+Here's an example, 
+<a target="_blank" href="example-1dot4/MatcherTest.java"><font color="#bb000f"><code>MatcherTest</code></font></a><a target="_blank" href="example-1dot4/MatcherTest.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>, that counts the number
+of times the word "dog" appears in the input string. 
+
+<blockquote><pre>
+import java.util.regex.*;
+
+public final class MatcherTest {
+
+    private static final String REGEX = "\\bdog\\b";
+    private static final String INPUT = "dog dog dog doggie dogg";
+
+    public static void main(String[] argv) {
+       Pattern p = Pattern.compile(REGEX);
+       Matcher m = p.matcher(INPUT); // get a matcher object
+       int count = 0;
+       while(m.find()) {
+           count++;
+           System.out.println("Match number "+count);
+           System.out.println("start(): "+m.start());
+           System.out.println("end(): "+m.end());
+       }
+    }
+}
+
+OUTPUT:
+
+Match number 1
+start(): 0
+end(): 3
+Match number 2
+start(): 4
+end(): 7
+Match number 3
+start(): 8
+end(): 11
+</pre></blockquote>
+
+You can see that this example uses 
+word boundaries to ensure that the letters <code>"d" "o" "g"</code> 
+are not merely a substring in a longer word. It also 
+gives some useful information about 
+where in the input string the match has occurred. The 
+<code>start</code> method returns the start index of 
+the subsequence captured by the given group 
+during the previous match operation, and <code>end</code> returns the index of the last character matched, plus one.
+
+
+
+<H3>Using the <code>matches</code> and <code>lookingAt</code> Methods</H3>
+
+The <code>matches</code> and <code>lookingAt</code> methods both 
+attempt to match an input sequence against a pattern.
+The difference, however, is that 
+<code>matches</code> requires the entire input sequence to be matched, while 
+<code>lookingAt</code> does not. Both methods always start at the beginning of the input string. Here's the full code,   
+
+<a target="_blank" href="example-1dot4/MatchesLooking.java"><font color="#bb000f"><code>MatchesLooking</code></font></a><a target="_blank" href="example-1dot4/MatchesLooking.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>:
+
+<blockquote><pre>
+import java.util.regex.*;
+
+public final class MatchesLooking {
+
+    private static final String REGEX = "foo";
+    private static final String INPUT = "fooooooooooooooooo";
+    private static Pattern pattern;
+    private static Matcher matcher;
+
+    public static void main(String[] argv) {
+   
+      // Initialize
+        pattern = Pattern.compile(REGEX);
+        matcher = pattern.matcher(INPUT);
+
+        System.out.println("Current REGEX is: "+REGEX);
+        System.out.println("Current INPUT is: "+INPUT);
+
+        System.out.println("lookingAt(): "+matcher.lookingAt());
+        System.out.println("matches(): "+matcher.matches());
+
+    }
+}
+
+Current REGEX is: foo
+Current INPUT is: fooooooooooooooooo
+lookingAt(): true
+matches(): false
+</pre></blockquote>
+
+
+
+<H3>Using <CODE>replaceFirst(String)</CODE> and <CODE>replaceAll(String)</CODE></H3>
+
+The <CODE>replaceFirst</CODE> and <CODE>replaceAll</CODE> methods 
+replace text that matches a given regular expression. 
+As their names indicate, <CODE>replaceFirst</CODE> replaces
+the first occurrence, and <CODE>replaceAll</CODE> replaces all occurences.
+Here's the  
+
+<a target="_blank" href="example-1dot4/ReplaceTest.java"><font color="#bb000f"><code>ReplaceTest</code></font></a><a target="_blank" href="example-1dot4/ReplaceTest.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a> code:
+
+
+<blockquote><pre>
+public final class ReplaceTest {
+ 
+    private static String REGEX = "dog";
+    private static String INPUT = "The dog says meow. All dogs say meow.";
+    private static String REPLACE = "cat";
+ 
+    public static void main(String[] argv) {
+        Pattern p = Pattern.compile(REGEX);
+        Matcher m = p.matcher(INPUT); // get a matcher object
+        INPUT = m.replaceAll(REPLACE);
+        System.out.println(INPUT);
+    }
+}
+
+OUTPUT: The cat says meow. All cats say meow.
+</pre></blockquote>
+
+In this first version, all occurrences of "dog" are replaced with
+ "cat". 
+But why stop here? Rather than replace a simple literal like "dog", you can 
+replace text that matches <I>any</I> regular expression.
+
+The API for this method states that "given the regular 
+expression a*b, the input 'aabfooaabfooabfoob', and the
+ replacement string '-', an invocation of this 
+method on a matcher for that expression would
+ yield the string '-foo-foo-foo-'."
+
+<P>
+Here's the code, 
+<a target="_blank" href="example-1dot4/ReplaceTest2.java"><font color="#bb000f"><code>ReplaceTest2</code></font></a><a target="_blank" href="example-1dot4/ReplaceTest2.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>:
+<blockquote><pre>
+import java.util.regex.*;
+ 
+public final class ReplaceTest2 {
+ 
+    private static String REGEX = "a*b";
+    private static String INPUT = "aabfooaabfooabfoob";
+    private static String REPLACE = "-";
+ 
+    public static void main(String[] argv) {
+        Pattern p = Pattern.compile(REGEX);
+        Matcher m = p.matcher(INPUT); // get a matcher object
+        INPUT = m.replaceAll(REPLACE);
+        System.out.println(INPUT);
+    }
+}
+
+OUTPUT: -foo-foo-foo-                                                                      
+</pre></blockquote>
+
+To replace only the first occurrence of the pattern, simply call
+<CODE>replaceFirst</CODE> instead of <CODE>replaceAll</CODE>. It accepts the
+same parameter.
+
+<H3>The <code>appendReplacement(StringBuffer,String)</code> and <code>appendTail(StringBuffer)</code></H3>
+
+<P>
+The <code>Matcher</code> class also provides <CODE>appendReplacement</CODE> and 
+<CODE>appendTail</CODE> methods
+for text replacement. Here's an example that uses these two methods 
+to achieve the same effect as <CODE>replaceAll</CODE>.  
+
+
+<blockquote><pre>
+import java.util.regex.*;
+ 
+public final class RegexTest {
+ 
+    private static String REGEX = "a*b";
+    private static String INPUT = "aabfooaabfooabfoob";
+    private static String REPLACE = "-";
+ 
+    public static void main(String[] argv) {
+        Pattern p = Pattern.compile(REGEX);
+        Matcher m = p.matcher(INPUT); // get a matcher object
+        StringBuffer sb = new StringBuffer();
+        while(m.find()){
+            m.appendReplacement(sb,REPLACE);
+        }
+        m.appendTail(sb);
+        System.out.println(sb.toString());
+    }
+}
+
+OUTPUT: -foo-foo-foo- 
+</pre></blockquote>
+
+
+<H3><code>Matcher</code> Method Equivalents in <code>java.lang.String</code></H3>
+
+For convenience, the <code>String</code> class mimics a couple of <code>Matcher</code> methods as well: 
+
+<UL>
+<LI>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/String.html#replaceFirst(java.lang.String, java.lang.String)"><font color="#8800bb"><code>public String replaceFirst(String regex, String replacement)</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/String.html#replaceFirst(java.lang.String, java.lang.String)"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>:
+
+Replaces the first substring of this string that matches the given regular expression with the given replacement. An invocation of this method of the form <code><I>str</I>.replaceFirst(<I>regex</I>, <I>repl</I>)</code> yields exactly the same result as the expression <code>Pattern.compile(<I>regex</I>).matcher(<I>str</I>).replaceFirst(<I>repl</I>)</code>
+
+ 
+<P>
+<LI>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/String.html#replaceAll(java.lang.String, java.lang.String)"><font color="#8800bb"><code>public String replaceAll(String regex, String replacement)</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/String.html#replaceAll(java.lang.String, java.lang.String)"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>: Replaces each substring of this string that matches the given 
+regular expression with the given replacement. An invocation of this method of the 
+form <code><I>str</I>.replaceAll(<I>regex</I>, <I>repl</I>)</code> yields exactly the same result as the expression 
+<code>Pattern.compile(<I>regex</I>).matcher(<I>str</I>).replaceAll(<I>repl</I>)</code>
+</UL>
+
+<P>
+
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="pattern.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#regex" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="pse.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

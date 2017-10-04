@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.pilot.set.view.VersionView xmlns:android="http://schemas.android.com/apk/res-auto" set:orientation="vertical" set:clickable="true" style="@style/ff">
+    <TextView set:text="@string/longan_version" style="@style/fj" />
+    <View style="@style/fc" />
+    <LinearLayout set:gravity="top|bottom|center_vertical|fill_vertical|center|fill" set:orientation="horizontal" set:visibility="gone" set:layout_width="match_parent" set:layout_height="wrap_content">
+        <TextView set:gravity="top|bottom|center_vertical|fill_vertical|center|fill" set:text="@string/longan_version_app_title" style="@style/fl" />
+        <TextView set:id="@id/bcd" set:paddingRight="15dp" set:text="1.0" style="@style/fm" />
+    </LinearLayout>
+    <View set:id="@id/q9" style="@style/fc" />
+    <dji.pilot.set.view.DJILPFirmwareVersionGroupView set:title="@string/longan_version_firmware_title" set:sub_Layout="@layout/lp_set_layout_firmware_info" style="@style/fh" />
+    <TextView set:text="@string/subtitle_battery" style="@style/fj" />
+    <View style="@style/fc" />
+    <dji.pilot.set.view.base.SetGroupView set:title="@string/set_about_batery_info_title" set:sub_Layout="@layout/set_layout_battery_info" style="@style/fh" />
+</dji.pilot.set.view.VersionView>

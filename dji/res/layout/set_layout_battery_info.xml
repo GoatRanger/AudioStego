@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.pilot.set.view.BatteryInfoView xmlns:android="http://schemas.android.com/apk/res-auto" set:orientation="vertical" set:clickable="true" style="@style/ff">
+    <ScrollView set:layout_width="match_parent" set:layout_height="match_parent" set:fadeScrollbars="false">
+        <LinearLayout set:orientation="vertical" set:layout_width="match_parent" set:layout_height="match_parent"
+            <LinearLayout set:gravity="top|bottom|center_vertical|fill_vertical|center|fill" set:orientation="horizontal" set:clickable="true" set:layout_width="match_parent" set:layout_height="wrap_content">
+                <TextView set:gravity="top|bottom|center_vertical|fill_vertical|center|fill" set:text="@string/battery_voltage_desc" style="@style/fl" />
+                <TextView set:id="@id/bmi" set:paddingRight="15dp" set:text="" style="@style/fm" />
+            </LinearLayout>
+            <LinearLayout set:gravity="top|bottom|center_vertical|fill_vertical|center|fill" set:orientation="horizontal" set:visibility="gone" set:clickable="true" set:layout_width="match_parent" set:layout_height="wrap_content">
+                <TextView set:gravity="top|bottom|center_vertical|fill_vertical|center|fill" set:text="@string/battery_current_volume" style="@style/fl" />
+                <TextView set:id="@id/bmj" set:paddingRight="15dp" set:text="" style="@style/fm" />
+            </LinearLayout>
+            <LinearLayout set:gravity="top|bottom|center_vertical|fill_vertical|center|fill" set:orientation="horizontal" set:id="@id/bmk" set:visibility="gone" set:clickable="true" set:layout_width="match_parent" set:layout_height="wrap_content">
+                <TextView set:gravity="top|bottom|center_vertical|fill_vertical|center|fill" set:text="@string/battery_full_volume" style="@style/fl" />
+                <TextView set:id="@id/bml" set:paddingRight="15dp" set:text="" style="@style/fm" />
+            </LinearLayout>
+            <LinearLayout set:gravity="top|bottom|center_vertical|fill_vertical|center|fill" set:orientation="horizontal" set:id="@id/bmm" set:clickable="true" set:layout_width="match_parent" set:layout_height="wrap_content">
+                <TextView set:gravity="top|bottom|center_vertical|fill_vertical|center|fill" set:text="@string/battery_charge_times" style="@style/fl" />
+                <TextView set:id="@id/bmn" set:paddingRight="15dp" set:text="" style="@style/fm" />
+            </LinearLayout>
+            <LinearLayout set:gravity="top|bottom|center_vertical|fill_vertical|center|fill" set:orientation="horizontal" set:id="@id/bmo" set:clickable="true" set:layout_width="match_parent" set:layout_height="wrap_content">
+                <TextView set:gravity="top|bottom|center_vertical|fill_vertical|center|fill" set:text="@string/battery_cell_voltage" style="@style/fl" />
+                <TextView set:id="@id/bmp" set:paddingRight="15dp" set:text="" style="@style/fm" />
+            </LinearLayout>
+            <LinearLayout set:gravity="top|bottom|center_vertical|fill_vertical|center|fill" set:orientation="horizontal" set:id="@id/bmq" set:clickable="true" set:layout_width="match_parent" set:layout_height="wrap_content">
+                <TextView set:gravity="top|bottom|center_vertical|fill_vertical|center|fill" set:text="@string/battery_serial_number" style="@style/fl" />
+                <TextView set:id="@id/bmr" set:paddingRight="15dp" set:text="" style="@style/fm" />
+            </LinearLayout>
+            <LinearLayout set:gravity="top|bottom|center_vertical|fill_vertical|center|fill" set:orientation="horizontal" set:id="@id/bms" set:visibility="gone" set:clickable="true" set:layout_width="match_parent" set:layout_height="wrap_content">
+                <TextView set:gravity="top|bottom|center_vertical|fill_vertical|center|fill" set:text="@string/battery_lifetime" style="@style/fl" />
+                <TextView set:id="@id/bmt" set:paddingRight="15dp" set:text="" style="@style/fm" />
+            </LinearLayout>
+            <LinearLayout set:gravity="top|bottom|center_vertical|fill_vertical|center|fill" set:orientation="horizontal" set:visibility="gone" set:clickable="true" set:layout_width="match_parent" set:layout_height="wrap_content">
+                <TextView set:gravity="top|bottom|center_vertical|fill_vertical|center|fill" set:text="@string/battery_product_date" style="@style/fl" />
+                <TextView set:id="@id/bmu" set:paddingRight="15dp" set:text="" style="@style/fm" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</dji.pilot.set.view.BatteryInfoView>

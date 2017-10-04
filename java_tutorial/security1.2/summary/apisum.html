@@ -1,0 +1,214 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>What Does the JDK Security API Provide?</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="apiov.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#summary" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="apicore.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Security in Java 2 SDK 1.2
+<br>
+<b>Lesson</b>: Summaries
+</font>
+
+<h2>
+What Does the JDK Security API Provide?
+</h2>
+<blockquote>
+<p>The JDK Security API is a Java core API, built around the
+<code>java.security</code> package (and its subpackages).
+
+<H2>API Methods</H2>
+
+<blockquote>
+
+<p>Clients can call API methods to incorporate security functionality into
+their applications, including for
+
+<ul>
+
+<li>using cryptography services implemented by the built-in 
+<a href = "#SUNProvider">"SUN" provider</a>
+and/or other <a href = "apicore.html#Provider">provider</a> packages.
+These services include digital signature, message digest, key generation, and 
+random number generation algorithms;  keystore creation and management services;
+algorithm parameter generation and management services; and key and
+certificate "factories" for creating keys or certificates
+from existing material (e.g., encodings).<p>
+
+<li>adding security checks to ensure a caller has a specified customized permission
+(see <a href = "#Customizing">Customizing the Security Features</a>).<p>
+
+<li>marking code <a href = "glossary.html#Privileged">"privileged"</a> 
+so it can exercise more permissions than
+the caller has.<p>
+
+<li>getting or setting values of system-wide security properties.
+
+</ul>
+
+<p>The
+
+<a target="_top" href="../apisign/index.html">Generating and Verifying Signatures</a><a target="_top" href="../apisign/index.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Security in Java 2 SDK 1.2 trail)"></a>
+lesson shows how to write programs using the cryptography aspects of the
+JDK Security API to generate 
+(or import) keys, generate a digital signature
+for data using the private key, and verify the authenticity of a signature.
+
+<p>The
+
+<a target="_top" href="../userperm/index.html">Implementing Your Own Permission</a><a target="_top" href="../userperm/index.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Security in Java 2 SDK 1.2 trail)"></a>
+lesson illustrates defining your own permission, adding security
+checks to your code to ensure a caller has the specified permission, and
+marking code as "privileged".
+
+<p>The
+
+<a target="_top" href="../tour2/index.html">Quick Tour of Controlling Applications</a><a target="_top" href="../tour2/index.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Security in Java 2 SDK 1.2 trail)"></a>
+lesson includes a <code>GetProps</code> program that gets the values
+of the <code>"user.home"</code> and <code>"java.home"</code> properties.
+
+</blockquote>
+
+
+
+<H2><a name="Customizing">Customization of the Security Features</a></H2>
+
+<blockquote>
+
+<p>The API enables clients to define and integrate their own
+
+<ul>
+
+<li>new <a href = "apicore.html#Permissions">Permissions</a>.<p>
+
+<li>cryptography service implementations
+(in one or more <a href = "apicore.html#Provider">provider</a> packages).<p>
+
+<li><a href = "apicore.html#SecurityManager"><code>SecurityManager</code>
+</a> implementation (to replace the default 
+implementation otherwise automatically loaded for applets, and for applications
+whose execution was requested to have a security manager).<p>
+
+<li><a href = "apicore.html#Policy"><code>Policy</code></a> implementation 
+(to replace the default built-in
+implementation).
+
+</ul>
+
+The 
+
+<a target="_top" href="../userperm/index.html">Implementing Your Own Permission</a><a target="_top" href="../userperm/index.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Security in Java 2 SDK 1.2 trail)"></a>
+lesson illustrates defining your own permission and adding security
+checks to your code to ensure a caller has the specified permission.
+
+<p>The latter two (<code>SecurityManager</code> and <code>Policy</code>)
+implementation replacements will be done rarely (e.g., by
+virtual machine implementors) and are beyond the scope of this tutorial.
+
+<p>Adding a cryptography service implementation is something that is 
+expected to be done by a larger number of developers, but it also is
+beyond the scope of this tutorial. See 
+
+<a target="_blank" href="http://java.sun.com/products/jdk/1.2/docs/guide/security/HowToImplAProvider.html"><font color="#009bbb">How to Implement a Provider for the Java Cryptography Architecture</font></a><a target="_blank" href="http://java.sun.com/products/jdk/1.2/docs/guide/security/HowToImplAProvider.html"><img src="../../images/otherIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (outside of the tutorial)"></a> on the public <code>java.sun.com</code> web site
+for a detailed description of the clearly-defined steps required to
+implement a provider package supplying one or more cryptography services.
+
+</blockquote>
+
+
+<H2><a name="JCE">What about Encryption and Decryption?</a></H2>
+
+
+<blockquote>
+
+<p>APIs for data <a href = "#Encryption"><i>encryption</i></a>
+and <a href = "#Decryption"><i>decryption</i></a>, together with
+some default algorithm implementations, are released 
+separately in a "Java
+Cryptography Extension" (JCE) as an add-on package to the JDK, in
+accordance with U.S. export control regulations.
+They are not covered by this trail.
+
+</blockquote>
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="apiov.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#summary" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="apicore.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

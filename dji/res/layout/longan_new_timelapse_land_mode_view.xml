@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="horizontal" android:background="@drawable/longan_timelapse_mode_bg" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content">
+    <TextView android:id="@id/b4n" android:clickable="false" android:layout_width="UNKNOWN_DATA_0x7f0b04e9" android:layout_height="UNKNOWN_DATA_0x7f0b04e1" android:text="@string/longan_timelapse_stationary" style="@style/ev" />
+    <TextView android:id="@id/b4o" android:clickable="false" android:layout_width="UNKNOWN_DATA_0x7f0b04e9" android:layout_height="UNKNOWN_DATA_0x7f0b04e1" android:text="@string/longan_timelapse_motion" style="@style/ev" />
+</LinearLayout>

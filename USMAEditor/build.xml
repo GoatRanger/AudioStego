@@ -1,0 +1,68 @@
+<project name="simpleCompile" default="deploy_editor" basedir=".">
+  <target name="init">
+    <property name="src.dir" value="./src" />
+    <property name="build.dir" value="./bin" />
+    <property name="jar.dir" value="./install" />
+    <property name="libs.dir" value="c:\libs" />
+    <property name="deploy.dir" value="//usmasvddspider/internal web/courses/it105/resources/it105 Editor" />
+    <property name="dev.dir" value="//usmasvddspider/internal web/courses/it105instructors/gossett/EditorDev" />
+  </target>
+
+  <target name="prepare" depends="init">
+    <mkdir dir="${build.dir}" />
+  </target>
+
+  <target name="compile" depends="prepare">
+    <javac classpath=".;..\..\libs\problemsets.jar;..\..\libs\utility.jar;..\..\libs\jalopy.jar;
+..\..\libs\activation.jar;..\..\libs\cssvalidator.jar;..\..\libs\flute.jar;..\..\libs\ja
+karta-oro.jar;..\..\libs\jdom.jar;..\..\libs\log4j.jar;..\..\libs\sac.jar;..\..\libs\ser
+vlet.jar;..\..\libs\mail.jar;..\..\libs\tools.jar;..\..\libs\jh.jar" source="1.4" target="1.4" srcdir="${src.dir}" destdir="${build.dir}" />
+  </target>
+
+  <target name="package" depends="compile">
+    <jar jarfile="${jar.dir}/editor.jar">
+      <fileset dir="${build.dir}" />
+    </jar>
+  </target>
+
+  <target name="deploy" depends="sign_all">
+    <copy todir="${deploy.dir}">
+      <fileset dir="${libs.dir}" casesensitive="yes">
+        <include name="**/*.jar" />
+      </fileset>
+    </copy>
+    <copy file="${jar.dir}/editor.jar" tofile="${deploy.dir}/editor.jar" />
+  </target>
+
+  <target name="deploy_editor" depends="package,compile,init">
+    <signjar jar="${jar.dir}/editor.jar" keystore="myKeystore" alias="dk8685" storepass="gossett" />
+    <copy file="${jar.dir}/editor.jar" tofile="${deploy.dir}/editor.jar" />
+  </target>
+
+  <target name="deploy_dev_editor" depends="package,compile,init">
+    <signjar jar="${jar.dir}/editor.jar" keystore="myKeystore" alias="dk8685" storepass="gossett" />
+    <copy file="${jar.dir}/editor.jar" tofile="${dev.dir}/editor.jar" />
+  </target>
+  
+  <target name="sign_all" depends="package,compile,init">
+    <signjar jar="${jar.dir}/editor.jar" keystore="myKeystore" alias="dk8685" storepass="gossett" />
+    <signjar keystore="myKeystore" alias="dk8685" storepass="gossett">
+      <fileset dir="${libs.dir}" casesensitive="yes">
+        <include name="**/*.jar" />
+      </fileset>
+    </signjar>
+  </target>
+  
+  <target name="deploy_dev" depends="sign_all">
+    <copy file="${jar.dir}/editor.jar" tofile="${dev.dir}/editor.jar" />
+    <copy todir="${dev.dir}">
+      <fileset dir="${libs.dir}" casesensitive="yes">
+        <include name="**/*.jar" />
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="build_help" depends="init">
+    <ant antfile="help/help/buildhelp.xml" />
+  </target>
+</project>

@@ -1,0 +1,9 @@
+org/openscience/cdk/structgen/deterministic/EquivalentClassesDeterministicGenerator*.class
+org/openscience/cdk/structgen/deterministic/GENMDeterministicGenerator*.class
+org/openscience/cdk/structgen/deterministic/Graph*.class
+org/openscience/cdk/structgen/VicinitySampler*.class
+org/openscience/cdk/structgen/stochastic/PartialFilledStructureMerger*.class
+org/openscience/cdk/structgen/stochastic/operator/ChemGraph*.class
+org/openscience/cdk/structgen/stochastic/operator/CrossoverMachine*.class
+org/openscience/cdk/structgen/SingleStructureRandomGenerator*.class
+org/openscience/cdk/structgen/IStructureGenerationListener*.class

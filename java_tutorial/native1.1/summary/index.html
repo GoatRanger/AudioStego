@@ -1,0 +1,263 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Summary of the JNI</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="../invoking/index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#summary" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="../end.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+
+<br>
+<font size="-1">
+<b>Trail</b>: Java Native Interface
+</font>
+
+<h2>
+Lesson: Summary of the JNI
+</h2>
+<blockquote>
+Congratulations! You have learned a great deal about the JNI. To help you remember everything you have learned, this section summarizes the JNI functions and mapping types.
+
+</blockquote>
+<h3>Mapping Between JNI and Native Types</h3>
+<p>
+The following two tables summarize how Java types map to native types and the rules for encoding Java types in native signatures.
+<p>
+<blockquote>
+<h5>Primitive Types and Native Equivalents</h5>
+<table border=1>
+  <tr>
+     <td>Java Type</td><td>  Native Type</td><td>Size in bits</td> 
+  </tr>
+     <td><code>boolean</code></td><td>  <code>jboolean</code></td><td>8, unsigned</td> 
+  </tr>
+     <td><code>byte</code></td><td>  <code>jbyte</code></td><td>8</td> 
+  </tr>
+     <td><code>char</code></td><td>  <code>jchar</code></td><td>16, unsigned</td> 
+  </tr>
+     <td><code>short</code></td><td>  <code>jshort</code></td><td>16</td> 
+  </tr>
+     <td><code>int</code></td><td>  <code>jint</code></td><td>32</td> 
+  </tr>
+     <td><code>long</code></td><td> <code>jlong</code></td><td>64</td> 
+  </tr>
+     <td><code>float</code></td><td>  <code>jfloat</code></td><td>32</td> 
+  </tr>
+     <td><code>double</code></td><td>  <code>jdouble</code></td><td>64</td> 
+  </tr>
+     <td><code>void</code></td><td>  <code>void</code></td><td>n/a</td> 
+  </tr>
+</table>
+</blockquote>
+
+<p>
+</blockquote>
+<h5>Encoding for Java Type Signatures</h5>
+<table border=1>
+  <tr>
+     <td>Signature</td><td> Java Programming Language Type</td> 
+  </tr>
+     <td><code>Z</code></td><td> <code>boolean</code> </td> 
+  </tr>
+     <td><code>B</code></td><td> <code>byte</code></td> 
+  </tr>
+     <td><code>C</code></td><td> <code>char</code></td> 
+  </tr>
+     <td><code>S</code></td><td> <code>short</code></td> 
+  </tr>
+     <td><code>I</code></td><td> <code>int</code></td> 
+  </tr>
+     <td><code>J</code></td><td> <code>long</code></td> 
+  </tr>
+     <td><code>F</code></td><td> <code>float</code></td> 
+  </tr>
+     <td><code>D</code></td><td> <code>double</code></td> 
+  </tr>
+               <td> <code>L</code> fully-qualified-class ;   </td><td>  fully-qualified-class </td>
+  </tr>
+     <td><code>[</code> <i>type</i></td><td> <i>type</i><code>[]</code></td> 
+  </tr>
+     <td><code>(</code> arg-types <code>)</code> ret-type</td><td>  method type</td> 
+  </tr>
+</table>
+</blockquote>
+</font>
+
+
+
+<h3>JNI String Handling Functions</h3>
+<p>
+<ul>
+<li><code>GetStringChars</li>
+<li>GetStringLength</li>
+<li>GetStringUTFChars</li>
+<li>GetStringUTFLength</li>
+<li>NewString</li>
+<li>NewStringUTF</li>
+<li>ReleaseStringChars</li>
+<li>ReleaseStringUTFChars</code></li>
+</ul>
+
+<h3>JNI Array Handling Functions</h3>
+<p>
+<ul>
+<li><code>GetArrayLength</li>
+<li>Get&lt;<i>type</i>&gt;ArrayElements</li>
+<ul>
+<li>GetBooleanArrayElements</li>
+<li>GetByteArrayElements</li>
+<li>GetCharArrayElements</li>
+<li>GetDoubleArrayElements</li>
+<li>GetFloatArrayElements</li>
+<li>GetIntArrayElements</li>
+<li>GetLongArrayElements</li>
+<li>GetShortArrayElements</li>
+</ul>
+<li>Release&lt;<i>type</i>&gt;ArrayElements</li>
+<li>Get&lt;<i>type</i>&gt;ArrayRegion</li>
+<li>Set&lt;<i>type</i>&gt;ArrayRegion</li>
+<li>GetObjectArrayElement</li>
+<li>SetObjectArrayElement</code></li>
+</ul>
+
+<h3>JNI Method Handling Functions</h3>
+
+<ul>
+<li><code> GetObjectClass </li>
+<li> GetMethodID </li>
+<li> GetStaticMethodID </li>
+<li>Call&lt;<i>returntype</i>&gt;Method</li>
+<ul>
+   <li>CallBooleanMethod</li>
+   <li>CallByteMethod</li>
+   <li>CallCharMethod</li>
+   <li>CallDoubleMethod</li>
+   <li>CallFloatMethod</li>
+   <li>CallIntMethod</li>
+   <li>CallLongMethod</li>
+   <li>CallObjectMethod</li>
+   <li>CallShortMethod</li>
+   <li>CallVoidMethod</li></ul>
+<li>CallStatic&lt;<i>returntype</i>&gt;Method</li>
+<li>CallNonvirtual&lt;<i>returntype</i>&gt;Method</li>
+<li>Call&lt;<i>returntype</i>&gt;MethodV</li>
+<li>Call&lt;<i>returntype</i>&gt;MethodA</code></li>
+</ul>
+
+<h3>JNI Member Variable Handling Functions</h3>
+
+<ul>
+<li><code>GetFieldID </li>
+<li>GetStaticFieldID</li>
+<li>Get&lt;<i>type</i>&gt;Field</li>
+<ul>
+   <li>GetBooleanField </li>
+   <li>GetByteField </li>
+   <li>GetCharField </li>
+   <li>GetDoubleField </li>
+   <li>GetFloatField </li>
+   <li>GetIntField </li>
+   <li>GetLongField </li>
+   <li>GetObjectField </li>
+   <li>GetShortField </li></ul>
+<li>Set&lt;<i>type</i>&gt;Field</li>
+<li>GetStatic&lt;<i>type</i>&gt;Field</li>
+<li>SetStatic&lt;<i>type</i>&gt;Field</code></li>
+</ul>
+
+<h3>JNI Exception Handling Functions</h3>
+<ul>
+<li><code> ExceptionClear</li>
+<li>ExceptionDescribe</li>
+<li>ExceptionOccurred</code></li>
+</ul>
+
+<h3>JNI Local and Global Reference Handling Functions</h3>
+<ul>
+<li><code>NewGlobalRef</li>
+<li>DeleteGlobalRef</li>
+<li>DeleteLocalRef</code></li>
+</ul>
+
+<h3>JNI Thread Synchronization Functions</h3>
+<ul>
+<li><code>MonitorEnter</li>
+<li>MonitorExit</code></li>
+</ul>
+
+
+
+
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="../invoking/index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#summary" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="../end.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

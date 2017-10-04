@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android" android:background="@drawable/camera_radius_bg" android:layout_width="wrap_content" android:layout_height="wrap_content">
+    <dji.publics.DJIUI.DJIGridView android:id="@+id/share_pw_gv" android:scrollbars="UNKNOWN_DATA_0x0" android:fadingEdge="UNKNOWN_DATA_0x0" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_margin="@dimen/n3" android:listSelector="0x106000d" android:drawSelectorOnTop="false" android:cacheColorHint="0x106000d" android:stretchMode="columnWidth" android:numColumns="UNKNOWN_DATA_0x3" android:choiceMode="singleChoice" android:overScrollMode="never" />
+</FrameLayout>

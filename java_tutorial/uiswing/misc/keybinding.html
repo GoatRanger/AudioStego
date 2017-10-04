@@ -1,0 +1,566 @@
+
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>How to Use Key Bindings</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="icon.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#misc" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="plaf.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Creating a GUI with JFC/Swing
+<br>
+<b>Lesson</b>: Using Other Swing Features
+</font>
+
+<h2>
+How to Use Key Bindings
+</h2>
+<blockquote>
+The <code>JComponent</code> class
+supports key bindings
+as a way of responding to individual keys typed by a user.
+Here are some examples of when
+key bindings are appropriate:
+
+<ul>
+<li> You're creating a custom component
+     and want to support keyboard access to it.
+     <br>
+     For example, you might want the component to react
+     when it has the focus and the user presses the Space key.
+<p>
+<li> You want to override the behavior
+     of an existing key binding.
+     <br>
+     For example, if your application normally reacts to presses of the F2 key
+     in a particular way,
+     you might want it to perform a different action or ignore the key press.
+<p>
+<li> You want to provide a new key binding for an existing action.
+     <br>
+     For example,
+     you might feel strongly that
+     Control-Shift-Insert should perform a paste operation.
+</ul>
+
+<p>
+You often don't need to use key bindings directly.
+They're used behind the scenes by
+mnemonics (supported by all buttons and by tabbed panes)
+and accelerators (supported by menu items).
+You can find coverage of mnemonics and accelerators in the section
+<a target="_top" href="../components/menu.html#mnemonic">Enabling Keyboard Operation</a><a target="_top" href="../components/menu.html#mnemonic"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.
+
+<p>
+An alternative to key bindings is using
+<a target="_top" href="../events/keylistener.html">key listeners</a><a target="_top" href="../events/keylistener.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.
+Key listeners have their place
+as a low-level interface to keyboard input,
+but for responding to individual keys
+key bindings are more appropriate
+and tend to result in more easily maintained code.
+Some of the advantages of key bindings
+are they're somewhat self documenting,
+take the containment hierarchy into account,
+encourage reusable chunks of code (<code>Action</code> objects),
+and allow actions to be easily removed, customized, or shared.
+Also, they make it easy to change the key
+to which an action is bound.
+
+<p>
+The rest of this section gives you the details you need
+to use key bindings:
+<ul>
+<li> <a href="#maps">How Key Bindings Work</a>
+<li> <a href="#howto">How to Make and Remove Key Bindings</a>
+<li> <a href="#api">The Key Binding API</a>
+<li> <a href="#eg">Examples that Use Key Bindings</a>
+</ul>
+
+</blockquote>
+<h3>
+<a name="maps">
+How Key Bindings Work
+</a>
+</h3>
+<blockquote>
+The key binding support
+provided by <code>JComponent</code>
+relies on the
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/InputMap.html"><font color="#8800bb"><code>InputMap</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/InputMap.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> and
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/ActionMap.html"><font color="#8800bb"><code>ActionMap</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/ActionMap.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> classes,
+which were introduced in 1.3.
+An input map binds key strokes to action names,
+and an action map specifies the
+<a target="_top" href="action.html">action</a><a target="_top" href="action.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a> corresponding to each action name.
+<font color=green>
+[PENDING: Add this footnote:
+<br>Technically, you don't need to use action names in the maps;
+you can use any object as the "key" into the maps.
+By convention, however, you use a string that names an action.]
+</font>
+
+<blockquote><hr><strong>Version Note:</strong>&nbsp;     Prior to 1.3, the <code>JComponent</code> method <code>registerKeyboardAction</code> was
+     used instead of input and action maps.
+     <code>registerKeyboardAction</code> is now obsolete.
+     (To ensure compatibility for older programs,
+     <code>registerKeyboardAction</code> was reimplemented
+     to use <code>InputMap</code> and <code>ActionMap</code>.)
+<hr></blockquote>
+
+<p>
+Each <code>JComponent</code> has
+one action map and three input maps.
+The input maps correspond to the following focus situations:
+
+<dl>
+<dt> <code>JComponent.WHEN_FOCUSED</code>
+<dd> The component has the keyboard focus.
+The <code>WHEN_FOCUSED</code> input map
+is typically used when the component has no children.
+For example, buttons bind the Space key using
+the <code>WHEN_FOCUSED</code> map.
+<p>
+<dt> <code>JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT</code>
+<dd> The component contains (or is) the component that has the focus.
+This input map
+is commonly used for a composite component &#151;
+a component whose implementation depends on child components.
+For example, <code>JTable</code>s
+make all their bindings using
+<code>WHEN_ANCESTOR_OF_FOCUSED_COMPONENT</code>
+so that if the user is editing,
+the up-arrow key (for example) still changes the selected cell.
+<p>
+<dt> <code>JComponent.WHEN_IN_FOCUSED_WINDOW</code>
+<dd> The component's window either has the focus or contains the component
+that has the focus.
+This input map
+is commonly used for mnemonics or accelerators,
+which need to be active regardless of where focus is in the window.
+</dl>
+
+When the user types a key,
+the <code>JComponent</code> key event processing code
+searches through one or more input maps
+to find a valid binding for the key.
+When it finds a binding,
+it looks up the corresponding action
+in the action map.
+If the action is enabled, the binding is valid and the action is executed.
+If it's disabled, the search for a valid binding continues.
+
+<p>
+If more than one binding exists for the key,
+only the first valid one found is used.
+Input maps are checked in this order:
+
+<ol>
+<li> The focused component's <code>WHEN_FOCUSED</code> input map.
+<li> The focused component's <code>WHEN_ANCESTOR_OF_FOCUSED_COMPONENT</code> input map.
+<li> The <code>WHEN_ANCESTOR_OF_FOCUSED_COMPONENT</code> input maps of
+     the focused component's parent,
+     and then its parent's parent, and so on,
+     continuing up the containment hierarchy.
+     Note: Input maps for disabled components are skipped.
+<li> The <code>WHEN_IN_FOCUSED_WINDOW</code> input maps of all the
+     enabled components
+     in the focused window are searched.
+     Because the order of searching the components is unpredictable,
+     <b>avoid duplicate <code>WHEN_IN_FOCUSED_WINDOW</code> bindings!</b>
+</ol>
+
+<p>
+Let's consider what happens in two typical key binding cases:
+a button reacting to the Space key,
+and a frame with a default button
+reacting to the Enter key.
+
+<p>
+In the first case, assume the user presses the Space key
+while a <code>JButton</code> has the keyboard focus.
+First, the button's key listeners are notified of the event.
+Assuming none of the key listeners <em>consumes</em> the event
+(by invoking the
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/event/InputEvent.html#consume()"><font color="#8800bb"><code>consume</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/event/InputEvent.html#consume()"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> method on the <code>KeyEvent</code>)
+the button's <code>WHEN_FOCUSED</code> input map is consulted.
+A binding is found because <code>JButton</code> uses that input map
+to bind Space to an action name.
+The action name is looked up in the button's action map,
+and the <code>actionPerformed</code> method of the action is invoked.
+The <code>KeyEvent</code> is automatically consumed,
+and processing stops.
+
+<p>
+In the second case,
+assume the Enter key is pressed
+while the focus is anywhere inside a frame that has a default button
+(set using the <code>JRootPane</code>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JRootPane.html#setDefaultButton(javax.swing.JButton)"><font color="#8800bb"><code>setDefaultButton</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JRootPane.html#setDefaultButton(javax.swing.JButton)"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> method).
+Whatever the focused component is,
+its key listeners are first notified.
+Assuming none of them consumes the key event
+the focused component's <code>WHEN_FOCUSED</code> input map is consulted.
+If it has no binding for the key,
+the focused component's <code>WHEN_ANCESTOR_OF_FOCUSED_COMPONENT</code>
+input map is consulted
+and then (if no binding is found)
+the <code>WHEN_ANCESTOR_OF_FOCUSED_COMPONENT</code> input maps
+of each of the component's ancestors in the containment hierarchy.
+Eventually, the root pane's
+<code>WHEN_ANCESTOR_OF_FOCUSED_COMPONENT</code> input map
+is searched.
+Since that input map has a valid binding for Enter,
+the action is executed,
+causing the default button to be clicked.
+
+
+</blockquote>
+<h3>
+<a name="howto">
+How to Make and Remove Key Bindings
+</a>
+</h3>
+<blockquote>
+
+<p>
+Here is an example of specifying that a component
+should react to the F2 key:
+
+<blockquote>
+<pre>
+component.getInputMap().put(KeyStroke.getKeyStroke("F2"),
+                            "doSomething");
+component.getActionMap().put("doSomething",
+                             anAction);
+<em>//where anAction is a javax.swing.Action</em>
+</pre>
+</blockquote>
+
+<p>
+As the preceding code shows,
+to get a component's action map
+you use the <code>getActionMap</code> method
+(inherited from <code>JComponent</code>).
+To get an input map,
+you can use the <code>getInputMap(int)</code> method,
+where the integer is one of the <code>JComponent.WHEN_*FOCUSED*</code>
+constants shown in the preceding list.
+Or, in the usual case where the constant is
+<code>JComponent.WHEN_FOCUSED</code>,
+you can just use <code>getInputMap</code> with no arguments.
+
+<p>
+To add an entry to one of the maps,
+use the <code>put</code> method.
+You specify a key
+using a <code>KeyStroke</code> object,
+which you can get using the
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/KeyStroke.html#getKeyStroke(java.lang.String)"><font color="#8800bb"><code>KeyStroke.getKeyStroke(String)</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/KeyStroke.html#getKeyStroke(java.lang.String)"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> method.
+You can find examples of creating <code>Action</code>s
+(to put in an action map) in
+<a target="_top" href="../misc/action.html">How to Use Actions</a><a target="_top" href="../misc/action.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.
+
+<p>
+Here's a slightly more complex example
+that specifies that a component
+should react to the Space key
+as if the user clicked the mouse.
+
+<blockquote>
+<pre>
+component.getInputMap().put(KeyStroke.getKeyStroke("SPACE"),
+                            "pressed");
+component.getInputMap().put(KeyStroke.getKeyStroke("released SPACE"),
+                            "released");
+component.getActionMap().put("pressed",
+                             pressedAction);
+component.getActionMap().put("released",
+                             releasedAction);
+<em>//where pressedAction and releasedAction are javax.swing.Action objects</em>
+</pre>
+</blockquote>
+
+<p>
+To make a component ignore a key that it normally responds to,
+you can use the special action name "none".
+For example, the following code makes a component ignore the F2 key.
+</p>
+
+<blockquote>
+<pre>
+component.getInputMap().put(KeyStroke.getKeyStroke("F2"),
+                            "none");
+</pre>
+</blockquote>
+
+<blockquote><hr><strong>Note:</strong>&nbsp;The preceding code doesn't prevent
+the relevant
+<code>WHEN_ANCESTOR_OF_FOCUSED_COMPONENT</code> and
+<code>WHEN_IN_FOCUSED_WINDOW</code> input maps
+from being searched
+for an F2 key binding.
+To prevent this search,
+you must use a valid action instead of "none".
+For example:
+
+<blockquote><pre>
+Action doNothing = new AbstractAction() {
+    public void actionPerformed(ActionEvent e) {
+        //do nothing
+    }
+};
+component.getInputMap().put(KeyStroke.getKeyStroke("F2"),
+                            "doNothing");
+component.getActionMap().put("doNothing",
+                             doNothing);
+</pre></blockquote>
+
+<hr></blockquote>
+
+
+</blockquote>
+<h3>
+<a name="api">The Key Binding API</a>
+</h3>
+<blockquote>
+The following tables list the commonly used API
+for key bindings.
+Also see the API table
+<a target="_top" href="action.html#actionapi">Creating and Using an Action</a><a target="_top" href="action.html#actionapi"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>, in the section
+<a target="_top" href="action.html">How to Use Actions</a><a target="_top" href="action.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.
+
+
+<ul>
+<li><a href="#inputmap">Creating and Using InputMaps</a>
+<li><a href="#actionmap">Creating and Using ActionMaps</a>
+</ul>
+
+<p>
+<table border=1>
+<caption><a name="inputmap">Getting and Using InputMaps</a></caption>
+<tr>
+<th align=left>Method</th>
+<th align=left>Purpose</th>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JComponent.html#getInputMap()"><font color="#8800bb"><font size=2><code>InputMap getInputMap()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JComponent.html#getInputMap()"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JComponent.html#getInputMap(int)"><font color="#8800bb"><font size=2><code>InputMap getInputMap(int)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JComponent.html#getInputMap(int)"></a>    <br>
+ <em>(in <code>JComponent</code>)</em>
+</td>
+<td>Get one of the input maps for the component.
+    The arguments can be one of these <code>JComponent</code> constants:
+    <code>WHEN_FOCUSED</code>,
+    <code>WHEN_IN_FOCUSED_WINDOW</code>, or
+    <code>WHEN_ANCESTOR_OF_FOCUSED_COMPONENT</code>.
+    The no-argument method gets the <code>WHEN_FOCUSED</code> input map.
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/InputMap.html#put(javax.swing.KeyStroke, java.lang.Object)"><font color="#8800bb"><font size=2><code>void put(KeyStroke, Object)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/InputMap.html#put(javax.swing.KeyStroke, java.lang.Object)"></a> <br>
+ <em>(in <code>InputMap</code>)</em>
+</td>
+<td>Set the action name associated with the specified key stroke.
+    If the second argument is <code>null</code>,
+    this method removes the binding for the key stroke.
+    To make the key stroke be ignored,
+    use <code>"none"</code> as the second argument.
+    </td>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/KeyStroke.html#getKeyStroke(java.lang.String)"><font color="#8800bb"><font size=2><code>static KeyStroke getKeyStroke(String)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/KeyStroke.html#getKeyStroke(java.lang.String)"></a> <br>
+ <em>(in <code>KeyStroke</code>)</em>
+</td>
+<td>Get the object specifying a particular user keyboard activity.
+Typical arguments are "alt shift X", "INSERT", and "typed a".
+See the
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/KeyStroke.html"><font color="#8800bb"><code>KeyStroke</code> API documentation</font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/KeyStroke.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> for full details
+and for other forms of the <code>getKeyStroke</code> method.
+    </td>
+</tr>
+
+</table>
+
+<p>
+<table border=1>
+<caption><a name="actionmap">Getting and Using ActionMaps</a></caption>
+<tr>
+<th align=left>Method</th>
+<th align=left>Purpose</th>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JComponent.html#getActionMap()"><font color="#8800bb"><font size=2><code>ActionMap getActionMap()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JComponent.html#getActionMap()"></a>    <br>
+ <em>(in <code>JComponent</code>)</em>
+</td>
+<td>Get the object that maps names into actions for the component.
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/ActionMap.html#put(java.lang.Object, javax.swing.Action)"><font color="#8800bb"><font size=2><code>void put(Object, Action)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/ActionMap.html#put(java.lang.Object, javax.swing.Action)"></a> <br>
+ <em>(in <code>ActionMap</code>)</em>
+</td>
+<td>Set the action associated with the specified name.
+    If the second argument is <code>null</code>,
+    this method removes the binding for the name.
+    </td>
+</tr>
+</table>
+
+</blockquote>
+
+<h3>
+<a name="eg">Examples that Use Key Bindings</a>
+</h3>
+<blockquote>
+The following table lists examples that
+use key bindings:
+<p>
+<table>
+<tr valign = top>
+<th align=left> Example</th>
+<th align=left> Where Described</th>
+<th align=left> Notes</th>
+</tr>
+
+<tr valign = top>
+<td>
+<a href=../components/example-1dot4/index.html#TableFTFEditDemo>
+TableFTFEditDemo</a>
+<td>
+<a target="_top" href="../components/table.html">How to Use Tables</a><a target="_top" href="../components/table.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a></td>
+<td> The 
+<a target="_top" href="../components/example-1dot4/IntegerEditor.java">IntegerEditor</a><a target="_top" href="../components/example-1dot4/IntegerEditor.java"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a> class registers a key binding on a formatted text field
+to validate the input when the user presses the Enter key.
+</td>
+</tr>
+
+<tr valign = top>
+<td>
+<a href=../components/example-1dot4/index.html#SliderDemo3>
+SliderDemo3</a>
+<td>
+<a target="_top" href="../components/slider.html">How to Use Sliders</a><a target="_top" href="../components/slider.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a></td>
+<td>A key binding is registered on a text field
+to validate the input when the user presses the Enter key.
+</td>
+</tr>
+
+<tr valign = top>
+<td>
+<a href=../components/example-1dot4/index.html#TextComponentDemo>
+TextComponentDemo</a>
+<td>
+<a target="_top" href="../components/generaltext.html">Text Component Features</a><a target="_top" href="../components/generaltext.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a></td>
+<td>Key bindings are registered on a text pane
+to navigate through the text when the user presses
+the Control-B, Control-F, Control-P, and Control-N
+keys.
+</td>
+</tr>
+
+<tr valign = top>
+<td>
+<a href=../misc/example-1dot4/index.html#DragPictureDemo>
+DragPictureDemo</a>
+<td>
+<a target="_top" href="../misc/dnd.html">How to Use Drag and Drop and Data Transfer</a><a target="_top" href="../misc/dnd.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a></td>
+<td> The 
+<a target="_top" href="example-1dot4/DTPicture.java">DTPicture</a><a target="_top" href="example-1dot4/DTPicture.java"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a> class registers key bindings on a custom component
+to cut, copy, and paste when the user
+presses the Control-X, Control-C, and Control-V keys.
+</td>
+</tr>
+
+</table>
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="icon.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#misc" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="plaf.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

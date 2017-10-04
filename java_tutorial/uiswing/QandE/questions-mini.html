@@ -1,0 +1,184 @@
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Questions and Exercises: User Interfaces That Swing</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550">
+<tr>
+<td align="left" valign="center">
+<a href="../index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#start" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="answers-mini.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Creating a GUI with JFC/Swing
+<br>
+<b>Lesson</b>: Getting Started with Swing
+</font>
+
+<h2>
+Questions and Exercises: User Interfaces That Swing
+</h2>
+<blockquote>
+</blockquote>
+
+<h3>Questions</h3>
+
+Use the API documentation to answer these questions.
+
+<blockquote>
+
+1. 
+Show the code that creates a label displaying the following text, with the italics and boldface as shown in this screenshot:
+<p><center><IMG SRC="../../figures/uiswing/QandE/test1.gif" WIDTH="135" HEIGHT="47" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p>
+<P>
+
+2. Use the API documentation or online tutorial, if necessary, to answer the following questions:
+
+<blockquote>
+a. Assume that you have a Swing label that tends to have more horizontal space than it needs to display its text. What code would you use to make the text within a label (<code>Jlabel</code>) be centered instead of left-aligned?
+<P>
+
+
+b. What method do you use to enable and disable such components as Swing buttons?
+<P>
+
+c. How do you add a component to the rightmost (east) cell in a container that uses <code>BorderLayout</code>?
+
+
+</blockquote>
+
+
+
+
+3. Is the following code thread-safe?  If so, why?  If not, what can you do to make it thread-safe?
+<blockquote><pre>
+   JLabel label;
+
+   Container createGUI() {
+       ... 
+	 //create a JPanel; add components to it, including label
+	...
+	return panel;
+   }
+
+   public static void main(String[] args) {
+       JFrame f = new JFrame("A Frame");
+       f.setContentPane(createGUI());
+       f.pack();
+       f.setVisible(true);
+       String labelText = findTextFromSomewhere();
+       label.setText(labelText);
+   }
+
+</pre></blockquote>
+
+</blockquote>
+
+
+<h3>Exercises</h3>
+
+
+You'll need to work on these exercises in order, as they build upon each other. <I>Hint:</I> Your answer to question 2 will be useful.
+<BLOCKQUOTE>
+1. Write an application called <CODE>SwingApp1</CODE> that has two buttons and one label, arranged as shown in the following screenshot:<BR>
+<p><center><IMG SRC="../../figures/uiswing/QandE/sApp1.gif" WIDTH="161" HEIGHT="71" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p><BR>
+<I>Hint:</I> You can use the content pane's default <CODE>BorderLayout</CODE> to manage the buttons and label.
+
+<P>
+2. Copy <CODE>SwingApp1.java</CODE> to <CODE>SwingApp2.java</CODE>, and modify <CODE>SwingApp2</CODE> so that the Stop button is initially disabled. Implement and register one or two action listeners so that when the user clicks either button, the clicked button is disabled, the other button is enabled, and the label is updated appropriately. Your application should look like this: <BR>
+<p><center><IMG SRC="../../figures/uiswing/QandE/sApp2.gif" WIDTH="157" HEIGHT="71" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p><P>
+
+
+3. Copy <CODE>SwingApp2.java</CODE> to <CODE>SwingApp3.java</CODE>, and modify <CODE>SwingApp3</CODE> so that its Start button brings up a dialog that looks like this: <BR>
+<p><center><IMG SRC="../../figures/uiswing/QandE/sApp3.gif" WIDTH="270" HEIGHT="122" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p>If the user chooses the Go ahead button, the Start button should do exactly what it did in <CODE>SwingApp2</CODE>. If the user does anything else, the application should update the label to report the cancellation and leave the buttons in their existing state.
+<P>
+
+
+
+
+
+
+</blockquote>
+
+<a target="_top" href="answers-mini.html">Check your answers.</a><a target="_top" href="answers.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt="(in the Creating a GUI with JFC/Swing trail)"></a><blockquote>
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<br>
+<table width="550">
+<tr>
+<td align="left" valign="center">
+<a href="../index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#start" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="answers-mini.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

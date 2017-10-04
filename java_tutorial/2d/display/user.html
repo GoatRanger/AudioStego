@@ -1,0 +1,260 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Supporting User Interaction</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="complexshapes.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#display" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="../textandfonts/index.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: 2D Graphics
+<br>
+<b>Lesson</b>: Displaying Graphics with Graphics2D
+</font>
+
+<h2>
+Supporting User Interaction
+</h2>
+<blockquote>
+To allow the user to interact with the graphics you display, you need
+to be able to determine when the user clicks on one of them. The
+<CODE>Graphics2D</CODE> <CODE>hit</CODE> method provides a way for you
+to easily determine whether a mouse click occurred over a particular
+<CODE>Shape</CODE>. Alternatively you can get the location of the mouse
+click and call <CODE>contains</CODE> on the <CODE>Shape</CODE> to
+determine whether the click was within the bounds of the
+<CODE>Shape</CODE>.
+<P>
+
+If you are using primitive text, you can perform simple hit testing by
+getting the outline <CODE>Shape</CODE> that corresponds to the text and
+then calling <CODE>hit</CODE> or <CODE>contains</CODE> with that
+<CODE>Shape</CODE>. Supporting text editing requires much more
+sophisticated hit testing. If you want to allow the user to edit text,
+you should generally use one of the Swing editable text components. If
+you are working with primitive text and are using
+<CODE>TextLayout</CODE> to manage the shaping and positioning of the
+text, you can also use <CODE>TextLayout</CODE> to perform hit testing
+for text editing. For more information see the chapter Text and Fonts
+in the
+
+<a target="_blank" href="http://java.sun.com/products/jdk/1.2/docs/guide/2d/spec/j2d-fonts.fm.html"><font color="#009bbb">Java 2D Programmer's Guide</font></a><a target="_blank" href="http://java.sun.com/products/jdk/1.2/docs/guide/2d/spec/j2d-fonts.fm.html"><img src="../../images/otherIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (outside of the tutorial)"></a>  or see the HitTestSample example below, which uses a <code>TextLayout</code> to perform simple hit-testing.
+<p>
+ 
+</blockquote>
+<h3>Example: ShapeMover</h3>
+<blockquote>
+This applet allows the user to drag a <CODE>Shape</CODE> around within
+the applet window. The <CODE>Shape</CODE> is redrawn at every mouse
+location to provide feedback as the user drags it.
+
+<p><center><a href="ShapeMover.html" target="_blank"><IMG SRC="../../figures/2d/2D-52.gif   " WIDTH="560" HEIGHT="231" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="Click this figure to run the applet."></a><br><em>This is a picture of the applet's GUI.  To run the applet, click the picture.  The applet will appear in a new browser window.</em></center></p>
+<P>
+
+<a target="_blank" href="example-1dot2/ShapeMover.java"><font color="#bb000f"><code>ShapeMover.java</code></font></a><a target="_blank" href="example-1dot2/ShapeMover.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>
+contains the complete code for this applet.
+<P>
+The <CODE>contains</CODE> method is called to determine whether the
+cursor is within the bounds of the rectangle when the mouse is pressed.
+If it is, the location of the rectangle is updated.
+<blockquote><pre>
+public void mousePressed(MouseEvent e){
+    last_x = rect.x - e.getX();
+    last_y = rect.y - e.getY();
+    if(rect.contains(e.getX(), e.getY())) updateLocation(e);
+...
+
+public void updateLocation(MouseEvent e){
+    rect.setLocation(last_x + e.getX(), last_y + e.getY());
+    ...
+    repaint();
+</pre></blockquote>
+<P>
+You might notice that redrawing the <CODE>Shape</CODE> at every mouse
+location is slow, because the filled rectangle is rerendered every time
+it is moved. Using double buffering can eliminate this problem. If you
+use Swing, the drawing will be double buffered automatically; you don't
+have to change the rendering code at all.
+The code for a Swing version of this program is
+
+<a target="_blank" href="example-1dot2/SwingShapeMover.java"><font color="#bb000f"><code>SwingShapeMover.java</code></font></a><a target="_blank" href="example-1dot2/SwingShapeMover.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>.
+To run the Swing version, visit 
+<a href="SwingShapeMover.html">
+Run SwingShapeMover</a>.
+<P>
+If you're not using Swing, the
+<A HREF="../images/doublebuffering.html#bufferedshapemover">
+Example: BufferedShapeMover</A>
+section in the next lesson shows how you can implement double buffering
+by using a <CODE>BufferedImage</CODE>. You render into the
+<CODE>BufferedImage</CODE> and then copy the image to the screen.
+</blockquote>
+<p>
+
+<h3>Example: HitTestSample</h3>
+<blockquote>
+This application illustrates hit testing by drawing the default caret
+wherever the user clicks on the <code>TextLayout</code>, as shown in the
+following figure.
+
+<p><center><a href="HitTestSample.html" target="_blank"><IMG SRC="../../figures/2d/Caret.gif" WIDTH="362" HEIGHT="180" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="Click this figure to run the applet."></a><br><em>This is a picture of the applet's GUI.  To run the applet, click the picture.  The applet will appear in a new browser window.</em></center></p>
+<p>
+
+<a target="_blank" href="example-1dot2/HitTestSample.java"><font color="#bb000f"><code>HitTestSample.java</code></font></a><a target="_blank" href="example-1dot2/HitTestSample.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>
+contains the complete code for this applet.
+<P>
+The <code>mouseClicked</code> method uses
+<code>TextLayout.hitTestChar</code> to return a
+<code>java.awt.font.TextHitInfo</code> object that contains the mouse
+click location (the insertion index) in the <code>TextLayout</code>
+object.
+<p>
+Information returned by the <code>TextLayout</code>
+<code>getAscent</code>, <code>getDescent</code>, and
+<code>getAdvance</code> methods is used to compute the location of the
+origin for the <code>TextLayout</code> object so it is horizontally and
+vertically centered.
+<p>
+<blockquote>
+<pre>
+...
+
+private Point2D computeLayoutOrigin() {
+  Dimension size = getPreferredSize();
+  Point2D.Float origin = new Point2D.Float();
+     
+  origin.x = (float) (size.width - textLayout.getAdvance()) / 2;   
+  origin.y = 
+    (float) (size.height - textLayout.getDescent()
+             + textLayout.getAscent())/2;
+  return origin;
+}
+
+...
+
+public void paintComponent(Graphics g) {
+  super.paintComponent(g);
+  setBackground(Color.white);
+  Graphics2D graphics2D = (Graphics2D) g;                
+  Point2D origin = computeLayoutOrigin();
+  graphics2D.translate(origin.getX(), origin.getY());
+                
+  // Draw textLayout.
+  textLayout.draw(graphics2D, 0, 0);
+     
+  // Retrieve caret Shapes for insertionIndex.
+  Shape[] carets = textLayout.getCaretShapes(insertionIndex);
+       
+  // Draw the carets.  carets[0] is the strong caret and 
+  // carets[1] is the weak caret.   
+  graphics2D.setColor(STRONG_CARET_COLOR);
+  graphics2D.draw(carets[0]);                
+  if (carets[1] != null) {
+    graphics2D.setColor(WEAK_CARET_COLOR);
+    graphics2D.draw(carets[1]);
+  }       
+}
+
+...
+
+private class HitTestMouseListener extends MouseAdapter {
+                
+    /**
+     * Compute the character position of the mouse click.
+     */     
+    public void mouseClicked(MouseEvent e) {
+                
+      Point2D origin = computeLayoutOrigin();
+                
+      // Compute the mouse click location relative to  
+      // textLayout's origin.
+      float clickX = (float) (e.getX() - origin.getX());
+      float clickY = (float) (e.getY() - origin.getY());
+         
+      // Get the character position of the mouse click.
+      TextHitInfo currentHit = textLayout.hitTestChar(clickX, clickY);
+      insertionIndex = currentHit.getInsertionIndex();
+            
+      // Repaint the Component so the new caret(s) will be displayed.
+      hitPane.repaint();
+    }
+</pre>
+</blockquote>
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="complexshapes.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#display" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="../textandfonts/index.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>A Brief Description of the BINGO Programs</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="traditional.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#bingo" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="letsplay.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Putting It All Together
+<br>
+<b>Lesson</b>: BINGO!
+</font>
+
+<h2>
+A Brief Description of the BINGO Programs
+</h2>
+<blockquote>
+Our implementation of the BINGO game in Java
+is a client/server application,
+and as such, is comprised of two Java programs that run
+in separate Java Virtual Machines.
+<p>
+The Game application is the server,
+and the Player application is the client.
+
+</blockquote>
+<h3>The Game</h3>
+<blockquote>
+The Game manages BINGO games.
+It registers players and generates the cards that they play with,
+starts and stops games,
+announces the balls as they are chosen from the bag of balls,
+verifies winning cards,
+prevents players from being a nuisance,
+and provides status to game listeners.
+</blockquote>
+
+<h3>The Player</h3>
+<blockquote>
+The Player provides the interface
+for users to interact with the BINGO game.
+To play, a user pushes the <strong>Join the Next Game</strong>
+button. If the Player is allowed to play,
+the Game gives some BINGO cards to the player.
+As the game proceeds the user marks the card as balls are announced.
+When the card has a BINGO (5 in a row, column, or diagonal) the
+user clicks a button which notifies the Game of the win.
+</blockquote>
+
+<h3>The Flow of the Game</h3>
+<blockquote>
+Here's a chart that describes the flow of the BINGO game.
+
+<p><center><a href="../../figures/together/GameFlow.gif" target="_top"><IMG SRC="../../figures/together/GameFlow.gif" WIDTH="460" HEIGHT="476" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></a><br><em>This figure has been reduced to fit on the page. <br> Click the image to view it at its natural size.</em></center></p>
+The flow chart leaves out some details but basically the
+flow of the game is as follows:
+<ul>
+<li>
+A Game starts up.
+<li>
+A Player starts up. Other players may also start up.
+<li>
+The first Player joins the next game.<br>
+	To join a game, a user must enter some information
+	into the GUI and click the <strong>Join the Next Game</strong> button.
+	The Player application sends the information to the
+	Game who returns a Player ID and some BINGO cards
+	to play with. The BINGO cards are displayed by the Player.
+<li>
+After the first Player has joined a game, the Game begins
+a countdown to the beginning of the game. Players can continue
+to join the game until the countdown is over. Then the game begins.
+<li>
+To start a game, the Game just starts announcing balls--there is no
+announcement of the beginning of the game.
+<li>
+The Player application displays the newest ball and all
+of the balls announced to date. The user
+checks the card against the balls announced and
+looks for a BINGO (5 in a row, column, or diagonal).
+<li>
+When a user notices a BINGO, s/he clicks the
+<strong>BINGO! I Won! BINGO!</strong> button.
+The Player application sends the Player ID and the winning
+card to the Game.
+<li>
+The Game pauses the game (stops announcing balls)
+while it verifies the Player ID and the card. The card
+must have been signed for the current game by this Game application and
+it must have a BINGO. If indeed we have a winner, then the game
+is over and the Game sends the "end-of-game" ball.
+If the card was not a winner, then the Player "cried wolf"
+and is given a warning. Three wolf cries and the player is
+kicked out of the game.
+<li>
+After the game is over, the user can clear the Player
+application and join the next game, or quit the Player application.
+After the game is over, the Game automatically clears its
+status display, and waits for the first player to join the next game.
+</ul>
+
+<p>
+To get a better understanding of the flow of the game, you should
+play. The <a href="letsplay.html">next section</a> shows you how.
+
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="traditional.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#bingo" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="letsplay.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

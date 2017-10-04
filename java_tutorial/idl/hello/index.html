@@ -1,0 +1,192 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>The Hello Client-Server Example</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="../intro/index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#hello" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="idltojava.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+
+<br>
+<font size="-1">
+<b>Trail</b>: IDL
+</font>
+
+<h2>
+Lesson: The Hello Client-Server Example
+</h2>
+<blockquote>
+This tutorial teaches the basic tasks in building a CORBA distributed
+application using Java IDL. You will build the classic Hello World
+program as a distributed application, with both applet and application
+clients. The Hello World program has a single operation that returns a
+string to be printed. CORBA terminology and the underlying
+functionality of the application is discussed in
+<A HREF="../intro/corba.html">
+The CORBA Architecture</A>.
+The application diagram is repeated here, along with a review of the
+steps in the process of communication between the client and server.
+
+<p><center><IMG SRC="../../figures/idl/IDL-1.gif" WIDTH="241" HEIGHT="114" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p>
+<center>
+Communication between the client and server.
+</center>
+
+<OL>
+<LI> The client (applet or application) invokes the
+     <CODE CLASS="Code">sayHello</CODE> operation of the HelloServer.
+<LI> The ORB transfers that invocation to the servant object registered
+     for that IDL interface.
+<LI> The servant's <CODE CLASS="Code">sayHello</CODE> method runs,
+     returning a Java <CODE CLASS="Code">String</CODE>.
+<LI> The ORB transfers that <CODE CLASS="Code">String</CODE>
+     back to the client.
+<LI> The client prints the value of the <CODE CLASS="Code">String</CODE>.
+</OL>
+
+<P>
+Despite its simple design, the Hello World program lets you learn and
+experiment with all the tasks required to develop almost any CORBA
+program that uses static invocation.
+
+</blockquote>
+<h3>Getting Started</h3>
+<blockquote>
+Before you start working with Java IDL, you need two things: version
+1.2 of the JDK software and the <CODE CLASS="Code">idltojava</CODE>
+compiler. The JDK provides the API and ORB needed to enable CORBA-based
+distributed object interaction. The <CODE CLASS="Code">idltojava</CODE>
+compiler uses the IDL-to-Java mapping to convert IDL interface
+definitions to corresponding Java interfaces, classes, and methods,
+which you can then use to implement your client and server code.
+Click here to
+
+<a target="_blank" href="http://developer.java.sun.com/developer/earlyAccess/jdk12/idltojava.html"><font color="#009bbb">download and install the <code>idltojava</code> compiler</font></a><a target="_blank" href="http://developer.java.sun.com/developer/earlyAccess/jdk12/idltojava.html"><img src="../../images/otherIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (outside of the tutorial)"></a>
+
+<blockquote><hr><strong>Note:</strong>&nbsp; The Java<FONT SIZE = -2><SUP>TM</SUP></FONT> 2 Platform, 
+Standard Edition, v. 1.3, now includes a new version of 
+the IDL-to-Java compiler, <CODE>idlj</CODE>. The <CODE>idlj</CODE> 
+compiler replaces the <CODE>idltojava</CODE> compiler that 
+was available as a separate download in previous releases. 
+You can download the 
+
+<a target="_blank" href="http://java.sun.com/j2se/1.3/index.html"><font color="#009bbb">Java<FONT SIZE = -2><SUP>TM</SUP></FONT> 2 Platform, Standard Edition, v. 1.3</font></a><a target="_blank" href="http://java.sun.com/j2se/1.3/index.html"><img src="../../images/otherIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (outside of the tutorial)"></a> and visit
+<a target="_blank" href="http://java.sun.com/j2se/1.3/docs/guide/idl/index.html"><font color="#009bbb">Java IDL Documentation</font></a><a target="_blank" href="http://java.sun.com/j2se/1.3/docs/guide/idl/index.html"><img src="../../images/otherIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (outside of the tutorial)"></a> for more information on Java IDL in the 1.3 release. 
+<hr></blockquote>
+
+
+</blockquote>
+
+
+
+<h3><A href="idltojava.html">Writing the IDL Interface</A></h3>
+<blockquote>
+This section teaches you
+how to write a simple IDL interface definition and
+how to translate the IDL interface to Java.
+It also describes the purpose of each file generated by
+<CODE>idltojava</CODE> compiler.
+</blockquote>
+
+<h3><A href="client.html">Developing a Client Application</A></h3> 
+<blockquote>
+Learn how to write a simple client application, including
+how to create an ORB object, how to use the naming service
+to get an initial object reference, and how to invoke an
+operation on a CORBA object.
+</blockquote>
+
+<h3><A href="server.html">Developing the Hello World Server</A></h3> 
+<blockquote>
+This section has all the information you
+need to write a simple IDL server, including 
+how to create an ORB object for the server,
+how to instantiate the servant and connect it to the ORB,
+how to register the servant with the naming service, and
+how to make the server wait for invocations on the servant.
+</blockquote>
+
+<h3><A href="compiling.html">Compiling and Running the Hello World Application</A></h3> 
+<blockquote>
+After you've written the client and the server,
+you're ready to compile the code and run the programs.
+</blockquote>
+        
+<h3><A href="stringified.html">Using Stringified Object References</A></h3> 
+<blockquote>
+This section tells
+you how to make an object reference when
+there is no naming service.
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="../intro/index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#hello" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="idltojava.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

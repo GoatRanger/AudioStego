@@ -1,0 +1,204 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Creating Classes</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#javaOO" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="classdecl.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Learning the Java Language
+<br>
+<b>Lesson</b>: Classes and Inheritance
+</font>
+
+<h2>
+Creating Classes
+</h2>
+<blockquote>
+Now that we've covered how
+to create and use objects, and how objects are cleaned up,
+it's time to show you how
+to write the classes
+from which objects are created.
+This section shows you the main components
+of a class through a small example
+that implements a last-in-first-out (LIFO) stack.
+The following diagram lists the class
+and identifies the structure of the code.
+
+<p><center><IMG SRC="../../figures/java/13parts.gif" WIDTH="466" HEIGHT="440" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p>
+This implementation of a stack uses another object, a
+<code>Vector</code>,
+to store its elements.
+<code>Vector</code> is a growable array of objects
+and does a nice job of allocating space
+for new objects as space is required.
+The <code>Stack</code> class makes use of this code
+by using a <code>Vector</code> to store its elements.
+However, it imposes LIFO restrictions
+on the <code>Vector</code>--
+that is, you can only add elements to
+and remove elements from the top of the stack.
+
+</blockquote>
+<h3><a href="classdecl.html">The Class Declaration</a></h3>
+<blockquote>
+The previous diagram
+shows that two primary components
+make up the implementation of a class:
+the class declaration and the class body.
+The class declaration declares the name of the class
+along with other attributes.
+The class declaration for the <code>Stack</code>
+class is fairly simple and indicates
+that the class is public and that its name is <code>Stack</code>.
+Often, a minimal class declaration such as this one is all you'll need. 
+<p>
+However, the class declaration can say more about the class,
+such as the name of the superclass and if it can be subclassed.
+</blockquote>
+
+<h3><a href="classbody.html">The Class Body</a></h3>
+<blockquote>
+The class body follows the class declaration and is embedded
+within curly braces { and }. The class body contains
+declarations for all instance variables and class variables (known
+collectively as member variables) for the class. In addition, the
+class body contains declarations and implementations for all instance
+methods and class methods (known collectively as methods) for the
+class.
+</blockquote>
+
+<h3><a href="constructors.html">Providing Constructors for Your Classes</a></h3>
+<blockquote>
+A class may contain one or more constructors that provide
+for the initialization of an object created from the class.
+This section shows you how to write a constructor.
+</blockquote>
+
+<h3><a href="variables.html">Declaring Member Variables</a></h3>
+<blockquote>
+A class's state is represented by its member variables.
+You declare a class's member variables in the body of the class.
+Typically, you declare a class's variables before
+you declare its methods, although this is not required.
+<blockquote><pre>
+<em>classDeclaration</em> {
+    <em>member variable declarations</em>
+    <em>method declarations</em>
+}
+</pre></blockquote>
+<strong>Note:</strong> To declare variables that are members of a
+class, the declarations must be within the class body, but <strong>not</strong>
+within the body of a method. Variables declared within the body of a method
+are local to that method.
+</blockquote>
+
+<h3><a href="methods.html">Implementing Methods</a></h3>
+<blockquote>
+As you know, objects have behavior that is implemented
+by its methods. Other objects can ask an object to do something by
+invoking its methods. This section tells you everything you need to know
+about writing methods for your Java classes. For more information about
+how to call methods see
+<a target="_top" href="../data/usingobject.html">Using Objects</a><a target="_top" href="../data/usingobject.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Learning the Java Language trail)"></a>.
+<p>
+In Java, you define a class's methods in the body of the class for
+which the method implements some behavior. Typically,
+you declare a class's methods after its variables in the class body
+although this is not required.
+</blockquote>
+
+<h3><a href="accesscontrol.html">Controlling Access to Members of a Class</a></h3>
+<blockquote>
+Member variables and methods are known collectively as <em>members</em>.
+When you declare a member of a Java class, you can
+allow or disallow other objects of other types access to that member
+through the use of <em>access specifiers</em>.
+</blockquote>
+
+<h3><a href="classvars.html">Understanding Instance and Class Members</a></h3>
+<blockquote>
+A Java class can contain two different types of members: instance members
+and class members. This page shows you how to declare both types of 
+members and how to use them.
+</blockquote>
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#javaOO" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="classdecl.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

@@ -1,0 +1,289 @@
+
+
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>How to Write a Tree Expansion Listener</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="tablemodellistener.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#events" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="treemodellistener.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Creating a GUI with JFC/Swing
+<br>
+<b>Lesson</b>: Writing Event Listeners
+</font>
+
+<h2>
+How to Write a Tree Expansion Listener
+</h2>
+<blockquote>
+
+Sometimes when using a 
+<a target="_top" href="../components/tree.html">tree</a><a target="_top" href="../components/tree.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>, you might need to react when a branch becomes expanded or collapsed.
+For example, you might need to load or save data.
+Or you might need to prevent the user
+from expanding a particular node.
+
+<p>
+Two kinds of listeners report expansion and collapse occurrences:
+tree expansion listeners and tree-will-expand listeners.
+This page discusses the former.
+A tree expansion listener detects when an expansion or collapse
+has happened.
+In general, you should implement a tree expansion listener
+unless you might need to prevent an expansion or collapse
+from happening.
+
+<p>
+Tree-will-expand listeners are discussed in
+<a href="treewillexpandlistener.html">How to Write a Tree-Will-Expand
+Listener</a>.
+A tree-will-expand listener detects when an expansion or collapse
+is about to happen.
+
+<p>
+The following example demonstrates a simple tree expansion listener.
+The text area at the bottom of the window
+displays a message every time a tree expansion event occurs.
+It's a straightforward, simple demo.
+To see a more interesting version that can veto expansions, see
+<a href="treewillexpandlistener.html">How to Write a Tree-Will-Expand
+Listener</a>.
+
+<p>
+
+<p><center><IMG SRC="../../figures/uiswing/events/TreeExpandEventDemo.gif" WIDTH="450" HEIGHT="200" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p>
+<h4 align=center><font color=red>[PENDING: updated
+screenshot with sample output forthcoming.]</font></h4>
+
+<blockquote><hr><strong>Try this:</strong>&nbsp;<ol>
+<li> <a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/events/example-1dot4/TreeExpandEventDemo.jnlp">Run
+     TreeExpandEventDemo</a> using
+     <a href=http://java.sun.com/products/javawebstart>
+     Java<sup><font size=-2>TM</font></sup> Web Start</a>.
+     Or, to compile and run the example yourself,
+     consult the
+     <a href="example-1dot4/index.html#TreeExpandEventDemo">example index</a>.
+<li> Expand a node.  A tree-expanded event is fired.
+<li> Collapse the node.  A tree-collapsed event is fired.
+</ol>
+<hr></blockquote>
+
+<p>
+The following code shows how the program handles expansion events.
+You can find all the example's source code in
+
+<a target="_blank" href="example-1dot4/TreeExpandEventDemo.java"><font color="#bb000f"><code>TreeExpandEventDemo.java</code></font></a><a target="_blank" href="example-1dot4/TreeExpandEventDemo.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>.
+
+<blockquote><pre>
+public class TreeExpandEventDemo ... {
+    ...
+    void saySomething(String eventDescription, TreeExpansionEvent e) {
+        textArea.append(eventDescription + "; "
+                        + "path = " + e.getPath()
+                        + newline);
+    }
+
+    class DemoArea ... implements TreeExpansionListener {
+        ...
+        public DemoArea() {
+            ...
+            tree.addTreeExpansionListener(this);
+            ...
+        }
+        ...
+        // Required by TreeExpansionListener interface.
+        public void treeExpanded(TreeExpansionEvent e) {
+            saySomething("Tree-expanded event detected", e);
+        }
+
+        // Required by TreeExpansionListener interface.
+        public void treeCollapsed(TreeExpansionEvent e) {
+            saySomething("Tree-collapsed event detected", e);
+        }
+    }
+}
+</pre></blockquote>
+
+</blockquote>
+
+<h3>
+<a name="api">The Tree Expansion Listener API</a>
+</h3>
+<blockquote>
+
+<p align=center><a name="treeexpansionlistener">The TreeExpansionListener
+   Interface</a>
+<p><em><code>TreeExpansionListener</code> has no adapter class.</em>
+<table border=1>
+<tr>
+<th align=left>Method</th>
+<th align=left>Purpose</th>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/event/TreeExpansionListener.html#treeCollapsed(javax.swing.event.TreeExpansionEvent)"><font color="#8800bb"><font size=2><code>treeCollapsed(TreeExpansionEvent)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/event/TreeExpansionListener.html#treeCollapsed(javax.swing.event.TreeExpansionEvent)"></a></td>
+<td> Called just after a tree node collapses.
+</td>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/event/TreeExpansionListener.html#treeExpanded(javax.swing.event.TreeExpansionEvent)"><font color="#8800bb"><font size=2><code>treeExpanded(TreeExpansionEvent)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/event/TreeExpansionListener.html#treeExpanded(javax.swing.event.TreeExpansionEvent)"></a></td>
+<td> Called just after a tree node expands.
+</td>
+</tr>
+</table>
+
+<p align=center><a name="treeexpansionevent">The TreeExpansionEvent API</a>
+<p>
+<table border=1>
+<tr>
+<th align=left>Method</th>
+<th align=left>Purpose</th>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/EventObject.html#getSource()"><font color="#8800bb"><font size=2><code>Object getSource()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/EventObject.html#getSource()"></a></td>
+<td>Return the object that fired the event.
+</td>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/event/TreeExpansionEvent.html#getPath()"><font color="#8800bb"><font size=2><code>TreePath getPath()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/event/TreeExpansionEvent.html#getPath()"></a></td>
+<td>Returns a 
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/tree/TreePath.html"><font color="#8800bb"><code>TreePath</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/tree/TreePath.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> object that identifies each node from the root of the tree
+ to the collapsed/expanded node, inclusive.
+</td>
+</tr>
+</table>
+
+</blockquote>
+<a name="eg">
+<h3>Examples that Use Tree Expansion Listeners</h3>
+</a>
+<blockquote>
+The following table lists the
+examples that use tree expansion listeners.
+ 
+<p>
+ 
+<table>
+<tr>
+<th align=left> Example
+</th>
+<th align=left> Where Described
+</th>
+<th align=left> Notes
+
+</th>
+</tr>
+<tr valign=top>
+<td> <a href="example-1dot4/index.html#TreeExpandEventDemo">
+     <code>TreeExpandEventDemo</code></a>
+</td>
+<td> This section
+</td>
+<td> Displays a message whenever a tree expansion event occurs.
+
+</td>
+</tr>
+<tr valign=top>
+<td> <a href="example-1dot4/index.html#TreeExpandEventDemo2">
+     <code>TreeExpandEventDemo2</code></a>
+</td>
+<td> <a href="treewillexpandlistener.html">How to Write a 
+     Tree-Will-Expand Listener</a>
+</td>
+<td> Adds a tree-will-expand listener to <code>TreeExpandEventDemo</code>.
+
+</td>
+</tr>
+</table>
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="tablemodellistener.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#events" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="treemodellistener.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>The SortedMap Interface</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="sorted-set.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#interfaces" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="../implementations/index.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Collections
+<br>
+<b>Lesson</b>: Interfaces
+</font>
+
+<h2>
+The SortedMap Interface
+</h2>
+<blockquote>
+A
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/SortedMap.html"><font color="#8800bb"><code>SortedMap</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/SortedMap.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>is a
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/Map.html"><font color="#8800bb"><code>Map</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/Map.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>that maintains its entries in ascending order, sorted according to the
+keys' <i>natural order</i>, or according to a <code>Comparator</code>
+provided at <code>SortedMap</code> creation time.  (Natural order and
+<code>Comparator</code>s are discussed in the section on <a
+href="order.html">Object Ordering</a>.)  In addition to the normal
+<code>Map</code> operations, the <code>Map</code> interface provides
+operations for:
+<ul>
+<li>
+Range-view: Performs arbitrary <i>range operations</i> on the sorted
+map.
+<li>
+Endpoints: Returns the first or last key in the sorted map.
+<li>
+Comparator access: Returns the <code>Comparator</code> used to
+sort the map (if any).
+</ul>
+<blockquote><pre>
+public interface SortedMap extends Map {
+    Comparator comparator();
+
+    SortedMap subMap(Object fromKey, Object toKey);
+    SortedMap headMap(Object toKey);
+    SortedMap tailMap(Object fromKey);
+
+    Object firstKey();
+    Object lastKey();
+}
+</pre></blockquote>
+This interface is the <code>Map</code> analogue of
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/SortedSet.html"><font color="#8800bb"><code>SortedSet</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/SortedSet.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>.
+
+</blockquote>
+<h3>Map Operations</h3>
+<blockquote>
+The operations that <code>SortedMap</code> inherits from <code>Map</code>
+behave identically on sorted maps and normal maps with two exceptions:
+<ul>
+<li>
+The <code>Iterator</code> returned by the <code>iterator</code> operation
+on any of the sorted map's <code>Collection</code>-views traverse the
+collections in key-order.
+<li>The arrays returned by the <code>Collection</code>-views'
+<code>toArray</code> operations contain the keys, values, or
+entries in key-order.
+</ul>
+Although it isn't guaranteed by the interface, the <code>toString</code>
+method of the <code>Collection</code>-views in all the
+JDK's <code>SortedMap</code> implementations returns a
+string containing all the elements of the view, in key-order.
+
+<p>For example, consider the following snippet:
+<blockquote><pre>
+SortedMap m = new TreeMap();
+m.put("Sneezy", "common cold");
+m.put("Sleepy", "narcolepsy");
+m.put("Grumpy", "seasonal affective disorder");
+
+System.out.println(m.keySet());
+System.out.println(m.values());
+System.out.println(m.entrySet());
+</pre></blockquote>
+
+<p>Running this snippet produces this output:
+<blockquote><pre>
+[Grumpy, Sleepy, Sneezy]
+[seasonal affective disorder, narcolepsy, common cold]
+[Grumpy=seasonal affective disorder, Sleepy=narcolepsy, Sneezy=common cold]
+</pre></blockquote>
+</blockquote>
+
+<h3>Standard Constructors</h3>
+<blockquote>
+By convention, all <code>Map</code> implementations provide a standard
+constructor that takes a <code>Map</code>, and <code>SortedMap</code>
+implementations are no exception.  This constructor creates a
+<code>SortedMap</code> object that orders its entries according to their
+keys' natural order.  Additionally, by convention, <code>SortedMap</code>
+implementations provide two other standard constructors:
+<ul>
+<li>
+One that takes a <code>Comparator</code> and returns a new (empty)
+<code>SortedMap</code> sorted according to the specified
+<code>Comparator</code>.
+<li>
+One that takes a <code>SortedMap</code> and returns a new 
+<code>SortedMap</code> containing the same mappings as the given
+<code>SortedMap</code>, <i>and sorted according to the same
+<code>Comparator</code></i> (or using the elements' natural ordering, if the
+specified <code>SortedMap</code> did too).  Note that it is the compile-time
+type of the argument that determines whether this constructor is invoked
+in preference to the ordinary <code>Map</code> constructor, and not its
+runtime type!
+</ul>
+
+<p>The first of these standard constructors is the normal way to
+create an empty <code>SortedMap</code> with an explicit
+<code>Comparator</code>. The second is similar in spirit to the
+standard <code>Map</code> constructor: It creates a copy of a
+<code>SortedMap</code> with the same ordering, but with a programmer
+specified implementation type.
+
+<p>The following snippet illustrates how this works:
+
+<blockquote><pre>
+final Comparator FUNNY_COMPARATOR = ... ;
+Map m = new TreeMap(FUNNY_COMPARATOR);
+
+// ... code to populate m
+
+Map m2 = new TreeMap(m);           // invokes TreeMap(Map)
+Map m3 = new TreeMap((SortedMap)m) // invokes TreeMap(SortedMap)
+</pre></blockquote>
+
+<p>Note that <code>m2.comparator()</code> will return
+<code>null</code> while <code>m3.comparator()</code> will return
+<code>FUNNY_COMPARATOR</code>.  In other words, <code>m2</code> is
+sorted according to its keys' natural ordering, while <code>m3</code>
+is sorted according to the ordering induced by
+<code>FUNNY_COMPARATOR</code>.
+</blockquote>
+
+<h3>Comparison to SortedSet</h3>
+<blockquote>
+Because this interface is a precise <code>Map</code> analogue of
+<code>SortedSet</code>, all of the idioms and code examples in
+the  <a href="order.html"><code>SortedSet</code> section</a> apply to
+<code>SortedMap</code>, with only trivial modifications.
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="sorted-set.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#interfaces" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="../implementations/index.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

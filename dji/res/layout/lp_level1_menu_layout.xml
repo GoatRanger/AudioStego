@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.phone.menu.DJILPCameraLevel1MenuView xmlns:android="http://schemas.android.com/apk/res-auto" phantom:orientation="vertical" phantom:background="0x106000d" phantom:clickable="true" phantom:layout_width="wrap_content" phantom:layout_height="wrap_content" phantom:splitMotionEvents="true">
+    <View phantom:layout_width="match_parent" phantom:layout_height="UNKNOWN_DATA_0x7f0b03b2" />
+    <include phantom:id="@id/bas" phantom:layout_width="match_parent" phantom:layout_height="match_parent" layout="@layout/lp_radiogroup_photomodes" />
+    <ViewStub phantom:id="@id/b41" phantom:layout="@layout/lp_radiogroup_videomodes" phantom:layout_width="match_parent" phantom:layout_height="match_parent" />
+    <View phantom:layout_width="match_parent" phantom:layout_height="UNKNOWN_DATA_0x7f0b03b2" />
+</dji.phone.menu.DJILPCameraLevel1MenuView>

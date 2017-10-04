@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="horizontal" style="@style/g2">
+    <TextView android:id="@id/bqz" android:text="Title" style="@style/gh" />
+    <dji.setting.ui.widget.DJISpinnerButton android:id="@id/buz" android:text="usa" style="@style/gc" />
+</LinearLayout>

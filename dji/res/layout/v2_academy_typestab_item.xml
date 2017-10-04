@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.publics.DJIUI.DJIRelativeLayout xmlns:android="http://schemas.android.com/apk/res-auto" phantom:layout_width="match_parent" phantom:layout_height="wrap_content" phantom:baselineAligned="false"
+    <dji.publics.DJIUI.DJIRelativeLayout phantom:id="@+id/item_content_ly" phantom:layout_width="wrap_content" phantom:layout_height="UNKNOWN_DATA_0x7f0b0127" phantom:layout_centerInParent="true">
+        <dji.publics.DJIUI.DJITextView phantom:textSize="@dimen/ro" phantom:textStyle="bold" phantom:textColor="@color/a_" phantom:id="@+id/series_txt" phantom:layout_width="wrap_content" phantom:layout_height="wrap_content" phantom:text="L" phantom:layout_centerVertical="true" phantom:djiTextFace="3" />
+        <dji.publics.DJIUI.DJITextView phantom:textSize="@dimen/ro" phantom:textStyle="bold" phantom:textColor="@color/gj" phantom:id="@+id/acad_aircraft_version_txt" phantom:paddingLeft="@dimen/gw" phantom:layout_width="wrap_content" phantom:layout_height="wrap_content" phantom:text="R" phantom:layout_toRightOf="@+id/series_txt" phantom:layout_centerVertical="true" phantom:djiTextFace="3" />
+        <dji.publics.DJIUI.DJITextView phantom:textSize="@dimen/ro" phantom:textStyle="bold" phantom:textColor="@color/a_" phantom:id="@+id/acad_aircraft_subversion_txt" phantom:layout_width="wrap_content" phantom:layout_height="wrap_content" phantom:layout_marginLeft="@dimen/gw" phantom:text="B" phantom:layout_toRightOf="@+id/acad_aircraft_version_txt" phantom:layout_centerVertical="true" phantom:djiTextFace="1" />
+    </dji.publics.DJIUI.DJIRelativeLayout>
+</dji.publics.DJIUI.DJIRelativeLayout>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res-auto" phantom:orientation="vertical" phantom:layout_width="match_parent" phantom:layout_height="match_parent"
+    <LinearLayout phantom:gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:orientation="horizontal" phantom:layout_width="match_parent" phantom:layout_height="UNKNOWN_DATA_0x1" phantom:layout_weight="1.5">
+        <dji.publics.DJIUI.DJITextView phantom:textSize="@dimen/d4" phantom:textStyle="bold" phantom:textColor="@color/ly" phantom:gravity="left|right|center_horizontal|fill_horizontal|center|fill|start|end" phantom:id="@+id/v2_phantom_connect_title" phantom:layout_width="match_parent" phantom:layout_height="wrap_content" phantom:text="@string/phantom_dji_phantom" phantom:djiTextFace="0" />
+    </LinearLayout>
+    <dji.publics.DJIUI.DJIImageView phantom:layout_gravity="left|right|center_horizontal|fill_horizontal|center|fill|start|end" phantom:id="@+id/v2_phantom_connect_img" phantom:background="@r$drawable/power_by_xt" phantom:visibility="gone" phantom:layout_width="wrap_content" phantom:layout_height="wrap_content" phantom:layout_marginLeft="@dimen/n2" phantom:contentDescription="@string/app_name" />
+    <dji.publics.DJIUI.DJITextView phantom:textSize="@dimen/d0" phantom:textColor="@color/lz" phantom:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" phantom:id="@+id/v2_phantom_connect_subtitle" phantom:layout_width="match_parent" phantom:layout_height="UNKNOWN_DATA_0x1" phantom:text="@string/phantom_dji_advanced" phantom:layout_weight="1.5" phantom:djiTextFace="0" />
+</LinearLayout>

@@ -1,0 +1,13 @@
+org/openscience/cdk/renderer/Renderer2DModel*.class
+org/openscience/cdk/renderer/Renderer2D*.class
+org/openscience/cdk/renderer/IRenderer2D*.class
+org/openscience/cdk/renderer/AbstractRenderer2D*.class
+org/openscience/cdk/renderer/ArrowRenderer2D*.class
+org/openscience/cdk/renderer/SimpleRenderer2D*.class
+org/openscience/cdk/renderer/ISimpleRenderer2D*.class
+org/openscience/cdk/renderer/AlphaRenderer2D*.class
+org/openscience/cdk/renderer/Arrow*.class
+org/openscience/cdk/renderer/color/CPKAtomColors*.class
+org/openscience/cdk/renderer/color/CDKAtomColors*.class
+org/openscience/cdk/renderer/color/CDK2DAtomColors*.class
+org/openscience/cdk/renderer/color/PartialAtomicChargeColors*.class

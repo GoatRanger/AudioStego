@@ -1,0 +1,244 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Boundary Matchers</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="groups.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#regex" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="pattern.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Bonus
+<br>
+<b>Lesson</b>: Regular Expressions
+</font>
+
+<h2>
+Boundary Matchers
+</h2>
+<blockquote>
+<!--Boundary Matchers-->
+
+
+Until now, we've only been interested in whether or not a match 
+is found <i>at some location</i> within a particular input string. We never cared about <I>where</I> in the 
+string the match was taking place.
+<P>
+You can make your pattern 
+matches more precise by specifying such information with <i>boundary matchers</i>. For example, maybe you're interested 
+in finding a particular word, but only if it appears at the
+beginning or end of a line. Or maybe you want to know if the match is taking 
+place on a word boundary, or at the end of the previous match. 
+<P>
+The following table lists and explains all the boundary matchers. 
+<blockquote>
+<TABLE WIDTH="405" BORDER="1" CELLSPACING="2" CELLPADDING="0"
+HEIGHT="229">
+  <TR>
+    <TD COLSPAN="2" HEIGHT="22">
+    <P><CENTER>&nbsp;<B>Boundary Matchers</B></CENTER></TD>
+  </TR>
+  <TR>
+    <TD WIDTH="11%" HEIGHT="23">
+    &nbsp;<CODE>^</CODE></TD>
+    <TD WIDTH="89%" HEIGHT="23">
+    &nbsp;The beginning of a line</TD>
+  </TR>
+  <TR>
+    <TD WIDTH="11%" HEIGHT="23">
+    &nbsp;<CODE>$</CODE></TD>
+    <TD WIDTH="89%" HEIGHT="23">
+    &nbsp;The end of a line</TD>
+  </TR>
+  <TR>
+    <TD WIDTH="11%" HEIGHT="23">
+    &nbsp;<CODE>\b</CODE></TD>
+    <TD WIDTH="89%" HEIGHT="23">
+    &nbsp;A word boundary</TD>
+  </TR>
+  <TR>
+    <TD WIDTH="11%" HEIGHT="23">
+    &nbsp;<CODE>\B</CODE></TD>
+    <TD WIDTH="89%" HEIGHT="23">
+    &nbsp;A non-word boundary</TD>
+  </TR>
+  <TR>
+    <TD WIDTH="11%" HEIGHT="23">
+    &nbsp;<CODE>\A</CODE></TD>
+    <TD WIDTH="89%" HEIGHT="23">
+    &nbsp;The beginning of the input</TD>
+  </TR>
+  <TR>
+    <TD WIDTH="11%" HEIGHT="23">
+    &nbsp;<CODE>\G</CODE></TD>
+    <TD WIDTH="89%" HEIGHT="23">
+    &nbsp;The end of the previous match</TD>
+  </TR>
+  <TR>
+    <TD WIDTH="11%" HEIGHT="23">
+    &nbsp;<CODE>\Z</CODE></TD>
+    <TD WIDTH="89%" HEIGHT="23">
+    &nbsp;The end of the input but for the final terminator, if any</TD>
+  </TR>
+  <TR>
+    <TD WIDTH="11%" HEIGHT="23">
+    &nbsp;<CODE>\z</CODE></TD>
+    <TD WIDTH="89%" HEIGHT="23">
+    &nbsp;The end of the input</TD>
+  </TR>
+</TABLE> 
+</blockquote>
+
+The following examples demonstrate the use of boundary matchers 
+<code>^</code> and <code>$</code>. As
+noted above, <code>^</code> matches the beginning of a line, and 
+<code>$</code> matches the end. 
+
+<blockquote><pre> 
+Current REGEX is: ^dog$
+Current INPUT is: dog
+I found the text "dog" starting at index 0 and ending at index 3.
+
+Current REGEX is: ^dog$
+Current INPUT is:       dog
+No match found.
+
+Current REGEX is: \s*dog$
+Current INPUT is:             dog
+I found the text "            dog" starting at index 0 and ending at index 15.
+
+Current REGEX is: ^dog\w*
+Current INPUT is: dogblahblah
+I found the text "dogblahblah" starting at index 0 and ending at index 11.
+</pre></blockquote> 
+
+The first example 
+ is successful because the pattern occupies the entire input string. 
+The second example fails because the input string contains extra whitespace at the beginning.
+
+
+The third example specifies an expression that allows for unlimited 
+white space, followed by "dog" on the end of the line. The fourth 
+example requires "dog" to be present at the beginning of 
+a line followed by an unlimited number of word characters.
+
+<P>
+To check if a pattern begins and ends on a word boundary 
+(as opposed to a substring within a longer string), just use 
+ <code>\b</code> on either side; for example, <CODE>\bdog\b</CODE>
+
+<blockquote><pre> 
+Current REGEX is: \bdog\b
+Current INPUT is: The dog plays in the yard.
+I found the text "dog" starting at index 4 and ending at index 7.
+
+Current REGEX is: \bdog\b
+Current INPUT is: The doggie plays in the yard.
+No match found.
+</pre></blockquote> 
+
+To match the expression on a non-word boundary, use <code>\B</code> instead:
+<blockquote><pre> 
+Current REGEX is: \bdog\B
+Current INPUT is: The dog plays in the yard.
+No match found.
+
+Current REGEX is: \bdog\B
+Current INPUT is: The doggie plays in the yard.
+I found the text "dog" starting at index 4 and ending at index 7.
+</pre></blockquote> 
+
+To require the match to occur only at the end of the previous match, use <code>\G</code>:
+
+<blockquote><pre> 
+Current REGEX is: dog // Without \G
+Current INPUT is: dog dog
+I found the text "dog" starting at index 0 and ending at index 3.
+I found the text "dog" starting at index 4 and ending at index 7.
+
+Current REGEX is: \Gdog // With \G
+Current INPUT is: dog dog
+I found the text "dog" starting at index 0 and ending at index 3.
+</pre></blockquote> 
+
+Here the second example finds only one match, because the second occurrence of "dog" 
+does not start at the end of the previous match.
+
+<P>
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="groups.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#regex" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="pattern.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

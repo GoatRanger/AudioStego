@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.publics.DJIUI.DJIRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:fitsSystemWindows="false" android:layout_width="match_parent" android:layout_height="match_parent">
+    <SurfaceView android:id="@+id/surfaceView" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <dji.publics.DJIUI.DJIImageView android:id="@+id/rc_main_background_iv" android:background="0x106000d" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" />
+    <include layout="@layout/rc_main_operation" />
+</dji.publics.DJIUI.DJIRelativeLayout>

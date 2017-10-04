@@ -1,0 +1,10 @@
+package dji.logic.g;
+
+public enum a$b {
+    RADAR_FRONT_CHANGED,
+    RADAR_BACK_CHANGED,
+    RADAR_LEFT_CHANGED,
+    RADAR_RIGHT_CHANGED,
+    RADAR_TOP_CHANGED,
+    RADAR_BOTTOM_CHANGED
+}

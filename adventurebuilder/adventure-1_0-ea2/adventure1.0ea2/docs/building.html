@@ -1,0 +1,188 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta http-equiv="CONTENT-TYPE" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.79 [en]C-{C-UDP; EBM-SONY1}  (Windows NT 5.0; U) [Netscape]">
+   <title>Java[tm] Adventure Builder Demo 1.0 Early Access 2 > Building
+
+the Demo</title>
+</head>
+<body>
+&nbsp;
+<table BORDER=0 CELLSPACING=0 CELLPADDING=5 WIDTH="100%" style="" >
+<caption><tbody>
+<br></tbody></caption>
+
+<tr>
+<td BGCOLOR="#000033"><b><font color="#CCCCFF"><a href="index.html">Java[tm]
+Adventure Builder Demo 1.0 Early Access 2</a></font></b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<font color="#FFFFFF">> <b>Building the Demo</b></font></td>
+
+<td BGCOLOR="#000033">
+<div align=right><b><font color="#CCCCFF"><a href="http://java.sun.com/j2ee/blueprints/">Java
+BluePrints</a></font></b></div>
+</td>
+</tr>
+</table>
+
+<h1>
+Building the Demo</h1>
+We use <a href="http://jakarta.apache.org/ant/index.html">Ant</a>, which
+comes bundled with the J2EE 1.4 Beta Reference Implementation, to build&nbsp;
+the source code. Ant is a Java-based build tool like <i>make</i>, which
+has been developed&nbsp; under the auspices of the <a href="http://www.apache.org/">Apache
+Software&nbsp; Foundation</a>.
+<br>&nbsp;
+<center><table CELLSPACING=2 CELLPADDING=2 WIDTH="87%" >
+<caption>
+<center><tbody>
+<br></tbody></center>
+</caption>
+
+<tr>
+<td>
+<hr size="1" noshade="">
+
+<p style="margin-bottom: 0cm; "><b>Note:</b> The Java Adventure Builder
+Demo bundle comes with pre-built binaries. To deploy these binaries and
+avoid building the application, consult the <a href="installing.html">installation
+instructions</a>.&nbsp;</td>
+</tr>
+</table></center>
+
+<center><table CELLSPACING=2 CELLPADDING=2 WIDTH="87%" >
+<caption>
+<center><tbody>
+<br></tbody></center>
+</caption>
+
+<tr>
+<td>
+<hr size="1" noshade=""></td>
+</tr>
+</table></center>
+
+<h2>
+1.0 Building Adventure Builder Demo</h2>
+This section explains how to build the application binaries for the Adventure
+Builder&nbsp; application. Building all the application binaries&nbsp;
+and&nbsp; performing&nbsp; other tasks with Ant involves invoking <tt>ant</tt>&nbsp;
+from &lt;adventure.home>/src directory of the demo installation.
+<p>Before building the application, you need to configure the &lt;adventure.home>/src/build.properties
+file to match your enviroment. You need to set the following properties:
+<table BORDER CELLSPACING=0 CELLPADDING=5 WIDTH="525" >
+<caption><tbody>
+<br></tbody></caption>
+
+<tr>
+<td ALIGN=CENTER VALIGN=TOP WIDTH="17%"><b>Property Name</b></td>
+
+<td ALIGN=CENTER VALIGN=TOP WIDTH="37%"><b>Description</b></td>
+
+<td ALIGN=CENTER VALIGN=TOP WIDTH="37%"><b>Examples</b></td>
+</tr>
+
+<tr ALIGN=LEFT>
+<td VALIGN=TOP WIDTH="17%">j2ee.server.name</td>
+
+<td VALIGN=TOP WIDTH="37%">Host name of the server where the J2EE SDK is
+installed</td>
+
+<td VALIGN=TOP WIDTH="37%">localhost</td>
+</tr>
+
+<tr ALIGN=LEFT>
+<td VALIGN=TOP WIDTH="17%">j2ee.server.port</td>
+
+<td VALIGN=TOP WIDTH="37%">HTTP port where the J2EE SDK can be accessed</td>
+
+<td VALIGN=TOP WIDTH="37%">8000&nbsp;</td>
+</tr>
+
+<tr ALIGN=LEFT>
+<td VALIGN=TOP>j2ee.home</td>
+
+<td VALIGN=TOP>The absolute path to the directory where J2EE SDK is installed</td>
+
+<td VALIGN=TOP>c:\j2sdkee1.4 (on Windows) or /home/mydir/j2sdkee1.4&nbsp;&nbsp;
+(on&nbsp; Unix)</td>
+</tr>
+</table>
+<b>Note: On Windows, while writing the paths in the build.properties files,&nbsp;
+you need to escape the "\" properly by using "\\" instead. For example,
+to set j2ee.home to c:\j2sdkee1.4, the entry in the properties file is
+j2ee.home=c:\\j2sdkee1.4</b>.
+<p>To build the application binaries on Unix, open a shell prompt and enter
+these commands:
+<pre>cd &lt;adventure.home>/src
+ant [argument]</pre>
+To build the application binaries on Windows, open a shell prompt and enter
+these commands:
+<pre>cd &lt;adventure.home>\src
+ant [argument]</pre>
+For the above command to work, your PATH environment variable must have
+been set as explained in the <a href="installing.html">installation instructions</a>
+and the ANT_HOME environment&nbsp; variable, if any, should not point to
+any other version of <tt>ant</tt> that migh be on your system. When <tt>ant</tt>
+is invoked without any arguments, all the application&nbsp; binaries are
+built. The binaries are placed in the following folders:
+<pre>&lt;adventure.home>/src/apps/adventure/build/adventure.ear</pre>
+
+<pre>&lt;adventure.home>/src/apps/opc/build/opc.ear</pre>
+The following table lists possible arguments when invoking <tt>ant</tt>
+:
+<p><br>
+<center>
+<p>Arguments for <tt>ant</tt></center>
+
+<br>&nbsp;
+<center><table BORDER CELLSPACING=0 CELLPADDING=5 WIDTH="386" >
+<caption>&nbsp;</caption>
+
+<tr>
+<td></td>
+</tr>
+</table></center>
+
+<center><table BORDER CELLSPACING=0 CELLPADDING=5 WIDTH="386" >
+<caption>&nbsp;
+<center>
+<br><col width="81"><col width="283"><tbody>
+<br></tbody></center>
+</caption>
+
+<tr>
+<th WIDTH="81">Option</th>
+
+<th WIDTH="283">Purpose</th>
+</tr>
+
+<tr>
+<td WIDTH="81"><tt>core</tt></td>
+
+<td WIDTH="283">Builds everything. (This is the default build target.)</td>
+</tr>
+
+<tr>
+<td WIDTH="81"><tt>cleanall</tt></td>
+
+<td WIDTH="283">Cleans out the build output directories.</td>
+</tr>
+
+<tr>
+<td WIDTH="81"><tt>deploy-apps</tt></td>
+
+<td WIDTH="283">Deploys the application binaries.</td>
+</tr>
+</table></center>
+
+<hr size="3" noshade="">
+<p><a href="copyright.html">Copyright &copy; 2003 Sun Microsystems, Inc.
+All Rights Reserved.</a>
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>What Is a Class?</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="message.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#concepts" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="inheritance.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Learning the Java Language
+<br>
+<b>Lesson</b>: Object-Oriented Programming Concepts
+</font>
+
+<h2>
+What Is a Class?
+</h2>
+<blockquote>
+
+In the real world, you often have many objects of the same kind. For example, your bicycle is just one of many bicycles in the world. Using object-oriented terminology, we say that your bicycle object is an
+<a href="javascript:var meth=openWin; meth('instance');" onMouseOver="self.status='Look up instance in glossary'; return true;" onMouseOut="self.status=''; return true;"><font color="#00bb00"><em>instance</em></font></a><a href="javascript:var meth=openWin; meth('instance');" onMouseOver="self.status='Look up instance in glossary'; return true;" onMouseOut="self.status=''; return true;"><img src="../../images/glossaryIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the glossary)"></a> of the class of objects known as bicycles. Bicycles have some state (current gear, current cadence, two wheels) and behavior (change gears, brake) in common. However, each bicycle's state is independent of and can be different from that of other bicycles.
+
+<p>
+When building bicycles, manufacturers take advantage of the fact that bicycles share characteristics, building many bicycles from the same blueprint. It would be very inefficient to produce a new blueprint for every individual bicycle manufactured.
+
+<p>
+In object-oriented software, it's also possible to have many objects of the same kind that share characteristics: rectangles, employee records, video clips, and so on. Like the bicycle manufacturers, you can take advantage of the fact that objects of the same kind are similar and you can create a blueprint for those objects. A software blueprint for objects is called a
+<a href="javascript:var meth=openWin; meth('class');" onMouseOver="self.status='Look up class in glossary'; return true;" onMouseOut="self.status=''; return true;"><font color="#00bb00"><em>class</em></font></a><a href="javascript:var meth=openWin; meth('class');" onMouseOver="self.status='Look up class in glossary'; return true;" onMouseOut="self.status=''; return true;"><img src="../../images/glossaryIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the glossary)"></a>.
+<p>
+
+<blockquote><hr><strong>Definition:</strong>&nbsp;A class is a blueprint, or prototype, that defines the variables and the methods common to all objects of a certain kind. 
+<hr></blockquote>
+
+<p><center><IMG SRC="../../figures/java/con21.gif" WIDTH="286" HEIGHT="140" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p>
+The class for our bicycle example would declare the instance variables necessary to contain the current gear, the current cadence, and so on, for each bicycle object. The class would also 
+declare and provide implementations for the instance methods that allow the rider to change gears, brake, and change the pedaling cadence, as shown in the next figure.
+
+<p><center><IMG SRC="../../figures/java/con22.gif" WIDTH="236" HEIGHT="134" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p>
+After you've created the bicycle class, you can create any number of bicycle objects from the class. When you create an instance of a class, the system allocates enough memory for the object and all its instance variables. Each instance gets its own copy of all the instance variables defined in the class.
+<P>
+
+<p><center><IMG SRC="../../figures/java/con23.gif" WIDTH="537" HEIGHT="177" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p>
+In addition to instance variables, classes can define 
+<a href="javascript:var meth=openWin; meth('class variable');" onMouseOver="self.status='Look up class variables in glossary'; return true;" onMouseOut="self.status=''; return true;"><font color="#00bb00"><em>class variables</em></font></a><a href="javascript:var meth=openWin; meth('class variable');" onMouseOver="self.status='Look up class variables in glossary'; return true;" onMouseOut="self.status=''; return true;"><img src="../../images/glossaryIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the glossary)"></a>. A class variable contains information that is shared by all instances of the class. For example, suppose that all bicycles had the same number of gears. In this case, defining an instance variable to hold the number of gears is inefficient; each instance would have its own copy of the variable, but the value would be the same for every instance. In such situations, you can define a class variable that contains the number of gears. All instances share this variable. If one object changes the
+variable, it changes for all other objects of that type. A class can also declare 
+<a href="javascript:var meth=openWin; meth('class method');" onMouseOver="self.status='Look up class methods in glossary'; return true;" onMouseOut="self.status=''; return true;"><font color="#00bb00"><em>class methods</em></font></a><a href="javascript:var meth=openWin; meth('class method');" onMouseOver="self.status='Look up class methods in glossary'; return true;" onMouseOut="self.status=''; return true;"><img src="../../images/glossaryIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the glossary)"></a>. You can invoke a class method directly from the class, whereas you must invoke instance methods on a particular instance.
+<P>
+
+<p><center><IMG SRC="../../figures/java/con24.gif" WIDTH="546" HEIGHT="210" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p>
+<a target="_top" href="../javaOO/classvars.html">Understanding Instance and Class Members</a><a target="_top" href="../javaOO/classvars.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Learning the Java Language trail)"></a> discusses instance variables and methods and class variables and methods
+in detail.
+
+</blockquote>
+<h3>Objects vs. Classes</h3>
+<blockquote>
+You probably noticed that the illustrations of objects and classes look very similar. And indeed, the difference between classes and objects is often the source of some confusion. In the real world, it's obvious that classes are not themselves the objects they describe: A blueprint of a bicycle is not a bicycle. However, it's a little more difficult to differentiate classes and objects in software. This is partially because software objects are merely electronic models of real-world objects or abstract concepts in the first place. But it's also because the term "object" is sometimes used to refer to both classes and instances. 
+<P>
+In the figures, the class is not shaded, because it represents a blueprint of an object rather than an object itself. In comparison, an object is shaded, indicating that the object exists and that you can use it.
+</blockquote>
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="message.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#concepts" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="inheritance.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

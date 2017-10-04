@@ -1,0 +1,274 @@
+
+
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>How to Write a Container Listener</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="componentlistener.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#events" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="documentlistener.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Creating a GUI with JFC/Swing
+<br>
+<b>Lesson</b>: Writing Event Listeners
+</font>
+
+<h2>
+How to Write a Container Listener
+</h2>
+<blockquote>
+
+Container events are fired
+by a <code>Container</code> 
+just after a component
+is added to or removed from the container.
+These events are for notification only &#151;
+no container listener need be present 
+for components to be successfully added or removed.
+
+<p>
+The following example demonstrates container events.
+By clicking <b>Add a button</b> or <b>Remove a button</b>,
+you can add buttons to or remove them from
+a panel at the bottom of the window.
+Each time a button is added to or removed from the panel,
+the panel fires a container event,
+and the panel's container listener is notified.
+The listener displays descriptive messages
+in the text area at the top of the window.
+
+<p>
+
+<p><center><IMG SRC="../../figures/uiswing/events/ContainerEventDemo.gif" WIDTH="400" HEIGHT="300" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p>
+<h4 align=center><font color=red>[PENDING: New screenshot with
+sample output forthcoming.]</font></h4>
+
+<p>
+<blockquote><hr><strong>Try this:</strong>&nbsp;
+<ol>
+<li> <a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/events/example-1dot4/ContainerEventDemo.jnlp">Run
+     ContainerEventDemo</a> using
+     <a href=http://java.sun.com/products/javawebstart>
+     Java<sup><font size=-2>TM</font></sup> Web Start</a>.
+     Or, to compile and run the example yourself,
+     consult the
+     <a href="example-1dot4/index.html#ContainerEventDemo">example index</a>.
+<li> Click the button labeled <b>Add a button</b>.
+     <br>
+     You'll see a button appear near the bottom of the window.
+     The container listener reacts to the resulting component-added event
+     by displaying "JButton #1 was added to javax.swing.JPanel"
+     at the top of the window.
+<li> Click the button labeled <b>Remove a button</b>.
+     <br>
+     This removes the most recently added button
+     from the panel,
+     causing the container listener
+     to receive a component-removed event.
+</ol>
+<hr></blockquote>
+
+<p>
+
+You can find the demo's code in 
+
+<a target="_blank" href="example-1dot4/ContainerEventDemo.java"><font color="#bb000f"><code>ContainerEventDemo.java</code></font></a><a target="_blank" href="example-1dot4/ContainerEventDemo.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>.
+Here is the demo's container event handling code:
+
+<blockquote><pre>
+public class ContainerEventDemo ... implements ContainerListener ... {
+    <em>...//where initialization occurs:</em>
+	buttonPanel = new JPanel(new GridLayout(1,1));
+	buttonPanel.addContainerListener(this);
+    ...
+    public void componentAdded(ContainerEvent e) {
+	displayMessage(" added to ", e);
+    }
+
+    public void componentRemoved(ContainerEvent e) {
+	displayMessage(" removed from ", e);
+    }
+
+    void displayMessage(String action, ContainerEvent e) {
+	display.append(((JButton)e.getChild()).getText()
+		       + " was"
+		       + action
+		       + e.getContainer().getClass().getName()
+		       + newline);
+    }
+    ...
+}
+</pre></blockquote>
+
+</blockquote>
+<h3>
+<a name="api">The Container Listener API</a>
+</h3>
+<blockquote>
+
+<p align=center><a name="containerlistener">The ContainerListener
+   Interface</a>
+<p><em>The corresponding adapter class is
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/event/ContainerAdapter.html"><font color="#8800bb"><code>ContainerAdapter</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/event/ContainerAdapter.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>.</em>
+<table border=1>
+<tr>
+<th align=left>Method</th>
+<th align=left>Purpose</th>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/event/ContainerListener.html#componentAdded(java.awt.event.ContainerEvent)"><font color="#8800bb"><font size=2><code>componentAdded(ContainerEvent)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/event/ContainerListener.html#componentAdded(java.awt.event.ContainerEvent)"></a></td>
+<td>Called just after a component is added to the listened-to container.
+</td>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/event/ContainerListener.html#componentRemoved(java.awt.event.ContainerEvent)"><font color="#8800bb"><font size=2><code>componentRemoved(ContainerEvent)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/event/ContainerListener.html#componentRemoved(java.awt.event.ContainerEvent)"></a></td>
+<td>Called just after a component is removed from the listened-to container.
+</td>
+</tr>
+</table>
+
+<p align=center><a name="containerevent">The ContainerEvent Class</a>
+<p>
+<table border=1>
+<tr>
+<th align=left>Method</th>
+<th align=left>Purpose</th>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/event/ContainerEvent.html#getChild()"><font color="#8800bb"><font size=2><code>Component getChild()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/event/ContainerEvent.html#getChild()"></a></td>
+<td>Returns the component whose addition or removal
+    triggered this event.
+</td>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/event/ContainerEvent.html#getContainer()"><font color="#8800bb"><font size=2><code>Container getContainer()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/event/ContainerEvent.html#getContainer()"></a></td>
+<td>Returns the container that fired this event.
+    You can use this instead of the <code>getSource</code> method.
+</td>
+</tr>
+</table>
+
+</blockquote>
+
+<a name="eg">
+<h3>Examples that Use Container Listeners</h3>
+</a>
+<blockquote>
+The following table lists the
+examples that use container listeners.
+ 
+<p>
+ 
+<table>
+<tr>
+<th align=left> Example
+</th>
+<th align=left> Where Described
+</th>
+<th align=left> Notes
+
+</th>
+</tr>
+<tr valign=top>
+<td> <a href="example-1dot4/index.html#ContainerEventDemo"><code>ContainerEventDemo</code></a>
+</td>
+<td> This section
+</td>
+<td> Reports all container events that occur on a single panel
+     to demonstrate the circumstances under which container events are fired.
+
+</td>
+</tr>
+</table>
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="componentlistener.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#events" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="documentlistener.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

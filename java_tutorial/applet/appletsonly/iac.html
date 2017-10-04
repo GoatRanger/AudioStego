@@ -1,0 +1,359 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Sending Messages to Other Applets</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="browser.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#appletsonly" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="sound.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Writing Applets
+<br>
+<b>Lesson</b>: Taking Advantage of the Applet API
+</font>
+
+<h2>
+Sending Messages to Other Applets
+</h2>
+<blockquote>
+Applets can find other applets
+and send messages to them,
+with the following security restrictions:
+
+<ul>
+<li> Many browsers require that the applets 
+     originate from the same server.
+<li> Many browsers further require that the applets 
+     originate from the same directory on the server
+     (the same code base).
+<li> The Java API requires that the applets
+     be running on the same page,
+     in the same browser window.
+</ul>
+
+
+<blockquote><hr><strong>Note:</strong>&nbsp;
+Some browsers let applets invoke methods on other applets --
+even applets on different pages in the same browser --
+as long as all of the applets come from the same code base.
+This method of interapplet communication
+isn't supported by the Java API,
+so it's possible that it will not be supported by all browsers.
+<hr></blockquote>
+<p>
+
+An applet can find another applet 
+either by looking it up by name
+(using the <code>AppletContext getApplet</code> method)
+or by finding all the applets on the page
+(using the <code>AppletContext getApplets</code> method).
+Both methods, if successful, 
+give the caller one or more <code>Applet</code> objects.
+Once the caller finds an <code>Applet</code> object,
+the caller can invoke methods on the object.
+
+
+</blockquote>
+<h3>Finding an Applet by Name: The getApplet Method</h3>
+<blockquote>
+<p>
+
+The <code>getApplet</code> method
+looks through all of the applets on the current page
+to see if one of them has the specified name.
+If so, <code>getApplet</code> 
+returns the applet's <code>Applet</code> object.
+
+<p>
+
+By default, an applet has no name.
+For an applet to have a name,
+one must be specified in the HTML code
+that adds the applet to a page.
+You can specify an applet's name in two ways:
+<ul>
+<li> By specifying a <code>NAME</code> attribute within the applet's <code>&lt;APPLET&gt;</code> tag.
+     For example:
+<blockquote><pre>
+&lt;APPLET CODEBASE=example/ CODE=Sender.class
+    WIDTH=450
+    HEIGHT=200
+    <b>NAME="buddy"</b>&gt;
+. . .
+&lt;/applet&gt;
+</pre></blockquote>
+
+<li> By specifying a <code>NAME</code> parameter with a <code>&lt;PARAM&gt;</code> tag.
+     For example:
+<blockquote><pre>
+&lt;APPLET CODEBASE=example/ CODE=Receiver.class
+    WIDTH=450
+    HEIGHT=35&gt;
+<b>&lt;PARAM NAME="name" value="old pal"&gt;</b>
+. . .
+&lt;/applet&gt;
+</pre></blockquote>
+</ul>
+<p>
+
+
+<blockquote><hr><strong>Browser Note:</strong>&nbsp;
+Although at least one Java-enabled browser
+conducts a case-sensitive search,
+the expected behavior is for the
+<code>getApplet</code> method
+to perform a case-<em>in</em>sensitive search.
+For example, <code>getApplet("old pal")</code>
+and <code>getApplet("OLD PAL")</code> should both find an
+applet named "Old Pal".
+<hr></blockquote>
+
+<p>
+
+Below are two applets that illustrate lookup by name.
+The first, the Sender, looks up the second, the Receiver.
+When the Sender finds the Receiver, 
+the Sender sends a message to the Receiver
+by invoking one of the Receiver's methods
+(passing the Sender's name as an argument).
+The Receiver reacts to this method call
+by changing its leftmost text string
+to "Received message from <em>sender-name</em>!".
+
+<p>
+
+<applet codebase=example-1dot1/ code=Sender.class width=450 height=200
+ name="buddy">
+<param name="receiverName" value="old pal">
+
+<p><center><a href="../../figures/applet/9pal.gif" target="_top"><IMG SRC="../../figures/applet/9pal.gif" WIDTH="460" HEIGHT="32" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></a><br><em>This figure has been reduced to fit on the page. <br> Click the image to view it at its natural size.</em></center></p>
+<p><center><a href="../../figures/applet/10buddy.gif" target="_top"><IMG SRC="../../figures/applet/10buddy.gif" WIDTH="460" HEIGHT="203" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></a><br><em>This figure has been reduced to fit on the page. <br> Click the image to view it at its natural size.</em></center></p>
+</applet>
+
+<br>
+<br>
+
+<applet codebase=example-1dot1/ code=Receiver.class width=450 height=35>
+<param name="name" value="old pal">
+
+<p><center><IMG SRC="../../figures/applet/11getap.gif" WIDTH="429" HEIGHT="159" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p>
+</applet>
+
+
+<blockquote><hr><strong>Note:</strong> If you don't see the applet running above, you need to install Java Plug-in, which happens automatically when you <a href="http://java.sun.com/j2se/downloads.html" target="_blank">install the J2SE JRE or SDK</a>. We strongly recommend that you install the latest version; at least 1.3.1 is required for all our applets. You can find more information in the <a href="http://java.sun.com/products/plugin" target="_blank">Java Plug-in home page.</a><hr></blockquote>
+<blockquote><hr><strong>Try this:</strong>&nbsp;
+Click the <b>Send message</b> button of the top applet (the Sender).
+Some status information will appear in the Sender's window,
+and the Receiver will confirm (with its own status string)
+that it received a message,
+After you've read the Receiver status string,
+press the Receiver's <b>Clear</b> button 
+to reset the Receiver.
+In the Sender's text field labeled "Receiver name:,"
+type in <b><code>buddy</code></b> and press Return.
+Since "buddy" is the Sender's own name,
+the Sender will find an applet named buddy
+but won't send it a message,
+since it isn't a Receiver instance.
+<hr></blockquote>
+
+<p>
+
+Here's the 
+
+<a target="_blank" href="example-1dot1/Sender.java"><font color="#bb000f"><code>whole Sender program</code></font></a><a target="_blank" href="example-1dot1/Sender.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>.
+The code it uses to look up 
+and communicate with the Receiver
+is listed below.
+Code that you can use without change
+in your own applet
+is in <b>bold font</b>.
+
+<blockquote><pre>
+<b>Applet receiver = null;</b>
+String receiverName = nameField.getText(); //Get name to search for.
+<b>receiver = getAppletContext().getApplet(receiverName);</b>
+</pre></blockquote>
+
+The Sender goes on to make sure 
+that the Receiver was found
+and that it's an instance of the correct class (<code>Receiver</code>).
+If all goes well, 
+the Sender sends a message to the Receiver.
+(Here's the 
+
+<a target="_blank" href="example/Receiver.java"><font color="#bb000f"><code>Receiver program</code></font></a><a target="_blank" href="example/Receiver.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>.)
+<blockquote><pre>
+<b>if (receiver != null) {</b>
+    //Use the instanceof operator to make sure the applet
+    //we found is a Receiver object.
+    <b>if (!(receiver instanceof Receiver)) {</b>
+        status.appendText("Found applet named "
+                          + receiverName + ", "
+                          + "but it's not a Receiver object.\n");
+    <b>} else {</b>
+        status.appendText("Found applet named "
+                          + receiverName + ".\n"
+                          + "  Sending message to it.\n");
+        //Cast the receiver to be a Receiver object
+        //(instead of just an Applet object) so that the
+        //compiler will let us call a Receiver method.
+        <b>((Receiver)receiver).</b>processRequestFrom(myName);
+    <b>}
+}</b> . . .
+</pre></blockquote>
+<p>
+
+From an applet's point of view,
+its name is stored in a parameter named <code>NAME</code>.
+It can get the value of the parameter
+using the <code>Applet getParameter</code> method.
+For example, Sender gets its own name with the following code:
+<blockquote><pre>
+myName = getParameter("NAME");
+</pre></blockquote>
+<p>
+
+For more information on using <code>getParameter</code>, see 
+<a href="getParam.html">Writing the Code to Support Parameters</a>.
+
+
+<p>
+
+The example applets in this page perform one-way communication --
+from the Sender to the Receiver.
+If you want your receiver to be able to send messages to the sender,
+then you just need to have the sender give a reference to itself
+(<code>this</code>) to the receiver.
+For example:
+<blockquote><pre>
+((Receiver)receiver).startCommunicating(this);
+</pre></blockquote>
+
+
+</blockquote>
+<h3>Finding All the Applets on a Page: The getApplets Method</h3>
+<blockquote>
+
+The <code>getApplets</code> method
+returns a list (an 
+<a target="_blank" href="http://java.sun.com/products/archive/jdk/1.1/index.html/java.util.Enumeration.html"><font color="#8800bb"><code>Enumeration</code></font></a><a target="_blank" href="http://java.sun.com/products/archive/jdk/1.1/index.html/java.util.Enumeration.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>, to be precise)
+of all the applets on the page.
+For security reasons,
+many browsers and applet viewers implement <code>getApplets</code>
+so that it returns only those applets that originated
+from the same host as the applet calling <code>getApplets</code>.
+Here's an applet that simply lists all the applets it can find on this page:
+
+<p>
+
+<applet codebase=example-1dot1 code=GetApplets.class width=400 height=150>
+<p><center><IMG SRC="../../figures/applet/GetApplets.gif" WIDTH="405" HEIGHT="153" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p></applet>
+
+<blockquote><hr><strong>Note:</strong> If you don't see the applet running above, you need to install Java Plug-in, which happens automatically when you <a href="http://java.sun.com/j2se/downloads.html" target="_blank">install the J2SE JRE or SDK</a>. We strongly recommend that you install the latest version; at least 1.3.1 is required for all our applets. You can find more information in the <a href="http://java.sun.com/products/plugin" target="_blank">Java Plug-in home page.</a><hr></blockquote>
+<p>
+
+Below are the relevant parts
+of the method that calls <code>getApplets</code>.
+(Here's the 
+
+<a target="_blank" href="example-1dot1/GetApplets.java"><font color="#bb000f"><code>whole program</code></font></a><a target="_blank" href="example-1dot1/GetApplets.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>.)
+<blockquote><pre>
+public void printApplets() {
+    //Enumeration will contain all applets on this page (including
+    //this one) that we can send messages to.
+    Enumeration e = getAppletContext().getApplets();
+    . . .
+    while (e.hasMoreElements()) {
+        Applet applet = (Applet)e.nextElement();
+        String info = ((Applet)applet).getAppletInfo();
+        if (info != null) {
+            textArea.appendText("- " + info + "\n");
+        } else {
+            textArea.appendText("- "
+                                + applet.getClass().getName()
+                                + "\n");
+        } 
+    }
+    . . . 
+}
+</pre></blockquote>
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="browser.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#appletsonly" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="sound.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

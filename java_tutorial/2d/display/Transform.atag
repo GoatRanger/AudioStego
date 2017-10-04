@@ -1,0 +1,5 @@
+<APPLET CODE="Transform.class"
+        codebase="example-1dot2/"
+        archive="transform.jar"
+	WIDTH=550 HEIGHT=400>
+</APPLET>

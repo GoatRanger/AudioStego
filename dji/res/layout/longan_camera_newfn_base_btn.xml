@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:background="@drawable/selector_fn_item" android:paddingLeft="@dimen/rp" android:paddingRight="@dimen/n3" android:scrollbars="vertical" android:layout_width="match_parent" android:layout_height="match_parent" android:baselineAligned="false">
+    <dji.publics.DJIUI.DJITextView android:textSize="@dimen/rq" android:id="@id/q6" android:layout_height="UNKNOWN_DATA_0x7f0b0456" android:layout_centerInParent="true" style="@style/bm" />
+</RelativeLayout>

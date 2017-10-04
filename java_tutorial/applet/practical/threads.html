@@ -1,0 +1,211 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Threads in Applets</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="properties.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#practical" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="threadExample.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Writing Applets
+<br>
+<b>Lesson</b>: Practical Considerations when Writing Applets
+</font>
+
+<h2>
+Threads in Applets
+</h2>
+<blockquote>
+<blockquote><hr><strong>Note:</strong>&nbsp;
+This page assumes that you know what a thread is.
+If you don't, read
+<a target="_top" href="../../essential/threads/definition.html">What Is a Thread?</a><a target="_top" href="../../essential/threads/definition.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Writing Applets trail)"></a> before reading this page.
+<hr></blockquote>
+<p>
+
+Every applet can run in multiple threads.
+Applet drawing methods
+(<code>paint</code> and <code>update</code>)
+are always called from the AWT drawing and event handling thread.
+The threads that the major milestone methods --
+<code>init</code>, 
+<code>start</code>, 
+<code>stop</code>, and
+<code>destroy</code> --
+are called from depends on the application that's running the applet.
+But no application <em>ever</em> calls them
+from the AWT drawing and event handling thread.
+
+<p>
+
+Many browsers
+allocate a thread for each applet on a page,
+using that thread for all calls to the applet's major milestone methods.
+Some browsers allocate a thread group for each applet,
+so that it's easy to kill all the threads
+that belong to a particular applet.
+In any case, 
+you're guaranteed that every thread
+that any of an applet's major milestone methods creates
+belongs to the same thread group.
+
+<p>
+
+Below are two <code>PrintThread</code> applets.
+<code>PrintThread</code> is a modified version of SimpleApplet 
+that prints the thread and thread group
+that its <code>init</code>,
+<code>start</code>, 
+<code>stop</code>, 
+<code>destroy</code>, and
+<code>update</code>
+methods are called from.
+(Actually, due to a Netscape Navigator 2.0 for Windows 95/NT bug,
+the following applets don't implement <code>update</code>.
+If you aren't using a PC that's running Netscape Navigator 2.0,
+you should be able to 
+<a href=betterThreadApplet.html>run the real example</a>.)
+Here's the code for the 
+
+<a target="_blank" href="example/LamePrintThread.java"><font color="#bb000f"><code>hobbled example</code></font></a><a target="_blank" href="example/LamePrintThread.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>,
+and for the
+
+<a target="_blank" href="example/PrintThread.java"><font color="#bb000f"><code>more interesting example</code></font></a><a target="_blank" href="example/PrintThread.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>.
+As usual, to see the output for the methods
+such as <code>destroy</code>
+that are called during unloading,
+you need to look at the standard output.
+See 
+<a href="stdout.html">Displaying Diagnostics to the Standard Output and Error Streams</a>
+for information about the standard output stream.
+
+<p>
+<applet codebase=example-1dot1/ code=LamePrintThread.class width=450 height=100>
+
+</applet>
+<applet codebase=example-1dot1/ code=LamePrintThread.class width=450 height=100>
+<blockquote>
+<hr>
+You can't run applets.
+Here's what you'd see if you could:
+
+<p><center><a href="../../figures/applet/18thread.gif" target="_top"><IMG SRC="../../figures/applet/18thread.gif" WIDTH="460" HEIGHT="209" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></a><br><em>This figure has been reduced to fit on the page. <br> Click the image to view it at its natural size.</em></center></p>
+<hr></blockquote>
+</applet>
+
+<blockquote><hr><strong>Note:</strong> If you don't see the applet running above, you need to install Java Plug-in, which happens automatically when you <a href="http://java.sun.com/j2se/downloads.html" target="_blank">install the J2SE JRE or SDK</a>. We strongly recommend that you install the latest version; at least 1.3.1 is required for all our applets. You can find more information in the <a href="http://java.sun.com/products/plugin" target="_blank">Java Plug-in home page.</a><hr></blockquote><p>
+
+So why would an applet need to create and use its own threads?
+Imagine an applet that performs some time-consuming initialization --
+loading images, for example -- in its <code>init</code> method.
+The thread that invokes <code>init</code>
+can not do anything else until <code>init</code> returns.
+In some browsers,
+this might mean that the browser can't display the applet
+or anything after it
+until the applet has finished initializing itself.
+So if the applet is at the top of the page, for example,
+then nothing would appear on the page
+until the applet has finished initializing itself.
+
+<p>
+
+Even in browsers that create a separate thread for each applet,
+it makes sense to put any time-consuming tasks
+into an applet-created thread,
+so that the applet can perform other tasks
+while it waits for the time-consuming ones to be completed.
+
+<p>
+
+
+<blockquote><hr><strong>Rule of Thumb:</strong>&nbsp;
+If an applet performs a time-consuming task,
+it should create and use its own thread to perform that task.
+<hr></blockquote>
+
+<p>
+
+Applets typically perform two kinds of time-consuming tasks:
+tasks that they perform once,
+and tasks that they perform repeatedly.
+The <a href="threadExample.html">next page</a>
+gives an example of both.
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="properties.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#practical" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="threadExample.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

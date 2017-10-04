@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res-auto" phantom:orientation="horizontal" phantom:id="@+id/v2scrollylinear" phantom:layout_width="match_parent" phantom:layout_height="match_parent">
+    <FrameLayout phantom:layout_width="match_parent" phantom:layout_height="match_parent">
+        <LinearLayout phantom:orientation="horizontal" phantom:layout_width="match_parent" phantom:layout_height="match_parent">
+            <ImageView phantom:id="@+id/v2_phantom_content_item_image" phantom:layout_width="match_parent" phantom:layout_height="match_parent" phantom:layout_marginLeft="@dimen/gc" phantom:layout_marginTop="@dimen/g1" phantom:layout_marginRight="@dimen/gc" phantom:layout_marginBottom="@dimen/g1" phantom:src="@r$drawable/v2_p3a_icon" phantom:scaleType="fitCenter" />
+        </LinearLayout>
+        <RelativeLayout phantom:orientation="vertical" phantom:visibility="gone" phantom:layout_width="match_parent" phantom:layout_height="match_parent">
+            <dji.publics.DJIUI.DJITextView phantom:textSize="20sp" phantom:textStyle="bold" phantom:textColor="@color/ly" phantom:id="@+id/v2_phantom_conent_item_title" phantom:layout_width="wrap_content" phantom:layout_height="wrap_content" phantom:layout_marginTop="80dp" phantom:layout_marginRight="20dp" phantom:layout_alignParentRight="true" phantom:djiTextFace="0" />
+            <dji.publics.DJIUI.DJITextView phantom:textSize="14sp" phantom:textColor="@color/m1" phantom:id="@+id/v2_phantom_conent_item_subtitle" phantom:layout_width="wrap_content" phantom:layout_height="wrap_content" phantom:layout_marginRight="25dp" phantom:layout_below="@+id/v2_phantom_conent_item_title" phantom:layout_alignParentRight="true" phantom:djiTextFace="1" />
+            <Button phantom:textSize="14sp" phantom:textColor="@r$drawable/v2_main_tab_textviewbutton_selector" phantom:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" phantom:id="@+id/v2_phantom_conent_item_learn_more_btn" phantom:background="#00000000" phantom:layout_width="wrap_content" phantom:layout_height="wrap_content" phantom:text="@string/v2_learn_more" phantom:layout_below="@+id/v2_phantom_conent_item_subtitle" phantom:layout_alignLeft="@+id/v2_phantom_conent_item_title" phantom:layout_alignParentRight="true" />
+        </RelativeLayout>
+    </FrameLayout>
+</LinearLayout>

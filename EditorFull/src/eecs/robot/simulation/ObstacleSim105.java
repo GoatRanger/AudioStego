@@ -1,0 +1,400 @@
+package eecs.robot.simulation;
+
+import java.awt.Color;
+import java.awt.geom.GeneralPath;
+import eecs.GuiBase;
+import eecs.robot.instructor.cobb.AntennaElement;
+import eecs.robot.instructor.cobb.ObstacleElement;
+import eecs.robot.jago.SimBox;
+import eecs.robot.jago.element.BrightLight;
+import eecs.robot.jago.element.Concertina;
+import eecs.robot.jago.element.Fire;
+import eecs.robot.jago.element.PolarPoint;
+import eecs.robot.jago.element.Wall;
+
+public class ObstacleSim105 extends SimBox {
+  static int obstacle1YLocation = 350;
+  final int obstacleHeight = 50;
+  static int obstacleSpacing = 150;
+  final int xStart = 50;
+  final int xEnd = 450;
+  final int byPassWidth = 100;
+  static int satelliteX;
+  static int satelliteY;
+  static int[] randomObstacleType = new int[4];
+  GeneralPath waterRoad = new GeneralPath();
+  GeneralPath waterA = new GeneralPath();
+  GeneralPath waterB = new GeneralPath();
+  GeneralPath road1 = new GeneralPath();
+  GeneralPath roadLine = new GeneralPath();
+  GeneralPath[] obstaclePL = new GeneralPath[3];
+  PhaseLine[] phaseLinesArray = new PhaseLine[3];
+  int serverYLocation = 0;
+  AntennaElement wirelessAntenna = new AntennaElement();
+  int[] byPassXLocation = new int[3];
+  double[] satelliteXArray = new double[3];
+  double[] satelliteYArray = new double[3];
+  int fireXBypassLocation, fireYLocation;
+  int[] polarObstacleArray = new int[4];
+  boolean[] byPassedObstacles = new boolean[2];
+  static int numOfObstacles;
+
+  public ObstacleSim105() {
+    super();
+    setBackgroundImage("/eecs/images/background3.gif");
+    createArena();
+    byPassedObstacles[0] = false;
+    byPassedObstacles[1] = false;
+    setRandomObstacleArray();
+    satelliteX = (int) (Math.round(Math.random() * 600) + 1);
+    satelliteY = (int) (Math.round(Math.random() * 500) + 1);
+  }
+
+  public int getSatelliteX() {
+    return satelliteX;
+  }
+
+  public int getSatelliteY() {
+    return satelliteY;
+  }
+
+  public void createScenario(int scenarioNumber) {
+    switch (scenarioNumber) {
+      case 1:
+        // Fire only
+        numOfObstacles = 1;
+        randomObstacleType[1] = 2;
+        obstacle1YLocation = 150;
+        obstacleSpacing = 350;
+        break;
+      case 2:
+        // Concertina Only
+        numOfObstacles = 1;
+        randomObstacleType[1] = 1;
+        obstacle1YLocation = 150;
+        obstacleSpacing = 350;
+        break;
+      case 3:
+        //random single obstacle
+        numOfObstacles = 1;
+        //do not need to randomly assigned obstacles because
+        // setRandomObstacleArray already does this for us
+        obstacle1YLocation = 150;
+        obstacleSpacing = 350;
+        break;
+      case 4:
+        //fixed double with fire first
+        numOfObstacles = 2;
+        randomObstacleType[1] = 2;
+        randomObstacleType[2] = 1;
+        break;
+      case 5:
+        //random double
+        numOfObstacles = 2;
+        //setRandomObstacle Array handles the order of obstacles.
+        break;
+      case 6:
+        //test cases obstacle do not matter
+        numOfObstacles = 2;
+        break;
+      case 7:
+        //test cases obstacle do not matter
+        numOfObstacles = 2;
+        break;
+      case 8:
+        //test cases obstacle do not matter
+        numOfObstacles = 2;
+        break;
+    }
+    createObstacles();
+    createPolarPoints();
+  }
+
+  public int[] getPolarObstacleArray() {
+    return polarObstacleArray;
+  }
+
+  public void createPolarPoints() {
+    //get xy from satellite they will be the base
+    PolarPoint[] polarArray = new PolarPoint[2];
+    for (int i = 0; i < numOfObstacles; i++) {
+      polarArray[i] = new PolarPoint(satelliteX, satelliteY, satelliteXArray[i], satelliteYArray[i]);
+      //Assign values into the polar array....
+      polarObstacleArray[i * 2] = (int) polarArray[i].getDirection();
+      //printLine(polarObstacleArray[i*2]+"direction");
+      polarObstacleArray[i * 2 + 1] = (int) polarArray[i].getMagnitude();
+      //printLine(polarObstacleArray[i*2+1]+"magnitude");
+      //printLine(polarArray[i].toString());
+    }
+  }
+
+  public void createArena() {
+    //Arena....
+    Wall wall1 = new Wall(10, 500);
+    add(wall1, 450, 150);
+    Wall wall2 = new Wall(1, 600);
+    add(wall2, 885, 5);
+    Wall wall3 = new Wall(880, 1);
+    add(wall3, 10, 5);
+    Wall wall4 = new Wall(880, 1);
+    add(wall4, 10, 600);
+    Wall wall5 = new Wall(1, 600);
+    add(wall5, 50, 5);
+  }
+
+  public void createObstacles() {
+    int concertinaY = 0;
+    int concertinaX = 0;
+    BrightLight concertinaLight = new BrightLight();
+    GeneralPath[] obstacleApproachArea = new GeneralPath[3];
+    MultiSegmentLine[] obstacleApproach = new MultiSegmentLine[3];
+    GeneralPath waterCrossingSafeZone = new GeneralPath();
+    PhaseLine waterSafeZone;
+    // 	obstacles (num 1)
+    waterCrossingSafeZone.reset();
+    waterCrossingSafeZone.moveTo(630, 330);
+    waterCrossingSafeZone.lineTo(740, 330);
+    waterCrossingSafeZone.lineTo(740, 332);
+    waterCrossingSafeZone.lineTo(630, 332);
+    waterCrossingSafeZone.closePath();
+    waterSafeZone = new PhaseLine(waterCrossingSafeZone, Color.GREEN, true, 1);
+    Color fillColor;
+    int currentY;
+    int rightObstacleBegin;
+    ObstacleElement[] obstacleArray = new ObstacleElement[2];
+    currentY = obstacle1YLocation;
+    for (int i = 0; i < numOfObstacles; i++) {
+      byPassXLocation[i] = (50 * ((int) Math.round(Math.random() * 5) + 1));
+      satelliteXArray[i] = byPassXLocation[i] + byPassWidth / 2 + xStart - 20;//-20
+      satelliteYArray[i] = currentY;
+      obstacleArray[i] = new ObstacleElement();
+      rightObstacleBegin = byPassXLocation[i] + xStart + byPassWidth;
+      if (randomObstacleType[i + 1] == 1) {
+        obstacleArray[i].setLeftObstacle(new Concertina(byPassXLocation[i], 10));
+        obstacleArray[i].setRightObstacle(new Concertina(xEnd - rightObstacleBegin, 10));
+        fillColor = Color.YELLOW;
+        concertinaLight.setSize(10, 10);
+        concertinaX = xStart + byPassXLocation[i] + (byPassWidth / 2);
+        concertinaY = currentY + 5;
+        add(concertinaLight, concertinaX, concertinaY);
+      }
+      else {
+        obstacleArray[i].setLeftObstacle(new Fire(byPassXLocation[i], 10));
+        obstacleArray[i].setRightObstacle(new Fire(xEnd - rightObstacleBegin, 10));
+        fillColor = Color.RED;
+        setFireXByPassLocation(byPassXLocation[i] + xStart + byPassWidth / 2);
+        setFireYLocation(currentY);
+      }
+      obstacleApproachArea[i] = new GeneralPath();
+      obstacleApproachArea[i].reset();
+      obstacleApproachArea[i].moveTo(xStart + 1, currentY + 11);
+      obstacleApproachArea[i].lineTo(xStart + 1, currentY + 51 + obstacleSpacing);
+      obstacleApproachArea[i].lineTo(449, currentY + 51 + obstacleSpacing);
+      obstacleApproachArea[i].lineTo(449, currentY + 11);
+      obstacleApproachArea[i].closePath();
+      obstacleApproach[i] = new MultiSegmentLine(obstacleApproachArea[i], fillColor, true, 1);
+      add(obstacleApproach[i], 0, 0);
+
+      obstaclePL[i] = new GeneralPath();
+      obstaclePL[i].reset();
+      obstaclePL[i].moveTo(xStart, currentY);
+      obstaclePL[i].lineTo(xStart, currentY + 1);
+      obstaclePL[i].lineTo(449, currentY + 1);
+      obstaclePL[i].lineTo(449, currentY);
+      obstaclePL[i].closePath();
+      phaseLinesArray[i] = new PhaseLine(obstaclePL[i], Color.GRAY, true, 1);
+      add(phaseLinesArray[i], 0, 0);
+      add(obstacleArray[i].getLeftObstacle(), xStart, currentY);
+      add(obstacleArray[i].getRightObstacle(), rightObstacleBegin, currentY);
+      currentY = currentY - ((obstacleHeight + obstacleSpacing));
+    }
+    road1.reset();
+    road1.moveTo(70, 80);
+    road1.lineTo(690, 80);
+    road1.lineTo(690, 125);
+    MultiSegmentLine lineLeftToRight = new MultiSegmentLine(road1, Color.WHITE, false, 40);
+    add(lineLeftToRight, 0, 0);
+    add(waterSafeZone, 0, 0);
+
+    if (System.getProperty("eecs.robot.wrapper.testing", "false").equals("true")) {
+      String leftOrRight = "left";
+      leftOrRight = GuiBase.getString("");
+      if (leftOrRight.equalsIgnoreCase("left")) {
+        curveLeft();
+      }
+      else {
+        curveRight();
+      }
+    }
+    else
+      if (Math.random() > .5) {
+        curveLeft();
+      }
+      else {
+        curveRight();
+      }
+
+    GeneralPath teleportPath = new GeneralPath();
+    teleportPath.reset();
+    teleportPath.moveTo(630, 380);
+    teleportPath.lineTo(630, 430);
+    teleportPath.lineTo(680, 430);
+    teleportPath.lineTo(680, 380);
+    teleportPath.closePath();
+    MultiSegmentLine teleportPad = new MultiSegmentLine(teleportPath, Color.WHITE, true, 1);
+    add(teleportPad, 0, 0);
+    GeneralPath crossPath = new GeneralPath();
+    crossPath.reset();
+    crossPath.moveTo(655, 380);
+    crossPath.lineTo(655, 430);
+    crossPath.moveTo(630, 405);
+    crossPath.lineTo(680, 405);
+    MultiSegmentLine crossPad = new MultiSegmentLine(crossPath, Color.BLACK, true, 10);
+    add(crossPad, 0, 0);
+    add(wirelessAntenna, 700, 400);
+    while (!wirelessAntenna.inASimulation()) {
+      try {
+        Thread.sleep(50);
+      }
+      catch (InterruptedException ie) {
+        //
+      }
+    }
+  }
+
+  public void setFireYLocation(int currentY) {
+    fireYLocation = currentY;
+  }
+
+  public int getFireYLocation() {
+    return fireYLocation;
+  }
+
+  public int getFireXByPassLocation() {
+    return fireXBypassLocation;
+  }
+
+  public void setFireXByPassLocation(int xlocation) {
+    fireXBypassLocation = xlocation;
+  }
+
+  public void validateRobotLocation(int x1, int y1, int x2, int y2) {
+    if (this.arePointsClose((int) this.satelliteXArray[0] + 20, (int) this.satelliteYArray[0], x1, y1, 35)) {
+      byPassedObstacles[0] = true;
+    }
+    if (this.arePointsClose((int) this.satelliteXArray[1] + 20, (int) this.satelliteYArray[1], x2, y2, 35)) {
+      byPassedObstacles[1] = true;
+    }
+  }
+
+  public void curveRight() {
+    waterRoad.reset();
+    waterRoad.moveTo(640, 350);
+    waterRoad.curveTo(640, 350, 765, 175, 640, 125);
+    waterRoad.lineTo(740, 125);
+    waterRoad.curveTo(740, 125, 865, 175, 740, 350);
+    waterRoad.closePath();
+
+    MultiSegmentLine path = new MultiSegmentLine(waterRoad, Color.WHITE, true, 20);
+    roadLine.moveTo(65, 80);
+    roadLine.lineTo(690, 80);
+    roadLine.lineTo(690, 125);
+    roadLine.curveTo(690, 125, 815, 175, 690, 355);
+    MultiSegmentLine centerPath = new MultiSegmentLine(roadLine, Color.BLACK, false, 10);
+
+    waterRoad.closePath();
+    waterA.reset();
+    waterA.moveTo(500, 125);
+    waterA.lineTo(500, 350);
+    waterA.lineTo(640, 350);
+    waterA.curveTo(640, 350, 765, 175, 640, 125);
+    waterA.lineTo(500, 125);
+    waterA.closePath();
+
+    waterB.reset();
+    waterB.moveTo(740, 125);
+    waterB.curveTo(740, 125, 865, 175, 740, 350);
+    waterB.lineTo(850, 350);
+    waterB.lineTo(850, 125);
+    waterB.closePath();
+    WaterElement waterLeft = new WaterElement(waterA, Color.BLUE, true, 2);
+    WaterElement waterRight = new WaterElement(waterB, Color.BLUE, true, 2);
+    add(path, 0, 0);
+    //  add(path,0,0);
+    add(waterLeft, 0, 0);
+    add(waterRight, 0, 0);
+    add(centerPath, 0, 0);
+  }
+
+  public void curveLeft() {
+    waterRoad.reset();
+    waterRoad.moveTo(640, 350);
+    waterRoad.curveTo(640, 350, 465, 175, 640, 125);
+    waterRoad.lineTo(740, 125);
+    waterRoad.curveTo(740, 125, 565, 175, 740, 350);
+    waterRoad.closePath();
+
+    MultiSegmentLine path = new MultiSegmentLine(waterRoad, Color.WHITE, true, 20);
+    roadLine.moveTo(65, 80);
+    roadLine.lineTo(690, 80);
+    roadLine.lineTo(690, 125);
+    roadLine.curveTo(690, 125, 515, 175, 690, 350);
+    MultiSegmentLine centerPath = new MultiSegmentLine(roadLine, Color.BLACK, false, 10);
+
+    waterRoad.closePath();
+    waterA.reset();
+    waterA.moveTo(500, 125);
+    waterA.lineTo(500, 350);
+    waterA.lineTo(620, 350);
+    waterA.curveTo(620, 350, 465, 175, 620, 125);
+    waterA.lineTo(500, 125);
+    waterA.closePath();
+
+    waterB.reset();
+    waterB.moveTo(760, 125);
+    waterB.curveTo(760, 125, 565, 175, 740, 350);
+    waterB.lineTo(850, 350);
+    waterB.lineTo(850, 125);
+    waterB.closePath();
+    WaterElement waterLeft = new WaterElement(waterA, Color.BLUE, true, 2);
+    WaterElement waterRight = new WaterElement(waterB, Color.BLUE, true, 2);
+    add(path, 0, 0);
+
+    add(waterLeft, 0, 0);
+    add(waterRight, 0, 0);
+    add(centerPath, 0, 0);
+  }
+
+  public void setRandomObstacleArray() {
+    int randomNumber;
+    randomNumber = (int) Math.round(Math.random() * 100);
+    if (randomNumber <= 50) {
+      randomObstacleType[1] = 1;//1 is concertina type
+      randomObstacleType[2] = 2;
+    }
+    else {
+      randomObstacleType[1] = 2; // 2 is fire
+      randomObstacleType[2] = 1;
+    }
+  }
+
+  public void addSquare(int xCoord, int yCoord, int length) {
+    int[] squareX;
+    int[] squareY;
+    squareX = new int[4];
+    squareY = new int[4];
+    squareX[0] = xCoord - length;
+    squareY[0] = yCoord - length;
+    squareX[1] = xCoord - length;
+    squareY[1] = yCoord + length;
+    squareX[2] = xCoord + length;
+    squareY[2] = yCoord + length;
+    squareX[3] = xCoord + length;
+    squareY[3] = yCoord - length;
+
+  }
+
+  public boolean arePointsClose(int xbase, int ybase, int xLoc, int yLoc, int width) {
+    return Math.sqrt(Math.pow(xbase - xLoc, 2.0) + Math.pow(ybase - yLoc, 2.0)) < width;
+  }
+}

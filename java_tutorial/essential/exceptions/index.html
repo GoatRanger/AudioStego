@@ -1,0 +1,165 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Handling Errors with Exceptions</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="../index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#exceptions" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="definition.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+
+<br>
+<font size="-1">
+<b>Trail</b>: Essential Java Classes
+</font>
+
+<h2>
+Lesson: Handling Errors with Exceptions
+</h2>
+<blockquote>
+If there's a golden rule of programming it's this: Errors occur in
+software programs. This we know. But what really matters is what
+happens <em>after</em> the error occurs. How is the error handled? Who handles
+it? Can the program recover, or should it just die?
+
+</blockquote>
+<h3><a href=definition.html>What's an Exception and Why Do I Care?</a></h3>
+<blockquote>
+The Java language uses exceptions to provide error-handling
+capabilities for its programs. An exception is an event that occurs
+during the execution of a program that disrupts the normal flow of
+instructions.
+</blockquote>
+
+<h3><a href=firstencounter.html>Your First Encounter with Java Exceptions</a></h3>
+<blockquote>
+If you have done any amount of Java programming at all, you have
+undoubtedly already encountered exceptions. Your first encounter with
+Java exceptions was probably in the form of an error message
+from the compiler like this one:
+<blockquote><pre>
+InputFile.java:11: Exception java.io.FileNotFoundException
+must be caught, or it must be declared in the throws clause
+of this method.
+        in = new FileReader(filename);
+             ^
+</pre></blockquote>
+This message indicates that the compiler found an exception that is not
+being handled.
+The Java language requires that a method either catch
+all "checked" exceptions (those that are checked by the runtime system)
+or specify that it can throw that type of exception.
+</blockquote>
+
+<h3><a href=catchOrDeclare.html>Java's Catch or Specify Requirement</a></h3>
+<blockquote>
+This section discusses the reasoning behind this requirement and what
+it means to you and your Java programs.
+</blockquote>
+
+<h3><a href=dealing.html>Dealing with Exceptions</a></h3>
+<blockquote>
+This section features an example program that can throw
+two different kinds of exceptions. Using this program, you can learn
+how to catch an exception and handle it and, alternatively, how to
+specify that your method can throw it.
+</blockquote>
+
+<h3><a href=throwing.html>Throwing Exceptions</a></h3>
+<blockquote>
+The Java runtime system and many classes from Java packages throw
+exceptions under some circumstances by using the throw statement. You
+can use the same mechanism to throw exceptions in your Java programs.
+This section shows you how to throw exceptions
+from your Java code.
+</blockquote>
+
+<h3><a href=runtime.html>Runtime Exceptions--The Controversy</a></h3>
+<blockquote>
+Although Java requires that methods catch or specify checked
+exceptions, they do not have to catch or specify runtime exceptions,
+that is, exceptions that occur within the Java runtime system. Because
+catching or specifying an exception is extra work, programmers may be
+tempted to write code that throws only runtime exceptions and therefore
+doesn't have to catch or specify them. This is "exception abuse" and is
+not recommended. The last section in this lesson, explains why.
+</blockquote>
+
+
+<blockquote><hr><strong>Note to C++ Programmers:</strong>&nbsp;
+Java exception handlers can have a <code>finally</code> block,
+which allows programs to clean up after the <code>try</code> block.
+See <a href="finally.html">The <code>finally</code> Block</a>
+for information about how to use <code>finally</code>.
+<hr></blockquote>
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="../index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#exceptions" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="definition.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

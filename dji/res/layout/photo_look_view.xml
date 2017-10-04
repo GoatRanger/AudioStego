@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.publics.DJIUI.DJILinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:background="@r$drawable/usercenter_dlg_bg" android:layout_width="match_parent" android:layout_height="match_parent" android:baselineAligned="false">
+    <include android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x7f0b0158" layout="@layout/uc_dlg_titlebar" />
+    <dji.publics.widget.djiviewpager.DJIViewPager android:id="@+id/photo_look_viewpaper" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginLeft="@dimen/nu" android:layout_marginTop="@dimen/nu" android:layout_marginRight="@dimen/nu" />
+</dji.publics.DJIUI.DJILinearLayout>

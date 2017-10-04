@@ -1,0 +1,696 @@
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>How to Use Color Choosers</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="button.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#components" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="combobox.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Creating a GUI with JFC/Swing
+<br>
+<b>Lesson</b>: Using Swing Components
+</font>
+
+<h2>
+How to Use Color Choosers
+</h2>
+<blockquote>
+Use the
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JColorChooser.html"><font color="#8800bb"><code>JColorChooser</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JColorChooser.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> class to provide users with a palette of colors to choose from.
+A color chooser is a component that you can place
+anywhere within your program's GUI.
+The <code>JColorChooser</code> API also makes it easy
+to bring up a <a href="dialog.html">dialog</a>
+(modal or not) that contains a color chooser.
+
+<p>
+Here's a picture
+of an application that uses a color chooser to set
+the text color in a banner:
+
+<p><center><IMG SRC="../../figures/uiswing/components/ColorChooserDemo.gif" WIDTH="450" HEIGHT="475" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="A snapshot of ColorChooserDemo, which contains a standard color chooser."></center></p>
+<font color=gray>
+[PENDING: We'll update the snapshot 
+and add call-outs to various parts of the color chooser:
+<ul>
+<li> color chooser (everything inside and including the "Choose Text Color"
+     border)
+<li> preview panel (everything inside and including the "Preview" border)
+<li> chooser panel (everything inside but NOT including the tabbed pane)]
+</ul>
+</font>
+
+<p>
+You can 
+<a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/components/example-1dot4/ColorChooserDemo.jnlp">run&nbsp;ColorChooserDemo</a>
+using 
+<a target="_top" href="../../information/javawebstart.html">Java<sup><font size=-2>TM</font></sup> Web Start</a><a target="_top" href="../../information/javawebstart.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.  The source code for the program is in
+
+<a target="_blank" href="example-1dot4/ColorChooserDemo.java"><font color="#bb000f"><code>ColorChooserDemo.java</code></font></a><a target="_blank" href="example-1dot4/ColorChooserDemo.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>.
+
+<p>
+The color chooser consists of everything within the
+box labeled <strong>Choose Text Color</strong>.
+This is what a standard color chooser looks like
+in the Java Look & Feel.
+It contains two parts, a tabbed pane and a preview panel.
+The three tabs in the tabbed pane
+select <em>chooser panels</em>.
+The <em>preview panel</em>
+below the tabbed pane
+displays the currently selected color.
+<p>
+Here's the code from the example that creates
+a <code>JColorChooser</code> instance
+and adds it to a container:
+
+<blockquote><pre>
+public class ColorChooserDemo extends JPanel ... {
+    public ColorChooserDemo() {
+        super(new BorderLayout());
+        banner = new JLabel("Welcome to the Tutorial Zone!",
+                            JLabel.CENTER);
+        banner.setForeground(Color.yellow);
+        . . .
+        tcc = new JColorChooser(banner.getForeground());
+        . . .
+        add(tcc, BorderLayout.PAGE_END);
+    }
+</pre></blockquote>
+
+The <code>JColorChooser</code> constructor in the previous code snippet
+takes a <code>Color</code> argument,
+which specifies the chooser's initially selected color.
+If you don't specify the initial color,
+then the color chooser displays
+<code>Color.white</code>.
+See the 
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Color.html"><font color="#8800bb"><code>Color</code> API documentation</font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Color.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> for a list of color constants you can use.
+
+<p>
+<a name="changelistener">
+A color chooser uses an instance of
+</a>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/colorchooser/ColorSelectionModel.html"><font color="#8800bb"><code>ColorSelectionModel</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/colorchooser/ColorSelectionModel.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> to contain and manage the current selection.
+The color selection model fires a change event
+whenever the user changes the color in the color chooser.
+The example program registers a change listener with the
+color selection model so that it can update the
+banner at the top of the window.
+The following code registers and implements the change listener:
+<blockquote><pre>
+tcc.getSelectionModel().addChangeListener(this);
+. . .
+public void stateChanged(ChangeEvent e) {
+    Color newColor = tcc.getColor();
+    banner.setForeground(newColor);
+}
+</pre></blockquote>
+See
+<a href="../events/changelistener.html">
+How to Write a Change Listener</a>
+for general information about change listeners and change events.
+<p>
+A basic color chooser,
+like the one used in the example program,
+is sufficient for many programs.
+However,
+the color chooser API allows you to customize a color chooser
+by providing it with a preview panel of your own design,
+by adding your own chooser panels to it, or
+by removing existing chooser panels from the color chooser.
+Additionally, the <code>JColorChooser</code> class provides two
+methods that make it easy to use a color chooser within a dialog.
+<p>
+The rest of this section discusses these topics:
+<ul>
+<li> <a href="#advancedexample">Another Example: ColorChooserDemo2</a>
+<li> <a href="#dialog">Showing a Color Chooser in a Dialog</a>
+<li> <a href="#previewpanel">Removing or Replacing the Preview Panel</a>
+<li> <a href="#chooserpanel">Creating a Custom Chooser Panel</a>
+<li> <a href="#api">The Color Chooser API</a>
+<li> <a href="#eg">Examples that Use Color Choosers</a>
+</ul>
+
+<a name="advancedexample">
+</blockquote>
+<h3>Another Example: ColorChooserDemo2</h3>
+</a>
+<blockquote>
+Now let's turn our attention to
+<a href="example-1dot4/index.html#ColorChooserDemo2">ColorChooserDemo2</a>,
+a modified version of the previous demo program that
+uses more of the <code>JColorChooser</code> API.
+You can 
+<a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/components/example-1dot4/ColorChooserDemo2.jnlp">run&nbsp;ColorChooserDemo2</a>
+using 
+<a target="_top" href="../../information/javawebstart.html">Java<sup><font size=-2>TM</font></sup> Web Start</a><a target="_top" href="../../information/javawebstart.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.  Here's a picture of ColorChooserDemo2:
+
+<p><center><IMG SRC="../../figures/uiswing/components/ColorChooserDemo2.gif" WIDTH="390" HEIGHT="421" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="A snapshot of ColorChooserDemo, which contains a custom color chooser."></center></p><font color=gray>
+[PENDING: New snapshot needed (use v 1.4.2).]
+</font>
+
+<p>
+This program customizes the banner's
+text color chooser in these ways:
+<ul>
+<li> Removes the preview panel
+<li> Removes all of the default chooser panels
+<li> Adds a custom chooser panel
+</ul>
+<a href="#previewpanel">Removing or Replacing the Preview Panel</a>
+covers the first customization.
+<a href="#chooserpanel">Creating a Custom Chooser Panel</a>
+discusses the last two.
+<p>
+This program also adds a button that brings up
+a color chooser in a dialog,
+which you can use to set the banner's background color.
+
+</blockquote>
+
+<a name="dialog">
+<h3>Showing a Color Chooser in a Dialog</h3>
+</a>
+<blockquote>
+The <code>JColorChooser</code> class provides 
+two class methods to make it easy to use a color chooser in a
+dialog.
+ColorChooserDemo2 uses one of these methods,
+<code>showDialog</code>,
+to display the background color chooser when the user
+clicks the <strong>Show Color Chooser...</strong> button.
+Here's the single line of code from the example
+that brings up the background color chooser in a dialog:
+<blockquote><pre>
+Color newColor = JColorChooser.showDialog(
+                     ColorChooserDemo2.this,
+                     "Choose Background Color",
+                     banner.getBackground());
+</pre></blockquote>
+The first argument is the parent for the dialog,
+the second is the dialog's title, and
+the third is the initially selected color.
+<p>
+The dialog disappears under three conditions:
+the user chooses a color and clicks the <strong>OK</strong> button,
+the user cancels the operation with the <strong>Cancel</strong> button,
+or the user dismisses the dialog with a frame control.
+If the user chooses a color,
+the <code>showDialog</code> method returns the new color.
+If the user cancels the operation or dismisses the window,
+the method returns <code>null</code>.
+Here's the code from the example that updates
+the banner's background color
+according to the value returned by <code>showDialog</code>:
+<blockquote><pre>
+if (newColor != null) {
+    banner.setBackground(newColor);
+}
+</pre></blockquote>
+
+The dialog created by <code>showDialog</code> is modal.
+If you want a non-modal dialog,
+you can use <code>JColorChooser</code>'s
+<code>createDialog</code> method to create the dialog.
+This method also lets you specify action listeners for the
+<strong>OK</strong> and <strong>Cancel</strong>
+buttons in the dialog window.
+Use <code>JDialog</code>'s <code>show</code> method
+to display the dialog created by this method.
+For an example that uses this method, see
+<a href="table.html#editor">Specifying Other Editors</a>
+in the
+<a href="table.html">How to Use Tables</a> section.
+</blockquote>
+
+<a name="previewpanel">
+<h3>Removing or Replacing the Preview Panel</h3>
+</a>
+<blockquote>
+By default, the color chooser displays a preview panel.
+ColorChooserDemo2
+removes the text color chooser's
+preview panel with this line of code:
+
+<blockquote><pre>
+tcc.setPreviewPanel(new JPanel());
+</pre></blockquote>
+
+This effectively removes the preview panel because
+a plain <code>JPanel</code> has no size and no default view.
+To set the preview panel back to the default,
+use <code>null</code> as the argument to <code>setPreviewPanel</code>.
+<p>
+To provide a custom preview panel,
+you also use <code>setPreviewPanel</code>.
+The component you pass into the method should
+inherit from <code>JComponent</code>,
+specify a reasonable size,
+and provide a customized view of the current color.
+To get notified when the user changes the color
+in the color chooser,
+the preview panel must register
+as a change listener on the color chooser's color selection model
+as described <a href="#changelistener">previously</a>.
+
+<blockquote><hr><strong>Version note:</strong>&nbsp;In some releases, you either could not replace the preview panel
+or could not remove it properly (the titled border would remain).
+We believe that both problems have been fixed as of 1.4.2.
+If your program depends on removing or replacing the preview panel,
+you should test it against all releases 
+that it supports.
+<hr></blockquote>
+
+</blockquote>
+<a name="chooserpanel">
+<h3>Creating a Custom Chooser Panel</h3>
+</a>
+<blockquote>
+The default color chooser provides three chooser panels:
+<ul>
+<li> Swatches &#151; for choosing a color from a collection of swatches.
+<li> HSB &#151; for choosing a color using the Hue-Saturation-Brightness 
+     color model.
+<li> RGB &#151; for choosing a color using the Red-Green-Blue
+     color model.
+</ul>
+You can extend the default color chooser
+by adding chooser panels of your own design with
+<code>addChooserPanel</code>,
+or you can limit it by removing chooser panels
+with <code>removeChooserPanel</code>.
+<p>
+If you want to remove all of the default chooser panels
+and add one or more of your own, you can do this with a single
+call to <code>setChooserPanels</code>.
+ColorChooserDemo2
+uses this method to replace the default chooser panels
+with an instance of
+
+<a target="_blank" href="example-1dot4/CrayonPanel.java"><font color="#bb000f"><code>CrayonPanel</code></font></a><a target="_blank" href="example-1dot4/CrayonPanel.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>,
+a custom chooser panel.
+Here's the call to <code>setChooserPanels</code> from
+that example:
+<blockquote><pre>
+//Override the chooser panels with our own.
+AbstractColorChooserPanel panels[] = { new CrayonPanel() };
+tcc.setChooserPanels(panels);
+</pre></blockquote>
+The code is straighforward:
+it creates an array containing the <code>CrayonPanel</code>.
+Next the code calls <code>setChooserPanels</code> to 
+set the contents of the array as the color chooser's
+chooser panels.
+<p>
+<code>CrayonPanel</code> is a subclass of
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/colorchooser/AbstractColorChooserPanel.html"><font color="#8800bb"><code>AbstractColorChooserPanel</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/colorchooser/AbstractColorChooserPanel.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> and overrides the five abstract methods defined in its superclass:
+<dl>
+
+<dt> <strong><code>void buildChooser()</code></strong>
+<dd> Creates the GUI that comprises the chooser panel.
+     The example creates four toggle buttons
+     &#151; one for each crayon &#151;
+     and adds them to the chooser panel.
+
+<dt> <strong><code>void updateChooser()</code></strong>
+<dd> This method is called whenever the chooser panel is displayed.
+     The example's implementation of this method selects
+     the toggle button that represents the currently
+     selected color.
+<blockquote><pre>
+public void updateChooser() {
+    Color color = getColorFromModel();
+    if (Color.red.equals(color)) {
+        redCrayon.setSelected(true);
+    } else if (Color.yellow.equals(color)) {
+        yellowCrayon.setSelected(true);
+    } else if (Color.green.equals(color)) {
+        greenCrayon.setSelected(true);
+    } else if (Color.blue.equals(color)) {
+        blueCrayon.setSelected(true);
+    }
+} 
+</pre></blockquote>
+
+<p>
+
+<dt> <strong><code>String getDisplayName()</code></strong>
+<dd> Returns the display name of the chooser panel.
+     The name is used on the tab for the chooser panel.
+     Here's the example's <code>getDisplayName</code> method:
+     <blockquote><pre>
+public String getDisplayName() {
+    return "Crayons";
+}
+     </pre></blockquote>
+
+<dt> <strong><code>Icon getSmallDisplayIcon()</code></strong>
+<dd> Returns a small icon to represent this chooser panel.
+     This is currently unused.
+     Future versions of the color chooser might use this icon
+     or the large one to represent this chooser panel in the display.
+     The example's implementation of this method returns <code>null</code>.
+<p>
+
+<dt> <strong><code>Icon getLargeDisplayIcon()</code></strong>
+<dd> Returns a large icon to represent this chooser panel.
+     This is currently unused.
+     Future versions of the color chooser might use this icon
+     or the small one to represent this chooser panel in the display.
+     The example's implementation of this method returns <code>null</code>.
+
+</ul>
+</blockquote>
+
+<h3>
+<a name="api">The Color Chooser API</a>
+</h3>
+<blockquote>
+The following tables list the commonly used
+<code>JColorChooser</code> constructors and methods.
+Other methods you might call
+are listed in the API tables in
+<a href="jcomponent.html">The JComponent Class</a>.
+The API for using color choosers falls into these categories:
+
+<ul>
+<li><a href="#creating">Creating and Displaying the Color Chooser</a>
+<li><a href="#customizing">Customizing the Color Chooser's GUI</a>
+<li><a href="#selection">Setting or Getting the Current Color</a>
+</ul>
+
+
+<p>
+
+<table border=1>
+<caption><a name="creating">Creating and Displaying the Color Chooser</a></caption>
+<tr>
+<th align=left>Method or Constructor
+</th>
+<th align=left>Purpose
+
+</th>
+</tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JColorChooser.html#JColorChooser()"><font color="#8800bb"><font size=2><code>JColorChooser()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JColorChooser.html#JColorChooser()"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JColorChooser.html#JColorChooser(java.awt.Color)"><font color="#8800bb"><font size=2><code>JColorChooser(Color)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JColorChooser.html#JColorChooser(java.awt.Color)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JColorChooser.html#JColorChooser(javax.swing.colorchooser.ColorSelectionModel)"><font color="#8800bb"><font size=2><code>JColorChooser(ColorSelectionModel)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JColorChooser.html#JColorChooser(javax.swing.colorchooser.ColorSelectionModel)"></a></td>
+<td>Create a color chooser.
+    The default constructor creates a color chooser
+    with an initial color of <code>Color.white</code>.
+    Use the second constructor
+    to specify a different initial color.
+    The <code>ColorSelectionModel</code> argument, when present,
+    provides the color chooser with a color selection model.
+
+</td>
+</tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JColorChooser.html#showDialog(java.awt.Component, java.lang.String, java.awt.Color)"><font color="#8800bb"><font size=2><code>Color showDialog(Component, String, Color)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JColorChooser.html#showDialog(java.awt.Component, java.lang.String, java.awt.Color)"></a></td>
+<td>Create and show a color chooser in a modal dialog.
+    The <code>Component</code> argument is the dialog's parent,
+    the <code>String</code> argument specifies the dialog's title,
+    and the <code>Color</code> argument specifies the chooser's initial color.
+
+</td>
+</tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JColorChooser.html#createDialog(java.awt.Component, java.lang.String, boolean, javax.swing.JColorChooser, java.awt.event.ActionListener, java.awt.event.ActionListener)"><font color="#8800bb"><font size=2><code>JDialog createDialog(Component, String,<br> boolean, JColorChooser, ActionListener,<br> ActionListener)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JColorChooser.html#createDialog(java.awt.Component, java.lang.String, boolean, javax.swing.JColorChooser, java.awt.event.ActionListener, java.awt.event.ActionListener)"></a>    </td>
+<td>Create a dialog for the specified color chooser.
+    As with <code>showDialog</code>,
+    the <code>Component</code> argument is the dialog's parent and
+    the <code>String</code> argument specifies the dialog's title.
+    The other arguments are as follows:
+    the <code>boolean</code> specifies whether the dialog is modal,
+    the <code>JColorChooser</code> is the color chooser to display
+    in the dialog,
+    the first <code>ActionListener</code> is for the <strong>OK</strong>
+    button, and the second is for the <strong>Cancel</strong> button.
+
+</td>
+</tr>
+</table>
+
+<p>
+ 
+<table border=1>
+<caption><a name="customizing">Customizing the Color Chooser's GUI</a></caption>
+<tr>
+<th align=left>Method
+</th>
+<th align=left>Purpose
+
+</th>
+</tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JColorChooser.html#setPreviewPanel(javax.swing.JComponent)"><font color="#8800bb"><font size=2><code>void setPreviewPanel(JComponent)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JColorChooser.html#setPreviewPanel(javax.swing.JComponent)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JColorChooser.html#getPreviewPanel()"><font color="#8800bb"><font size=2><code>JComponent getPreviewPanel()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JColorChooser.html#getPreviewPanel()"></a></td>
+<td>Set or get the component used to preview the color selection.
+    To remove the preview panel, use <code>new JPanel()</code> as
+    an argument.
+    To specify the default preview panel, use <code>null</code>.
+
+</td>
+</tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JColorChooser.html#setChooserPanels(javax.swing.colorchooser.AbstractColorChooserPanel[])"><font color="#8800bb"><font size=2><code>void setChooserPanels(AbstractColorChooserPanel[])</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JColorChooser.html#setChooserPanels(javax.swing.colorchooser.AbstractColorChooserPanel[])"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JColorChooser.html#getChooserPanels()"><font color="#8800bb"><font size=2><code>AbstractColorChooserPanel[] getChooserPanels()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JColorChooser.html#getChooserPanels()"></a></td>
+<td>Set or get the chooser panels in the color chooser.
+
+</td>
+</tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JColorChooser.html#addChooserPanel(javax.swing.colorchooser.AbstractColorChooserPanel)"><font color="#8800bb"><font size=2><code>void addChooserPanel(AbstractColorChooserPanel)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JColorChooser.html#addChooserPanel(javax.swing.colorchooser.AbstractColorChooserPanel)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JColorChooser.html#removeChooserPanel(javax.swing.colorchooser.AbstractColorChooserPanel)"><font color="#8800bb"><font size=2><code>AbstractColorChooserPanel removeChooserPanel(AbstractColorChooserPanel)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JColorChooser.html#removeChooserPanel(javax.swing.colorchooser.AbstractColorChooserPanel)"></a></td>
+<td>Add a chooser panel to the color chooser
+    or remove a chooser panel from it.
+
+</td>
+</tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JColorChooser.html#setDragEnabled(boolean)"><font color="#8800bb"><font size=2><code>void setDragEnabled(boolean)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JColorChooser.html#setDragEnabled(boolean)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JColorChooser.html#getDragEnabled()"><font color="#8800bb"><font size=2><code>boolean getDragEnabled()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JColorChooser.html#getDragEnabled()"></a>    </td>
+    <td>Set or get the <code>dragEnabled</code> property, which must be true
+        to enable drag handling on this component.  The default value is false.
+        See
+<a target="_top" href="../../dnd/index.html">Drag and Drop</a><a target="_top" href="../../dnd/index.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>        for more details. Introduced in 1.4.
+</table>
+<p>
+ 
+<table border=1>
+<caption><a name="selection">Setting or Getting the Current Color</a></caption>
+<tr>
+<th align=left>Method
+</th>
+<th align=left>Purpose
+
+</th>
+</tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JColorChooser.html#setColor(java.awt.Color)"><font color="#8800bb"><font size=2><code>void setColor(Color)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JColorChooser.html#setColor(java.awt.Color)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JColorChooser.html#setColor(int, int, int)"><font color="#8800bb"><font size=2><code>void setColor(<font color="red">int</font>, <font color="green">int</font>, <font color="blue">int</font>)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JColorChooser.html#setColor(int, int, int)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JColorChooser.html#setColor(int)"><font color="#8800bb"><font size=2><code>void setColor(int)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JColorChooser.html#setColor(int)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JColorChooser.html#getColor()"><font color="#8800bb"><font size=2><code>Color getColor()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JColorChooser.html#getColor()"></a></td>
+<td>Set or get the currently selected color.
+    The three integer version of the <code>setColor</code> method
+    interprets the three integers together as an RGB color.
+    The single integer version of the <code>setColor</code> method
+    divides the integer into four 8-bit bytes and interprets the integer 
+    as an RGB color as follows:
+
+<IMG SRC="../../figures/uiswing/components/ColorChooserInt.gif" WIDTH="109" HEIGHT="30" ALT="How color chooser interprets an int as an RGB value.">
+</td>
+</tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JColorChooser.html#setSelectionModel(javax.swing.colorchooser.ColorSelectionModel)"><font color="#8800bb"><font size=2><code>void setSelectionModel(ColorSelectionModel)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JColorChooser.html#setSelectionModel(javax.swing.colorchooser.ColorSelectionModel)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JColorChooser.html#getSelectionModel()"><font color="#8800bb"><font size=2><code>ColorSelectionModel getSelectionModel()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JColorChooser.html#getSelectionModel()"></a></td>
+<td>Set or get the selection model for the color chooser.
+    This object contains the current selection and
+    fires change events to registered listeners
+    whenever the selection changes.
+
+</td>
+</tr>
+</table>
+</blockquote>
+
+<h3>
+<a name="eg">Examples that Use Color Choosers</a>
+</h3>
+<blockquote>
+This table shows the examples that use <code>JColorChooser</code>
+and where those examples are described.
+<p>
+<table>
+<tr>
+<th align=left> Example
+</th>
+<th align=left> Where Described
+</th>
+<th align=left> Notes
+ 
+</th>
+</tr>
+<tr>
+<td> <a href="example-1dot4/index.html#ColorChooserDemo">
+     ColorChooserDemo</a>
+</td>
+<td> This section
+</td>
+<td> Uses a standard color chooser.
+ 
+</td>
+</tr>
+<tr>
+<td> <a href="example-1dot4/index.html#ColorChooserDemo2">
+     ColorChooserDemo2</a>
+</td>
+<td> This section
+</td>
+<td> Uses one customized color chooser
+     and one standard color chooser in a dialog
+     created with <code>showDialog</code>.
+</td>
+</tr>
+ 
+<tr>
+<td> <a href="example-1dot4/index.html#TableDialogEditDemo">
+     TableDialogEditDemo</a>
+</td>
+
+<td> <a href="table.html">How to Use Tables</a>
+</td>
+<td> Shows how to use a color chooser
+     as a custom cell editor in a table.
+     The color chooser used by this example is created
+     with <code>createDialog</code>.
+</td>
+</tr>
+
+<tr>
+<td>
+<a target="_top" href="../misc/example-1dot4/index.html#BasicDnD">BasicDnD</a><a target="_top" href="../misc/example-1dot4/index.html#BasicDnD"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a></td>
+<td>
+<a target="_top" href="../misc/dnd.html">How to Use Drag and Drop and Data Transfer</a><a target="_top" href="../misc/dnd.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a></td>
+<td> Uses a color chooser that's not in a dialog;
+     demonstrates default drag-and-drop capabilities
+     of Swing components, including color choosers.
+</td>
+</tr>
+
+<tr>
+<td>
+<a target="_top" href="../misc/example-1dot4/index.html#DragColorDemo">DragColorDemo</a><a target="_top" href="../misc/example-1dot4/index.html#DragColorDemo"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a></td>
+<td>
+<a target="_top" href="../misc/dnd.html">How to Use Drag and Drop and Data Transfer</a><a target="_top" href="../misc/dnd.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a></td>
+<td> Uses a color chooser without a dialog
+     in a demonstration of importing <code>Color</code> data.
+</td>
+</tr>
+
+<tr>
+<td>
+<a target="_top" href="../misc/example-1dot4/index.html#DragColorTextFieldDemo">DragColorTextFieldDemo</a><a target="_top" href="../misc/example-1dot4/index.html#DragColorTextFieldDemo"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a></td>
+<td>
+<a target="_top" href="../misc/dnd.html">How to Use Drag and Drop and Data Transfer</a><a target="_top" href="../misc/dnd.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a></td>
+<td> Similar to DragColorDemo,
+     but demonstrates importing both <code>Color</code> and text data.
+</td>
+</tr>
+
+</table>
+ 
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="button.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#components" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="combobox.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

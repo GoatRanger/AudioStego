@@ -1,0 +1,180 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Packages New for 1.1</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="eventConversion.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#converting" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="newClasses.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: JDK(TM) 1.1 -- And Beyond!
+<br>
+<b>Lesson</b>: Migrating to 1.1
+</font>
+
+<h2>
+Packages New for 1.1
+</h2>
+<blockquote>
+JDK 1.0.2 contained eight <code>java.*</code> packages,
+which remain in JDK 1.1:
+<ul>
+<li><code>java.applet</code>
+<li><code>java.awt</code>
+<li><code>java.awt.image</code>
+<li><code>java.awt.peer</code>
+<li><code>java.io</code>
+<li><code>java.lang</code>
+<li><code>java.net</code>
+<li><code>java.util</code>
+</ul>
+
+<p>
+For JDK 1.1,
+fifteen new packages were added to the original eight.
+They are:
+
+<ul>
+<li> <code>java.awt.datatransfer</code>-Contains classes and
+     interfaces that implement a clipboard for transferring data.
+<li> <code>java.awt.event</code>-Contains listeners and event
+     type for event handling.
+<li> <code>java.beans</code>-JavaBeans
+     are software components that allow unrelated
+     developers to write and ship Java components
+     that can be composed together by end-user tools.
+<li> <code>java.lang.reflect</code>-This package
+     provides a reflection mechanism for Java.
+     This is a tool for examining classes fully.
+     A <code>Class</code> object can now return a
+     list of all the public methods and fields of
+     the related class.
+     You can use the <code>Method</code> objects
+     returned to invoke methods, and the <code>Field</code>
+     objects to get and set field values.
+     A <code>Class</code> object can also return a
+     list of all members, including non-public ones,
+     but security restrictions usually prevent this.
+<p>
+     You should avoid the temptation to use reflection
+     when other tools more natural to the language would suffice.
+     If you are accustomed to using function pointers in another
+     language, for example, you might think that using
+     <code>Method</code> objects are a natural replacement,
+     but usually an object-oriented tool-such as
+     an interface that is implemented by objects that perform
+     the needed action-is better. Reflection is intended for
+     use by language tools such as debuggers and class browsers.
+<li> <code>java.math</code>-This package provides
+     tools for mathematical manipulations.
+     Currently a <code>BigInteger</code> class provides
+     arbitrary-precision integer arithmetic,
+     and <code>BigDecimal</code> provides arbitrary-precision
+     decimal arithmetic.
+<li> <code>java.rmi</code>,
+     <code>java.rmi.dgc</code>, 
+     <code>java.rmi.registry</code>, 
+     and <code>java.rmi.server</code>-Remote Method Invocation (RMI)
+     allows you to create objects whose methods can be invoked
+     by objects running in other Virtual Machines,
+     including Virtual Machines running on other hosts.
+     Because Java code can be downloaded and run securely,
+     RMI lets you pass subtypes of the declared method parameters,
+     and return subtypes of the declared type of the remote method.
+     This allows you to pass object behavior as well as simple values.
+     RMI provides remote procedure calls with a Java flavor and benefits.
+<li> <code>java.security</code>,
+     <code>java.security.acl</code>,
+     and <code>java.security.interfaces</code>-This package and its subpackages
+     provide some basic interfaces and classes for security-related
+     operations, such as authentication, authorization, signed data,
+     and encryption.
+<li> <code>java.sql</code>-This package provides tools for using
+     relational databases.
+<li> <code>java.text</code>-This package provides text internationalization
+     tools, such as date parsing and number formatting.
+<li> <code>java.util.zip</code>-You can use these classes for
+     handling ZIP files.
+</ul>
+
+See the <a href="newClasses.html">next page</a>
+for information about classes and interfaces that were added to
+the original eight <code>java.*</code> packages for 1.1.
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="eventConversion.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#converting" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="newClasses.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

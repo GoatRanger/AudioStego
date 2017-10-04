@@ -1,0 +1,326 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>The Classes in the bingo.shared Package</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="playerPackage.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#bingo" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="ofInterest.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Putting It All Together
+<br>
+<b>Lesson</b>: BINGO!
+</font>
+
+<h2>
+The Classes in the bingo.shared Package
+</h2>
+<blockquote>
+The following lists and describes all the classes in the
+<code>bingo.shared</code> package.
+
+<ul>
+
+<li>
+<a target="_blank" href="example-swing/bingo/shared/Registrar.java"><font color="#bb000f"><code>Registrar</code></font></a><a target="_blank" href="example-swing/bingo/shared/Registrar.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>--
+    an interface
+    <p>
+	This interface is implemented by <code>bingo.game.RegistrarImpl</code>
+	and defines the three remote methods supported by the Game application
+	that can be called by the Player. One method is called by the Player
+	to register for a game, one is called by the Player to claim BINGO,
+	and one is called to get status from the Game.
+<p>
+
+<li>
+<a target="_blank" href="example-swing/bingo/shared/Constants.java"><font color="#bb000f"><code>Constants</code></font></a><a target="_blank" href="example-swing/bingo/shared/Constants.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>--
+    an interface that contains a collection of game constants.
+    <p>
+	One constant define in this file is the port number used
+	by the Game to broadcast packets to the Player. Three other
+	constants are group names used to categorize the broadcast
+	packets into three types of information: balls, player status
+	updates, and game status updates.
+<p>
+
+<li>
+<a target="_blank" href="example-swing/bingo/shared/ErrorMessages.java"><font color="#bb000f"><code>ErrorMessages</code></font></a><a target="_blank" href="example-swing/bingo/shared/ErrorMessages.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>--
+    this class contains a collection of static methods that both
+    the Game and the Player can call to print error messages.
+<p>
+
+<li>
+<a target="_blank" href="example-swing/bingo/shared/BingoBall.java"><font color="#bb000f"><code>BingoBall</code></font></a><a target="_blank" href="example-swing/bingo/shared/BingoBall.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>--
+    a BINGO ball.
+    <p>
+	Used extensively by <code>Card</code> and <code>BallAnnouncer</code>.
+<p>
+
+<li>
+<a target="_blank" href="example-swing/bingo/shared/Card.java"><font color="#bb000f"><code>Card</code></font></a><a target="_blank" href="example-swing/bingo/shared/Card.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>--
+    a BINGO card.
+    <p>
+	Each space on the card contains a <code>BingoBall</code>.
+	Created and signed by the Game.
+<p>
+
+<li>
+<a target="_blank" href="example-swing/bingo/shared/Ticket.java"><font color="#bb000f"><code>Ticket</code></font></a><a target="_blank" href="example-swing/bingo/shared/Ticket.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>--
+    an instance of this class is created by the Registrar when
+    a Player registers and returned to the Player.
+    <p>
+	It contains the Player's ID, cards, and other
+	information needed by the Player to play.
+<p>
+
+<li>
+<a target="_blank" href="example-swing/bingo/shared/PlayerRecord.java"><font color="#bb000f"><code>PlayerRecord</code></font></a><a target="_blank" href="example-swing/bingo/shared/PlayerRecord.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>--
+    represents a Player.
+    <p>
+	Used by the <code>Registrar</code> and <code>PlayerInfoPane</code>
+	to keep track of players.
+<p>
+
+<li>
+<a target="_blank" href="example-swing/bingo/shared/Answer.java"><font color="#bb000f"><code>Answer</code></font></a><a target="_blank" href="example-swing/bingo/shared/Answer.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>--
+    returned to the Player when the Player claims BINGO.
+	<p>
+	This class informs the Player whether or not they actually won.
+<p>
+
+<li>
+<a target="_blank" href="example-swing/bingo/shared/OverallStatusPane.java"><font color="#bb000f"><code>OverallStatusPane</code></font></a><a target="_blank" href="example-swing/bingo/shared/OverallStatusPane.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>--
+    implements the Game status UI. 
+	<p>
+	This window creates a <code>LightBoardPane</code>,
+	<code>PlayerInfoPane</code>, and a <code>GameStatusLabel</code>.
+	This is general enough that it could be used by the Player or
+	another application.
+<p>
+
+<li>
+<a target="_blank" href="example-swing/bingo/shared/PlayerInfoPane.java"><font color="#bb000f"><code>PlayerInfoPane</code></font></a><a target="_blank" href="example-swing/bingo/shared/PlayerInfoPane.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>--
+    used by the Game to display the players that are registered in this game.
+	<p>
+	This Pane is a <code>PlayerListener</code> and uses a
+	<code>PlayerListenerThread</code> to listen
+	for player status updates on the <code>MulticastSocket</code>.
+<p>
+
+<li>
+<a target="_blank" href="example-swing/bingo/shared/PlayerInfoModel.java"><font color="#bb000f"><code>PlayerInfoModel</code></font></a><a target="_blank" href="example-swing/bingo/shared/PlayerInfoModel.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>--
+    controls the content of the table that lists the currently registered players.
+<p>
+
+<li>
+<a target="_blank" href="example-swing/bingo/shared/GameStatusLabel.java"><font color="#bb000f"><code>GameStatusLabel</code></font></a><a target="_blank" href="example-swing/bingo/shared/GameStatusLabel.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>--
+    used by the Player and by the Game to display game status.
+	<p>
+	This Label is a <code>GameListener</code> and uses a
+	<code>GameListenerThread</code> to listen
+	for game status updates on the <code>MulticastSocket</code>.
+<p>
+
+<li>
+<a target="_blank" href="example-swing/bingo/shared/LightBoardPane.java"><font color="#bb000f"><code>LightBoardPane</code></font></a><a target="_blank" href="example-swing/bingo/shared/LightBoardPane.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>--
+    used by the Player and by the Game to display the balls that
+	have been announced in this game.
+	<p>
+	This particular status pane works differently
+	than the <code>PlayerInfoPane</code> and <code>GameStatusLabel</code>.
+	This Pane is not a <code>BallListener</code>
+	and doesn't use a <code>BallListenerThread</code>,
+	but must be created and informed of announced balls by a
+	<code>BallListener</code> using a <code>BallListenerThread</code>.
+	This is because the information is needed at a higher level in
+	each program (the <code>BallAnnouncer</code> throws an end-of-game
+	ball which has implications for the rest of the program).
+<p>
+
+<li>
+<a target="_blank" href="example-swing/bingo/shared/Parameters.java"><font color="#bb000f"><code>Parameters</code></font></a><a target="_blank" href="example-swing/bingo/shared/Parameters.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>--
+    an abstract class that manages program parameters.
+    <p>
+	Both the Player and the Game applications have concrete
+	subclasses of this class to manage their program parameters.
+<p>
+
+<li>
+<a target="_blank" href="example-swing/bingo/shared/Utilities.java"><font color="#bb000f"><code>Utilities</code></font></a><a target="_blank" href="example-swing/bingo/shared/Utilities.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>--
+    a class with a couple of useful methods for positioning Swing components.
+    <p>
+	This class is only used by the Player application, but could be used
+	by other applications.
+<p>
+
+<li>
+<a target="_blank" href="example-swing/bingo/shared/Listener.java"><font color="#bb000f"><code>Listener</code></font></a><a target="_blank" href="example-swing/bingo/shared/Listener.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>--
+    an empty interface whose sole purpose is to be a superinterface to
+    <code>BallListener</code>, <code>PlayerListener</code> and
+    <code>GameListener</code>.
+<p>
+
+<li>
+<a target="_blank" href="example-swing/bingo/shared/ListenerThread.java"><font color="#bb000f"><code>ListenerThread</code></font></a><a target="_blank" href="example-swing/bingo/shared/ListenerThread.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>--
+    the abstract superclass of <code>BallListenerThread</code>,
+    <code>PlayerListenerThread</code>, and <code>GameListenerThread</code>.
+	<p>
+	This class is a subclass of <code>Thread</code> provides a
+	constructor which must be called by its subclass's constructors.
+	Additionally, this class provides the <code>stopListening</code>
+	method for its subclasses.
+<p>
+
+<li>
+<a target="_blank" href="example-swing/bingo/shared/BallListener.java"><font color="#bb000f"><code>BallListener</code></font></a><a target="_blank" href="example-swing/bingo/shared/BallListener.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>--
+    an interface that defines the methods a class must implement in order to
+    listen to balls as they are announced.
+	<p>
+	This interface is implemented by
+	<code>bingo.shared.OverallStatusPane</code> and
+	<code>bingo.player.Player</code>.
+	A <code>BallListener</code> uses a <code>BallListenerThread</code>
+	to listen to a <code>MulticastSocket</code> for announced balls.
+	The thread notifies its <code>BallListener</code>
+	of interesting activities on the socket.
+<p>
+
+<li>
+<a target="_blank" href="example-swing/bingo/shared/BallListenerThread.java"><font color="#bb000f"><code>BallListenerThread</code></font></a><a target="_blank" href="example-swing/bingo/shared/BallListenerThread.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>--
+    a subclass of <code>ListenerThread</code> that receives balls from
+    the <code>MulticastSocket</code> as they are sent by the Game.
+	<p>
+	This thread is created with a <code>BallListener</code> which is
+	informed of each ball as it is announced.
+<p>
+
+<li>
+<a target="_blank" href="example-swing/bingo/shared/PlayerListener.java"><font color="#bb000f"><code>PlayerListener</code></font></a><a target="_blank" href="example-swing/bingo/shared/PlayerListener.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>--
+    an interface that defines the methods a class must implement in order to
+    listen to player status updates.
+	<p>
+	A <code>PlayerListener</code> uses a <code>PlayerListenerThread</code>
+	to listen to a <code>MulticastSocket</code> for player status messages.
+	The thread notifies its <code>PlayerListener</code> of interesting
+	activities on the socket.
+	<code>PlayerInfoPane</code> implements this interface and
+	creates a <code>PlayerListenerThread</code> for listening.
+<p>
+
+<li>
+<a target="_blank" href="example-swing/bingo/shared/PlayerListenerThread.java"><font color="#bb000f"><code>PlayerListenerThread</code></font></a><a target="_blank" href="example-swing/bingo/shared/PlayerListenerThread.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>--
+    a subclass of <code>ListenerThread</code> that gets player status
+    updates from the <code>MulticastSocket</code> as they are sent by the
+    Game.
+	<p>
+	This thread is created with a <code>PlayerListener</code> which is
+	informed of status messages as they are received.
+<p>
+
+<li>
+<a target="_blank" href="example-swing/bingo/shared/GameListener.java"><font color="#bb000f"><code>GameListener</code></font></a><a target="_blank" href="example-swing/bingo/shared/GameListener.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>--
+    an interface that defines the methods a class must implement in order to
+    listen to game status updates.
+	<p>
+	A <code>GameListener</code> uses a <code>GameListenerThread</code>
+	to listen to a <code>MulticastSocket</code> for game status messages.
+	The thread notifies its <code>GameListener</code> of interesting
+	activities on the socket.
+	<code>GameStatusLabel</code> implements this interface and
+	creates <code>GameListenerThread</code> for listening.
+<p>
+
+<li>
+<a target="_blank" href="example-swing/bingo/shared/GameListenerThread.java"><font color="#bb000f"><code>GameListenerThread</code></font></a><a target="_blank" href="example-swing/bingo/shared/GameListenerThread.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>--
+    a subclass of <code>ListenerThread</code> that gets game status
+    updates from the <code>MulticastSocket</code> as
+    they are sent by the RingMaster.
+	<p>
+	This thread is created with a <code>GameListener</code>
+	which is informed of status messages as they are received.
+<p>
+
+<li>
+<a target="_blank" href="example-swing/bingo/shared/BingoException.java"><font color="#bb000f"><code>BingoException</code></font></a><a target="_blank" href="example-swing/bingo/shared/BingoException.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>,
+    
+<a target="_blank" href="example-swing/bingo/shared/NoMoreBallsException.java"><font color="#bb000f"><code>NoMoreBallsException</code></font></a><a target="_blank" href="example-swing/bingo/shared/NoMoreBallsException.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>--
+    exceptions for the BINGO game.
+</ul>
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="playerPackage.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#bingo" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="ofInterest.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

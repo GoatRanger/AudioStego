@@ -1,0 +1,5 @@
+<applet code="ShapesDemo2D.class"
+        codebase="example-1dot2/"
+        archive="shapesdemo2d.jar"
+	width="550" height="100">
+</applet>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="horizontal" android:background="@color/om" android:layout_width="match_parent" android:layout_height="match_parent">
+    <ImageView android:id="@+id/map_image" android:background="@r$drawable/v2_photo_defalut" android:layout_width="UNKNOWN_DATA_0x7f0b012f" android:layout_height="UNKNOWN_DATA_0x7f0b012f" android:scaleType="centerCrop" />
+    <RelativeLayout android:layout_gravity="top|bottom|center_vertical|fill_vertical|center|fill" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_marginLeft="@dimen/gw">
+        <TextView android:id="@+id/map_title" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <TextView android:textColor="@r$color/grey_not_selected" android:id="@+id/map_content" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/gw" android:layout_below="@+id/map_title" />
+    </RelativeLayout>
+    <ImageView android:layout_gravity="top|bottom|center_vertical|fill_vertical|center|fill" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/gw" android:src="@r$drawable/ic_navigation_nor" android:scaleType="centerCrop" />
+</LinearLayout>

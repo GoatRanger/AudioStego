@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.device.camera.view.common.DJICameraControlViewLongan xmlns:android="http://schemas.android.com/apk/res-auto" longan:background="0x106000d" longan:layout_width="wrap_content" longan:layout_height="wrap_content" longan:splitMotionEvents="true">
+    <RelativeLayout longan:background="@color/j5" longan:layout_width="match_parent" longan:layout_height="match_parent" longan:layout_weight="1.0" />
+    <RelativeLayout longan:layout_gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" longan:background="0x106000d" longan:layout_width="wrap_content" longan:layout_height="wrap_content">
+        <dji.device.common.view.DJICameraSwitchView longan:id="@id/b53" longan:clickable="true" style="@style/eo" />
+    </RelativeLayout>
+    <RelativeLayout longan:layout_gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" longan:background="0x106000d" longan:layout_width="wrap_content" longan:layout_height="wrap_content">
+        <dji.device.common.view.DJIStateImageViewCompat longan:id="@id/b54" longan:src="@drawable/longan_selector_handle_mode_singlephoto_0s" style="@style/eo" />
+    </RelativeLayout>
+    <RelativeLayout longan:layout_width="wrap_content" longan:layout_height="wrap_content">
+        <include longan:id="@id/b55" longan:clickable="true" longan:layout_width="wrap_content" longan:layout_height="wrap_content" longan:layout_centerInParent="true" layout="@layout/longan_shutter_button" />
+        <TextView longan:textSize="10sp" longan:textColor="@color/om" longan:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" longan:id="@id/b56" longan:visibility="gone" longan:layout_width="wrap_content" longan:layout_height="wrap_content" longan:layout_marginTop="@dimen/a1d" longan:text="5:00" longan:layout_below="@id/b55" longan:layout_alignLeft="@id/b55" longan:layout_alignRight="@id/b55" />
+    </RelativeLayout>
+    <RelativeLayout longan:layout_gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" longan:background="0x106000d" longan:layout_width="wrap_content" longan:layout_height="wrap_content">
+        <dji.device.common.view.DJIStateImageViewCompat longan:id="@id/b57" longan:src="@drawable/longan_selector_parms" style="@style/eo" />
+    </RelativeLayout>
+    <RelativeLayout longan:layout_gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" longan:background="0x106000d" longan:layout_width="wrap_content" longan:layout_height="wrap_content">
+        <dji.device.common.view.DJIStateImageViewCompat longan:id="@id/b58" longan:src="@drawable/longan_preview" style="@style/eo" />
+    </RelativeLayout>
+    <RelativeLayout longan:background="@color/j5" longan:layout_width="match_parent" longan:layout_height="match_parent" longan:layout_weight="1.0" />
+</dji.device.camera.view.common.DJICameraControlViewLongan>

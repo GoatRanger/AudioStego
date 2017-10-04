@@ -1,0 +1,219 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Questions and Exercises: Exceptions</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="../runtime.html" target="_top"><img src="../../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../../TOC.html#exceptions" target="_top"><img src="../../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="../../threads/index.html" target="_top"><img src="../../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="../index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../../search.html" target="_top">Search</a>
+<br><a href="../../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Essential Java Classes
+<br>
+<b>Lesson</b>: Handling Errors with Exceptions
+</font>
+
+<h2>
+Questions and Exercises: Exceptions
+</h2>
+<blockquote>
+</blockquote>
+
+<h3>Questions</h3>
+<blockquote>
+
+<ol>
+<li> Is the following code legal?
+
+<blockquote><pre>
+try {
+    ...
+} finally {
+    ...
+}
+</pre></blockquote>
+
+<li> What exception types can be caught by the following handler?
+
+<blockquote><pre>
+catch (Exception e) {
+    ...
+}
+</pre></blockquote>
+
+What is wrong with using this type of exception handler?
+<p>
+<li> What exceptions can be caught by the following handler?
+
+<blockquote><pre>
+...
+} catch (Exception e) {
+    ...
+} catch (ArithmeticException a) {
+    ...
+}
+</pre></blockquote>
+
+Is there anything wrong with this exception handler as written?
+Will this code compile?
+
+<p>
+<li> Match each situation in the first column
+     with an item in the second column.
+
+<table>
+<tr>
+<td valign=top>
+<ol type=a>
+<li> <code>int[] A;
+<br>
+A[0] = 0;</code>
+
+<p>
+<li> The Java VM starts running your program,
+but the VM can’t find the Java platform classes.
+(The Java platform classes reside in 
+<code>classes.zip</code> or <code>rt.jar</code>.)
+
+<p>
+<li> A program is reading a stream and reaches the end of stream marker. 
+
+<p>
+<li> Before closing the stream and after reaching the end of stream marker,
+     a program tries to read the stream again.
+
+</ol>
+
+<td valign=top>
+<ol type=1>
+
+<li> error
+
+<p>
+<li> checked exception
+
+<p>
+<li> runtime exception
+
+<p>
+<li> no exception
+
+</table>
+
+
+</ol>
+</blockquote>
+
+<h3>Exercises</h3>
+<blockquote>
+<ol>
+<li> Add a <code>readList</code> method to
+<a target="_blank" href="../example/ListOfNumbers.java"><font color="#bb000f"><code><code>ListOfNumbers.java</code></code></font></a><a target="_blank" href="../example/ListOfNumbers.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>.
+This method should read in <code>int</code> values from a file,
+print each value,
+and append them to the end of the vector.
+You should catch all appropriate errors.
+You will also need a text file containing numbers to read in.
+
+<p>
+<li> Modify the following <code>cat</code> method so that it will compile:
+
+<blockquote><pre>
+public static void cat(File named) {
+    RandomAccessFile input = null;
+    String line = null;
+
+    try {
+        input = new RandomAccessFile(named, "r");
+        while ((line = input.readLine()) != null) {
+            System.out.println(line);
+        }
+        return;
+    } finally {
+        if (input != null) {
+            input.close();
+        }
+    }
+}
+</pre></blockquote>
+
+</ol>
+</blockquote>
+
+<a target="_top" href="answers.html">Check your answers.</a><a target="_top" href="answers.html"><img src="../../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Essential Java Classes trail)"></a><blockquote>
+</blockquote>
+
+<img src="../../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="../runtime.html" target="_top"><img src="../../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../../TOC.html#exceptions" target="_top"><img src="../../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="../../threads/index.html" target="_top"><img src="../../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="../index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../../search.html" target="_top">Search</a>
+<br><a href="../../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

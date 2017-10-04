@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" android:background="@r$drawable/radius_corner_dark_bg" android:scrollbars="UNKNOWN_DATA_0x0" android:fadingEdge="UNKNOWN_DATA_0x0" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginLeft="@dimen/n3" android:layout_marginTop="@dimen/store_head_height" android:layout_marginRight="@dimen/n3" android:layout_marginBottom="@dimen/n3" android:overScrollMode="ifContentScrolls">
+    <dji.publics.DJIUI.DJILinearLayout android:orientation="vertical" android:paddingLeft="@dimen/n2" android:paddingTop="@dimen/n1" android:paddingRight="@dimen/n2" android:paddingBottom="@dimen/n1" android:layout_width="match_parent" android:layout_height="wrap_content" android:baselineAligned="false">
+        <dji.publics.DJIUI.DJITextView android:id="@+id/media_info_create_tv" style="@style/MediaInfoTx" />
+        <dji.publics.DJIUI.DJITextView android:id="@+id/media_info_model_tv" style="@style/MediaInfoTx" />
+        <dji.publics.DJIUI.DJITextView android:id="@+id/media_info_dimension_tv" style="@style/MediaInfoTx" />
+        <dji.publics.DJIUI.DJITextView android:id="@+id/media_info_make_tv" style="@style/MediaInfoTx" />
+        <dji.publics.DJIUI.DJITextView android:id="@+id/media_info_f_number_tv" style="@style/MediaInfoTx" />
+        <dji.publics.DJIUI.DJITextView android:id="@+id/media_info_exposure_program_tv" style="@style/MediaInfoTx" />
+        <dji.publics.DJIUI.DJITextView android:id="@+id/media_info_exposure_time_tv" style="@style/MediaInfoTx" />
+        <dji.publics.DJIUI.DJITextView android:id="@+id/media_info_exposure_iso_tv" style="@style/MediaInfoTx" />
+    </dji.publics.DJIUI.DJILinearLayout>
+</ScrollView>

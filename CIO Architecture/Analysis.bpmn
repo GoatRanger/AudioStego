@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:BpmnDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:bpmn="http://stp.eclipse.org/bpmn" xmi:id="_imneYR6CEd-wJcTvC20LGA" iD="_imneYB6CEd-wJcTvC20LGA">
+  <artifacts xmi:type="bpmn:DataObject" xmi:id="_WvezIR6UEd-wJcTvC20LGA" iD="_WvezIB6UEd-wJcTvC20LGA" name="Domain Plan for POM Cycle">
+    <associations xmi:type="bpmn:Association" xmi:id="_XjkigB6UEd-wJcTvC20LGA"/>
+  </artifacts>
+  <pools xmi:type="bpmn:Pool" xmi:id="_imoFdB6CEd-wJcTvC20LGA" iD="_imoFcx6CEd-wJcTvC20LGA" name="CIO">
+    <artifacts xmi:type="bpmn:DataObject" xmi:id="_nr_DcR6HEd-wJcTvC20LGA" iD="_nr_DcB6HEd-wJcTvC20LGA" name="Human Capital Strategy">
+      <associations xmi:type="bpmn:Association" xmi:id="_rN_KkB6HEd-wJcTvC20LGA"/>
+    </artifacts>
+    <artifacts xmi:type="bpmn:DataObject" xmi:id="_sRjgYR6HEd-wJcTvC20LGA" iD="_sRjgYB6HEd-wJcTvC20LGA" name="Domain Capability/Operational Architecture">
+      <associations xmi:type="bpmn:Association" xmi:id="_1HwFAB6HEd-wJcTvC20LGA"/>
+    </artifacts>
+    <artifacts xmi:type="bpmn:DataObject" xmi:id="_9UdAsR6HEd-wJcTvC20LGA" iD="_9UdAsB6HEd-wJcTvC20LGA" name="Investment Operational Description">
+      <associations xmi:type="bpmn:Association" xmi:id="_AkenAB6IEd-wJcTvC20LGA"/>
+      <associations xmi:type="bpmn:Association" xmi:id="_BQSkIB6IEd-wJcTvC20LGA"/>
+    </artifacts>
+    <artifacts xmi:type="bpmn:DataObject" xmi:id="_Fcv9gB6IEd-wJcTvC20LGA" iD="_FcvWcB6IEd-wJcTvC20LGA" name="Domain System Architecture">
+      <associations xmi:type="bpmn:Association" xmi:id="_P7AFEB6IEd-wJcTvC20LGA"/>
+    </artifacts>
+    <artifacts xmi:type="bpmn:DataObject" xmi:id="_RYunUR6IEd-wJcTvC20LGA" iD="_RYunUB6IEd-wJcTvC20LGA" name="Investment System Description">
+      <associations xmi:type="bpmn:Association" xmi:id="_UcLKMB6IEd-wJcTvC20LGA"/>
+      <associations xmi:type="bpmn:Association" xmi:id="_VHUY8B6IEd-wJcTvC20LGA"/>
+    </artifacts>
+    <artifacts xmi:type="bpmn:DataObject" xmi:id="_Ze0EAR6QEd-wJcTvC20LGA" iD="_Ze0EAB6QEd-wJcTvC20LGA" name="Domain Transition Plan">
+      <associations xmi:type="bpmn:Association" xmi:id="_cGnzwB6QEd-wJcTvC20LGA"/>
+      <associations xmi:type="bpmn:Association" xmi:id="_g2_ygB6QEd-wJcTvC20LGA"/>
+    </artifacts>
+    <vertices xmi:type="bpmn:Activity" xmi:id="_SkXtUR6DEd-wJcTvC20LGA" iD="_SkXtUB6DEd-wJcTvC20LGA" associations="_AkenAB6IEd-wJcTvC20LGA" outgoingEdges="_lLC4ER6EEd-wJcTvC20LGA" incomingEdges="_TTE7gR6FEd-wJcTvC20LGA" name="Review Business Case" lanes="_R29acR6TEd-wJcTvC20LGA"/>
+    <vertices xmi:type="bpmn:Activity" xmi:id="_WIzA4R6EEd-wJcTvC20LGA" iD="_WIzA4B6EEd-wJcTvC20LGA" associations="_VHUY8B6IEd-wJcTvC20LGA" outgoingEdges="_foo-cR6PEd-wJcTvC20LGA" incomingEdges="_xBZvIR6REd-wJcTvC20LGA" name="Review Core IT Compliance Requirements" lanes="_R29acR6TEd-wJcTvC20LGA"/>
+    <vertices xmi:type="bpmn:Activity" xmi:id="_iYt6YR6EEd-wJcTvC20LGA" iD="_iYt6YB6EEd-wJcTvC20LGA" outgoingEdges="_C-Wc4R6SEd-wJcTvC20LGA _xBZvIR6REd-wJcTvC20LGA" incomingEdges="_lLC4ER6EEd-wJcTvC20LGA" name="Development Requested or Approved?" lanes="_R29acR6TEd-wJcTvC20LGA" activityType="GatewayDataBasedExclusive"/>
+    <vertices xmi:type="bpmn:Activity" xmi:id="_tHVZMR6EEd-wJcTvC20LGA" iD="_tHVZMB6EEd-wJcTvC20LGA" outgoingEdges="_TTE7gR6FEd-wJcTvC20LGA _29Yb0R6FEd-wJcTvC20LGA" incomingEdges="_wFNsUR6UEd-wJcTvC20LGA" lanes="_R29acR6TEd-wJcTvC20LGA" activityType="GatewayParallel"/>
+    <vertices xmi:type="bpmn:Activity" xmi:id="_ohEjQR6FEd-wJcTvC20LGA" iD="_ohEjQB6FEd-wJcTvC20LGA" associations="_rN_KkB6HEd-wJcTvC20LGA _1HwFAB6HEd-wJcTvC20LGA _BQSkIB6IEd-wJcTvC20LGA _cGnzwB6QEd-wJcTvC20LGA" outgoingEdges="_7QHcUR6FEd-wJcTvC20LGA" incomingEdges="_29Yb0R6FEd-wJcTvC20LGA" name="Conduct Strategic Review of Operational Architecture Description" lanes="_R29acR6TEd-wJcTvC20LGA"/>
+    <vertices xmi:type="bpmn:Activity" xmi:id="_u2vr4R6FEd-wJcTvC20LGA" iD="_u2vr4B6FEd-wJcTvC20LGA" associations="_P7AFEB6IEd-wJcTvC20LGA _UcLKMB6IEd-wJcTvC20LGA" outgoingEdges="_YLWKoR6IEd-wJcTvC20LGA" incomingEdges="_7qo1IR6FEd-wJcTvC20LGA" name="Conduct Review of System Architectural Description Against Domain" lanes="_R29acR6TEd-wJcTvC20LGA"/>
+    <vertices xmi:type="bpmn:Activity" xmi:id="_0TDjkR6FEd-wJcTvC20LGA" iD="_0TDjkB6FEd-wJcTvC20LGA" outgoingEdges="_gVMicR6PEd-wJcTvC20LGA _7qo1IR6FEd-wJcTvC20LGA" incomingEdges="_7QHcUR6FEd-wJcTvC20LGA" name="Development Requested or Approved?" lanes="_R29acR6TEd-wJcTvC20LGA" activityType="GatewayDataBasedExclusive"/>
+    <vertices xmi:type="bpmn:Activity" xmi:id="_ABrt4R6GEd-wJcTvC20LGA" iD="_ABrt4B6GEd-wJcTvC20LGA" associations="_sWywQB6IEd-wJcTvC20LGA" incomingEdges="_to7CUR6PEd-wJcTvC20LGA" name="Compile Investment Review Packet" lanes="_R29acR6TEd-wJcTvC20LGA">
+      <outgoingMessages xmi:type="bpmn:MessagingEdge" href="#_dk1-4R6IEd-wJcTvC20LGA"/>
+    </vertices>
+    <vertices xmi:type="bpmn:Activity" xmi:id="_MSy6MR6GEd-wJcTvC20LGA" iD="_MSy6MB6GEd-wJcTvC20LGA" associations="_g2_ygB6QEd-wJcTvC20LGA" outgoingEdges="_XfCkoR6QEd-wJcTvC20LGA" incomingEdges="_Weu-MR6QEd-wJcTvC20LGA" name="Update Domain Transition Plan" lanes="_R29acR6TEd-wJcTvC20LGA _Sgrs4R6TEd-wJcTvC20LGA"/>
+    <vertices xmi:type="bpmn:Activity" xmi:id="_Q3PVwR6GEd-wJcTvC20LGA" iD="_Q3PVwB6GEd-wJcTvC20LGA" associations="_XjkigB6UEd-wJcTvC20LGA" outgoingEdges="_DgNh4R6UEd-wJcTvC20LGA" incomingEdges="_XfCkoR6QEd-wJcTvC20LGA" name="Develop Report for Resource Management" lanes="_R29acR6TEd-wJcTvC20LGA"/>
+    <vertices xmi:type="bpmn:Activity" xmi:id="_hxFnwR6GEd-wJcTvC20LGA" iD="_hxFnwB6GEd-wJcTvC20LGA" outgoingEdges="_e3w7IR6PEd-wJcTvC20LGA" incomingEdges="_YLWKoR6IEd-wJcTvC20LGA" name="Add to Domain Architectural Description As Recommended Future Investment" lanes="_R29acR6TEd-wJcTvC20LGA"/>
+    <vertices xmi:type="bpmn:Activity" xmi:id="_3Kl78R6GEd-wJcTvC20LGA" iD="_3Kl78B6GEd-wJcTvC20LGA" associations="_-K_tgB6PEd-wJcTvC20LGA" outgoingEdges="_D2yoIR6PEd-wJcTvC20LGA" name="Develop Investment Approval Packet" lanes="_R29acR6TEd-wJcTvC20LGA">
+      <incomingMessages xmi:type="bpmn:MessagingEdge" href="#_8K7XYR6IEd-wJcTvC20LGA"/>
+    </vertices>
+    <vertices xmi:type="bpmn:Activity" xmi:id="_4TcgwR6OEd-wJcTvC20LGA" iD="_4TcgwB6OEd-wJcTvC20LGA" incomingEdges="_D2yoIR6PEd-wJcTvC20LGA" name="Coordinate Investment Review" lanes="_R29acR6TEd-wJcTvC20LGA">
+      <outgoingMessages xmi:type="bpmn:MessagingEdge" href="#_46M-wB6OEd-wJcTvC20LGA"/>
+    </vertices>
+    <vertices xmi:type="bpmn:Activity" xmi:id="_cgN08R6PEd-wJcTvC20LGA" iD="_cgN08B6PEd-wJcTvC20LGA" outgoingEdges="_to7CUR6PEd-wJcTvC20LGA" incomingEdges="_e3w7IR6PEd-wJcTvC20LGA _foo-cR6PEd-wJcTvC20LGA _gVMicR6PEd-wJcTvC20LGA _C-Wc4R6SEd-wJcTvC20LGA" lanes="_R29acR6TEd-wJcTvC20LGA" activityType="GatewayParallel"/>
+    <vertices xmi:type="bpmn:Activity" xmi:id="_EOdEwR6QEd-wJcTvC20LGA" iD="_EOdEwB6QEd-wJcTvC20LGA" outgoingEdges="_OiWWcR6QEd-wJcTvC20LGA" name="Record  Governance Body Decision" lanes="_R29acR6TEd-wJcTvC20LGA">
+      <incomingMessages xmi:type="bpmn:MessagingEdge" href="#_H4-EIR6PEd-wJcTvC20LGA"/>
+    </vertices>
+    <vertices xmi:type="bpmn:Activity" xmi:id="_JW0swR6QEd-wJcTvC20LGA" iD="_JW0swB6QEd-wJcTvC20LGA" associations="_-5q0kB6TEd-wJcTvC20LGA" outgoingEdges="_O6a4MR6QEd-wJcTvC20LGA" name="Record Portfolio Decision on Investment" lanes="_R29acR6TEd-wJcTvC20LGA">
+      <incomingMessages xmi:type="bpmn:MessagingEdge" href="#_myx0cR6QEd-wJcTvC20LGA"/>
+    </vertices>
+    <vertices xmi:type="bpmn:Activity" xmi:id="_NtOFQR6QEd-wJcTvC20LGA" iD="_NtOFQB6QEd-wJcTvC20LGA" outgoingEdges="_Weu-MR6QEd-wJcTvC20LGA" incomingEdges="_OiWWcR6QEd-wJcTvC20LGA _O6a4MR6QEd-wJcTvC20LGA" lanes="_R29acR6TEd-wJcTvC20LGA" activityType="GatewayDataBasedExclusive"/>
+    <vertices xmi:type="bpmn:Activity" xmi:id="_CiIwER6UEd-wJcTvC20LGA" iD="_CiIwEB6UEd-wJcTvC20LGA" incomingEdges="_DgNh4R6UEd-wJcTvC20LGA" lanes="_R29acR6TEd-wJcTvC20LGA" activityType="EventEndEmpty"/>
+    <vertices xmi:type="bpmn:Activity" xmi:id="_vRbe8R6UEd-wJcTvC20LGA" iD="_vRbe8B6UEd-wJcTvC20LGA" outgoingEdges="_wFNsUR6UEd-wJcTvC20LGA" activityType="EventStartEmpty"/>
+    <sequenceEdges xmi:type="bpmn:SequenceEdge" xmi:id="_lLC4ER6EEd-wJcTvC20LGA" iD="_lLC4EB6EEd-wJcTvC20LGA"/>
+    <sequenceEdges xmi:type="bpmn:SequenceEdge" xmi:id="_TTE7gR6FEd-wJcTvC20LGA" iD="_TTE7gB6FEd-wJcTvC20LGA"/>
+    <sequenceEdges xmi:type="bpmn:SequenceEdge" xmi:id="_29Yb0R6FEd-wJcTvC20LGA" iD="_29Yb0B6FEd-wJcTvC20LGA"/>
+    <sequenceEdges xmi:type="bpmn:SequenceEdge" xmi:id="_7QHcUR6FEd-wJcTvC20LGA" iD="_7QHcUB6FEd-wJcTvC20LGA"/>
+    <sequenceEdges xmi:type="bpmn:SequenceEdge" xmi:id="_7qo1IR6FEd-wJcTvC20LGA" iD="_7qo1IB6FEd-wJcTvC20LGA"/>
+    <sequenceEdges xmi:type="bpmn:SequenceEdge" xmi:id="_YLWKoR6IEd-wJcTvC20LGA" iD="_YLWKoB6IEd-wJcTvC20LGA"/>
+    <sequenceEdges xmi:type="bpmn:SequenceEdge" xmi:id="_D2yoIR6PEd-wJcTvC20LGA" iD="_D2yoIB6PEd-wJcTvC20LGA"/>
+    <sequenceEdges xmi:type="bpmn:SequenceEdge" xmi:id="_e3w7IR6PEd-wJcTvC20LGA" iD="_e3w7IB6PEd-wJcTvC20LGA"/>
+    <sequenceEdges xmi:type="bpmn:SequenceEdge" xmi:id="_foo-cR6PEd-wJcTvC20LGA" iD="_foo-cB6PEd-wJcTvC20LGA"/>
+    <sequenceEdges xmi:type="bpmn:SequenceEdge" xmi:id="_gVMicR6PEd-wJcTvC20LGA" iD="_gVMicB6PEd-wJcTvC20LGA"/>
+    <sequenceEdges xmi:type="bpmn:SequenceEdge" xmi:id="_to7CUR6PEd-wJcTvC20LGA" iD="_to7CUB6PEd-wJcTvC20LGA"/>
+    <sequenceEdges xmi:type="bpmn:SequenceEdge" xmi:id="_OiWWcR6QEd-wJcTvC20LGA" iD="_OiWWcB6QEd-wJcTvC20LGA"/>
+    <sequenceEdges xmi:type="bpmn:SequenceEdge" xmi:id="_O6a4MR6QEd-wJcTvC20LGA" iD="_O6a4MB6QEd-wJcTvC20LGA"/>
+    <sequenceEdges xmi:type="bpmn:SequenceEdge" xmi:id="_Weu-MR6QEd-wJcTvC20LGA" iD="_Weu-MB6QEd-wJcTvC20LGA"/>
+    <sequenceEdges xmi:type="bpmn:SequenceEdge" xmi:id="_XfCkoR6QEd-wJcTvC20LGA" iD="_XfCkoB6QEd-wJcTvC20LGA"/>
+    <sequenceEdges xmi:type="bpmn:SequenceEdge" xmi:id="_xBZvIR6REd-wJcTvC20LGA" iD="_xBZvIB6REd-wJcTvC20LGA"/>
+    <sequenceEdges xmi:type="bpmn:SequenceEdge" xmi:id="_C-Wc4R6SEd-wJcTvC20LGA" iD="_C-Wc4B6SEd-wJcTvC20LGA"/>
+    <sequenceEdges xmi:type="bpmn:SequenceEdge" xmi:id="_DgNh4R6UEd-wJcTvC20LGA" iD="_DgNh4B6UEd-wJcTvC20LGA"/>
+    <sequenceEdges xmi:type="bpmn:SequenceEdge" xmi:id="_wFNsUR6UEd-wJcTvC20LGA" iD="_wFNsUB6UEd-wJcTvC20LGA"/>
+    <lanes xmi:type="bpmn:Lane" xmi:id="_R29acR6TEd-wJcTvC20LGA" iD="_R29acB6TEd-wJcTvC20LGA" name="lane" activities="_4TcgwR6OEd-wJcTvC20LGA _WIzA4R6EEd-wJcTvC20LGA _EOdEwR6QEd-wJcTvC20LGA _Q3PVwR6GEd-wJcTvC20LGA _3Kl78R6GEd-wJcTvC20LGA _NtOFQR6QEd-wJcTvC20LGA _iYt6YR6EEd-wJcTvC20LGA _ABrt4R6GEd-wJcTvC20LGA _SkXtUR6DEd-wJcTvC20LGA _0TDjkR6FEd-wJcTvC20LGA _cgN08R6PEd-wJcTvC20LGA _JW0swR6QEd-wJcTvC20LGA _b8fTQR6DEd-wJcTvC20LGA _tHVZMR6EEd-wJcTvC20LGA _9H7dEB6GEd-wJcTvC20LGA _ohEjQR6FEd-wJcTvC20LGA _u2vr4R6FEd-wJcTvC20LGA _hxFnwR6GEd-wJcTvC20LGA _v5a0YB6GEd-wJcTvC20LGA _u5vOIR6IEd-wJcTvC20LGA _MSy6MR6GEd-wJcTvC20LGA _CiIwER6UEd-wJcTvC20LGA"/>
+    <lanes xmi:type="bpmn:Lane" xmi:id="_Sgrs4R6TEd-wJcTvC20LGA" iD="_Sgrs4B6TEd-wJcTvC20LGA" name="lane0" activities="_WH3CMR6DEd-wJcTvC20LGA _MSy6MR6GEd-wJcTvC20LGA"/>
+  </pools>
+  <pools xmi:type="bpmn:Pool" xmi:id="_sd6ToR6CEd-wJcTvC20LGA" iD="_sd6ToB6CEd-wJcTvC20LGA" name="Portfolio">
+    <artifacts xmi:type="bpmn:DataObject" xmi:id="_RX1yUR6PEd-wJcTvC20LGA" iD="_RX1yUB6PEd-wJcTvC20LGA" name="Portfolio Capabilities">
+      <associations xmi:type="bpmn:Association" xmi:id="_kn9isB6QEd-wJcTvC20LGA"/>
+    </artifacts>
+    <artifacts xmi:type="bpmn:DataObject" xmi:id="_9wPvYR6IEd-wJcTvC20LGA" iD="_9wPvYB6IEd-wJcTvC20LGA" name="Portfolio Recommendation">
+      <associations xmi:type="bpmn:Association" xmi:id="_-K_tgB6PEd-wJcTvC20LGA"/>
+      <associations xmi:type="bpmn:Association" xmi:id="__VSWYB6PEd-wJcTvC20LGA"/>
+    </artifacts>
+    <artifacts xmi:type="bpmn:DataObject" xmi:id="_en5-YR6IEd-wJcTvC20LGA" iD="_en5-YB6IEd-wJcTvC20LGA" name="Investment Business Case">
+      <associations xmi:type="bpmn:Association" xmi:id="_roqe8B6IEd-wJcTvC20LGA"/>
+      <associations xmi:type="bpmn:Association" xmi:id="_sWywQB6IEd-wJcTvC20LGA"/>
+    </artifacts>
+    <artifacts xmi:type="bpmn:DataObject" xmi:id="_wCwqsR6TEd-wJcTvC20LGA" iD="_wCwqsB6TEd-wJcTvC20LGA" name="Portfolio Decision">
+      <associations xmi:type="bpmn:Association" xmi:id="_-5q0kB6TEd-wJcTvC20LGA"/>
+      <associations xmi:type="bpmn:Association" xmi:id="__eG-YB6TEd-wJcTvC20LGA"/>
+    </artifacts>
+    <vertices xmi:type="bpmn:Activity" xmi:id="_b8fTQR6DEd-wJcTvC20LGA" iD="_b8fTQB6DEd-wJcTvC20LGA" associations="_roqe8B6IEd-wJcTvC20LGA _kn9isB6QEd-wJcTvC20LGA" outgoingEdges="_z5hMwR6GEd-wJcTvC20LGA" name="Conduct Portfolio Business Case Review" lanes="_R29acR6TEd-wJcTvC20LGA">
+      <incomingMessages xmi:type="bpmn:MessagingEdge" href="#_dk1-4R6IEd-wJcTvC20LGA"/>
+    </vertices>
+    <vertices xmi:type="bpmn:Activity" xmi:id="_v5a0YB6GEd-wJcTvC20LGA" iD="_v5aNUB6GEd-wJcTvC20LGA" outgoingEdges="_6IAdYR6IEd-wJcTvC20LGA _7ACRkB6IEd-wJcTvC20LGA" incomingEdges="_z5hMwR6GEd-wJcTvC20LGA" name="Portfolio Manager Level Approval?" lanes="_R29acR6TEd-wJcTvC20LGA" activityType="GatewayDataBasedExclusive"/>
+    <vertices xmi:type="bpmn:Activity" xmi:id="_9H7dEB6GEd-wJcTvC20LGA" iD="_9H62AB6GEd-wJcTvC20LGA" associations="__VSWYB6PEd-wJcTvC20LGA" incomingEdges="_7ACRkB6IEd-wJcTvC20LGA" name="Return to Domain Governance" lanes="_R29acR6TEd-wJcTvC20LGA">
+      <outgoingMessages xmi:type="bpmn:MessagingEdge" href="#_8K7XYR6IEd-wJcTvC20LGA"/>
+    </vertices>
+    <vertices xmi:type="bpmn:Activity" xmi:id="_u5vOIR6IEd-wJcTvC20LGA" iD="_u5vOIB6IEd-wJcTvC20LGA" associations="__eG-YB6TEd-wJcTvC20LGA" incomingEdges="_6IAdYR6IEd-wJcTvC20LGA" name="Provide Portfolio Decision on Business Case for Investment" lanes="_R29acR6TEd-wJcTvC20LGA">
+      <outgoingMessages xmi:type="bpmn:MessagingEdge" href="#_myx0cR6QEd-wJcTvC20LGA"/>
+    </vertices>
+    <sequenceEdges xmi:type="bpmn:SequenceEdge" xmi:id="_z5hMwR6GEd-wJcTvC20LGA" iD="_z5hMwB6GEd-wJcTvC20LGA"/>
+    <sequenceEdges xmi:type="bpmn:SequenceEdge" xmi:id="_6IAdYR6IEd-wJcTvC20LGA" iD="_6IAdYB6IEd-wJcTvC20LGA"/>
+    <sequenceEdges xmi:type="bpmn:SequenceEdge" xmi:id="_7ACRkB6IEd-wJcTvC20LGA" iD="_7ABqgB6IEd-wJcTvC20LGA"/>
+  </pools>
+  <pools xmi:type="bpmn:Pool" xmi:id="_8vbaUR6CEd-wJcTvC20LGA" iD="_8vbaUB6CEd-wJcTvC20LGA" name="IRC/BoD">
+    <vertices xmi:type="bpmn:Activity" xmi:id="_WH3CMR6DEd-wJcTvC20LGA" iD="_WH3CMB6DEd-wJcTvC20LGA" name="Provide Decision on Business Case for Investment" lanes="_Sgrs4R6TEd-wJcTvC20LGA">
+      <incomingMessages xmi:type="bpmn:MessagingEdge" href="#_46M-wB6OEd-wJcTvC20LGA"/>
+      <outgoingMessages xmi:type="bpmn:MessagingEdge" href="#_H4-EIR6PEd-wJcTvC20LGA"/>
+    </vertices>
+  </pools>
+  <messages xmi:type="bpmn:MessagingEdge" xmi:id="_dk1-4R6IEd-wJcTvC20LGA" iD="_dk1-4B6IEd-wJcTvC20LGA" source="_ABrt4R6GEd-wJcTvC20LGA" target="_b8fTQR6DEd-wJcTvC20LGA"/>
+  <messages xmi:type="bpmn:MessagingEdge" xmi:id="_8K7XYR6IEd-wJcTvC20LGA" iD="_8K7XYB6IEd-wJcTvC20LGA" source="_9H7dEB6GEd-wJcTvC20LGA" target="_3Kl78R6GEd-wJcTvC20LGA"/>
+  <messages xmi:type="bpmn:MessagingEdge" xmi:id="_46M-wB6OEd-wJcTvC20LGA" iD="_46MXsB6OEd-wJcTvC20LGA" source="_4TcgwR6OEd-wJcTvC20LGA" target="_WH3CMR6DEd-wJcTvC20LGA"/>
+  <messages xmi:type="bpmn:MessagingEdge" xmi:id="_H4-EIR6PEd-wJcTvC20LGA" iD="_H4-EIB6PEd-wJcTvC20LGA" source="_WH3CMR6DEd-wJcTvC20LGA" target="_EOdEwR6QEd-wJcTvC20LGA"/>
+  <messages xmi:type="bpmn:MessagingEdge" xmi:id="_myx0cR6QEd-wJcTvC20LGA" iD="_myx0cB6QEd-wJcTvC20LGA" source="_u5vOIR6IEd-wJcTvC20LGA" target="_JW0swR6QEd-wJcTvC20LGA"/>
+</bpmn:BpmnDiagram>

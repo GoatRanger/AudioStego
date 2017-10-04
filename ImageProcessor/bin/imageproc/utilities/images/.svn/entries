@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="33"
+   name=""
+   committed-date="2005-02-01T06:11:53.421875Z"
+   url="svn://192.168.2.2/ImageProcessor/src/imageproc/utilities/images"
+   last-author="Karl"
+   kind="dir"
+   uuid="0daf4267-3229-f84b-9084-f3c94b025f38"
+   revision="55"/>
+<entry
+   committed-rev="33"
+   name="Undo24.gif"
+   text-time="2005-03-02T06:25:38.343750Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="18140a4a2fbc0dfd3aa41a63e24634bc"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:38.062500Z"/>
+<entry
+   committed-rev="33"
+   name="Undo16.gif"
+   text-time="2005-03-02T06:25:38.343750Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="4177bcf3e6ba69929e52bca7922ea832"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:38.078125Z"/>
+<entry
+   committed-rev="33"
+   name="About24.gif"
+   text-time="2005-03-02T06:25:38.359375Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="88bbf1a7eef8da9a880666792933561e"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:38.078125Z"/>
+<entry
+   committed-rev="33"
+   name="About16.gif"
+   text-time="2005-03-02T06:25:38.359375Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="681e353e641619f2f2e031f913ee43a8"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:38.093750Z"/>
+<entry
+   committed-rev="33"
+   name="Thumbs.db"
+   text-time="2005-03-02T06:25:38.375000Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="273309770c08e5a686c823adc8741073"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:38.109375Z"/>
+<entry
+   committed-rev="33"
+   name="Export24.gif"
+   text-time="2005-03-02T06:25:38.375000Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="e2c4c669f9657ff7585f100a4a1c9624"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:38.125000Z"/>
+<entry
+   committed-rev="33"
+   name="FastForward24.gif"
+   text-time="2005-03-02T06:25:38.390625Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="77b110463b198ec223cab81b86bed64b"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:38.171875Z"/>
+<entry
+   committed-rev="33"
+   name="Export16.gif"
+   text-time="2005-03-02T06:25:38.390625Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="7b51f8cb4f6fd7797bc3872a20a42599"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:38.156250Z"/>
+<entry
+   committed-rev="33"
+   name="FastForward16.gif"
+   text-time="2005-03-02T06:25:38.406250Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="d2e70c76c95faaf3ab197f4a431286ea"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:38.171875Z"/>
+<entry
+   committed-rev="33"
+   name="Stop24.gif"
+   text-time="2005-03-02T06:25:38.406250Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="d36021b22ed88b6b9a215c2f57c77824"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:38.187500Z"/>
+<entry
+   committed-rev="33"
+   name="Stop16.gif"
+   text-time="2005-03-02T06:25:38.421875Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="6c94d38eb55dc0ebcc0981bb88667774"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:38.187500Z"/>
+<entry
+   committed-rev="33"
+   name="Help24.gif"
+   text-time="2005-03-02T06:25:38.437500Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="608b3c572b5205eaddc820ae06d914c3"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:38.218750Z"/>
+<entry
+   committed-rev="33"
+   name="save.gif"
+   text-time="2005-03-02T06:25:38.421875Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="9981768466f39fb94365d84f835088a0"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:38.203125Z"/>
+<entry
+   committed-rev="33"
+   name="Rewind24.gif"
+   text-time="2005-03-02T06:25:38.421875Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="1f3b8d4cc2339629a0b286fc0e5aa22c"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:38.203125Z"/>
+<entry
+   committed-rev="33"
+   name="Rewind16.gif"
+   text-time="2005-03-02T06:25:38.453125Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="10e0e7d9b95da7682975561ba0197c83"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:38.218750Z"/>
+<entry
+   committed-rev="33"
+   name="Help16.gif"
+   text-time="2005-03-02T06:25:38.453125Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="d2452dc9d95eae37a714d19ef9872cf2"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:38.234375Z"/>
+<entry
+   committed-rev="33"
+   name="open.gif"
+   text-time="2005-03-02T06:25:38.468750Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="5368d473a3e982c01b1ba89c38c86388"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:38.234375Z"/>
+<entry
+   committed-rev="33"
+   name="Properties24.gif"
+   text-time="2005-03-02T06:25:38.468750Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="3d77aecc9454e2c863db6f78fa8e34c7"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:38.250000Z"/>
+<entry
+   committed-rev="33"
+   name="StepBack24.gif"
+   text-time="2005-03-02T06:25:38.468750Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="71c7fd5995333e2cc1f68bafd57836bd"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:38.250000Z"/>
+<entry
+   committed-rev="33"
+   name="Properties16.gif"
+   text-time="2005-03-02T06:25:38.484375Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="9eed10507771b6e8bbace08374399d9b"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:38.265625Z"/>
+<entry
+   committed-rev="33"
+   name="StepBack16.gif"
+   text-time="2005-03-02T06:25:38.484375Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="91a26edf06ef71207d079df7f344a610"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:38.281250Z"/>
+<entry
+   committed-rev="33"
+   name="Refresh24.gif"
+   text-time="2005-03-02T06:25:38.500000Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="42a3c57a8d2e653c734d299ba8beae38"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:38.281250Z"/>
+<entry
+   committed-rev="33"
+   name="Save24.gif"
+   text-time="2005-03-02T06:25:38.500000Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="75a11d6103ea88cf0593c01621238fee"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:38.296875Z"/>
+<entry
+   committed-rev="33"
+   name="Refresh16.gif"
+   text-time="2005-03-02T06:25:38.515625Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="8126a5f176d08e9373962f49fa57a2c2"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:38.296875Z"/>
+<entry
+   committed-rev="33"
+   name="Save16.gif"
+   text-time="2005-03-02T06:25:38.515625Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="611ba13273bb134416b35d295ff07fbd"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:38.312500Z"/>
+<entry
+   committed-rev="33"
+   name="StepForward24.gif"
+   text-time="2005-03-02T06:25:38.531250Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="48d33b962acdedc1212376d81b30a315"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:38.312500Z"/>
+<entry
+   committed-rev="33"
+   name="StepForward16.gif"
+   text-time="2005-03-02T06:25:38.531250Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="547a163036bc196c77817497438a3446"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:38.328125Z"/>
+</wc-entries>

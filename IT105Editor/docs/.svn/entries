@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="10"
+   name=""
+   committed-date="2005-02-01T05:59:34.421875Z"
+   url="svn://192.168.2.2/IT105Editor/docs"
+   last-author="Karl"
+   kind="dir"
+   uuid="0daf4267-3229-f84b-9084-f3c94b025f38"
+   revision="55"/>
+<entry
+   committed-rev="10"
+   name="problemset.html"
+   text-time="2005-03-02T06:14:31.312500Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="4926dfcc3cc2b99bcc765992b383192b"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:22.718750Z"/>
+<entry
+   committed-rev="10"
+   name="bugfixes.html"
+   text-time="2005-03-02T06:14:31.328125Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="b2380a3184967fe8808e6dfb176654b7"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:22.734375Z"/>
+<entry
+   committed-rev="10"
+   name="it105splash.gif"
+   text-time="2005-03-02T06:14:31.328125Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="caf3e2ac880a56520020ac7538f267d5"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:22.750000Z"/>
+<entry
+   committed-rev="10"
+   name="problems.html"
+   text-time="2005-03-02T06:14:31.343750Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="634ad66e5af3c55f4733a2fc46876aa2"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:22.750000Z"/>
+<entry
+   committed-rev="10"
+   name="Help.html"
+   text-time="2005-03-02T06:14:31.343750Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="7fad18a20c18339fb9b2a23bd6e2c3ea"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:22.765625Z"/>
+<entry
+   committed-rev="10"
+   name=".nbattrs"
+   text-time="2005-03-02T06:14:31.359375Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="71c18aace03442e6b56cb88d3728ec88"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:22.781250Z"/>
+<entry
+   committed-rev="10"
+   name="gorilla.gif"
+   text-time="2005-03-02T06:14:31.375000Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="2437d8488e0a6ba378815bdeb1e2238a"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:22.781250Z"/>
+<entry
+   name="jalopy"
+   kind="dir"/>
+</wc-entries>

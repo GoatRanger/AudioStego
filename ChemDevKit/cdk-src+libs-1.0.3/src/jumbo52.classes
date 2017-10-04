@@ -1,0 +1,11 @@
+org/openscience/cdk/test/libio/md/MDMoleculeTest*.class
+org/openscience/cdk/test/io/cml/CMLRoundTripTest*.class
+org/openscience/cdk/test/io/cml/CML2WriterTest*.class
+org/openscience/cdk/test/io/cml/CML2Test*.class
+org/openscience/cdk/libio/cml/MDMoleculeCustomizer*.class
+org/openscience/cdk/libio/cml/PDBAtomCustomizer*.class
+org/openscience/cdk/libio/cml/QSARCustomizer*.class
+org/openscience/cdk/libio/cml/Convertor*.class
+org/openscience/cdk/applications/DescriptorCalculator*.class
+org/openscience/cdk/io/RssWriter*.class
+org/openscience/cdk/io/CMLWriter*.class

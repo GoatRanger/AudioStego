@@ -1,0 +1,13 @@
+package dji.phone.f;
+
+public enum d {
+    NOT_CONNECTED,
+    SLEEP,
+    WORK_LOCKED,
+    WORK_NO_PHONE,
+    WORK_FINE_NORMAL,
+    WORK_FINE_TRACK,
+    WORK_FINE_PANORAMA,
+    WORK_FINE_LONG_EXPOSURE,
+    WORK_FINE_TIME_LAPSE
+}

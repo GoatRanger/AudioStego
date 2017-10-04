@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" style="@style/g2"
+    <LinearLayout android:orientation="horizontal" style="@style/g2">
+        <TextView android:text="@string/setting_ui_flyc_distance" style="@style/gh" />
+        <TextView android:id="@id/br1" android:visibility="gone" android:text="100" style="@style/gi" />
+        <Switch android:id="@id/br0" style="@style/gg" />
+    </LinearLayout>
+    <LinearLayout android:orientation="horizontal" android:id="@id/br2" android:visibility="gone" style="@style/g2">
+        <TextView android:gravity="top|bottom|center_vertical|fill_vertical|center|fill" android:text="@string/setting_ui_flyc_distance_limit" style="@style/gh" />
+        <TextView android:id="@id/br3" android:layout_marginRight="@dimen/tv" android:text="@string/setting_ui_flyc_limit_height_range" style="@style/g6" />
+        <EditText android:id="@id/br4" android:text="0" android:layout_alignParentRight="true" android:layout_centerVertical="true" style="@style/g8" />
+    </LinearLayout>
+</LinearLayout>

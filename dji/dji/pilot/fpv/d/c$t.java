@@ -1,0 +1,40 @@
+package dji.pilot.fpv.d;
+
+public interface c$t {
+    public static final String A = "v2_photo_share_url_en";
+    public static final String B = "v2_photo_share_facebook_other";
+    public static final String C = "v2_photo_share_twitter_other";
+    public static final String D = "v2_photo_share_wechat_other";
+    public static final String E = "v2_photo_share_moments_other";
+    public static final String F = "v2_photo_share_weibo_other";
+    public static final String G = "v2_photo_share_whatsapp_other";
+    public static final String H = "v2_photo_share_qq_other";
+    public static final String I = "v2_photo_share_Instagram_other";
+    public static final String J = "v2_photo_share_url_other";
+    public static final String a = "v2_photo_share_facebook_zh";
+    public static final String b = "v2_photo_share_twitter_zh";
+    public static final String c = "v2_photo_share_wechat_zh";
+    public static final String d = "v2_photo_share_moments_zh";
+    public static final String e = "v2_photo_share_weibo_zh";
+    public static final String f = "v2_photo_share_whatsapp_zh";
+    public static final String g = "v2_photo_share_qq_zh";
+    public static final String h = "v2_photo_share_instagram_zh";
+    public static final String i = "v2_photo_share_url_zh";
+    public static final String j = "v2_photo_share_facebook_hant";
+    public static final String k = "v2_photo_share_twitter_hant";
+    public static final String l = "v2_photo_share_wechat_hant";
+    public static final String m = "v2_photo_share_moments_hant";
+    public static final String n = "v2_photo_share_weibo_hant";
+    public static final String o = "v2_photo_share_whatsapp_hant";
+    public static final String p = "v2_photo_share_qq_hant";
+    public static final String q = "v2_photo_share_instagram_hant";
+    public static final String r = "v2_photo_share_url_hant";
+    public static final String s = "v2_photo_share_facebook_en";
+    public static final String t = "v2_photo_share_twitter_en";
+    public static final String u = "v2_photo_share_wechat_en";
+    public static final String v = "v2_photo_share_moments_en";
+    public static final String w = "v2_photo_share_weibo_en";
+    public static final String x = "v2_photo_share_whatsapp_en";
+    public static final String y = "v2_photo_share_qq_en";
+    public static final String z = "v2_photo_share_instagram_en";
+}

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.publics.DJIUI.DJIRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:id="@+id/layout_menu_ipad" android:background="@color/an" android:layout_width="match_parent" android:layout_height="match_parent">
+    <LinearLayout android:orientation="vertical" android:background="@r$drawable/layout_menu_bg" android:layout_width="UNKNOWN_DATA_0x7f0b0113" android:layout_height="wrap_content" android:layout_marginTop="10dp" android:layout_centerInParent="true">
+        <TextView android:textSize="15dp" android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="20dp" android:layout_marginTop="20dp" android:layout_marginBottom="20dp" android:text="@string/v2_lib_input_title" />
+        <ListView android:id="@+id/menus_ipad" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="20dp" android:layout_marginBottom="20dp" android:divider="0x0" />
+    </LinearLayout>
+</dji.publics.DJIUI.DJIRelativeLayout>

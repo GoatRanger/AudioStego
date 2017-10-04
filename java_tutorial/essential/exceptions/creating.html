@@ -1,0 +1,248 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Creating Your Own Exception Classes</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="throwable.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#exceptions" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="runtime.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Essential Java Classes
+<br>
+<b>Lesson</b>: Handling Errors with Exceptions
+</font>
+
+<h2>
+Creating Your Own Exception Classes
+</h2>
+<blockquote>
+When you design a package of Java classes that collaborate to
+provide some useful function to your users, you work hard to
+ensure that your classes interact well together and that their
+interfaces are easy to understand and use. You should
+spend just as much time thinking about and designing the exceptions
+that your classes throw.
+<p>
+Suppose you are writing a linked list class that you're
+planning to distribute as freeware.
+Among other methods, your linked list class supports these methods:
+<dl>
+<dt>
+<b><code>objectAt(int <em>n</em>)</code></b>
+<dd>
+Returns the object in the <code>n</code>th position in the list.
+<dt>
+<b><code>firstObject</code></b>
+<dd>
+Returns the first object in the list.
+<dt>
+<b><code>indexOf(Object <em>n</em>)</code></b>
+<dd>
+Searches the list for the specified <code>Object</code> and returns its
+position in the list.
+</dl>
+
+</blockquote>
+<h3>What Can Go Wrong?</h3>
+<blockquote>
+Because many programmers will be using your linked list class, you
+can be assured that many will misuse or abuse your class and its methods.
+Also, some legitimate calls to your linked list's methods may result
+in an undefined result. Regardless, in the face of errors, you want your
+linked list class to be as robust as possible,
+to do something reasonable about errors, and to communicate errors back to
+the calling program. However, you can't anticipate how each user of your
+linked list class will want the object to behave under adversity.
+So, often the best thing to do when an error occurs is to throw an exception.
+<p>
+Each of the methods supported by your linked list might throw an
+exception under certain conditions, and each method might throw
+a different type of exception than the others. For example,
+<dl>
+<dt>
+<b><code>objectAt</code></b>
+<dd>
+Throws an exception if the integer passed into the method is less than
+0 or larger than the number of objects currently in the list.
+<dt>
+<b><code>firstObject</code></b>
+<dd>
+Throws an exception if the list contains no objects.
+<dt>
+<b><code>indexOf</code></b>
+<dd>
+Throws an exception if the object passed into the method is
+not in the list.
+</dl>
+But what type of exception should each method throw? Should it be
+an exception provided with the Java development environment? Or should
+you create your own?
+</blockquote>
+
+<h3>Choosing the Exception Type to Throw</h3>
+<blockquote>
+When faced with choosing the type of exception to throw, you have two
+choices:
+<ol>
+<li>
+Use one written by someone else. The Java development
+environment provides a lot of exception classes that you could use.
+<li>
+Write one of your own.
+</ol>
+
+You should go to the trouble of writing your own exception classes
+if you answer "yes" to any of the following questions. Otherwise, you
+can probably get away with using someone else's:
+<ul>
+<li>
+Do you need an exception type that isn't represented by those in
+the Java development environment?
+<li>
+Would it help your users if they could differentiate your exceptions
+from those thrown by classes written by other vendors?
+<li>
+Does your code throw more than one related exception?
+<li>
+If you use someone else's exceptions, will your users have access to
+those exceptions? A similar question is:  Should your package be
+independent and self-contained?
+</ul>
+<p>
+Your linked list class can throw multiple exceptions, and it would
+be convenient to be able to catch all exceptions thrown by the linked
+list with one exception handler. Also, if you plan to distribute your linked
+list in a package, all related code should be packaged together.
+Thus for the linked list, you should create your own exception class
+hierarchy.
+<p>
+The following diagram illustrates one possible exception class hierarchy
+for your linked list:
+
+<p><center><IMG SRC="../../figures/essential/9linked.gif" WIDTH="397" HEIGHT="116" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p>
+<code>LinkedListException</code> is the parent class of all the possible exceptions
+that can be thrown by the linked list class. Users of your linked list
+class can write a single exception handler to handle all linked list
+exceptions with a <code>catch</code> statement like this:
+<blockquote><pre>
+catch (LinkedListException) {
+    . . . 
+}
+</pre></blockquote>
+Or, users could write more specialized handlers for each subclass of
+<code>LinkedListException</code>.
+</blockquote>
+
+<h3>Choosing a Superclass</h3>
+<blockquote>
+The diagram above does not indicate the superclass of the <code>LinkedListException</code>
+class. As you know, Java exceptions must be <code>Throwable</code> objects (they must be
+instances of <code>Throwable</code> or a subclass of <code>Throwable</code>). So, your temptation might
+be to make <code>LinkedListException</code>a subclass of <code>Throwable</code>. However,
+the <code>java.lang package</code> provides two <code>Throwable</code> subclasses that further divide
+the type of problems that can occur within a Java program: <code>Error</code>s and
+<code>Exception</code>s. Most of the applets and applications that you write will
+throw objects that are <code>Exception</code>s. (<code>Error</code>s are reserved for serious hard
+errors that occur deep in the system.)
+<p>
+Theoretically, any <code>Exception</code> subclass could be used as the parent
+class of <code>LinkedListException</code>.   However, a quick perusal of those
+classes show that they are either too specialized or completely unrelated
+to <code>LinkedListException</code> to be appropriate.
+Thus, the parent class of <code>LinkedListException</code> should be <code>Exception.</code>
+<p>
+Because runtime exceptions don't have to be specified in the <code>throws</code> clause
+of a method, many packages developers ask: "Isn't
+it just easier if I make all of my exception inherit from <code>RuntimeException</code>?"
+The answer to this question is covered in detail
+on <a href="runtime.html">Runtime Exceptions--The Controversy</a>.
+The bottom line is that you shouldn't subclass <code>RuntimeException</code>
+unless your class really is a runtime exception! For most of you, this
+means "No, your exceptions shouldn't inherit from <code>RuntimeException</code>."
+</blockquote>
+
+<h3>Naming Conventions</h3>
+<blockquote>
+It's good practice to append the word "Exception" to the end of
+all classes that inherit (directly or indirectly) from the
+<code>Exception</code> class. Similarly, classes that inherit from the <code>Error</code>
+class should end with the string "Error".
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="throwable.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#exceptions" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="runtime.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

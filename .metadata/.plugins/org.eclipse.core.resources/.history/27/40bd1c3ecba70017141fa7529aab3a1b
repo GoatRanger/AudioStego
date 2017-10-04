@@ -1,0 +1,656 @@
+/*
+ * Copyright (C) 2003 USMA This program is free software; you can redistribute
+ * it and/or modify it under the terms of the GNU General Public License as
+ * published by the Free Software Foundation; either version 2 of the License,
+ * or any later version. This program is distributed in the hope that it will
+ * be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General
+ * Public License for more details. You should have received a copy of the GNU
+ * General Public License along with this program; if not, write to the Free
+ * Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307
+ * USA
+ */
+package eecs.problem;
+
+import eecs.util.ProcessWrapper;
+import org.w3c.dom.*;
+import java.io.*;
+import java.util.*;
+import java.util.logging.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import javax.swing.JOptionPane;
+import javax.xml.parsers.*;
+
+
+/**
+ * A Problem that includes a problem description and code template. May also
+ * include test inputs and outputs, if the problem can be automatically tested.
+ * Problems are described in an XML document, see the Examples directory for an
+ * example. @todo Refactor to break out methods for individual XML tag
+ * handling.
+ */
+public class Problem {
+  
+  private boolean testFailed = false;
+  
+  private Logger logger = Logger.getLogger("eecs.problem");
+  
+  private static FileHandler logHandler = null;
+  /** DOCUMENT ME! */
+  private String currentLine = null;
+  /** DOCUMENT ME! */
+  private String description;
+  /** A link to an external file related to this problem */
+  private String externalLink;
+  /** DOCUMENT ME! */
+  private String tempResult = null;
+  private StringBuffer result = null;
+  /** DOCUMENT ME! */
+  private String template;
+  /** DOCUMENT ME! */
+  private String title;
+  /** DOCUMENT ME! */
+  //private String type;
+  
+  /** The type of test case, either incremental or all.
+   * <p>incremental causes tests to be run until the first failure</p>
+   * <p>all causes all tests to run, regardless of how many fail.</p>
+   */
+  private String testCaseType;
+  
+  private String language;
+  /** DOCUMENT ME! */
+  private Vector<String> testCaseDescription;
+  /** DOCUMENT ME! */
+  private Vector<String> testCaseOutputType;
+  /** DOCUMENT ME! */
+  private Vector<String> testInputs;
+  /** DOCUMENT ME! */
+  private Vector<String> testOutputs;
+  /** DOCUMENT ME! */
+  private boolean testable = false;
+  
+  private int testsComplete = 0;
+  
+  private int testsToRun = 0;
+
+  private int secondsToWait;
+
+  /**
+   * Creates a new Problem.
+   */
+  public Problem() {
+    logger.setLevel(Level.WARNING);
+    //String homePath = System.getProperty("user.home", "") + "/.it105editor/";
+  }
+
+  /**
+   * DOCUMENT ME!
+   * 
+   * @return DOCUMENT ME!
+   */
+  public String getDescription() {
+    return description;
+  }
+
+  public String getExternalLink() {
+    return externalLink;
+  }
+
+  /**
+   * DOCUMENT ME!
+   * 
+   * @return DOCUMENT ME!
+   */
+  public String getLanguage() {
+    return language;
+  }
+
+  /**
+   * DOCUMENT ME!
+   * 
+   * @return DOCUMENT ME!
+   */
+  public String getTemplate() {
+    return template;
+  }
+
+  /**
+   * If the problem has test cases associated with it, this should be <code>true</code>.
+   * It is set as an attribute of the problem xml file, so if the attribute is
+   * set incorrectly, this will also return <code>false</code>.
+   * 
+   * @return DOCUMENT ME!
+   */
+  public boolean isTestable() {
+    return testable;
+  }
+
+  public boolean isTestFailed() {
+    return testFailed;
+  }
+  /**
+   * DOCUMENT ME!
+   * 
+   * @return DOCUMENT ME!
+   */
+  public String getTitle() {
+    return title;
+  }
+
+  /* TODO: Create a custom exception for a poorly formed problem set document */
+  /**
+   * Reads a problem (exercise) from the specified file. If the document isn't
+   * well-formed, this method will throw a NullPointerException.
+   * 
+   * @param file
+   *          The file to read the problem from @todo Make a custom exception
+   *          ProblemFormatException to throw when a problem is incorrectly
+   *          formed.
+   */
+  public boolean readProblem(File file) {
+    boolean success = false;
+    File f = file; // The file to parse. Assume this is initialized elsewhere
+    // Create a factory object for creating DOM parsers
+    DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+    DocumentBuilder parser = null;
+    Document document = null;
+    try {
+      // Now use the factory to create a DOM parser (a.k.a. a DocumentBuilder)
+      parser = factory.newDocumentBuilder();
+      // Parse the file and build a Document tree to represent its content
+      document = parser.parse(f);
+      language = getProblemLanguage(document);
+      // Get each of the singletons by name only
+      // If the document isn't well formed (missing one of these), this will
+      // throw a NullPointerException, which should be handled by the caller.
+      title = getDocumentItem(document, "title");
+      getDescription(document);
+      template = getDocumentItem(document, "template");
+      secondsToWait = getTestCaseTimeout(document);
+      testCaseType = getIfIncremental(document);
+      getTestCases(document);
+      success = true;
+    } catch (org.xml.sax.SAXException se) {
+      f.delete();
+      String userID = System.getProperty("user.name", "x00000");
+      if (!(userID.toLowerCase().startsWith("x"))) {
+        JOptionPane.showMessageDialog(null, "Error in problem set \""
+            + f.getAbsolutePath() + "\".  Message:\n" + se.getMessage());
+      }
+    } catch (ParserConfigurationException pce) {
+      String userID = System.getProperty("user.name", "x00000");
+      if (!(userID.toLowerCase().startsWith("x"))) {
+        JOptionPane.showMessageDialog(null, "Error in problem set \""
+            + f.getAbsolutePath() + "\".  Message:\n" + pce.getMessage());
+      }
+    } catch (IOException e) {
+      String userID = System.getProperty("user.name", "x00000");
+      if (!(userID.toLowerCase().startsWith("x"))) {
+        JOptionPane.showMessageDialog(null, "Error in problem set \""
+            + f.getAbsolutePath() + "\".  Message:\n" + e.getMessage());
+      }
+    }
+    return success; // default is false (so not set in exception handlers)
+  }
+
+  /**
+   * Runs a test on the input file (via the command), and reports results
+   * through the TestCallback. Reports an empty String (&quot;&quot;) if the
+   * test was successful, and an error message for every test it failed.
+   * 
+   * @param command
+   *          The String command that runs the user's code
+   * @param dir
+   *          A File object for the user's executable
+   * @param callback
+   *          The TestCallback to report results. The String sent will either
+   *          be empty, or a message with concatenated results of all tests
+   *          that failed.
+   */
+  public void verify(final String command, final File dir,
+      final TestCallback callback) {
+    testsComplete = 0;
+    testFailed = false;
+    new Thread("Test_verify") {
+
+      public void run() {
+        result = new StringBuffer("<h3>Test Results for exercise \"");
+        result.append(title);
+        result.append("\", run by ");
+        result.append(System.getProperty("user.name", "unknown"));
+        result.append("</h3>");
+        String home = System.getProperty("user.home") + "\\.it105";
+        // if the properties were never created, make sure the
+        // directory exists
+        File f = new File(home);
+        f.mkdirs();
+
+        int correct = 0;
+        for (int i = 0; i < testInputs.size(); i++) {
+          String testResult = runTest(command, dir, (String) testInputs
+              .elementAt(i), (String) testOutputs.elementAt(i));
+
+          testResult = testResult.trim();
+          
+          boolean useExact = true;
+          String expectedResult = ((String) testOutputs.elementAt(i)).trim();
+          boolean exactResult = useExact && testResult.equals(expectedResult);
+          boolean regexResult = false;
+          if (((String) testCaseOutputType.elementAt(i))
+              .equalsIgnoreCase("regex")) {
+            useExact = false;
+            Pattern pattern = Pattern.compile(expectedResult,
+                Pattern.CASE_INSENSITIVE | Pattern.DOTALL);
+            Matcher matcher = pattern.matcher(testResult);
+            regexResult = !useExact && matcher.find();
+          }
+          if (exactResult || regexResult) {
+            result.append("<b><font color=\"green\">Passed case #");
+            result.append(i + 1);
+            if (testCaseDescription.elementAt(i) != "Undescribed") {
+              result.append(" (");
+              result.append(testCaseDescription.elementAt(i));
+              result.append(")");
+            }
+            result.append(".</font></b><br>\r\n");
+            correct++;
+          } else {
+            testFailed = true;
+            result.append("<b><font color=\"red\">Failed Case #");
+            result.append(i + 1);
+            if (!testCaseDescription.elementAt(i).equals("Undescribed")) {
+              result.append(" (");
+              result.append(testCaseDescription.elementAt(i));
+              result.append(")");
+            }
+            result
+                .append(" (spaces are shown as a double-underline for clarity)");
+            result.append(": </font></b><br>\r\n");
+            result.append("&nbsp;&nbsp;Your Output: ");
+            // Trim any really long output (probably due to infinite loop) down to < 256 characters
+            if (testResult.length() > 2048) {
+              testResult = testResult.substring(0,2045) + "...";
+            }
+            testResult = toHTML(testResult);
+            // If timed out response, don't modify it.
+            if (!testResult.startsWith("Timed out on input") && !testResult.startsWith("(NO OUTPUT) An error occurred with input:") ) {
+              testResult = spacesToUnderlines(testResult);
+            }
+            if (testResult.equals("")) {
+              result.append("-- no output produced --");
+            } else {
+              result.append("<br><hr width=100px>" + testResult
+                  + "<hr width=300px>");
+            }
+            result.append("<br>\r\n");
+            result.append("&nbsp;&nbsp;Expected: ");
+            if (useExact) {
+              result.append("<br><hr width=100px>" + spacesToUnderlines(toHTML(expectedResult))
+                  + "<hr width=300px>");
+            } else {
+              result.append(translateRegex(expectedResult));
+            }
+            result.append("<br>\r\n");
+            if (testCaseType.equalsIgnoreCase("incremental")) {
+              // If using incremental testing, then on first failure, stop.
+              String resultString = "\n<hr><font size=\"+1\"><b>Completed " + correct + 
+                  " of " + testsComplete + " tests correctly.</b></font>\r\n";
+              //result.append(resultString);
+              result.insert(0,resultString);
+              break;
+            }
+          }
+          testsComplete++;
+        }
+        if (correct==testInputs.size() || 
+            (!testCaseType.equalsIgnoreCase("incremental") && correct<testInputs.size())) {
+          String resultString = "\n<hr><font size=\"+1\"><b>Completed " + correct
+              + " of " + testInputs.size() + " tests correctly.</b></font>\r\n";
+          //result.append(resultString);
+          result.insert(0,resultString);
+        }
+        // Save the results of the completed test
+        //Preferences prefs = Preferences.userNodeForPackage(Editor.class);
+        if (correct == testInputs.size()) {
+          // If it exists, it shouldn't have a time of 0.
+          if (Constants.PREFERENCES.getLong("ice" + title, 0) == 0) {
+            Constants.PREFERENCES.putLong("ice" + title, System
+                .currentTimeMillis());
+          }
+        }
+        
+        callback.done(result.toString());
+      }
+    }.start();
+  }
+
+  public String getResults() {
+    return result.toString();
+  }
+
+  private String spacesToUnderlines(String input) {
+    String result = input.replaceAll(" ", "&#8215;");
+    return result;
+  }
+  private String toHTML(String input) {
+    //String result = "";
+    String result = input;
+    result = result.replaceAll("&", "&amp;");
+    result = result.replaceAll("<", "&lt;");
+    result = result.replaceAll(">", "&gt;");
+    result = result.replaceAll("\n", "<br>");
+    result = result.replaceAll("\"", "&quot;");
+    return result;
+  }
+
+  /**
+   * Gets the text of a names element from the document. This method will throw
+   * a NullPointerException if the tag is not found
+   * 
+   * @param document
+   *          The Document containing the Element
+   * @param item
+   *          The String Element tag name
+   * @return The contents of the specified tag
+   */
+  private String getDocumentItem(final Document document, String item) {
+    return document.getElementsByTagName(item).item(0).getFirstChild()
+        .getNodeValue();
+  }
+
+  private void getDescription(final Document document) {
+    description = getDocumentItem(document, "description");
+    // See if it has a link to an external file
+    Element descriptionElem = (Element) document.getElementsByTagName(
+        "description").item(0);
+    if (descriptionElem != null) {
+      externalLink = descriptionElem.getAttribute("link");
+    }
+    if (externalLink == "") {
+      externalLink = null;
+    }
+    if ((description != null) && description.trim().startsWith("external:")) {
+      int eol = description.indexOf("\n");
+      int endURL = ((eol > 0) ? eol : description.length());
+      externalLink = description.substring(9, endURL);
+      if (eol > 0) {
+        int startText = description.indexOf("text:");
+        if (startText > 0) {
+          description = "(For more details, go to "
+              + description.substring(9, endURL) + ")\r\n\r\n"
+              + description.substring(startText + 6);
+        } else {
+          description = "See Browser Window for Full Description.";
+        }
+      } else {
+        description = "See Browser Window for Full Description.";
+      }
+    }
+  }
+
+  /**
+   * DOCUMENT ME!
+   * 
+   * @param inputElems
+   * @return A StringBuffer containing the list of entries
+   */
+  private StringBuffer getEntries(final NodeList inputElems) {
+    StringBuffer entryList = new StringBuffer();
+    Node entryHead;
+    for (int j = 0; j < inputElems.getLength(); j++) {
+      entryHead = ((Element) inputElems.item(j)).getFirstChild();
+      while (entryHead != null) {
+        entryHead = entryHead.getNextSibling();
+        // The node types will either be ELEMENT_NODE or TEXT_NODE,
+        // the ELEMENT_NODEs are the children <entry> elements
+        if ((entryHead != null)
+            && (entryHead.getNodeType() == Element.ELEMENT_NODE)) {
+          // Now just get the value of the element
+          //        (assumes <entry> is a leaf)
+          // Must catch exception to allow for empty entries (in output)
+          String entry = null;
+          try {
+            entry = entryHead.getFirstChild().getNodeValue();
+          } catch (NullPointerException e) {
+            entry = "";
+          }
+          entryList.append(entry);
+          entryList.append("\r\n");
+        }
+      }
+    }
+    return entryList;
+  }
+
+  /**
+   * DOCUMENT ME!
+   * 
+   * @param document
+   * @return DOCUMENT ME!
+   */
+  private String getProblemLanguage(final Document document) {
+    String language = "unknown";
+    testable = false;
+    if (document.getDocumentElement().hasAttributes()) {
+      NamedNodeMap attrs = document.getDocumentElement().getAttributes();
+      Node attribute = attrs.getNamedItem("testable");
+      if ((attribute != null)
+          && attribute.getNodeValue().equalsIgnoreCase("true")) {
+        testable = true;
+      }
+      attribute = attrs.getNamedItem("language");
+      if (attribute != null) {
+        language = attribute.getNodeValue();
+      }
+    }
+    if (!language.startsWith("text/")) {
+      language = "text/" + language;
+    }
+    return language;
+  }
+  
+  /**
+   *  Determine the author's timeout, in seconds.<br />
+   *  If none was specified in the file, then tests will have
+   *  a default of 2 second timeout.
+   *  <br />
+   *  The timeout is defined as an attribute to the &quot;tests&quot;
+   *  element. Example, to set the timeout to 3 seconds:<br />
+   *  &lt;tests timeout=&quot;3&quot;&gt;
+   * @param document  The Document containing the Problem set.
+   * @return  The timeout, in seconds.
+   */
+  private int getTestCaseTimeout(final Document document) {
+    int waitTime = 2;
+    NodeList tests = document.getElementsByTagName("tests");
+    if (tests == null || tests.item(0)==null) return 2;
+    NamedNodeMap attrs = tests.item(0).getAttributes();
+    Node attribute = attrs.getNamedItem("timeout");
+    if (attribute!=null) {
+      try {
+        waitTime = Integer.parseInt(attribute.getNodeValue());
+      } catch (NumberFormatException nfe) {
+        waitTime = 2;
+      }
+    }
+    return waitTime;
+  }
+  
+  /** Checks to see if the tests should be executed incrementally.<br />
+   * The use of this value is implementation dependent; the intent is to
+   * allow incremental tests to load one at a time; the second test will only
+   * be visible and active after the first test has been executed 
+   * successfully.
+   * 
+   * @param document  The Document object containing the tests.
+   * @return  Whether the tests should be run incrementally or not.
+   */
+  private String getIfIncremental(final Document document) {
+    String incremental = "all";
+    NodeList tests = document.getElementsByTagName("tests");
+    if (tests == null || tests.item(0)==null) return incremental;
+    NamedNodeMap attrs = tests.item(0).getAttributes();
+    Node attribute = attrs.getNamedItem("type");
+    if (attribute!=null) {
+      incremental = attribute.getNodeValue();
+    }
+    return incremental;
+  }
+
+  /**
+   * Load the test cases from an XML document.
+   * 
+   * @param document  The Document object where the test cases were loaded.
+   */
+  private void getTestCases(final Document document) {
+    // Ask the document for a list of all <test-case> tags it contains
+    NodeList sections = document.getElementsByTagName("test-case");
+    int numSections = sections.getLength();
+    testsToRun = numSections;
+    testInputs = new Vector(numSections);
+    testCaseDescription = new Vector(numSections);
+    testCaseOutputType = new Vector(numSections);
+    testOutputs = new Vector(numSections);
+    // Loop through those <test-case> elements one at a time
+    for (int i = 0; i < numSections; i++) {
+      Element section = (Element) sections.item(i); // A <test-case>
+      String desc = section.getAttribute("description");
+      if (desc == "") {
+        desc = "Undescribed";
+      }
+      testCaseDescription.add(desc);
+      String type = section.getAttribute("outputtype");
+      if (type == "") {
+        type = "exact";
+      }
+      testCaseOutputType.add(type);
+      // Get a list of all <input> elements from the current <test-case>
+      NodeList inputElems = section.getElementsByTagName("input");
+      StringBuffer inputList = getEntries(inputElems);
+      testInputs.addElement(inputList.toString());
+      // Repeat the same process for the <output> elements
+      NodeList outputElems = section.getElementsByTagName("output");
+      StringBuffer outputList = getEntries(outputElems);
+      testOutputs.addElement(outputList.toString());
+    }
+  }
+
+  /**
+   * Executes the given command as an operating system process.
+   * 
+   * @param command  A String containing the command to execute.
+   * @param dir  A File object pointing to the directory to use.
+   * @param input  The String to feed to the process as input.
+   * @param expectedOutput  A String containing the output that
+   *        should be produced by the process.
+   * @return The output from the process (both output and error streams).
+   */
+  private String runTest(final String command, final File dir,
+      final String input, final String expectedOutput) {
+    tempResult = null;
+    Thread testThread = new Thread("run_tests") {
+      ProcessWrapper process;
+      public void run() {
+        process = new ProcessWrapper(command, dir) {
+          int i = 0;
+
+          public void onOutput(char c) {
+            if (tempResult == null) {
+              tempResult = "";
+            }
+            tempResult += c;
+            i++;
+          }
+
+          public void onOutputClose() {
+            
+            stop();
+          }
+
+          public void onStop() {
+            // Should we take action here?
+          }
+        };
+        process.sendInput(input);
+        int count = 0;
+        int maxTime = secondsToWait * 10;
+        while (process.isRunning() && count++ < maxTime) {
+          try {
+            Thread.sleep(100);
+          } catch (InterruptedException ie) {}
+        }
+        if (process.isRunning() || process.exitValue() == -1) {
+          boolean notFinished = process.isRunning();
+          process.stop();
+          if (logger.isLoggable(Level.INFO)) {
+            logger.info("Process: " + process.toString() + " with exitValue of " + (process==null?Double.NaN:process.exitValue()));
+          }
+          if (tempResult == null) {
+            tempResult = "(NO OUTPUT) ";
+          } else {
+            tempResult = "Output Produced:\n" + tempResult + "\n";
+          }
+          if (notFinished) {
+            tempResult = "Timed out on input:\n" + input + ". Waited "
+            + count/10 + "s before giving up.\n" +
+                " This is often caused by getting the wrong type as input (i.e. input type is real numbers, but you used getInt).\n";
+          }
+          tempResult += "An error occurred with input:\n"+
+          			input+ "\nYou should try these values manually or ask your " +
+          			"instructor for assistance.\n";
+        }
+      }
+      public void destroy() {
+        if (process != null) {
+          process.stop();
+        }
+      }
+    };
+    testThread.start();
+
+    long startTime = System.currentTimeMillis();
+
+    try {
+      // Give the join a few extra seconds; shouldn't impact completion time
+      // since will continue if testThread finishes.
+      testThread.join(secondsToWait*1000 + 5000);
+    } catch (InterruptedException ie) {
+      tempResult += "\r\nTest Interrupted.\r\n";
+      if (logger.isLoggable(Level.WARNING)) {
+        logger.log(Level.WARNING, "Test interrupted.", ie); //$NON-NLS-1$
+      }
+    }
+    long finishTime = System.currentTimeMillis();
+    // If it's null, then program finished, but without output
+    if (tempResult == null) {
+      tempResult = "(NO OUTPUT) ";
+    }
+    return tempResult;
+  }
+
+  private String translateRegex(String regex) {
+    String translation = "";
+    // Until this one is figured out, just display that it is a sequence match
+    translation = "Various results accepted, but must have a specified format. Contact your instructor for more information.";
+    return translation;
+  }
+
+  public static interface TestCallback {
+    public void done(String result);
+  }
+  /**
+   * @return Returns the testsComplete.
+   */
+  public int getTestsComplete() {
+    return testsComplete;
+  }
+  /**
+   * @return Returns the testsToRun.
+   */
+  public int getTestsToRun() {
+    return testsToRun;
+  }
+}
+// end Problem

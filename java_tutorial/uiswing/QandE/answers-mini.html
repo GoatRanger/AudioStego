@@ -1,0 +1,205 @@
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Answers to Questions and Exercises:  User Interfaces That Swing</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550">
+<tr>
+<td align="left" valign="center">
+<a href="questions-mini.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+</td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<br>
+<font size="-1">
+<b>Trail</b>: Creating a GUI with JFC/Swing
+<br>
+<b>Lesson</b>: Getting Started with Swing 
+</font>
+
+<h2>
+Answers to Questions and Exercises:  User Interfaces That Swing
+</h2>
+<blockquote>
+</blockquote>
+
+<h3>Questions</h3>
+
+
+Use the API documentation to answer these questions.
+
+<blockquote>
+
+ 
+<FONT COLOR="RED">Question 1:</FONT>  Show the code that creates a label displaying the following text, with the italics and boldface as shown in this screenshot:
+<p><center><IMG SRC="../../figures/uiswing/QandE/test1.gif" WIDTH="135" HEIGHT="47" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p><BR>
+<FONT COLOR="GREEN"> Answer 1:</FONT> 
+<blockquote><pre>
+label = new JLabel("&lt;html&gt;The &lt;em&gt;last&lt;/em&gt; word is &lt;b&gt;bold&lt;/b&gt;.");
+</pre></blockquote>
+
+<P>
+
+<FONT COLOR="RED">Question 2:</FONT>  Use the API documentation or online tutorial, if necessary, to answer the following questions:
+
+<blockquote>
+<FONT COLOR="RED">Question 2a:</FONT>  Assume that you have a Swing label that tends to have more horizontal space than it needs to display its text. What code would you use to make the text within a label (<code>Jlabel</code>) be centered instead of left-aligned?
+<BR>
+<FONT COLOR="GREEN"> Answer 2a:</FONT>  Here are two ways:
+<blockquote><pre>
+      new JLabel(labelText, JLabel.CENTER);
+</pre></blockquote>
+ or 
+<blockquote><pre>
+      label.setHorizontalAlignment(JLabel.CENTER);
+</pre></blockquote>
+
+
+<P>
+
+
+<FONT COLOR="RED">Question 2b:</FONT>  What method do you use to enable and disable such components as Swing buttons?
+<BR>
+<FONT COLOR="GREEN"> Answer 2b:</FONT>  The <CODE>Component setEnabled</CODE> method.
+
+
+<P>
+
+<FONT COLOR="RED">Question 2c:</FONT>  How do you add a component to the rightmost (east) cell in a container that uses <code>BorderLayout</code>?
+<BR>
+<FONT COLOR="GREEN"> Answer 2c:</FONT> Here's one way:
+<blockquote><pre>
+        container.add(component, BorderLayout.EAST);
+</pre></blockquote>
+
+</blockquote>
+
+
+
+
+<FONT COLOR="RED">Question 3:</FONT>  Is the following code thread-safe?  If so, why?  If not, what can you do to make it thread-safe?
+<blockquote><pre>
+   JLabel label;
+
+   Container createGUI() {
+       ... 
+	 //create a JPanel; add components to it, including label
+	...
+	return panel;
+   }
+
+   public static void main(String[] args) {
+       JFrame f = new JFrame("A Frame");
+       f.setContentPane(createGUI());
+       f.pack();
+       f.setVisible(true);
+       String labelText = findTextFromSomewhere();
+       label.setText(labelText);
+   }
+</pre></blockquote>
+<BR>
+<FONT COLOR="GREEN"> Answer 3: </FONT> It's not thread-safe because the main thread updates the label after the label is visible.  You can use <CODE>SwingUtilities.invokeLater</CODE> to make <CODE>label.setText</CODE> be executed on the event-dispatching thread.
+
+</blockquote>
+
+
+<h3>Exercises</h3>
+
+
+You'll need to work on these exercises in order, as they build upon each other. <I>Hint:</I> Your answer to question 2 will be useful.
+<BLOCKQUOTE>
+<FONT COLOR="RED">Question 1:</FONT>   Write an application called <CODE>SwingApp1</CODE> that has two buttons and one label, arranged as shown in the following screenshot:<BR>
+<p><center><IMG SRC="../../figures/uiswing/QandE/sApp1.gif" WIDTH="161" HEIGHT="71" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p><BR>
+<I>Hint:</I> You can use the content pane's default <CODE>BorderLayout</CODE> to manage the buttons and label.
+
+<BR>
+<FONT COLOR="GREEN"> Answer 1:</FONT> See 
+<a target="source" href="example-1dot4/SwingApp1.java"><font color="#bb000f"><code>SwingApp1</code></font></a><a href="example-1dot4/SwingApp1.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt="(in a .java source file)"></a>.
+
+<P>
+<FONT COLOR="RED">Question 2:</FONT>  Copy <CODE>SwingApp1.java</CODE> to <CODE>SwingApp2.java</CODE>, and modify <CODE>SwingApp2</CODE> so that the Stop button is initially disabled. Implement and register one or two action listeners so that when the user clicks either button, the clicked button is disabled, the other button is enabled, and the label is updated appropriately. Your application should look like this: <BR>
+<p><center><IMG SRC="../../figures/uiswing/QandE/sApp2.gif" WIDTH="157" HEIGHT="71" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p>
+<BR>
+<FONT COLOR="GREEN"> Answer 2:</FONT>  See 
+<a target="source" href="example-1dot4/SwingApp2.java"><font color="#bb000f"><code>SwingApp2</code></font></a><a href="example-1dot4/SwingApp2.java"><img src="../../images/sourceIcon.gif" width=11 height=11 borderexample-1dot4=0 align="ABSMIDDLE" alt="(in a .java source file)"></a>.
+
+<P>
+
+
+<FONT COLOR="RED">Question 3:</FONT>  Copy <CODE>SwingApp2.java</CODE> to <CODE>SwingApp3.java</CODE>, and modify <CODE>SwingApp3</CODE> so that its Start button brings up a dialog that looks like this: <BR>
+<p><center><IMG SRC="../../figures/uiswing/QandE/sApp3.gif" WIDTH="270" HEIGHT="122" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p>If the user chooses the Go ahead button, the Start button should do exactly what it did in <CODE>SwingApp2</CODE>. If the user does anything else, the application should update the label to report the cancellation and leave the buttons in their existing state.
+
+<BR>
+<FONT COLOR="GREEN"> Answer 3:</FONT>  See 
+<a target="source" href="example-1dot4/SwingApp3.java"><font color="#bb000f"><code>SwingApp3</code></font></a><a href="example-1dot4/SwingApp3.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt="(in a .java source file)"></a>.
+
+
+<P>
+
+</blockquote>
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<br>
+<table width="550">
+<tr>
+<td align="left" valign="center">
+<a href="questions-mini.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+</td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Line Boundaries</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="sentence.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#text" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="convertintro.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Internationalization
+<br>
+<b>Lesson</b>: Working with Text
+</font>
+
+<h2>
+Line Boundaries
+</h2>
+<blockquote>
+Applications that format text or that perform line wrapping must locate
+potential line breaks. You can find these line breaks, or boundaries,
+with a <CODE>BreakIterator</CODE> that has been created with the
+<CODE>getLineInstance </CODE> method:
+<blockquote><pre>
+BreakIterator lineIterator =
+		BreakIterator.getLineInstance(currentLocale);
+</pre></blockquote>
+<P>
+This <CODE>BreakIterator</CODE>
+determines the positions in a string where text can break to continue
+on the next line. The positions detected by the
+<CODE>BreakIterator</CODE> are potential line breaks. The actual line
+breaks displayed on the screen may not be the same.
+<P>
+The two examples that follow use the
+<a href="word.html#markBoundaries"><code>markBoundaries</code></a>
+method of
+
+<a target="_blank" href="example-1dot1/BreakIteratorDemo.java"><font color="#bb000f"><code>BreakIteratorDemo.java</code></font></a><a target="_blank" href="example-1dot1/BreakIteratorDemo.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>
+to show the line boundaries detected by a <CODE>BreakIterator</CODE>.
+The <CODE>markBoundaries</CODE> method indicates line boundaries by
+printing carets (^) beneath the target string.
+<P>
+According to a <CODE>BreakIterator</CODE>, a line boundary occurs after
+the termination of a sequence of whitespace characters (space, tab, new
+line). In the following example, note that you can break the line at
+any of the boundaries detected:
+<blockquote><pre>
+She stopped.  She said, &quot;Hello there,&quot; and then went on.
+^   ^         ^   ^     ^      ^     ^ ^   ^    ^    ^  ^
+</pre></blockquote>
+<P>
+Potential line breaks also occur immediately after a hyphen: 
+<blockquote><pre>
+There are twenty-four hours in a day.
+^     ^   ^      ^    ^     ^  ^ ^   ^
+</pre></blockquote>
+<P>
+The next example breaks a long string of text into fixed-length lines
+with a method called <CODE>formatLines</CODE>. This method uses a
+<CODE>BreakIterator </CODE> to locate the potential line breaks. The
+<CODE>formatLines</CODE> method is short, simple, and, thanks to the
+<CODE>BreakIterator</CODE>, locale-independent. Here is the source
+code:
+<blockquote><pre>
+static void formatLines(String target, int maxLength,
+			Locale currentLocale) {
+
+    BreakIterator boundary =
+	BreakIterator.getLineInstance(currentLocale);
+    boundary.setText(target);
+    int start = boundary.first();
+    int end = boundary.next();
+    int lineLength = 0;
+
+    while (end != BreakIterator.DONE) {
+	String word = target.substring(start,end);
+	lineLength = lineLength + word.length();
+	if (lineLength &gt;= maxLength) {
+	    System.out.println();
+	    lineLength = word.length();
+	}
+	System.out.print(word);
+	start = end;
+	end = boundary.next();
+    }
+}
+</pre></blockquote>
+<P>
+The <CODE>BreakIteratorDemo</CODE> program invokes the <CODE>formatLines</CODE>
+method as follows: 
+<blockquote><pre>
+String moreText = &quot;She said, \&quot;Hello there,\&quot; and then &quot; +
+	 &quot;went on down the street. When she stopped &quot; +
+	 &quot;to look at the fur coats in a shop window, &quot; +
+	 &quot;her dog growled._ \&quot;Sorry Jake,\&quot; she said. &quot; +
+	 &quot; \&quot;I didn't know you would take it personally.\&quot;&quot;;
+
+formatLines(moreText, 30, currentLocale);
+</pre></blockquote>
+<P>
+The output from this call to <CODE>formatLines</CODE> is: 
+<blockquote><pre>
+She said, &quot;Hello there,&quot; and
+then went on down the
+street. When she stopped to
+look at the fur coats in a
+shop window, her dog
+growled. &quot;Sorry Jake,&quot; she
+said. &quot;I didn't know you
+would take it personally.&quot;
+</pre></blockquote>
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="sentence.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#text" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="convertintro.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

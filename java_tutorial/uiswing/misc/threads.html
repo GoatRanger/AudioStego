@@ -1,0 +1,542 @@
+
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>How to Use Threads</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="plaf.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#misc" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="timer.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Creating a GUI with JFC/Swing
+<br>
+<b>Lesson</b>: Using Other Swing Features
+</font>
+
+<h2>
+How to Use Threads
+</h2>
+<blockquote>
+
+This section assumes that you are familiar with <em>threads</em> &#151;
+lightweight processes that can run concurrently.
+If you are unfamiliar with threads, you can read 
+<a target="_top" href="../../essential/threads/index.html">Threads: Doing Two or More Tasks At Once</a><a target="_top" href="../../essential/threads/index.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>. 
+
+<p>
+This section discusses two aspects of thread usage.
+We first discuss threads as it applies to <em>every</em>
+Swing application &#151; namely, why all code that
+deals with components needs to execute on a specific thread.
+We also discuss the <code>invokeLater</code> and
+<code>invokeAndWait</code> methods, which are used to
+ensure that code executes on this special thread.
+The rest of the section applies only to those who want to
+use additional threads to improve performance in their application.
+We also include a discussion of <code>SwingWorker</code> &#151;
+a  handy class used by many of our demos to offload time-consuming tasks.
+
+<blockquote><hr><strong>Note:</strong>&nbsp;Although this section talks about Swing, the same
+issues apply to all <code>Component</code>s.
+Specifically,
+AWT components are not guaranteed to be thread safe.
+<hr></blockquote>
+
+<ul>
+<li><a href=#EDT>The Event-Dispatching Thread
+<li><a href=#invokeLater>Using the <code>invokeLater</code> Method
+<li><a href=#invokeAndWait>Using the <code>invokeAndWait</code> Method
+<li><a href=#performance>Using Threads to Improve Performance</a>
+<li><a href=#SwingWorker>Using the SwingWorker Class</a>
+</ul>
+
+</blockquote>
+<h3><A NAME="EDT"></A>The Event-Dispatching Thread</h3>
+<blockquote>
+Swing event-handling and painting code executes in a single thread,
+called the <em>event-dispatching thread</em>.  This ensures that
+each event handler finishes executing before the next
+one executes and that painting isn't interrupted by events. 
+To avoid the possibility of deadlock,
+you must take extreme care that Swing components and models
+are created, modified, and queried <em>only</em> from
+the event-dispatching thread.  
+
+<blockquote><hr><strong>Note:</strong>&nbsp;We used to say that you could create the GUI on the main
+thread as long as you didn't modify components that
+had already been realized. 
+
+<font color=red>
+[PENDING: The following red text belongs in a footnote.] 
+Realized means
+that the component has been painted onscreen, or is ready to
+be painted.  The methods <code>setVisible(true)</code> and
+<code>pack</code> cause a window to be realized, which in
+turn causes the components it contains to be realized.
+</font>
+
+While this worked for most applications, in
+certain situations it could cause problems.
+Out of all the demos in the Swing Tutorial, we encountered
+a problem only in ComponentEventDemo.  In that case,
+sometimes when you launched the demo, it would not come up
+because it would deadlock when updating the text area if
+the text area had not yet been realized,
+while other times it would come up without incident. 
+<p>
+To avoid the possibility of thread problems,
+we recommend that you use <code>invokeLater</code> to
+create the GUI on the event-dispatching thread for all
+new applications.
+If you have old programs that are working fine
+they are probably OK; however you might want to convert
+them when it's convenient to do so.
+<hr></blockquote>
+
+<p>
+You have probably noticed that most of the tutorial's demos
+use a standardized <code>main</code> method that calls the
+<code>SwingUtilities</code> method <code>invokeLater</code>
+to ensure that the GUI is created on the event-dispatching thread.
+Here is an example of the <code>main</code> method from the
+FocusConceptsDemo example.  We have also included
+the source for <code>createAndShowGUI</code> &#151; a private,
+static method called by each <code>main</code> method where
+the creation of the GUI is handled.
+
+<blockquote><pre>
+/**
+ * Create the GUI and show it.  For thread safety,
+ * this method should be invoked from the
+ * event-dispatching thread.
+ */
+private static void createAndShowGUI() {
+    //Make sure we have nice window decorations.
+    JFrame.setDefaultLookAndFeelDecorated(true);
+
+    //Create and set up the window.
+    frame = new JFrame("FocusConceptsDemo");
+    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+    //Create and set up the content pane.
+    JComponent newContentPane = new FocusConceptsDemo();
+    newContentPane.setOpaque(true); //content panes must be opaque
+    frame.setContentPane(newContentPane);
+
+    //Display the window.
+    frame.pack();
+    frame.setVisible(true);
+}
+
+public static void main(String[] args) {
+    //Schedule a job for the event-dispatching thread:
+    //creating and showing this application's GUI.
+    javax.swing.SwingUtilities.invokeLater(new Runnable() {
+        public void run() {
+            createAndShowGUI();
+        }
+    });
+}
+</pre></blockquote>
+
+</blockquote>
+<h3><A NAME="invokeLater"></A>Using the invokeLater Method</h3>
+<blockquote>
+
+<P>You can call <CODE>invokeLater</CODE> from any thread to request the
+event-dispatching thread to run certain code. You must put this code in
+the <CODE>run</CODE> method of a <CODE>Runnable</CODE> object and specify
+the <CODE>Runnable</CODE> object as the argument to <CODE>invokeLater</CODE>.
+The <CODE>invokeLater</CODE> method returns immediately, without waiting
+for the event-dispatching thread to execute the code. Here's an example
+of using <CODE>invokeLater</CODE>:</P>
+
+<blockquote><pre>
+Runnable updateAComponent = new Runnable() {
+    public void run() { component.doSomething(); }
+};
+SwingUtilities.invokeLater(updateAComponent);
+</pre></blockquote>
+
+</blockquote>
+<h3><A NAME="invokeAndWait"></A>Using the invokeAndWait Method</h3>
+<blockquote>
+
+<P>The <CODE>invokeAndWait</CODE> method is just like <CODE>invokeLater</CODE>,
+except that <CODE>invokeAndWait</CODE> doesn't return until the event-dispatching
+thread has executed the specified code. Whenever possible, you should use
+<CODE>invokeLater</CODE> instead of <CODE>invokeAndWait</CODE> &#151;
+it is very easy to cause a deadlock using <code>invokeAndWait</code>.
+If you use <CODE>invokeAndWait</CODE>,
+make sure that the thread that calls <CODE>invokeAndWait</CODE>
+does not hold any locks that other threads might need while the call is
+occurring.
+
+<P>Here's an example of using <CODE>invokeAndWait</CODE>:</P>
+
+<blockquote><pre>
+void showHelloThereDialog() throws Exception {
+    Runnable showModalDialog = new Runnable() {
+        public void run() {
+            JOptionPane.showMessageDialog(myMainFrame,
+                                          &quot;Hello There&quot;);
+        }
+    };
+    SwingUtilities.invokeAndWait(showModalDialog);
+}
+</pre></blockquote>
+
+<P>Similarly, a thread that needs access to GUI state, such as the contents
+of a pair of text fields, might have the following code:</P>
+
+<blockquote><pre>
+void printTextField() throws Exception {
+    final String[] myStrings = new String[2];
+
+    Runnable getTextFieldText = new Runnable() {
+        public void run() {
+            myStrings[0] = textField0.getText();
+            myStrings[1] = textField1.getText();
+        }
+    };
+    SwingUtilities.invokeAndWait(getTextFieldText);
+
+    System.out.println(myStrings[0] + &quot; &quot; + myStrings[1]);
+}
+</pre></blockquote>
+
+</blockquote>
+<h3><a name=performance>Using Threads to Improve
+Performance</a></h3>
+<blockquote>
+When properly used, threads can be a powerful tool.
+However, you must proceed with caution
+when using threads in a Swing program.
+Despite the dangers, threads can be invaluable.
+You can use them to improve your program's perceived
+performance.  And sometimes threads can simplify
+a program's code or architecture.
+Here are some typical situations where threads are used:
+
+<UL>
+  <li>To move a time-consuming initialization task
+  out of the main thread,
+  so that the GUI comes up faster.
+  Examples of time-consuming tasks
+  include making extensive calculations
+  and blocking for network or disk I/O
+  (loading images, for example). 
+
+  <p>
+  <LI>To move a time-consuming task 
+  out of the event-dispatching thread,
+  so that the GUI remains responsive.
+  
+  <P>
+  <LI>To perform an operation repeatedly, usually with some predetermined
+  period of time between operations.
+  
+  <p>
+  <LI>To wait for messages from other programs.
+</UL>
+
+<p>
+
+If you need to create a thread,
+you can avoid some common pitfalls 
+by implementing the thread with a utility class such as 
+<A HREF="#SwingWorker"><CODE>SwingWorker</CODE></A>
+or
+one of the 
+<A HREF="timer.html"><CODE>Timer</CODE></A> classes.
+A <code>SwingWorker</code> object
+creates a thread to execute a time-consuming operation.
+After the operation is finished,
+<code>SwingWorker</code> gives you the option
+of executing some additional code in the
+event-dispatching thread.
+Timers are useful for performing a task
+either repeatedly or 
+after a specified delay.
+If you need to implement your own threads,
+you can find information on doing so in
+<a target="_top" href="../../essential/threads/index.html">Threads: Doing Two or More Tasks At Once</a><a target="_top" href="../../essential/threads/index.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.
+
+<p>
+
+You can use several techniques to make multi-threaded
+Swing programs work well:
+
+<ul>
+
+<p>
+<li> If you need to update a component
+     but your code isn't executing in an event listener,
+     use one of the two <code>SwingUtilities</code> methods:
+     <code>invokeLater</code></a> (preferred)
+     or <code>invokeAndWait</code></a>.
+
+<p>
+<li> If you aren't sure whether your code is executing in an event listener,
+     then you should analyze your program's code and document
+     which thread each method is (and can be) called from.
+     Failing that, you can use the
+     <code>SwingUtilities.isEventDispatchThread()</code> method,
+     which returns true if your code is executing
+     in the event-dispatching thread.
+     You can safely call <code>invokeLater</code> from any thread,
+     but <code>invokeAndWait</code> throws an exception
+     if it's called from the event-dispatching thread.
+
+<p>
+<li> If you need to update a component after a delay
+     (whether or not your code is currently executing in an event listener),
+     use a <a href="timer.html">timer</a> to do so.
+
+<p>
+<li> If you need to update a component at a regular interval,
+     use a <a href="timer.html">timer</a>.
+
+
+</ul>
+
+For information and examples of using timers, see
+<a href="timer.html">How to Use Swing Timers</a>.
+
+</blockquote>
+<h3><A NAME="SwingWorker"></A>Using the SwingWorker Class</H3>
+<blockquote>
+
+
+<blockquote><hr><strong>Note:</strong>&nbsp;
+The implementation of the
+
+<a target="_blank" href="example-1dot4/SwingWorker.java"><font color="#bb000f"><code>SwingWorker</code></font></a><a target="_blank" href="example-1dot4/SwingWorker.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>
+class has been updated twice,
+most recently in February 2000. 
+The first update (in January 1999) 
+allowed programs to safely interrupt the 
+worker thread.
+The most recent update (called "SwingWorker 3")
+was to fix a subtle threading bug that could cause
+a <code>NullPointerException</code>.
+<hr></blockquote>
+
+The <CODE>SwingWorker</CODE> class is implemented
+in <CODE><A HREF="example-1dot4/SwingWorker.java">SwingWorker.java</A></CODE>,
+which is <EM>not</EM> in the Swing release.
+To use the <CODE>SwingWorker</CODE> class, you first create a subclass
+of it. The subclass must implement the <CODE>construct</CODE> method
+so that it contains the code to perform your lengthy operation. When you
+instantiate your <CODE>SwingWorker</CODE> subclass, the <CODE>SwingWorker</CODE>
+creates a thread but does not (as of SwingWorker 3) start it.
+You then invoke <code>start</code> 
+on your <code>SwingWorker</code> object
+to start the thread, which then calls your <CODE>construct</CODE> method.
+
+<p>
+
+Here is an example of using a <code>SwingWorker</code>
+to move a time-consuming task 
+from an action event listener
+into a background thread,
+so that the GUI remains responsive.
+
+<blockquote><pre>
+//OLD CODE:
+public void actionPerformed(ActionEvent e) {
+    ...
+    <em>//...code that might take a while to execute is here...</em>
+    ...
+}
+
+//BETTER CODE:
+public void actionPerformed(ActionEvent e) {
+    ...
+    final SwingWorker worker = new SwingWorker() {
+        public Object construct() {
+            <em>//...code that might take a while to execute is here...</em>
+            return <em>someValue</em>;
+        }
+    };
+    <b>worker.start();  //required for SwingWorker 3</b>
+    ...
+}
+</pre></blockquote>
+
+<p>
+
+The value that <code>construct</code> returns can be any object.
+If you need to get the value,
+you can do so by invoking the <code>get</code> method
+on your <code>SwingWorker</code> object.
+Be careful about using <code>get</code>.
+Because it blocks, it can cause deadlock.
+If necessary, you can interrupt the thread
+(causing <code>get</code> to return)
+by invoking <code>interrupt</code> on the <code>SwingWorker</code>.
+
+
+<p>
+If you need to update the GUI when the time-consuming
+operation completes,
+you can do so either by using <code>get</code>
+(which is dangerous, as we noted)
+or by overriding the <code>finished</code> method
+in your <code>SwingWorker</code> subclass.
+The <code>finished</code> method runs
+after the <code>construct</code> method returns.
+Because the <code>finished</code> method executes
+in the event-dispatching thread,
+you can safely use it to update Swing components.
+Of course, you shouldn't put time-consuming operations
+in your <code>finished</code> implementation.
+
+<p>
+The following example of implementing <code>finished</code>
+is taken from 
+
+<a target="_blank" href="example-1dot4/IconDemoApplet.java"><font color="#bb000f"><code>IconDemoApplet.java</code></font></a><a target="_blank" href="example-1dot4/IconDemoApplet.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>.
+For a full discussion of this applet,
+including how it
+improves perceived performance
+by using background threads to load images,
+see <a href="icon.html">How to Use Icons</a>.
+
+<blockquote><pre>
+public void actionPerformed(ActionEvent e) {
+    ...
+    if (icon == null) {     //haven't viewed this photo before
+        loadImage(imagedir + pic.filename, current);
+    } else {
+        updatePhotograph(current, pic);
+    }
+}
+...
+//Load an image in a separate thread.
+private void loadImage(final String imagePath, final int index) {
+    final SwingWorker worker = new SwingWorker() {
+        ImageIcon icon = null;
+
+        public Object construct() {
+            icon = new ImageIcon(getURL(imagePath));
+            return icon; //return value not used by this program
+        }
+
+        //Runs on the event-dispatching thread.
+        public void finished() {
+            Photo pic = (Photo)pictures.elementAt(index);
+            pic.setIcon(icon);
+            if (index == current)
+                updatePhotograph(index, pic);
+        }
+    };
+    worker.start(); 
+}
+</pre></blockquote>
+
+<p>
+
+
+<P>
+For more examples of using <code>SwingWorker</code>,
+go to 
+<a href="../components/progress.html">How to Monitor Progress</a>.
+Also, 
+
+<a target="_blank" href="../components/example-1dot4/TumbleItem.java"><font color="#bb000f"><code>TumbleItem.java</code></font></a><a target="_blank" href="../components/example-1dot4/TumbleItem.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>,
+which is discussed in 
+<a href="../components/applet.html">How to Make Applets</a>,
+uses both a <code>SwingWorker</code> and a <code>Timer</code>.
+
+</blockquote>
+
+For more information about Swing thread issues,
+see the 
+<a href="http://java.sun.com/products/jfc/tsc/articles/index.html">article index</a>
+in
+<a href="http://java.sun.com/products/jfc/tsc/index.html"><em>The Swing Connection</em></a>.
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="plaf.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#misc" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="timer.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

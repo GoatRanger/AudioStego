@@ -1,0 +1,198 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>JavaBeans Concepts</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#whatis" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="bdkDescription.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: JavaBeans(TM)
+<br>
+<b>Lesson</b>: JavaBeans Concepts and the Beans Development Kit
+</font>
+
+<h2>
+JavaBeans Concepts
+</h2>
+<blockquote>
+The JavaBeans API makes it possible to write component
+software in the Java programming language.
+Components are self-contained, reusable software units that
+can be visually composed into composite components, applets, applications,
+and servlets using visual application builder tools.
+JavaBean components are known as <i>Beans</i>.
+<p>
+Components expose their features
+(for example, public methods and events) to
+builder tools for visual manipulation.
+
+A Bean's features are exposed because feature names adhere to specific
+<i>design patterns</i>.
+A "JavaBeans-enabled" builder tool can then examine
+the Bean's patterns, discern its features, and expose
+those features for visual manipulation.
+A builder tool maintains Beans in a palette
+or toolbox. You can select a 
+Bean from the toolbox, drop it into a form,
+modify it's appearance and behavior, define its
+interaction with other Beans, and
+compose it and other Beans into an applet,
+application, or new Bean. All this can be done
+without writing a line of code.
+
+<p>
+The following list briefly describes key Bean concepts,
+and gives the chapter in the JavaBeans specification
+where you can read a complete description.
+<ul>
+<li>Builder tools discover a Bean's features (that is, 
+    its properties, methods, and events) by a
+    process known as <em>introspection</em>.
+    Beans support introspection in two ways:
+    <ul>
+      <li>By adhering to specific rules,
+          known as <em>design patterns</em>, when
+          naming Bean features. The
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/Introspector.html"><font color="#8800bb"><code>Introspector</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/Introspector.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>
+          class examines Beans for
+          these design patterns to discover Bean features.
+          The <code>Introspector</code> class relies on the 
+          <em>
+<a target="_blank" href="http://java.sun.com/products/jdk/1.1/docs/guide/reflection/index.html"><font color="#009bbb">core reflection</font></a><a target="_blank" href="http://java.sun.com/products/jdk/1.1/docs/guide/reflection/index.html"><img src="../../images/otherIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (outside of the tutorial)"></a> </em> API. The trail
+<a target="_top" href="../../reflect/index.html">The Reflection API</a><a target="_top" href="../../reflect/index.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the JavaBeans(TM) trail)"></a>          is an excellent place to learn about reflection.
+      <li>By explicitly providing property, method, and
+          event information with a related <em>Bean
+          Information</em> class. A Bean information
+          class implements the <code>BeanInfo</code>
+          interface. A <code>BeanInfo</code> class
+          explicitly lists those Bean features that
+          are to be exposed to application builder tools.
+     </ul>
+    Chapter 8 of the
+    
+<a target="_blank" href="http://java.sun.com/beans/spec.html"><font color="#009bbb">JavaBeans API Specification</font></a><a target="_blank" href="http://java.sun.com/beans/spec.html"><img src="../../images/otherIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (outside of the tutorial)"></a>  discusses introspection, design patterns,    and <code>BeanInfo</code> objects.
+    <p>
+<li><em>Properties</em> are a Bean's appearance and
+    behavior characteristics that can be changed at design time.
+    Builder tools introspect on a Bean to discover its
+    properties, and expose those properties for manipulation.
+    Chapter 7 of the JavaBeans API Specification
+    discusses properties.
+    <p>
+<li>Beans expose properties so they can be <em>customized</em> 
+    at design time.
+    Customization is supported in two ways: By using property
+    editors, or by using more sophisticated Bean customizers.
+    Chapter 9 of the JavaBeans API
+    Specification discusses Bean customization.
+    <p>
+<li>Beans use <em>events</em> to communicate with other Beans.
+    A Bean that wants to receive events (a listener Bean) registers
+    its interest with the Bean that fires the event (a source Bean).
+    Builder tools can examine a Bean and determine which events that
+    Bean can fire (send) and which it can handle (receive).
+    Chapter 6 of the JavaBeans API
+    Specification discusses events.
+    <p>
+<li><em>Persistence</em> enables Beans to 
+    save and restore their state.
+    Once you've changed a Beans properties, you can
+    save the state of the Bean and restore that Bean
+    at a later time, property changes intact.
+    JavaBeans uses Java Object Serialization to support
+    persistence.
+    Chapter 5 of the JavaBeans API
+    Specification discusses persistence.
+    <p>
+<li>A Bean's <em>methods</em> are no different than Java methods,
+    and can be called from other Beans or a scripting environment.
+    By default all public methods are exported.
+
+</ul>
+
+<p>
+Although Beans are designed to be understood by builder tools,
+all key APIs, including support for events, properties, and persistence,
+have been designed to be easily read and understood by
+human programmers as well.
+<p>
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#whatis" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="bdkDescription.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

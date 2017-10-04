@@ -1,0 +1,158 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>New Features in the JDBC 2.0 API</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="../basics/index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#jdbc2dot0" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="settingup.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+
+<br>
+<font size="-1">
+<b>Trail</b>: JDBC(TM) Database Access
+</font>
+
+<h2>
+Lesson: New Features in the JDBC 2.0 API
+</h2>
+<blockquote>
+The <CODE CLASS="Code">
+java.sql</CODE>
+ package that is included in the JDK 1.2 release (known as the JDBC 2.0 API) includes several new features not included in the <CODE CLASS="Code">
+java.sql</CODE>
+ package that is part of the JDK 1.1 release (referred to as the JDBC 1.0 API). The code samples in the previous sections of this tutorial are written using the JDBC 1.0 API.</P>
+<P CLASS="Body">
+<A NAME="pgfId=1017895">
+ </A>
+With the JDBC 2.0 API, you will be able to do the following:</P>
+<UL>
+<LI CLASS="Bullet">
+<A NAME="pgfId=1017897">
+ </A>
+Scroll forward and backward in a result set or move to a specific row</LI>
+<LI CLASS="Bullet">
+<A NAME="pgfId=1017898">
+ </A>
+Make updates to database tables using methods in the Java programming language instead of using SQL commands</LI>
+<LI CLASS="Bullet">
+<A NAME="pgfId=1017899">
+ </A>
+Send multiple SQL statements to the database as a unit, or batch</LI>
+<LI CLASS="Bullet">
+<A NAME="pgfId=1017900">
+ </A>
+Use the new SQL3 datatypes as column values</LI>
+</UL>
+</blockquote>
+<h3 CLASS="B-HeadTOC">
+<A HREF="settingup.html">
+Getting Set Up to Use the JDBC 2.0 API</A>
+</h3>
+<h3 CLASS="B-HeadTOC">
+<A HREF="cursor.html">
+Moving the Cursor in Scrollable Result Sets</A>
+</h3>
+<h3 CLASS="B-HeadTOC">
+<A HREF="makingupdates.html">
+Making Updates to Updatable Result Sets</A>
+</h3>
+<h3 CLASS="B-HeadTOC">
+<A HREF="updating.html">
+Updating a Result Set Programmatically</A>
+</h3>
+<h3 CLASS="B-HeadTOC">
+<A HREF="inserting.html">
+Inserting and Deleting Rows Programmatically</A>
+</h3>
+<h3 CLASS="B-HeadTOC">
+<A HREF="sample.html">
+Code Sample for Inserting a Row</A>
+</h3>
+<h3 CLASS="B-HeadTOC">
+<A HREF="deleting.html">
+Deleting a Row</A>
+</h3>
+<h3 CLASS="B-HeadTOC">
+<A HREF="batchupdates.html">
+Making Batch Updates</A>
+</h3>
+<h3 CLASS="B-HeadTOC">
+<A HREF="sql3.html">
+Using SQL3 Datatypes</A>
+</h3>
+<h3 CLASS="B-HeadTOC">
+<A HREF="extension.html">
+Standard Extension Features</A>
+</h3>
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="../basics/index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#jdbc2dot0" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="settingup.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Accessor Methods</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="creating.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#data" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="moreaccessors.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Learning the Java Language
+<br>
+<b>Lesson</b>: Object Basics and Simple Data Objects
+</font>
+
+<h2>
+Accessor Methods
+</h2>
+<blockquote>
+<h4>Getting the Length of a String or a String Buffer</h4>
+
+Methods used to obtain information about an object are known as <I>accessor methods</I>. One accessor method that you can use with both strings and string buffers is the <code>length</code> method, which returns the number of characters contained in the string or the string buffer. After the following two lines of code have been executed, <code>len</code> equals 17: 
+
+<blockquote><pre>
+String palindrome = "Dot saw I was Tod";
+int len = palindrome.length();
+</pre></blockquote>
+
+In addition to <code>length</code>, the <code>StringBuffer</code> class has a method called <code>capacity</code>, which returns the amount of space allocated for the string buffer rather than the amount of space used. For example, the capacity of the string buffer referred to by <code>dest</code> in the <code>StringsDemo</code> program never changes, although its length increases by 1 for each iteration of the loop. The following figure shows the capacity and the length of <code>dest</code> after nine characters have been appended to it.
+
+<!-- figure -->
+<p><center><IMG SRC="../../figures/java/1array.gif" WIDTH="530" HEIGHT="107" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p>
+	A string buffer's length is the number of characters it contains; a string buffer's capacity is the number of character spaces that have been allocated. 
+The <code>String</code> class doesn't have a <code>capacity</code> method, because a string cannot change.
+
+<h4>Getting Characters by Index from a String or a String Buffer</h4>
+
+You can get the character at a particular index within a string or a string buffer by using the <code>charAt</code> accessor. The index of the first character is 0; the index of the last is <code>length()-1</code>. For example, the following code gets the character at index 9 in a string:
+
+<blockquote><pre>
+String anotherPalindrome = "Niagara. O roar again!"; 
+char aChar = anotherPalindrome.charAt(9);
+</pre></blockquote>
+
+Indices begin at 0, so the character at index 9 is 'O', as illustrated in the following figure:
+
+<!-- figure -->
+<p><center><IMG SRC="../../figures/java/2array.gif" WIDTH="566" HEIGHT="120" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p>
+
+Use the <code>charAt</code> method to get a character at a particular index.
+The figure also shows that to compute the index of the last character of a string, you have to subtract 1 from the value returned by the <code>length</code> method.
+<P>
+
+If you want to get more than one character from a string or a string buffer, you can use the <code>substring</code> method. The <code>substring</code> method has two versions, as shown in the following table:
+<!-- table -->
+<P>
+<table border=1>
+<tr>
+<td>
+<B>Method</B>
+</td>
+<td>
+<B>Description</B>
+</td>
+</tr>
+<tr>
+<td>
+<code>String substring(int)<br>
+String substring(int, int)</code>
+</td>
+<td>
+Returns a new string that is a substring of this string or 
+string buffer.The first integer argument specifies the index 
+of the first character. The second integer argument is the 
+index of the last character <code>-1</code>. The length of the substring 
+is therefore the first <code>int</code> minus the second <code>int</code>. If the 
+second integer is not present, the substring extends to the 
+end of the original string.</td>
+</tr>
+</table>
+
+
+<P>
+The following code gets from the Niagara palindrome the substring that extends from index 11 to index 15, which is the word "roar":
+
+<blockquote><pre>
+String anotherPalindrome = "Niagara. O roar again!"; 
+String roar = anotherPalindrome.substring(11, 15); 
+</pre></blockquote>
+
+Use the <code>substring</code> method to get part of a string or string buffer.
+Remember that indices begin at 0.
+
+<!-- figure -->
+
+<p><center><IMG SRC="../../figures/java/3array.gif" WIDTH="545" HEIGHT="140" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p>
+</BLOCKQUOTE>
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="creating.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#data" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="moreaccessors.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

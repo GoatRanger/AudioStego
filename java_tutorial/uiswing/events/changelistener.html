@@ -1,0 +1,289 @@
+
+
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>How to Write a Change Listener</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="caretlistener.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#events" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="componentlistener.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Creating a GUI with JFC/Swing
+<br>
+<b>Lesson</b>: Writing Event Listeners
+</font>
+
+<h2>
+How to Write a Change Listener
+</h2>
+<blockquote>
+A change listener is similar to a 
+<a href=propertychangelistener.html>property change listener</a>.
+A change listener is registered on an object &#151; typically
+a component, but it could be another object, like a model &#151;
+and the listener is notified when the object has changed.
+The big difference from a property change listener is that a
+change listener is not notified of <em>what</em> has changed,
+but simply that the source object <em>has</em> changed. 
+Therefore, a change listener is most useful when
+it is only necessary to know when an object has changed in any way.
+
+<p>
+Three Swing components rely on change events for basic functionality 
+&#151; sliders, color choosers and spinners.
+To learn when the value in a
+<a target="_top" href="../components/slider.html">slider</a><a target="_top" href="../components/slider.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a> changes,
+you need to register a change listener.
+Similarly, you need to register a change listener on a 
+<a target="_top" href="../components/colorchooser.html">color chooser</a><a target="_top" href="../components/colorchooser.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a> to be informed when the user chooses a new color.
+You register a change listener on a
+<a target="_top" href="../components/spinner.html">spinner</a><a target="_top" href="../components/spinner.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>, a component introduced in release 1.4,
+ to be notified when the spinner's value changes.
+
+<p>
+
+Here is an example of change event handling code for a slider:
+ 
+<blockquote><pre>
+<em>//...where initialization occurs:</em>
+framesPerSecond.addChangeListener(new SliderListener());
+...
+class SliderListener implements ChangeListener {
+    public void stateChanged(ChangeEvent e) {
+        JSlider source = (JSlider)e.getSource();
+        if (!source.getValueIsAdjusting()) {
+            int fps = (int)source.getValue();
+	    ...
+        }    
+    }
+}
+</pre></blockquote>
+
+You can find the source file for <code>SliderDemo</code> in the
+<a target="_top" href="../components/example-1dot4/index.html#SliderDemo">example index for Using Swing Components</a><a target="_top" href="../components/example-1dot4/index.html#SliderDemo"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.
+
+</blockquote>
+<h3>
+<a name="api">The Change Listener API</a>
+</h3>
+<blockquote>
+
+<p align=center><a name="changelistener">The ChangeListener
+   Interface</a>
+<p><em>Because <code>ChangeListener</code> has only one method,
+   it has no corresponding adapter class.</em>
+<table border=1>
+<tr>
+<th align=left>Method</th>
+<th align=left>Purpose</th>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/event/ChangeListener.html#stateChanged(javax.swing.event.ChangeEvent)"><font color="#8800bb"><font size=2><code>stateChanged(ChangeEvent)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/event/ChangeListener.html#stateChanged(javax.swing.event.ChangeEvent)"></a></td>
+<td>Called when the listened-to component changes state.
+</td>
+</tr>
+</table>
+
+<p align=center><a name="changeevent">The ChangeEvent Class</a>
+<p>
+<table border=1>
+<tr>
+<th align=left>Method</th>
+<th align=left>Purpose</th>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/EventObject.html#getSource()"><font color="#8800bb"><font size=2><code>Object getSource()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/EventObject.html#getSource()"></a><br>(<em>in <code>java.util.EventObject</code></em>)
+</td>
+<td>Returns the object that fired the event.
+</td>
+</tr>
+</table>
+</blockquote>
+
+
+<a name="eg">
+<h3>Examples that Use Change Listeners</h3>
+</a>
+<blockquote>
+The following table lists the
+examples that use change listeners.
+
+<p>
+
+<table>
+<tr>
+<th align=left> Example
+</th>
+<th align=left> Where Described
+</th>
+<th align=left> Notes
+
+</th>
+</tr>
+<tr valign=top>
+<td> <a href="../components/example-1dot4/index.html#SliderDemo">
+     <code>SliderDemo</code></a> and
+     <br>
+     <a href="../components/example-1dot4/index.html#SliderDemo2">
+     <code>SliderDemo2</code></a>
+     <br>
+     <a href="../components/example-1dot4/index.html#SliderDemo3">
+     <code>SliderDemo3</code></a>
+</td>
+<td>
+<a target="_top" href="../components/slider.html">How to Use Sliders</a><a target="_top" href="../components/slider.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a></td>
+<td> Registers a change listener on a slider that
+     controls animation speed.
+     The change listener ignores the change events
+     until the user releases the slider.
+
+</td>
+</tr>
+<tr valign=top>
+<td> <a href="../components/example-1dot4/index.html#ColorChooserDemo">
+     <code>ColorChooserDemo</code></a> and
+     <br>
+     <a href="../components/example-1dot4/index.html#ColorChooserDemo2">
+     <code>ColorChooserDemo2</code></a>
+</td>
+<td>
+<a target="_top" href="../components/colorchooser.html  ">How to Use Color Choosers</a><a target="_top" href="../components/colorchooser.html  "><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a></td>
+<td> Uses a change listener on the selection model
+     of a color chooser to learn when the user changes the current color.
+
+</td>
+</tr>
+
+<tr valign=top>
+<td> <a href="../components/example-1dot4/index.html#SpinnerDemo3">
+     <code>SpinnerDemo3</code></a>
+</td>
+<td>
+<a target="_top" href="../components/spinner.html#change">Detecting Spinner Value Changes</a><a target="_top" href="../components/spinner.html#change"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a> in
+<a target="_top" href="../components/spinner.html">How to Use Spinners</a><a target="_top" href="../components/spinner.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.
+</td>
+<td> Uses a change listener on a date-field spinner to change
+     the color of the text as the spinner's date changes.
+</td>
+</tr>
+
+<tr valign=top>
+<td> <a href="../components/example-1dot4/index.html#SpinnerDemo4">
+     <code>SpinnerDemo4</code></a>
+</td>
+<td>
+<a target="_top" href="../components/spinner.html#change">Detecting Spinner Value Changes</a><a target="_top" href="../components/spinner.html#change"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a> in
+<a target="_top" href="../components/spinner.html">How to Use Spinners</a><a target="_top" href="../components/spinner.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.
+</td>
+<td> Uses a change listener on a spinner to cycle through
+     the gray scale as the spinner's value changes.
+</td>
+</tr>
+
+<tr valign=top>
+<td> 
+<a target="_blank" href="../components/example-1dot4/ConverterRangeModel.java"><font color="#bb000f"><code>ConverterRangeModel</code></font></a><a target="_blank" href="../components/example-1dot4/ConverterRangeModel.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a><br>
+     and its subclass,
+     <br>
+<a target="_blank" href="../components/example-1dot4/FollowerRangeModel.java"><font color="#bb000f"><code>FollowerRangeModel</code></font></a><a target="_blank" href="../components/example-1dot4/FollowerRangeModel.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a></td>
+<td>
+<a target="_top" href="../components/model.html">Using Models</a><a target="_top" href="../components/model.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a></td>
+<td> Implement custom models for the sliders used
+     in the 
+     <a href="../components/example-1dot4/index.html#Converter">
+     <code>Converter</code></a> demo.
+     Both models explicitly fire change events when necessary.
+</td>
+</tr>
+</table>
+
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="caretlistener.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#events" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="componentlistener.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

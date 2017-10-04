@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res-auto" setting_ui:orientation="vertical" style="@style/g2"
+    <LinearLayout style="@style/g2">
+        <TextView setting_ui:text="@string/setting_ui_flyc_adv_gain_pitch_desc" style="@style/gh" />
+        <dji.setting.ui.widget.DJINumberProgress setting_ui:id="@id/bws" setting_ui:layout_width="UNKNOWN_DATA_0x7f0b036e" setting_ui:layout_height="match_parent" />
+    </LinearLayout>
+    <LinearLayout style="@style/g2">
+        <TextView setting_ui:text="@string/setting_ui_flyc_adv_gain_roll_desc" style="@style/gh" />
+        <dji.setting.ui.widget.DJINumberProgress setting_ui:id="@id/bwt" setting_ui:layout_width="UNKNOWN_DATA_0x7f0b036e" setting_ui:layout_height="match_parent" />
+    </LinearLayout>
+    <LinearLayout style="@style/g2">
+        <TextView setting_ui:text="@string/setting_ui_flyc_adv_gain_yaw_desc" style="@style/gh" />
+        <dji.setting.ui.widget.DJINumberProgress setting_ui:id="@id/bwu" setting_ui:layout_width="UNKNOWN_DATA_0x7f0b036e" setting_ui:layout_height="match_parent" />
+    </LinearLayout>
+</LinearLayout>

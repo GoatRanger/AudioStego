@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.phone.set.list.DJILPCameraSetListView xmlns:android="http://schemas.android.com/apk/res/android" android:id="@id/b2p" android:scrollbars="vertical" android:layout_width="UNKNOWN_DATA_0x7f0b02e2" android:layout_height="match_parent" android:baselineAligned="false">
+    <dji.publics.DJIUI.DJIListView android:id="@id/b2q" android:scrollbars="vertical" android:fadingEdgeLength="0dp" android:layout_width="match_parent" android:layout_height="match_parent" android:listSelector="0x0" android:drawSelectorOnTop="false" android:cacheColorHint="@color/j5" android:divider="@color/b4" android:dividerHeight="1px" android:overScrollMode="ifContentScrolls" />
+</dji.phone.set.list.DJILPCameraSetListView>

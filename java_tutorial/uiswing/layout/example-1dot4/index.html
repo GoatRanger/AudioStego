@@ -1,0 +1,424 @@
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Laying Out Components Within a Container: Examples (1.4)</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="../../layout/example-swing/index.html" target="_top"><img src="../../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../../TOC.html#layout" target="_top"><img src="../../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="../../events/example-swing/index.html" target="_top"><img src="../../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="../index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../../search.html" target="_top">Search</a>
+<br><a href="../../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Creating a GUI with JFC/Swing
+<br>
+<b>Lesson</b>: Laying Out Components Within a Container
+</font>
+
+<h2>
+Laying Out Components Within a Container: Examples (1.4)
+</h2>
+<blockquote>
+
+
+
+The <a href=#table>table</a> that follows
+lists every 1.4 example in the Laying Out Components Within a Container lesson,
+with links to required files and to where each example is discussed.
+The first column of the table has links 
+to JNLP files
+that let you run the examples using 
+Java<sup><font size=-2>TM</font></sup> Web Start.
+
+<blockquote><hr><strong>Version Note:</strong>&nbsp;Although these examples use the 1.4 API,
+many of them can be compiled and run in 1.3
+if you remove the call to <code>setDefaultLookAndFeelDecorated</code>.
+To see earlier versions of most of these examples, go to the
+<a target="_top" href="../example-swing/index.html">1.1/1.2 example list</a><a target="_top" href="../example-swing/index.html"><img src="../../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.
+<hr></blockquote>
+
+
+
+<p>
+To run an example using Java Web Start,
+click the <em>[Run]</em> link in the first column of the
+<a href="#table">table</a>.
+The first time you run an example,
+there will be a delay
+while Java Web Start downloads the JAR file 
+containing the class files for this lesson's examples.
+Afterward, the examples should execute more quickly.
+If you have trouble using Java Web Start, see
+<a target="_top" href="../../../information/javawebstart.html">Installing and Using Java Web Start</a><a target="_top" href="../../../information/javawebstart.html"><img src="../../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.
+
+<blockquote><hr><strong>Note:</strong>&nbsp;The examples that use <code>SpringLayout</code>
+don't work in 1.3 or earlier versions
+because <code>SpringLayout</code> was introduced in 1.4.
+<hr></blockquote>
+
+
+</blockquote>
+<h4>Compiling and Running the Examples Locally</h4>
+<blockquote>
+
+<blockquote><hr><strong>Note:</strong>&nbsp;Examples 
+are all applications.
+See 
+<a target="_top" href="../../../uiswing/14start/index.html">Getting Started with Swing</a><a target="_top" href="../../../uiswing/14start/index.html"><img src="../../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a> for details about releases and 
+ instructions on compiling and running programs.
+<hr></blockquote>
+
+You can get the source, image, and other files required
+for all these examples 
+by downloading the
+<a target="_blank" href="http://java.sun.com/docs/books/tutorial/information/download.html#egs"><font color="#009bbb">Tutorial Examples bundle</font></a><a target="_blank" href="http://java.sun.com/docs/books/tutorial/information/download.html#egs"><img src="../../../images/otherIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (outside of the tutorial)"></a>, which contains the files in the correct hierarchy.
+If you download an individual example,
+take care to have all the necessary files 
+in the proper hierarchy when you compile and run it.
+For example, many examples
+expect their image files
+to be in a directory named <code>images</code>
+that's in the same directory as the example's class files.
+
+<p>
+You can find out which files each example needs by consulting the
+following table or by looking at the comments at the beginning of
+each source file.
+</blockquote>
+
+<a name="table">
+<h4>Table of Examples</h4>
+</a>
+
+<p>
+<table border="1" summary="Table of 1.4 layout examples">
+
+<tr>
+<th scope="col"><strong>Example
+<th scope="col"><strong>Source Files
+<br>
+<em>(first file has the main method)</em></td>
+<th scope="col"><strong>Image and Other Files</strong></td>
+<th scope="col"><strong>Where Described</td>
+</tr>
+
+<tr>
+<td scope="row"><a name="AbsoluteLayoutDemo">
+AbsoluteLayoutDemo <a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/layout/example-1dot4/AbsoluteLayoutDemo.jnlp"><em>[Run]</em></a>     </a></td>
+
+<td>
+<a target="_blank" href="AbsoluteLayoutDemo.java"><font color="#bb000f"><code>AbsoluteLayoutDemo.java</code></font></a><a target="_blank" href="AbsoluteLayoutDemo.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>    </a></td>
+<td>&nbsp;</td>
+<td><a href="../none.html">
+    Doing Without a Layout Manager</a></td>
+</tr>
+
+<tr>
+<td scope="row"><a name="BorderLayoutDemo">
+BorderLayoutDemo <a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/layout/example-1dot4/BorderLayoutDemo.jnlp"><em>[Run]</em></a>     </a></td>
+
+<td>
+<a target="_blank" href="BorderLayoutDemo.java"><font color="#bb000f"><code>BorderLayoutDemo.java</code></font></a><a target="_blank" href="BorderLayoutDemo.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>    </a></td>
+<td>&nbsp;</td>
+<td><a href="../border.html">
+    How to Use BorderLayout</a></td>
+</tr>
+
+<tr>
+<td scope="row"><a name="BoxAlignmentDemo">
+BoxAlignmentDemo <a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/layout/example-1dot4/BoxAlignmentDemo.jnlp"><em>[Run]</em></a>     </a></td>
+
+<td>
+<a target="_blank" href="BoxAlignmentDemo.java"><font color="#bb000f"><code>BoxAlignmentDemo.java</code></font></a><a target="_blank" href="BoxAlignmentDemo.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>    </a></td>
+<td><a href="images/geek-cght.gif"><code>geek-cght.gif</code></a>
+    <a href="images/middle.gif"><code>middle.gif</code></a></td>
+<td><a href="../box.html">
+    How to Use BoxLayout</a></td>
+</tr>
+
+<tr>
+<td scope="row"><a name="BoxLayoutDemo">
+BoxLayoutDemo <a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/layout/example-1dot4/BoxLayoutDemo.jnlp"><em>[Run]</em></a>     </a></td>
+
+<td>
+<a target="_blank" href="BoxLayoutDemo.java"><font color="#bb000f"><code>BoxLayoutDemo.java</code></font></a><a target="_blank" href="BoxLayoutDemo.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>    </a></td>
+<td>&nbsp;</td>
+<td><a href="../box.html">
+    How to Use BoxLayout</a></td>
+</tr>
+
+<tr>
+<td scope="row"><a name="BoxLayoutDemo2">
+BoxLayoutDemo2 <a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/layout/example-1dot4/BoxLayoutDemo2.jnlp"><em>[Run]</em></a>     </a></td>
+
+<td>
+<a target="_blank" href="BoxLayoutDemo2.java"><font color="#bb000f"><code>BoxLayoutDemo2.java</code></font></a><a target="_blank" href="BoxLayoutDemo2.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>    </a></td>
+<td>&nbsp;</td>
+<td><a href="../box.html">
+    How to Use BoxLayout</a></td>
+</tr>
+
+<tr>
+<td scope="row"><a name="CardLayoutDemo">
+CardLayoutDemo <a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/layout/example-1dot4/CardLayoutDemo.jnlp"><em>[Run]</em></a>     </a></td>
+
+<td>
+<a target="_blank" href="CardLayoutDemo.java"><font color="#bb000f"><code>CardLayoutDemo.java</code></font></a><a target="_blank" href="CardLayoutDemo.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>    </a></td>
+<td>&nbsp;</td>
+<td><a href="../card.html">
+    How to Use CardLayout</a></td>
+</tr>
+
+<tr>
+<td scope="row"><a name="CustomLayoutDemo">
+CustomLayoutDemo <a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/layout/example-1dot4/CustomLayoutDemo.jnlp"><em>[Run]</em></a>     </a></td>
+
+<td>
+<a target="_blank" href="CustomLayoutDemo.java"><font color="#bb000f"><code>CustomLayoutDemo.java</code></font></a><a target="_blank" href="CustomLayoutDemo.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>    </a></td>
+<td>&nbsp;</td>
+<td><a href="../custom.html">
+    Creating a Custom Layout Manager</a></td>
+</tr>
+
+<tr>
+<td scope="row"><a name="FlowLayoutDemo">
+FlowLayoutDemo <a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/layout/example-1dot4/FlowLayoutDemo.jnlp"><em>[Run]</em></a>     </a></td>
+
+<td>
+<a target="_blank" href="FlowLayoutDemo.java"><font color="#bb000f"><code>FlowLayoutDemo.java</code></font></a><a target="_blank" href="FlowLayoutDemo.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>    </a></td>
+<td>&nbsp;</td>
+<td><a href="../flow.html">
+    How to Use FlowLayout</a></td>
+</tr>
+
+<tr>
+<td scope="row"><a name="GraphPaperTest">
+GraphPaperTest <a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/layout/example-1dot4/GraphPaperTest.jnlp"><em>[Run]</em></a>     </a></td>
+
+<td>
+<a target="_blank" href="GraphPaperTest.java"><font color="#bb000f"><code>GraphPaperTest.java</code></font></a><a target="_blank" href="GraphPaperTest.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a><br>
+&nbsp;&nbsp;
+<a target="_blank" href="GraphPaperLayout.java"><font color="#bb000f"><code>GraphPaperLayout.java</code></font></a><a target="_blank" href="GraphPaperLayout.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>    </a></td>
+<td>&nbsp;</td>
+<td><a href="../custom.html">
+    Creating a Custom Layout Manager</a></td>
+</tr>
+
+<tr>
+<td scope="row"><a name="GridBagLayoutDemo">
+GridBagLayoutDemo <a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/layout/example-1dot4/GridBagLayoutDemo.jnlp"><em>[Run]</em></a>     </a></td>
+
+<td>
+<a target="_blank" href="GridBagLayoutDemo.java"><font color="#bb000f"><code>GridBagLayoutDemo.java</code></font></a><a target="_blank" href="GridBagLayoutDemo.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>    </a></td>
+<td>&nbsp;</td>
+<td><a href="../gridbag.html">
+    How to Use GridBagLayout</a></td>
+</tr>
+
+<tr>
+<td scope="row"><a name="GridLayoutDemo">
+GridLayoutDemo <a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/layout/example-1dot4/GridLayoutDemo.jnlp"><em>[Run]</em></a>     </a></td>
+
+<td>
+<a target="_blank" href="GridLayoutDemo.java"><font color="#bb000f"><code>GridLayoutDemo.java</code></font></a><a target="_blank" href="GridLayoutDemo.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>    </a></td>
+<td>&nbsp;</td>
+<td><a href="../grid.html">
+    How to Use GridLayout</a></td>
+</tr>
+
+<tr>
+<td scope="row"><a name="SpringBox">
+SpringBox <a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/layout/example-1dot4/SpringBox.jnlp"><em>[Run]</em></a>     </a></td>
+
+<td>
+<a target="_blank" href="SpringBox.java"><font color="#bb000f"><code>SpringBox.java</code></font></a><a target="_blank" href="SpringBox.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a><br>&nbsp;&nbsp;
+<a target="_blank" href="SpringUtilities.java"><font color="#bb000f"><code>SpringUtilities.java</code></font></a><a target="_blank" href="SpringUtilities.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>    </a></td>
+<td>&nbsp;</td>
+<td><a href="../spring.html">
+    How to Use SpringLayout</a></td>
+</tr>
+
+<tr>
+<td scope="row"><a name="SpringCompactGrid">
+SpringCompactGrid <a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/layout/example-1dot4/SpringCompactGrid.jnlp"><em>[Run]</em></a>     </a></td>
+
+<td>
+<a target="_blank" href="SpringCompactGrid.java"><font color="#bb000f"><code>SpringCompactGrid.java</code></font></a><a target="_blank" href="SpringCompactGrid.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>
+<br>&nbsp;&nbsp;
+<a target="_blank" href="SpringUtilities.java"><font color="#bb000f"><code>SpringUtilities.java</code></font></a><a target="_blank" href="SpringUtilities.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>    </a></td>
+<td>&nbsp;</td>
+<td><a href="../spring.html">
+    How to Use SpringLayout</a></td>
+</tr>
+
+<tr>
+<td scope="row"><a name="SpringDemo1">
+    SpringDemo1
+     </a>
+     <a href="#dontrun">*</a></td>
+
+<td>
+<a target="_blank" href="SpringDemo1.java"><font color="#bb000f"><code>SpringDemo1.java</code></font></a><a target="_blank" href="SpringDemo1.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>    </a></td>
+<td>&nbsp;</td>
+<td><a href="../spring.html">
+    How to Use SpringLayout</a></td>
+</tr>
+
+<tr>
+<td scope="row"><a name="SpringDemo2">
+    SpringDemo2
+     </a>
+     <a href="#dontrun">*</a></td>
+
+<td>
+<a target="_blank" href="SpringDemo2.java"><font color="#bb000f"><code>SpringDemo2.java</code></font></a><a target="_blank" href="SpringDemo2.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>    </a></td>
+<td>&nbsp;</td>
+<td><a href="../spring.html">
+    How to Use SpringLayout</a></td>
+</tr>
+
+<tr>
+<td scope="row"><a name="SpringDemo3">
+SpringDemo3 <a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/layout/example-1dot4/SpringDemo3.jnlp"><em>[Run]</em></a>     </a></td>
+
+<td>
+<a target="_blank" href="SpringDemo3.java"><font color="#bb000f"><code>SpringDemo3.java</code></font></a><a target="_blank" href="SpringDemo3.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>    </a></td>
+<td>&nbsp;</td>
+<td><a href="../spring.html">
+    How to Use SpringLayout</a></td>
+</tr>
+
+<tr>
+<td scope="row"><a name="SpringDemo4">
+SpringDemo4 <a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/layout/example-1dot4/SpringDemo4.jnlp"><em>[Run]</em></a>     </a></td>
+
+<td>
+<a target="_blank" href="SpringDemo4.java"><font color="#bb000f"><code>SpringDemo4.java</code></font></a><a target="_blank" href="SpringDemo4.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>    </a></td>
+<td>&nbsp;</td>
+<td><a href="../spring.html">
+    How to Use SpringLayout</a></td>
+</tr>
+
+<tr>
+<td scope="row"><a name="SpringForm">
+SpringForm <a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/layout/example-1dot4/SpringForm.jnlp"><em>[Run]</em></a>     </a></td>
+
+<td>
+<a target="_blank" href="SpringForm.java"><font color="#bb000f"><code>SpringForm.java</code></font></a><a target="_blank" href="SpringForm.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a><br>&nbsp;&nbsp;
+<a target="_blank" href="SpringUtilities.java"><font color="#bb000f"><code>SpringUtilities.java</code></font></a><a target="_blank" href="SpringUtilities.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>    </a></td>
+<td>&nbsp;</td>
+<td><a href="../spring.html">
+    How to Use SpringLayout</a></td>
+</tr>
+
+<tr>
+<td scope="row"><a name="SpringGrid">
+SpringGrid <a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/layout/example-1dot4/SpringGrid.jnlp"><em>[Run]</em></a>     </a></td>
+
+<td>
+<a target="_blank" href="SpringGrid.java"><font color="#bb000f"><code>SpringGrid.java</code></font></a><a target="_blank" href="SpringGrid.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a><br>&nbsp;&nbsp;
+<a target="_blank" href="SpringUtilities.java"><font color="#bb000f"><code>SpringUtilities.java</code></font></a><a target="_blank" href="SpringUtilities.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>    </a></td>
+<td>&nbsp;</td>
+<td><a href="../spring.html">
+    How to Use SpringLayout</a></td>
+</tr>
+
+<tr>
+<td scope="row"><a name="TabDemo">
+TabDemo <a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/layout/example-1dot4/TabDemo.jnlp"><em>[Run]</em></a>     </a></td>
+
+<td>
+<a target="_blank" href="TabDemo.java"><font color="#bb000f"><code>TabDemo.java</code></font></a><a target="_blank" href="TabDemo.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>    </a></td>
+<td>&nbsp;</td>
+<td><a href="../card.html">
+    How to Use CardLayout</a></td>
+</tr>
+
+</table>
+</a>
+
+<a name="dontrun">*</a>
+SpringDemo1 and SpringDemo2 are intentionally broken,
+and we don't advise running them using Java Web Start.
+</p>
+
+</blockquote>
+
+<img src="../../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="../../layout/example-swing/index.html" target="_top"><img src="../../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../../TOC.html#layout" target="_top"><img src="../../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="../../events/example-swing/index.html" target="_top"><img src="../../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="../index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../../search.html" target="_top">Search</a>
+<br><a href="../../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

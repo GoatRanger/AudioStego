@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_selected="true" android:drawable="@r$drawable/camera_other_highlight" />
+    <item android:drawable="@r$drawable/camera_other_normal" />
+</selector>

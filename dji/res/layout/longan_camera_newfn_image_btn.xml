@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.publics.DJIUI.DJIRelativeLayout xmlns:android="http://schemas.android.com/apk/res-auto" pilot:background="@drawable/selector_fn_item" pilot:paddingLeft="@dimen/rp" pilot:paddingRight="@dimen/n3" pilot:layout_width="match_parent" pilot:layout_height="match_parent">
+    <dji.publics.DJIUI.DJITextView pilot:textSize="@dimen/rq" pilot:id="@id/q6" pilot:layout_height="UNKNOWN_DATA_0x7f0b0456" pilot:layout_centerVertical="true" style="@style/bm" />
+    <dji.publics.DJIUI.DJIImageView pilot:id="@id/b1q" pilot:layout_width="UNKNOWN_DATA_0x7f0b0456" pilot:layout_height="UNKNOWN_DATA_0x7f0b0456" pilot:scaleType="centerInside" pilot:adjustViewBounds="true" pilot:layout_alignParentRight="true" pilot:layout_centerVertical="true" />
+</dji.publics.DJIUI.DJIRelativeLayout>

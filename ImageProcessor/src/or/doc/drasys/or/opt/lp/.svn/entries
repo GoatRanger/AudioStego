@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="33"
+   name=""
+   committed-date="2005-02-01T06:11:53.421875Z"
+   url="svn://192.168.2.2/ImageProcessor/src/or/doc/drasys/or/opt/lp"
+   last-author="Karl"
+   kind="dir"
+   uuid="0daf4267-3229-f84b-9084-f3c94b025f38"
+   revision="55"/>
+<entry
+   committed-rev="33"
+   name="ConvergenceException.html"
+   text-time="2005-03-02T06:25:28.234375Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="b5b6b7f6d5d1d1926eed719060524b1f"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:28.078125Z"/>
+<entry
+   committed-rev="33"
+   name="DenseSimplex.html"
+   text-time="2005-03-02T06:25:28.234375Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="1c6b9fe8eb22ec374fe87367b3742834"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:28.093750Z"/>
+<entry
+   committed-rev="33"
+   name="UnboundedException.html"
+   text-time="2005-03-02T06:25:28.250000Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="0c41c525207c13caf8c4920a00f4a73d"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:28.109375Z"/>
+<entry
+   committed-rev="33"
+   name="package-frame.html"
+   text-time="2005-03-02T06:25:28.250000Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="7b92f6a20fd1ee26fc31c99c5e6bb02d"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:28.125000Z"/>
+<entry
+   committed-rev="33"
+   name="LPError.html"
+   text-time="2005-03-02T06:25:28.265625Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="83cc07a167ecd3c5ed5f99b9918cc7f8"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:28.125000Z"/>
+<entry
+   committed-rev="33"
+   name="DenseLPBase.html"
+   text-time="2005-03-02T06:25:28.281250Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="1bcd4da6f28329f9797dee631c6c5f4e"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:28.140625Z"/>
+<entry
+   committed-rev="33"
+   name="package-summary.html"
+   text-time="2005-03-02T06:25:28.281250Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="1e48178d8e76cddfff7b10a02a145663"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:28.156250Z"/>
+<entry
+   committed-rev="33"
+   name="LinearProgrammingI.html"
+   text-time="2005-03-02T06:25:28.296875Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="cc27cfdc60fe6787837e302a8134ade5"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:28.171875Z"/>
+<entry
+   committed-rev="33"
+   name="ScaleException.html"
+   text-time="2005-03-02T06:25:28.296875Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="e35b797fd73b2c924516d3d8ddcc7c12"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:28.187500Z"/>
+<entry
+   committed-rev="33"
+   name="NoSolutionException.html"
+   text-time="2005-03-02T06:25:28.312500Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="1ae7f2547089692aa5d7e515e09b5bb0"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:28.187500Z"/>
+<entry
+   committed-rev="33"
+   name="package-tree.html"
+   text-time="2005-03-02T06:25:28.312500Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="195f08c75169a036be008439b6ead7e6"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:28.203125Z"/>
+<entry
+   committed-rev="33"
+   name="LPException.html"
+   text-time="2005-03-02T06:25:28.328125Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="e0bd72afbd8fb9fa1590a700e7b39b82"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:28.218750Z"/>
+</wc-entries>

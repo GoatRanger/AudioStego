@@ -1,0 +1,391 @@
+
+
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>How to Write a List Selection Listener</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="listdatalistener.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#events" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="mouselistener.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Creating a GUI with JFC/Swing
+<br>
+<b>Lesson</b>: Writing Event Listeners
+</font>
+
+<h2>
+How to Write a List Selection Listener
+</h2>
+<blockquote>
+
+List selection events 
+occur when the selection in a 
+<a target="_top" href="../components/list.html">list</a><a target="_top" href="../components/list.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a> or
+<a target="_top" href="../components/table.html">table</a><a target="_top" href="../components/table.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a> is either changing or has just changed.
+List selection events are fired from an object
+that implements the
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/ListSelectionModel.html"><font color="#8800bb"><code>ListSelectionModel</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/ListSelectionModel.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> interface.
+To get a list or table's list selection model object,
+use the <code>getSelectionModel</code> method.
+
+<p>
+
+To detect list selection events,
+you register a listener
+on the appropriate list selection model object.
+The <code>JList</code> class also gives you the option of
+registering a listener 
+on the list itself,
+rather than directly on the list selection model.
+
+<p>
+This section looks at an example
+that shows how to listen to list selection events
+on a selection model.
+<a href="#eg">Examples that Use List Selection Listeners</a>
+lists examples that listen on the list directly.
+<p>
+The selection model is shared by a list and a table.
+You can dynamically change the selection mode
+to any of the three supported modes:
+
+<ul>
+<li> single selection mode
+<li> single interval selection mode
+<li> multiple interval selection mode
+</ul>
+
+<p>
+
+Here's a picture of the example running:
+
+<p><center><a href="../../figures/uiswing/events/ListSelectionDemo.gif" target="_top"><IMG SRC="../../figures/uiswing/events/ListSelectionDemo.gif" WIDTH="460" HEIGHT="282" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="A snapshot of ListSelectionDemo, which demonstrates selection modes and shared selection models."></a><br><em>This figure has been reduced to fit on the page. <br> Click the image to view it at its natural size.</em></center></p>
+<h4 align=center><font color=red>[PENDING: Updated snapshot forthcoming.]
+</font></h4>
+
+<p>
+<blockquote><hr><strong>Try this:</strong>&nbsp;
+<ol>
+<li> <a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/events/example-1dot4/ListSelectionDemo.jnlp">Run
+     ListSelectionEventDemo</a> using
+     <a href=http://java.sun.com/products/javawebstart>
+     Java<sup><font size=-2>TM</font></sup> Web Start</a>.
+     Or, to compile and run the example yourself,
+     consult the
+     <a href="example-1dot4/index.html#ListSelectionEventDemo">example
+     index</a>.
+
+<li> Select and deselect items in the list and table.
+     The mouse and keyboard commands required to select items
+     depends on the look and feel.
+     For the Java look and feel,
+     click the left mouse button to begin a selection,
+     use the shift key to extend a selection contiguously, and
+     use the control key to extend a selection discontiguously.
+     Dragging the mouse moves or extends the selection,
+     depending on the list selection mode.
+     
+</ol>
+<hr></blockquote>
+
+Here's the code from <code>ListSelectionDemo</code> that
+sets up the selection model and adds a listener to it:
+<blockquote><pre>
+<em>...//where the member variables are defined</em>
+JList list;
+JTable table;
+    <em>...//in the init method:</em>
+    listSelectionModel = list.getSelectionModel();
+    listSelectionModel.addListSelectionListener(
+                            new SharedListSelectionHandler());
+    ...
+    table.setSelectionModel(listSelectionModel);
+</pre></blockquote>
+And here's the code for the listener,
+which works for all the possible selection modes:
+<blockquote><pre>
+class SharedListSelectionHandler implements ListSelectionListener {
+    public void valueChanged(ListSelectionEvent e) {
+        ListSelectionModel lsm = (ListSelectionModel)e.getSource();
+
+        int firstIndex = e.getFirstIndex();
+        int lastIndex = e.getLastIndex();
+        boolean isAdjusting = e.getValueIsAdjusting();
+        output.append("Event for indexes "
+                      + firstIndex + " - " + lastIndex
+                      + "; isAdjusting is " + isAdjusting
+                      + "; selected indexes:");
+
+        if (lsm.isSelectionEmpty()) {
+            output.append(" &lt;none&gt;");
+        } else {
+            // Find out which indexes are selected.
+            int minIndex = lsm.getMinSelectionIndex();
+            int maxIndex = lsm.getMaxSelectionIndex();
+            for (int i = minIndex; i <= maxIndex; i++) {
+                if (lsm.isSelectedIndex(i)) {
+                    output.append(" " + i);
+                }
+            }
+        }
+        output.append(newline);
+    }
+}
+
+</pre></blockquote>
+This <code>valueChanged</code> method displays the
+first and last indices reported by the event,
+the value of the event's <code>isAdjusting</code> flag,
+and the indices currently selected.
+<P>
+Note that the first and last indices reported by the event 
+indicate the inclusive range of items
+for which the selection has changed.
+If the selection mode is multiple interval selection
+some items within the range might not have changed.
+The <code>isAdjusting</code> flag is <code>true</code> if
+the user is still manipulating the selection,
+and <code>false</code> if the user has finished changing the selection.
+<p>
+The <code>ListSelectionEvent</code> object
+passed into <code>valueChanged</code> indicates
+only that the selection has changed.
+The event contains no information about the current selection.
+So, this method queries the selection model to
+figure out the current selection.
+ 
+</blockquote>
+<h3>
+<a name="api">The List Selection Listener API</a>
+</h3>
+<blockquote>
+
+<p align=center><a name="listselectionlistener">The ListSelectionListener
+   Interface</a>
+<p><em>Because <code>ListSelectionListener</code> has only one method,
+   it has no corresponding adapter class.</em>
+<table border=1>
+<tr>
+<th align=left>Method</th>
+<th align=left>Purpose</th>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/event/ListSelectionListener.html#valueChanged(javax.swing.ListSelectionEvent)"><font color="#8800bb"><font size=2><code>valueChanged(ListSelectionEvent)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/event/ListSelectionListener.html#valueChanged(javax.swing.ListSelectionEvent)"></a></td>
+<td> Called when the selection in the listened-to component
+     is changing, as well as just after the selection has changed.
+</td>
+</tr>
+</table>
+
+<p align=center><a name="listselectionevent">The ListSelectionEvent API</a>
+<p>
+<table border=1>
+<tr>
+<th align=left>Method</th>
+<th align=left>Purpose</th>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/EventObject.html#getSource()"><font color="#8800bb"><font size=2><code>Object getSource()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/EventObject.html#getSource()"></a><br>(<em>in <code>java.util.EventObject</code></em>)
+</td>
+<td>Return the object that fired the event.
+    If you register a list selection listener
+    on a list directly, then the source for each event 
+    is the list.
+    Otherwise, the source is the selection model.
+</td>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/event/ListSelectionEvent.html#getFirstIndex()"><font color="#8800bb"><font size=2><code>int getFirstIndex()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/event/ListSelectionEvent.html#getFirstIndex()"></a></td>
+<td> Return the index of the first item
+     whose selection value has changed.
+     Note that for multiple interval selection,
+     the first and last items are guaranteed to have changed but
+     items between them might not have.
+</td>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/event/ListSelectionEvent.html#getLastIndex()"><font color="#8800bb"><font size=2><code>int getLastIndex()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/event/ListSelectionEvent.html#getLastIndex()"></a></td>
+<td> Return the index of the last item
+     whose selection value has changed.
+     Note that for multiple interval selection,
+     the first and last items are guaranteed to have changed but
+     items between them might not have.
+</td>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/event/ListSelectionEvent.html#getValueIsAdjusting()"><font color="#8800bb"><font size=2><code>boolean getValueIsAdjusting()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/event/ListSelectionEvent.html#getValueIsAdjusting()"></a></td>
+<td> Return <code>true</code> if the selection is still changing.
+     Many list selection listeners are interested only in
+     the final state of the selection and can ignore list selection
+     events when this method returns <code>true</code>.
+</td>
+</tr>
+</table>
+</blockquote>
+
+<a name="eg">
+<h3>Examples that Use List Selection Listeners</h3>
+</a>
+<blockquote>
+The following table lists the
+examples that use list selection listeners.
+ 
+<p>
+ 
+<table>
+<tr>
+<th align=left> Example
+</th>
+<th align=left> Where Described
+</th>
+<th align=left> Notes
+
+</th>
+</tr>
+
+<tr valign=top>
+<td> <a href="example-1dot4/index.html#ListSelectionDemo"><code>ListSelectionDemo</code></a>
+</td>
+<td> This section
+</td>
+<td> Reports all list selection events that occur on a list and on a table.
+     The table and the list share a list selection model, so only
+     one listener is required.
+     Lets the user dynamically change the selection mode.
+
+</td>
+</tr>
+
+<tr valign=top>
+<td> <a href="../components/example-1dot4/index.html#ListDemo">
+     <code>ListDemo</code></a>
+</td>
+<td>
+<a target="_top" href="../components/list.html">How to Use Lists</a><a target="_top" href="../components/list.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a></td>
+<td> Listens to events on a single-selection list (not on its
+     selection model).
+     Enables and disables a button depending on whether
+     any items are selected in the list.
+</td>
+</tr>
+
+<tr valign=top>
+<td> <a href="../components/example-1dot4/index.html#SplitPaneDemo">
+     <code>SplitPaneDemo</code></a>
+</td>
+<td>
+<a target="_top" href="../components/list.html">How to Use Lists</a><a target="_top" href="../components/list.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a></td>
+<td> Listens to events on a single-selection list
+     (not on its selection model).
+</td>
+</tr>
+
+<tr valign=top>
+<td> <a href="../components/example-1dot4/index.html#SimpleTableSelectionDemo">
+     <code>SimpleTableSelectionDemo</code></a>
+</td>
+<td>
+<a target="_top" href="../components/table.html">How to Use Tables</a><a target="_top" href="../components/table.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a></td>
+<td> Uses two different list selection listeners on one table.
+     One listener listens to list selection events on table columns,
+     the other listens to list selection events on table rows.
+
+</td>
+</tr>
+</table>
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="listdatalistener.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#events" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="mouselistener.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

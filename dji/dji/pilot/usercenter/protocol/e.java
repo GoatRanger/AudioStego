@@ -1,0 +1,42 @@
+package dji.pilot.usercenter.protocol;
+
+public interface e {
+    public static final int aA = 65536;
+    public static final int aB = 65537;
+    public static final int aC = 65538;
+    public static final int aD = 65539;
+    public static final String aE = "https://www.skypixel.com/api";
+    public static final String aF = "cn-test-sp.skypixel.com";
+    public static final String aG = "https://usa-test-sp.skypixel.com/api";
+    public static final String aH = "http://create.djiplus.com/";
+    public static final String aI = "http://create.djiplus.com/api/photos/%1$s?page=%2$d&page_size=%3$d";
+    public static final String aJ = "http://create.djiplus.com/api/videos/%1$s?page=%2$d&page_size=%3$d";
+    public static final String aK = "http://create.djiplus.com/api/search/%1$s?page=%2$d&page_size%3$d&keyword=%4$s";
+    public static final String aL = "http://album.djiplus.com/api/cloud?memberid=%1$spage=%2$d&page_size=%3$d";
+    public static final String aM = "http://album.djiplus.com/api/cloud?memberid=%1$sfilename=%2$sfilesize=%3$dpublic=%4$s";
+    public static final String aN = "http://album.djiplus.com/api/cloud?memberid=%1$sopt=del";
+    public static final String aO = "http://www.skypixel.com/api/token_info";
+    public static final String aP = "https://www.skypixel.com/api";
+    public static final String aQ = "photos";
+    public static final String aR = "videos";
+    public static final String aS = "latest";
+    public static final String aT = "popular";
+    public static final int ai = 48;
+    public static final int aj = 4096;
+    public static final int ak = 4097;
+    public static final int al = 4098;
+    public static final int am = 8192;
+    public static final int an = 8193;
+    public static final int ao = 8194;
+    public static final int ap = 12288;
+    public static final int aq = 12289;
+    public static final int ar = 12290;
+    public static final int as = 12291;
+    public static final int at = 20480;
+    public static final int au = 20481;
+    public static final int av = 20482;
+    public static final int aw = 20483;
+    public static final int ax = 24576;
+    public static final int ay = 0;
+    public static final int az = 1;
+}

@@ -1,0 +1,8 @@
+org/openscience/cdk/test/MsmilesTests.java
+org/openscience/cdk/test/smiles/SmilesParserTest.java
+org/openscience/cdk/test/smiles/InterruptableSmilesParserTest.java
+org/openscience/cdk/test/smiles/SmilesGeneratorTest.java
+org/openscience/cdk/test/smiles/DeduceBondSystemToolTest.java
+org/openscience/cdk/test/tools/NormalizerTest.java
+org/openscience/cdk/test/io/SMILESReaderTest.java
+org/openscience/cdk/test/io/iterator/IteratingSMILESReaderTest.java

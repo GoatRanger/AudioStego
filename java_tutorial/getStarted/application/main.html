@@ -1,0 +1,208 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>The main Method</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="classdef.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#application" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="objects.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Getting Started
+<br>
+<b>Lesson</b>: A Closer Look at HelloWorld
+</font>
+
+<h2>
+The main Method
+</h2>
+<blockquote>
+The first bold line in the following listing begins 
+the definition of a <code>main</code> method.
+
+<blockquote><pre>
+/** 
+ * The HelloWorldApp class implements an application that
+ * simply displays "Hello World!" to the standard output.
+ */
+class HelloWorldApp {
+    <b>public static void main(String[] args) {</b>
+        System.out.println("Hello World!"); //Display the string.
+    <b>}</b>
+}
+</pre></blockquote>
+<p>
+
+Every Java application
+must contain a <code>main</code> method whose signature looks like this:
+<blockquote><pre>
+public static void main(String[] args)
+</pre></blockquote>
+The method signature for the <code>main</code> method contains three
+modifiers:
+
+<ul>
+<li>
+<code>public</code> indicates that the <code>main</code>
+method can be called by any object.
+<a target="_top" href="../../java/javaOO/accesscontrol.html">Controlling Access to Members of a Class</a><a target="_top" href="../../java/javaOO/accesscontrol.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Getting Started trail)"></a> covers the ins and outs
+of the access modifiers supported by the Java language.
+
+<li>
+<code>static</code> indicates that the <code>main</code> method
+is a class method.
+<a target="_top" href="../../java/javaOO/classvars.html">Understanding Instance and Class Members</a><a target="_top" href="../../java/javaOO/classvars.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Getting Started trail)"></a> talks about class methods and variables.
+
+<li>
+<code>void</code> indicates that the <code>main</code> method
+doesn't return any value.
+</ul>
+
+
+</blockquote>
+<h3>How the <code>main</code> Method Gets Called
+</h3>
+<blockquote>
+
+The <code>main</code> method in the Java language
+is similar to the <code>main</code> function in C and C++.
+When the Java interpreter executes an application
+(by being invoked upon the application's controlling class),
+it starts by calling the class's <code>main</code> method.
+The <code>main</code> method
+then calls all the other methods required to run your application.
+
+<p>
+
+If you try to invoke the Java interpreter on a class
+that does not have a <code>main</code> method,
+the interpreter refuses to run your program
+and displays an error message similar to this:
+
+<blockquote><pre>
+In class NoMain: void main(String argv[]) is not defined
+</pre></blockquote>
+
+
+</blockquote>
+<h3>Arguments to the <code>main</code> Method
+</h3>
+<blockquote>
+As you can see from the following code snippet,
+the <code>main</code> method accepts a single argument:
+an array of elements of type <code>String</code>.
+
+<blockquote><pre>
+public static void main(<b>String[] args</b>)
+</pre></blockquote>
+
+This array is the mechanism through which the runtime system
+passes information to your application.
+Each String in the array is called a <em>command-line argument</em>.
+Command-line arguments let users
+affect the operation of the application without recompiling it.
+For example, a sorting program might allow the user
+to specify that the data be sorted in descending
+order with this command-line argument:
+<blockquote><pre>
+-descending
+</pre></blockquote>
+
+
+<p>
+The "Hello World" application ignores its command-line arguments,
+so there isn't much more to discuss here.
+However, you can get more information about command-line arguments,
+including the framework for a command-line parser
+that you can modify for your specific needs,
+in the
+<a target="_top" href="../../essential/attributes/index.html">Setting Program Attributes</a><a target="_top" href="../../essential/attributes/index.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Getting Started trail)"></a> lesson.
+
+<p>
+
+<blockquote><hr><strong>Note to C and C++ Programmers:</strong>&nbsp;
+The number and type of arguments passed to the <code>main</code>
+method in the Java runtime environment differ from the number and
+type of arguments passed to C and C++'s
+<code>main</code> function. For further information refer to
+<a target="_top" href="../../essential/attributes/cmdLineArgs.html">Command-Line Arguments</a><a target="_top" href="../../essential/attributes/cmdLineArgs.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Getting Started trail)"></a> in the
+<a target="_top" href="../../essential/attributes/index.html">Setting Program Attributes</a><a target="_top" href="../../essential/attributes/index.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Getting Started trail)"></a> lesson.
+<hr></blockquote>
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="classdef.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#application" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="objects.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

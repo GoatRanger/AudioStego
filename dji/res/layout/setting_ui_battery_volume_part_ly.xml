@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res-auto" phantom:layout_width="wrap_content" phantom:layout_height="wrap_content" phantom:layout_weight="1.0">
+    <dji.setting.ui.widget.DJIVerticalProgressBar phantom:id="@id/bpw" phantom:padding="0dp" phantom:layout_width="UNKNOWN_DATA_0x7f0b033a" phantom:layout_height="UNKNOWN_DATA_0x7f0b0344" phantom:max="100" phantom:progress="10" phantom:indeterminate="false" phantom:progressDrawable="@drawable/setting_ui_battery_volume_normal_pgb" phantom:layout_centerHorizontal="true" style="?unknown_attr_ref: 1010078" />
+    <ImageView phantom:id="@id/bpx" phantom:visibility="gone" phantom:layout_width="wrap_content" phantom:layout_height="wrap_content" phantom:layout_marginTop="@dimen/ts" phantom:src="@drawable/setting_ui_battery_warning_icon" phantom:adjustViewBounds="true" phantom:layout_centerHorizontal="true" phantom:contentDescription="@string/app_name" />
+    <TextView phantom:id="@id/bpy" phantom:layout_width="wrap_content" phantom:layout_height="wrap_content" phantom:layout_marginTop="@dimen/ts" phantom:text="" phantom:layout_below="@id/bpw" phantom:layout_centerHorizontal="true" style="@style/gt" />
+</RelativeLayout>

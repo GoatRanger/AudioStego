@@ -1,0 +1,1 @@
+jar cf install\editordocs.jar docs

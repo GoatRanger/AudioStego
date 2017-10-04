@@ -1,0 +1,226 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>The BeanBox Menus</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="introBeanBox.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#beanbox" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="makeApplet.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: JavaBeans(TM)
+<br>
+<b>Lesson</b>: Using the BeanBox
+</font>
+
+<h2>
+The BeanBox Menus
+</h2>
+<blockquote>
+
+<p>
+The following tables explain each item in the BeanBox 
+File, Edit, and View menus.
+<br>
+<br>
+
+<table border=1>
+<caption><font size="+2"<b>File Menu</b></font></caption>
+<tr>
+<th>Menu Item</th>
+<th>Action</th>
+</tr>
+
+<tr>
+<td>Save</td>
+<td>Saves the Beans currently in the BeanBox, including each Bean's
+    size, position, and internal state. The saved file can be loaded
+    via File|Load.</td>
+</tr>
+
+<tr>
+<td>SerializeComponent...</td>
+<td>Saves the Beans in the BeanBox to a serialized
+    (<code>.ser</code>) file. This file must be put in a <code>.jar</code>
+    file to be useable by the BeanBox.</td>
+</tr>
+
+
+<tr>
+<td>MakeApplet...</td>
+<td><a href="makeApplet.html">Generates an applet</a> from the BeanBox contents.</td>
+</tr>
+
+<tr>
+<td>Load...</td>
+<td>Loads saved files into the BeanBox. This command will not
+    load <code>.ser</code> files.</td>
+</tr>
+
+<tr>
+<td>LoadJar...</td>
+<td>Loads a JAR file's contents into the ToolBox.</td>
+</tr>
+
+<tr>
+<td>Print</td>
+<td>Prints an image of the BeanBox contents.</td>
+</tr>
+
+<tr>
+<td>Clear</td>
+<td>Removes the BeanBox contents.</td>
+</tr>
+
+<tr>
+<td>Exit</td>
+<td>Quits the BeanBox <em>without offering to save</em>.</td>
+</tr>
+
+</table>
+<p>
+
+<table border=1>
+<caption><font size="+2"><b>Edit Menu</b></font></caption>
+<tr>
+<th>Menu Item</th>
+<th>Action</th>
+</tr>
+
+<tr>
+<td>Cut</td>
+<td>Removes the Bean selected in the BeanBox. The
+    cut Bean is serialized, and can then be pasted.</td>
+</tr>
+
+<tr>
+<td>Copy</td>
+<td>Copies the Bean selected in the BeanBox.
+    The copied Bean is serialized, and can then be pasted.</td>
+</tr>
+
+<tr>
+<td>Paste</td>
+<td>Drops the last cut or copied Bean into
+    the BeanBox.</td>
+</tr>
+
+<tr>
+<td>Report...</td>
+<td>Generates an <a href="../writingbean/index.html#report">
+    introspection report</a> for the selected Bean.</td>
+</tr>
+
+<tr>
+<td>Events</td>
+<td>Lists the selected Bean's event-firing methods, grouped by the
+    Java interface that declares the methods.</td>
+</tr>
+
+<tr>
+<td>Bind property...</td>
+<td>Lists all the selected Bean's
+    <a href="../properties/bound.html">bound property</a> methods,
+    if any.</td>
+</tr>
+
+</table>
+
+<p>
+<table border=1>
+<caption><font size="+2"><b>View Menu</b></font></caption>
+<tr>
+<th>Menu Item</th>
+<th>Action</th>
+</tr>
+
+<tr>
+<td>Disable Design Mode/Enable Design Mode</td>
+<td>Removes the ToolBox and the Properties sheet from the screen.
+    Eliminates all BeanBox design and test behavior (selected Bean, etc.),
+    and makes the BeanBox behave like an application.</td>
+</tr>
+
+<tr>
+<td>Hide Invisible Beans/Show Invisible Beans</td>
+<td>Hides or shows Beans with no GUI.</td>
+</tr>
+
+</table>
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="introBeanBox.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#beanbox" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="makeApplet.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

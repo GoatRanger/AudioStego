@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zip-info>
+   <target compress="false" in-workspace="true"
+      include-java-output="true" location="/SoundAnalyzer/install"
+      manifest="false" name="sound.jar">
+      <source>
+         <container path="/SoundAnalyzer/bin"/>
+      </source>
+   </target>
+</zip-info>

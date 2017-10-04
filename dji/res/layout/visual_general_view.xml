@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.pilot.visual.stage.DJIVisualGsView xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent" android:baselineAligned="false">
+    <include android:id="@+id/visual_general_track_ly" android:visibility="gone" layout="@layout/visual_track_opt_view" />
+    <include android:id="@+id/visual_general_point_ly" android:visibility="gone" layout="@layout/visual_point_opt_view" />
+    <include android:id="@+id/visual_general_selfie_ly" android:visibility="gone" layout="@layout/visual_selfie_view" />
+</dji.pilot.visual.stage.DJIVisualGsView>

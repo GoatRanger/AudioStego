@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="2"
+   name=""
+   committed-date="2005-02-01T05:53:15.062500Z"
+   url="svn://192.168.2.2/AudioStego/src/eecs/audio"
+   last-author="Karl"
+   kind="dir"
+   uuid="0daf4267-3229-f84b-9084-f3c94b025f38"
+   revision="55"/>
+<entry
+   committed-rev="2"
+   name="ExampleFileFilter.java"
+   text-time="2005-03-02T06:24:04.671875Z"
+   committed-date="2005-02-01T05:53:15.062500Z"
+   checksum="343186b70dcd9c019458d1e98c64f6a4"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:24:04.593750Z"/>
+<entry
+   committed-rev="2"
+   name="AudioStego.java"
+   text-time="2005-03-02T06:24:04.687500Z"
+   committed-date="2005-02-01T05:53:15.062500Z"
+   checksum="0866a69bfd9221ba44f957c21d5611a4"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:24:04.609375Z"/>
+<entry
+   committed-rev="2"
+   name="Waveform.java"
+   text-time="2005-03-02T06:24:04.687500Z"
+   committed-date="2005-02-01T05:53:15.062500Z"
+   checksum="38f63f798daec7146ee59b6b427fd37b"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:24:04.625000Z"/>
+<entry
+   committed-rev="2"
+   name="SoundGraph.java"
+   text-time="2005-03-02T06:24:04.703125Z"
+   committed-date="2005-02-01T05:53:15.062500Z"
+   checksum="867ec217a0df498689c05a64e92c64e5"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:24:04.625000Z"/>
+<entry
+   committed-rev="2"
+   name="AudioManager.java"
+   text-time="2005-03-02T06:24:04.718750Z"
+   committed-date="2005-02-01T05:53:15.062500Z"
+   checksum="5229c66437f58ea6bf574965d0d7c8b2"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:24:04.640625Z"/>
+</wc-entries>

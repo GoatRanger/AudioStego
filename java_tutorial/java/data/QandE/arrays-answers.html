@@ -1,0 +1,178 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Answers to Questions and Exercises: Arrays</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="../QandE/arrays-questions.html" target="_top"><img src="../../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../../TOC.html#data" target="_top"><img src="../../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+</td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="../index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../../search.html" target="_top">Search</a>
+<br><a href="../../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+
+<img src="../../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<font size="-1">
+<b>Trail</b>: Learning the Java Language
+<br>
+<b>Lesson</b>: Object Basics and Simple Data Objects 
+</font>
+
+<h2>
+Answers to Questions and Exercises: Arrays
+</h2>
+<blockquote>
+</blockquote>
+
+<h3>Questions</h3>
+<blockquote>
+<ol>
+<li>
+<FONT COLOR="RED">Question:</FONT>
+What is the index of <code>Brighton</code> in the following array?
+<blockquote><pre>
+String[] skiResorts = {
+    "Whistler Blackcomb", "Squaw Valley", "Brighton",
+    "Snowmass", "Sun Valley", "Taos"
+};
+</pre></blockquote>
+<FONT COLOR="green">Answer:</FONT> 2.<br> <P>
+
+
+<li>
+<FONT COLOR="RED">Question:</FONT>
+Write an expression that refers to the string <code>Brighton</code>
+within the array. 
+<br>
+<FONT COLOR="green">Answer:</FONT> <code>skiResorts[2]</code>.<br> <P>
+<li>
+<FONT COLOR="RED">Question:</FONT>
+What is the value of the expression <code>skiResorts.length</code>?
+<br>
+<FONT COLOR="green">Answer:</FONT> 6.<br> <P>
+<li>
+<FONT COLOR="RED">Question:</FONT>
+What is the index of the last item in the array?
+<br>
+<FONT COLOR="green">Answer:</FONT> 5.<br> <P>
+<li>
+<FONT COLOR="RED">Question:</FONT>
+What is the value of the expression <code>skiResorts[4]</code>?
+<br>
+<FONT COLOR="green">Answer:</FONT> <code>Sun Valley</code>
+</ol>
+</blockquote>
+
+<h3>Exercises</h3>
+<blockquote>
+<ol>
+<li>
+<FONT COLOR="RED">Exercise:</FONT>
+The following program,
+<a target="_blank" href="WhatHappens.java"><font color="#bb000f"><code>WhatHappens</code></font></a><a target="_blank" href="WhatHappens.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>, contains a bug.
+Find it and fix it.
+<blockquote><pre>
+//
+// This program compiles but won't run successfully.
+//
+public class WhatHappens {
+    public static void main(String[] args) {
+        StringBuffer[] stringBuffers = new StringBuffer[10];
+
+        for (int i = 0; i &lt; stringBuffers.length; i ++) {
+            stringBuffers[i].append(&quot;StringBuffer at index &quot; + i);
+        }
+    }
+}
+</pre></blockquote>
+<FONT COLOR="green">Answer:</FONT>
+The program generates a <code>NullPointerException</code> on line 6.
+The program creates the array,
+but does not create the string buffers,
+so it cannot append any text to them.
+The solution is to create the 10 string
+buffers in the loop with <code>new StringBuffer()</code> as follows:
+<a target="_blank" href="ThisHappens.java"><font color="#bb000f"><code>ThisHappens</code></font></a><a target="_blank" href="ThisHappens.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a><blockquote><pre>
+public class ThisHappens {
+    public static void main(String[] args) {
+        StringBuffer[] stringBuffers = new StringBuffer[10];
+
+        for (int i = 0; i &lt; stringBuffers.length; i ++) {
+	    stringBuffers[i] = new StringBuffer();
+            stringBuffers[i].append(&quot;StringBuffer at index &quot; + i);
+        }
+    }
+}
+</pre></blockquote>
+</ol>
+</blockquote>
+
+<img src="../../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="../QandE/arrays-questions.html" target="_top"><img src="../../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../../TOC.html#data" target="_top"><img src="../../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+</td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="../index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../../search.html" target="_top">Search</a>
+<br><a href="../../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

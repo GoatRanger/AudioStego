@@ -1,0 +1,1091 @@
+
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>How to Support Assistive Technologies</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="action.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#misc" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="border.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Creating a GUI with JFC/Swing
+<br>
+<b>Lesson</b>: Using Other Swing Features
+</font>
+
+<h2>
+How to Support Assistive Technologies
+</h2>
+<blockquote>
+You might be wondering what exactly assistive technologies are,
+and why you should care.
+Primarily, assistive technologies exist
+to enable people with permanent or temporary disabilities
+to use the computer.
+For example, if you get carpal tunnel syndrome,
+you can use assistive technologies to accomplish your work
+without using your hands.
+
+<p>
+
+Assistive technologies&#151voice interfaces,
+screen readers, alternate input devices, and so on&#151are
+useful not only for people with disabilities,
+but also for people using computers in non-office environments.
+For example, if you're stuck in a traffic jam,
+you might use assistive technologies to check your email,
+using only voice input and output.
+The information that enables assistive technologies
+can be used for other tools, as well,
+such as automated GUI testers
+and input devices such as touchscreens.
+Assistive technologies get information from components
+using the Accessibility API,
+which is defined in the
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/accessibility/package-summary.html"><font color="#8800bb"><code>javax.accessibility</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/accessibility/package-summary.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> package.
+
+<p>
+Because support for the Accessibility API
+is built into the Swing components,
+your Swing program will probably work just fine
+with assistive technologies, even if you do nothing special.
+For example, assistive technologies can automatically
+get the text information that is set by the following lines of code:
+
+<blockquote><pre>
+JButton button = new JButton("I'm a Swing button!");
+label = new JLabel(labelPrefix + "0    ");
+label.setText(labelPrefix + numClicks);
+JFrame frame = new JFrame("SwingApplication");
+</pre></blockquote>
+
+Assistive technologies can also grab
+the tool-tip text (if any)
+associated with a component
+and use it to describe the component to the user.
+
+<p>
+
+Making your program function smoothly with assistive
+technologies is easy to do and, in the United
+States, may be required by federal law.
+For more information see
+<a target="_blank" href="http://www.sun.com/access/background/laws.html"><font color="#009bbb">Global Legal Resources for IT Related Accessibility Issues</font></a><a target="_blank" href="http://www.sun.com/access/background/laws.html"><img src="../../images/otherIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (outside of the tutorial)"></a>.
+
+<p>
+The rest of this section covers these topics:
+<ul>
+<li><a href="#supporting">Rules for Supporting Accessibility</a>
+<li><a href="#testing">Testing for Accessibility</a>
+<li><a href="#namesdescriptions">Setting
+    Accessible Names and Descriptions on Components</a>
+<li><a href="#developing">Concepts: How Accessibility Works</a> 
+<li><a href="#accessiblecomponents">Making Custom Components Accessible</a>
+<li><a href="#api">The Accessibility API</a>
+<li><a href="#eg">Examples that Use the Accessibility API</a>
+</ul>
+
+<a name="supporting">
+</blockquote>
+<h3>Rules for Supporting Accessibility</h3>
+</a>
+<blockquote>
+Here are a few things you can do to make your program
+work as well as possible with assistive technologies:
+
+<ul>
+<li> If a component doesn't display a short string
+     (which serves as its default name),
+     specify a name with the <code>setAccessibleName</code> method.
+     You might want to do this for image-only buttons, 
+     panels that provide logical groupings, text areas, and so on.
+
+<p>
+<li> Set 
+<a target="_top" href="../components/tooltip.html">tool tip</a><a target="_top" href="../components/tooltip.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>     text for components
+     whenever it makes sense to do so.
+     For example:
+<blockquote><pre>
+aJComponent.setToolTipText(
+     "Clicking this component causes XYZ to happen.");
+</pre></blockquote>
+
+<p>
+<li> If you don't want to provide a tool tip for a component,
+     use the <code>setAccessibleDescription</code> method 
+     to provide a description that assistive technologies can give the user.
+     For example:
+
+<blockquote><pre>
+aJComponent.getAccessibleContext().
+    setAccessibleDescription(
+    "Clicking this component causes XYZ to happen.");
+</pre></blockquote>
+
+<p>
+<li> Specify keyboard alternatives wherever possible.
+     Make sure you can use your program
+     with only the keyboard.
+     Try hiding your mouse!
+     Note that if the focus is in an editable text component, 
+     you can use Shift-Tab to move focus to the next component.
+     <p>
+     Support for keyboard alternatives varies by component.
+<a target="_top" href="../components/button.html">Buttons</a><a target="_top" href="../components/button.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>     support keyboard alternatives with the <code>setMnemonic</code>
+     method.
+     Menus inherit the button mnemonic support
+     and also support accelerators,
+     as described in 
+<a target="_top" href="../components/menu.html#mnemonic">Enabling Keyboard Operation</a><a target="_top" href="../components/menu.html#mnemonic"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>. Other components can use
+<a target="_top" href="../components/jcomponent.html#keyboardAction">key bindings</a><a target="_top" href="../components/jcomponent.html#keyboardAction"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a> to associate user typing with program actions.
+
+<p>
+<li> Assign a textual description to all
+     <a href="icon.html"><code>ImageIcon</code></a>
+     objects in your program.  You can set this property
+     by using either the <code>setDescription</code>
+     method or one of the <code>String</code>
+     forms of the <code>ImageIcon</code> constructors.
+    
+<p>
+<li> If a bunch of components form a logical group,
+     try to put them into one container.
+     For example, use a
+<a target="_top" href="../components/panel.html"><code>JPanel</code></a><a target="_top" href="../components/panel.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>     to contain
+     all the radio buttons in a radio button group.
+
+<p>
+<li> Whenever you have a
+<a target="_top" href="../components/label.html">label</a><a target="_top" href="../components/label.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>     that describes another component,
+     use the <code>setLabelFor</code> method
+     so that assistive technologies can find the component
+     that the label is associated with.
+     This is especially important when the label 
+     displays a mnemonic 
+     for another component (such as a text field).
+
+
+<p>
+<li> If you create a custom component,
+     make sure it supports accessibility.
+     In particular, be aware that
+     subclasses of <code>JComponent</code>
+     are not automatically accessible.
+     Custom components that are
+     descendants of other Swing components should override
+     inherited accessibility information as necessary.
+     For more information, see
+     <a href="#developing">Concepts: How Accessibility Works</a>
+     and
+     <a href="#accessiblecomponents">Making Custom Components Accessible</a>.
+
+<p>
+<li> Use the examples provided with the accessibility utilities
+     to test your program.
+     Although the primary purpose of these examples is to show programmers
+     how to use the Accessibility API when implementing assistive technologies,
+     these examples are also quite useful
+     for testing application programs for accessibility.
+
+     <a href="#testing">Testing for Accessibility</a>
+     shows <code>ScrollDemo</code> running with Monkey&#151one
+     of the accessibility utilities examples.
+     Monkey shows the tree of accessible components in a program and
+     lets you interact with those components.
+
+<p>
+<li> Finally, don't break what you get for free!
+     If your GUI has an inaccessible container&#151for
+     example, your own subclass of <code>Container</code>
+     or <code>JComponent</code>
+     or any other container that doesn't implement
+     the <code>Accessible</code> interface&#151any
+     components inside that container become
+     inaccessible.
+</ul>
+
+<a name="testing">
+<h3>Testing for Accessibility</h3>
+</a>
+<blockquote>
+The examples that come with the accessibility utilities
+can give you an idea of how accessible your program is.
+For instructions on getting these utilities, see the
+<a target="_blank" href="http://java.sun.com/products/jfc/accessibility/"><font color="#009bbb">Accessibility home page</font></a><a target="_blank" href="http://java.sun.com/products/jfc/accessibility/"><img src="../../images/otherIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (outside of the tutorial)"></a>.
+Follow the instructions in the accessibility utilities documentation
+for setting up the Java Virtual Machine (VM)
+to run one or more of the utilities automatically.
+
+<p>
+
+Let's use an accessibility utility to compare the original version of 
+one of our demos to a version in which the rules
+for supporting accessibility have been applied.
+Here's a picture of a program called <code>ScrollDemo</code>.
+
+<p><center><IMG SRC="../../figures/uiswing/components/ScrollDemo.gif" WIDTH="350" HEIGHT="340" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="A snapshot of the original, inaccessible ScrollDemo."></center></p>
+
+<blockquote><hr><strong>Try this:</strong>&nbsp;
+<ol>
+<li><a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/components/example-1dot4/ScrollDemo.jnlp">Run ScrollDemo</a>
+using 
+<a target="_top" href="../../information/javawebstart.html">Java<sup><font size=-2>TM</font></sup> Web Start</a><a target="_top" href="../../information/javawebstart.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.
+Or, to compile and run the example yourself, consult the
+<a target="_top" href="../components/example-1dot4/index.html#ScrollDemo">example index for components</a><a target="_top" href="../components/example-1dot4/index.html#ScrollDemo"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.
+
+<li>Next, <a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/misc/example-1dot4/AccessibleScrollDemo.jnlp">run AccessibleScrollDemo</a>
+using Java Web Start.
+Or, to compile and run the example yourself, consult the
+<a href="example-1dot4/index.html#AccessibleScrollDemo">example index</a>.
+
+<li> Compare the two versions side by side.
+     The only noticeable difference is that
+     the <strong>cm</strong> toggle button
+     and the photograph have tool tips in the accessible version.
+
+<li> Now run the two versions under the accessibility utility
+     called Monkey.
+     Note that when the accessibility tools have been
+     downloaded and configured in the
+     <code>accessibility.properties</code> file, the Monkey
+     window automatically comes up when you click on the
+     Run ScrollDemo and AccessibleScrollDemo links
+     (in steps 1 and 2).
+     <p>
+     If the Monkey window does not appear on startup,
+     the problem may be that the <code>accessibility.properties</code>
+     file is not present in the version of the VM being used
+     by Java Web Start.  You can change the VM you use by
+     running the Java Web Start
+     <a href="../../information/player.jnlp">Application Manager</a> and
+     selecting <b>File > Preferences > Java</b>.
+     <p>
+ 
+<li> Note that when the Monkey window comes up you need to select
+     <b>File > Refresh Trees</b> to see information appear under
+     <code>Accessible Tree</code>.  You can then expand the tree
+     by successively clicking on the horizontal icons displayed
+     by each folder icon.  When the tree has been expanded,
+     you can see detailed information for the various components.
+     The custom components (rules and corners)
+     that weren't accessible in the original version
+     are accessible in the modified version.
+     This can make quite a difference to assistive technologies.
+
+</ol>
+<hr></blockquote>
+
+<p>
+Here's a snapshot of Monkey running on <code>ScrollDemo</code>:
+
+<p><center><IMG SRC="../../figures/uiswing/misc/InaccessibleMonkey.gif" WIDTH="514" HEIGHT="338" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="Monkey running on inaccessible version of ScrollDemo."></center></p><h4 align=center><font color=red>
+[PENDING: recapture the output.]</font></h4>
+
+<p>
+The left side of the split pane shows
+the actual component hierarchy for the program.
+The right side shows the accessible components in the hierarchy,
+which is what interests us.
+<p>
+The first thing to notice is that,
+even with no explicit support in <code>ScrollDemo</code>,
+Monkey is able to discover a lot of information about
+the various components in the program.
+Most of the components and their children appear in the tree.
+However, the names for most of the
+components are empty (null), which is rather unhelpful.
+The descriptions are also empty.
+<p>
+Further trouble comes with
+the program's custom components.
+The two rulers are inaccessible,
+so they are not included in the accessible tree.
+The viewports that contain the rulers are displayed as leaf nodes
+because they have no accessible children.
+The custom corners are also missing from the accessible tree.
+<p>
+Now here's a picture of the Monkey window for
+<code>AccessibleScrollDemo</code>:
+
+<p><center><IMG SRC="../../figures/uiswing/misc/Monkey.gif" WIDTH="513" HEIGHT="415" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="Monkey running on accessible version of ScrollDemo."></center></p>
+<h4 align=center><font color=red>
+[PENDING: recapture the output.]</font></h4>
+
+<br>
+The rules are now listed as children of the viewports,
+and the corners are listed as children of the scroll pane.
+Furthermore, many of the components now have non-null names.
+
+<p>
+In the previous snapshot of Monkey,
+the Column Header item is selected.
+Monkey highlights the corresponding component
+in <code>ScrollDemo</code> program.
+
+<p><center><IMG SRC="../../figures/uiswing/misc/ScrollDemoWithRulerSelected.gif" WIDTH="350" HEIGHT="320" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="ScrollDemo shown when Column Header selected in Monkey."></center></p><h4 align=center><font color=red>
+[PENDING: new screenshot needed]</font></h4>
+
+
+
+When an item is selected,
+you can use Monkey's <b>Panels</b> menu
+to bring up one of four different panels
+that let you interact with the selected component.
+Choosing
+<strong>Panels > Accessibility API panel</strong> 
+brings up a panel like the one
+shown in the following figure.
+This panel displays information
+available through methods defined
+in the <code>AccessibleContext</code> base class
+and the <code>AccessibleComponent</code> interface.
+
+<p><center><IMG SRC="../../figures/uiswing/misc/APIPanelForColumnHeader.gif" WIDTH="357" HEIGHT="301" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="Accessibility API Panel for Column Header."></center></p>
+
+Monkey has three other panels:
+<ul>
+<li> <strong>AccessibleAction</strong>&#151
+     Shows the actions supported by an accessible component
+     and lets you invoke the action.
+     Works only with an accessible component whose context implements
+     the <code>AccessibleAction</code> interface.
+<li> <strong>AccessibleSelection</strong>&#151
+     Shows the current selection of an accessible component
+     and lets you manipulate the selection.
+     Works only with accessible component whose context implements
+     the <code>AccessibleSelection</code> interface.
+<li> <strong>AccessibleHypertext</strong>&#151
+     Shows any hyperlinks contained within an accessible component
+     and lets you traverse them.
+     Works only with accessible component whose context implements
+     the <code>AccessibleHypertext</code> interface.
+</ul>
+
+
+The accessibility utilities examples
+are handy as testing tools
+and can give you an idea of how accessible
+the components in your program are.
+However, even if your components behave well
+in Monkey or the other examples,
+they still might not be completely accessible because
+Monkey and the other examples exercise only certain
+portions of the Accessibility API.
+The only true test of accessibility is to run your programs
+with real-world assistive technologies.
+
+</blockquote>
+<a name="namesdescriptions">
+<h3>Setting Accessible Names and Descriptions on Components</h3>
+</a>
+<blockquote>
+Giving your program's components accessible names and descriptions
+is one of the easiest and most important steps
+in making your program accessible.
+Following is a complete listing
+of the <code>AccessibleScrollDemo</code> constructor that
+creates the scroll pane and the custom components it uses.
+The boldface statements give components names and descriptions
+that assistive technologies can use.
+
+<blockquote><pre>
+public AccessibleScrollDemo() {
+    // Get the image to use.
+    <b>ImageIcon david = createImageIcon("images/youngdad.jpeg",
+                      "Photograph of David McNabb in his youth.");</b>
+
+    // Create the row and column headers.
+    columnView = new Rule(Rule.HORIZONTAL, true);
+    if (david != null) {
+        columnView.setPreferredWidth(david.getIconWidth());
+    } else {
+        columnView.setPreferredWidth(320);
+    }
+    <b>columnView.getAccessibleContext().setAccessibleName("Column Header");</b>
+    <b>columnView.getAccessibleContext().
+            setAccessibleDescription("Displays horizontal ruler for " +
+                                     "measuring scroll pane client.");</b>
+    rowView = new Rule(Rule.VERTICAL, true);
+    if (david != null) {
+        rowView.setPreferredHeight(david.getIconHeight());
+    } else {
+        rowView.setPreferredHeight(480);
+    }
+    <b>rowView.getAccessibleContext().setAccessibleName("Row Header");</b>
+    <b>rowView.getAccessibleContext().
+            setAccessibleDescription("Displays vertical ruler for " +
+                                     "measuring scroll pane client.");</b>
+
+    // Create the corners.
+    JPanel buttonCorner = new JPanel();
+    isMetric = new JToggleButton("cm", true);
+    isMetric.setFont(new Font("SansSerif", Font.PLAIN, 11));
+    isMetric.setMargin(new Insets(2,2,2,2));
+    isMetric.addItemListener(this);
+    <b>isMetric.setToolTipText("Toggles rulers' unit of measure " +
+                            "between inches and centimeters.");</b>
+    buttonCorner.add(isMetric); //Use the default FlowLayout
+    <b>buttonCorner.getAccessibleContext().
+                 setAccessibleName("Upper Left Corner");</b>
+
+    <b>String desc = "Fills the corner of a scroll pane " +
+                  "with color for aesthetic reasons.";</b>
+    Corner lowerLeft = new Corner();
+    <b>lowerLeft.getAccessibleContext().
+              setAccessibleName("Lower Left Corner");</b>
+    <b>lowerLeft.getAccessibleContext().setAccessibleDescription(desc);</b>
+
+    Corner upperRight = new Corner();
+    <b>upperRight.getAccessibleContext().
+               setAccessibleName("Upper Right Corner");</b>
+    <b>upperRight.getAccessibleContext().setAccessibleDescription(desc);</b>
+    
+    // Set up the scroll pane.
+    picture = new ScrollablePicture(david,
+                                    columnView.getIncrement());
+    <b>picture.setToolTipText(david.getDescription());</b>
+    <b>picture.getAccessibleContext().setAccessibleName(
+                                     "Scroll pane client");</b>
+
+    JScrollPane pictureScrollPane = new JScrollPane(picture);
+    pictureScrollPane.setPreferredSize(new Dimension(300, 250));
+    pictureScrollPane.setViewportBorder(
+            BorderFactory.createLineBorder(Color.black));
+
+    pictureScrollPane.setColumnHeaderView(columnView);
+    pictureScrollPane.setRowHeaderView(rowView);
+
+    // In theory, to support internationalization you would change
+    // UPPER_LEFT_CORNER to UPPER_LEADING_CORNER,
+    // LOWER_LEFT_CORNER to LOWER_LEADING_CORNER, and
+    // UPPER_RIGHT_CORNER to UPPER_TRAILING_CORNER.  In practice,
+    // bug #4467063 makes that impossible (at least in 1.4.0).
+    pictureScrollPane.setCorner(JScrollPane.UPPER_LEFT_CORNER,
+                                buttonCorner);
+    pictureScrollPane.setCorner(JScrollPane.LOWER_LEFT_CORNER,
+                                lowerLeft);
+    pictureScrollPane.setCorner(JScrollPane.UPPER_RIGHT_CORNER,
+                                upperRight);
+
+    // Put it in this panel.
+    setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
+    add(pictureScrollPane);
+    setBorder(BorderFactory.createEmptyBorder(20,20,20,20));
+}
+</pre></blockquote>
+
+Often, the program sets a component's name and description directly
+through the component's accessible context.
+Other times,
+the program sets an accessible description indirectly with tool tips.
+In the case of the <strong>cm</strong> toggle button,
+the description is set automatically to
+the text on the button.
+
+</blockquote>
+<a name="developing"> 
+<h3>Concepts: How Accessibility Works</h3> 
+</a> 
+<blockquote> 
+An object is accessible if it implements the
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/accessibility/Accessible.html"><font color="#8800bb"><code>Accessible</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/accessibility/Accessible.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> interface.
+The <code>Accessible</code> interface defines just one method,
+<code>getAccessibleContext</code>,
+which returns
+an 
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/accessibility/AccessibleContext.html"><font color="#8800bb"><code>AccessibleContext</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/accessibility/AccessibleContext.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> object.
+The <code>AccessibleContext</code> object is an intermediary
+that contains the accessible information for an accessible object.
+The following figure shows how 
+assistive technologies get the accessible context
+from an accessible object and query it for information:
+
+<p><center><IMG SRC="../../figures/uiswing/misc/howaccessworks.gif" WIDTH="528" HEIGHT="190" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="How assistive technologies get information from accessible objects."></center></p>
+
+
+<p>
+<code>AccessibleContext</code> is an abstract class
+that defines the minimum set of information
+an accessible object must provide about itself.
+The minimum set includes name, description, role,
+state set, and so on.
+To identify its accessible object as having particular capabilities,
+an accessible context can implement one or more of the
+interfaces as shown in the <a href="#interfaceList">Accessible
+Interfaces</a> table. For example, <code>JButton</code> implements
+<code>AccessibleAction</code>, <code>AccessibleValue</code>,
+<code>AccessibleText</code>, and <code>AccessibleExtendedComponent</code>.
+It is not necessary for <code>JButton</code> to implement
+<code>AccessibleIcon</code> because that is implemented by
+the <code>ImageIcon</code> attached to the button.
+
+<p>
+Because the <code>JComponent</code> class itself
+does not implement the <code>Accessible</code> interface,
+instances of its direct subclasses are not accessible.
+If you write a custom component that inherits directly
+from <code>JComponent</code>,
+you need to explicitly make it
+implement the <code>Accessible</code> interface.
+<code>JComponent</code> does have an accessible context,
+called <code>AccessibleJComponent</code>,
+that implements the <code>AccessibleComponent</code>
+interface and provides a minimal amount of accessible information.
+You can provide an accessible context for your custom
+components by creating a subclass of <code>AccessibleJComponent</code>
+and overriding important methods.
+<a href="#accessiblecomponents">Making Custom Components Accessible</a>
+shows two examples of doing this.
+
+<p>
+All the other standard Swing components
+implement the <code>Accessible</code> interface and
+have an accessible context that implements
+one or more of the preceding interfaces as appropriate.
+The accessible contexts for Swing components
+are implemented as inner classes
+and have names of this style:
+<blockquote><pre>
+<em>Component</em>.Accessible<em>Component</em>
+</pre></blockquote>
+If you create a subclass of a standard Swing component
+and your subclass is substantially different from its superclass,
+then you should provide a custom accessible context for it.
+The easiest way is to create a subclass
+of the superclass's accessible context class
+and override methods as necessary.
+For example, if you create a <code>JLabel</code> subclass
+substantially different from <code>JLabel</code>,
+then your <code>JLabel</code> subclass 
+should contain an inner class
+that extends <code>AccessibleJLabel</code>.
+The next section shows how to do so,
+using examples in which <code>JComponent</code> subclasses
+extend <code>AccessibleJComponent</code>.
+
+</blockquote>
+<a name="accessiblecomponents"> 
+<h3>Making Custom Components Accessible</h3> 
+</a> 
+<blockquote> 
+The scroll demo program uses three custom component classes.
+<code>ScrollablePicture</code> is a subclass of <code>JLabel</code>,
+and <code>Corner</code> and <code>Rule</code>
+are both subclasses of <code>JComponent</code>.
+<p>
+The <code>ScrollablePicture</code> class
+relies completely on accessibility
+inherited from <code>JLabel</code> through
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JLabel.AccessibleJLabel.html"><font color="#8800bb"><code>JLabel.AccessibleJLabel</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JLabel.AccessibleJLabel.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>.
+The code that creates an instance of <code>ScrollablePicture</code>
+sets the tool-tip text for the scrollable picture.
+The tool-tip text is used by the context as the component's
+accessible description.
+This behavior is provided by <code>AccessibleJLabel</code>.
+<p>
+The accessible version of the
+<code>Corner</code> class contains just enough code
+to make its instances accessible.
+We implemented accessibility support
+by adding the code shown in bold
+to the original version of <code>Corner</code>.
+
+<blockquote><pre>
+public class Corner extends JComponent <strong>implements Accessible</strong> {
+
+    protected void paintComponent(Graphics g) {
+        //Fill me with dirty brown/orange.
+        g.setColor(new Color(230, 163, 4));
+        g.fillRect(0, 0, getWidth(), getHeight());
+    }
+
+    <strong>public AccessibleContext getAccessibleContext() {
+        if (accessibleContext == null) {
+            accessibleContext = new AccessibleCorner();
+        }
+        return accessibleContext;
+    }
+
+    protected class AccessibleCorner extends AccessibleJComponent {
+        //Inherit everything, override nothing.
+    }</strong>
+}
+</pre></blockquote>
+All of the accessibility provided by this class
+is inherited from
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JComponent.AccessibleJComponent.html"><font color="#8800bb"><code>AccessibleJComponent</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JComponent.AccessibleJComponent.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>.
+This approach is fine for <code>Corner</code>
+because <code>AccessibleJComponent</code> provides
+a reasonable amount of default accessibility information
+and because corners are uninteresting&#151
+they exist only to take up a little bit of space onscreen.
+Other classes, such as <code>Rule</code>,
+need to provide customized information.
+
+<p>
+<code>Rule</code> provides an accessible context for
+itself in the same manner as <code>Corner</code>,
+but the context overrides two methods to provide details
+about the component's role and state:
+<blockquote><pre>
+protected class AccessibleRuler extends AccessibleJComponent {
+
+    public AccessibleRole getAccessibleRole() {
+        return AccessibleRuleRole.RULER;
+    }
+
+    public AccessibleStateSet getAccessibleStateSet() {
+        AccessibleStateSet states =
+            super.getAccessibleStateSet();
+        if (orientation == VERTICAL) {
+            states.add(AccessibleState.VERTICAL);
+        } else {
+            states.add(AccessibleState.HORIZONTAL);
+        }
+        if (isMetric) {
+            states.add(AccessibleRulerState.CENTIMETERS);
+        } else {
+            states.add(AccessibleRulerState.INCHES);
+        }
+        return states;
+    }
+}
+</pre></blockquote>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/accessibility/AccessibleRole.html"><font color="#8800bb"><code>AccessibleRole</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/accessibility/AccessibleRole.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> is an enumeration of objects that identify roles that
+Swing components can play.
+It contains predefined roles such as label, button, and so on.
+The rulers in our example don't fit well
+into any of the predefined roles,
+so the program invents a new one in a subclass
+of <code>AccessibleRole</code>:
+<blockquote><pre>
+class AccessibleRuleRole extends AccessibleRole {
+    public static final AccessibleRuleRole RULER
+        = new AccessibleRuleRole("ruler");
+
+    protected AccessibleRuleRole(String key) {
+        super(key);
+    }
+
+    //Should really provide localizable versions of these names.
+    public String toDisplayString(String resourceBundleName,
+                                  Locale locale) {
+        return key;
+    }
+}
+</pre></blockquote>
+
+Any component that has state can provide state information
+to assistive technologies
+by overriding the <code>getAccessibleStateSet</code>
+method.
+A rule has two sets of states:
+its orientation can be either vertical or horizontal, and
+its units of measure can be either centimeters or inches.
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/accessibility/AccessibleState.html"><font color="#8800bb"><code>AccessibleState</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/accessibility/AccessibleState.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> is an enumeration of predefined states.
+This program uses its predefined states
+for vertical and horizontal orientation.
+Because <code>AccessibleState</code> contains nothing
+for centimeters and inches,
+the program makes a subclass to provide appropriate states:
+<blockquote><pre>
+class AccessibleRulerState extends AccessibleState {
+    public static final AccessibleRulerState INCHES
+        = new AccessibleRulerState("inches");
+    public static final AccessibleRulerState CENTIMETERS
+        = new AccessibleRulerState("centimeters");
+
+    protected AccessibleRulerState(String key) {
+        super(key);
+    }
+
+    //Should really provide localizable versions of these names.
+    public String toDisplayString(String resourceBundleName,
+                                  Locale locale) {
+        return key;
+    }
+}
+</pre></blockquote>
+
+You've seen how to implement accessibility
+for two simple components,
+that exist only to paint themselves onscreen.
+Components that do more,
+such as responding to mouse or keyboard events,
+need to provide more elaborate accessible contexts.
+You can find examples of implementing accessible contexts
+by delving in the source code for the Swing components.
+</blockquote>
+
+<h3>
+<a name="api">The Accessibility API</a>
+</h3>
+<blockquote>
+The tables in this section
+cover just part of the accessibility API.
+For more information about the accessibility API,
+see the API documentation for the classes and packages in the
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/accessibility/package-summary.html"><font color="#8800bb">accessibility package</font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/accessibility/package-summary.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>.
+Also, refer to the API documentation for
+the accessible contexts for individual Swing components.
+<p>
+
+The API for supporting accessibility falls into the following categories:
+
+<ul>
+<li><a href="#settingnamesapi">Naming and Linking Components</a>
+<li><a href="#accessibleapi">Making a Custom Component Accessible</a>
+<li><a href="#interfaceList">Accessible Interfaces</a>
+</ul>
+
+<table border=1>
+<caption><a name="settingnamesapi">Naming and Linking Components</a></caption>
+<tr>
+<th align=left>Method</th>
+<th align=left>Purpose</th>
+</tr>
+ 
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/accessibility/AccessibleContext.html#setAccessibleName(java.lang.String)"><font color="#8800bb"><font size=2><code>getAccessibleContext().setAccessibleName(String)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/accessibility/AccessibleContext.html#setAccessibleName(java.lang.String)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/accessibility/AccessibleContext.html#setAccessibleDescription(java.lang.String)"><font color="#8800bb"><font size=2><code>getAccessibleContext().setAccessibleDescription(String)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/accessibility/AccessibleContext.html#setAccessibleDescription(java.lang.String)"></a>    <br>
+    (<em>on a <code>JComponent</code> 
+    or <code>Accessible</code> object</em>)
+</td>
+<td>Provide a name or description for an accessible object.</td>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JComponent.html#setToolTipText(java.lang.String)"><font color="#8800bb"><font size=2><code>void setToolTipText(String)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JComponent.html#setToolTipText(java.lang.String)"></a>    <br>(<em>in <code>JComponent</code></em>)</td>
+<td>Set a component's tool tip.
+    If you don't set the description,
+    than many accessible contexts use the tool-tip text
+    as the accessible description.</td>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JLabel.html#setLabelFor(java.awt.Component)"><font color="#8800bb"><font size=2><code>void setLabelFor(Component)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JLabel.html#setLabelFor(java.awt.Component)"></a>    <br>(<em>in <code>JLabel</code></em>)</td>
+<td>Associate a label with a component.
+    This tells assistive technologies
+    that a label describes another component.</td>
+</tr>
+
+<tr> 
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/ImageIcon.html#setDescription(java.lang.String)"><font color="#8800bb"><font size=2><code>void setDescription(String)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/ImageIcon.html#setDescription(java.lang.String)"></a>    </code> 
+    <br>(<em>in <code>ImageIcon</code></em>)</td>
+<td>Provide a description for an image icon.</td>
+</tr>
+
+</table>
+
+<br>
+
+<table border=1>
+<caption>
+<a name="accessibleapi">Making a Custom Component Accessible</a>
+</caption>
+<tr>
+<th align=left>Interface or Class</th>
+<th align=left>Purpose</th>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/accessibility/Accessible.html"><font color="#8800bb"><font size=2><code>Accessible</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/accessibility/Accessible.html"></a>    <br>(<em>an interface</em>)</td>
+<td>Components that implement this interface are accessible.
+    Subclasses of <code>JComponent</code>
+    must implement this explicitly.</td>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/accessibility/AccessibleContext.html"><font color="#8800bb"><font size=2><code>AccessibleContext</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/accessibility/AccessibleContext.html"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JComponent.AccessibleJComponent.html"><font color="#8800bb"><font size=2><code><em>JComponent</em>.Accessible<em>JComponent</em></code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JComponent.AccessibleJComponent.html"></a>    </code> 
+    <br>(<em>an abstract class and its subclasses</em>) </td>
+<td><code>AccessibleContext</code> defines the minimal
+    set of information required of accessible objects.
+    The accessible context for each Swing component is
+    a subclass of this and named as shown. For example,
+    the accessible context for <code>JTree</code> is
+    <code>JTree.AccessibleJTree</code>.
+    To provide custom accessible contexts,
+    custom components should contain an inner class
+    that is a subclass of <code>AccessibleContext</code>.
+    For more information, see
+    <a href="#accessiblecomponents">Making Custom
+    Components Accessible</a>.
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/accessibility/AccessibleRole.html"><font color="#8800bb"><font size=2><code>AccessibleRole</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/accessibility/AccessibleRole.html"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/accessibility/AccessibleStateSet.html"><font color="#8800bb"><font size=2><code>AccessibleStateSet</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/accessibility/AccessibleStateSet.html"></a>    <br>(<em>classes</em>)</td>
+<td> Define the objects
+     returned by an <code>AccessibleContext</code> object's
+     <code>getAccessibleRole</code> and
+     <code>getAccessibleStateSet</code> methods,
+     respectively.</td>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/accessibility/AccessibleRelation.html"><font color="#8800bb"><font size=2><code>AccessibleRelation</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/accessibility/AccessibleRelation.html"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/accessibility/AccessibleRelationSet.html"><font color="#8800bb"><font size=2><code>AccessibleRelationSet</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/accessibility/AccessibleRelationSet.html"></a>    <br>(<em>classes introduced in 1.3</em>)</td>
+<td>Define the relations between components that
+    implement this interface and one or more other
+    objects.
+</font>
+</td>
+</table>
+
+<br>
+
+<table border=1>
+<caption>
+<a name="interfaceList">Accessible Interfaces</a>
+</caption>
+<tr>
+<th align=left>Interface</th>
+<th align=left>Purpose</th>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/accessibility/AccessibleAction.html"><font color="#8800bb"><font size=2><code>AccessibleAction</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/accessibility/AccessibleAction.html"></a></td>
+<td>Indicates that the object can perform actions.
+    By implementing this interface,
+    the accessible context can give information about
+    what actions the accessible object can perform
+    and can tell the accessible object to perform them.
+</td>
+</tr>
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/accessibility/AccessibleComponent.html"><font color="#8800bb"><font size=2><code>AccessibleComponent</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/accessibility/AccessibleComponent.html"></a></td>
+<td>Indicates that the accessible object has an onscreen presence.
+    Through this interface, an accessible object
+    can provide information about its size, position, visibility and so on.
+    The accessible contexts for all standard Swing components
+    implement this interface, directly or indirectly.
+    The accessible contexts for your custom components
+    should do the same.
+    As of 1.4, <code>AccessibleExtendedComponent</code> is preferred.
+</td>
+</tr>
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/accessibility/AccessibleEditableText.html"><font color="#8800bb"><font size=2><code>AccessibleEditableText</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/accessibility/AccessibleEditableText.html"></a>    <br><em>(Introduced in 1.4)</em>
+</td>
+<td>Indicates that the accessible object displays editable text.
+    In addition to the information available from its superinterface,
+    <code>AccessibleText</code>, methods are provided for cutting, pasting,
+    deleting, selecting, and inserting text.
+</td>
+</tr>
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/accessibility/AccessibleExtendedComponent.html"><font color="#8800bb"><font size=2><code>AccessibleExtendedComponent</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/accessibility/AccessibleExtendedComponent.html"></a>    <br><em>(Introduced in 1.4)</em>
+</td>
+<td>In addition to the information available from its superinterface,
+    <code>AccessibleComponent</code>, methods are provided for obtaining
+    key bindings, border text, and tool-tip text.
+</td>
+</tr>
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/accessibility/AccessibleExtendedTable.html"><font color="#8800bb"><font size=2><code>AccessibleExtendedTable</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/accessibility/AccessibleExtendedTable.html"></a>    <br><em>(Introduced in 1.4)</em>
+</td>
+<td>In addition to the information available from its superinterface,
+    <code>AccessibleTable</code>, methods are provided to convert between an index
+    and its row or column.
+</td>
+</tr>
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/accessibility/AccessibleHypertext.html"><font color="#8800bb"><font size=2><code>AccessibleHypertext</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/accessibility/AccessibleHypertext.html"></a></td>
+<td>Indicates that the accessible object contains hyperlinks.
+    Through this interface, an accessible object can provide
+    information about its links and allow them to be traversed.
+</td>
+</tr>
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/accessibility/AccessibleIcon.html"><font color="#8800bb"><font size=2><code>AccessibleIcon</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/accessibility/AccessibleIcon.html"></a>    <br><em>(Introduced in 1.3)</em>
+</td>
+<td>Indicates that the accessible object has an associated icon.
+    Methods are provided that return information about the
+    icon, such as size and description.
+</td>
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/accessibility/AccessibleKeyBinding.html"><font color="#8800bb"><font size=2><code>AccessibleKeyBinding</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/accessibility/AccessibleKeyBinding.html"></a>    <br><em>(Introduced in 1.4)</em>
+</td>
+<td>Indicates that the accessible object supports one or more
+    keyboard shortcuts that can be used to select the object.
+    Methods are provided that return the key bindings for a given object.
+</td>
+</tr>
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/accessibility/AccessibleSelection.html"><font color="#8800bb"><font size=2><code>AccessibleSelection</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/accessibility/AccessibleSelection.html"></a></td>
+<td>Indicates that the accessible object can contain a selection.
+    Accessible contexts that implement this interface can
+    report information about the current selection
+    and can modify the selection.
+</td>
+</tr>
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/accessibility/AccessibleTable.html"><font color="#8800bb"><font size=2><code>AccessibleTable</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/accessibility/AccessibleTable.html"></a>    <br><em>(Introduced in 1.3)</em>
+</td>
+<td>Indicates that the accessible object presents data in a two-dimensional
+    data object.  Through this interface information about the table such as
+    table caption, row and column size, description, and name are provided. 
+    As of 1.4, <code>AccessibleExtendedTable</code> is preferred.
+</td>
+</tr>
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/accessibility/AccessibleText.html"><font color="#8800bb"><font size=2><code>AccessibleText</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/accessibility/AccessibleText.html"></a></td>
+<td>Indicates that the accessible object displays text.
+    This interface provides methods for returning all or part
+    of the text, attributes applied to it, and other information
+    about the text such as its length.
+</td>
+</tr>
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/accessibility/AccessibleValue.html"><font color="#8800bb"><font size=2><code>AccessibleValue</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/accessibility/AccessibleValue.html"></a></td>
+<td>Indicates that the object has a numeric value.
+    Through this interface an accessible object 
+    provides information about its current value
+    and its minimum and maximum values.
+</td>
+</tr>
+</table>
+
+
+</blockquote>
+ 
+<h3> 
+<a name="eg">Examples that Use the Accessibility API</a> 
+</h3> 
+<blockquote> 
+The following table lists some
+of our examples that have good support for assistive technologies.
+<br>
+<p>
+<table>
+<tr>
+<th align=left> Example</th>
+<th align=left> Where Described</th>
+<th align=left> Notes</th>
+</tr>
+
+<tr>
+<td> <a href="example-1dot4/index.html#AccessibleScrollDemo">
+     <code>AccessibleScrollDemo</code></a></td>
+<td> This section</td>
+<td> Contains two custom components
+     that implement the <code>Accessible</code> interface.
+     To see a less accessible version of this program see
+     <a href="../components/scrollpane.html">
+     How to Use Scroll Panes</a>.</td>
+</tr>
+
+<tr>
+<td> <a href="../components/example-1dot4/index.html#ButtonDemo">
+     <code>ButtonDemo</code></a></td>
+<td> 
+<a target="_top" href="../components/button.html#abstractbutton">How to Use the Common Button API</a><a target="_top" href="../components/button.html#abstractbutton"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a></td>
+<td> Uses three buttons.
+     Supports accessibility through button text, mnemonics, and tool tips.</td>
+</tr>
+</table>
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="action.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#misc" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="border.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

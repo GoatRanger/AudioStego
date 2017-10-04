@@ -1,0 +1,217 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Grant the Required Permission</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="wstep1.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#tour1" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="wstep3.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Security in Java 2 SDK 1.2
+<br>
+<b>Lesson</b>: Quick Tour of Controlling Applets
+</font>
+
+<h2>
+Grant the Required Permission
+</h2>
+<blockquote>
+To grant the <code>WriteFile</code> applet permission to
+create and to write to the <code>writetest</code> file,
+you must create a policy entry granting this permission.
+To do so, choose
+the <b>Add Policy Entry</b> button
+in the main Policy Tool window.
+This brings up the Policy Entry dialog box,
+as shown in the following figure.
+
+<p><center><a href="../../figures/security1.2/AddEntryBlank1.gif" target="_top"><IMG SRC="../../figures/security1.2/AddEntryBlank1.gif" WIDTH="460" HEIGHT="212" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></a><br><em>This figure has been reduced to fit on the page. <br> Click the image to view it at its natural size.</em></center></p>
+<p>A policy entry specifies one or more permissions for code from a particular
+<i>code source</i> - code from a particular location (URL), 
+code signed by a
+particular entity, or both.
+
+<p>The <b>CodeBase</b> and the <b>SignedBy</b> text boxes are used to
+specify which code you want to grant the permission(s) you
+will be adding. 
+
+<ul>
+
+<li>A <b>CodeBase</b> value indicates the code source location; 
+you grant the permission(s)
+to code from that location.
+An empty <b>CodeBase</b> entry signifies
+"any code" -- it doesn't matter where the code originates.<p>
+
+<li>A <b>SignedBy</b> 
+value indicates the alias for a certificate stored in a keystore.
+The public key within that certificate is used to verify the digital
+signature on the code; you grant
+the permission(s) to code signed by the private key corresponding
+to the public key in the keystore entry specified by the alias.
+The <b>SignedBy</b> entry is optional; omitting it 
+signifies "any signer" -- it doesn't matter whether 
+the code is signed or by whom.
+
+</ul>
+
+<p>If you have both a  <b>CodeBase</b> and a <b>SignedBy</b>
+entry, the permission(s) will be granted
+only to code that is both from the specified location <i>and</i> signed by
+the named alias.
+
+<p>To grant <code>WriteFile</code> the permission it needs, you can grant the
+permission to all code from the location (URL) where 
+<code>WriteFile.class</code> is stored.
+
+<p>Type the following URL
+into the <b>CodeBase</b> text box of the Policy Entry dialog box:
+
+<blockquote><pre>
+http://java.sun.com/docs/books/tutorial/security1.2/tour1/example-1dot2/
+</pre></blockquote>
+
+(Note, this is a URL and thus must always have
+slashes, not backslashes.)
+
+
+<p>Leave the <b>SignedBy</b> text box blank, since you aren't requiring the code
+to be signed.
+
+<blockquote><hr><strong>Note:</strong>&nbsp;If you wanted to grant the permission to any code 
+(<code>.class</code> file) not just from the directory specified previously
+but from the <code>security1.2</code> directory 
+<i>and its subdirectories</i>, you'd type the
+following URL into the <b>CodeBase</b> box:
+
+<blockquote><pre>
+http://java.sun.com/docs/books/tutorial/security1.2/-
+</pre></blockquote>
+<hr></blockquote>
+
+
+<p>You've specified where the code comes from (the 
+<b>CodeBase</b>), and that the code does not have to be signed 
+(since there's no <b>SignedBy</b> 
+value). Now you are ready to grant  permissions to that code.
+
+<p>Choose the <b>Add Permission</b> button to
+bring up the Permissions dialog box.
+
+<p><center><a href="../../figures/security1.2/AddPermBlank.gif" target="_top"><IMG SRC="../../figures/security1.2/AddPermBlank.gif" WIDTH="460" HEIGHT="164" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></a><br><em>This figure has been reduced to fit on the page. <br> Click the image to view it at its natural size.</em></center></p>
+Do the following
+to grant code from the specified <b>CodeBase</b>
+permission to write (and thus also to create) the file named
+<code>writetest</code>.
+
+<ol>
+
+<li>Choose <b>File Permission</b> from the Permission drop-down list. The
+complete permission type name (<code>java.io.FilePermission</code>)
+now appears in the text box to the right of the drop-down list.<p>
+
+<li>Type the following in the text box to the right of the list labeled
+Target Name to specify the file named <code>writetest</code>:
+
+<blockquote><pre>
+<b>writetest</b>
+</pre></blockquote>
+
+<li>Specify write access by choosing the <b>write</b> option from the 
+Actions drop-down list.
+
+</ol>
+
+Now the Permissions dialog box looks like the following.
+
+<p><center><a href="../../figures/security1.2/WQ1addFilePerm.gif" target="_top"><IMG SRC="../../figures/security1.2/WQ1addFilePerm.gif" WIDTH="460" HEIGHT="165" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></a><br><em>This figure has been reduced to fit on the page. <br> Click the image to view it at its natural size.</em></center></p>
+<p>Choose the
+<b>OK</b> button. The new permission appears in a line
+in the Policy Entry dialog. So now the policy entry window looks like this.
+
+<p><center><a href="../../figures/security1.2/WQ1addEntry1.gif" target="_top"><IMG SRC="../../figures/security1.2/WQ1addEntry1.gif" WIDTH="460" HEIGHT="236" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></a><br><em>This figure has been reduced to fit on the page. <br> Click the image to view it at its natural size.</em></center></p>
+<p>You are now done specifying this policy entry, so choose the <b>Done</b> 
+button in the Policy Entry dialog. The Policy Tool window now contains a line
+representing the policy entry, showing the 
+<b>CodeBase</b> value.
+
+<p><center><a href="../../figures/security1.2/WQ1ptOneCB1.gif" target="_top"><IMG SRC="../../figures/security1.2/WQ1ptOneCB1.gif" WIDTH="460" HEIGHT="220" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></a><br><em>This figure has been reduced to fit on the page. <br> Click the image to view it at its natural size.</em></center></p>
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="wstep1.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#tour1" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="wstep3.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

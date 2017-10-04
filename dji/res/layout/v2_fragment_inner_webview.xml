@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.publics.DJIUI.DJIRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent">
+    <include android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/v2_fragment_base_webview" />
+    <dji.pilot2.share.LoadingView android:id="@+id/v2_share_loding_view" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" />
+</dji.publics.DJIUI.DJIRelativeLayout>

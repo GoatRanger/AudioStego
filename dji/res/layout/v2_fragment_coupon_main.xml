@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent">
+    <include android:id="@+id/v2_coupon_header" layout="@layout/v2_coupon_header" />
+    <dji.pilot2.coupon.CouponRefreshableView android:id="@+id/v2_coupon_refresh" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x1" android:layout_above="@+id/v2_coupon_main_childitem_terms" android:layout_below="@+id/v2_coupon_header">
+        <ListView android:id="@+id/v2_coupon_list" android:visibility="visible" android:scrollbars="UNKNOWN_DATA_0x0" android:layout_width="match_parent" android:layout_height="match_parent" />
+    </dji.pilot2.coupon.CouponRefreshableView>
+    <dji.pilot.publics.widget.DJIStateTextView android:textSize="11sp" android:textColor="#9b9b9b" android:id="@+id/v2_coupon_main_childitem_terms" android:padding="@dimen/fj" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" />
+    <include layout="@layout/v2_coupon_loading" />
+</RelativeLayout>

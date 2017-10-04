@@ -1,0 +1,12 @@
+/**
+ * 
+ */
+package gui;
+
+/**
+ * @author Karl
+ *
+ */
+public class SimControlListener {
+
+}

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AWTTestScript desc="IT105 Editor">
+  <launch args="[]" class="eecs.editor.EditorTabbed" classpath="." desc="Insert your launch information here" method="main" threaded="true" />
+  <terminate />
+</AWTTestScript>
+

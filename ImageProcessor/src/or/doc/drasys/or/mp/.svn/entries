@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="33"
+   name=""
+   committed-date="2005-02-01T06:11:53.421875Z"
+   url="svn://192.168.2.2/ImageProcessor/src/or/doc/drasys/or/mp"
+   last-author="Karl"
+   kind="dir"
+   uuid="0daf4267-3229-f84b-9084-f3c94b025f38"
+   revision="55"/>
+<entry
+   committed-rev="33"
+   name="ConvergenceException.html"
+   text-time="2005-03-02T06:25:35.562500Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="73fc5bf95b59151dc0aa9bd8514e5239"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:34.968750Z"/>
+<entry
+   committed-rev="33"
+   name="InfeasibleException.html"
+   text-time="2005-03-02T06:25:35.562500Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="8e36ab8f9f04df3be0a2bfcda65e55db"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:34.968750Z"/>
+<entry
+   committed-rev="33"
+   name="SizableProblemI.html"
+   text-time="2005-03-02T06:25:35.593750Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="09bb09b3226ec539d6484482886607a7"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:35.000000Z"/>
+<entry
+   committed-rev="33"
+   name="package-frame.html"
+   text-time="2005-03-02T06:25:35.578125Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="3a3afad2f3c36d5747e11ad69186bf04"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:34.984375Z"/>
+<entry
+   committed-rev="33"
+   name="Constraint.html"
+   text-time="2005-03-02T06:25:35.593750Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="c4681eca19b9d6616656777c23ce0c6c"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:35.015625Z"/>
+<entry
+   committed-rev="33"
+   name="Variable.html"
+   text-time="2005-03-02T06:25:35.609375Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="e3253ef50ff09a9b18a56d227493683e"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:35.015625Z"/>
+<entry
+   committed-rev="33"
+   name="MpError.html"
+   text-time="2005-03-02T06:25:35.625000Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="b66db1eb4bc55ecc3d1b314c4df10891"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:35.046875Z"/>
+<entry
+   committed-rev="33"
+   name="package-summary.html"
+   text-time="2005-03-02T06:25:35.609375Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="f60c475d87b782dda4536cf83f3f9402"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:35.031250Z"/>
+<entry
+   committed-rev="33"
+   name="NoSolutionException.html"
+   text-time="2005-03-02T06:25:35.640625Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="28525c00db2bb79558c2152a70877ee1"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:35.062500Z"/>
+<entry
+   committed-rev="33"
+   name="package-tree.html"
+   text-time="2005-03-02T06:25:35.625000Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="8a9476eedbd718f0edd026a3da143074"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:35.062500Z"/>
+<entry
+   committed-rev="33"
+   name="DuplicateException.html"
+   text-time="2005-03-02T06:25:35.640625Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="c0dc7c799aa54ea8449d16acf292b98b"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:35.078125Z"/>
+<entry
+   committed-rev="33"
+   name="MpException.html"
+   text-time="2005-03-02T06:25:35.656250Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="cfe99b57a74ac9c768919b6dd6c3727c"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:35.093750Z"/>
+<entry
+   committed-rev="33"
+   name="ConstraintI.html"
+   text-time="2005-03-02T06:25:35.656250Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="2a37478dec0276c203ef54e109317a8b"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:35.093750Z"/>
+<entry
+   committed-rev="33"
+   name="VariableI.html"
+   text-time="2005-03-02T06:25:35.671875Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="85d9a699bf0bbea14ca41acf2b644b46"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:35.125000Z"/>
+<entry
+   committed-rev="33"
+   name="NumericalException.html"
+   text-time="2005-03-02T06:25:35.671875Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="660d02dba71b2217443ceee6bc359401"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:35.125000Z"/>
+<entry
+   committed-rev="33"
+   name="Problem.html"
+   text-time="2005-03-02T06:25:35.687500Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="d98699de8128fb7bad215e485c24e59d"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:35.140625Z"/>
+<entry
+   committed-rev="33"
+   name="UnboundedException.html"
+   text-time="2005-03-02T06:25:35.703125Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="2e8f55474d19f3b746c2381181241e81"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:35.156250Z"/>
+<entry
+   committed-rev="33"
+   name="InvalidException.html"
+   text-time="2005-03-02T06:25:35.703125Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="9c3cfd9825d44a091a4f21d3973b6d72"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:35.171875Z"/>
+<entry
+   committed-rev="33"
+   name="SyntaxException.html"
+   text-time="2005-03-02T06:25:35.718750Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="5cffa32074e9a69c402901629cd449e1"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:35.187500Z"/>
+<entry
+   committed-rev="33"
+   name="ScaleException.html"
+   text-time="2005-03-02T06:25:35.718750Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="09322b93b86971d7a2342bb6d31b4a9a"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:35.187500Z"/>
+<entry
+   name="lp"
+   kind="dir"/>
+<entry
+   committed-rev="33"
+   name="ProblemI.html"
+   text-time="2005-03-02T06:25:35.734375Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="a338ef554cd63f8488ac009b76591e71"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:35.359375Z"/>
+<entry
+   name="util"
+   kind="dir"/>
+<entry
+   committed-rev="33"
+   name="NotFoundException.html"
+   text-time="2005-03-02T06:25:35.734375Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="c03fcf885ff905463f238c4296b7632a"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:35.546875Z"/>
+</wc-entries>

@@ -1,0 +1,144 @@
+<!DOCTYPE doctype PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+                                                    
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+                                                    
+  <meta name="GENERATOR" content="Mozilla/4.79C-CCK-MCD  [en] (X11; U; SunOS 5.8 sun4u) [Netscape]">
+  <title>Customer Mini-Application &gt; Architecture</title>
+</head>
+ <body>
+             &nbsp;             
+<table border="0" cellspacing="0" cellpadding="5" width="100%">
+             <tbody>
+                <tr>
+              <td bgcolor="#000033"><b><font color="#ccccff"><a href="index.html">
+      Customer Mini-Application </a></font></b>       <font color="#ffffff">
+     &gt; <b>Architecure </b></font></td>
+               <td bgcolor="#000033">                                   
+                                                
+      <div align="Right"><b><font color="#ccccff"><a href="http://java.sun.com/blueprints/">
+        Java BluePrints</a></font></b></div>
+             </td>
+             </tr>
+                                                 
+  </tbody>            
+</table>
+                          
+<div align="Justify">        
+<h1> Customer  Mini-Application </h1>
+             This document will briefly describe the Customer mini-application, 
+including a description of the requirements, a description of the structure 
+and design, and some other design considerations.     
+<h2> Requirements and Use Cases</h2>
+    
+<p>This application allows browser clients to create new accounts by filling
+in some fields in a form and submitting the form. The account data will be
+persisted in a database. The customer can also view existing accounts by
+supplying an account identification key, ID,  and submitting the ID. When
+the customer enters a new account or reads the data of an existing account,
+they will then view either a page showing the account data, or if there is
+an error they will view an error page. </p>
+   
+<p> Note that this application is very simple and does not handle all scenarios 
+of a full application. For instance, it does not provide any security or ability
+to sign on or off. </p>
+                               
+<center>                  
+<table border="0">
+                    <tbody>
+     <tr>
+                      <td align="Center"><img src="images/UseCases.gif" align="Center">
+                      </td>
+                    </tr>
+                    <tr>
+                      <td align="Left">                     <b>         
+           <font size="-1">     Figure 1. UML Use Case Diagram     </font>
+                      </b>                     </td>
+                    </tr>
+                     
+  </tbody> 
+</table>
+                </center>
+               <br>
+      
+<h2> Design</h2>
+     
+<p>    This section will briefly discuss the structure of the application. 
+Overall the application architecture follows the <a href="http://java.sun.com/blueprints/patterns/MVC.html">
+ Model-View-Controller</a>  pattern. The design and implementation follow 
+several other patterns. See the BluePrints  <a href="http://java.sun.com/blueprints/patterns/index.html">
+  patterns page</a>   for detailed information on patterns. All user requests
+are directed to a   <a href="http://java.sun.com/blueprints/patterns/FrontController.html">
+ Front Controller</a> Servlet which processes all requests, interacts with 
+the data in the database, and chooses the next page to return to return to 
+the customer. The FrontController servlet delegates the processing of creating 
+new accounts and reading from existing accounts to the AccountHandler class. 
+The AccountHandler reads the fields for the submitted form, acesses the CustomerFacade 
+to access the data model, and places the return data in a ResultBean class 
+that the ScreenView page, the showaccount.jsp in this case,   uses to populate 
+the view. The CustomerFacade is the class responsible for interacting with 
+the data model. The data is persisted in a database. Note that the CustomerFacade 
+uses the Factory pattern to lookup the type of AccountDAO to use. Since we 
+are using a cloudscape database, it returns a DAO for that type of data source 
+and the database. So data is access by the CloudscapeAccountDAO class. The 
+CloudscapeAccountDAO  has all the JDBC code used to access the cloudscape 
+database. This is an example of the <a href="http://java.sun.com/blueprints/patterns/DAO.html">
+ Data Access Object</a> pattern.       </p>
+                            
+<center>                  
+<table border="0">
+                    <tbody>
+     <tr>
+                      <td align="Center"><img src="images/ClassUML.gif" align="Center">
+                      </td>
+                    </tr>
+                    <tr>
+                      <td align="Left">                     <b>         
+           <font size="-1">     Figure 2. UML Class Diagram     </font> 
+                   </b>                     </td>
+                    </tr>
+                     
+  </tbody> 
+</table>
+                </center>
+               <br>
+      
+<h2> Other Design Considerations </h2>
+     
+<h3> Transactions </h3>
+   
+<p> This mini-application has very simple transactional needs. The data is 
+only updated when a user creates a new account. In J2EE, there are several 
+ways to  manage transactions. In this application we just use the default 
+capabilities of the JDBC Connection. In J2EE autocommit is set to true by 
+default so when a Connection is opened, an SQL operation executed on the Connection,
+and the Connection is closed, then the transaction is done automatically. 
+  <br>
+  </p>
+ 
+<h3> Concurrency </h3>
+  The Data Access Object CloudscapeAccountDAO is stateless. It holds no member 
+fields and it opens and closes Connections within each method call. In J2EE, 
+the Connections are pooled so it does not impact performace to open and close 
+a connection. Since the DAO is a stateless object that contains no state
+specific to any user, it can be held at application scope and shared by more
+than one user.   <br>
+                       
+<p>Check out the Java BluePrints Web site at <tt><a href="http://java.sun.com/blueprints/">
+        http://java.sun.com/blueprints/</a></tt>   for the latest content.
+ </p>
+                          
+<p> </p>
+                       
+<hr noshade="">       
+<div align="Left"><a href="../../../../docs/copyright.html">Copyright &copy; 
+2003 Sun Microsystems, &nbsp;&nbsp; &nbsp; Inc. All Rights Reserved.</a>
+<br>
+       </div>
+             <br>
+          <br>
+        </div>
+                 
+</body>
+</html>

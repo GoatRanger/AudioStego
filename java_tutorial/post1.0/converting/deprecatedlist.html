@@ -1,0 +1,316 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>List of Deprecated Classes and Methods in JDK 1.1</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="deprecatedAWT.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#converting" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="eventConversion.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: JDK(TM) 1.1 -- And Beyond!
+<br>
+<b>Lesson</b>: Migrating to 1.1
+</font>
+
+<h2>
+List of Deprecated Classes and Methods in JDK 1.1
+</h2>
+<blockquote>
+The following lists all the deprecated API in the <code>java.*</code>
+packages of JDK 1.1.  
+
+</blockquote>
+<h3>Deprecated Classes</h3>
+<blockquote>
+This tables just lists the deprecated classes. Everything in a deprecated
+class is also deprecated. So
+constructors, methods, and fields inside the deprecated classes are not
+explicitly listed.
+<p>
+<table border cellpadding=5>
+<tr>
+<td><code>java.io.LineNumberInputStream</code></td>
+</tr>
+<tr>
+<td><code>java.io.StringBufferInputStream</code></td>
+</tr>
+</table>
+</blockquote>
+
+<h3>Deprecated Methods</h3>
+<blockquote>
+<table border cellpadding=5>
+<tr><th colspan=2>java.awt</th></tr>
+<tr><td>BorderLayout</td><td>addLayoutComponent</td></tr>
+<tr><td>CardLayout</td><td>addLayoutComponent</td></tr>
+<tr><td>CheckBoxGroup</td><td>getCurrent<br> setCurrent</td></tr>
+<tr><td>Choice</td><td>countItems</td></tr>
+<tr><td>Component</td>
+    <td>
+	<table cellpadding=0>
+	<tr>
+	<td>action</td>
+	<td>bounds</td>
+	<td>deliverEvent</td>
+	</tr>
+	<tr>
+	<td>disable</td>
+	<td>enable</td>
+	<td>getPeer</td>
+	</tr>
+	<tr>
+	<td>gotFocus</td>
+	<td>handleEvent</td>
+	<td>hide</td>
+	</tr>
+	<tr>
+	<td>inside</td>
+	<td>keyDown</td>
+	<td>keyUp</td>
+	</tr>
+	<tr>
+	<td>layout</td>
+	<td>locate</td>
+	<td>location</td>
+	</tr>
+	<tr>
+	<td>lostFocus</td>
+	<td>minimumSize</td>
+	<td>mouseDown</td>
+	</tr>
+	<tr>
+	<td>mouseDrag</td>
+	<td>mouseEnter</td>
+	<td>mouseExit</td>
+	</tr>
+	<tr>
+	<td>mouseMove</td>
+	<td>mouseUp</td>
+	<td>move</td>
+	</tr>
+	<tr>
+	<td>nextFocus</td>
+	<td>postEvent</td>
+	<td>preferredSize</td>
+	</tr>
+	<tr>
+	<td>reshape</td>
+	<td>resize</td>
+	<td>show</td>
+	</tr>
+	<tr>
+	<td>size</td>
+	</tr>
+	</table>
+    </td>
+</tr>
+<tr><td>Container</td>
+    <td>
+	<table cellpadding=0>
+	<tr>
+	<td>countComponents</td>
+	<td>deliverEvent</td>
+	<td>insets</td>
+	</tr>
+	<tr>
+	<td>layout</td>
+	<td>locate</td>
+	<td>minimumSize</td>
+	</tr>
+	<tr>
+	<td>preferredSize</td>
+	</tr>
+	</table>
+    </td>
+</tr>
+<tr><td>FontMetrics</td><td>getMaxDecent</td></tr>
+<tr><td>Frame</td><td>getCursorType<br>setCursor</td></tr>
+<tr><td>Graphics</td><td>getClipRect</td></tr>
+<tr><td>List</td>
+    <td>
+	<table cellpadding=0>
+	<tr>
+	<td>allowsMultipleSelections</td>
+	<td>clear</td>
+	</tr>
+	<tr>
+	<td>countItems</td>
+	<td>delItems</td>
+	</tr>
+	<tr>
+	<td>isSelected</td>
+	<td>minimumSize</td>
+	</tr>
+	<tr>
+	<td>preferredSize</td>
+	<td>setMultipleSelections</td>
+	</tr>
+	</table>
+    </td>
+</tr>
+<tr><td>Menu</td><td>countItems</td></tr>
+<tr><td>MenuBar</td><td>countMenus</td></tr>
+<tr><td>MenuComponent</td><td>getPeer<br>postEvent</td></tr>
+<tr><td>MenuContainer</td><td>postEvent</td></tr>
+<tr><td>MenuItem</td><td>disable<br>enable</td></tr>
+<tr><td>Polygon</td><td>getBoundingBox<br>inside</td></tr>
+<tr><td>Rectangle</td><td>inside<br>move<br>reshape<br>resize</td></tr>
+<tr><td>ScrollPane</td><td>layout</td></tr>
+<tr><td>Scrollbar</td><td>
+			getLineIncrement<br>
+			getPageIncrement<br>
+			getVisible<br>
+			setLineIncrement<br>
+			setPageIncrement</td></tr>
+<tr><td>TextArea</td>
+    <td>
+	<table cellpadding=0>
+	<tr>
+	<td>appendText</td>
+	<td>insertText</td>
+	<td>minimumSize</td>
+	</tr>
+	<tr>
+	<td>preferredSize</td>
+	<td>replaceText</td>
+	</tr>
+	</table>
+    </td>
+</tr>
+<tr><td>TextField</td><td>
+			minimumSize<br>
+			preferredSize<br>
+			setEchoCharacter<br>
+			</td></tr>
+<tr><td>Window</td><td>postEvent</td></tr>
+<tr><th colspan=2>java.io</th></tr>
+<tr><td>ByteArrayOutputStream</td><td>toString</td></tr>
+<tr><td>DataInputStream</td><td>readLine</td></tr>
+<tr><td>PrintStream</td><td>PrintStream</td></tr>
+<tr><td>StreamTokenizer</td><td>StreamTokenizer</td></tr>
+<tr><th colspan=2>java.lang</th></tr>
+<tr><td>Character</td><td>isJavaLetter<br>isJavaLetterOrDigit<br>
+	isSpace</td></tr>
+<tr><td>ClassLoader</td><td>defineClass</td></tr>
+<tr><td>Runtime</td><td>getLocalizedInputStream<br>getLocalizedOutputStream</td></tr>
+<tr><td>String</td><td>getBytes<br>String</td></tr>
+<tr><td>System</td><td>getenv</td></tr>
+<tr><th colspan=2>java.net</th></tr>
+<tr><td>Socket</td><td>Socket</td></tr>
+<tr><th colspan=2>java.util</th></tr>
+<tr><td>Date</td>
+    <td>
+	<table cellpadding=0>
+	<tr>
+	<td>Date</td>
+	<td>getDate</td>
+	<td>getDay</td>
+	</tr>
+	<tr>
+	<td>getHours</td>
+	<td>getMinutes</td>
+	<td>getMonth</td>
+	</tr>
+	<tr>
+	<td>getSeconds</td>
+	<td>getTimezoneOffset</td>
+	<td>getYear</td>
+	</tr>
+	<tr>
+	<td>parse</td>
+	<td>setDate</td>
+	<td>setHours</td>
+	</tr>
+	<tr>
+	<td>setMinutes</td>
+	<td>setMonth</td>
+	<td>setSeconds</td>
+	</tr>
+	<tr>
+	<td>setYear</td>
+	<td>toGMTString</td>
+	<td>toLocaleString</td>
+	</tr>
+	</table>
+    </td>
+</tr>
+</table>
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="deprecatedAWT.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#converting" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="eventConversion.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

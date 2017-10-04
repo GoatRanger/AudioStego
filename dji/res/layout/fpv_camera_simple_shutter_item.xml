@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res-auto" phantom:layout_width="UNKNOWN_DATA_0x7f0b00e3" phantom:layout_height="UNKNOWN_DATA_0x7f0b00e5">
+    <dji.publics.DJIUI.DJITextView phantom:textSize="@dimen/rl" phantom:textColor="@color/om" phantom:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" phantom:id="@+id/fpv_camera_simple_shutter_item_tv" phantom:layout_width="match_parent" phantom:layout_height="match_parent" phantom:lines="1" phantom:djiTextFace="2" />
+</FrameLayout>

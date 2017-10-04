@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="33"
+   name=""
+   committed-date="2005-02-01T06:11:53.421875Z"
+   url="svn://192.168.2.2/ImageProcessor/src/or/doc/drasys/or/graph/color"
+   last-author="Karl"
+   kind="dir"
+   uuid="0daf4267-3229-f84b-9084-f3c94b025f38"
+   revision="55"/>
+<entry
+   committed-rev="33"
+   name="WS_FTP.LOG"
+   text-time="2005-03-02T06:25:25.562500Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="93d9c5a1260a5b1038b7bb0165de5e5a"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:25.500000Z"/>
+<entry
+   committed-rev="33"
+   name="package-frame.html"
+   text-time="2005-03-02T06:25:25.578125Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="6134e31706375c81b3d719c1ce99a1a3"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:25.500000Z"/>
+<entry
+   committed-rev="33"
+   name="WelshPowell.html"
+   text-time="2005-03-02T06:25:25.578125Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="f42ff0f7b82477c1d615b14926a1cfd0"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:25.515625Z"/>
+<entry
+   committed-rev="33"
+   name="ColoringI.html"
+   text-time="2005-03-02T06:25:25.593750Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="254b514f41e45f473ec4513c3f7d2a2a"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:25.531250Z"/>
+<entry
+   committed-rev="33"
+   name="package-summary.html"
+   text-time="2005-03-02T06:25:25.593750Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="7decd1401f338caf88caa1294987e9c0"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:25.546875Z"/>
+<entry
+   committed-rev="33"
+   name="package-tree.html"
+   text-time="2005-03-02T06:25:25.609375Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="05dffc115c572e3a9058fc162d5e7fb5"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:25.546875Z"/>
+</wc-entries>

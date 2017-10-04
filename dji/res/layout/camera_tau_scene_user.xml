@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.pilot.fpv.camera.newfn.DJICameraTauSceneView xmlns:android="http://schemas.android.com/apk/res-auto" phantom:orientation="vertical" phantom:background="@r$drawable/camera_setting_bg" phantom:layout_width="match_parent" phantom:layout_height="UNKNOWN_DATA_0x7f0b00de" phantom:baselineAligned="false" phantom:splitMotionEvents="false">
+    <include phantom:id="@+id/camera_tau_scene_user_dde" phantom:layout_width="match_parent" phantom:layout_height="UNKNOWN_DATA_0x1" phantom:layout_weight="1.0" layout="@layout/camera_tau_scene_item" />
+    <include phantom:id="@+id/camera_tau_scene_user_ace" phantom:layout_width="match_parent" phantom:layout_height="UNKNOWN_DATA_0x1" phantom:layout_weight="1.0" layout="@layout/camera_tau_scene_item" />
+    <include phantom:id="@+id/camera_tau_scene_user_sso" phantom:layout_width="match_parent" phantom:layout_height="UNKNOWN_DATA_0x1" phantom:layout_weight="1.0" layout="@layout/camera_tau_scene_item" />
+    <include phantom:id="@+id/camera_tau_scene_user_contrast" phantom:layout_width="match_parent" phantom:layout_height="UNKNOWN_DATA_0x1" phantom:layout_weight="1.0" layout="@layout/camera_tau_scene_item" />
+    <include phantom:id="@+id/camera_tau_scene_user_brightness" phantom:layout_width="match_parent" phantom:layout_height="UNKNOWN_DATA_0x1" phantom:layout_weight="1.0" layout="@layout/camera_tau_scene_item" />
+    <dji.pilot.publics.widget.DJIStateTextView phantom:textSize="@dimen/rq" phantom:textColor="@color/om" phantom:ellipsize="end" phantom:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" phantom:id="@+id/camera_tau_scene_user_save_tv" phantom:background="@color/ak" phantom:layout_width="match_parent" phantom:layout_height="UNKNOWN_DATA_0x7f0b00dc" phantom:text="@string/app_save" />
+</dji.pilot.fpv.camera.newfn.DJICameraTauSceneView>

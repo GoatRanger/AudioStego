@@ -1,0 +1,376 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Writing the IDL Interface</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#hello" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="client.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: IDL
+<br>
+<b>Lesson</b>: The Hello Client-Server Example
+</font>
+
+<h2>
+Writing the IDL Interface
+</h2>
+<blockquote>
+In this section, you will write a simple IDL interface for the Hello
+World program. The IDL interface defines the contract between the
+client and server parts of your application, specifying what operations
+and attributes are available. OMG IDL is
+programming-language-independent. You must map it to Java before
+writing any of the implementation code.
+(Running <CODE CLASS="Code">idltojava</CODE> on the IDL file does this
+for you automatically.)
+Here's the complete
+<a href="example-1dot2/Hello.idl">
+<CODE CLASS="UnderlineCODE">Hello.idl</CODE></a>
+file.
+
+</blockquote>
+<h3>Writing Hello.idl</h3>
+<blockquote>
+OMG IDL is a purely declarative language designed for specifying
+programming-language-independent operational interfaces for distributed
+applications. OMG specifies a mapping from IDL to several different
+programming languages, including C, C++, Smalltalk, COBOL, Ada, and
+Java. When mapped, each statement in OMG IDL is translated to a
+corresponding statement in the programming language of choice. You can
+use the tool <CODE CLASS="Code">idltojava </CODE>
+to map an IDL interface to Java and implement the client class. When
+you map the same IDL to C++ and implement the server in that language,
+the Java client and C++ server interoperate through the ORB as though
+they were written in the same language.
+<P>
+The IDL for Hello World is extremely simple; its single interface has a
+single operation. You need perform only three steps described
+below.
+
+<h3>Step 1: Declaring the CORBA IDL Module</h3>
+A CORBA module is a namespace that acts as a container for related
+interfaces and declarations. It corresponds closely to a Java package.
+Each module statement in an IDL file is mapped to a Java package
+statement.
+<OL>
+<LI> Start your favorite text editor and create a file named
+     <CODE CLASS="Code">Hello.idl</CODE>.
+<LI> In your file, enter the module statement:
+<blockquote><pre>
+module HelloApp { 
+		    // Add subsequent lines of code here.
+};
+</pre></blockquote>
+
+<LI> Save the file. When you run <CODE CLASS="Code">idltojava</CODE>
+     on the IDL, this statement will generate a package statement in
+     the Java code.
+</OL>
+
+<h3>Step 2: Declaring the Interface</h3>
+Like Java interfaces, CORBA interfaces declare the API contract that an
+object has with other objects. Each interface statement in the IDL maps
+to a Java interface statement when mapped.
+<P>
+In your <CODE CLASS="Code">Hello.idl</CODE>
+file, enter the interface statement:
+<blockquote><pre>
+module HelloApp {
+    interface Hello  // Add
+    {                // these
+                     // four
+    };               // lines.
+};
+</pre></blockquote>
+<P>
+When you compile the IDL, this statement will generate an interface
+statement in the Java code. Your client and server classes will
+implement the Hello interface in different ways.
+
+<h3>Step 3: Declaring the Operations</h3>
+CORBA operations are the behavior that servers promise to perform on
+behalf of clients that invoke them. Each operation statement in the IDL
+generates a corresponding method statement in the generated Java
+interface.
+<P>
+In your <CODE CLASS="Code">Hello.idl</CODE>
+file, enter the operation statement:
+<blockquote><pre>
+module HelloApp {
+    interface Hello
+    {
+        string sayHello();  // Add this line.
+    };
+};
+</pre></blockquote>
+<P>
+Because our little Hello World application has only a single operation,
+<CODE CLASS="Code">Hello.idl</CODE> is now complete.
+</blockquote>
+
+<h3>Mapping Hello.idl from IDL to Java</h3>
+<blockquote>
+The tool <CODE CLASS="Code">idltojava</CODE>
+reads OMG IDL files and creates the required Java files. The
+<CODE CLASS="Code">idltojava</CODE> defaults are set up so that if you
+need both client and server files (as you do for our Hello World
+program), you simply enter the tool name and the name of your IDL file:
+<OL>
+<LI> Go to a command line prompt.
+<LI> Change directory to the location of your
+     <CODE CLASS="Code">Hello.idl</CODE> file.
+<LI> Enter the compiler command:
+<blockquote><pre>
+idltojava Hello.idl
+</pre></blockquote>
+</ol>
+<P>
+If you list the contents of the directory, you will see that a
+directory called <CODE CLASS="Code">HelloApp</CODE>
+has been created and that it contains five files. Try opening
+<CODE CLASS="Code">Hello.java</CODE>
+in your text editor. It looks like this:
+<blockquote><pre>
+/* Hello.java as generated by idltojava */
+package HelloApp;
+public interface Hello
+    extends org.omg.CORBA.Object {
+    String sayHello();
+}
+</pre></blockquote>
+<P>
+With an interface this simple, it is easy to see how the IDL statements
+map to the generated Java statements.
+
+<p>
+<blockquote>
+<TABLE BORDER="1">
+<caption>Mapping of IDL Statements to Java Statements</caption>
+<TR>
+<TH ROWSPAN="1" COLSPAN="1">
+IDL Statement
+</TH>
+<TH ROWSPAN="1" COLSPAN="1">
+Java Statement
+</TH>
+</TR>
+<TR>
+<TD ROWSPAN="1" COLSPAN="1">
+<CODE CLASS="Code-in-tbl">
+module HelloApp</CODE>
+</TD>
+<TD ROWSPAN="1" COLSPAN="1">
+<CODE CLASS="Code-in-tbl">
+package HelloApp;</CODE>
+</TD>
+</TR>
+<TR>
+<TD ROWSPAN="1" COLSPAN="1">
+<CODE CLASS="Code-in-tbl">
+interface Hello</CODE>
+</TD>
+<TD ROWSPAN="1" COLSPAN="1">
+<CODE CLASS="Code-in-tbl">
+public interface Hello</CODE>
+</TD>
+</TR>
+<TR>
+<TD ROWSPAN="1" COLSPAN="1">
+<CODE CLASS="Code-in-tbl">
+string sayHello();</CODE>
+</TD>
+<TD ROWSPAN="1" COLSPAN="1">
+<CODE CLASS="Code-in-tbl">
+String sayHello();</CODE>
+</TD>
+</TR>
+</TABLE>
+</blockquote>
+
+<p>
+The single surprising item is the <CODE CLASS="Code">extends</CODE>
+statement. All CORBA objects are derived from
+<CODE CLASS="Code">org.omg.CORBA.Object</CODE>
+to ensure required CORBA functionality.
+The required code is generated by <CODE CLASS="Code">idltojava</CODE>;
+you do not need to do any mapping yourself.
+</blockquote>
+
+<h3>Understanding the idltojava Compiler Output</h3>
+<blockquote>
+The <CODE CLASS="Code">idltojava</CODE> compiler
+generates a number of files, based on the options chosen on the command
+line. Because these provide standard functionality, you can ignore them
+until it is time to deploy and run your program. The five files
+generated by the <CODE CLASS="Code">idltojava</CODE> are:
+<dl>
+
+<DT CLASS="UNL-Head">
+<strong>
+<a target="_blank" href="example-1dot2/HelloApp/_HelloImplBase.java"><font color="#bb000f"><code>_HelloImplBase.java</code></font></a><a target="_blank" href="example-1dot2/HelloApp/_HelloImplBase.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a></strong>
+<DD CLASS="UNL">
+This abstract class is the server skeleton, providing basic CORBA
+functionality for the server. It implements the
+<CODE CLASS="Code">Hello.java</CODE>
+interface. The server class <CODE CLASS="Code">HelloServant </CODE>
+extends <CODE CLASS="Code">_HelloImplBase</CODE>.
+
+<DT CLASS="UNL-Head">
+<strong>
+
+<a target="_blank" href="example-1dot2/HelloApp/_HelloStub.java"><font color="#bb000f"><code><CODE CLASS="Code-in-UNLHead">_HelloStub.java</CODE></code></font></a><a target="_blank" href="example-1dot2/HelloApp/_HelloStub.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>
+</strong>
+<DD CLASS="UNL">
+This class is the client stub, providing CORBA functionality for the
+client. It implements the <CODE CLASS="Code">Hello.java </CODE>
+interface.
+
+<DT CLASS="UNL-Head">
+<strong>
+
+<a target="_blank" href="example-1dot2/HelloApp/Hello.java"><font color="#bb000f"><code><CODE CLASS="Code-in-UNLHead">Hello.java</CODE></code></font></a><a target="_blank" href="example-1dot2/HelloApp/Hello.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>
+</strong>
+<DD CLASS="UNL">
+This interface contains the Java version of our IDL interface. It
+contains the single method <CODE CLASS="Code">sayHello</CODE>.
+The <CODE CLASS="Code">Hello.java</CODE> interface extends
+<CODE CLASS="Code">org.omg.CORBA.Object</CODE>,
+providing standard CORBA object functionality as well.
+
+<DT CLASS="UNL-Head">
+<strong>
+
+<a target="_blank" href="example-1dot2/HelloApp/HelloHelper.java"><font color="#bb000f"><code><CODE CLASS="Code-in-UNLHead">HelloHelper.java</CODE></code></font></a><a target="_blank" href="example-1dot2/HelloApp/HelloHelper.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>
+</strong>
+<DD CLASS="UNL">
+This final class provides auxiliary functionality, notably the
+<CODE CLASS="Code">narrow</CODE>
+method required to cast CORBA object references to their proper
+types.
+
+<DT CLASS="UNL-Head">
+<strong>
+
+<a target="_blank" href="example-1dot2/HelloApp/HelloHolder.java"><font color="#bb000f"><code><CODE CLASS="Code-in-UNLHead">HelloHolder.java</CODE></code></font></a><a target="_blank" href="example-1dot2/HelloApp/HelloHolder.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>
+</strong>
+<DD CLASS="UNL">
+This final class holds a public instance member of type
+<CODE CLASS="Code">Hello</CODE>.
+It provides operations for out and inout arguments, which CORBA has but
+which do not map easily to Java's semantics.
+</DL>
+
+When you write the IDL interface, you do all the programming required
+to generate all these files for your distributed application. The only
+additional work required is the actual implementation of client and
+server classes. In the lessons that follow, you will create
+<CODE CLASS="Code">HelloClient.java</CODE> and
+<CODE CLASS="Code"> HelloApplet.java</CODE>
+client classes and the <CODE CLASS="Code">HelloServer.java </CODE>
+class.
+</blockquote>
+
+<h3>Troubleshooting</h3>
+<blockquote>
+<dl>
+<DT CLASS="UNL-Head">
+<strong>Error Message: &quot;idltojava&quot; not found</strong>
+<DD CLASS="UNL">
+If you try to run <CODE CLASS="Code">idltojava</CODE>
+on the file <CODE CLASS="Code">Hello.idl</CODE>
+and the system cannot find <CODE CLASS="Code">idltojava</CODE>,
+it is most likely not in your executable path.
+Make certain that the location of <CODE CLASS="Code">idltojava</CODE>
+is in your path, and try again.
+
+<DT CLASS="UNL-Head">
+<strong>Error Message: preprocessor failed</strong>
+<DD CLASS="UNL">
+<CODE CLASS="Code">idltojava</CODE>
+uses a C/C++ preprocessor by default.
+You can change the default by setting two environment variables,
+<CODE CLASS="Code">CPP</CODE> and <CODE CLASS="Code">CPPARGS</CODE>.
+If you do not want to use a preprocessor,
+you can turn it off by adding <CODE CLASS="Code">-fno-cpp</CODE>
+to the <CODE CLASS="Code">idltojava</CODE> command line.
+</DL>
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#hello" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="client.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Other Operators</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="assignment.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#nutsandbolts" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="opsummary.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Learning the Java Language
+<br>
+<b>Lesson</b>: Language Basics
+</font>
+
+<h2>
+Other Operators
+</h2>
+<blockquote>
+
+The following table lists the other operators 
+that the Java programming language supports.
+
+<P>
+<!--table 17:Other Operators -->
+<TABLE BORDER="1" CELLSPACING="3" CELLPADDING="3">
+<TR>
+    <TD><B>Operator</B></TD>
+    <TD><B>Description</B></TD>
+  </TR>
+  <TR>
+    <TD><CODE>?:</CODE>
+</TD>
+    <TD>Shortcut <CODE>if-else</CODE> statement<BR></TD>
+  </TR>
+  <TR>
+    <TD><CODE>[]</CODE></TD>
+    <TD>Used to declare arrays, create arrays, and access array elements</TD>
+  </TR>
+  <TR>
+    <TD><CODE>.</CODE></TD>
+    <TD>Used to form qualified names</TD>
+  </TR>
+  <TR>
+    <TD><CODE>(</CODE> <EM>params</EM> <CODE>)</CODE></TD>
+    <TD>Delimits a comma-separated list of parameters</TD>
+  </TR>
+  <TR>
+    <TD><CODE>(</CODE> <EM>type</EM> <CODE>)</CODE></TD>
+    <TD>Casts (converts) a value to the specified type</TD>
+  </TR>
+  <TR>
+    <TD><CODE>new</CODE></TD>
+    <TD>Creates a new object or a new array</TD>
+  </TR>
+  <TR>
+    <TD><CODE>instanceof</CODE></TD>
+    <TD>Determines whether its first operand 
+        is an instance of its second operand</TD>
+  </TR>
+</TABLE>
+
+</blockquote>
+
+<h3>Shortcut if-else Statement</h3>
+<blockquote>
+The <code>?:</code> operator
+is a conditional operator
+that is short-hand for an <code>if</code>-<code>else</code> statement:
+<blockquote><pre>
+op1 ? op2 : op3
+</pre></blockquote>
+The <code>?:</code> operator
+returns <code>op2</code> if <code>op1</code> is true
+or returns <code>op3</code> if <code>op1</code> is false.
+<p>
+For information about the <code>if</code>-<code>else</code> statement,
+refer to 
+<a target="_top" href="if.html">The if/else Statements</a><a target="_top" href="if.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Learning the Java Language trail)"></a>.
+</blockquote>
+
+<h3>The [ ] Operator</h3>
+<blockquote>
+You use square brackets to declare arrays,
+to create arrays,
+and to access a particular element in an array.
+Here's an example of an array declaration:
+<blockquote><pre>
+float[] arrayOfFloats = new float[10];
+</pre></blockquote>
+The previous code declares an array
+that can hold ten floating point numbers.
+Here's how you would access the 7th item in that array:
+<blockquote><pre>
+arrayOfFloats[6];
+</pre></blockquote>
+Note that array indices begin at 0.
+<a target="_top" href="../data/arrays.html">Arrays</a><a target="_top" href="../data/arrays.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Learning the Java Language trail)"></a> contains more information about arrays.
+</blockquote>
+
+<h3>The . Operator</h3>
+<blockquote>
+The dot (.) operator accesses instance members of an object
+or class members of a class.
+You will learn more about this operator
+in the next lesson,
+<a target="_top" href="../javaOO/index.html">Classes and Inheritance</a><a target="_top" href="../javaOO/index.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Learning the Java Language trail)"></a>.
+</blockquote>
+
+<h3>The () Operator</h3>
+<blockquote>
+When declaring or calling a method,
+you list the method's arguments
+between <code>(</code> and <code>)</code>.
+You can specify an empty argument list by using <code>()</code>
+with nothing between them.
+The next lesson,
+<a target="_top" href="../javaOO/index.html">Classes and Inheritance</a><a target="_top" href="../javaOO/index.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Learning the Java Language trail)"></a>, covers methods.
+</blockquote>
+
+<h3>The (type) Operator</h3>
+<blockquote>
+Casts (or "converts") a value to the specified type.
+</blockquote>
+
+<h3>The new Operator</h3>
+<blockquote>
+You use the new operator to create a new object or a new array.
+Here's an example of creating a new <code>Integer</code> object
+from the <code>Integer</code> class in the <code>java.lang</code> package:
+<blockquote><pre>
+Integer anInteger = new Integer(10);
+</pre></blockquote>
+For a detailed explanation about
+creating objects using a statement like the previous,
+refer to
+<a target="_top" href="../data/objectcreation.html">Creating Objects</a><a target="_top" href="../data/objectcreation.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Learning the Java Language trail)"></a> in the next lesson.
+To learn about creating arrays,
+refer to
+<a target="_top" href="../data/arrays.html">Arrays</a><a target="_top" href="../data/arrays.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Learning the Java Language trail)"></a>.
+</blockquote>
+
+<h3>The instanceof Operator</h3>
+<blockquote>
+The <code>instanceof</code> operator tests whether its first operand
+is an instance of its second.
+<blockquote><pre>
+op1 instanceof op2
+</pre></blockquote>
+<code>op1</code> must be the name of an object
+and <code>op2</code> must be the name of a class.
+An object is considered to be an instance of a class if
+that object directly or indirectly descends from that class.
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="assignment.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#nutsandbolts" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="opsummary.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

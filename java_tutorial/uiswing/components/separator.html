@@ -1,0 +1,466 @@
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>How to Use Separators</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="scrollpane.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#components" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="slider.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Creating a GUI with JFC/Swing
+<br>
+<b>Lesson</b>: Using Swing Components
+</font>
+
+<h2>
+How to Use Separators
+</h2>
+<blockquote>
+The 
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JSeparator.html"><font color="#8800bb"><code>JSeparator</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JSeparator.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> class provides a horizontal or vertical dividing line
+or empty space.
+It's most commonly used in menus and tool bars.
+In fact, you can use separators 
+without even knowing that a <code>JSeparator</code> class exists,
+since <a href="menu.html">menus</a>
+and <a href="toolbar.html">tool bars</a>
+provide convenience methods 
+that create and add separators
+customized for their containers.
+Separators are somewhat similar to
+<a target="_top" href="../misc/border.html">borders</a><a target="_top" href="../misc/border.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>, except that they are genuine components
+and, as such, 
+are drawn inside a container, 
+rather than around the edges of a particular component.
+
+<p>
+
+Here is a picture of a menu that has three separators,
+used to divide the menu into four groups of items:
+
+<p><center><IMG SRC="../../figures/uiswing/components/MenuWithSeparators.gif" WIDTH="205" HEIGHT="197" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="A menu with 4 parts, as indicated by 3 separators"></center></p>
+<p>
+The code to add the menu items and separators to the menu
+is extremely simple, 
+boiling down to something like this:
+
+<blockquote><pre>
+menu.add(menuItem1);
+menu.add(menuItem2);
+menu.add(menuItem3);
+<b>menu.addSeparator();</b>
+menu.add(rbMenuItem1);
+menu.add(rbMenuItem2);
+<b>menu.addSeparator();</b>
+menu.add(cbMenuItem1);
+menu.add(cbMenuItem2);
+<b>menu.addSeparator();</b>
+menu.add(submenu);
+</pre></blockquote>
+
+<p>
+Adding separators to a tool bar is similar.
+You can find the full code explained in the
+how-to sections for
+<a href="menu.html">menus</a>
+and <a href="toolbar.html">tool bars</a>.
+If you want more control over separators in menus and tool bars,
+you can directly use the 
+<code>JSeparator</code> subclasses that implement them:
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JPopupMenu.Separator.html"><font color="#8800bb">JPopupMenu.Separator</font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JPopupMenu.Separator.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> and
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JToolBar.Separator.html"><font color="#8800bb">JToolBar.Separator</font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JToolBar.Separator.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>.
+In particular, <code>JToolBar.Separator</code>
+has API for specifying the separator's size.
+
+
+</blockquote>
+<h3>
+<a name="elsewhere">Using JSeparator</a>
+</h3>
+<blockquote>
+
+<p>
+You can use the <code>JSeparator</code> class directly
+to provide a dividing line in any container.
+The following picture shows a GUI
+that has a separator to the right of the button
+labeled Fire.
+
+<p><center><IMG SRC="../../figures/uiswing/components/14ListDemo.gif" WIDTH="254" HEIGHT="162" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="A snapshot of ListDemo"></center></p>
+<p>
+Separators have almost no API and are extremely easy to use
+as long as you keep one thing in mind:
+In most implementations,
+a vertical separator has a preferred height of 0,
+and a horizontal separator has a preferred width of 0.
+This means a a separator 
+<b>is not visible</b>
+unless you either set its preferred size
+or put it in under the control of a layout manager
+such as <code>BorderLayout</code> or <code>BoxLayout</code>
+that stretches it to fill its available display area.
+
+<p>
+The vertical separator does have a bit of width
+(and the horizontal a bit of height),
+so you should see some space where the separator is.
+However, the actual dividing line isn't drawn
+unless the width and height are both non-zero.
+
+<p>
+The following code snippet
+shows how ListDemo puts together 
+the panel that contains the vertical separator.
+You can find the full source code for ListDemo in
+<a target="_blank" href="example-1dot4/ListDemo.java"><font color="#bb000f"><code>ListDemo.java</code></font></a><a target="_blank" href="example-1dot4/ListDemo.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>.
+
+<blockquote><pre>
+JPanel buttonPane = new JPanel();
+buttonPane.setLayout(new BoxLayout(buttonPane,
+                                   BoxLayout.LINE_AXIS));
+buttonPane.add(fireButton);
+buttonPane.add(Box.createHorizontalStrut(5));
+<b>buttonPane.add(new JSeparator(SwingConstants.VERTICAL));</b>
+buttonPane.add(Box.createHorizontalStrut(5));
+buttonPane.add(employeeName);
+buttonPane.add(hireButton);
+buttonPane.setBorder(BorderFactory.createEmptyBorder(5,5,5,5));
+</pre></blockquote>
+
+As the code shows,
+the buttons, separator, and text field 
+all share a single container &#151;
+a <code>JPanel</code> instance
+that uses a left-to-right 
+<a target="_top" href="../layout/box.html">box layout</a><a target="_top" href="../layout/box.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.
+Thanks to the layout manager
+(and to the fact that separators have unlimited maximum sizes),
+the separator is automatically made as tall
+as its available display area.
+
+<p>
+In the preceding code,
+the horizontal struts are 
+invisible components used to provide space
+around the separator.
+A 5-pixel empty border
+provides a cushion around the panel, 
+and also serves to prevent the separator from extending
+all the way to the component above it
+and the window's edge below it.
+
+<p>
+
+Here's a picture of another GUI
+that uses a separator,
+this time to put a dividing line
+between a group of controls 
+and a display area.
+
+<p><center><IMG SRC="../../figures/uiswing/components/TextInputDemo.gif" WIDTH="551" HEIGHT="188" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="A snapshot of TextInputDemo"></center></p>[PENDING: This snapshot needs to be updated.]
+
+<p>
+You can find the code in the
+<a href="example-1dot4/index.html#TextInputDemo">example index</a>.
+Here is the code that sets up the separator's container:
+
+<blockquote><pre>
+JPanel panel = new JPanel(new BorderLayout());
+...
+panel.setBorder(BorderFactory.createEmptyBorder(
+                        GAP/2, //top
+                        0,     //left
+                        GAP/2, //bottom
+                        0));   //right
+panel.add(new JSeparator(JSeparator.VERTICAL),
+          BorderLayout.LINE_START);
+panel.add(addressDisplay,
+          BorderLayout.CENTER);
+</pre></blockquote>
+
+As in the last example, the panel uses an empty border
+so that the separator doesn't
+extend all the way to the edges of its container.
+Placing the separator in the leftmost area of the 
+<code>BorderLayout</code>-controlled container
+makes the separator as tall as the 
+address-display component
+that's in the center of the container.
+See 
+<a target="_top" href="../layout/border.html">How to Use BorderLayout</a><a target="_top" href="../layout/border.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a> for details on how border layouts work.
+</blockquote>
+<h3>
+<a name="api">The Separator API</a>
+</h3>
+<blockquote>
+
+The API for using separators is minimal,
+since they have no contents
+and don't respond to user input.
+
+<p>
+<table border=1>
+<caption><a name="creating">Creating and Initializing Separators</a></caption>
+<tr>
+<th align=left>Constructor or Method
+</th>
+<th align=left>Purpose
+
+</th>
+</tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JToolBar.html#addSeparator()"><font color="#8800bb"><font size=2><code>void addSeparator()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JToolBar.html#addSeparator()"></a><br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JToolBar.html#addSeparator(java.awt.Dimension)"><font color="#8800bb"><font size=2><code>void addSeparator(Dimension)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JToolBar.html#addSeparator(java.awt.Dimension)"></a>    <br>
+<em>(in <code>JToolBar</code>)</em>
+    </td>
+    <td>Append a tool bar separator
+        (which is invisible in most,
+	if not all, look and feels)
+	to the current end of the tool bar.
+	The optional argument 
+	specifies the size of the separator.
+	The no-argument version of this method
+	uses a separator with a default size,
+	as determined by the current look and feel.
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JMenu.html#addSeparator()"><font color="#8800bb"><font size=2><code>void addSeparator()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JMenu.html#addSeparator()"></a><br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JMenu.html#insertSeparator(int)"><font color="#8800bb"><font size=2><code>void insertSeparator(int)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JMenu.html#insertSeparator(int)"></a>    <br>
+<em>(in <code>JMenu</code>)</em>
+    </td>
+    <td>Put a separator in the menu.
+	The <code>addSeparator</code> method
+	puts the separator at the current end of the menu.
+	The <code>insertSeparator</code> method
+	inserts the separator into the menu
+	at the specified position.
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JPopupMenu.html#addSeparator()"><font color="#8800bb"><font size=2><code>void addSeparator()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JPopupMenu.html#addSeparator()"></a><br>
+<em>(in <code>JPopupMenu</code>)</em>
+    </td>
+    <td>Put a separator at the current end of the popup menu.
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JSeparator.html#JSeparator()"><font color="#8800bb"><font size=2><code>JSeparator()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JSeparator.html#JSeparator()"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JSeparator.html#JSeparator(int)"><font color="#8800bb"><font size=2><code>JSeparator(int)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JSeparator.html#JSeparator(int)"></a>    </td>
+    <td>Create a separator.
+	If you don't specify an argument,
+	the separator is horizontal.
+	The argument can be either
+	<code>SwingConstants.HORIZONTAL</code> or
+	<code>SwingConstants.VERTICAL</code>.
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JSeparator.html#setOrientation(int)"><font color="#8800bb"><font size=2><code>void setOrientation(int)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JSeparator.html#setOrientation(int)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JSeparator.html#getOrientation()"><font color="#8800bb"><font size=2><code>int getOrientation()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JSeparator.html#getOrientation()"></a><br>
+<em>(in <code>JSeparator</code>)</em>
+    </td>
+    <td>Get or set the separator's orientation,
+	which can be either
+	<code>SwingConstants.HORIZONTAL</code> or
+	<code>SwingConstants.VERTICAL</code>.
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JToolBar.Separator.html#JToolBar.Separator()"><font color="#8800bb"><font size=2><code>JToolBar.Separator()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JToolBar.Separator.html#JToolBar.Separator()"></a><br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JToolBar.Separator.html#JToolBar.Separator(java.awt.Dimension)"><font color="#8800bb"><font size=2><code>JToolBar.Separator(Dimension)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JToolBar.Separator.html#JToolBar.Separator(java.awt.Dimension)"></a>    </td>
+    <td>
+    Create a separator for use in a tool bar.
+    The optional argument specifies
+    the separator's size.
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JToolBar.Separator.html#setSeparatorSize(java.awt.Dimension)"><font color="#8800bb"><font size=2><code>setSeparatorSize(Dimension)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JToolBar.Separator.html#setSeparatorSize(java.awt.Dimension)"></a><br>
+<em>(in <code>JToolBar.Separator</code>)</em>
+    </td>
+    <td>
+    Specify the separator's size.
+    More specifically,
+    the specified <code>Dimension</code>
+    is used as the separator's minimum, preferred, and maximum sizes.
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JPopupMenu.Separator.html#JPopupMenu.Separator()"><font color="#8800bb"><font size=2><code>JPopupMenu.Separator()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JPopupMenu.Separator.html#JPopupMenu.Separator()"></a>    </td>
+    <td>
+    Create a separator for use in a menu.
+    </td>
+  </tr>
+
+</table>
+
+
+</blockquote>
+<h3>
+<a name="eg">Examples that Use Separators</a>
+</h3>
+<blockquote>
+Several of this lesson's examples use separators,
+usually in menus.
+Here is a list of some of the more interesting examples.
+
+<p>
+
+<table>
+<tr>
+<th align=left> Example
+</th>
+<th align=left> Where Described
+</th>
+<th align=left> Notes
+</th>
+</tr>
+
+<tr>
+<td> <a href="example-1dot4/index.html#ListDemo"><code>ListDemo</code></a>
+</td>
+<td> This section and
+<a href="list.html">How to Use Lists</a>
+</td>
+<td> Uses a vertical separator in a panel
+controlled by a horizontal box layout.
+</td>
+</tr>
+
+<tr>
+<td> <a href="example-1dot4/index.html#TextInputDemo"><code>TextInputDemo</code></a>
+</td>
+<td> This section and
+<a href="formattedtextfield.html">How to Use Formatted Text Fields</a>
+</td>
+<td> Uses a vertical separator at the left of a panel
+controlled by a border layout.
+</td>
+</tr>
+
+<tr>
+<td> <a href="example-1dot4/index.html#MenuDemo"><code>MenuDemo</code></a>
+</td>
+<td> This section and
+<a href="menu.html">How to Use Menus</a>
+</td>
+<td> Uses the <code>JMenu</code> method <code>addSeparator</code>
+     to put separators in a menu.
+</td>
+</tr>
+
+<tr>
+<td> <a href="example-1dot4/index.html#ToolBarDemo2"><code>ToolBarDemo2</code></a>
+</td>
+<td> 
+<a href="toolbar.html">How to Use Tool Bars</a>
+</td>
+<td> Uses the <code>JToolBar</code> method <code>addSeparator</code>
+     to put space
+     between two kinds of buttons.
+</td>
+</tr>
+
+
+</table>
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="scrollpane.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#components" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="slider.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

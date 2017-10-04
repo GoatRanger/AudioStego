@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res-auto" setting_ui:orientation="vertical" style="@style/g2"
+    <LinearLayout setting_ui:orientation="horizontal" setting_ui:id="@id/bwl" style="@style/g2">
+        <TextView setting_ui:gravity="top|bottom|center_vertical|fill_vertical|center|fill" setting_ui:id="@id/bqz" setting_ui:text="@string/setting_ui_rc" style="@style/gh" />
+        <ImageView setting_ui:id="@id/bwm" setting_ui:visibility="visible" setting_ui:layout_width="UNKNOWN_DATA_0x7f0b0332" setting_ui:layout_height="UNKNOWN_DATA_0x7f0b0332" setting_ui:src="@drawable/setting_ui_arrow_right" setting_ui:scaleType="center" />
+    </LinearLayout>
+    <LinearLayout setting_ui:id="@id/bwn" setting_ui:visibility="gone" setting_ui:layout_width="match_parent" setting_ui:layout_height="wrap_content">
+        <ViewStub setting_ui:id="@id/bwo" setting_ui:layout="@layout/setting_ui_rc_common_layout" setting_ui:layout_width="match_parent" setting_ui:layout_height="wrap_content" />
+    </LinearLayout>
+</LinearLayout>

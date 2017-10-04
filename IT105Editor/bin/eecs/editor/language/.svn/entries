@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="10"
+   name=""
+   committed-date="2005-02-01T05:59:34.421875Z"
+   url="svn://192.168.2.2/IT105Editor/src/eecs/editor/language"
+   last-author="Karl"
+   kind="dir"
+   uuid="0daf4267-3229-f84b-9084-f3c94b025f38"
+   revision="55"/>
+<entry
+   committed-rev="10"
+   name="DefaultLanguageKit.java"
+   text-time="2005-03-02T06:14:19.031250Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="bf1bb7378b45a4149f8d36b966d078c1"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:18.875000Z"/>
+<entry
+   committed-rev="10"
+   name="CSSKit.java"
+   text-time="2005-03-02T06:14:19.031250Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="65d548540ab4ce88031f1683e11f051f"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:18.890625Z"/>
+<entry
+   committed-rev="10"
+   name="LanguageKitFactory.java"
+   text-time="2005-03-02T06:14:19.046875Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="1f05d413d929acea63908a54df2e9862"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:18.890625Z"/>
+<entry
+   committed-rev="10"
+   name="JavaKit.java"
+   text-time="2005-03-02T06:14:19.046875Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="e917d202ed132fcd953495e3ae0b1717"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:18.906250Z"/>
+<entry
+   name="CVS"
+   kind="dir"/>
+<entry
+   committed-rev="10"
+   name="LanguageKit.java"
+   text-time="2005-03-02T06:14:19.062500Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="f9f256e2d7cec639d8515b61a0442b2e"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:18.921875Z"/>
+<entry
+   committed-rev="10"
+   name="HTMLKit.java"
+   text-time="2005-03-02T06:14:19.078125Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="d9a69c4b7cb2cd4aeb12ad447feca5ec"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:19.000000Z"/>
+<entry
+   committed-rev="10"
+   name="package.html"
+   text-time="2005-03-02T06:14:19.078125Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="1cd01de75d22ef1491d08a6f4165dfe3"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:19.015625Z"/>
+</wc-entries>

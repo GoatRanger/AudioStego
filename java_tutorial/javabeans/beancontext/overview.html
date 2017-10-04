@@ -1,0 +1,168 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Overview of the BeanContext API</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#beancontext" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="containment.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: JavaBeans(TM)
+<br>
+<b>Lesson</b>: Using the BeanContext API
+</font>
+
+<h2>
+Overview of the BeanContext API
+</h2>
+<blockquote>
+<P><A NAME="purpose"></A>
+<H3>Purpose</H3>
+
+As stated in the specification, the purpose of the Extensible Runtime
+Containment and Services Protocol is
+
+<I>&quot;to introduce the concept of a relationship between a Component
+and its environment, or Container, wherein
+a newly instantiated Component is provided with a reference to its Container or Embedding Context. The Container,
+or Embedding Context not only establishes the hierarchy or logical structure, but it also acts as a service provider
+that Components may interrogate in order to determine, and subsequently employ, the services provided by their
+Context.&quot;</I>
+<P>
+This protocol supports extensible mechanisms that:
+
+<UL>
+	<LI><I>Introduce an abstraction for the environment, or context, in which a JavaBean logically functions during
+	its life-cycle, that is a hierarchy of JavaBeans</I>
+	<LI><I>Enable the dynamic addition of arbitrary services to a JavaBean's environment</I>
+	<LI><I>Provide a single service discovery mechanism through which JavaBeans may interrogate their environment in
+	order both to ascertain the availability of particular services and to subsequently employ those services.</I>
+	<LI><I>Provide better support for JavaBeans that are also Applets.</I>
+</UL>
+<P>
+In English, this means that there now exists a standard mechanism
+through which Java developers can logically group a set of related
+JavaBeans into a &quot;context&quot; that the beans can become aware of and/or
+interact with. This context, or &quot;containing environment&quot;, is
+known as the
+<code>BeanContext</code>. 
+<P>
+There are two distinct types of <code>BeanContext</code> included in this
+protocol: one which supports membership only (interface
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/beancontext/BeanContext.html"><font color="#8800bb"><code>java.beans.beancontext.BeanContext</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/beancontext/BeanContext.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>) and
+one which supports membership and offers services
+(interface
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/beancontext/BeanContextServices.html"><font color="#8800bb"><code>java.beans.beancontext.BeanContextServices</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/beancontext/BeanContextServices.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>) to its JavaBeans nested within.
+
+<P>
+To orient yourself with the classes and interfaces of 
+<code>java.beans.beancontext</code>, take a minute to look over the following 
+hierarchy diagram. You will notice that the majority of the package
+is defined as interfaces, which allow for multiple
+inheritance.
+</P>
+
+<P><A NAME="map"></A>
+<H3>Inheritance Diagram of the BeanContext API</H3>
+
+The classes and interfaces relevant to the <code>BeanContext</code>
+ API are listed in the following diagrams.
+As you study the diagrams, take note of the
+<code>BeanContext</code> and <code>BeanContextServices</code> 
+interfaces, and that
+each has its own concrete implementation
+that you can subclass or instantiate directly
+(classes
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/beancontext/BeanContextSupport.html"><font color="#8800bb"><code>java.beans.beancontext.BeanContextSupport</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/beancontext/BeanContextSupport.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> and 
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/beancontext/BeanContextServicesSupport.html"><font color="#8800bb"><code>java.beans.beancontext.BeanContextServicesSupport</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/beancontext/BeanContextServicesSupport.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> respectively). Also take note of the location of the
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/beancontext/BeanContextChild.html"><font color="#8800bb"><code>java.beans.beancontext.BeanContextChild</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/beancontext/BeanContextChild.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> interface. This is the interface that allows nested JavaBeans
+to become aware of their enclosing <code>BeanContext</code>. 
+
+<p>
+<IMG SRC="../../figures/javabeans/support.jpg" WIDTH="250" HEIGHT="160" ALT="">
+<p>
+<IMG SRC="../../figures/javabeans/interfaces.jpg" WIDTH="750" HEIGHT="300" ALT="">
+<p>
+<IMG SRC="../../figures/javabeans/events.jpg" WIDTH="700" HEIGHT="200" ALT="">
+<p>
+<IMG SRC="../../figures/javabeans/listeners.jpg" WIDTH="690" HEIGHT="130" ALT="">
+<p>
+<IMG SRC="../../figures/javabeans/proxy_interfaces.jpg" WIDTH="690" HEIGHT="75" ALT="">
+<p>
+<IMG SRC="../../figures/javabeans/beaninfo.jpg" WIDTH="300" HEIGHT="100" ALT=""></blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#beancontext" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="containment.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

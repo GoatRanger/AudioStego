@@ -1,0 +1,157 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Questions and Exercises: Numbers</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="../numbersummary.html" target="_top"><img src="../../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../../TOC.html#data" target="_top"><img src="../../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="../arrays.html" target="_top"><img src="../../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="../index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../../search.html" target="_top">Search</a>
+<br><a href="../../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Learning the Java Language
+<br>
+<b>Lesson</b>: Object Basics and Simple Data Objects
+</font>
+
+<h2>
+Questions and Exercises: Numbers
+</h2>
+<blockquote>
+</blockquote>
+
+<h3>Questions</h3>
+<blockquote>
+1. Use the API documentation to find the answers to the following questions:
+<BLOCKQUOTE>
+a. What <code>Integer</code> method can you use to convert an <code>int</code> into a string that expresses the number in hexadecimal? For example, what method converts the integer 65 into the string "41"? 
+<P>
+b. What two <code>Integer</code> methods would you use to convert a string expressed in base 5 into the equivalent <code>int</code>? For example, how would you convert the string "230" into the integer value 65? Show the code you would use to accomplish this task.
+<P>
+c. What Double method can you use to detect whether a floating-point number has the special value Not a Number (<code>NaN</code>)?
+</BLOCKQUOTE>
+
+2. What is the value of the following expression, and why?
+<blockquote><pre>
+new Integer(1).equals(new Long(1))
+</pre></blockquote>
+
+
+</blockquote>
+
+
+<h3>Exercises</h3>
+<blockquote>
+1. Change 
+<a target="_blank" href="../../nutsandbolts/example-1dot1/MaxVariablesDemo.java"><font color="#bb000f"><code>MaxVariablesDemo</code></font></a><a target="_blank" href="../../nutsandbolts/example-1dot1/MaxVariablesDemo.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a> to show minimum values instead of maximum values. You can delete all code related to the variables <code>aChar</code> and <code>aBoolean</code>. What is the output?
+<P>
+
+2. Create a program that reads an unspecified number of integer arguments from the command line and adds them together. For example, suppose that you enter the following:
+<blockquote><pre>
+java Adder 1 3 2 10
+</pre></blockquote>
+
+The program should display <code>16</code> and then exit. 
+The program should display an error message if the user 
+enters only one argument. You can base your program on 
+<a target="_blank" href="../../data/example/ValueOfDemo.java"><font color="#bb000f"><code>ValueOfDemo</code></font></a><a target="_blank" href="../../data/example/ValueOfDemo.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>.
+
+<P>
+
+
+3. Create a program that is similar to the previous one but has the following differences:
+<ul>
+   <li>Instead of reading integer arguments, it reads floating-point arguments.
+   <li>It displays the sum of the arguments, using exactly two digits to the right of the decimal point.
+</UL> 
+For example, suppose that you enter the following:
+<blockquote><pre>
+java FPAdder 1 1e2 3.0 4.754
+</pre></blockquote>
+
+The program would display <code>108.75</code>. Depending on your locale, the decimal point might be a comma (<code>,</code>) instead of a period (<code>.</code>).
+
+</blockquote>
+
+<P>
+<a target="_top" href="numbers-answers.html">Check your answers.</a><a target="_top" href="numbers-answers.html"><img src="../../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Learning the Java Language trail)"></a></blockquote>
+
+
+
+
+
+</blockquote>
+
+<img src="../../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="../numbersummary.html" target="_top"><img src="../../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../../TOC.html#data" target="_top"><img src="../../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="../arrays.html" target="_top"><img src="../../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="../index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../../search.html" target="_top">Search</a>
+<br><a href="../../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

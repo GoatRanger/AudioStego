@@ -1,0 +1,130 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>The Scope of a Locale</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="identify.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#locale" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="../resbundle/index.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Internationalization
+<br>
+<b>Lesson</b>: Setting the Locale
+</font>
+
+<h2>
+The Scope of a Locale
+</h2>
+<blockquote>
+The Java platform does not require you to use the same
+<CODE>Locale</CODE> throughout your program. If you wish, you can
+assign a different <CODE>Locale</CODE> to every locale-sensitive object
+in your program. This flexibility allows you to develop multilingual
+applications, which can display information in multiple languages.
+<P>
+However, most applications are not multi-lingual and their
+locale-sensitive objects rely on the default <CODE>Locale</CODE>. Set
+by the Java Virtual Machine when it starts up, the default
+<CODE>Locale</CODE> corresponds to the locale of the host platform. To
+determine the default <CODE>Locale</CODE> of your Java Virtual Machine,
+invoke the <CODE>Locale.getDefault</CODE> method. You should not set
+the default <CODE>Locale</CODE> programmatically because it is shared
+by all locale-sensitive classes.
+<P>
+Distributed computing raises some interesting issues. For example,
+suppose you are designing an application server that will receive
+requests from clients in various countries. If the <CODE>Locale</CODE>
+for each client is different, what should be the <CODE>Locale</CODE> of
+the server? Perhaps the server is multithreaded, with each thread set
+to the <CODE>Locale </CODE> of the client it services. Or perhaps all
+data passed between the server and the clients should be
+locale-independent.
+<P>
+Which design approach should you take? If possible, the data passed
+between the server and the clients should be locale-independent. This
+simplifies the design of the server by making the clients responsible
+for displaying the data in a locale-sensitive manner. However, this
+approach won't work if the server must store the data in a
+locale-specific form. For example, the server might store Spanish,
+English, and French versions of the same data in different database
+columns. In this case, the server might want to query the client for
+its <CODE>Locale</CODE>, since the <CODE>Locale</CODE> may have changed
+since the last request.
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="identify.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#locale" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="../resbundle/index.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

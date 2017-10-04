@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <xml name="a">res/xml/a.xml</xml>
+    <xml name="b">res/xml/b.xml</xml>
+    <xml name="c">res/xml/c.xml</xml>
+</resources>

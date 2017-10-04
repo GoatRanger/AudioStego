@@ -1,0 +1,467 @@
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Using Other Swing Features: Examples (1.4)</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="../../misc/example-swing/index.html" target="_top"><img src="../../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../../TOC.html#misc" target="_top"><img src="../../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="../../layout/example-swing/index.html" target="_top"><img src="../../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="../index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../../search.html" target="_top">Search</a>
+<br><a href="../../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Creating a GUI with JFC/Swing
+<br>
+<b>Lesson</b>: Using Other Swing Features
+</font>
+
+<h2>
+Using Other Swing Features: Examples (1.4)
+</h2>
+<blockquote>
+
+
+
+The <a href=#table>table</a> that follows
+lists every 1.4 example in the Using Other Swing Features lesson,
+with links to required files and to where each example is discussed.
+The first column of the table has links 
+to JNLP files
+that let you run the examples using 
+Java<sup><font size=-2>TM</font></sup> Web Start.
+
+<blockquote><hr><strong>Version Note:</strong>&nbsp;Although these examples use the 1.4 API,
+many of them can be compiled and run in 1.3
+if you remove the call to <code>setDefaultLookAndFeelDecorated</code>.
+To see earlier versions of most of these examples, go to the
+<a target="_top" href="../example-swing/index.html">1.1/1.2 example list</a><a target="_top" href="../example-swing/index.html"><img src="../../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.
+<hr></blockquote>
+
+
+
+<p>
+To run an example using Java Web Start,
+click the <em>[Run]</em> link in the first column of the
+<a href="#table">table</a>.
+The first time you run an example,
+there will be a delay
+while Java Web Start downloads the JAR file 
+containing the class files for this lesson's examples.
+Afterward, the examples should execute more quickly.
+If you have trouble using Java Web Start, see
+<a target="_top" href="../../../information/javawebstart.html">Installing and Using Java Web Start</a><a target="_top" href="../../../information/javawebstart.html"><img src="../../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.
+
+
+</blockquote>
+<h4>Compiling and Running the Examples Locally</h4>
+<blockquote>
+
+<blockquote><hr><strong>Note:</strong>&nbsp;Examples 
+are applications
+unless noted otherwise.
+See 
+<a target="_top" href="../../../uiswing/14start/index.html">Getting Started with Swing</a><a target="_top" href="../../../uiswing/14start/index.html"><img src="../../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a> for details about releases and 
+ instructions on compiling and running programs.
+<hr></blockquote>
+
+You can get the source, image, and other files required
+for all these examples 
+by downloading the
+<a target="_blank" href="http://java.sun.com/docs/books/tutorial/information/download.html#egs"><font color="#009bbb">Tutorial Examples bundle</font></a><a target="_blank" href="http://java.sun.com/docs/books/tutorial/information/download.html#egs"><img src="../../../images/otherIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (outside of the tutorial)"></a>, which contains the files in the correct hierarchy.
+If you download an individual example,
+take care to have all the necessary files 
+in the proper hierarchy when you compile and run it.
+For example, many examples
+expect their image files
+to be in a directory named <code>images</code>
+that's in the same directory as the example's class files.
+
+<p>
+You can find out which files each example needs by consulting the
+following table or by looking at the comments at the beginning of
+each source file.
+</blockquote>
+
+<a name=table><h4>Table of Examples</h4></a>
+
+<table border="1">
+
+<tr>
+<td><strong>Example</strong></td>
+<td><strong>Source Files
+    <em>(first file has the main method, except
+        for examples that run only as applets)</em></strong></td>
+<td><strong>Image & Other Files</strong></td>
+<td><strong>Where Described</strong></td>
+</tr>
+
+<tr>
+<td><a name="AccessibleScrollDemo">
+AccessibleScrollDemo <a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/misc/example-1dot4/AccessibleScrollDemo.jnlp"><em>[Run]</em></a>
+<td>
+    
+<a target="_blank" href="AccessibleScrollDemo.java"><font color="#bb000f"><code>AccessibleScrollDemo.java</code></font></a><a target="_blank" href="AccessibleScrollDemo.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>
+    <br>&nbsp;&nbsp;
+<a target="_blank" href="Rule.java"><font color="#bb000f"><code>Rule.java</code></font></a><a target="_blank" href="Rule.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>
+    <br>&nbsp;&nbsp;
+<a target="_blank" href="Corner.java"><font color="#bb000f"><code>Corner.java</code></font></a><a target="_blank" href="Corner.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>
+    <br>&nbsp;&nbsp;
+<a target="_blank" href="ScrollablePicture.java"><font color="#bb000f"><code>ScrollablePicture.java</code></font></a><a target="_blank" href="ScrollablePicture.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>
+    </a></td>
+<td><a href="images/youngdad.jpeg"><code>youngdad.jpeg</code></a></td>
+<td><a href="../access.html">
+    How to Support Assistive Technologies</a></td>
+</tr>
+
+<tr>
+<td><a name="ActionDemo">
+ActionDemo <a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/misc/example-1dot4/ActionDemo.jnlp"><em>[Run]</em></a>
+<td>
+    
+<a target="_blank" href="ActionDemo.java"><font color="#bb000f"><code>ActionDemo.java</code></font></a><a target="_blank" href="ActionDemo.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>
+    </a></td>
+<td><a href="http://developer.java.sun.com/developer/techDocs/hi/repos
+itory/"><code>jlfgr-1_0.jar</code></a>
+</td>
+<td><a href="../action.html">
+    How to Use Actions</a></td>
+</tr>
+
+<tr>
+<td><a name="BasicDnD">
+BasicDnD <a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/misc/example-1dot4/BasicDnD.jnlp"><em>[Run]</em></a>
+<td>
+    
+<a target="_blank" href="BasicDnD.java"><font color="#bb000f"><code>BasicDnD.java</code></font></a><a target="_blank" href="BasicDnD.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>
+    </a></td>
+<td>&nbsp;</td>
+<td><a href="../dnd.html">
+    How to Use Data Transfer</a></td>
+</tr>
+
+<tr>
+<td><a name="BorderDemo">
+BorderDemo <a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/misc/example-1dot4/BorderDemo.jnlp"><em>[Run]</em></a>
+<td>
+    
+<a target="_blank" href="BorderDemo.java"><font color="#bb000f"><code>BorderDemo.java</code></font></a><a target="_blank" href="BorderDemo.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>
+    </a></td>
+<td><a href="images/wavy.gif"><code>wavy.gif</code></a></td>
+<td><a href="../border.html">
+    How to Use Borders</a></td>
+</tr>
+
+<tr>
+<td><a name="CustomIconDemo">
+CustomIconDemo <a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/misc/example-1dot4/CustomIconDemo.jnlp"><em>[Run]</em></a>
+<td>
+    
+<a target="_blank" href="CustomIconDemo.java"><font color="#bb000f"><code>CustomIconDemo.java</code></font></a><a target="_blank" href="CustomIconDemo.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>
+    <br>&nbsp;&nbsp;
+<a target="_blank" href="ArrowIcon.java"><font color="#bb000f"><code>ArrowIcon.java</code></font></a><a target="_blank" href="ArrowIcon.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>
+    </a></td>
+<td><a href="images/middle.gif"><code>middle.gif</code></a></td>
+<td><a href="../icon.html">
+    How to Use Icons</a></td>
+</tr>
+
+<tr>
+<td><a name="DragColorDemo">
+DragColorDemo <a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/misc/example-1dot4/DragColorDemo.jnlp"><em>[Run]</em></a>
+<td>
+    
+<a target="_blank" href="DragColorDemo.java"><font color="#bb000f"><code>DragColorDemo.java</code></font></a><a target="_blank" href="DragColorDemo.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>    <br>&nbsp;&nbsp;
+<a target="_blank" href="ColorTransferHandler.java"><font color="#bb000f"><code>ColorTransferHandler.java</code></font></a><a target="_blank" href="ColorTransferHandler.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>    </a></td>
+<td>&nbsp;</td>
+<td><a href="../dnd.html">
+    How to Use Data Transfer</a></td>
+</tr>
+
+<tr>
+<td><a name="DragColorTextFieldDemo">
+DragColorTextFieldDemo <a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/misc/example-1dot4/DragColorTextFieldDemo.jnlp"><em>[Run]</em></a>
+<td>
+    
+<a target="_blank" href="DragColorTextFieldDemo.java"><font color="#bb000f"><code>DragColorTextFieldDemo.java</code></font></a><a target="_blank" href="DragColorTextFieldDemo.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>    <br>&nbsp;&nbsp;
+<a target="_blank" href="ColorTransferHandler.java"><font color="#bb000f"><code>ColorTransferHandler.java</code></font></a><a target="_blank" href="ColorTransferHandler.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>    <br>&nbsp;&nbsp;
+<a target="_blank" href="ColorAndTextTransferHandler.java"><font color="#bb000f"><code>ColorAndTextTransferHandler.java</code></font></a><a target="_blank" href="ColorAndTextTransferHandler.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>    </a></td>
+<td>&nbsp;</td>
+<td><a href="../dnd.html">
+    How to Use Data Transfer</a></td>
+</tr>
+
+<tr>
+<td><a name="DragFileDemo">
+DragFileDemo <a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/misc/example-1dot4/DragFileDemo.jnlp"><em>[Run]</em></a>
+<td>
+    
+<a target="_blank" href="DragFileDemo.java"><font color="#bb000f"><code>DragFileDemo.java</code></font></a><a target="_blank" href="DragFileDemo.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>    <br>&nbsp;&nbsp;
+<a target="_blank" href="FileAndTextTransferHandler.java"><font color="#bb000f"><code>FileAndTextTransferHandler.java</code></font></a><a target="_blank" href="FileAndTextTransferHandler.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>    <br>&nbsp;&nbsp;
+<a target="_blank" href="TabbedPaneController.java"><font color="#bb000f"><code>TabbedPaneController.java</code></font></a><a target="_blank" href="TabbedPaneController.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>    </a></td>
+<td>&nbsp;</td>
+<td><a href="../dnd.html">
+    How to Use Data Transfer</a></td>
+</tr>
+
+<tr>
+<td><a name="DragListDemo">
+DragListDemo <a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/misc/example-1dot4/DragListDemo.jnlp"><em>[Run]</em></a>
+<td>
+    
+<a target="_blank" href="DragListDemo.java"><font color="#bb000f"><code>DragListDemo.java</code></font></a><a target="_blank" href="DragListDemo.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>    <br>&nbsp;&nbsp;
+<a target="_blank" href="ArrayListTransferHandler.java"><font color="#bb000f"><code>ArrayListTransferHandler.java</code></font></a><a target="_blank" href="ArrayListTransferHandler.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>    </a></td>
+<td>&nbsp;</td>
+<td><a href="../dnd.html">
+    How to Use Data Transfer</a></td>
+</tr>
+
+<tr>
+<td><a name="DragPictureDemo">
+DragPictureDemo <a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/misc/example-1dot4/DragPictureDemo.jnlp"><em>[Run]</em></a>
+<td>
+    
+<a target="_blank" href="DragPictureDemo.java"><font color="#bb000f"><code>DragPictureDemo.java</code></font></a><a target="_blank" href="DragPictureDemo.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>    <br>&nbsp;&nbsp;
+<a target="_blank" href="Picture.java"><font color="#bb000f"><code>Picture.java</code></font></a><a target="_blank" href="Picture.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>    <br>&nbsp;&nbsp;
+<a target="_blank" href="DTPicture.java"><font color="#bb000f"><code>DTPicture.java</code></font></a><a target="_blank" href="DTPicture.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>    <br>&nbsp;&nbsp;
+<a target="_blank" href="PictureTransferHandler.java"><font color="#bb000f"><code>PictureTransferHandler.java</code></font></a><a target="_blank" href="PictureTransferHandler.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>    </a></td>
+<td><a href="images/Maya.jpg"><code>Maya.jpg</code></a>,
+    <a href="images/Anya.jpg"><code>Anya.jpg</code></a>,
+    <a href="images/Laine.jpg"><code>Laine.jpg</code></a>,
+    <a href="images/Cosmo.jpg"><code>Cosmo.jpg</code></a>,
+    <a href="images/Adele.jpg"><code>Adele.jpg</code></a>, 
+    <a href="images/Alexi.jpg"><code>Alexi.jpg</code></a>.
+<td><a href="../dnd.html">
+    How to Use Data Transfer</a></td>
+</tr>
+
+<tr>
+<td><a name="DragPictureDemo2">
+DragPictureDemo2 <a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/misc/example-1dot4/DragPictureDemo2.jnlp"><em>[Run]</em></a>
+<td>
+    
+<a target="_blank" href="DragPictureDemo2.java"><font color="#bb000f"><code>DragPictureDemo2.java</code></font></a><a target="_blank" href="DragPictureDemo2.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>    <br>&nbsp;&nbsp;
+<a target="_blank" href="Picture.java"><font color="#bb000f"><code>Picture.java</code></font></a><a target="_blank" href="Picture.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>    <br>&nbsp;&nbsp;
+<a target="_blank" href="DTPicture.java"><font color="#bb000f"><code>DTPicture.java</code></font></a><a target="_blank" href="DTPicture.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>    <br>&nbsp;&nbsp;
+<a target="_blank" href="PictureTransferHandler.java"><font color="#bb000f"><code>PictureTransferHandler.java</code></font></a><a target="_blank" href="PictureTransferHandler.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>    <br>&nbsp;&nbsp;
+<a target="_blank" href="TransferActionListener.java"><font color="#bb000f"><code>TransferActionListener.java</code></font></a><a target="_blank" href="TransferActionListener.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>    </a></td>
+<td><a href="images/Maya.jpg"><code>Maya.jpg</code></a>,
+    <a href="images/Anya.jpg"><code>Anya.jpg</code></a>,
+    <a href="images/Laine.jpg"><code>Laine.jpg</code></a>,
+    <a href="images/Cosmo.jpg"><code>Cosmo.jpg</code></a>,
+    <a href="images/Adele.jpg"><code>Adele.jpg</code></a>, 
+    <a href="images/Alexi.jpg"><code>Alexi.jpg</code></a>.
+<td><a href="../dnd.html">
+    How to Use Data Transfer</a></td>
+</tr>
+
+<tr>
+<td><a name="ExtendedDnDDemo">
+ExtendedDnDDemo <a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/misc/example-1dot4/ExtendedDnDDemo.jnlp"><em>[Run]</em></a>
+<td>
+    
+<a target="_blank" href="ExtendedDnDDemo.java"><font color="#bb000f"><code>ExtendedDnDDemo.java</code></font></a><a target="_blank" href="ExtendedDnDDemo.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>    <br>&nbsp;&nbsp;
+<a target="_blank" href="StringTransferHandler.java"><font color="#bb000f"><code>StringTransferHandler.java</code></font></a><a target="_blank" href="StringTransferHandler.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>    <br>&nbsp;&nbsp;
+<a target="_blank" href="ListTransferHandler.java"><font color="#bb000f"><code>ListTransferHandler.java</code></font></a><a target="_blank" href="ListTransferHandler.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>    <br>&nbsp;&nbsp;
+<a target="_blank" href="TableTransferHandler.java"><font color="#bb000f"><code>TableTransferHandler.java</code></font></a><a target="_blank" href="TableTransferHandler.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>    </a></td>
+<td>&nbsp;</td>
+<td><a href="../dnd.html">
+    How to Use Data Transfer</a></td>
+</tr>
+
+<tr>
+<td><a name="FocusConceptsDemo">
+FocusConceptsDemo <a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/misc/example-1dot4/FocusConceptsDemo.jnlp"><em>[Run]</em></a>
+<td>
+    
+<a target="_blank" href="FocusConceptsDemo.java"><font color="#bb000f"><code>FocusConceptsDemo.java</code></font></a><a target="_blank" href="FocusConceptsDemo.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>    </a></td>
+<td>&nbsp;&nbsp;</td>
+<td><a href="../focus.html">
+    How to Use the Focus Subsystem</a></td>
+</tr>
+
+<tr>
+<td><a name="FocusTraversalDemo">
+FocusTraversalDemo <a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/misc/example-1dot4/FocusTraversalDemo.jnlp"><em>[Run]</em></a>
+<td>
+    
+<a target="_blank" href="FocusTraversalDemo.java"><font color="#bb000f"><code>FocusTraversalDemo.java</code></font></a><a target="_blank" href="FocusTraversalDemo.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>    </a></td>
+<td>&nbsp;&nbsp;</td>
+<td><a href="../focus.html">
+    How to Use the Focus Subsystem</a></td>
+</tr>
+
+<tr>
+<td><a name="IconDemoApplet">
+IconDemoApplet <a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/misc/example-1dot4/IconDemoApplet.jnlp"><em>[Run]</em></a>
+<td>
+    
+<a target="_blank" href="IconDemoApplet.java"><font color="#bb000f"><code>IconDemoApplet.java</code></font></a><a target="_blank" href="IconDemoApplet.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>
+    <em>(an applet)</em>
+    <br>&nbsp;&nbsp;
+<a target="_blank" href="SwingWorker.java"><font color="#bb000f"><code>SwingWorker.java</code></font></a><a target="_blank" href="SwingWorker.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>
+    <br>&nbsp;&nbsp;
+<a target="_blank" href="Photo.java"><font color="#bb000f"><code>Photo.java</code></font></a><a target="_blank" href="Photo.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a></td>
+<td><a href="images/right.gif"><code>right.gif</code></a>,
+    <a href="images/left.gif"><code>left.gif</code></a>,
+    <a href="images/dimmedRight.gif"><code>dimmedRight.gif</code></a>,
+    <a href="images/dimmedLeft.gif"><code>dimmedLeft.gif</code></a>,
+    <a href="images/stickerface.gif"><code>stickerface.gif</code></a>,
+    <a href="images/lainesTongue.gif"><code>lainesTongue.gif</code></a>,
+    <a href="images/kathyCosmo.gif"><code>kathyCosmo.gif</code></a>,
+    <a href="images/ewanPumpkin.gif"><code>ewanPumpkin.gif</code></a>,
+    <br>To run the applet:
+    <a href="../IconDemoApplet.html"><code>IconDemoApplet.html</code></a>
+    <br>To view the &lt;APPLET&gt; tag:
+    <a href="../IconDemoApplet.atag"><code>IconDemoApplet.atag</code></a>
+    </a></td>
+<td><a href="../icon.html">
+    How to Use Icons</a></td>
+</tr>
+
+<tr>
+<td><a name="InputVerificationDemo">
+InputVerificationDemo <a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/misc/example-1dot4/InputVerificationDemo.jnlp"><em>[Run]</em></a>
+<td>
+    
+<a target="_blank" href="InputVerificationDemo.java"><font color="#bb000f"><code>InputVerificationDemo.java</code></font></a><a target="_blank" href="InputVerificationDemo.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>    </a></td>
+<td>&nbsp;&nbsp;</td>
+<td><a href="../focus.html">
+    How to Use the Focus Subsystem</a></td>
+</tr>
+
+<tr>
+<td><a name="InputVerificationDialogDemo">
+InputVerificationDialogDemo <a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/misc/example-1dot4/InputVerificationDialogDemo.jnlp"><em>[Run]</em></a>
+<td>
+    
+<a target="_blank" href="InputVerificationDialogDemo.java"><font color="#bb000f"><code>InputVerificationDialogDemo.java</code></font></a><a target="_blank" href="InputVerificationDialogDemo.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>    </a></td>
+<td>&nbsp;&nbsp;</td>
+<td><a href="../focus.html">
+    How to Use the Focus Subsystem</a></td>
+</tr>
+
+<tr>
+<td><a name="LabelDnD">
+LabelDnD <a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/misc/example-1dot4/LabelDnD.jnlp"><em>[Run]</em></a>
+<td>
+    
+<a target="_blank" href="LabelDnD.java"><font color="#bb000f"><code>LabelDnD.java</code></font></a><a target="_blank" href="LabelDnD.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>
+    </a></td>
+<td>&nbsp;</td>
+<td><a href="../dnd.html">
+    How to Use Data Transfer</a></td>
+</tr>
+
+<tr>
+<td><a name="LabelDnD2">
+LabelDnD2 <a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/misc/example-1dot4/LabelDnD2.jnlp"><em>[Run]</em></a>
+<td>
+    
+<a target="_blank" href="LabelDnD2.java"><font color="#bb000f"><code>LabelDnD2.java</code></font></a><a target="_blank" href="LabelDnD2.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>
+    </a></td>
+<td>&nbsp;</td>
+<td><a href="../dnd.html">
+    How to Use Data Transfer</a></td>
+</tr>
+
+<tr>
+<td><a name="TrackFocusDemo">
+TrackFocusDemo <a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/misc/example-1dot4/TrackFocusDemo.jnlp"><em>[Run]</em></a>
+<td>
+    
+<a target="_blank" href="TrackFocusDemo.java"><font color="#bb000f"><code>TrackFocusDemo.java</code></font></a><a target="_blank" href="TrackFocusDemo.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a><br>&nbsp;&nbsp;
+<a target="_blank" href="Picture.java"><font color="#bb000f"><code>Picture.java</code></font></a><a target="_blank" href="Picture.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>    </a></td>
+<td><a href="images/Maya.jpg"><code>Maya.jpg</code></a>,
+    <a href="images/Anya.jpg"><code>Anya.jpg</code></a>,
+    <a href="images/Laine.jpg"><code>Laine.jpg</code></a>,
+    <a href="images/Cosmo.jpg"><code>Cosmo.jpg</code></a>,
+    <a href="images/Adele.jpg"><code>Adele.jpg</code></a>,
+    <a href="images/Alexi.jpg"><code>Alexi.jpg</code></a>.
+</td>
+<td><a href="../focus.html">
+    How to Use the Focus Subsystem</a></td>
+</tr>
+</table>
+
+</font>
+
+</blockquote>
+
+<img src="../../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="../../misc/example-swing/index.html" target="_top"><img src="../../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../../TOC.html#misc" target="_top"><img src="../../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="../../layout/example-swing/index.html" target="_top"><img src="../../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="../index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../../search.html" target="_top">Search</a>
+<br><a href="../../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

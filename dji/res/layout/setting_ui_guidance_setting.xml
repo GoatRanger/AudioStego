@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res-auto" setting_ui:orientation="vertical" setting_ui:layout_width="match_parent" setting_ui:layout_height="match_parent" setting_ui:baselineAligned="false">
+    <ScrollView setting_ui:layout_height="UNKNOWN_DATA_0x1" setting_ui:layout_weight="1.0" style="@style/gk">
+        <LinearLayout setting_ui:layout_height="wrap_content" style="@style/gj">
+            <dji.setting.ui.widget.DividerLinearLayout setting_ui:orientation="horizontal" style="@style/g2">
+                <TextView setting_ui:id="@id/bu_" setting_ui:text="@string/setting_ui_guidance_desc" style="@style/gh" />
+                <Switch setting_ui:id="@id/bua" style="@style/gg" />
+            </dji.setting.ui.widget.DividerLinearLayout>
+            <dji.setting.ui.widget.DividerLinearLayout setting_ui:orientation="horizontal" setting_ui:id="@id/bub" style="@style/g2">
+                <TextView setting_ui:id="@id/buc" setting_ui:text="@string/setting_ui_guidance_ass" style="@style/gh" />
+                <Switch setting_ui:id="@id/bud" style="@style/gg" />
+            </dji.setting.ui.widget.DividerLinearLayout>
+            <dji.setting.ui.widget.DividerLinearLayout setting_ui:orientation="horizontal" setting_ui:id="@id/bue" style="@style/g2">
+                <TextView setting_ui:id="@id/buf" setting_ui:text="@string/setting_ui_guidance_show_tip" style="@style/gh" />
+                <Switch setting_ui:id="@id/bug" style="@style/gg" />
+            </dji.setting.ui.widget.DividerLinearLayout>
+        </LinearLayout>
+    </ScrollView>
+    <TextView setting_ui:textSize="@dimen/wm" setting_ui:textStyle="bold" setting_ui:textColor="@color/om" setting_ui:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" setting_ui:layout_gravity="left|right|center_horizontal|fill_horizontal|center|fill|start|end" setting_ui:id="@id/buh" setting_ui:background="@drawable/setting_ui_common_bg" setting_ui:padding="@dimen/vh" setting_ui:visibility="visible" setting_ui:layout_width="wrap_content" setting_ui:layout_height="wrap_content" setting_ui:layout_marginRight="@dimen/uf" setting_ui:layout_marginBottom="@dimen/uf" setting_ui:text="@string/setting_ui_guidance_question_tip" setting_ui:drawableLeft="@drawable/setting_ui_warning" setting_ui:drawablePadding="@dimen/ts" />
+</LinearLayout>

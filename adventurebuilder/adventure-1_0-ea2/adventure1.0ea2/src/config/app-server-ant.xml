@@ -1,0 +1,91 @@
+<!-- Copyright 2003 Sun Microsystems, Inc. All rights reserved.
+ 
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions
+ are met:
+ 
+ - Redistributions of source code must retain the above copyright
+   notice, this list of conditions and the following disclaimer.
+ 
+ - Redistribution in binary form must reproduce the above copyright
+   notice, this list of conditions and the following disclaimer in
+   the documentation and/or other materials provided with the
+   distribution.
+ 
+ Neither the name of Sun Microsystems, Inc. or the names of
+ contributors may be used to endorse or promote products derived
+ from this software without specific prior written permission.
+ 
+ This software is provided "AS IS," without a warranty of any
+ kind. ALL EXPRESS OR IMPLIED CONDITIONS, REPRESENTATIONS AND
+ WARRANTIES, INCLUDING ANY IMPLIED WARRANTY OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE OR NON-INFRINGEMENT, ARE HEREBY
+ EXCLUDED. SUN AND ITS LICENSORS SHALL NOT BE LIABLE FOR ANY DAMAGES
+ SUFFERED BY LICENSEE AS A RESULT OF USING, MODIFYING OR
+ DISTRIBUTING THE SOFTWARE OR ITS DERIVATIVES. IN NO EVENT WILL SUN
+ OR ITS LICENSORS BE LIABLE FOR ANY LOST REVENUE, PROFIT OR DATA, OR
+ FOR DIRECT, INDIRECT, SPECIAL, CONSEQUENTIAL, INCIDENTAL OR
+ PUNITIVE DAMAGES, HOWEVER CAUSED AND REGARDLESS OF THE THEORY OF
+ LIABILITY, ARISING OUT OF THE USE OF OR INABILITY TO USE SOFTWARE,
+ EVEN IF SUN HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+ 
+ You acknowledge that Software is not designed, licensed or intended
+ for use in the design, construction, operation or maintenance of
+ any nuclear facility.
+ $Id: app-server-ant.xml,v 1.7 2003/03/04 00:10:57 gmurray Exp $ -->
+<!-- This file contains common ant commands that are specific to J2EE
+     RI. To port this application to a different app-server, you will 
+     need to write an equivalent file. 
+     You must include common-ant.xml before including this file -->
+
+  <target name="tools">
+
+     <condition property="j2ee-script-suffix" value=".bat">
+        <os family="windows"/>
+     </condition>
+     <condition property="j2ee-script-suffix" value="">
+        <not>
+           <os family="windows"/>
+        </not>
+     </condition>
+     <condition property="path.separator" value=";">
+        <os family="windows"/>
+     </condition>
+     <condition property="path.separator" value=":">
+        <not>
+           <os family="windows"/>
+        </not>
+     </condition>
+    <!-- setup properties for various J2EE tools -->
+    <property name="deploytool" value="${j2ee.home}/bin/deploytool${j2ee-script-suffix}"/>
+    <property name="packager" value="${j2ee.home}/bin/packager${j2ee-script-suffix}"/>
+    <property name="admintool" value="${j2ee.home}/bin/j2eeadmin${j2ee-script-suffix}"/>
+    <property name="keytool" value="${j2ee.home}/bin/keytool${j2ee-script-suffix}"/>
+    <property name="realmtool" value="${j2ee.home}/bin/realmtool${j2ee-script-suffix}"/>
+    <property name="wscompile" value="${j2ee.home}/bin/wscompile${j2ee-script-suffix}"/>
+  </target>
+
+  <!-- Construct J2EE classpath -->
+  <path id="j2ee.classpath">
+    <pathelement location="${j2ee.home}/lib/j2ee.jar"/>
+    <pathelement location="${j2ee.home}/lib/j2eetools.jar"/>
+    <pathelement location="${j2ee.home}/lib/j2ee-ri-svc.jar"/>
+    <pathelement location="${j2ee.home}/lib/jhall.jar"/>
+    <pathelement location="${j2ee.home}/bin"/>
+  </path>
+
+  <!-- Construct database classpath -->
+  <path id="database.classpath">
+    <pathelement location="${j2ee.home}/lib/cloudscape/RmiJdbc.jar"/>
+    <pathelement location="${j2ee.home}/lib/cloudscape/cloudclient.jar"/>
+    <pathelement location="${j2ee.home}/lib/cloudscape/cloudview.jar"/>
+    <pathelement location="${j2ee.home}/lib/system/cloudscape.jar"/>
+    <pathelement location="${j2ee.home}/lib/system/cloudutil.jar"/>
+  </path>
+
+  <target name="deploy" depends="tools">
+      <fail unless="application.module" message="application.module must be set before invoking this target. Otherwise there is no application to deploy."/>
+      <exec executable="${deploytool}">
+       <arg line="-deployModule ${application.module}"/>
+     </exec> 
+  </target>

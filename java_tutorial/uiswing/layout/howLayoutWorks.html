@@ -1,0 +1,189 @@
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>How Layout Management Works</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="using.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#layout" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="layoutlist.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Creating a GUI with JFC/Swing
+<br>
+<b>Lesson</b>: Laying Out Components Within a Container
+</font>
+
+<h2>
+How Layout Management Works
+</h2>
+<blockquote>
+
+
+Here's an example of a layout management sequence
+for a frame (<code>JFrame</code>).
+
+<ol>
+<li> After the GUI is constructed,
+     the <code>pack</code> method
+     is invoked on the <code>JFrame</code>.
+     This specifies that the frame
+     should be at its preferred size.
+     <p>
+<li> To find the frame's preferred size,
+     the frame's layout manager
+     adds the size of the frame's edges
+     to the preferred size of the component
+     directly contained by the frame.
+     This is the sum of
+     the preferred size of the frame's content pane,
+     plus the size of the frame's menu bar, if any.
+     <p>
+<li> The content pane's layout manager
+     is responsible for figuring out the content pane's
+     preferred size.
+     By default, this layout manager is a
+     <code>BorderLayout</code> object.
+     However, let's assume that we replace it with a
+     <code>GridLayout</code> object
+     that's set up to create two columns.
+     The interesting thing about grid layout
+     is that it forces all components to be the
+     same size,
+     and it tries to make them as wide as the widest component's
+     preferred width
+     and as high as highest one's preferred height.
+     <p>
+     First, the grid layout manager
+     queries the content pane for its insets &#151;
+     the size of the content pane's border, if any.
+     Next, the grid layout manager
+     queries each component in the content pane for its preferred size,
+     noting the largest preferred width and largest preferred height.
+     Then it calculates the content pane's preferred size.
+     <p>
+<li> When a component
+     in the content pane is asked for its preferred size,
+     the default implementation
+     (used by most components)
+     first checks whether the user specified
+     a preferred size.
+     If so, it reports that size.
+     If not, it queries its look and feel
+     for the preferred size.
+</ol>
+
+<p>
+
+The end result is that to determine the best size for the frame,
+the system determines the sizes of
+the containers at the bottom of the containment hierarchy.
+These sizes then percolate up
+the containment hierarchy,
+eventually determining the frame's total size.
+
+<p>
+If you change the size of a component,
+even indirectly by changing its font, for example,
+the component automatically resizes and repaints itself.
+In a custom component,
+you can force this to occur
+by invoking <code>revalidate</code> and then
+<code>repaint</code> on the component.
+Both <code>revalidate</code> and <code>repaint</code> are
+<a target="_top" href="../misc/threads.html">thread-safe</a><a target="_top" href="../misc/threads.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a> &#151; you needn't invoke them from the event-dispatching thread.
+
+<p>
+When you invoke <code>revalidate</code> on a component,
+a request is passed up the containment hierarchy
+until it encounters a container,
+such as a scroll pane or top-level container,
+that shouldn't be affected by the component's resizing.
+(This is determined by calling the container's
+<code>isValidateRoot</code> method.)
+The container is then laid out,
+which has the effect of adjusting the revalidated component's
+size and the size of all affected components.
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="using.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#layout" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="layoutlist.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

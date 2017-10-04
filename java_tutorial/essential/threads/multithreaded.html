@@ -1,0 +1,169 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Synchronizing Threads</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="priority.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#threads" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="synchronization.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Essential Java Classes
+<br>
+<b>Lesson</b>: Threads: Doing Two or More Tasks At Once
+</font>
+
+<h2>
+Synchronizing Threads
+</h2>
+<blockquote>
+So far, this lesson has contained examples with independent,
+asynchronous threads. That is, each thread contained all of the
+data and methods required for its execution and didn't require
+any outside resources or methods. In addition, the threads in
+those examples ran at their own pace without concern over the
+state or activities of any other concurrently running threads.
+
+<p>
+However, there are many interesting situations where separate,
+concurrently running threads do share data and must consider
+the state and activities of other threads. One such set of
+programming situations are known as producer/consumer scenarios
+where the producer generates a stream of data which then is consumed
+by a consumer.
+
+<p>
+For example, imagine a Java application where one thread
+(the producer) writes data to a file while a second thread (the consumer)
+reads data from the same file. Or, as you type characters on the keyboard,
+the producer thread places key events in an event queue and the consumer
+thread reads the events from the same queue. Both of these examples use
+concurrent threads that share a common resource: the first shares a file,
+the second shares an event queue.
+Because the threads share a common resource, they must be synchronized in
+some way.
+
+</blockquote>
+<h3><a href=synchronization.html>The Producer/Consumer Example</a>
+</h3>
+<blockquote>
+This lesson teaches you about Java thread
+synchronization through a simple
+producer/consumer example.
+</blockquote>
+
+<h3><a href=monitors.html>Locking an Object</a>
+</h3>
+<blockquote>
+The code segments within a program that access the same object from
+separate, concurrent threads are called <em>critical sections</em>.
+In the Java
+language, a critical section can be a block or a method and are
+identified with the <code>synchronized</code> keyword.
+The Java platform then
+associates a lock with every object that has synchronized code.
+</blockquote>
+
+<h3><a href=waitAndNotify.html>
+Using the <code>notifyAll</code> and <code>wait</code> Methods</a>
+</h3>
+<blockquote>
+This section investigates the code in <code>CubbyHole</code>'s
+<code>put</code> and <code>get</code> methods that helps the
+<code>Producer</code> and <code>Consumer</code> coordinate their
+activities.
+</blockquote>
+
+<h3><a href="deadlock.html">Avoid Starvation and Deadlock</a></h3>
+<blockquote>
+If you write a program in which several concurrent threads are competing
+for resources, you must take precautions to ensure fairness. A system is
+fair when each thread gets enough access to limited resource to make
+reasonable progress. A fair system prevents <em>starvation</em>
+and <em>deadlock</em>. Starvation occurs when one or more threads in
+your program is blocked from gaining access to a resource and thus cannot make
+progress. Deadlock is the ultimate form of starvation; it occurs when two
+or more threads are waiting on a condition that cannot be satisfied.
+Deadlock most often occurs when two (or more) threads are each waiting
+for the other(s) to do something.
+<p>
+This section uses the dining philosophers problem to illustrate
+deadlock. It also discusses ways you can prevent deadlock.
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="priority.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#threads" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="synchronization.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

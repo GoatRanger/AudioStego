@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent">
+    <SurfaceView android:id="@+id/preview_view" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <dji.pilot2.scan.view.ViewfinderView android:id="@+id/viewfinder_view" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <LinearLayout android:orientation="horizontal" android:id="@+id/scan_verification_message" android:paddingTop="200dp" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerHorizontal="true" android:layout_centerVertical="true">
+        <ImageView android:id="@+id/scan_msg_icon" android:layout_width="UNKNOWN_DATA_0x2801" android:layout_height="UNKNOWN_DATA_0x2801" android:src="@r$drawable/scan_confirm_icon" />
+        <TextView android:textSize="14sp" android:textColor="0x106000b" android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@+id/scan_msg_desc" android:paddingLeft="10dp" android:layout_width="wrap_content" android:layout_height="UNKNOWN_DATA_0x2801" android:text="Identity confirmed." />
+    </LinearLayout>
+    <RelativeLayout android:layout_gravity="top|bottom|center_vertical|fill_vertical|center|fill" android:background="#99000000" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x3201">
+        <ImageButton android:id="@+id/capture_imageview_back" android:background="@r$drawable/selector_capture_back" android:layout_width="UNKNOWN_DATA_0x2a01" android:layout_height="UNKNOWN_DATA_0x2a01" android:layout_centerVertical="true" />
+        <TextView android:textSize="20sp" android:textColor="#ffffffff" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/v2_phantom_fragment_scan_title" android:layout_centerInParent="true" />
+    </RelativeLayout>
+</RelativeLayout>

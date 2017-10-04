@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="10"
+   name=""
+   committed-date="2005-02-01T05:59:34.421875Z"
+   url="svn://192.168.2.2/IT105Editor/src/edu/usma/eecs/it/gauntlet/checkers/CVS"
+   last-author="Karl"
+   kind="dir"
+   uuid="0daf4267-3229-f84b-9084-f3c94b025f38"
+   revision="55"/>
+<entry
+   committed-rev="10"
+   name="Repository"
+   text-time="2005-03-02T06:14:22.062500Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="0c9a9d8396234ab778ec878433bfbd7f"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:22.031250Z"/>
+<entry
+   committed-rev="10"
+   name="Root"
+   text-time="2005-03-02T06:14:22.062500Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="cf6eb897fc3bf4190b7303962b0fecaf"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:22.031250Z"/>
+<entry
+   committed-rev="10"
+   name="Entries"
+   text-time="2005-03-02T06:14:22.078125Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="6fdac7cc0ae4671356b180adddb952ca"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:22.046875Z"/>
+</wc-entries>

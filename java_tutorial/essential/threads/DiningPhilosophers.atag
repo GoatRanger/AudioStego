@@ -1,0 +1,5 @@
+<applet code="DiningPhilosophers.class"
+        codebase="example-swing/"
+        archive="diningphilosophers.jar"
+        width="250" height="330">
+</applet>

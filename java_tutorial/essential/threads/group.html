@@ -1,0 +1,190 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Grouping Threads</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="deadlock.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#threads" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="threadgroup.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Essential Java Classes
+<br>
+<b>Lesson</b>: Threads: Doing Two or More Tasks At Once
+</font>
+
+<h2>
+Grouping Threads
+</h2>
+<blockquote>
+Every Java thread is a member of a <em>thread group</em>.
+Thread groups provide a mechanism for collecting multiple threads
+into a single object and manipulating those threads all at
+once, rather than individually. For example, you can start or
+suspend all the threads within a group with a single method call.
+Java thread groups are implemented by the 
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/ThreadGroup.html"><font color="#8800bb"><code>ThreadGroup</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/ThreadGroup.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> class in the
+<code>java.lang</code> package.
+<p>
+The runtime system puts a thread into a thread group during thread
+construction. When you create a thread, you can either allow the runtime
+system to put the new thread in some reasonable default group or you
+can explicitly set the new thread's group.
+The thread is a permanent member of whatever thread group it joins upon
+its creation--you cannot move a thread to a new group after the thread
+has been created.
+
+</blockquote>
+<h3>The Default Thread Group</h3>
+<blockquote>
+If you create a new Thread without specifying its group in the constructor,
+the runtime system automatically places the new thread in the same group
+as the thread that created it (known as the <em>current
+thread group</em> and the <em>current thread</em>, respectively).
+So, if you leave the thread group unspecified when you create your thread,
+what group contains your thread?
+<p>
+When a Java application first starts up, the Java runtime system creates
+a <code>ThreadGroup</code> named <code>main</code>.  Unless specified otherwise, all new
+threads that you create become members of the <code>main</code> thread group.
+<p>
+
+<blockquote><hr><strong>Note:</strong>&nbsp; If you create a thread within an applet, 
+the new thread's group may be something other than <code>main</code>, depending on
+the browser or viewer that the applet is running in.
+Refer to
+<a target="_top" href="../../applet/practical/threads.html">Threads in Applets</a><a target="_top" href="../../applet/practical/threads.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Essential Java Classes trail)"></a>for information about thread groups in applets.
+<hr></blockquote>
+<p>
+Many Java programmers ignore thread groups altogether and allow the runtime
+system to handle all of the details regarding thread groups. However,
+if your program creates a lot of threads that should be manipulated as a
+group, or if you are implementing a custom security manager, you will likely
+want more control over thread groups. Continue reading for more details!
+</blockquote>
+
+<h3>Creating a Thread Explicitly in a Group</h3>
+<blockquote>
+As mentioned previously, a thread is a permanent member of whatever
+thread group it joins when its created--you cannot move a thread to a
+new group after the thread has been created.
+Thus, if you wish to put your new thread in a thread group other than
+the default, you must specify the thread group explicitly when you create
+the thread. The <code>Thread</code> class has three constructors that let you set
+a new thread's group:
+<blockquote><pre>
+public Thread(ThreadGroup <em>group</em>, Runnable <em>runnable</em>)
+public Thread(ThreadGroup <em>group</em>, String <em>name</em>)
+public Thread(ThreadGroup <em>group</em>, Runnable <em>runnable</em>, String <em>name</em>)
+</pre></blockquote>
+Each of these constructors creates a new thread, initializes it based
+on the <code>Runnable</code> and <code>String</code> parameters, and makes the new thread a member
+of the specified group. For example, the following
+code sample creates a thread group (<code>myThreadGroup</code>) and then
+creates a thread (<code>myThread</code>) in that group.
+<blockquote><pre>
+ThreadGroup myThreadGroup = new ThreadGroup(
+                                    "My Group of Threads");
+Thread myThread = new Thread(myThreadGroup,
+                             "a thread for my group");
+</pre></blockquote>
+The <code>ThreadGroup</code> passed into a <code>Thread</code> constructor does not necessarily
+have to be a group that you create--it can be a group created by the
+Java runtime system, or a group created by the application in which
+your applet is running.
+</blockquote>
+
+<h3>Getting a Thread's Group</h3>
+<blockquote>
+To find out what group a thread is in, you can call its <code>getThreadGroup</code>
+method:
+<blockquote><pre>
+theGroup = myThread.getThreadGroup();
+</pre></blockquote>
+</blockquote>
+
+<h3><a href=threadgroup.html>The <code>ThreadGroup</code> Class</a></h3>
+
+<blockquote>
+Once you've obtained a thread's <code>ThreadGroup</code>, you can query the
+group for information, such as what other threads are in the group.
+You can also modify the threads in that group, such as suspending,
+resuming, or stopping them, with a single method invocation.
+</blockquote>
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="deadlock.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#threads" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="threadgroup.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

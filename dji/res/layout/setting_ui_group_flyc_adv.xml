@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res-auto" setting_ui:titleText="@string/setting_ui_flyc" style="@style/gk">
+    <LinearLayout style="@style/gj">
+        <TextView setting_ui:text="@string/setting_ui_flyc_rc_gain" style="@style/gf" />
+        <dji.setting.ui.widget.ItemViewGroup setting_ui:titleText="@string/setting_ui_flyc_exp_title" setting_ui:subLayout="@layout/setting_ui_group_flyc_exp" style="@style/g2" />
+        <dji.setting.ui.widget.ItemViewGroup setting_ui:titleText="@string/setting_ui_flyc_gain_title" setting_ui:subLayout="@layout/setting_ui_group_flyc_gain" style="@style/g2" />
+        <dji.setting.ui.widget.ItemViewGroup setting_ui:titleText="@string/setting_ui_flyc_adv_gain" setting_ui:subLayout="@layout/setting_ui_group_flyc_adv_gain" style="@style/g2" />
+        <dji.setting.ui.flyc.ControlResetView setting_ui:titleText="@string/setting_ui_flyc_reset_control" style="@style/g9" />
+        <TextView setting_ui:text="@string/setting_ui_flyc_sensor" style="@style/gf" />
+        <dji.setting.ui.flyc.SensorGroupView setting_ui:titleText="@string/setting_ui_flyc_sensor" setting_ui:subLayout="@layout/setting_ui_group_flyc_sensor" style="@style/g2" />
+        <TextView setting_ui:text="@string/setting_ui_flyc_other" style="@style/gf" />
+        <dji.setting.ui.flyc.LoseControlActionView setting_ui:titleText="@string/setting_ui_flyc_fs_action" style="@style/g2" />
+        <dji.setting.ui.flyc.LowBatteryBackView setting_ui:titleText="@string/setting_ui_flyc_low_battery_back" style="@style/g2" />
+        <dji.setting.ui.flyc.StopMotorTypeView setting_ui:titleText="@string/setting_ui_flyc_stop_motor_type" style="@style/g2" />
+        <dji.setting.ui.flyc.ForearmLampView setting_ui:titleText="@string/setting_ui_flyc_open_forearm_lamp" style="@style/g2" />
+        <dji.setting.ui.flyc.AvoidGroundView setting_ui:visibility="gone" style="@style/g3" />
+        <dji.setting.ui.flyc.SdModeView setting_ui:titleText="@string/setting_ui_flyc_switch_sd_mode" style="@style/g9" />
+        <dji.setting.ui.flyc.VisualView setting_ui:titleText="@string/setting_ui_flyc_visual_enable" style="@style/g2" />
+        <dji.setting.ui.flyc.GearProtectView setting_ui:titleText="@string/setting_ui_flyc_gear_protect" setting_ui:showDivider="true" style="@style/g2" />
+        <dji.setting.ui.flyc.FModeConfigView setting_ui:titleText="@string/flyc_adv_setting_menu_f_mode" style="@style/g2" />
+        <dji.setting.ui.flyc.GearHideView setting_ui:visibility="gone" style="@style/g3" />
+        <dji.setting.ui.flyc.EscEchoView setting_ui:titleText="@string/setting_ui_flyc_esc_echo" style="@style/g2" />
+    </LinearLayout>
+</ScrollView>

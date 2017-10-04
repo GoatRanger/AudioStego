@@ -1,0 +1,11 @@
+org/openscience/cdk/isomorphism/matchers/smarts/RingIdentifierAtom.java
+org/openscience/cdk/isomorphism/matchers/smarts/LogicalOperatorBond.java
+org/openscience/cdk/isomorphism/matchers/smarts/SmallestRingAtom.java
+org/openscience/cdk/isomorphism/matchers/smarts/AromaticSymbolAtom.java
+org/openscience/cdk/isomorphism/matchers/smarts/StereoBond.java
+org/openscience/cdk/isomorphism/matchers/smarts/AtomicNumberAtom.java
+org/openscience/cdk/isomorphism/matchers/smarts/LogicalOperatorAtom.java
+org/openscience/cdk/isomorphism/matchers/smarts/AliphaticSymbolAtom.java
+org/openscience/cdk/isomorphism/matchers/smarts/ExplicitConnectionAtom.java
+org/openscience/cdk/isomorphism/matchers/smarts/RingMembershipAtom.java
+org/openscience/cdk/isomorphism/matchers/smarts/RingBond.java

@@ -1,0 +1,6 @@
+package gui;
+
+public class NetworkConnector extends BaseConnector {
+  public NetworkConnector() {
+  }
+}

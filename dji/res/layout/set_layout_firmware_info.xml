@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.pilot.set.view.FirmwareVersionDetailView xmlns:android="http://schemas.android.com/apk/res-auto" set:orientation="vertical" set:clickable="true" style="@style/ff">
+    <ScrollView set:layout_width="match_parent" set:layout_height="match_parent" set:fadeScrollbars="false">
+        <LinearLayout set:orientation="vertical" set:layout_width="match_parent" set:layout_height="match_parent"
+            <LinearLayout set:gravity="top|bottom|center_vertical|fill_vertical|center|fill" set:orientation="horizontal" set:clickable="true" set:layout_width="match_parent" set:layout_height="wrap_content">
+                <TextView set:gravity="top|bottom|center_vertical|fill_vertical|center|fill" set:text="@string/set_about_camera" style="@style/fl" />
+                <TextView set:id="@id/bmv" set:paddingRight="15dp" set:text="" style="@style/fm" />
+            </LinearLayout>
+            <LinearLayout set:gravity="top|bottom|center_vertical|fill_vertical|center|fill" set:orientation="horizontal" set:id="@id/bmw" set:visibility="gone" set:clickable="true" set:layout_width="match_parent" set:layout_height="wrap_content">
+                <TextView set:gravity="top|bottom|center_vertical|fill_vertical|center|fill" set:text="@string/set_about_fpga" style="@style/fl" />
+                <TextView set:id="@id/bmx" set:paddingRight="15dp" set:text="" style="@style/fm" />
+            </LinearLayout>
+            <LinearLayout set:gravity="top|bottom|center_vertical|fill_vertical|center|fill" set:orientation="horizontal" set:id="@id/bmy" set:visibility="gone" set:clickable="true" set:layout_width="match_parent" set:layout_height="wrap_content">
+                <TextView set:gravity="top|bottom|center_vertical|fill_vertical|center|fill" set:text="@string/set_about_camera01" style="@style/fl" />
+                <TextView set:id="@id/bmz" set:paddingRight="15dp" set:text="" style="@style/fm" />
+            </LinearLayout>
+            <LinearLayout set:gravity="top|bottom|center_vertical|fill_vertical|center|fill" set:orientation="horizontal" set:id="@id/bn0" set:visibility="gone" set:clickable="true" set:layout_width="match_parent" set:layout_height="wrap_content">
+                <TextView set:gravity="top|bottom|center_vertical|fill_vertical|center|fill" set:text="@string/set_about_camera04" style="@style/fl" />
+                <TextView set:id="@id/bn1" set:paddingRight="15dp" set:text="" style="@style/fm" />
+            </LinearLayout>
+            <LinearLayout set:gravity="top|bottom|center_vertical|fill_vertical|center|fill" set:orientation="horizontal" set:clickable="true" set:layout_width="match_parent" set:layout_height="wrap_content">
+                <TextView set:gravity="top|bottom|center_vertical|fill_vertical|center|fill" set:text="@string/set_about_gimbal" style="@style/fl" />
+                <TextView set:id="@id/bci" set:paddingRight="15dp" set:text="" style="@style/fm" />
+            </LinearLayout>
+            <LinearLayout set:gravity="top|bottom|center_vertical|fill_vertical|center|fill" set:orientation="horizontal" set:id="@id/bn2" set:visibility="gone" set:clickable="true" set:layout_width="match_parent" set:layout_height="wrap_content">
+                <TextView set:gravity="top|bottom|center_vertical|fill_vertical|center|fill" set:text="@string/set_about_gimbal01" style="@style/fl" />
+                <TextView set:id="@id/bn3" set:paddingRight="15dp" set:text="" style="@style/fm" />
+            </LinearLayout>
+            <LinearLayout set:gravity="top|bottom|center_vertical|fill_vertical|center|fill" set:orientation="horizontal" set:id="@id/bn4" set:visibility="gone" set:clickable="true" set:layout_width="match_parent" set:layout_height="wrap_content">
+                <TextView set:gravity="top|bottom|center_vertical|fill_vertical|center|fill" set:text="@string/set_about_gimbal02" style="@style/fl" />
+                <TextView set:id="@id/bn5" set:paddingRight="15dp" set:text="" style="@style/fm" />
+            </LinearLayout>
+            <LinearLayout set:gravity="top|bottom|center_vertical|fill_vertical|center|fill" set:orientation="horizontal" set:id="@id/bn6" set:visibility="gone" set:clickable="true" set:layout_width="match_parent" set:layout_height="wrap_content">
+                <TextView set:gravity="top|bottom|center_vertical|fill_vertical|center|fill" set:text="@string/set_about_gimbal03" style="@style/fl" />
+                <TextView set:id="@id/bn7" set:paddingRight="15dp" set:text="" style="@style/fm" />
+            </LinearLayout>
+            <LinearLayout set:gravity="top|bottom|center_vertical|fill_vertical|center|fill" set:orientation="horizontal" set:id="@id/bn8" set:clickable="true" set:layout_width="match_parent" set:layout_height="wrap_content">
+                <TextView set:gravity="top|bottom|center_vertical|fill_vertical|center|fill" set:text="@string/set_about_368" style="@style/fl" />
+                <TextView set:id="@id/bn9" set:paddingRight="15dp" set:text="" style="@style/fm" />
+            </LinearLayout>
+            <LinearLayout set:gravity="top|bottom|center_vertical|fill_vertical|center|fill" set:orientation="horizontal" set:clickable="true" set:layout_width="match_parent" set:layout_height="wrap_content">
+                <TextView set:gravity="top|bottom|center_vertical|fill_vertical|center|fill" set:text="@string/set_about_1765" style="@style/fl" />
+                <TextView set:id="@id/bn_" set:paddingRight="15dp" set:text="" style="@style/fm" />
+            </LinearLayout>
+            <LinearLayout set:gravity="top|bottom|center_vertical|fill_vertical|center|fill" set:orientation="horizontal" set:clickable="true" set:layout_width="match_parent" set:layout_height="wrap_content">
+                <TextView set:gravity="top|bottom|center_vertical|fill_vertical|center|fill" set:text="@string/set_about_wifi" style="@style/fl" />
+                <TextView set:id="@id/bna" set:paddingRight="15dp" set:text="" style="@style/fm" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</dji.pilot.set.view.FirmwareVersionDetailView>

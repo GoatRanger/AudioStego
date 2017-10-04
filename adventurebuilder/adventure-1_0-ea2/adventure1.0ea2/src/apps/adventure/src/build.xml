@@ -1,0 +1,242 @@
+<?xml version="1.0"?>
+<!-- Copyright 2003 Sun Microsystems, Inc. All rights reserved.
+ 
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions
+ are met:
+ 
+ - Redistributions of source code must retain the above copyright
+   notice, this list of conditions and the following disclaimer.
+ 
+ - Redistribution in binary form must reproduce the above copyright
+   notice, this list of conditions and the following disclaimer in
+   the documentation and/or other materials provided with the
+   distribution.
+ 
+ Neither the name of Sun Microsystems, Inc. or the names of
+ contributors may be used to endorse or promote products derived
+ from this software without specific prior written permission.
+ 
+ This software is provided "AS IS," without a warranty of any
+ kind. ALL EXPRESS OR IMPLIED CONDITIONS, REPRESENTATIONS AND
+ WARRANTIES, INCLUDING ANY IMPLIED WARRANTY OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE OR NON-INFRINGEMENT, ARE HEREBY
+ EXCLUDED. SUN AND ITS LICENSORS SHALL NOT BE LIABLE FOR ANY DAMAGES
+ SUFFERED BY LICENSEE AS A RESULT OF USING, MODIFYING OR
+ DISTRIBUTING THE SOFTWARE OR ITS DERIVATIVES. IN NO EVENT WILL SUN
+ OR ITS LICENSORS BE LIABLE FOR ANY LOST REVENUE, PROFIT OR DATA, OR
+ FOR DIRECT, INDIRECT, SPECIAL, CONSEQUENTIAL, INCIDENTAL OR
+ PUNITIVE DAMAGES, HOWEVER CAUSED AND REGARDLESS OF THE THEORY OF
+ LIABILITY, ARISING OUT OF THE USE OF OR INABILITY TO USE SOFTWARE,
+ EVEN IF SUN HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+ 
+ You acknowledge that Software is not designed, licensed or intended
+ for use in the design, construction, operation or maintenance of
+ any nuclear facility.
+ $Id: build.xml,v 1.24 2003/03/12 18:50:11 vijaysr Exp $ -->
+
+<!DOCTYPE project [
+  <!ENTITY commonAntCommands SYSTEM "../../../config/common-ant.xml">
+  <!ENTITY appServerAntCommands SYSTEM "../../../config/app-server-ant.xml">
+]>
+
+<project name="adventure" default="core" basedir=".">
+
+    <!-- path to root -->
+    <property name="root.dir" value="../../.."/>
+
+    &commonAntCommands; <!-- include common ant commands -->
+
+
+    <!-- The root directory of the workspace -->
+    <property name="adventure.home" value=".."/>
+    <property name="adventure.jstl.lib" value="../../../lib/jstl"/>
+    <property name="adventure.waf.home" value="../../../waf"/>
+    <property name="adventure.src" value="${adventure.home}/src"/>
+    <property name="build.dir" value="${adventure.home}/build"/>
+    <property name="adventure.temp.jar.build" value="${build.dir}/jartemp"/>
+    <property name="adventure.temp.war.build" value="${build.dir}/wartemp"/>
+    <property name="adventure.lib" value="${adventure.home}/src/lib"/>
+    <property name="adventure.classbindir" value="${build.dir}/classes"/>
+    <property name="adventure.jaxrpc.client.classbindir" value="${build.dir}/jaxrpc/client/classes"/>
+    <property name="adventure.components.basedir" value="../../../components"/>
+    <property name="adventure.srcdocroot" value="${adventure.src}/docroot"/>
+    <property name="adventure.waf.web.jar" value="${adventure.waf.home}/build/waf-web.jar"/>
+
+    <!-- Application Module to be deployed -->
+    <property name="application.module" value="${build.dir}/adventure.ear"/>
+     <!-- Banner Title for build -->
+    <property name="banner.title" value="Adventure Builder Web Application"/>
+
+    <!-- OPC Application Dependencies -->
+    <property name="opc.home" value="../../opc"/>
+    <property name="opc.build" value="${opc.home}/build"/>
+    <property name="opc.po.jaxrpc.wsdl" value="${opc.build}/classes/OpcPurchaseOrderService.wsdl"/>
+    <property name="opc.ot.jaxrpc.wsdl" value="${opc.build}/classes/OpcOrderTrackingService.wsdl"/>
+
+    <!-- The PurchaseOrder Component -->
+    <property name="adventure.po.home" value="${OPCapp.components.basedir}/purchaseorder"/>
+ 
+    <!-- Signon Component -->
+    <property name="adventure.signon.home" value="${adventure.components.basedir}/signon"/>
+    <property name="adventure.signon.jar" value="${adventure.signon.home}/build/signon-web.jar"/>
+
+    <!-- Service Locator Component -->
+    <property name="adventure.servicelocator.home" value="${adventure.components.basedir}/servicelocator"/>
+    <property name="adventure.servicelocator.jar" value="${adventure.servicelocator.home}/build/servicelocator.jar"/>
+
+    <!-- Tracer Component -->
+    <property name="adventure.tracer.home" value="${adventure.components.basedir}/util/tracer"/>
+    <property name="adventure.tracer.jar" value="${adventure.tracer.home}/build/tracer.jar"/>
+
+    <!-- DAOUtil Component -->
+    <property name="adventure.daoutil.home" value="${adventure.components.basedir}/util/dao"/>
+    <property name="adventure.daoutil.jar" value="${adventure.daoutil.home}/build/daoutils.jar"/>
+
+    <!-- Customer Component -->
+    <property name="adventure.customer.home" value="${adventure.components.basedir}/customer"/>
+    <property name="adventure.customer.client.jar" value="${adventure.customer.home}/build/customer-web.jar"/>
+
+    <!-- Catalog Component -->
+    <property name="adventure.catalog.home" value="${adventure.components.basedir}/catalog"/>
+    <property name="adventure.catalog.client.jar" value="${adventure.catalog.home}/build/catalog-web.jar"/>
+
+    <!-- The classpath for components. -->
+    <path id="adventure.components.classpath">
+     <pathelement location="${adventure.servicelocator.jar}"/>
+     <pathelement location="${adventure.signon.jar}"/>
+     <pathelement location="${adventure.customer.client.jar}"/>
+     <pathelement location="${adventure.tracer.jar}"/>
+     <pathelement location="${adventure.daoutil.jar}"/>
+     <pathelement location="${adventure.catalog.client.jar}"/>
+     <pathelement location="${adventure.waf.web.jar}"/>
+    </path>
+
+    <!-- The classpath used for building the workspace. -->
+   <path id="adventure.classpath">
+     <pathelement location="${adventure.jaxrpc.client.classbindir}"/>
+     <pathelement location="${adventure.classbindir}"/>
+     <path refid="compile.classpath" />
+     <path refid="adventure.components.classpath" />
+   </path>
+
+  <target name="compile" depends="jaxrpc-po-client,jaxrpc-ot-client">
+    <mkdir dir="${adventure.classbindir}"/>
+    <javac srcdir="${adventure.src}"
+           destdir="${adventure.classbindir}"
+           includes="com/**">
+     <classpath refid="adventure.classpath"/>
+    </javac>
+  </target>
+
+  <target name="jaxrpc-po-client" depends="tools">
+    <!-- make the jaxrpc client things -->
+    <copy file="${opc.po.jaxrpc.wsdl}" todir="${build.dir}" />
+    <mkdir dir="${adventure.jaxrpc.client.classbindir}"/>
+    <echo message="Running wscompile for the PO client from WSDL:"/>
+    <exec executable="${wscompile}">
+        <arg line="-classpath ${adventure.classpath}" />
+        <arg line="-gen:client" />
+	<arg line="-keep" />
+        <arg line="-d  ${adventure.jaxrpc.client.classbindir}" />
+        <arg line="jaxrpc-po-client-config.xml" />
+    </exec>
+  </target>
+
+  <target name="jaxrpc-ot-client" depends="tools">
+    <!-- make the jaxrpc client things -->
+    <copy file="${opc.ot.jaxrpc.wsdl}" todir="${build.dir}" />
+    <mkdir dir="${adventure.jaxrpc.client.classbindir}"/>
+    <echo message="Running wscompile for the OT client from WSDL:"/>
+    <exec executable="${wscompile}">
+        <arg line="-classpath ${adventure.classpath}" />
+        <arg line="-gen:client" />
+	<arg line="-keep" />
+        <arg line="-d  ${adventure.jaxrpc.client.classbindir}" />
+        <arg line="jaxrpc-ot-client-config.xml" />
+    </exec>
+  </target>
+
+  <target name="war">
+     
+    <mkdir dir="${adventure.temp.war.build}"/>
+    <!-- copy the docroot -->
+    <copy todir="${adventure.temp.war.build}">
+     <fileset dir="${adventure.srcdocroot}" excludes="**/cvs/**" />
+    </copy>
+    <!-- Copy in the Adventure Builder Web Classes -->
+    <copy todir="${adventure.temp.war.build}/WEB-INF/classes">
+     <fileset dir="${adventure.classbindir}" excludes="**/cvs/**" />
+    </copy>
+    <!-- Copy in the WAF controllers-->
+    <copy file="${adventure.waf.web.jar}" todir="${adventure.temp.war.build}/WEB-INF/lib" />
+    <!-- Copy in the Service Locator-->
+    <copy file="${adventure.servicelocator.jar}" todir="${adventure.temp.war.build}/WEB-INF/lib" />
+    <!-- Copy in the tracer-->
+    <copy file="${adventure.tracer.jar}" todir="${adventure.temp.war.build}/WEB-INF/lib" />
+    <!-- Copy in the dao util-->
+    <copy file="${adventure.daoutil.jar}" todir="${adventure.temp.war.build}/WEB-INF/lib" />
+    <!-- Copy in the customer component-->
+    <copy file="${adventure.customer.client.jar}" todir="${adventure.temp.war.build}/WEB-INF/lib" />
+    <!-- Copy in the Catalog component-->
+    <copy file="${adventure.catalog.client.jar}" todir="${adventure.temp.war.build}/WEB-INF/lib" />
+    <!-- Copy in the signon component-->
+    <copy file="${adventure.signon.jar}" todir="${adventure.temp.war.build}/WEB-INF/lib" />
+    <!-- Copy in the Taglib TLDs and jars  -->
+    <copy file="${adventure.waf.home}/src/waftags.tld" todir="${adventure.temp.war.build}/WEB-INF" />
+    <copy file="${adventure.waf.home}/src/template.tld" todir="${adventure.temp.war.build}/WEB-INF" />
+    <copy file="${adventure.jstl.lib}/c-rt.tld" todir="${adventure.temp.war.build}/WEB-INF" />
+    <copy file="${adventure.jstl.lib}/sql-rt.tld" todir="${adventure.temp.war.build}/WEB-INF" />
+    <copy file="${adventure.jstl.lib}/fmt-rt.tld" todir="${adventure.temp.war.build}/WEB-INF" />
+    <copy file="screendefinitions_en_US.xml" todir="${adventure.temp.war.build}/WEB-INF" />
+    <copy file="${adventure.jstl.lib}/standard.jar" todir="${adventure.temp.war.build}/WEB-INF/lib" />
+    <copy file="${adventure.jstl.lib}/jstl.jar" todir="${adventure.temp.war.build}/WEB-INF/lib" />
+    <!-- Copy other necessary configuration files into the /WEB-INF -->
+    <copy file="signon-config.xml" todir="${adventure.temp.war.build}/WEB-INF" />
+    <copy file="web.xml" todir="${adventure.temp.war.build}/WEB-INF" />
+    <copy file="mappings.xml" todir="${adventure.temp.war.build}/WEB-INF" />
+    <!-- Copy JAXRPC necessary configuration files into the /WEB-INF -->
+   <copy file="${opc.po.jaxrpc.wsdl}" todir="${adventure.temp.war.build}/WEB-INF" />
+   <copy file="${opc.ot.jaxrpc.wsdl}" todir="${adventure.temp.war.build}/WEB-INF" />
+   <copy file="webservicesclient.xml" todir="${adventure.temp.war.build}/WEB-INF" />
+   <copy file="opc-po-jaxrpc-mapping.xml" todir="${adventure.temp.war.build}/WEB-INF" />
+   <copy file="opc-ot-jaxrpc-mapping.xml" todir="${adventure.temp.war.build}/WEB-INF" />
+   <!-- copy in the jaxrpc client things -->
+    <copy todir="${adventure.temp.war.build}/WEB-INF/classes">
+     <fileset dir="${adventure.jaxrpc.client.classbindir}" />
+    </copy>
+    <!-- make the war file -->
+    <delete file="${adventure.temp.war.build}/adventure.war"/>
+    <jar jarfile="${build.dir}/adventure.war" basedir="${adventure.temp.war.build}" />
+    <delete dir="${adventure.temp.war.build}"/>
+  </target>
+
+ <target name="ear">
+    <mkdir dir="${adventure.temp.jar.build}"/>
+    <mkdir dir="${adventure.temp.jar.build}/META-INF"/>
+    <copy file="application.xml" todir="${adventure.temp.jar.build}/META-INF/" />
+    <copy file="sun-j2ee-ri.xml" todir="${adventure.temp.jar.build}/META-INF/" />
+    <copy file="${build.dir}/adventure.war" todir="${adventure.temp.jar.build}" />
+    <delete file="${application.module}"/>
+    <jar jarfile="${application.module}" basedir="${adventure.temp.jar.build}" />
+    <delete dir="${adventure.temp.jar.build}"/>
+  </target>
+  
+  <target name="core" depends="banner,waf,components,opc,compile,war,ear" />
+
+  <target name="waf">
+    <ant dir="${adventure.waf.home}/src" target="core" inheritAll="false" inheritRefs="false"/>
+  </target>
+
+  <target name="components">
+    <ant dir="${adventure.customer.home}/src" target="core" inheritAll="false" inheritRefs="false"/>
+    <ant dir="${adventure.catalog.home}/src" target="core" inheritAll="false" inheritRefs="false"/>
+    <ant dir="${adventure.signon.home}/src" target="core" inheritAll="false" inheritRefs="false"/>
+  </target>
+
+  <target name="opc">
+    <ant dir="${opc.home}/src" target="core" inheritAll="false" inheritRefs="false"/>
+  </target>
+
+</project>
+

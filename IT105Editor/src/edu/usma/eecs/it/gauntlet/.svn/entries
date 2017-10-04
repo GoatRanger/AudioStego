@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="10"
+   name=""
+   committed-date="2005-02-01T05:59:34.421875Z"
+   url="svn://192.168.2.2/IT105Editor/src/edu/usma/eecs/it/gauntlet"
+   last-author="Karl"
+   kind="dir"
+   uuid="0daf4267-3229-f84b-9084-f3c94b025f38"
+   revision="55"/>
+<entry
+   committed-rev="10"
+   name="CheckerException.java"
+   text-time="2005-03-02T06:14:22.343750Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="4a026cff07d1ac6eeb166b7323874a9a"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:21.875000Z"/>
+<entry
+   committed-rev="10"
+   name="CheckerFile.java"
+   text-time="2005-03-02T06:14:22.359375Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="d5d8dd4cec124d8c2ca5a05f145b7056"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:21.875000Z"/>
+<entry
+   committed-rev="10"
+   name="Checker.java"
+   text-time="2005-03-02T06:14:22.375000Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="135985f051820828c265f2be94b6e206"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:21.921875Z"/>
+<entry
+   name="checkers"
+   kind="dir"/>
+<entry
+   name="CVS"
+   kind="dir"/>
+<entry
+   committed-rev="10"
+   name="Util.java"
+   text-time="2005-03-02T06:14:22.375000Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="de77b9dbce4ac26224178e84edd868c5"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:22.312500Z"/>
+<entry
+   committed-rev="10"
+   name="CheckerError.java"
+   text-time="2005-03-02T06:14:22.390625Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="984c7b6baea572f99b1123d186ca9edf"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:22.328125Z"/>
+</wc-entries>

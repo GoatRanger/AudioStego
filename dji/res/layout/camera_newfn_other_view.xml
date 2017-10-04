@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.pilot.fpv.camera.newfn.DJICameraFnOtherView xmlns:android="http://schemas.android.com/apk/res-auto" phantom:layout_width="match_parent" phantom:layout_height="match_parent" phantom:splitMotionEvents="false">
+    <dji.publics.DJIUI.DJILinearLayout phantom:orientation="vertical" phantom:layout_width="match_parent" phantom:layout_height="wrap_content" phantom:baselineAligned="false" phantom:divider="@drawable/camera_other_divider" phantom:showDividers="middle|end" phantom:dividerPadding="0dp">
+        <dji.publics.DJIUI.DJIRelativeLayout phantom:id="@+id/camera_newfn_other_histogram_ly" style="@style/CameraFnLy">
+            <dji.publics.DJIUI.DJITextView phantom:textSize="@dimen/rq" phantom:text="@string/fpv_gensetting_histogram" phantom:layout_centerVertical="true" style="@style/bm" />
+            <dji.pilot.publics.widget.DJISwitch phantom:id="@+id/camera_newfn_other_histogram_sw" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" style="@style/CommonSwitch" />
+        </dji.publics.DJIUI.DJIRelativeLayout>
+        <dji.publics.DJIUI.DJIRelativeLayout phantom:id="@+id/camera_newfn_other_lock_gimbal" style="@style/CameraFnLy">
+            <dji.publics.DJIUI.DJITextView phantom:text="@string/fpv_gensetting_lock_gimbal_shotting" style="@style/CameraFnDescTxt" />
+            <dji.pilot.publics.widget.DJISwitch phantom:id="@+id/camera_newfn_other_lock_gimbal_sw" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" style="@style/CommonSwitch" />
+        </dji.publics.DJIUI.DJIRelativeLayout>
+        <dji.publics.DJIUI.DJIRelativeLayout phantom:id="@+id/camera_newfn_other_vertical_mode" style="@style/CameraFnLy">
+            <dji.publics.DJIUI.DJITextView phantom:text="@string/fpv_gensetting_vertical_mode" style="@style/CameraFnDescTxt" />
+            <dji.pilot.publics.widget.DJISwitch phantom:id="@+id/camera_newfn_other_vertical_mode_sw" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" style="@style/CommonSwitch" />
+        </dji.publics.DJIUI.DJIRelativeLayout>
+        <dji.publics.DJIUI.DJIRelativeLayout phantom:id="@+id/camera_newfn_other_background_fetch_media" style="@style/CameraFnLy">
+            <dji.publics.DJIUI.DJITextView phantom:text="@string/fpv_gensetting_backgroudn_fetch_media" style="@style/CameraFnDescTxt" />
+            <dji.pilot.publics.widget.DJISwitch phantom:id="@+id/camera_newfn_other_background_fetch_media_sw" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" style="@style/CommonSwitch" />
+        </dji.publics.DJIUI.DJIRelativeLayout>
+        <dji.publics.DJIUI.DJIRelativeLayout phantom:id="@+id/camera_newfn_other_videocap_ly" style="@style/CameraFnLy">
+            <dji.publics.DJIUI.DJITextView phantom:text="@string/fpv_gensetting_video_caption" style="@style/CameraFnDescTxt" />
+            <dji.pilot.publics.widget.DJISwitch phantom:id="@+id/camera_newfn_other_videocaption_sw" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" style="@style/CommonSwitch" />
+        </dji.publics.DJIUI.DJIRelativeLayout>
+        <dji.publics.DJIUI.DJIRelativeLayout phantom:id="@+id/camera_newfn_other_overexposure_ly" style="@style/CameraFnLy">
+            <dji.publics.DJIUI.DJITextView phantom:text="@string/fpv_gensetting_overexposure" style="@style/CameraFnDescTxt" />
+            <dji.pilot.publics.widget.DJISwitch phantom:id="@+id/camera_newfn_overexposure_switch" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" style="@style/CommonSwitch" />
+        </dji.publics.DJIUI.DJIRelativeLayout>
+        <dji.publics.DJIUI.DJIRelativeLayout phantom:id="@+id/camera_newfn_other_focus_ly" phantom:visibility="gone" style="@style/CameraFnLy">
+            <dji.publics.DJIUI.DJITextView phantom:text="@string/camera_focus_aid_desc" style="@style/CameraFnDescTxt" />
+            <dji.pilot.publics.widget.DJISwitch phantom:id="@+id/camera_newfn_other_focus_sw" phantom:checked="false" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" style="@style/CommonSwitch" />
+        </dji.publics.DJIUI.DJIRelativeLayout>
+        <dji.publics.DJIUI.DJIRelativeLayout phantom:id="@+id/camera_newfn_other_focus_a_ly" style="@style/CameraFnLy">
+            <dji.publics.DJIUI.DJITextView phantom:text="@string/camera_focus_aid_desc_a" style="@style/CameraFnDescTxt" />
+            <dji.pilot.publics.widget.DJISwitch phantom:id="@+id/camera_newfn_other_focus_a_sw" phantom:checked="false" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" style="@style/CommonSwitch" />
+        </dji.publics.DJIUI.DJIRelativeLayout>
+        <dji.publics.DJIUI.DJIRelativeLayout phantom:id="@+id/camera_newfn_other_focus_m_ly" style="@style/CameraFnLy">
+            <dji.publics.DJIUI.DJITextView phantom:text="@string/camera_focus_aid_desc_m" style="@style/CameraFnDescTxt" />
+            <dji.pilot.publics.widget.DJISwitch phantom:id="@+id/camera_newfn_other_focus_m_sw" phantom:checked="false" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" style="@style/CommonSwitch" />
+        </dji.publics.DJIUI.DJIRelativeLayout>
+        <dji.publics.DJIUI.DJIRelativeLayout phantom:id="@+id/camera_newfn_other_swpreview_ly" style="@style/CameraFnLy">
+            <dji.publics.DJIUI.DJITextView phantom:textSize="@dimen/rq" phantom:text="@string/fpv_gensetting_quickpreview" phantom:layout_centerVertical="true" style="@style/bm" />
+            <dji.pilot.publics.widget.DJISwitch phantom:id="@+id/camera_newfn_other_swpreview_sw" phantom:checked="false" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" style="@style/CommonSwitch" />
+        </dji.publics.DJIUI.DJIRelativeLayout>
+        <dji.publics.DJIUI.DJIRelativeLayout phantom:id="@+id/camera_newfn_other_noise_ly" style="@style/CameraFnLy">
+            <dji.publics.DJIUI.DJITextView phantom:text="@string/camera_noise_reduction" style="@style/CameraFnDescTxt" />
+            <dji.pilot.publics.widget.DJISwitch phantom:id="@+id/camera_newfn_other_noise_reduce_sw" phantom:checked="false" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" style="@style/CommonSwitch" />
+        </dji.publics.DJIUI.DJIRelativeLayout>
+        <dji.publics.DJIUI.DJIRelativeLayout phantom:id="@+id/camera_newfn_other_foreled_ly" style="@style/CameraFnLy">
+            <dji.publics.DJIUI.DJITextView phantom:textSize="@dimen/rq" phantom:text="@string/camera_forearm_led" phantom:layout_centerVertical="true" style="@style/bm" />
+            <dji.pilot.publics.widget.DJISwitch phantom:id="@+id/camera_newfn_other_foreled_sw" phantom:checked="false" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" style="@style/CommonSwitch" />
+        </dji.publics.DJIUI.DJIRelativeLayout>
+        <dji.publics.DJIUI.DJIRelativeLayout phantom:id="@+id/camera_newfn_other_aeunlock_ly" style="@style/CameraFnLy">
+            <dji.publics.DJIUI.DJITextView phantom:textSize="@dimen/rq" phantom:text="@string/camera_aeunlock" phantom:layout_centerVertical="true" style="@style/bm" />
+            <dji.pilot.publics.widget.DJISwitch phantom:id="@+id/camera_newfn_other_aeunlock_sw" phantom:checked="false" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" style="@style/CommonSwitch" />
+        </dji.publics.DJIUI.DJIRelativeLayout>
+        <dji.publics.DJIUI.DJIRelativeLayout phantom:id="@+id/camera_newfn_other_log_ly" style="@style/CameraFnLy">
+            <dji.publics.DJIUI.DJITextView phantom:textSize="@dimen/rq" phantom:text="@string/camera_log_debug" phantom:layout_centerVertical="true" style="@style/bm" />
+            <dji.pilot.publics.widget.DJISwitch phantom:id="@+id/camera_newfn_other_log_sw" phantom:checked="false" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" style="@style/CommonSwitch" />
+        </dji.publics.DJIUI.DJIRelativeLayout>
+        <dji.publics.DJIUI.DJIRelativeLayout phantom:id="@+id/camera_newfn_other_showgrid_ly" style="@style/CameraFnLy">
+            <dji.publics.DJIUI.DJITextView phantom:text="@string/fpv_gensetting_showgrid" style="@style/CameraFnDescTxt" />
+            <dji.publics.DJIUI.DJIImageView phantom:id="@+id/camera_newfn_other_showgrid_arrow" style="@style/CameraFnArrowImg" />
+            <dji.publics.DJIUI.DJIImageView phantom:id="@+id/camera_newfn_other_showgrid_img" phantom:src="@drawable/advanced_more_none" phantom:layout_toLeftOf="@+id/camera_newfn_other_showgrid_arrow" style="@style/CameraFnValueImg" />
+        </dji.publics.DJIUI.DJIRelativeLayout>
+        <dji.publics.DJIUI.DJIRelativeLayout phantom:id="@+id/camera_newfn_other_cpref_ly" style="@style/CameraFnLy">
+            <dji.publics.DJIUI.DJITextView phantom:text="@string/camera_ref_point" style="@style/CameraFnDescTxt" />
+            <dji.publics.DJIUI.DJIImageView phantom:id="@+id/camera_newfn_other_cpref_arrow" style="@style/CameraFnArrowImg" />
+            <dji.publics.DJIUI.DJIImageView phantom:id="@+id/camera_newfn_other_cpref_img" phantom:src="@drawable/advanced_more_none" phantom:layout_toLeftOf="@+id/camera_newfn_other_cpref_arrow" style="@style/CameraFnValueImg" />
+        </dji.publics.DJIUI.DJIRelativeLayout>
+        <dji.publics.DJIUI.DJIRelativeLayout phantom:id="@+id/camera_newfn_other_lineref_ly" style="@style/CameraFnLy">
+            <dji.publics.DJIUI.DJITextView phantom:text="@string/camera_ref_line" style="@style/CameraFnDescTxt" />
+            <dji.publics.DJIUI.DJIImageView phantom:id="@+id/camera_newfn_other_lineref_arrow" style="@style/CameraFnArrowImg" />
+            <dji.publics.DJIUI.DJITextView phantom:id="@+id/camera_newfn_other_lineref_tv" phantom:text="@string/app_off_lower" phantom:layout_toLeftOf="@+id/camera_newfn_other_lineref_arrow" style="@style/CameraFnValueTxt" />
+        </dji.publics.DJIUI.DJIRelativeLayout>
+        <dji.publics.DJIUI.DJIRelativeLayout phantom:id="@+id/camera_newfn_other_antiblink_ly" style="@style/CameraFnLy">
+            <dji.publics.DJIUI.DJITextView phantom:text="@string/fpv_camera_antiblink" style="@style/CameraFnDescTxt" />
+            <dji.publics.DJIUI.DJIImageView phantom:id="@+id/camera_newfn_other_antiblink_arrow" style="@style/CameraFnArrowImg" />
+            <dji.publics.DJIUI.DJIImageView phantom:id="@+id/camera_newfn_other_antiblink_img" phantom:src="@r$drawable/advanced_more_auto" phantom:layout_toLeftOf="@+id/camera_newfn_other_antiblink_arrow" style="@style/CameraFnValueImg" />
+        </dji.publics.DJIUI.DJIRelativeLayout>
+        <dji.publics.DJIUI.DJIRelativeLayout phantom:id="@+id/camera_newfn_other_preview_ly" style="@style/CameraFnLy">
+            <dji.publics.DJIUI.DJITextView phantom:text="@string/fpv_gensetting_quickpreview" style="@style/CameraFnDescTxt" />
+            <dji.publics.DJIUI.DJIImageView phantom:id="@+id/camera_newfn_other_preview_arrow" style="@style/CameraFnArrowImg" />
+            <dji.publics.DJIUI.DJIImageView phantom:id="@+id/camera_newfn_other_preview_img" phantom:src="@drawable/advanced_more_off" phantom:layout_toLeftOf="@+id/camera_newfn_other_preview_arrow" style="@style/CameraFnValueImg" />
+        </dji.publics.DJIUI.DJIRelativeLayout>
+        <dji.publics.DJIUI.DJIRelativeLayout phantom:id="@+id/camera_newfn_other_fileindex_ly" style="@style/CameraFnLy">
+            <dji.publics.DJIUI.DJITextView phantom:text="@string/fpv_gensetting_fileindex" style="@style/CameraFnDescTxt" />
+            <dji.publics.DJIUI.DJIImageView phantom:id="@+id/camera_newfn_other_fileindex_arrow" style="@style/CameraFnArrowImg" />
+            <dji.publics.DJIUI.DJITextView phantom:id="@+id/camera_newfn_other_fileindex_tv" phantom:text="@string/fpv_gensetting_fileindex_reset" phantom:layout_toLeftOf="@+id/camera_newfn_other_fileindex_arrow" style="@style/CameraFnValueTxt" />
+        </dji.publics.DJIUI.DJIRelativeLayout>
+        <dji.publics.DJIUI.DJIRelativeLayout phantom:id="@+id/camera_newfn_other_roi_ly" phantom:visibility="visible" style="@style/CameraFnLy">
+            <dji.publics.DJIUI.DJITextView phantom:text="@string/tau_roi_desc" style="@style/CameraFnDescTxt" />
+            <dji.publics.DJIUI.DJIImageView phantom:id="@+id/camera_newfn_other_roi_arrow" style="@style/CameraFnArrowImg" />
+            <dji.publics.DJIUI.DJITextView phantom:id="@+id/camera_newfn_other_roi_tv" phantom:text="@string/tau_roi_full" phantom:layout_toLeftOf="@+id/camera_newfn_other_roi_arrow" style="@style/CameraFnValueTxt" />
+        </dji.publics.DJIUI.DJIRelativeLayout>
+        <dji.publics.DJIUI.DJIRelativeLayout phantom:id="@+id/camera_newfn_other_palette_ly" phantom:visibility="visible" style="@style/CameraFnLy">
+            <dji.publics.DJIUI.DJITextView phantom:text="@string/tau_palette_desc" style="@style/CameraFnDescTxt" />
+            <dji.publics.DJIUI.DJIImageView phantom:id="@+id/camera_newfn_other_palette_arrow" style="@style/CameraFnArrowImg" />
+            <dji.publics.DJIUI.DJITextView phantom:id="@+id/camera_newfn_other_palette_tv" phantom:text="@string/tau_palette_whitehot" phantom:layout_toLeftOf="@+id/camera_newfn_other_palette_arrow" style="@style/CameraFnValueTxt" />
+        </dji.publics.DJIUI.DJIRelativeLayout>
+        <dji.publics.DJIUI.DJIRelativeLayout phantom:id="@+id/camera_newfn_other_scene_ly" phantom:visibility="visible" style="@style/CameraFnLy">
+            <dji.publics.DJIUI.DJITextView phantom:text="@string/tau_scene_desc" style="@style/CameraFnDescTxt" />
+            <dji.publics.DJIUI.DJIImageView phantom:id="@+id/camera_newfn_other_scene_arrow" style="@style/CameraFnArrowImg" />
+            <dji.publics.DJIUI.DJITextView phantom:id="@+id/camera_newfn_other_scene_tv" phantom:text="@string/tau_scene_default" phantom:layout_toLeftOf="@+id/camera_newfn_other_scene_arrow" style="@style/CameraFnValueTxt" />
+        </dji.publics.DJIUI.DJIRelativeLayout>
+        <dji.publics.DJIUI.DJIRelativeLayout phantom:id="@+id/camera_newfn_other_isotherm_ly" phantom:visibility="gone" style="@style/CameraFnLy">
+            <dji.publics.DJIUI.DJITextView phantom:text="@string/tau_camera_isotherm" style="@style/CameraFnDescTxt" />
+            <dji.publics.DJIUI.DJIImageView phantom:id="@+id/camera_newfn_other_isotherm_arrow" style="@style/CameraFnArrowImg" />
+            <dji.publics.DJIUI.DJITextView phantom:id="@+id/camera_newfn_other_isotherm_tv" phantom:text="@string/app_off" phantom:layout_toLeftOf="@+id/camera_newfn_other_isotherm_arrow" style="@style/CameraFnValueTxt" />
+        </dji.publics.DJIUI.DJIRelativeLayout>
+        <dji.publics.DJIUI.DJIRelativeLayout phantom:id="@+id/camera_newfn_other_gainmode_ly" phantom:visibility="gone" style="@style/CameraFnLy">
+            <dji.publics.DJIUI.DJITextView phantom:text="@string/tau_gainmode_desc" style="@style/CameraFnDescTxt" />
+            <dji.publics.DJIUI.DJIImageView phantom:id="@+id/camera_newfn_other_gainmode_arrow" style="@style/CameraFnArrowImg" />
+            <dji.publics.DJIUI.DJITextView phantom:id="@+id/camera_newfn_other_gainmode_tv" phantom:text="@string/tau_gainmode_auto" phantom:layout_toLeftOf="@+id/camera_newfn_other_gainmode_arrow" style="@style/CameraFnValueTxt" />
+        </dji.publics.DJIUI.DJIRelativeLayout>
+        <dji.publics.DJIUI.DJIRelativeLayout phantom:id="@+id/camera_newfn_other_tempalert_ly" phantom:visibility="gone" style="@style/CameraFnLy">
+            <dji.publics.DJIUI.DJITextView phantom:text="@string/tau_temp_alert" style="@style/CameraFnDescTxt" />
+            <dji.publics.DJIUI.DJIImageView phantom:id="@+id/camera_newfn_other_tempalert_arrow" style="@style/CameraFnArrowImg" />
+            <dji.publics.DJIUI.DJITextView phantom:id="@+id/camera_newfn_other_tempalert_tv" phantom:text="@string/tau_gainmode_auto" phantom:layout_toLeftOf="@+id/camera_newfn_other_tempalert_arrow" style="@style/CameraFnValueTxt" />
+        </dji.publics.DJIUI.DJIRelativeLayout>
+        <dji.publics.DJIUI.DJIRelativeLayout phantom:id="@+id/camera_newfn_other_exterparam_ly" phantom:visibility="gone" style="@style/CameraFnLy">
+            <dji.publics.DJIUI.DJITextView phantom:text="@string/tau_exter_params" style="@style/CameraFnDescTxt" />
+            <dji.publics.DJIUI.DJIImageView phantom:id="@+id/camera_newfn_other_exterparam_arrow" style="@style/CameraFnArrowImg" />
+            <dji.publics.DJIUI.DJITextView phantom:id="@+id/camera_newfn_other_exterparam_tv" phantom:text="@string/tau_param_c1" phantom:layout_toLeftOf="@+id/camera_newfn_other_exterparam_arrow" style="@style/CameraFnValueTxt" />
+        </dji.publics.DJIUI.DJIRelativeLayout>
+        <dji.publics.DJIUI.DJIRelativeLayout phantom:id="@+id/camera_newfn_other_ffc_ly" phantom:visibility="gone" style="@style/CameraFnLy">
+            <dji.publics.DJIUI.DJITextView phantom:text="@string/tau_ffc_desc" style="@style/CameraFnDescTxt" />
+            <dji.publics.DJIUI.DJIImageView phantom:id="@+id/camera_newfn_other_ffc_arrow" style="@style/CameraFnArrowImg" />
+            <dji.publics.DJIUI.DJITextView phantom:id="@+id/camera_newfn_other_ffc_tv" phantom:text="@string/tau_ffc_auto" phantom:layout_toLeftOf="@+id/camera_newfn_other_ffc_arrow" style="@style/CameraFnValueTxt" />
+        </dji.publics.DJIUI.DJIRelativeLayout>
+        <dji.publics.DJIUI.DJIRelativeLayout phantom:id="@+id/camera_newfn_other_profile_ly" style="@style/CameraFnLy">
+            <dji.publics.DJIUI.DJITextView phantom:text="@string/camera_profile_title" style="@style/CameraFnDescTxt" />
+            <dji.publics.DJIUI.DJIImageView phantom:id="@+id/camera_newfn_other_profile_arrow" style="@style/CameraFnArrowImg" />
+        </dji.publics.DJIUI.DJIRelativeLayout>
+        <dji.publics.DJIUI.DJIRelativeLayout phantom:id="@+id/camera_newfn_other_info_ly" style="@style/CameraFnLy">
+            <dji.publics.DJIUI.DJITextView phantom:text="@string/fpv_camera_info" style="@style/CameraFnDescTxt" />
+            <dji.publics.DJIUI.DJIImageView phantom:id="@+id/camera_newfn_other_info_arrow" style="@style/CameraFnArrowImg" />
+        </dji.publics.DJIUI.DJIRelativeLayout>
+        <dji.publics.DJIUI.DJITextView phantom:id="@+id/camera_newfn_other_trigger_ffc_tv" phantom:visibility="gone" phantom:text="@string/tau_ffc_trigger" style="@style/CameraFnClickTxt" />
+        <dji.publics.DJIUI.DJITextView phantom:id="@+id/camera_newfn_other_redemarcate_tv" phantom:text="@string/camera_mf_redemarcate" style="@style/CameraFnClickTxt" />
+        <dji.publics.DJIUI.DJITextView phantom:id="@+id/camera_newfn_other_reset_tv" phantom:text="@string/fpv_gensetting_reset_camera_setting" style="@style/CameraFnClickTxt" />
+        <dji.publics.DJIUI.DJITextView phantom:id="@+id/camera_newfn_other_format_tv" phantom:text="@string/fpv_gensetting_format_sdcard" style="@style/CameraFnClickTxt" />
+        <dji.publics.DJIUI.DJITextView phantom:id="@+id/camera_newfn_other_format_ssd_tv" phantom:text="@string/fpv_gensetting_format_ssd" style="@style/CameraFnClickTxt" />
+        <dji.publics.DJIUI.DJITextView phantom:textSize="@dimen/rp" phantom:id="@+id/camera_newfn_other_caminfo_tv" phantom:padding="@dimen/rj" phantom:visibility="gone" phantom:layout_height="wrap_content" style="@style/CameraFnClickTxt" />
+    </dji.publics.DJIUI.DJILinearLayout>
+</dji.pilot.fpv.camera.newfn.DJICameraFnOtherView>

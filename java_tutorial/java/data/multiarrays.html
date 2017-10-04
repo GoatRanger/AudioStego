@@ -1,0 +1,155 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Arrays of Arrays</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="arraysOfObjects.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#data" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="copyingarrays.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Learning the Java Language
+<br>
+<b>Lesson</b>: Object Basics and Simple Data Objects
+</font>
+
+<h2>
+Arrays of Arrays
+</h2>
+<blockquote>
+Arrays can contain arrays.
+<a target="_blank" href="example/ArrayOfArraysDemo.java"><font color="#bb000f"><code>ArrayOfArraysDemo</code></font></a><a target="_blank" href="example/ArrayOfArraysDemo.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a> creates an array and uses an initializer
+to populate it with four sub-arrays.
+<blockquote><pre>
+public class ArrayOfArraysDemo {
+    public static void main(String[] args) {
+        String[][] cartoons =
+        {
+	    { &quot;Flintstones&quot;, &quot;Fred&quot;, &quot;Wilma&quot;, &quot;Pebbles&quot;, &quot;Dino&quot; },
+            { &quot;Rubbles&quot;, &quot;Barney&quot;, &quot;Betty&quot;, &quot;Bam Bam&quot; },
+            { &quot;Jetsons&quot;, &quot;George&quot;, &quot;Jane&quot;, &quot;Elroy&quot;, &quot;Judy&quot;, &quot;Rosie&quot;, &quot;Astro&quot; },
+            { &quot;Scooby Doo Gang&quot;, &quot;Scooby Doo&quot;, &quot;Shaggy&quot;, &quot;Velma&quot;, &quot;Fred&quot;, &quot;Daphne&quot; }
+        };
+
+        for (int i = 0; i &lt; cartoons.length; i++) {
+	    System.out.print(cartoons[i][0] + &quot;: &quot;);
+            for (int j = 1; j &lt; cartoons[i].length; j++) {
+	        System.out.print(cartoons[i][j] + &quot; &quot;);
+	    }
+	    System.out.println();
+        }
+    }
+}
+</pre></blockquote>
+Notice that the sub-arrays are all of different lengths.
+The names of the sub-arrays are <code>cartoons[0]</code>,
+<code>cartoons[1]</code>, and so on.
+<p>
+As with arrays of objects,
+you must explicitly create the sub-arrays within an array.
+So if you don't use an initializer,
+you need to write code like the following,
+which you can find in:
+<a target="_blank" href="example/ArrayOfArraysDemo2.java"><font color="#bb000f"><code>ArrayOfArraysDemo2</code></font></a><a target="_blank" href="example/ArrayOfArraysDemo2.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a><blockquote><pre>
+public class ArrayOfArraysDemo2 {
+    public static void main(String[] args) {
+        int[][] aMatrix = new int[4][];
+
+	//populate matrix
+        for (int i = 0; i &lt; aMatrix.length; i++) {
+	    aMatrix[i] = new int[5];	//create sub-array
+	    for (int j = 0; j &lt; aMatrix[i].length; j++) {
+	        aMatrix[i][j] = i + j;
+	    }
+        }
+
+        //print matrix
+        for (int i = 0; i &lt; aMatrix.length; i++) {
+	    for (int j = 0; j &lt; aMatrix[i].length; j++) {
+	        System.out.print(aMatrix[i][j] + &quot; &quot;);
+	    }
+	    System.out.println();
+        }
+    }
+}
+</pre></blockquote>
+You must specify the length of the primary array
+when you create the array.
+You can leave the length of the sub-arrays unspecified
+until you create them.
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="arraysOfObjects.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#data" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="copyingarrays.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

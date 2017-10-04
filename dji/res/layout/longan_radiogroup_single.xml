@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.device.common.view.DJIRadioGroup xmlns:android="http://schemas.android.com/apk/res-auto" phantom:orientation="vertical" phantom:background="@color/j5" phantom:layout_width="wrap_content" phantom:layout_height="wrap_content" phantom:splitMotionEvents="false">
+    <RelativeLayout phantom:background="@color/j5" phantom:layout_width="match_parent" phantom:layout_height="match_parent" phantom:layout_weight="1.0" />
+    <RelativeLayout phantom:layout_gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" phantom:background="@color/j5" style="@style/eq">
+        <RadioButton phantom:id="@id/b6f" phantom:background="@drawable/longan_selector_handle_mode_singlephoto_0s" phantom:button="0x0" phantom:layout_centerInParent="true" style="@style/ep" />
+    </RelativeLayout>
+    <RelativeLayout phantom:layout_gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" phantom:id="@id/b6g" phantom:background="@color/j5" style="@style/eq">
+        <RadioButton phantom:id="@id/b6h" phantom:background="@drawable/longan_selector_handle_mode_singlephoto_5s" phantom:button="0x0" phantom:layout_centerInParent="true" style="@style/ep" />
+    </RelativeLayout>
+    <RelativeLayout phantom:layout_gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" phantom:background="@color/j5" style="@style/eq">
+        <RadioButton phantom:id="@id/b6i" phantom:background="@drawable/longan_selector_handle_mode_singlephoto_10s" phantom:button="0x0" phantom:layout_centerInParent="true" style="@style/ep" />
+    </RelativeLayout>
+    <RelativeLayout phantom:layout_gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" phantom:background="@color/j5" style="@style/eq">
+        <RadioButton phantom:id="@id/b6j" phantom:background="@drawable/longan_selector_handle_mode_hdr" phantom:button="0x0" phantom:layout_centerInParent="true" style="@style/ep" />
+    </RelativeLayout>
+    <RelativeLayout phantom:layout_gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" phantom:background="@color/j5" style="@style/eq" />
+    <RelativeLayout phantom:background="@color/j5" phantom:layout_width="match_parent" phantom:layout_height="match_parent" phantom:layout_weight="1.0" />
+</dji.device.common.view.DJIRadioGroup>

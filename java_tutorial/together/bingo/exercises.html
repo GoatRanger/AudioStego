@@ -1,0 +1,164 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Exercises for the Reader</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="otherTidbits.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#bingo" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="../end.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Putting It All Together
+<br>
+<b>Lesson</b>: BINGO!
+</font>
+
+<h2>
+Exercises for the Reader
+</h2>
+<blockquote>
+The following is a list of potential programming exercises
+that you can do to update, modify, or improve the Player or
+Game programs.
+
+<ul>
+<li>
+Completely rewrite the Player application
+to have a customized user interface and
+customized features to do what you want it to do.
+
+<li>
+Write a GUI that allows a Player to
+create their own BINGO cards. You will have
+to modify the Game so that it simply
+signs the card when the Player joins a game
+(instead of creating it).
+
+<li>
+Allow a Player to remember cards
+they like and reuse them.
+
+<li>
+Set up a message center that lets Players send
+messages to each other through the Game.
+
+<li>
+Implement a "boss" button so that the Player
+turns into a spreadsheet or word processing
+program when the boss shows up at your computer.
+
+<li>
+Provide the Game with the ability to
+select a different "BagOfBalls" to generate
+the announced balls.
+
+<li>
+Use the new sound APIs to announce the balls
+with a voice.
+
+<li>
+Convert the Player application into an applet.
+Applets cannot use MulticastSockets so you would
+have to figure out a way to get around that.
+One option is to write a companion application
+that listened to the MulticastSocket and passed
+the information to the applet.
+[PENDING: check next statement]
+A second option is to use a DatagramSocket in
+the applet to listen. However, DatagramSocket's
+don't have groups so the applet would have to
+listen to everything that comes across the socket
+and glean just the information that it needed.
+
+<li>
+Write a third score keeper application that listens
+to the game and keeps track of who won each game,
+the number of games won by each player, the
+average number of balls announced before someone
+won, and so on.
+
+<li>
+Automate the Player so that a human user doesn't
+have to be involved. This involves checking each
+card for a BINGO after every announced ball.
+
+</ul>
+
+</blockquote>
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="otherTidbits.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#bingo" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="../end.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

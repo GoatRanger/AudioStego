@@ -1,0 +1,315 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Developing the Hello World Server</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="client.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#hello" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="compiling.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: IDL
+<br>
+<b>Lesson</b>: The Hello Client-Server Example
+</font>
+
+<h2>
+Developing the Hello World Server
+</h2>
+<blockquote>
+This  lesson introduces the basics of writing a CORBA transient server.
+Here's the complete version of
+
+<a target="_blank" href="example-1dot2/HelloServer.java"><font color="#bb000f"><code><CODE CLASS="UnderlineCODE">HelloServer.java</CODE></code></font></a><a target="_blank" href="example-1dot2/HelloServer.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>.
+
+</blockquote>
+<h3>Performing Basic Setup</h3>
+<blockquote>
+The structure of a CORBA server program is the same as most Java
+applications: You import required library packages, declare the server
+class, define a <CODE>main</CODE> method,
+and remember to handle any exceptions.
+
+<h3>Importing Required Packages</h3>
+Start your text editor and save a new file titled
+<CODE>HelloServer.java</CODE>.
+Next, import the packages required for the client class:
+<blockquote><pre>
+// The package containing our stubs.
+import HelloApp.*;
+// HelloServer will use the naming service.
+import org.omg.CosNaming.*;
+// The package containing special exceptions
+// thrown by the name service.
+import org.omg.CosNaming.NamingContextPackage.*;
+// All CORBA applications need these classes.
+import org.omg.CORBA.*;
+</pre></blockquote>
+
+<h3>Declaring the Server Class</h3>
+Declare the server class:
+<blockquote><pre>
+public class HelloServer {
+    // Add the main method here in the next step.
+}
+</pre></blockquote>
+
+<h3>Defining the main Method</h3>
+Declare a standard <CODE>main</CODE> method:
+<blockquote><pre>
+public static void main(String args[]) {
+    // Add the try-catch block here in the next step.
+}
+</pre></blockquote>
+
+<h3>Handling CORBA System Exceptions</h3>
+Because all CORBA programs can throw CORBA system exceptions at
+runtime, you will place all of the <CODE>main</CODE>
+functionality within a <CODE>try-catch</CODE> block.
+CORBA programs throw runtime exceptions whenever trouble occurs during
+any of the processes (marshaling, unmarshaling, upcall) involved in
+invocation. The exception handler simply prints the exception and its
+stack trace to standard output so you can see what kind of thing has
+gone wrong.
+<P>
+Inside <CODE>main</CODE>, set up a <CODE>try-catch</CODE> block:
+<blockquote><pre>
+try {
+    // Add the rest of the HelloServer code here.
+} catch(Exception e) {
+    System.err.println(&quot;ERROR: &quot; + e);
+    e.printStackTrace(System.out);
+}
+</pre></blockquote>
+
+<h3>Creating an ORB Object</h3>
+Just like a client, a CORBA server also needs a local ORB object. Every
+server instantiates an ORB and registers its servant objects so that
+the ORB can find the server when it receives an invocation for it.
+<P>
+Inside <CODE>HelloServer.java</CODE>'s <CODE>try-catch</CODE>
+block, declare and initialize an ORB variable:
+<blockquote><pre>
+ORB orb = ORB.init(args, null);
+</pre></blockquote>
+<P>
+The call to the ORB's <CODE>init</CODE>
+method passes in the server's command line arguments,
+allowing you to set certain properties at runtime.
+</blockquote>
+
+<h3>Managing the Servant Object</h3>
+<blockquote>
+A server is a process that instantiates one or more servant objects.
+The servant implements the interface generated by <CODE>idltojava</CODE>
+and actually performs the work of the operations on that interface.
+Our <CODE> HelloServer</CODE> needs a <CODE>HelloServant</CODE>.
+
+<h3>Instantiating the Servant Object</h3>
+Inside the <CODE>try-catch</CODE> block,
+just below the call to <CODE>init</CODE>,
+instantiate the servant object:
+<blockquote><pre>
+HelloServant helloRef = new HelloServant();
+</pre></blockquote>
+<P>
+This servant class isn't defined yet; you will do that in a later step.
+Next, connect the servant to the ORB, so that the ORB can recognize
+invocations on it and pass them along to the correct servant:
+<blockquote><pre>
+orb.connect(helloRef);
+</pre></blockquote>
+
+<h3>Defining the Servant Class</h3>
+At the end of <CODE>HelloServer.java</CODE>,
+outside the <CODE>HelloServer </CODE>
+class, define the class for the servant object.
+<OL>
+<LI> Declare the servant class:
+<blockquote><pre>
+class HelloServant extends _HelloImplBase {
+    // Add the sayHello method here in the next step.
+}
+</pre></blockquote>
+
+<LI> The servant is a subclass of <CODE>_HelloImplBase</CODE>
+     so that it inherits the general CORBA functionality generated for
+     it by the compiler.
+<LI> Declare the required <CODE>sayHello</CODE> method:
+<blockquote><pre>
+public String sayHello() {
+    // Add the method implementation here in the next step.
+}
+</pre></blockquote>
+<LI>Write the <CODE>sayHello</CODE> implementation:
+<blockquote><pre>
+return &quot;\nHello World!!\n&quot;;
+</pre></blockquote>
+</ol>
+</blockquote>
+
+<h3>Working with COS Naming</h3>
+<blockquote>
+The <CODE>HelloServer</CODE>
+works with the naming service to make the servant object's operations
+available to clients. The server needs an object reference to the name
+service, so that it can register itself and ensure that invocations on
+the Hello interface are routed to its servant object.
+
+<h3>Obtaining the Initial Naming Context</h3>
+In the <CODE>try-catch</CODE> block,
+below instantiation of the servant, call
+<CODE>orb.resolve_initial_references</CODE>
+to get an object reference to the name server:
+<blockquote><pre>
+org.omg.CORBA.Object objRef =
+    orb.resolve_initial_references(&quot;NameService&quot;);
+</pre></blockquote>
+<P>
+The string <CODE>NameService</CODE>
+is defined for all CORBA ORBs. When you pass in that string, the ORB
+returns a naming context object that is an object reference for the
+name service.
+
+<h3>Narrowing the Object Reference</h3>
+As with all CORBA object references, <CODE>objRef</CODE>
+is a generic CORBA object. To use it as a <CODE>NamingContext</CODE>
+object, you must narrow it to its proper type.
+Add the call to <CODE>narrow</CODE>
+just below the previous statement:
+<blockquote><pre>
+NamingContext ncRef = NamingContextHelper.narrow(objRef);
+</pre></blockquote>
+<P>
+Here you see the use of an <CODE>idltojava</CODE>
+-generated helper class, similar in function to <CODE>HelloHelper</CODE>.
+The <CODE>ncRef</CODE> object is now an
+<CODE>org.omg.CosNaming.NamingContext</CODE>
+ and you can use it to access the naming service and register the
+ server. You will do that in the next step.
+
+<h3>Registering the Servant with the Name Server</h3>
+<OL>
+<LI> Just below the call to <CODE>narrow</CODE>,
+     create a new <CODE>NameComponent</CODE> member:
+<blockquote><pre>
+NameComponent nc = new NameComponent(&quot;Hello&quot;, &quot;&quot;);
+</pre></blockquote>
+
+<LI> This statement sets the <CODE>id</CODE> field of <CODE>nc</CODE>,
+     the new <CODE>NameComponent</CODE>,
+     to &quot;Hello&quot; and the <CODE>kind</CODE>
+     component to the empty string. Because the path to the
+     <CODE>Hello</CODE> has a single element,
+     create the single-element array that <CODE>NamingContext.resolve</CODE>
+     requires for its work:
+<blockquote><pre>
+NameComponent path[] = {nc};
+</pre></blockquote>
+<LI>Finally, pass <CODE>path</CODE>
+and the servant object to the naming service,
+binding the servant object to the &quot;Hello&quot; id:
+<blockquote><pre>
+ncRef.rebind(path, helloRef);
+</pre></blockquote>
+</OL>
+Now, when the client calls <CODE>resolve(&quot;Hello&quot;)</CODE>
+on the initial naming context, the naming service returns an object
+reference to the <CODE>Hello </CODE>servant.
+</blockquote>
+
+<h3>Waiting for Invocation</h3>
+<blockquote>
+The server is ready; it simply needs to wait around for a client to
+request its service. To achieve that, enter the following code at the
+end of (but within) the <CODE>try-catch</CODE> block:
+<blockquote><pre>
+java.lang.Object sync = new java.lang.Object();
+synchronized(sync) {
+    sync.wait();
+}
+</pre></blockquote>
+<P>
+This form of <CODE>Object.wait</CODE> requires <CODE>HelloServer</CODE>
+to remain alive (though quiescent) until an invocation comes from the
+ORB. Because of its placement in <CODE>main</CODE>,
+after an invocation completes and <CODE>sayHello </CODE>
+returns, the server will wait again.
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="client.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#hello" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="compiling.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

@@ -1,0 +1,61 @@
+Maya Rosenthal
+CS-ED
+Final Project
+
+                    Cheating Detection Project Proposal
+
+
+	Academic dishonesty is a growing concern among educators in Computer
+Science, and cheating software detection is becoming more and more of a
+necessity. There are several different types of cheating that can occur, but I
+will concentrate on the scenario where two homework submissions are similar, but
+possibly contain transformations. These transformation could be in the form of
+changing variable and method names, rearranging order of method definitions,
+rearranging statements, and other syntactic changes which do not impact the true
+workings of a program. 
+
+	This scenario motivates a detection method that measures the
+transformation distance between two programs based on the number (and type) of
+transformations that are required to change one program into the other. If such a
+scenario were to arise, this metric would give a much smaller distance between
+two programs because they originally came from the same (or a
+similar) source. Two completely different programs would require much more
+extensive transformation in order to transform one program into the other. In
+principal, a good transformation distance would detect cheating in this scenario.
+
+	Once this transformation distance is defined, a comparison between all
+submissions can detect cheating in the similar submission scenario. The challenge
+is to define such a transformation metric. Also, b a comparison between all
+submissions is O(n2), this must be computed efficiently. Intuitively, the weights
+of various transformations are motivated by both the types of transformations
+that are done by cheaters and by the effect of the transformation on the
+program. For example, a variable name transformation should have a very small
+weight, while a structural transformation (such as adding a conditional
+statement) should have a larger weight.
+ 
+	This method just described is called pairwise similarity. It takes two
+programs as input and returns a similarity score based on the difference between
+the two. In order to do this, I will borrow a concept typically used in speech
+processing called "edit distance". This edit distance measures the distance
+between two strings in terms of the number of add, delete, or modify operations
+that have to be performed on one string to change it into the second string. For
+example, the strings "state" and "star" have an edit distance of 2 because it is
+one operation to remove the "e" from "state" and one operation to change the
+"r" in "star" to a "t". Unlike the example, each operation does not hold the same
+weight. Transformations to be given higher weights include adding a statement,
+deleting a statement, and inserting/deleting conditional expressions or loop
+constructs. Transformations to be given lower weights include changing a variable
+name, simple rearrangement (i.e. changing int i=i; to int i; i=1;), changes to
+whitespace, permutations of identical statements, and rearranging order of
+methods. The final result of the pairwise similarity component is a distance
+between two programs corresponding to the amount of transformation necessary to
+map one program into another.
+
+	The cheating detection system works as follows. Having been given access
+to all of the students submissions, the system would perform a pairwise
+comparison between each students submission and store this information in a
+matrix. A similarity threshold is set either by the user of the system or,
+possibly, automatically by computing statistics on the average similarity
+score. The system returns all instances where the entry is below the threshold to
+the user, which are labeled "similar submission". The user or the system can now
+evaluate these similar submissions, and make a judgement call.

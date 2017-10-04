@@ -1,0 +1,146 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Providing Your Own Security Manager</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="garbage.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#system" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="securityIntro.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Essential Java Classes
+<br>
+<b>Lesson</b>: Accessing System Resources
+</font>
+
+<h2>
+Providing Your Own Security Manager
+</h2>
+<blockquote>
+Security becomes a major concern when writing and using programs
+that interact with the Internet. Will you download something that
+corrupts your file system? Will you be open for a virus attack?
+It's unlikely that computers on the Internet will ever be completely
+safe from attack from the few evil-doers out there. However,
+you can take steps to provide a significant level of protection
+and security for your computers and data. One of the ways that
+Java provides protection from attack is through the use of security
+managers. A security manager implements and imposes the security
+policy for an application.
+
+</blockquote>
+<h3><a href="securityIntro.html">Introducing the Security Manager</a></h3>
+<blockquote>
+The security manager is an application-wide object that determines
+whether potentially threatening operations should be allowed. The
+classes in the Java packages cooperate with the security manager
+by asking the application's security manager for permission to
+perform certain operations.
+</blockquote>
+
+<h3><a href="writingSMgr.html">Writing a Security Manager</a></h3>
+<blockquote>
+This section walks you through a simple implementation
+of a security manager that requires the user to type in a password
+each time the application tries to open a file for reading or writing.
+</blockquote>
+
+<h3><a href="installSMgr.html">Installing Your Security Manager</a></h3>
+<blockquote>
+This page shows you how to put your security manager on duty for
+your Java application.
+
+<blockquote><hr><strong>Note:</strong>&nbsp; The security manager for an application
+can be set only once. Typically, a browser sets its security manager
+during its startup procedure. So most of the time, applets cannot
+set the security manager because it's already been set. A
+SecurityException will result if your applet attempts to do so.
+See
+<a target="_top" href="../../applet/practical/security.html">Security Restrictions</a><a target="_top" href="../../applet/practical/security.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Essential Java Classes trail)"></a>for information.
+<hr></blockquote>
+</blockquote>
+
+<h3><a href="more.html">Deciding What SecurityManager Methods to Override</a></h3>
+<blockquote>
+And finally, this page looks at the SecurityManager class in 
+greater detail, showing you which methods in the SecurityManager
+class affect which kinds of operations and helping you decide
+which methods your security manager needs to override.
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="garbage.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#system" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="securityIntro.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

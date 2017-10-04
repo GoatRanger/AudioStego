@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res-auto" setting_ui:titleText="@string/setting_ui_gimbal" style="@style/gk">
+    <LinearLayout style="@style/gj">
+        <dji.setting.ui.gimbal.AdvPitchView setting_ui:titleText="@string/setting_ui_gimbal_pitch" style="@style/g2" />
+        <dji.setting.ui.gimbal.AdvYawView setting_ui:titleText="@string/setting_ui_gimbal_yaw" style="@style/g2" />
+        <dji.setting.ui.gimbal.AdvPitchLimitView setting_ui:titleText="@string/setting_ui_gimbal_pitch_limit" setting_ui:descText="@string/setting_ui_gimbal_pitch_limit_hint" style="@style/g2" />
+        <dji.setting.ui.gimbal.AdvYawFollowView setting_ui:titleText="@string/setting_ui_gimbal_yaw_follow" style="@style/g2" />
+        <dji.setting.ui.gimbal.AdvPitchTimeView setting_ui:titleText="@string/setting_ui_gimbal_pitch_time" style="@style/g2" />
+        <dji.setting.ui.gimbal.AdvYawTimeView setting_ui:titleText="@string/setting_ui_gimbal_yaw_time" style="@style/g2" />
+        <dji.setting.ui.gimbal.AdvResetView setting_ui:titleText="@string/setting_ui_flyc_resetall" style="@style/g9" />
+    </LinearLayout>
+</ScrollView>

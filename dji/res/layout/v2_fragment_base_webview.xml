@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent">
+    <WebView android:id="@+id/base_webview" android:fadingEdge="UNKNOWN_DATA_0x0" android:layout_width="match_parent" android:layout_height="match_parent" android:overScrollMode="ifContentScrolls" />
+    <ProgressBar android:id="@+id/base_webview_progress_pgb" android:visibility="gone" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x201" android:progress="0" android:indeterminate="false" android:progressDrawable="@r$drawable/store_loading_progress" style="?unknown_attr_ref: 1010078" />
+    <FrameLayout android:id="@+id/custom_view_container" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent">
+        <RelativeLayout android:id="@+id/fullscreen_header" android:background="@r$drawable/preview_header_graident_bg" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x7f0b0127">
+            <dji.pilot.publics.widget.DJIStateImageView android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@+id/fullscreen_back" android:padding="8dp" android:layout_width="UNKNOWN_DATA_0x7f0b0127" android:layout_height="match_parent" android:layout_marginLeft="2dp" android:src="@r$drawable/ic_arrow_back_white" android:scaleType="centerCrop" />
+        </RelativeLayout>
+    </FrameLayout>
+    <include android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/v2_webview_errorly_roundpgb" />
+</RelativeLayout>

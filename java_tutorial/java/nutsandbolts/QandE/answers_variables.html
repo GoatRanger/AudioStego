@@ -1,0 +1,221 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Answers to Questions and Exercises: Variables</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="../QandE/questions_variables.html" target="_top"><img src="../../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../../TOC.html#nutsandbolts" target="_top"><img src="../../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+</td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="../index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../../search.html" target="_top">Search</a>
+<br><a href="../../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+
+<img src="../../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<font size="-1">
+<b>Trail</b>: Learning the Java Language
+<br>
+<b>Lesson</b>: Language Basics 
+</font>
+
+<h2>
+Answers to Questions and Exercises: Variables
+</h2>
+<blockquote>
+</blockquote>
+
+<h3>Answers to Questions</h3>
+<blockquote>
+<ol>
+<li> <strong>Question:</strong> Which of the following are valid variable names?
+<blockquote><pre>
+int
+anInt
+i
+i1
+1
+thing1
+1thing
+ONE-HUNDRED
+ONE_HUNDRED
+something2do
+</pre></blockquote>
+<strong>Answer:</strong>
+<blockquote><pre>
+int
+<strong>anInt</strong>
+<strong>i</strong>
+<strong>i1</strong>
+1
+<strong>thing1</strong>
+1thing
+ONE-HUNDRED
+<strong>ONE_HUNDRED</strong>
+<strong>something2do</strong>
+</pre></blockquote>
+
+<li> Answer the following questions about the
+<a target="_blank" href="../example/BasicsDemo.java"><font color="#bb000f"><code>BasicsDemo</code></font></a><a target="_blank" href="../example/BasicsDemo.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a> program.
+<ol>
+<li TYPE=a> <strong>Question:</strong>
+What is the name of each variable declared in the program?
+Remember that method parameters are also variables.
+<br>
+<strong>Answer:</strong> <code>args</code>, <code>sum</code>, <code>current</code>
+<li>
+<strong>Question:</strong>
+What is the data type of each variable?
+<br>
+<strong>Answer:</strong>
+The data type of <code>args</code> is <code>String[]</code>,
+which means that it's an array of strings.
+<code>sum</code> and <code>current</code> are both declared
+as <code>int</code>, which is the integer type.
+<li>
+<strong>Question:</strong>
+What is the scope of each variable?
+<br>
+<strong>Answer:</strong>
+<code>args</code> has scope within the entire <code>main</code> method.
+<code>sum</code> is a local variable that is valid from its declaration
+to the end of the <code>main</code> method.
+<code>current</code> is available from its declaration to the <code>}</code>
+that closes the <code>for</code> loop.
+</ol>
+</ol>
+</blockquote>
+
+<h3>Answers to Exercises</h3>
+<blockquote>
+<strong>Exercises:</strong>
+<ol>
+<li>
+Modify the
+<a target="_blank" href="../example-1dot1/MaxVariablesDemo.java"><font color="#bb000f"><code>MaxVariablesDemo</code></font></a><a target="_blank" href="../example-1dot1/MaxVariablesDemo.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a> program
+so that <code>aBoolean</code> has a different value.
+<li>
+Rewrite the <code>MaxVariablesDemo</code> program to display
+the minimum value of each integer data type.
+You can guess what the names of these variables
+are or you can look them up in the API documentation.
+<li>
+Can you guess the name of a method in the
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/Character.html"><font color="#8800bb"><code>Character</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/Character.html"><img src="../../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> class
+that you can use instead of <code>isUpperCase</code> to determine
+the capitalization of a character?
+Modify the <code>MaxVariablesDemo</code> program to use that method
+instead of <code>isUpperCase</code>.
+</ol>
+
+<strong>Solution:</strong>
+<p>
+Here's our solution to all three exercises, called
+<a target="_blank" href="MinVariablesDemo.java"><font color="#bb000f"><code>MinVariablesDemo</code></font></a><a target="_blank" href="MinVariablesDemo.java"><img src="../../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>, with the differences shown in <font color="red">red</font>:
+<blockquote><pre>
+public class MinVariablesDemo {
+    public static void main(String args[]) {
+
+        // integers
+        byte <font color="red">smallest</font>Byte = Byte.<font color="red">MIN</font>_VALUE;
+        short <font color="red">smallest</font>Short = Short.<font color="red">MIN</font>_VALUE;
+        int <font color="red">smallest</font>Integer = Integer.<font color="red">MIN</font>_VALUE;
+        long <font color="red">smallest</font>Long = Long.<font color="red">MIN</font>_VALUE;
+
+        // real numbers
+        float <font color="red">smallest</font>Float = Float.<font color="red">MIN</font>_VALUE;
+        double <font color="red">smallest</font>Double = Double.<font color="red">MIN</font>_VALUE;
+
+        // other primitive types
+        char aChar = 'S';
+        boolean aBoolean = <font color="red">false</font>;
+
+        // display them all
+        System.out.println("The <font color="red">smallest</font> byte value is " + <font color="red">smallest</font>Byte);
+        System.out.println("The <font color="red">smallest</font> short value is " + <font color="red">smallest</font>Short);
+        System.out.println("The <font color="red">smallest</font> integer value is " + <font color="red">smallest</font>Integer);
+        System.out.println("The <font color="red">smallest</font> long value is " + <font color="red">smallest</font>Long);
+
+        System.out.println("The <font color="red">smallest</font> float value is " + <font color="red">smallest</font>Float);
+        System.out.println("The <font color="red">smallest</font> double value is " + <font color="red">smallest</font>Double);
+
+        if (Character.is<font color="red">Lower</font>Case(aChar)) {
+            System.out.println("The character " + aChar + " is <font color="red">lower</font> case.");
+        } else {
+            System.out.println("The character " + aChar + " is <font color="red">upper</font> case.");
+        }
+        System.out.println("The value of aBoolean is " + aBoolean);
+    }
+}
+</pre></blockquote>
+</blockquote>
+</blockquote>
+
+<img src="../../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="../QandE/questions_variables.html" target="_top"><img src="../../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../../TOC.html#nutsandbolts" target="_top"><img src="../../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+</td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="../index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../../search.html" target="_top">Search</a>
+<br><a href="../../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

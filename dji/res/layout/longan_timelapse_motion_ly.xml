@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.device.timelapse.LonganTimelapseMotionLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:background="@color/ab" android:layout_width="wrap_content" android:layout_height="wrap_content">
+    <RelativeLayout android:id="@id/b8z" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x7f0b04f2" android:layout_margin="5dp">
+        <LinearLayout android:orientation="horizontal" android:id="@id/b90" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentLeft="true" android:layout_centerVertical="true">
+            <ImageView android:id="@id/b91" android:clickable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/longan_back_icon" android:scaleType="center" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+            <TextView android:textColor="@color/om" android:id="@id/b92" android:clickable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5dp" android:text="@string/longan_timelapse_back" />
+        </LinearLayout>
+        <ImageView android:id="@id/b93" android:padding="5dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/longan_timelapse_add" android:scaleType="center" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+    </RelativeLayout>
+    <View android:background="@color/om" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x101" android:alpha="0.4" />
+    <ScrollView android:id="@id/b94" android:background="@color/ad" android:scrollbars="UNKNOWN_DATA_0x0" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x7f0b04f3">
+        <HorizontalScrollView android:id="@id/b95" android:scrollbars="UNKNOWN_DATA_0x0" android:layout_width="match_parent" android:layout_height="match_parent">
+            <RelativeLayout android:id="@id/b96" android:layout_width="match_parent" android:layout_height="match_parent">
+                <LinearLayout android:orientation="vertical" android:id="@id/b97" android:background="@color/am" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true" android:animateLayoutChanges="true" />
+            </RelativeLayout>
+        </HorizontalScrollView>
+    </ScrollView>
+    <View android:background="@color/om" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x101" android:alpha="0.4" />
+    <RelativeLayout android:id="@id/b98" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x7f0b04f2" android:layout_margin="5dp">
+        <TextView android:textSize="20sp" android:textColor="@color/fd" android:id="@id/b99" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/longan_timelapse_start" android:layout_centerInParent="true" />
+    </RelativeLayout>
+</dji.device.timelapse.LonganTimelapseMotionLayout>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="wrap_content" android:layout_height="match_parent">
+    <dji.publics.DJIUI.DJILinearLayout android:gravity="top|bottom|center_vertical|fill_vertical|center|fill" android:orientation="horizontal" android:id="@+id/fpv_right_linearly" android:layout_width="wrap_content" android:layout_height="UNKNOWN_DATA_0x1" android:layout_marginTop="@dimen/n3" android:baselineAligned="false" android:layout_weight="1.0">
+        <include android:id="@+id/fpv_zoom_focus_ly" android:visibility="gone" android:layout_width="UNKNOWN_DATA_0x7f0b0127" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/n3" layout="@layout/camera_zoom_focus_view" />
+        <include android:id="@+id/fpv_camera_focusring_ly" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="match_parent" layout="@layout/camera_focus_ring_view" />
+        <include android:id="@+id/fpv_visual_speed_ly" android:visibility="gone" android:layout_width="UNKNOWN_DATA_0x7f0b0127" android:layout_height="match_parent" android:layout_marginLeft="@dimen/n3" layout="@layout/visual_point_speed_view" />
+    </dji.publics.DJIUI.DJILinearLayout>
+    <dji.publics.DJIUI.DJILinearLayout android:orientation="horizontal" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="UNKNOWN_DATA_0x7f0b0127" android:layout_marginTop="@dimen/rp" android:baselineAligned="false">
+        <dji.pilot.fpv.rightbar.DJIFMSettingView android:id="@+id/fpv_flightmode_settings_img" android:background="@r$drawable/camera_light_radius_bg" android:visibility="gone" android:layout_width="UNKNOWN_DATA_0x7f0b0127" android:layout_height="UNKNOWN_DATA_0x7f0b0127" android:layout_marginLeft="@dimen/n3" android:src="@r$drawable/gs_top_bar_setting_icon" android:scaleType="centerInside" android:adjustViewBounds="true" android:contentDescription="@string/app_name" />
+    </dji.publics.DJIUI.DJILinearLayout>
+</merge>

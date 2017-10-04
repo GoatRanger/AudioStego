@@ -1,0 +1,312 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Expressions, Statements, and Blocks</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="QandE/questions_operators.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#nutsandbolts" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="QandE/questions_expressions.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Learning the Java Language
+<br>
+<b>Lesson</b>: Language Basics
+</font>
+
+<h2>
+Expressions, Statements, and Blocks
+</h2>
+<blockquote>
+
+Variables and operators, which you met in the previous two sections, are basic building blocks of programs. You combine literals, variables, and operators to form expressions- segments of code that perform computations and return values. Certain expressions can be made into statements-complete units of execution. By grouping statements together with curly braces { and }, you create blocks of code.
+<P>
+
+<h3>Expressions</h3>
+Expressions perform the work of a program. Among other things, expressions are used to compute and to assign values to variables and to help control the execution flow of a program. The job of an expression is twofold: to perform the computation indicated by the elements of the expression and to return a value that is the result of the computation.
+<p>
+
+<blockquote><hr><strong>Definition:</strong>&nbsp; An <em>expression</em> is a series of variables,
+operators, and method calls (constructed according to the syntax of the
+language) that evaluates to a single value.
+<hr></blockquote>
+<p>
+As discussed in the previous section, operators return a value, so
+the use of an operator is an expression.
+This partial listing of the
+<a target="_blank" href="example-1dot1/MaxVariablesDemo.java"><font color="#bb000f"><code>MaxVariablesDemo</code></font></a><a target="_blank" href="example-1dot1/MaxVariablesDemo.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a> program shows some of the program's expressions in <font color="red">red</font>:
+<blockquote><pre>
+...
+// other primitive types
+char <font color="red">aChar = 'S'</font>;
+boolean aBoolean = true;
+
+// display them all
+System.out.println(<font color="red">"The largest byte value is " + largestByte</font>);
+...
+
+if (<font color="red">Character.isUpperCase(aChar)</font>) {
+    ...
+}
+</pre></blockquote>
+Each of these expressions performs an operation and returns a value.
+
+<p>
+<table border="1">
+<tr>
+<th>Expression</th>
+<th>Action</th>
+<th>Value Returned</th>
+</tr>
+
+<tr>
+<td valign="top"><code>aChar = 'S'</code></td>
+<td valign="top">Assign the character 'S' to the character variable
+    <code>aChar</code></td>
+<td valign="top">The value of <code>aChar</code> after the assignment ('S')</td>
+</tr>
+
+<tr>
+<td valign="top"><code>"The largest byte value is " + largestByte</code></td>
+<td valign="top">Concatenate the string <code>"The largest byte value is "</code>
+    and the value of <code>largestByte</code> converted to a string</td>
+<td valign="top">The resulting string: <code>The largest byte value is 127</code></td>
+</tr>
+
+<tr>
+<td valign="top"><code>Character.isUpperCase(aChar)</code></td>
+<td valign="top">Call the method <code>isUpperCase</code></td>
+<td valign="top">The return value of the method: <code>true</code></td>
+</tr>
+
+</table>
+<p>
+The data type of the value returned by an expression depends on the
+elements used in the expression. The expression <code>aChar = 'S'</code>
+returns a character because the assignment operator returns a value
+of the same data type as its operands and <code>aChar</code> and
+<code>'S'</code> are characters.
+As you see from the other expressions,
+an expression can return a boolean value, a string, and so on.
+<p>
+The Java programming language allows you to construct compound expressions and
+statements from various smaller expressions as long as the data types
+required by one part of the expression matches the data types of the other.
+Here's an example of a compound expression:
+<blockquote><pre>
+x * y * z
+</pre></blockquote>
+In this particular example, the order in which the expression is evaluated
+is unimportant because the results of multiplication is independent of order--the
+outcome is always the same no matter what order you apply the multiplications.
+However, this is not true of all expressions.
+For example, the following expression
+gives different results depending on whether you perform the addition or the
+division operation first:
+<blockquote><pre>
+x + y / 100     //ambiguous
+</pre></blockquote>
+You can specify exactly how you
+want an expression to be evaluated by using balanced parentheses
+<code>(</code> and <code>)</code>.
+For example to make the previous expression unambiguous, you could write:
+<blockquote><pre>
+(x + y)/ 100    //unambiguous, recommended
+</pre></blockquote>
+If you don't explicitly indicate the order in which you want the operations in a compound expression to be performed, the order is determined by the <em>precedence</EM> assigned to the operators in use within the expression. Operators with a higher precedence get evaluated first. For example, the division operator has a higher precedence than does the addition operator. Thus, the two following statements are equivalent: 
+<blockquote><pre>
+x + y / 100
+x + (y / 100) //unambiguous, recommended
+</pre></blockquote>
+
+When writing compound expressions, you should be explicit and indicate with parentheses which operators should be evaluated first. This will make your code easier to read and to maintain.
+<p>
+The following table shows the precedence assigned to the operators.
+The operators in this table are listed in precedence order: the higher
+in the table an operator appears, the higher its precedence. Operators
+with higher precedence are evaluated before operators with a relatively
+lower precedence. Operators on the same line have equal precedence.
+
+<p>
+<table border cellpadding=5>
+
+<tr>
+	<td>postfix operators</td><td><code>[] . (<em>params</em>) <em>expr</em>++ <em>expr</em>--</code></td>
+</tr>
+<tr>
+	<td>unary operators</td><td><code> ++<em>expr</em> --<em>expr</em> +<em>expr</em> -<em>expr</em> ~ !</code></td>
+</tr>
+<tr>
+	<td>creation or cast</td><td><code>new (<em>type</em>)<em>expr</em></code></td>
+</tr>
+<tr>
+	<td>multiplicative</td><td><code>* / %</code></td>
+</tr>
+<tr>
+	<td>additive</td><td><code>+ -</code></td>
+</tr>
+<tr>
+	<td>shift</td><td><code><< >> >>></code></td>
+</tr>
+<tr>
+	<td>relational</td><td><code>&lt; &gt; &lt;= &gt;= instanceof</code></td>
+</tr>
+<tr>
+	<td>equality</td><td><code>== !=</code></td>
+</tr>
+<tr>
+	<td>bitwise AND</td><td><code>&</code></td>
+</tr>
+<tr>
+	<td>bitwise exclusive OR</td><td><code>^</code></td>
+</tr>
+<tr>
+	<td>bitwise inclusive OR</td><td><code>|</code></td>
+</tr>
+<tr>
+	<td>logical AND</td><td><code>&&</code></td>
+</tr>
+<tr>
+	<td>logical OR</td><td><code>||</code></td>
+</tr>
+<tr>
+	<td>conditional</td><td><code>? :</code></td>
+</tr>
+<tr>
+	<td>assignment</td><td><code>= += -= *= /= %= &= ^= |= &lt;&lt;= &gt;&gt;= &gt;&gt;&gt;=</code></td>
+</tr>
+</table>
+<p>
+
+When operators of equal precedence appear in the same expression, a rule must govern which is evaluated first. All binary operators except for the assignment operators are evaluated in left-to-right order. Assignment operators are evaluated right to left. </blockquote>
+
+<h3>Statements</h3>
+<blockquote>
+Statements are roughly equivalent to sentences in natural languages. A <em>statement</em> forms a complete unit of execution. The following types of expressions can be made into a statement by terminating the expression with a semicolon (;):
+<ul>
+<li> Assignment expressions
+<li> Any use of ++ or --
+<li> Method calls
+<li> Object creation expressions
+</ul>
+
+These kinds of statements are called <em>expression statements</em>. Here are some examples of expression statements:
+
+<blockquote><pre>
+aValue = 8933.234;                        //assignment statement
+aValue++;                                 //increment statement
+System.out.println(aValue);               //method call statement
+Integer integerObject = new Integer(4);   //object creation statement
+</pre></blockquote>
+
+In addition to these kinds of expression statements, there are two other kinds of statements. A <em>declaration statement</em> declares a variable. You've seen many examples of declaration statements. 
+
+<blockquote><pre>
+double aValue = 8933.234;                 // declaration statement
+</pre></blockquote>
+
+
+A <em>control flow statement</em> regulates the order in which statements get executed. The <code>for</code> loop and the <code>if</code> statement are both examples of control flow statements.
+
+<!--add link to control flow-->
+</blockquote>
+
+<h3>Blocks</h3>
+<blockquote>
+A <em>block</em> is a group of zero or more statements between balanced braces and can be used anywhere a single statement is allowed. The following listing shows two blocks from the 
+<a target="_blank" href="example-1dot1/MaxVariablesDemo.java"><font color="#bb000f"><code>MaxVariablesDemo</code></font></a><a target="_blank" href="example-1dot1/MaxVariablesDemo.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a> program, each containing a single statement: 
+<blockquote><pre>
+if (Character.isUpperCase(aChar)) {
+    System.out.println("The character " + aChar + " is upper case.");
+} else {
+    System.out.println("The character " + aChar + " is lower case.");
+}
+</pre></blockquote>
+</blockquote>
+
+
+<h3>Summary of Expressions, Statements, and Blocks</h3>
+<blockquote>
+An expression is a series of variables, operators, and method calls (constructed according to the syntax of the language) that evaluates to a single value. You can write compound expressions by combining expressions as long as the types required by all of the operators involved in the compound expression are correct. When writing compound expressions, you should be explicit and indicate with parentheses which operators should be evaluated first. 
+<P>
+If you choose not to use parentheses, then the Java platform evaluates the compound expression in the order dictated by operator precedence. 
+A statement forms a complete unit of execution and is terminated with a semicolon (<code>;</code>). There are three kinds of statements: expression statements, declaration statements, and control flow statements.
+You can group zero or more statements together into a block with curly brackets ( <code>{</code> and <code>}</code> ). Even though not required, we recommend using blocks with control flow statements even if there's only one statement in the block.
+</blockquote>
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="QandE/questions_operators.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#nutsandbolts" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="QandE/questions_expressions.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

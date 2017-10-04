@@ -1,0 +1,169 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Filtering a BufferedImage</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="immediate.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#images" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="doublebuffering.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: 2D Graphics
+<br>
+<b>Lesson</b>: Manipulating and Displaying Images
+</font>
+
+<h2>
+Filtering a BufferedImage
+</h2>
+<blockquote>
+The Java 2D API defines several filtering operations for
+<CODE>BufferedImage </CODE> objects. Each image-processing operation is
+embodied in a class that implements the <CODE>BufferedImageOp</CODE>
+interface. The image manipulation is performed in the image operation's
+<CODE>filter</CODE> method. The <CODE>BufferedImageOp</CODE>
+classes in the Java 2D API support
+<UL>
+<LI> Affine transformation
+<LI> Amplitude scaling
+<LI> Lookup-table modification
+<LI> Linear combination of bands
+<LI> Color conversion
+<LI> Convolution
+</UL>
+<P>
+To filter a <CODE>BufferedImage</CODE> using one of the image operation
+classes, you
+<OL>
+<LI> Construct an instance of one of the <CODE>BufferedImageOp</CODE>
+     classes: <CODE>AffineTransformOp</CODE>, <CODE>BandCombineOp</CODE>,
+     <CODE>ColorConvertOp</CODE>, <CODE>ConvolveOp</CODE>,
+     <CODE>LookupOp</CODE>, or <CODE>RescaleOp</CODE>.
+<LI> Call the image operation's <CODE>filter</CODE> method, passing in
+     the <CODE>BufferedImage</CODE> that you want to filter and the
+     <CODE>BufferedImage</CODE> where you want to store the results.
+</OL>
+
+</blockquote>
+<h3>Example: ImageOps</h3>
+<blockquote>
+The following applet illustrates the use of four image-filter operations:
+low-pass, sharpen, lookup, and rescale.
+ 
+<p><center><a href="ImageOps.html" target="_blank"><IMG SRC="../../figures/2d/2D-54.gif" WIDTH="550" HEIGHT="550" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="Click this figure to run the applet."></a><br><em>This is a picture of the applet's GUI.  To run the applet, click the picture.  The applet will appear in a new browser window.</em></center></p>
+<P>
+You can see the complete code for this applet in
+
+<a target="_blank" href="example-1dot2/ImageOps.java"><font color="#bb000f"><code>ImageOps.java</code></font></a><a target="_blank" href="example-1dot2/ImageOps.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>.
+The applet uses these two image files:
+<a href="example-1dot2/images/bld.jpg"><code>bld.jpg</code></a>
+and
+<a href="example-1dot2/images/boat.gif"><code>boat.gif</code></a>.
+<p>
+
+The sharpen filter is performed by using a <CODE>ConvolveOp</CODE>.
+Convolution is the process of weighting or averaging the value of each
+pixel in an image with the values of neighboring pixels. Most
+spatial-filtering algorithms are based on convolution operations.
+<P>
+To construct and apply the sharpen filter to the
+<CODE>BufferedImage,</CODE> this sample uses code similar to the
+following snippet.
+<blockquote><pre>
+public static final float[] SHARPEN3x3 = {
+                            0.f, -1.f, 0.f,
+                            -1.f, 5.0f, -1.f,
+                            0.f, -1.f, 0.f};
+BufferedImage dstbimg = new 
+              BufferedImage(iw,ih,BufferedImage.TYPE_INT_RGB);
+Kernel kernel = new Kernel(3,3,SHARPEN3x3);
+ConvolveOp cop = new ConvolveOp(kernel,
+                                ConvolveOp.EDGE_NO_OP,
+                                null);
+cop.filter(srcbimg,dstbimg);
+</pre></blockquote>
+<P>
+The <CODE>Kernel </CODE> object mathematically defines how each output
+pixel is affected by pixels in its immediate area.The definition of the
+<CODE>Kernel</CODE> determines the results of the filter. For more
+information about how kernels work with <CODE>ConvolveOp</CODE>
+, see the Image Processing and Enhancement section in the
+
+<a target="_blank" href="http://java.sun.com/products/jdk/1.2/docs/guide/2d/spec/j2d-image.fm8.html"><font color="#009bbb">Java 2D Programmer's Guide</font></a><a target="_blank" href="http://java.sun.com/products/jdk/1.2/docs/guide/2d/spec/j2d-image.fm8.html"><img src="../../images/otherIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (outside of the tutorial)"></a> .
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="immediate.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#images" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="doublebuffering.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

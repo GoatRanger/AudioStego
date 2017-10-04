@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.pilot.fpv.camera.newfn.sub.DJICameraExternalParamView xmlns:android="http://schemas.android.com/apk/res-auto" phantom:layout_width="match_parent" phantom:layout_height="match_parent" phantom:splitMotionEvents="false">
+    <dji.publics.DJIUI.DJILinearLayout phantom:orientation="vertical" phantom:layout_width="match_parent" phantom:layout_height="wrap_content" phantom:baselineAligned="false" phantom:divider="@drawable/camera_other_divider" phantom:showDividers="middle|end" phantom:dividerPadding="0dp"
+        <dji.publics.DJIUI.DJILinearLayout phantom:orientation="horizontal" phantom:padding="@dimen/rp" phantom:layout_width="match_parent" phantom:layout_height="wrap_content" phantom:baselineAligned="false">
+            <dji.publics.DJIUI.DJITextView phantom:textSize="@dimen/rq" phantom:textColor="@color/oz" phantom:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" phantom:id="@+id/camera_newfn_extparam_c1_tv" phantom:background="@r$drawable/selector_usercenter_category_left" phantom:paddingTop="@dimen/n4" phantom:paddingBottom="@dimen/n4" phantom:layout_width="UNKNOWN_DATA_0x1" phantom:layout_height="wrap_content" phantom:text="@string/tau_param_c1" phantom:layout_weight="1.0" />
+            <dji.publics.DJIUI.DJITextView phantom:textSize="@dimen/rq" phantom:textColor="@color/oz" phantom:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" phantom:id="@+id/camera_newfn_extparam_c2_tv" phantom:background="@r$drawable/selector_usercenter_category_middle" phantom:paddingTop="@dimen/n4" phantom:paddingBottom="@dimen/n4" phantom:layout_width="UNKNOWN_DATA_0x1" phantom:layout_height="wrap_content" phantom:text="@string/tau_param_c2" phantom:layout_weight="1.0" />
+            <dji.publics.DJIUI.DJITextView phantom:textSize="@dimen/rq" phantom:textColor="@color/oz" phantom:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" phantom:id="@+id/camera_newfn_extparam_c3_tv" phantom:background="@r$drawable/selector_usercenter_category_right" phantom:paddingTop="@dimen/n4" phantom:paddingBottom="@dimen/n4" phantom:layout_width="UNKNOWN_DATA_0x1" phantom:layout_height="wrap_content" phantom:text="@string/tau_param_c3" phantom:layout_weight="1.0" />
+        </dji.publics.DJIUI.DJILinearLayout>
+        <include phantom:id="@+id/camera_newfn_exterparam_tare_ly" layout="@layout/camera_newfn_external_param_item" />
+        <include phantom:id="@+id/camera_newfn_exterparam_bgtemp_ly" layout="@layout/camera_newfn_external_param_item" />
+        <include phantom:id="@+id/camera_newfn_exterparam_attran_ly" layout="@layout/camera_newfn_external_param_item" />
+        <include phantom:id="@+id/camera_newfn_exterparam_attemp_ly" layout="@layout/camera_newfn_external_param_item" />
+        <include phantom:id="@+id/camera_newfn_exterparam_wintran_ly" layout="@layout/camera_newfn_external_param_item" />
+        <include phantom:id="@+id/camera_newfn_exterparam_winref_ly" layout="@layout/camera_newfn_external_param_item" />
+        <include phantom:id="@+id/camera_newfn_exterparam_wintemp_ly" layout="@layout/camera_newfn_external_param_item" />
+        <include phantom:id="@+id/camera_newfn_exterparam_winreftemp_ly" layout="@layout/camera_newfn_external_param_item" />
+        <dji.publics.DJIUI.DJITextView phantom:id="@+id/camera_newfn_exterparam_default_tv" phantom:text="@string/tau_reset_to_default" style="@style/CameraFnClickTxt" />
+    </dji.publics.DJIUI.DJILinearLayout>
+</dji.pilot.fpv.camera.newfn.sub.DJICameraExternalParamView>

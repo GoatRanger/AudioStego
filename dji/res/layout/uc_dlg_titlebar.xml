@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.publics.DJIUI.DJIRelativeLayout xmlns:android="http://schemas.android.com/apk/res-auto" phantom:id="@+id/uc_dlg_titlebar_ly" phantom:background="@r$drawable/usercenter_dlg_title_bg" phantom:layout_width="match_parent" phantom:layout_height="UNKNOWN_DATA_0x7f0b017c">
+    <dji.pilot.publics.widget.DJIStateTextView phantom:textSize="@dimen/rq" phantom:textColor="@color/gc" phantom:id="@+id/uc_dlg_titlebar_back_tv" phantom:paddingLeft="@dimen/rp" phantom:paddingRight="@dimen/rp" phantom:layout_height="match_parent" phantom:text="@string/app_cancel" phantom:layout_centerVertical="true" style="@style/bm" />
+    <dji.publics.DJIUI.DJITextView phantom:textSize="@dimen/rl" phantom:textColor="@color/gc" phantom:id="@+id/uc_dlg_titlebar_title_tv" phantom:text="@string/account_info_edit" phantom:layout_centerInParent="true" style="@style/bm" />
+    <dji.pilot.publics.widget.DJIStateTextView phantom:textSize="@dimen/rq" phantom:textStyle="bold" phantom:textColor="@color/gc" phantom:id="@+id/uc_dlg_titlebar_right_tv" phantom:paddingLeft="@dimen/rp" phantom:paddingRight="@dimen/rp" phantom:layout_height="match_parent" phantom:text="@string/app_done" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" style="@style/bm" />
+</dji.publics.DJIUI.DJIRelativeLayout>

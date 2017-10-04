@@ -1,0 +1,200 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Overview of Printing in Java</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#printing" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="component.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: 2D Graphics
+<br>
+<b>Lesson</b>: Printing
+</font>
+
+<h2>
+Overview of Printing in Java
+</h2>
+<blockquote>
+The system controls the overall printing process, just like it controls
+when and how a program can draw. Your application provides information
+about the document to be printed, and the printing system determines
+when each page needs to be rendered.
+<P>
+This <EM CLASS="Emphasis">callback printing model</EM> enables printing
+to be supported on a wide range of printer and systems. It even allows
+users to print to a bitmap printer from a computer that doesn't have
+enough memory or disk space to hold the bitmap of an entire page. In
+this situation the printing system will ask your application to render
+the page repeatedly so that it can be printed as a series of smaller
+images. (These smaller images are typically referred to as
+<EM CLASS="Emphasis">bands</EM>, and this process is commonly called
+<EM CLASS="Emphasis">banded printing</EM>.)
+<P>
+To support printing, an application needs to perform two tasks:
+<UL>
+<LI> Job control--managing the print job
+<LI> Imaging--rendering the pages to be printed
+</UL>
+
+</blockquote>
+<h3>Job Control</h3>
+<blockquote>
+Although the system controls the overall printing process, your
+application has to get the ball rolling by setting up a
+<CODE>PrinterJob</CODE>. The <CODE>PrinterJob</CODE> , the key point of
+control for the printing process, stores the print job properties,
+controls the display of print dialogs, and is used to initiate
+printing.
+<P>
+To steer the <CODE>PrinterJob</CODE> through the printing process, your
+application needs to
+<OL>
+<LI>Get a <CODE>PrinterJob</CODE> by calling <CODE>PrinterJob.getPrinterJob</CODE>
+<LI>Tell the <CODE>PrinterJob</CODE> where the rendering code is by
+    calling <CODE>setPrintable</CODE> or <CODE>setPageable</CODE>
+<LI>If desired, display the Page Setup and Print dialogs by calling
+    <CODE>pageDialog</CODE> and <CODE>printDialog</CODE>
+<LI>Initiate printing by calling <CODE>print</CODE>
+</OL>
+<P>
+The rendering of pages is controlled by the printing system through
+calls to the application's imaging code.
+</blockquote>
+
+<h3>Imaging</h3>
+<blockquote>
+Your application must be able to render any page when the printing
+system requests it. This rendering code is contained in the
+<CODE>print</CODE> method of a <EM CLASS="Emphasis">page
+painter</EM>--a class that implements the <CODE>Printable</CODE>
+interface. You implement <CODE>print</CODE> to render page contents by
+using a <CODE>Graphics</CODE> or a <CODE>Graphics2D</CODE> rendering
+context. You can use either one page painter to render all of the pages
+in a print job or different page painters for different types of pages.
+When the printing system needs to render a page, it calls
+<CODE>print</CODE> on the appropriate page painter.
+<P>
+When you use a single page painter, the print job is called a <EM
+CLASS="Emphasis">printable job</EM>. Using a printable job is the
+simplest way to support printing. More complex printing operations that
+use multiple page painters are referred to as <EM
+CLASS="Emphasis">pageable jobs</EM>. In a pageable job an instance of a
+class that implements the <CODE>Pageable</CODE> interface is used to
+manage the page painters.
+
+<h3> Printable Jobs</h3>
+<blockquote>
+In a printable job all pages use the same page painter and
+<CODE>PageFormat</CODE>, which defines the size and orientation of the
+page to be printed. The page painter is asked to render each page in
+indexed order, starting the page at index 0. The page painter might be
+asked to render a page multiple times before the next page is
+requested, but no pages are skipped. For example, if a user prints
+pages 2 and 3 of a document, the page painter is asked to render the
+pages at indices 0, 1, and 2 even though the page at index 0 will not
+be printed.
+<P>
+If a print dialog is presented, it will not display the number of
+pages, because that information is not available to the printing
+system. The page painter informs the printing system when the end of
+the document is reached.
+</blockquote>
+
+<h3>Pageable Jobs</h3>
+<blockquote>
+Pageable jobs are useful if your application builds an explicit
+representation of a document, page by page. In a pageable job different
+pages can use different page painters and <CODE>PageFormats</CODE>. The
+printing system can ask the page painters to render pages in any order,
+and pages can be skipped. For example, if a user prints pages 2 and 3
+of a document, the page painter will be asked to render only the pages
+at indices 1 and 2.
+<P>
+The multiple page painters in a pageable job are coordinated by a class
+that implements the <CODE>Pageable</CODE> interface, such as
+<CODE>Book</CODE>. A <CODE>Book</CODE> represents a collection of pages
+that can use different page painters and that can vary in size and
+orientation. You can also use your own implementation of the
+<CODE>Pageable</CODE> interface if <CODE>Book</CODE> does not meet your
+application's needs.
+</blockquote>
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#printing" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="component.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

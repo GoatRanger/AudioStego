@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res-auto" setting_ui:orientation="vertical" style="@style/g2">
+    <dji.setting.ui.wifi.WifiFreqModeView setting_ui:id="@id/byu" style="@style/g9" />
+    <include setting_ui:id="@id/byv" setting_ui:layout_width="match_parent" setting_ui:layout_height="match_parent" layout="@layout/setting_include_snr_sdr_view" />
+    <View style="@style/fz" />
+    <dji.setting.ui.wifi.WifiChannelIndexView setting_ui:id="@id/byw" style="@style/g9" />
+    <dji.setting.ui.wifi.WifiResetView style="@style/g9" />
+    <LinearLayout style="@style/gj"
+        <LinearLayout setting_ui:gravity="top|bottom|center_vertical|fill_vertical|center|fill" setting_ui:padding="0dp" style="@style/g2">
+            <TextView setting_ui:textColor="@color/om" setting_ui:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" setting_ui:paddingRight="@dimen/w8" setting_ui:layout_width="UNKNOWN_DATA_0x7f0b0316" setting_ui:layout_height="match_parent" setting_ui:text="@string/setting_ui_wifi_ssid_desc" style="@style/gr" />
+            <EditText setting_ui:textSize="@dimen/wn" setting_ui:textColor="@color/om" setting_ui:textColorHint="@color/ov" setting_ui:id="@id/byx" setting_ui:background="0x106000d" setting_ui:layout_width="match_parent" setting_ui:layout_height="match_parent" setting_ui:singleLine="true" />
+        </LinearLayout>
+        <ImageView style="@style/fz" />
+        <LinearLayout setting_ui:gravity="top|bottom|center_vertical|fill_vertical|center|fill" setting_ui:padding="0dp" style="@style/g2">
+            <TextView setting_ui:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" setting_ui:paddingRight="@dimen/w8" setting_ui:layout_width="UNKNOWN_DATA_0x7f0b0316" setting_ui:layout_height="match_parent" setting_ui:text="@string/setting_ui_wifi_pwd_desc" style="@style/gr" />
+            <EditText setting_ui:textSize="@dimen/wn" setting_ui:textColor="@color/om" setting_ui:id="@id/byy" setting_ui:background="0x106000d" setting_ui:layout_width="UNKNOWN_DATA_0x1" setting_ui:layout_height="match_parent" setting_ui:layout_marginRight="@dimen/w8" setting_ui:singleLine="true" setting_ui:layout_weight="1.0" />
+            <TextView setting_ui:textSize="@dimen/wn" setting_ui:textColor="@color/ov" setting_ui:gravity="top|bottom|center_vertical|fill_vertical|center|fill" setting_ui:paddingRight="@dimen/w8" setting_ui:layout_width="wrap_content" setting_ui:layout_height="match_parent" setting_ui:text="@string/setting_ui_wifi_pwd_tip" />
+        </LinearLayout>
+        <View style="@style/fz" />
+        <LinearLayout setting_ui:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" setting_ui:orientation="vertical" style="@style/g9">
+            <Button setting_ui:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" setting_ui:id="@id/byz" setting_ui:text="@string/setting_ui_wifi_apply" style="@style/g5" />
+            <View style="@style/fz" />
+        </LinearLayout>
+    </LinearLayout>
+    <dji.setting.ui.wifi.WifiChannelSelectView setting_ui:id="@id/bz0" setting_ui:titleText="@string/setting_ui_wifi_channel_text" style="@style/g9" />
+</LinearLayout>

@@ -1,0 +1,217 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Overview of I/O Streams</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#io" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="datasinks.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Essential Java Classes
+<br>
+<b>Lesson</b>: I/O: Reading and Writing (but no 'rithmetic)
+</font>
+
+<h2>
+Overview of I/O Streams
+</h2>
+<blockquote>
+To bring in information, a program opens a <I>stream</I> on an  information source (a file, memory, a socket) and reads the information sequentially, as shown here: 
+
+<p><center><IMG SRC="../../figures/essential/19stream.gif" WIDTH="438" HEIGHT="108" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p>Similarly, a program can send information to an external destination by opening a stream to a destination and writing the information out sequentially, like this:
+
+<p><center><IMG SRC="../../figures/essential/20stream2.gif" WIDTH="429" HEIGHT="108" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p>
+No matter where the data is coming from or going to and no matter what its type, the algorithms for sequentially reading and writing data are basically the same:
+
+<blockquote>
+<table CELLPADDING="4">
+<tr><td><strong>Reading</strong></td><td><strong>Writing</strong></td></tr>
+<tr><td>
+<pre>
+open a stream
+while more information
+    read information
+close the stream
+</pre>
+</td><td>
+<pre>
+open a stream
+while more information
+    write information
+close the stream
+</pre>
+</td></tr>
+</table>
+</blockquote>
+The 
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/io/package-summary.html"><font color="#8800bb"><code>java.io</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/io/package-summary.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> package contains a collection of stream classes that support these algorithms for reading and writing. To use these classes, a program needs to import the 
+
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/io/package-summary.html"><font color="#8800bb"><code>java.io</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/io/package-summary.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> package. The stream classes are divided into two class hierarchies, based on the data type (either characters or bytes) on which they operate.
+
+<p><center><IMG SRC="../../figures/essential/21chstream.gif" WIDTH="263" HEIGHT="194" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p>
+</blockquote>
+
+<A NAME="character"></A> 
+<h3>Character Streams</h3>
+<blockquote>
+
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/io/Reader.html"><font color="#8800bb"><code>Reader</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/io/Reader.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> and 
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/io/Writer.html"><font color="#8800bb"><code>Writer</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/io/Writer.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> are the abstract 
+superclasses for character streams in <code>java.io</code>.
+<code>Reader</code> provides the API
+and partial implementation for <I>readers</I>--streams that
+read 16-bit characters--and <code>Writer</code> provides the API and
+partial implementation for writers--streams that write 16-bit
+characters. Subclasses of <code>Reader</code> and <code>Writer</code> implement specialized streams and are divided into two categories: those that read from or write to data sinks (shown in gray in the following figures) and those that perform some sort of processing (shown in white).
+The figure shows the class hierarchies for the <code>Reader</code> and
+<code>Writer</code> classes.
+
+<p><center><IMG SRC="../../figures/essential/23reader.gif" WIDTH="462" HEIGHT="169" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p>
+<p><center><IMG SRC="../../figures/essential/24writer.gif" WIDTH="465" HEIGHT="222" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p>
+Most programs should use readers and writers to read and write textual  information. The reason is that they can handle any character in the  Unicode character set, whereas the byte streams are limited to 
+ISO-Latin-1 8-bit bytes.
+
+</blockquote>
+
+<A NAME="byte"></A> 
+<h3>Byte Streams</h3>
+<blockquote>
+To read and write 8-bit bytes, programs should use the byte streams, descendants of 
+
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/io/InputStream.html"><font color="#8800bb"><code>InputStream</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/io/InputStream.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> and 
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/io/OutputStream.html"><font color="#8800bb"><code>OutputStream</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/io/OutputStream.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>. <code>InputStream</code> and
+<code>OutputStream</code> provide the API and partial implementation for <I>input streams</I> (streams that read 8-bit bytes) and 
+<I>output</I> streams (streams that write 8-bit bytes). 
+These streams are typically used to read and write binary data 
+such as images and sounds.  Two of the byte stream classes, 
+<code>ObjectInputStream</CODE> and <code>ObjectOutputStream</code>, 
+are used for object serialization. These classes are covered in 
+<a href="serialization.html">Object Serialization</a>.
+
+<p>
+As with <code>Reader</code> and <code>Writer</code>, subclasses of 
+<code>InputStream</code> and <code>OutputStream</code> provide 
+specialized I/O that falls into two categories, as shown in the 
+following class hierarchy figure: data sink streams (shaded) and processing streams (unshaded). 
+
+<p><center><IMG SRC="../../figures/essential/25inputs.gif" WIDTH="462" HEIGHT="199" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p>
+<p><center><IMG SRC="../../figures/essential/26outputs.gif" WIDTH="458" HEIGHT="142" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p></blockquote>
+
+<h3>Understanding the I/O Superclasses</h3>
+<blockquote>
+<code>Reader</code> and <code>InputStream</code> define similar APIs
+but for different data types. For example, <code>Reader</code> contains
+these methods for reading characters and arrays of characters:
+<blockquote><pre>
+int read()
+int read(char cbuf[])
+int read(char cbuf[], int offset, int length)
+</pre></blockquote>
+<code>InputStream</code> defines the same methods but for reading bytes
+and arrays of bytes:
+<blockquote><pre>
+int read()
+int read(byte cbuf[])
+int read(byte cbuf[], int offset, int length)
+</pre></blockquote>
+Also, both <code>Reader</code> and <code>InputStream</code> provide
+methods for marking a location in the stream, skipping input, and
+resetting the current position.
+<p>
+<code>Writer</code> and <code>OutputStream</code> are similarly
+parallel. <code>Writer</code> defines these methods for writing
+characters and arrays of characters:
+<blockquote><pre>
+int write(int c)
+int write(char cbuf[])
+int write(char cbuf[], int offset, int length)
+</pre></blockquote>
+And <code>OutputStream</code> defines the same methods but for bytes:
+<blockquote><pre>
+int write(int c)
+int write(byte cbuf[])
+int write(byte cbuf[], int offset, int length)
+</pre></blockquote>
+All of the streams--readers, writers, input streams, and output
+streams--are automatically opened when created. You can close any stream 
+explicitly by calling its <code>close</code> method.
+Or the garbage collector can implicitly close it, 
+which occurs when the object is no longer referenced. 
+<p>
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#io" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="datasinks.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

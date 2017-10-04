@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="UNKNOWN_DATA_0x7f0b0030" android:layout_height="UNKNOWN_DATA_0x7f0b002f">
+    <android.support.v4.view.ViewPager android:id="@+id/v2_explore_guide_dialog_pager" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_above="@+id/v2_explore_guide_dialog_bottom" />
+    <RelativeLayout android:id="@+id/v2_explore_guide_dialog_bottom" android:background="#d8d8d8" android:layout_width="UNKNOWN_DATA_0x3c01" android:layout_height="UNKNOWN_DATA_0x501" android:layout_marginTop="15dp" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true">
+        <View android:id="@+id/v2_explore_guide_dialog_indicator" android:background="@color/om" android:layout_width="UNKNOWN_DATA_0x1401" android:layout_height="match_parent" />
+    </RelativeLayout>
+</RelativeLayout>

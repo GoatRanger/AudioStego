@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>The Runtime Object</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="misc.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#system" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="../end.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Essential Java Classes
+<br>
+<b>Lesson</b>: Accessing System Resources
+</font>
+
+<h2>
+The Runtime Object
+</h2>
+<blockquote>
+<p><center><IMG SRC="../../figures/essential/5runtime.gif" WIDTH="373 " HEIGHT="183" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p>
+<p>
+At the core of the Java runtime environment are the Java virtual machine,
+the Java interpreter, and the host operating system.
+<p>
+The oval labelled <strong>Runtime</strong> in the diagram
+represents the current runtime environment and is an instance of the
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/Runtime.html"><font color="#8800bb"><code>Runtime</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/Runtime.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> class.
+The current runtime environment could be anything from Sun's implementation
+of the Java virtual machine and interpreter running on Solaris to ACME Company's implementation
+of the virtual machine and interpreter running on the ACME toaster.
+<p>
+<code>Runtime</code> objects provide two services. First, they communicate with the components
+of the runtime environment--getting information and invoking functions. Second,
+<code>Runtime</code> objects are also the interface to system-dependent capabilities. For example,
+UNIX <code>Runtime</code> objects might support the <code>getenv</code> and <code>setenv</code>
+functions. Other <code>Runtime</code> objects, such as for Mac OS, might not support <code>getenv</code>
+and <code>setenv</code> because the host operating system doesn't support these
+functions, but they might support others.
+<p>
+Because the <code>Runtime</code> class is tightly integrated with the implementation of the
+Java interpreter, the Java virtual machine, and the host operating system, it is
+system-dependent. If objects in your program message the <code>Runtime</code> object directly,
+you sacrifice the system indepedent nature of your Java program. In general, this is
+not a good idea (particularly for applets).
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="misc.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#system" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="../end.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

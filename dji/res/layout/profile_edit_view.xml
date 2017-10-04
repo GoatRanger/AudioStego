@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.publics.DJIUI.DJILinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:background="@r$drawable/usercenter_dlg_bg" android:layout_width="wrap_content" android:layout_height="wrap_content" android:baselineAligned="false">
+    <include android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x7f0b017c" layout="@layout/uc_dlg_titlebar" />
+    <dji.pilot.fpv.view.DJIStageView android:id="@+id/profile_edit_stageview" android:layout_width="match_parent" android:layout_height="match_parent" android:animateFirstView="true" />
+</dji.publics.DJIUI.DJILinearLayout>

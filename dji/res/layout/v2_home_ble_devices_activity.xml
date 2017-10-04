@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.publics.DJIUI.DJILinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:background="#aa000000" android:fitsSystemWindows="true" android:layout_width="match_parent" android:layout_height="match_parent"
+    <dji.publics.DJIUI.DJILinearLayout android:id="@+id/upgrade_activity_shadow" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_weight="1.0" />
+    <LinearLayout android:orientation="vertical" android:id="@id/b_s" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x7f0b011a">
+        <RelativeLayout android:background="@color/ot" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x7f0b0127">
+            <TextView android:textColor="@r$color/standard3_0_primary_color" android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:layout_gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@+id/v2_home_gotopreview_tv" android:layout_width="UNKNOWN_DATA_0x7f0b00ff" android:layout_height="match_parent" android:layout_marginLeft="@dimen/ft" android:text="@string/v2_home_ble_ignore" android:layout_alignParentLeft="true" style="@style/bm" />
+            <TextView android:textColor="@color/a_" android:layout_gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:layout_width="wrap_content" android:text="@string/lp_ble_name" android:layout_centerInParent="true" style="@style/bm" />
+            <dji.pilot.publics.widget.DJIStateImageView android:id="@id/b_t" android:paddingRight="@dimen/ft" android:layout_width="wrap_content" android:layout_height="match_parent" android:src="@drawable/ble_cancle" android:scaleType="center" android:layout_alignParentRight="true" />
+        </RelativeLayout>
+        <LinearLayout android:orientation="horizontal" android:background="@color/om" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x7f0b0127">
+            <TextView android:textColor="@color/e4" android:layout_gravity="top|bottom|center_vertical|fill_vertical|center|fill" android:paddingLeft="@dimen/ft" android:paddingRight="@dimen/ft" android:text="@string/lp_ble_device_list_txt" style="@style/bm" />
+            <View android:layout_width="UNKNOWN_DATA_0x7f0b0110" android:layout_height="match_parent" android:layout_weight="1.0" />
+            <dji.pilot.publics.widget.DJIStateImageView android:id="@id/b_u" android:paddingLeft="@dimen/ft" android:paddingRight="@dimen/ft" android:layout_width="wrap_content" android:layout_height="match_parent" android:src="@drawable/lp_refresh" android:scaleType="center" />
+        </LinearLayout>
+        <View android:background="@color/ez" android:layout_height="UNKNOWN_DATA_0x19999a31" android:alpha="0.2" style="@style/ej" />
+        <TextView android:textSize="@dimen/rl" android:textColor="@color/a_" android:id="@+id/v2_home_ble_empty_tv" android:background="@color/om" android:paddingLeft="@dimen/ft" android:paddingTop="@dimen/gw" android:paddingRight="@dimen/ft" android:visibility="gone" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x7f0b012f" android:text="@string/v2_home_ble_empty_tip" />
+        <ListView android:id="@id/b_w" android:background="@color/om" android:layout_width="match_parent" android:layout_height="match_parent" android:cacheColorHint="@color/j5" android:divider="@color/b4" android:dividerHeight="1px" />
+    </LinearLayout>
+</dji.publics.DJIUI.DJILinearLayout>

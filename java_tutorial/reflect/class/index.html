@@ -1,0 +1,215 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Examining Classes</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="../index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#class" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="getClass.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+
+<br>
+<font size="-1">
+<b>Trail</b>: The Reflection API
+</font>
+
+<h2>
+Lesson: Examining Classes
+</h2>
+<blockquote>
+If you are writing a class browser, you need a way to get information about
+classes at runtime. For example, you might want to display the names of the
+class fields, methods, and constructors. Or, you might want to show which
+interfaces are implemented by a class. To get this information  you need to
+get the 
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/Class.html"><font color="#8800bb"><code>Class</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/Class.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>object that reflects the class.
+
+<p>
+For each class, the 
+Java Runtime Environment (JRE)
+maintains an immutable <code>Class</code> object that contains
+information about the class. A <code>Class</code> object represents, or reflects, the class.
+With the reflection API, you can invoke methods on a <code>Class</code> object which
+return 
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/reflect/Constructor.html"><font color="#8800bb"><code>Constructor</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/reflect/Constructor.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>,
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/reflect/Method.html"><font color="#8800bb"><code>Method</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/reflect/Method.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>, and
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/reflect/Field.html"><font color="#8800bb"><code>Field</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/reflect/Field.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>objects. You can use these objects to
+get information about the corresponding constructors, methods, and
+fields defined in the class.
+
+<p>
+<code>Class</code> objects also represent interfaces.
+You invoke <code>Class</code> methods to 
+find out about an interface's modifiers,
+methods, and public constants.
+Not all of the <code>Class</code> methods
+are appropriate when a <code>Class</code> object reflects
+an interface.
+For example, it doesn't make sense to
+invoke <code>getConstructors</code> 
+when the <code>Class</code> object represents an interface.
+The section
+<a href="isInterface.html">Examining Interfaces</a>
+explains which <code>Class</code> methods you
+may use to get information about interfaces.
+
+</blockquote>
+<h3>
+<a href="getClass.html">Retrieving Class Objects</a>
+</h3>
+<p>
+<blockquote>
+First things first.  
+Before you can find out anything about a class, you must first retrieve its
+corresponding <code>Class</code> object.
+</blockquote>
+
+<h3>
+<a href="getName.html">Getting the Class Name</a>
+
+</h3>
+<p>
+<blockquote>
+It's easy to find out the name of a <code>Class</code> object.  All
+you have to do is invoke the <code>getName</code> method.
+</blockquote>
+
+<h3>
+<a href="getModifiers.html">Discovering Class Modifiers</a>
+</h3>
+<p>
+<blockquote>
+This section shows you the methods you need to call
+to find out what modifiers a particular class has.
+</blockquote>
+
+<h3>
+<a href="getSuperclass.html">Finding Superclasses</a>
+</h3>
+<p>
+<blockquote>
+In this section you'll learn how to retrieve all of the
+<code>Class</code> objects for the ancestors of a given class.
+</blockquote>
+
+<h3>
+<a href="getInterfaces.html">Identifying the Interfaces Implemented by a Class</a>
+</h3>
+<p>
+<blockquote>
+If you want to find out what interfaces a class implements, then
+check out this section.
+</blockquote>
+
+<h3>
+<a href="isInterface.html">Examining Interfaces</a>
+</h3>
+<p>
+<blockquote>
+In this section you'll learn how to tell if
+a <code>Class</code> object represents an interface or a class.
+You'll also get some tips
+on how to get more information about an interface.
+</blockquote>
+
+<h3>
+<a href="getFields.html">Identifying Class Fields</a>
+</h3>
+<p>
+<blockquote>
+This section shows you how to 
+discover what fields belong to a class,
+and how to find out more about these fields
+by accessing <code>Field</code> objects.
+
+</blockquote>
+
+<h3>
+<a href="getConstructors.html">Discovering Class Constructors</a>
+</h3>
+<p>
+<blockquote>
+This section, which introduces the <code>Constructor</code> class,
+explains how to get information about a class's contructors.
+</blockquote>
+
+<h3>
+<a href="getMethods.html">Obtaining Method Information</a>
+</h3>
+<p>
+<blockquote>
+To find out about a class's methods, you need to retrieve
+the corresponding <code>Method</code> objects.
+This section shows you how to do this.
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="../index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#class" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="getClass.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

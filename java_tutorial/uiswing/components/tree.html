@@ -1,0 +1,1403 @@
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>How to Use Trees</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="tooltip.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#components" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="problems.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Creating a GUI with JFC/Swing
+<br>
+<b>Lesson</b>: Using Swing Components
+</font>
+
+<h2>
+How to Use Trees
+</h2>
+<blockquote>
+With the
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTree.html"><font color="#8800bb"><code>JTree</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTree.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> class,
+you can display hierarchical data.
+A <code>JTree</code> object doesn't actually contain your data;
+it simply provides a view of the data.
+Like any non-trivial Swing component,
+the tree gets data by querying its data model.
+Here's a picture of a tree:
+
+<p><center><IMG SRC="../../figures/uiswing/components/tree.gif" WIDTH="128" HEIGHT="113" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="A tree"></center></p>[PENDING: This picture will be updated
+to show the Java look and feel.
+Labels will be added: "root node", "expanded branch node",
+"collapsed branch node", "leaf node".]
+
+<p>
+As the preceding figure shows, 
+<code>JTree</code> displays its data vertically.  
+Each row displayed by the tree contains exactly one item of data,
+which is called a <em>node</em>.
+Every tree has a <em>root</em> node
+from which all nodes descend.
+By default, the tree displays the root node,
+but you can decree otherwise.
+A node can either have children or not.
+We refer to nodes that can have children &#151;
+whether or not they currently <em>have</em> children &#151;
+as <em>branch</em> nodes.
+Nodes that can't have children
+are <em>leaf</em> nodes.
+
+<p>
+
+Branch nodes can have any number of children.
+Typically,
+the user can expand and collapse branch nodes &#151;
+making their children visible or invisible &#151;
+by clicking them.
+By default, all branch nodes except the root node start out collapsed.
+A program can detect changes in branch nodes' expansion state
+by listening for tree expansion or tree-will-expand events,
+as described in
+<a target="_top" href="../events/treeexpansionlistener.html">How to Write a Tree Expansion Listener</a><a target="_top" href="../events/treeexpansionlistener.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a> and
+<a target="_top" href="../events/treewillexpandlistener.html">How to Write a Tree-Will-Expand Listener</a><a target="_top" href="../events/treewillexpandlistener.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.
+
+<p>
+
+The rest of this section discusses the following topics:
+
+<ul>
+<li> <a href="#create">Creating a Tree</a>
+<li> <a href="#select">Responding to Node Selection</a>
+<li> <a href="#display">Customizing a Tree's Display</a>
+<li> <a href="#dynamic">Dynamically Changing a Tree</a>
+<li> <a href="#data">Creating a Data Model</a>
+<li> <a href="#api">The Tree API</a>
+<li> <a href="#eg">Examples that Use Trees</a>
+</ul>
+
+
+</blockquote>
+<h3>
+<a name="create">
+Creating a Tree
+</a>
+</h3>
+<blockquote>
+
+Here is a picture of an application, 
+the top half of which displays a tree
+in a scroll pane.
+
+<p><center><IMG SRC="../../figures/uiswing/components/TreeDemo.gif" WIDTH="511" HEIGHT="261" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="TreeDemo"></center></p>[PENDING: This picture will be updated]
+
+<blockquote><hr><strong>Try this:</strong>&nbsp;
+<ol>
+<li> <a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/components/example-1dot4/TreeDemo.jnlp">Run TreeDemo</a> using
+<a target="_top" href="../../information/javawebstart.html">Java<sup><font size=-2>TM</font></sup> Web Start</a><a target="_top" href="../../information/javawebstart.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.    Or, to compile and run the example yourself,
+     consult the
+     <a href="example-1dot4/index.html#TreeDemo">example index</a>.
+
+<li> Expand one or more nodes.
+     <br>
+     You can do this by clicking the circle
+     to the left of the item.
+<li> Collapse a node.
+     <br>
+     You do this by clicking the circle
+     to the left of an expanded node.
+</ol>
+<hr></blockquote>
+
+<p>
+
+The following code,
+taken from 
+
+<a target="_blank" href="example-1dot4/TreeDemo.java"><font color="#bb000f"><code>TreeDemo.java</code></font></a><a target="_blank" href="example-1dot4/TreeDemo.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>,
+creates the <code>JTree</code> object
+and puts it in a scroll pane:
+
+<blockquote><pre>
+<em>//Where instance variables are declared:</em>
+private JTree tree;
+...
+public TreeDemo() {
+    ...
+    DefaultMutableTreeNode top =
+        new DefaultMutableTreeNode("The Java Series");
+    createNodes(top);
+    tree = new JTree(top);
+    ...
+    JScrollPane treeView = new JScrollPane(tree);
+    ...
+}
+</pre></blockquote>
+
+The code creates an instance of 
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/tree/DefaultMutableTreeNode.html"><font color="#8800bb"><code>DefaultMutableTreeNode</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/tree/DefaultMutableTreeNode.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> to serve as the root node for the tree.
+It then creates the rest of the nodes in the tree.
+After that, it creates the tree, specifying the root node as an argument
+to the <code>JTree</code> constructor.
+Finally, it puts the tree in a scroll pane,
+a common tactic 
+because showing the full, expanded tree
+would otherwise require too much space.
+
+<p>
+Here is the code that creates the nodes under the root node:
+
+<blockquote><pre>
+private void createNodes(DefaultMutableTreeNode top) {
+    DefaultMutableTreeNode category = null;
+    DefaultMutableTreeNode book = null;
+    
+    category = new DefaultMutableTreeNode("Books for Java Programmers");
+    top.add(category);
+    
+    //original Tutorial
+    book = new DefaultMutableTreeNode(new BookInfo
+        ("The Java Tutorial: A Short Course on the Basics",
+        "tutorial.html"));
+    category.add(book);
+    
+    //Tutorial Continued
+    book = new DefaultMutableTreeNode(new BookInfo
+        ("The Java Tutorial Continued: The Rest of the JDK",
+        "tutorialcont.html"));
+    category.add(book);
+    
+    //JFC Swing Tutorial
+    book = new DefaultMutableTreeNode(new BookInfo
+        ("The JFC Swing Tutorial: A Guide to Constructing GUIs",
+        "swingtutorial.html"));
+    category.add(book);
+
+    <em>//...add more books for programmers...</em>
+
+    category = new DefaultMutableTreeNode("Books for Java Implementers");
+    top.add(category);
+
+    //VM
+    book = new DefaultMutableTreeNode(new BookInfo
+        ("The Java Virtual Machine Specification",
+         "vm.html"));
+    category.add(book);
+
+    //Language Spec
+    book = new DefaultMutableTreeNode(new BookInfo
+        ("The Java Language Specification",
+         "jls.html"));
+    category.add(book);
+}
+</pre></blockquote>
+
+<p>
+The argument to the <code>DefaultMutableTreeNode</code>
+constructor is the <em>user object</em> &#151;
+an object that contains or points to the data
+associated with the tree node.
+The user object can be a string, 
+or it can be a custom object.
+If you implement a custom object,
+you should implement its <code>toString</code> method
+so that it returns the string to be displayed for that node.
+
+<p>
+
+For example, the <code>BookInfo</code> class
+used in the previous code snippet 
+is a custom class that holds two pieces of data: 
+the name of a book,
+and the URL for an HTML file describing the book.
+The <code>toString</code> method is implemented
+to return the book name.
+Thus, each node associated with a <code>BookInfo</code> object
+displays a book name.
+
+
+<blockquote><hr><strong>Note:</strong>&nbsp;You can specify text formatting in a tree node
+by putting HTML tags in the string for the node.
+See <a href="html.html">Using HTML in Swing Components</a>
+for details.
+<hr></blockquote>
+
+<p>
+
+To summarize,
+you can create a tree
+by invoking the <code>JTree</code> constructor,
+specifying the root node as an argument.
+You should probably put the tree 
+inside a scroll pane,
+so that the tree won't take up too much space.
+You don't have to do anything
+to make the tree nodes expand and collapse
+in response to user clicks.
+However, you do have to add some code
+to make the tree respond when
+the user selects a node &#151;
+by clicking the node, for example.
+
+
+</blockquote>
+<h3>
+<a name="select">
+Responding to Node Selection
+</a>
+</h3>
+<blockquote>
+
+Responding to tree node selections is simple.
+You implement a tree selection listener
+and register it on the tree,
+The following code shows
+the selection-related code from the <code>TreeDemo</code> program:
+
+<blockquote><pre>
+<em>//Where the tree is initialized:</em>
+    tree.getSelectionModel().setSelectionMode
+            (TreeSelectionModel.SINGLE_TREE_SELECTION);
+
+    //Listen for when the selection changes.
+    tree.addTreeSelectionListener(this);
+...
+public void valueChanged(TreeSelectionEvent e) {
+    DefaultMutableTreeNode node = (DefaultMutableTreeNode)
+                       tree.getLastSelectedPathComponent();
+
+    if (node == null) return;
+
+    Object nodeInfo = node.getUserObject();
+    if (node.isLeaf()) {
+        BookInfo book = (BookInfo)nodeInfo;
+        displayURL(book.bookURL);
+    } else {
+        displayURL(helpURL); 
+    }
+}
+</pre></blockquote>
+
+
+The preceding code performs these tasks:
+
+<ul>
+<li> Gets the default 
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/tree/TreeSelectionModel.html"><font color="#8800bb"><code>TreeSelectionModel</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/tree/TreeSelectionModel.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>     for the tree,
+     and then sets it up so that at most one tree node
+     at a time can be selected.
+
+<li> Registers an event handler on the tree.
+     The event handler is an object that implements the 
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/event/TreeSelectionListener.html"><font color="#8800bb"><code>TreeSelectionListener</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/event/TreeSelectionListener.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>     interface.
+
+<li> In the event handler,
+     determines which node is selected by invoking
+     the tree's <code>getLastSelectedPathComponent</code> method.
+
+<li> Uses the <code>getUserObject</code> method
+     to get the data associated with the node.
+</ul>
+
+For more details about handling tree selection events, see
+<a target="_top" href="../events/treeselectionlistener.html">How to Write a Tree Selection Listener</a><a target="_top" href="../events/treeselectionlistener.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.
+
+
+</blockquote>
+<h3>
+<a name="display">
+Customizing a Tree's Display
+</a>
+</h3>
+<blockquote>
+
+Here is a picture of some tree nodes,
+as drawn by the Java, Windows, and Mac OS look and feel implementations.
+
+<p align=center>
+<table summary="layout" cellspacing=10 align=center>
+<tr align=center>
+<td>
+<IMG SRC="../../figures/uiswing/components/TreeDemo-lsAngled.gif" WIDTH="125" HEIGHT="96" ALT="TreeDemo with angled lines"></td>
+<td>
+<IMG SRC="../../figures/uiswing/components/TreeDemo-windows.gif" WIDTH="124" HEIGHT="82" ALT="A tree in the Windows look and feel"></td>
+<td>
+[PENDING: Mac pic goes here]
+</td>
+</tr>
+<tr align=center>
+<td>
+Java look and feel
+</td>
+<td>
+Windows look and feel
+</td>
+<td>
+Mac OS look and feel
+</td>
+</tr>
+</table>
+</p>
+
+<p>
+As the preceding figures show,
+a tree conventionally displays an icon and some text for each node.
+You can customize these, as we'll show shortly.
+
+<p>
+
+A tree typically also performs some look-and-feel-specific
+painting to indicate relationships between nodes.
+You can customize this painting in a limited way.
+First, you can use 
+<code>tree.setRootVisible(true)</code>
+to show the root node or
+<code>tree.setRootVisible(false)</code>
+to hide it.
+Second, you can use 
+<code>tree.setShowsRootHandles(true)</code>
+to request that a tree's top-level nodes &#151;
+the root node (if it's visible) or its children (if not) &#151;
+have handles that let them be expanded or collapsed.
+Third, if you're using the Java look and feel,
+you can customize whether lines are drawn
+to show relationships between tree nodes.
+
+<p>
+
+By default, the Java look and feel 
+draws angled lines between nodes.
+By setting the <code>JTree.lineStyle</code>
+client property of a tree,
+you can specify
+a different convention.
+For example, 
+to request that the Java look and feel use 
+only horizontal lines to group nodes,
+use the following code:
+
+<blockquote><pre>
+tree.putClientProperty("JTree.lineStyle", "Horizontal");
+</pre></blockquote>
+
+<p>
+To specify that the Java look and feel 
+should draw no lines,
+use this code:
+
+<blockquote><pre>
+tree.putClientProperty("JTree.lineStyle", "None");
+</pre></blockquote>
+
+The following snapshots show the results
+of setting the <code>JTree.lineStyle</code> property,
+when using the Java look and feel.
+
+<p align=center>
+<table summary="layout" cellspacing=10 align=center>
+<tr align=center>
+<td>
+<IMG SRC="../../figures/uiswing/components/TreeDemo-lsAngled.gif" WIDTH="125" HEIGHT="96" ALT="TreeDemo with angled lines"></td>
+<td>
+<p><center><IMG SRC="../../figures/uiswing/components/TreeDemo-lsHoriz.gif" WIDTH="125" HEIGHT="96" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="TreeDemo with horizontal lines"></center></p></td>
+<td>
+<p><center><IMG SRC="../../figures/uiswing/components/TreeDemo-lsNone.gif" WIDTH="125" HEIGHT="96" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="TreeDemo with no lines"></center></p></td>
+</tr>
+<tr align=center valign=bottom>
+<td>
+<code>"Angled"</code> (default)
+</td>
+<td>
+<code>"Horizontal"</code>
+</td>
+<td>
+<code>"None"</code>
+</td>
+</tr>
+</table>
+</p>
+
+<p>
+No matter what the look and feel,
+the default icon displayed by a node
+is determined by whether the node is a leaf
+and, if not, whether it's expanded.
+For example, in the Windows and Motif look and feel implementations,
+the default icon for each leaf node is a dot;
+in the Java look and feel,
+the default leaf icon is a paper-like symbol.
+In all the look-and-feel implementations we've shown,
+branch nodes are marked with folder-like symbols.
+Some look and feels might have different icons
+for expanded branches versus collapsed branches.
+
+<p>
+You can easily change the default icon used for leaf,
+expanded branch, or collapsed branch nodes.
+To do so, you first create an instance of 
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/tree/DefaultTreeCellRenderer.html"><font color="#8800bb"><code>DefaultTreeCellRenderer</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/tree/DefaultTreeCellRenderer.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>.
+Next, specify the icons to use by invoking one or more of the
+following methods on the renderer:
+<code>setLeafIcon</code> (for leaf nodes),
+<code>setOpenIcon</code> (for expanded branch nodes),
+<code>setClosedIcon</code> (for collapsed branch nodes).
+If you want the tree to display no icon
+for a type of node,
+then specify <code>null</code> for the icon.
+Once you've set up the icons,
+use the tree's <code>setCellRenderer</code> method
+to specify that the <code>DefaultTreeCellRenderer</code>
+paint its nodes.
+Here is an example,
+taken from 
+
+<a target="_blank" href="example-1dot4/TreeIconDemo.java"><font color="#bb000f"><code>TreeIconDemo.java</code></font></a><a target="_blank" href="example-1dot4/TreeIconDemo.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>:
+
+<blockquote><pre>
+ImageIcon leafIcon = createImageIcon("images/middle.gif");
+if (leafIcon != null) {
+    DefaultTreeCellRenderer renderer = 
+	new DefaultTreeCellRenderer();
+    renderer.setLeafIcon(leafIcon);
+    tree.setCellRenderer(renderer);
+}
+</pre></blockquote>
+
+You can <a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/components/example-1dot4/TreeIconDemo.jnlp">run TreeIconDemo</a> using
+<a target="_top" href="../../information/javawebstart.html">Java Web Start</a><a target="_top" href="../../information/javawebstart.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.    Or, to compile and run the example yourself,
+     consult the
+     <a href="example-1dot4/index.html#TreeIconDemo">example index</a>.
+Here is what the resulting UI looks like:
+
+<p><center><IMG SRC="../../figures/uiswing/components/TreeIconDemo.gif" WIDTH="511" HEIGHT="261" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="TreeIconDemo"></center></p>[PENDING: This picture will be updated]
+
+<p>
+If you want finer control over the node icons
+or you want to provide tool tips,
+you can do so by creating a
+subclass of <code>DefaultTreeCellRenderer</code>
+and overriding the <code>getTreeCellRendererComponent</code> method.
+Because <code>DefaultTreeCellRenderer</code>
+is a subclass of <code>JLabel</code>,
+you can use any <code>JLabel</code> method &#151;
+such as <code>setIcon</code> &#151;
+to customize the <code>DefaultTreeCellRenderer</code>.
+
+<p>
+The following code, from 
+<a target="_blank" href="example-1dot4/TreeIconDemo2.java"><font color="#bb000f"><code>TreeIconDemo2.java</code></font></a><a target="_blank" href="example-1dot4/TreeIconDemo2.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>, creates a cell renderer
+that varies the leaf icon
+depending on whether the word "Tutorial"
+is in the node's text data.
+The renderer also specifies tool-tip text,
+as the bold lines show.
+You can <a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/components/example-1dot4/TreeIconDemo2.jnlp">run TreeIconDemo2</a> using
+<a target="_top" href="../../information/javawebstart.html">Java Web Start</a><a target="_top" href="../../information/javawebstart.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.    Or, to compile and run the example yourself,
+     consult the
+     <a href="example-1dot4/index.html#TreeIconDemo2">example index</a>.
+
+<blockquote><pre>
+<em>//...where the tree is initialized:</em>
+    <b>//Enable tool tips.
+    ToolTipManager.sharedInstance().registerComponent(tree);</b>
+    
+    ImageIcon tutorialIcon = createImageIcon("images/middle.gif");
+    if (tutorialIcon != null) {
+        tree.setCellRenderer(new MyRenderer(tutorialIcon));
+    }
+...
+class MyRenderer extends DefaultTreeCellRenderer {
+    Icon tutorialIcon;
+
+    public MyRenderer(Icon icon) {
+        tutorialIcon = icon;
+    }
+
+    public Component getTreeCellRendererComponent(
+                        JTree tree,
+                        Object value,
+                        boolean sel,
+                        boolean expanded,
+                        boolean leaf,
+                        int row,
+                        boolean hasFocus) {
+
+        super.getTreeCellRendererComponent(
+                        tree, value, sel,
+                        expanded, leaf, row,
+                        hasFocus);
+        if (leaf && isTutorialBook(value)) {
+            setIcon(tutorialIcon);
+            <b>setToolTipText("This book is in the Tutorial series.");</b>
+        <b>} else {
+            setToolTipText(null); //no tool tip</b>
+        } 
+
+        return this;
+    }
+
+    protected boolean isTutorialBook(Object value) {
+        DefaultMutableTreeNode node =
+                (DefaultMutableTreeNode)value;
+        BookInfo nodeInfo =
+                (BookInfo)(node.getUserObject());
+        String title = nodeInfo.bookName;
+        if (title.indexOf("Tutorial") >= 0) {
+            return true;
+        }
+
+        return false;
+    }
+}
+</pre></blockquote>
+
+Here is the result:
+
+<p><center><IMG SRC="../../figures/uiswing/components/TreeIconDemo2.gif" WIDTH="511" HEIGHT="261" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="TreeIconDemo2"></center></p>[PENDING: This picture will be updated]
+
+<p>
+You might be wondering how a cell renderer works.
+When a tree paints each node,
+neither the <code>JTree</code>
+nor its look-and-feel-specific implementation actually 
+contains the code that paints the node.
+Instead, the tree uses the cell renderer's painting code
+to paint the node.
+For example, to paint 
+a leaf node that has the string "The Java Programming Language",
+the tree asks its cell renderer
+to return a component
+that can paint a leaf node with that string.
+If the cell renderer is a <code>DefaultTreeCellRenderer</code>,
+then it returns a label that paints the default leaf icon
+followed by the string.
+
+<p>
+
+A cell renderer only paints; it cannot handle events.
+If you want to add event handling to a tree,
+you need to register your handler on either the tree 
+or, if the handling occurs only when a node is selected,
+the tree's <em>cell editor</em>.
+For information about cell editors,
+see
+<a href="table.html#editrender">Concepts: Editors and Renderers</a>.
+That section discusses table cell editors and renderers,
+which are similar to tree cell editors and renderers.
+
+
+</blockquote>
+<h3>
+<a name="dynamic">
+Dynamically Changing a Tree
+</a>
+</h3>
+<blockquote>
+
+The following figure shows an application called DynamicTreeDemo 
+that lets you add nodes to and remove nodes from a visible tree.
+You can also edit the text in each node.
+
+<p><center><IMG SRC="../../figures/uiswing/components/DynamicTreeDemo.gif" WIDTH="400" HEIGHT="179" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="DynamicTreeDemo"></center></p>[PENDING: This picture will be updated]
+
+<p>
+The application is based on an example provided by
+tutorial reader Richard Stanford.
+You can <a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/components/example-1dot4/DynamicTreeDemo.jnlp">run DynamicTreeDemo</a> using
+<a target="_top" href="../../information/javawebstart.html">Java Web Start</a><a target="_top" href="../../information/javawebstart.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.    Or, to compile and run the example yourself,
+     consult the
+     <a href="example-1dot4/index.html#DynamicTreeDemo">example index</a>.
+Here is the code that initializes the tree:
+
+<blockquote><pre>
+rootNode = new DefaultMutableTreeNode("Root Node");
+treeModel = new DefaultTreeModel(rootNode);
+treeModel.addTreeModelListener(new MyTreeModelListener());
+
+tree = new JTree(treeModel);
+tree.setEditable(true);
+tree.getSelectionModel().setSelectionMode
+        (TreeSelectionModel.SINGLE_TREE_SELECTION);
+tree.setShowsRootHandles(true);
+</pre></blockquote>
+
+By explicitly creating the tree's model,
+the code guarantees that the tree's model
+is an instance of 
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/tree/DefaultTreeModel.html"><font color="#8800bb"><code>DefaultTreeModel</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/tree/DefaultTreeModel.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>.
+That way, we know all the methods that the tree model
+supports.
+For example, we know that we can invoke the model's
+<code>insertNodeInto</code> method,
+even though that method is not required by the <code>TreeModel</code>
+interface.
+
+<p>
+To make the text in the tree's nodes editable,
+we invoke <code>setEditable(true)</code> on the tree.
+When the user has finished editing a node,
+the model generates a tree model event
+that tells any listeners &#151;
+including the <code>JTree</code> &#151;
+that tree nodes have changed.
+Note that although <code>DefaultMutableTreeNode</code>
+has methods for changing a node's content,
+changes should go through the <code>DefaultTreeModel</code> cover methods.
+Otherwise, the tree model events won't be generated,
+and listeners such as the tree won't know about the updates.
+
+<p>
+To be notified of node changes,
+we can implement a 
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/event/TreeModelListener.html"><font color="#8800bb"><code>TreeModelListener</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/event/TreeModelListener.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>.  Here is an example of a tree model listener
+that detects when the user has typed in a new name
+for a tree node:
+
+<blockquote><pre>
+class MyTreeModelListener implements TreeModelListener {
+    public void treeNodesChanged(TreeModelEvent e) {
+        DefaultMutableTreeNode node;
+        node = (DefaultMutableTreeNode)
+                 (e.getTreePath().getLastPathComponent());
+
+        /*
+         * If the event lists children, then the changed
+         * node is the child of the node we've already
+         * gotten.  Otherwise, the changed node and the
+         * specified node are the same.
+         */
+        try {
+            int index = e.getChildIndices()[0];
+            node = (DefaultMutableTreeNode)
+                   (node.getChildAt(index));
+        } catch (NullPointerException exc) {}
+
+        System.out.println("The user has finished editing the node.");
+        System.out.println("New value: " + node.getUserObject());
+    }
+    public void treeNodesInserted(TreeModelEvent e) {
+    }
+    public void treeNodesRemoved(TreeModelEvent e) {
+    }
+    public void treeStructureChanged(TreeModelEvent e) {
+    }
+}
+</pre></blockquote>
+<p>
+
+Here is the code that the <b>Add</b> button's event handler
+uses to add a new node to the tree:
+
+<blockquote><pre>
+treePanel.addObject("New Node " + newNodeSuffix++);
+...
+public DefaultMutableTreeNode addObject(Object child) {
+    DefaultMutableTreeNode parentNode = null;
+    TreePath parentPath = tree.getSelectionPath();
+
+    if (parentPath == null) {
+        //There's no selection. Default to the root node.
+        parentNode = rootNode;
+    } else {
+        parentNode = (DefaultMutableTreeNode)
+                     (parentPath.getLastPathComponent());
+    }
+
+    return addObject(parentNode, child, true);
+}
+...
+public DefaultMutableTreeNode addObject(DefaultMutableTreeNode parent,
+                                        Object child,
+                                        boolean shouldBeVisible) {
+    DefaultMutableTreeNode childNode =
+            new DefaultMutableTreeNode(child);
+    ...
+    treeModel.insertNodeInto(childNode, parent,
+                             parent.getChildCount());
+
+    //Make sure the user can see the lovely new node.
+    if (shouldBeVisible) {
+        tree.scrollPathToVisible(new TreePath(childNode.getPath()));
+    }
+    return childNode;
+}
+</pre></blockquote>
+
+The code creates a node,
+inserts it into the tree model,
+and then, if appropriate, requests that the nodes above it
+be expanded and the tree scrolled so that the new node is visible.
+To insert the node into the model, the code uses the 
+<code>insertNodeInto</code> method provided by the 
+<code>DefaultTreeModel</code> class.
+
+
+</blockquote>
+<h3>
+<a name="data">
+Creating a Data Model
+</a>
+</h3>
+<blockquote>
+
+If <code>DefaultTreeModel</code>
+doesn't suit your needs,
+then you'll need to write a custom data model.
+Your data model must implement the 
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/tree/TreeModel.html"><font color="#8800bb"><code>TreeModel</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/tree/TreeModel.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> interface.
+<code>TreeModel</code> specifies methods for
+getting a particular node of the tree,
+getting the number of children of a particular node,
+determining whether a node is a leaf,
+notifying the model of a change in the tree,
+and adding and removing tree model listeners.
+
+<p>
+
+Interestingly, the <code>TreeModel</code> interface
+accepts any kind of object as a tree node.
+It doesn't require that nodes be represented
+by <code>DefaultMutableTreeNode</code> objects,
+or even that nodes implement the 
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/tree/TreeNode.html"><font color="#8800bb"><code>TreeNode</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/tree/TreeNode.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> interface.
+Thus, if the <code>TreeNode</code> interface
+isn't suitable for your tree model,
+feel free to devise your own representation for tree nodes.
+For example,
+if you have a pre-existing hierarchical data structure,
+you don't need to duplicate it
+or force it into the <code>TreeNode</code> mold.
+You just need to implement your tree model 
+so that it uses the information in the existing data structure.
+
+<p>
+The following figure shows an application called
+GenealogyExample
+that displays the descendants or ancestors
+of a particular person.
+(Thanks to tutorial reader
+Olivier Berlanger
+for providing this example.)
+You can <a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/components/example-1dot4/GenealogyExample.jnlp">run GenealogyExample</a> using
+<a target="_top" href="../../information/javawebstart.html">Java Web Start</a><a target="_top" href="../../information/javawebstart.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.    Or, to compile and run the example yourself,
+     consult the
+     <a href="example-1dot4/index.html#GenealogyExample">example index</a>.
+
+<p>
+<p><center><IMG SRC="../../figures/uiswing/components/GenealogyExample.gif" WIDTH="309" HEIGHT="170" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="GenealogyExample"></center></p>[PENDING: This picture will be updated]
+
+<p>
+You can find
+the custom tree model implementation in 
+<a target="_blank" href="example-1dot4/GenealogyModel.java"><font color="#bb000f"><code>GenealogyModel.java</code></font></a><a target="_blank" href="example-1dot4/GenealogyModel.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>.
+Because the model
+is implemented as an <code>Object</code> subclass
+instead of, say, a subclass of <code>DefaultTreeModel</code>,
+it must implement the <code>TreeModel</code> interface directly.
+This requires implementing methods
+for getting information about nodes,
+such as which is the root
+and what are the children of a particular node.
+In the case of <code>GenealogyModel</code>,
+each node is represented by an object of type <code>Person</code>,
+a custom class that doesn't
+implement <code>TreeNode</code>.
+
+<p>
+A tree model must also implement methods
+for adding and removing tree model listeners,
+and must fire <code>TreeModelEvent</code>s to those listeners
+when the tree's structure or data changes.
+For example, when the user instructs GenealogyExample
+to switch from showing ancestors to showing descendants,
+the tree model makes the change
+and then fires an event to inform its listeners
+(such as the tree component).
+
+
+</blockquote>
+<h3>
+<a name="api">The Tree API</a>
+</h3>
+<blockquote>
+
+The tree API is quite extensive.
+The following tables list just a bit of the API,
+concentrating on 
+the following categories:
+
+<ul>
+<li><a href="#overviewapi">Tree-Related Classes and Interfaces</a>
+<li><a href="#creatingapi">Creating and Setting Up a Tree</a>
+<li><a href="#selectionapi">Implementing Selection</a>
+<li><a href="#expandapi">Showing and Hiding Nodes</a>
+</ul>
+
+<p>
+
+For more information about the tree API,
+see the API documentation for 
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTree.html"><font color="#8800bb"><code>JTree</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTree.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> and for the various classes and interfaces in the
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/tree/package-summary.html"><font color="#8800bb">tree package</font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/tree/package-summary.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>.
+Also refer to <a href="jcomponent.html">The JComponent Class</a>
+for information on the API <code>JTree</code> inherits
+from its superclass.
+
+<p>
+<table border=1> 
+<caption><a name="overviewapi">Tree-Related Classes and Interfaces</a></caption>
+<tr>
+<th align=left>Class or Interface
+</th>
+<th align=left>Purpose
+ 
+</th>
+</tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTree.html"><font color="#8800bb"><font size=2><code>JTree</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTree.html"></a>    </td>
+    <td>The component that presents the tree to the user.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/tree/TreePath.html"><font color="#8800bb"><font size=2><code>TreePath</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/tree/TreePath.html"></a>    </td>
+    <td>Represents a path to a node.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/tree/TreeNode.html"><font color="#8800bb"><font size=2><code>TreeNode</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/tree/TreeNode.html"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/tree/MutableTreeNode.html"><font color="#8800bb"><font size=2><code>MutableTreeNode</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/tree/MutableTreeNode.html"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/tree/DefaultMutableTreeNode.html"><font color="#8800bb"><font size=2><code>DefaultMutableTreeNode</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/tree/DefaultMutableTreeNode.html"></a>    </td>
+    <td>The interfaces that the default tree model
+        expects its tree nodes to implement,
+        and the implementation used by the default tree model.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/tree/TreeModel.html"><font color="#8800bb"><font size=2><code>TreeModel</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/tree/TreeModel.html"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/tree/DefaultTreeModel.html"><font color="#8800bb"><font size=2><code>DefaultTreeModel</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/tree/DefaultTreeModel.html"></a>    </td>
+    <td>Respectively, the interface that a tree model must implement
+        and the usual implementation used.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/tree/TreeCellRenderer.html"><font color="#8800bb"><font size=2><code>TreeCellRenderer</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/tree/TreeCellRenderer.html"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/tree/DefaultTreeCellRenderer.html"><font color="#8800bb"><font size=2><code>DefaultTreeCellRenderer</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/tree/DefaultTreeCellRenderer.html"></a>    </td>
+    <td>Respectively, the interface that a tree cell renderer must implement
+        and the usual implementation used.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/tree/TreeCellEditor.html"><font color="#8800bb"><font size=2><code>TreeCellEditor</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/tree/TreeCellEditor.html"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/tree/DefaultTreeCellEditor.html"><font color="#8800bb"><font size=2><code>DefaultTreeCellEditor</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/tree/DefaultTreeCellEditor.html"></a>    </td>
+    <td>Respectively, the interface that a tree cell editor must implement
+        and the usual implementation used.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/tree/TreeSelectionModel.html"><font color="#8800bb"><font size=2><code>TreeSelectionModel</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/tree/TreeSelectionModel.html"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/tree/DefaultTreeSelectionModel.html"><font color="#8800bb"><font size=2><code>DefaultTreeSelectionModel</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/tree/DefaultTreeSelectionModel.html"></a>    </td>
+    <td>Respectively, the interface that the tree's selection model 
+        must implement and the usual implementation used.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/event/TreeSelectionListener.html"><font color="#8800bb"><font size=2><code>TreeSelectionListener</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/event/TreeSelectionListener.html"></a>   <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/event/TreeSelectionEvent.html"><font color="#8800bb"><font size=2><code>TreeSelectionEvent</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/event/TreeSelectionEvent.html"></a>    </td>
+    <td>The interface and event type used for detecting
+        tree selection changes.
+        For more information, see 
+<a target="_top" href="../events/treeselectionlistener.html ">Getting Started</a><a target="_top" href="../events/treeselectionlistener.html "><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/event/TreeModelListener.html"><font color="#8800bb"><font size=2><code>TreeModelListener</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/event/TreeModelListener.html"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/event/TreeModelEvent.html"><font color="#8800bb"><font size=2><code>TreeModelEvent</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/event/TreeModelEvent.html"></a>    </td>
+    <td>The interface and event type used for detecting
+        tree model changes.
+        For more information, see 
+<a target="_top" href="../events/treemodellistener.html">How to Write a Tree Model Listener</a><a target="_top" href="../events/treemodellistener.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/event/TreeExpansionListener.html"><font color="#8800bb"><font size=2><code>TreeExpansionListener</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/event/TreeExpansionListener.html"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/event/TreeWillExpandListener.html"><font color="#8800bb"><font size=2><code>TreeWillExpandListener</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/event/TreeWillExpandListener.html"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/event/TreeExpansionEvent.html"><font color="#8800bb"><font size=2><code>TreeExpansionEvent</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/event/TreeExpansionEvent.html"></a>    </td>
+    <td>The interfaces and event type used for detecting
+        tree expansion and collapse.
+        For more information, see 
+<a target="_top" href="../events/treeexpansionlistener.html">How to Write a Tree Expansion Listener</a><a target="_top" href="../events/treeexpansionlistener.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>    and
+<a target="_top" href="../events/treewillexpandlistener.html">How to Write a Tree-Will-Expand Listener</a><a target="_top" href="../events/treewillexpandlistener.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/tree/ExpandVetoException.html"><font color="#8800bb"><font size=2><code>ExpandVetoException</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/tree/ExpandVetoException.html"></a>    </td>
+    <td>An exception that a <code>TreeWillExpandListener</code>
+        can throw to indicate that the impending expansion/collapse
+        should not happen.
+        For more information, see 
+<a target="_top" href="../events/treewillexpandlistener.html">How to Write a Tree-Will-Expand Listener</a><a target="_top" href="../events/treewillexpandlistener.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.
+    </td>
+  </tr>
+</table>
+
+<p>
+<table border=1> 
+<caption><a name="creatingapi">Creating and Setting Up a Tree</a></caption>
+<tr>
+<th align=left>Constructor or Method
+</th>
+<th align=left>Purpose
+ 
+</th>
+</tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTree.html#JTree(javax.swing.tree.TreeNode)"><font color="#8800bb"><font size=2><code>JTree(TreeNode)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTree.html#JTree(javax.swing.tree.TreeNode)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTree.html#JTree(javax.swing.tree.TreeNode, boolean)"><font color="#8800bb"><font size=2><code>JTree(TreeNode, boolean)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTree.html#JTree(javax.swing.tree.TreeNode, boolean)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTree.html#JTree(javax.swing.tree.TreeModel)"><font color="#8800bb"><font size=2><code>JTree(TreeModel)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTree.html#JTree(javax.swing.tree.TreeModel)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTree.html#JTree()"><font color="#8800bb"><font size=2><code>JTree()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTree.html#JTree()"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTree.html#JTree(java.util.Hashtable)"><font color="#8800bb"><font size=2><code>JTree(Hashtable)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTree.html#JTree(java.util.Hashtable)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTree.html#JTree(java.lang.Object[])"><font color="#8800bb"><font size=2><code>JTree(Object[])</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTree.html#JTree(java.lang.Object[])"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTree.html#JTree(java.util.Vector)"><font color="#8800bb"><font size=2><code>JTree(Vector)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTree.html#JTree(java.util.Vector)"></a>    </td>
+    <td>Create a tree.
+        The <code>TreeNode</code> argument
+        specifies the root node,
+        to be managed by the default tree model.
+        The <code>TreeModel</code> argument 
+        specifies the model that provides the data to the table.
+        The no-argument version of this constructor
+        is for use in builders;
+        it creates a tree that contains some sample data.
+        If you specify a <code>Hashtable</code>,
+        array of objects, of <code>Vector</code>
+        as an argument, 
+        then the argument is treated as a list of nodes
+        under the root node (which is not displayed),
+        and a model and tree nodes are constructed accordingly.
+
+	<p>
+        The <code>boolean</code> argument,
+	if present, specifies
+        how the tree should determine 
+	whether a node should be displayed as a leaf.
+	If the argument is false (the default),
+	any node without children is diaplayed as a leaf.
+	If the argument is true,
+	a node is a leaf only if its
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/tree/TreeNode.html#getAllowsChildren()"><font color="#8800bb"><code>getAllowsChildren</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/tree/TreeNode.html#getAllowsChildren()"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>	method returns false.
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTree.html#setCellRenderer(javax.swing.tree.TreeCellRenderer)"><font color="#8800bb"><font size=2><code>void setCellRenderer(TreeCellRenderer)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTree.html#setCellRenderer(javax.swing.tree.TreeCellRenderer)"></a>    </td>
+    <td>Set the renderer that draws each node.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTree.html#setEditable(boolean)"><font color="#8800bb"><font size=2><code>void setEditable(boolean)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTree.html#setEditable(boolean)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTree.html#setCellEditor(javax.swing.tree.TreeCellEditor)"><font color="#8800bb"><font size=2><code>void setCellEditor(TreeCellEditor)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTree.html#setCellEditor(javax.swing.tree.TreeCellEditor)"></a>    </td>
+    <td>The first method sets whether the user can edit tree nodes.
+        By default, tree nodes are not editable.
+        The second sets which customized editor to use.
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTree.html#setRootVisible(boolean)"><font color="#8800bb"><font size=2><code>void setRootVisible(boolean)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTree.html#setRootVisible(boolean)"></a>    </td>
+    <td>Set whether the tree shows the root node.
+	The default value is false if the tree
+	is created using one of the constructors that takes a data structure,
+	and true otherwise.
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTree.html#setShowsRootHandles(boolean)"><font color="#8800bb"><font size=2><code>void setShowsRootHandles(boolean)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTree.html#setShowsRootHandles(boolean)"></a>    </td>
+    <td>Set whether the tree shows handles
+        for its leftmost nodes,
+        letting you expand and collapse the nodes.
+        The default is false.
+        If the tree doesn't show the root node,
+        then you should invoke <code>setShowsRootHandles(true)</code>.
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTree.html#setDragEnabled(boolean)"><font color="#8800bb"><font size=2><code>void setDragEnabled(boolean)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTree.html#setDragEnabled(boolean)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTree.html#getDragEnabled()"><font color="#8800bb"><font size=2><code>boolean getDragEnabled()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTree.html#getDragEnabled()"></a>    </td>
+    <td>Set or get the <code>dragEnabled</code> property, which must be true
+        to enable drag handling on this component.  The default value is false.
+        See
+<a target="_top" href="../../dnd/index.html">Drag and Drop</a><a target="_top" href="../../dnd/index.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>        for more details. Introduced in 1.4.
+  </tr>
+</table>
+
+<p>
+<table border=1> 
+<caption><a name="selectionapi">Implementing Selection</a></caption>
+<tr>
+<th align=left>Method
+</th>
+<th align=left>Purpose
+ 
+</th>
+</tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTree.html#addTreeSelectionListener(javax.swing.event.TreeSelectionListener)"><font color="#8800bb"><font size=2><code>void addTreeSelectionListener(TreeSelectionListener)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTree.html#addTreeSelectionListener(javax.swing.event.TreeSelectionListener)"></a>    </td>
+    <td>Register a listener to detect when the a node is selected
+    or deselected.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTree.html#setSelectionModel(javax.swing.tree.TreeSelectionModel)"><font color="#8800bb"><font size=2><code>void setSelectionModel(TreeSelectionModel)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTree.html#setSelectionModel(javax.swing.tree.TreeSelectionModel)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTree.html#getSelectionModel()"><font color="#8800bb"><font size=2><code>TreeSelectionModel getSelectionModel()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTree.html#getSelectionModel()"></a>    </td>
+    <td>Set or get the model used to control node selections.
+        You can turn off node selection completely
+        using <code>setSelectionModel(null)</code>.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/tree/TreeSelectionModel.html#setSelectionMode(int)"><font color="#8800bb"><font size=2><code>void setSelectionMode(int)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/tree/TreeSelectionModel.html#setSelectionMode(int)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/tree/TreeSelectionModel.html#getSelectionMode()"><font color="#8800bb"><font size=2><code>int getSelectionMode()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/tree/TreeSelectionModel.html#getSelectionMode()"></a>    <br>
+    <em>(in <code>TreeSelectionModel</code>)</em>
+    </td>
+    <td>Set or get the selection mode.
+        The value can be 
+        <code>CONTIGUOUS_TREE_SELECTION</code>,
+        <code>DISCONTIGUOUS_TREE_SELECTION</code>, or
+        <code>SINGLE_TREE_SELECTION</code>
+        (all defined in <code>TreeSelectionModel</code>).
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTree.html#getLastSelectedPathComponent()"><font color="#8800bb"><font size=2><code>Object getLastSelectedPathComponent()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTree.html#getLastSelectedPathComponent()"></a>    </td>
+    <td>Get the object representing the currently selected node.
+        This is equivalent to invoking 
+        <code>getLastPathComponent</code> on the value returned by
+        <code>tree.getSelectionPath()</code>.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTree.html#setSelectionPath(javax.swing.tree.TreePath)"><font color="#8800bb"><font size=2><code>void setSelectionPath(TreePath)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTree.html#setSelectionPath(javax.swing.tree.TreePath)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTree.html#getSelectionPath()"><font color="#8800bb"><font size=2><code>TreePath getSelectionPath()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTree.html#getSelectionPath()"></a>    </td>
+    <td>Set or get the path to the currently selected node.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTree.html#setSelectionPaths(javax.swing.tree.TreePath[])"><font color="#8800bb"><font size=2><code>void setSelectionPaths(TreePath[])</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTree.html#setSelectionPaths(javax.swing.tree.TreePath[])"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTree.html#getSelectionPaths()"><font color="#8800bb"><font size=2><code>TreePath[] getSelectionPaths()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTree.html#getSelectionPaths()"></a>    </td>
+    <td>Set or get the paths to the currently selected nodes. 
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTree.html#setSelectionPath(javax.swing.tree.TreePath)"><font color="#8800bb"><font size=2><code>void setSelectionPath(TreePath)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTree.html#setSelectionPath(javax.swing.tree.TreePath)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTree.html#getSelectionPath()"><font color="#8800bb"><font size=2><code>TreePath getSelectionPath()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTree.html#getSelectionPath()"></a>    </td>
+    <td>Set or get the path to the currently selected node.
+
+    </td>
+  </tr>
+</table>
+
+
+<p>
+
+<table border=1> 
+<caption><a name="expandapi">Showing and Hiding Nodes</a></caption>
+<tr>
+<th align=left>Method
+</th>
+<th align=left>Purpose
+</th>
+</tr>
+    
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTree.html#addTreeExpansionListener(javax.swing.event.TreeExpansionListener)"><font color="#8800bb"><font size=2><code>void addTreeExpansionListener(TreeExpansionListener)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTree.html#addTreeExpansionListener(javax.swing.event.TreeExpansionListener)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTree.html#addTreeWillExpandListener(javax.swing.event.TreeWillExpandListener)"><font color="#8800bb"><font size=2><code>void addTreeWillExpandListener(TreeWillExpandListener)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTree.html#addTreeWillExpandListener(javax.swing.event.TreeWillExpandListener)"></a>    </td>
+    <td>Register a listener to detect when the tree nodes
+        <em>have</em> expanded or collapsed,
+        or <em>will be</em> expanded or collapsed,
+        respectively.
+        To veto an impending expansion or collapse,
+        a <code>TreeWillExpandListener</code> can throw a
+        <code>ExpandVetoException</code>.
+    </td>
+  </tr>
+ 
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTree.html#expandPath(javax.swing.tree.TreePath)"><font color="#8800bb"><font size=2><code>void expandPath(TreePath)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTree.html#expandPath(javax.swing.tree.TreePath)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTree.html#collapsePath(javax.swing.tree.TreePath)"><font color="#8800bb"><font size=2><code>void collapsePath(TreePath)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTree.html#collapsePath(javax.swing.tree.TreePath)"></a>    </td>
+    <td>Expand or collapse the specified tree path.
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTree.html#scrollPathToVisible(javax.swing.tree.TreePath)"><font color="#8800bb"><font size=2><code>void scrollPathToVisible(TreePath)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTree.html#scrollPathToVisible(javax.swing.tree.TreePath)"></a>    </td>
+    <td>Ensure that the node specified by the path
+        is visible &#151; that the path leading up to it is expanded
+        and the node is in the scroll pane's viewing area.
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTree.html#makeVisible(javax.swing.tree.TreePath)"><font color="#8800bb"><font size=2><code>void makeVisible(TreePath)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTree.html#makeVisible(javax.swing.tree.TreePath)"></a>    </td>
+    <td>Ensure that the node specified by the path
+        is viewable &#151; that the path leading up to it is expanded.
+        The node might not end up within the viewing area.
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTree.html#setScrollsOnExpand(boolean)"><font color="#8800bb"><font size=2><code>void setScrollsOnExpand(boolean)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTree.html#setScrollsOnExpand(boolean)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTree.html#getScrollsOnExpand()"><font color="#8800bb"><font size=2><code>boolean getScrollsOnExpand()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTree.html#getScrollsOnExpand()"></a>    </td>
+    <td>Set or get whether the tree attempts to scroll
+        to show previous hidden nodes.
+        The default value is true.
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTree.html#setToggleClickCount(int)"><font color="#8800bb"><font size=2><code>void setToggleClickCount(int)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTree.html#setToggleClickCount(int)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTree.html#getToggleClickCount()"><font color="#8800bb"><font size=2><code>int getToggleClickCount()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTree.html#getToggleClickCount()"></a>    </td>
+    <td>Set or get the number of mouse clicks before a node
+        will expand or close.  The default is two.  Introduced in 1.3.
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTree.html#getNextMatch(java.lang.String, int, javax.swing.text.Position.Bias)"><font color="#8800bb"><font size=2><code>TreePath getNextMatch(String, int, Position.Bias)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTree.html#getNextMatch(java.lang.String, int, javax.swing.text.Position.Bias)"></a>    </td>
+    <td>Return the <code>TreePath</code> to the next tree element
+        that begins with the specific prefix.  Introduced in 1.4.
+    </td>
+  </tr>
+</table>
+
+</blockquote>
+<h3>
+<a name="eg">Examples that Use Trees</a>
+</h3>
+<blockquote>
+This table lists examples that use <code>JTree</code>
+and where those examples are described.
+<p>
+<table>
+<tr>
+<th align=left> Example
+</th>
+<th align=left> Where Described
+</th>
+<th align=left> Notes
+
+</th>
+</tr>
+<tr>
+<td> <a href="example-1dot4/index.html#TreeDemo">TreeDemo</a>
+</td>
+<td> <a href="#create">Creating a Tree</a>,
+     <a href="#select">Responding to Node Selection</a>,
+     <a href="#display">Customizing a Tree's Display</a>
+</td>
+<td> Creates a tree that responds to user selections.
+     It also has code for customizing 
+     the line style for the Java look and feel.
+
+</td>
+</tr>
+<tr>
+<td> <a href="example-1dot4/index.html#TreeIconDemo">TreeIconDemo</a>
+</td>
+<td> <a href="#display">Customizing a Tree's Display</a>
+</td>
+<td> Adds a custom leaf icon to TreeDemo.
+
+</td>
+</tr>
+<tr>
+<td> <a href="example-1dot4/index.html#TreeIconDemo2">TreeIconDemo2</a>
+</td>
+<td> <a href="#display">Customizing a Tree's Display</a>
+</td>
+<td> Customizes certain leaf icons and also provides tool tips for
+     certain tree nodes.
+
+</td>
+</tr>
+<tr>
+<td><a href="example-1dot4/index.html#DynamicTreeDemo">DynamicTreeDemo</a>
+</td>
+<td> <a href="#dynamic">Dynamically Changing a Tree</a>
+</td>
+<td> Illustrates adding and removing nodes from a tree.
+     Also allows editing of node text.
+
+</td>
+</tr>
+<tr>
+<td> 
+<a href="example-1dot4/index.html#GenealogyExample">GenealogyExample</a>
+</td>
+<td> <a href="#data">Creating a Data Model</a>
+</td>
+<td> Implements a custom tree model and custom node type.
+</td>
+</tr>
+<tr>
+<td> <a href="../events/example-1dot4/index.html#TreeExpandEventDemo">TreeExpandEventDemo</a>
+</td>
+<td> 
+<a target="_top" href="../events/treeexpansionlistener.html">How to Write a Tree Expansion Listener</a><a target="_top" href="../events/treeexpansionlistener.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a></td>
+<td> Shows how to detect node expansions and collapses.
+
+</td>
+</tr>
+<tr>
+<td> <a href="../events/example-1dot4/index.html#TreeExpandEventDemo2">TreeExpandEventDemo2</a>
+</td>
+<td> 
+<a target="_top" href="../events/treewillexpandlistener.html">How to Write a Tree-Will-Expand Listener</a><a target="_top" href="../events/treewillexpandlistener.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a></td>
+<td> Shows how to veto node expansions.
+
+</td>
+</tr>
+<tr>
+<td> TreeTable, TreeTable II,
+     Editable JTreeTable
+</td>
+<td> 
+<a target="_blank" href="http://java.sun.com/products/jfc/tsc/articles/treetable1/index.html"><font color="#009bbb">Creating TreeTables in Swing</font></a><a target="_blank" href="http://java.sun.com/products/jfc/tsc/articles/treetable1/index.html"><img src="../../images/otherIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (outside of the tutorial)"></a>,
+<a target="_blank" href="http://java.sun.com/products/jfc/tsc/articles/treetable2/index.html"><font color="#009bbb">Creating TreeTables: Part 2</font></a><a target="_blank" href="http://java.sun.com/products/jfc/tsc/articles/treetable2/index.html"><img src="../../images/otherIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (outside of the tutorial)"></a>,
+<a target="_blank" href="http://java.sun.com/products/jfc/tsc/articles/bookmarks/index.html#editableJTreeTable"><font color="#009bbb">Editable JTreeTable</font></a><a target="_blank" href="http://java.sun.com/products/jfc/tsc/articles/bookmarks/index.html#editableJTreeTable"><img src="../../images/otherIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (outside of the tutorial)"></a></td>
+<td> Examples in <em>The Swing Connection</em>
+     that combine a tree and table to show
+     detailed information about a hierarchy
+     such as a file system.
+     The tree is a renderer for the table.
+</td>
+</tr>
+</table>
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="tooltip.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#components" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="problems.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

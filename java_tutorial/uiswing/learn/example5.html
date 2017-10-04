@@ -1,0 +1,336 @@
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Example Five: <code>LunarPhases</code></title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="example4.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#learn" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="example6.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Creating a GUI with JFC/Swing
+<br>
+<b>Lesson</b>: Learning Swing by Example
+</font>
+
+<h2>
+Example Five: <code>LunarPhases</code>
+</h2>
+<blockquote>
+<!--Learn by Example-->
+<!--Example Five: LunarPhases-->
+
+
+Topics covered in this example include:
+<ul>
+  <li><A HREF="#layout">Using Layout Managers</A>
+  <li><A HREF="#compoundborders">Compound Borders</A>
+  <li><A HREF="#comboboxes">Combo Boxes</A>
+  <li><A HREF="#multimages">Multiple Images</A>
+</ul>
+
+
+This next example, 
+<a target="_top" href="example-1dot4/index.html#LunarPhases">LunarPhases</a><a target="_top" href="example-1dot4/index.html#LunarPhases"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>, is a more complicated example of how to use images in 
+your application. As a bonus, you'll also see how 
+to implement combo boxes. Here are two pictures of the 
+<code>LunarPhases</code> application:
+
+<center>
+<table CELLPADDING=5>
+<tr>
+<td>
+<p><center><IMG SRC="../../figures/uiswing/learn/9LunarPhases.gif" WIDTH="198" HEIGHT="284" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="Screenshot of the LunarPhases application with combo box closed"></center></p></td><td>
+<p><center><IMG SRC="../../figures/uiswing/learn/10LunarPhases-open.gif" WIDTH="198" HEIGHT="284" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="Screenshot of the LunarPhases application with combo box open"></center></p></td></tr>
+</table>
+</center>
+
+In this program, the user chooses the lunar phase from the combo box, 
+and the selected phase is shown in the lower panel. 
+This is the first example we've seen that uses multiple panels 
+to group components. 
+
+<P>
+<code>LunarPhases</code> has three panels, as shown in the following figure.
+
+<p><center><IMG SRC="../../figures/uiswing/learn/11multPanels.gif" WIDTH="193" HEIGHT="120" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="A depiction of the main panel and two subpanels in LunarPhases."></center></p>
+In the following code in the <code>LunarPhases</code> constructor, 
+we construct all three panels and add the two subpanels 
+(<code>selectPanel</code> and <code>displayPanel</code>) 
+to <code>mainPanel</code>.
+
+<blockquote><pre>   
+//Create the phase selection and display panels.
+selectPanel = new JPanel();
+displayPanel = new JPanel();
+
+//Add various widgets to the sub panels.
+addWidgets();
+
+//Create the main panel to contain the two sub panels.
+mainPanel = new JPanel();
+mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.PAGE_AXIS));
+mainPanel.setBorder(BorderFactory.createEmptyBorder(5,5,5,5));
+
+//Add the select and display panels to the main panel.
+mainPanel.add(selectPanel);
+mainPanel.add(displayPanel);
+</pre></blockquote>
+
+When we put the subpanels in the main panel, it is the job of the main panel’s layout manager to make sure the subpanels are positioned correctly. The default layout manager for <code>JPanel</code> is <code>FlowLayout</code>, which simply positions components in the container from left to right in the order they’re added. In the previous code snippet, we used a layout manager called <code>BoxLayout</code> to position the subpanels more precisely.
+
+
+<A NAME="layout"></A>
+<h3>Using Layout Managers</h3>
+<blockquote>
+The Java platform supplies six commonly used layout managers: <code>BorderLayout</code>, <code>BoxLayout</code>, <code>FlowLayout</code>, <code>GridLayout</code>, <code>GridBagLayout</code>, and <code>SpringLayout</code>.
+<P>
+As we mentioned before, all <code>JPanel</code> objects use <code>FlowLayout</code> by default. On the other hand, content panes (the main containers in <code>JApplet</code>, <code>JDialog</code>, and <code>JFrame</code> objects) use <code>BorderLayout</code> by default.
+<P>
+As a rule, the only time you have to think about layout managers is when you create a <code>JPanel</code> or add components to a content pane. If you don’t like the default layout manager that a panel or content pane uses, you can use a different one, either by specifying one when creating a panel or by invoking the <code>setLayout</code> method. For example, here’s the code for creating a panel that uses <code>BorderLayout</code>:
+
+<blockquote><pre> 
+JPanel pane = new JPanel(new BorderLayout());
+</pre></blockquote>
+
+Here’s an example of setting the layout manager of 
+the default content pane:
+<blockquote><pre> 
+Container contentPane = frame.getContentPane();
+contentPane.setLayout(new FlowLayout());
+</pre></blockquote>
+
+<blockquote><hr><strong>Version Note:</strong>&nbsp;We anticipate that in v1.5 invoking setLayout on a top-level container will have the same effect as invoking it on the top-level container’s content pane. 
+<hr></blockquote>
+
+When you add components to a panel or a content pane, the arguments you specify to the add method depend on the layout manager that the panel or content pane is using. Layout is further discussed in 
+<a target="_top" href="../layout/index.html">Laying Out Components Within a Container</a><a target="_top" href="../layout/index.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.
+
+</blockquote>
+
+
+
+<A NAME="compoundborders"></A>
+<h3>Compound Borders</h3>
+<blockquote>
+In previous examples, we've added a simple border to create a 
+buffer of space around components. In this example, both 
+subpanels, <code>selectPanel</code> and <code>displayPanel</code>, 
+have a <I>compound border</I>, which consists of a titled 
+border (an outlined border with a title) and an empty border 
+(to add extra space), as shown in the following figure:
+<p><center><IMG SRC="../../figures/uiswing/learn/12borders.gif" WIDTH="392" HEIGHT="110" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="The compound border used in selectPanel."></center></p>
+The code for the selectPanel border follows. The <code>displayPanel</code> sets its own border in the same way. 
+
+<blockquote><pre>
+// Add border around the select panel
+selectPanel.setBorder(BorderFactory.createCompoundBorder(
+                      BorderFactory.createTitledBorder("Select Phase"),
+                      BorderFactory.createEmptyBorder(5,5,5,5)));
+</pre></blockquote>
+
+
+
+</blockquote>
+
+<A NAME="comboboxes"></A>
+<h3>Combo Boxes</h3>
+<blockquote>
+
+This example uses a combo box to present a group of choices to the user. Combo boxes can be either editable, with a text field that allows the user to enter a choice not in the group, or uneditable (the default), such as the one shown in the figure below.
+
+<center>
+<table CELLPADDING=5>
+<tr><td>
+<p><center><IMG SRC="../../figures/uiswing/learn/13combo1.gif" WIDTH="142" HEIGHT="36" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="A picture of a combo box"></center></p></td><td>
+<p><center><IMG SRC="../../figures/uiswing/learn/14combo-open.gif" WIDTH="143" HEIGHT="194" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="Another picture of a combo box--this combo box is dropped down."></center></p></td></tr>
+</table>
+</center>
+
+Combo boxes are useful for displaying one-of-many choices when space is limited. The following code in 
+<a target="_blank" href="example-1dot4/LunarPhases.java "><font color="#bb000f"><code>LunarPhases.java</code></font></a><a target="_blank" href="example-1dot4/LunarPhases.java "><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a> creates an uneditable combo box, <code>phaseChoices</code>, and sets it up: 
+<blockquote><pre>
+JComboBox phaseChoices = null;
+...
+//Create combo box with lunar phase choices.
+String[] phases = { "New", "Waxing Crescent", "First Quarter",
+                    "Waxing Gibbous", "Full", "Waning Gibbous", 
+                    "Third Quarter", "Waning Crescent" };
+phaseChoices = new JComboBox(phases);
+phaseChoices.setSelectedIndex(START_INDEX);
+</pre></blockquote>
+
+The code initializes the combo box with an array of strings, 
+<CODE>phases</CODE>. You can also put an array of icons in a combo box or 
+initialize the combo box with a vector or custom data structure. In the last line of code, 
+the <CODE>setSelectedIndex</CODE> method specifies which phase of 
+the moon should be shown when the program starts. 
+
+
+<H4>Handling Events on a Combo Box</H4>
+The combo box fires an action event when the user selects an 
+item from the combo box's drop-down list. The following code from 
+<code>LunarPhases</code> registers and implements an action 
+listener on the combo box: 
+<blockquote><pre>
+phaseChoices.addActionListener(this);
+...
+public void actionPerformed(ActionEvent event) {
+    if ("comboBoxChanged".equals(event.getActionCommand())) {
+        //Update the icon to display the new phase
+        phaseIconLabel.setIcon(images[phaseChoices.getSelectedIndex()]);
+    }
+}
+</pre></blockquote>
+
+This action listener gets the newly selected item from the combo box, uses that item to find the image to display, and updates a label to display the image. 
+
+</blockquote>
+
+<A NAME="multimages"></A>
+<h3>Multiple Images</h3>
+<blockquote>
+
+In the <code>CelsiusConverter</code> program, we saw how to add a 
+single <code>ImageIcon</code> to a button. The <code>LunarPhases</code> 
+program uses eight images. Only one image of the eight is used at a time, so 
+we have a choice as to whether we load all the images up front or 
+load the images as they are needed (known as "lazy image loading"). 
+In this example, the images are all loaded up front when the class is constructed.
+
+<blockquote><pre>
+final static int NUM_IMAGES = 8;
+final static int START_INDEX = 3;
+
+ImageIcon[] images = new ImageIcon[NUM_IMAGES];
+...
+//Get the images and put them into an array of ImageIcon.
+for (int i = 0; i &lt; NUM_IMAGES; i++) {
+    String imageName = "images/image" + i + ".jpg";
+    System.out.println("getting image: " + imageName);
+    URL iconURL = LunarPhases.class.getResource(imageName);
+    ImageIcon icon = new ImageIcon(iconURL);
+    images[i] = icon;
+}
+</pre></blockquote>
+
+Note the use of <CODE>getSystemResource</CODE>, a method 
+that searches the class path to find the image files. 
+Loading image files is discussed in detail in 
+<a target="_top" href="../misc/icon.html">How to Use Icons</a><a target="_top" href="../misc/icon.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.
+
+</blockquote>
+
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="example4.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#learn" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="example6.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

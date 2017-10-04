@@ -1,0 +1,367 @@
+////////////////////////////////////////////////////////////////////////////
+//
+// Copyright (C) DSTC Pty Ltd (ACN 052 372 577) 2002.
+// Unpublished work.  All Rights Reserved.
+//
+// The software contained on this media is the property of the
+// DSTC Pty Ltd.  Use of this software is strictly in accordance
+// with the license agreement in the accompanying LICENSE.DOC
+// file. If your distribution of this software does not contain
+// a LICENSE.DOC file then you have no rights to use this
+// software in any manner and should contact DSTC at the address
+// below to determine an appropriate licensing arrangement.
+//
+//      DSTC Pty Ltd
+//      Level 7, GP South
+//      University of Queensland
+//      St Lucia, 4072
+//      Australia
+//      Tel: +61 7 3365 4310
+//      Fax: +61 7 3365 4311
+//      Email: enquiries@dstc.edu.au
+//
+// This software is being provided "AS IS" without warranty of
+// any kind.  In no event shall DSTC Pty Ltd be liable for
+// damage of any kind arising out of or in connection with
+// the use or performance of this software.
+//
+////////////////////////////////////////////////////////////////////////////
+package ai.sl;
+
+import java.io.File;
+import java.util.Stack;
+import javax.xml.parsers.*;
+import org.w3c.dom.*;
+
+
+/** 
+ * The purpose of this class is to compute an opinion value from an opinion
+ * expression.  The opinion expression is decomposed into elementary expressions
+ * and specified in xml.  This class will then parse and traverse the xml
+ * file for all opinions, and compute the overall opinion using the respective
+ * opinion operators specified in the xml.
+ * <p>Copyright (c) DSTC Pty Ltd 2002</p>
+ * @author Robert Peime
+ * @author Tyrone Grandison
+ * @author Audun Josang
+ * @version 2.0 - 15/10/2002
+ */
+public class OpinionProcessor {
+
+    private static Stack<Opinion> operands = new Stack<Opinion>();
+    private static Stack<String> operators = new Stack<String>();
+    private static Stack<Double> relative_dogmatism = new Stack<Double>();
+
+
+    // traverse()
+    //
+    // This method recursively traverses the entire xml tree, working from
+    // the bottom up, examining the tree nodes, and determining its type,
+    // operator or operand.  When it finds an operand, it determines the
+    // bdua values from its attributes list, and adds this operand to the
+    // operand stack.  When it finds an operator, it pops the required 
+    // number of operands  from the operand stack, computes the result using
+    // the respective operator, and pushes that result back onto the stack.
+    // Each operator is assumed to have a specific number of operands, thus
+    // it is important to reflect this when specifying the xml file of the
+    // expression decomposition.
+
+    private static void traverse (Node start) {
+
+
+	String att;                 // represents an attribute name
+	double b, d, u, a;          // bdua
+	int nodeAttributes;         // number of element attributes
+	double rd;                  // relative dogmatism
+
+	// initialization
+
+	// typical default values for an opinion: total uncertainty
+	b = 0.0;
+	d = 0.0;
+	u = 1.0;
+	a = 0.5;
+	nodeAttributes = 0;
+	rd = 1.0;
+
+	// if the current node is an element
+	if (start.getNodeType() == Node.ELEMENT_NODE) {
+
+	    // retrieve all the elements attributes
+	    NamedNodeMap startAttr = start.getAttributes();
+
+	    // for each of this elements attributes
+	    for (int i = 0; i < startAttr.getLength(); i++) {
+		// retrieve the ith attribute
+		Node attr = startAttr.item(i);
+		att = attr.getNodeName().trim(); // whitespace
+
+		// if the attribute equals 'b', then assign it
+		// to the belief variable
+		if (att.equals("b")) {
+		    b = Double.parseDouble(attr.getNodeValue().trim());
+		    nodeAttributes++;
+		}
+		if (att.equals("d")) {
+		    d = Double.parseDouble(attr.getNodeValue().trim());
+		    nodeAttributes++;
+		}
+		if (att.equals("u")) {
+		    u = Double.parseDouble(attr.getNodeValue().trim());
+		    nodeAttributes++;
+		}
+		if (att.equals("a")) {
+		    a = Double.parseDouble(attr.getNodeValue().trim());
+		    nodeAttributes++;
+		}
+		if (att.equals("relative_dogmatism")) {
+		    rd = Double.parseDouble(attr.getNodeValue().trim());
+		    nodeAttributes++;
+		}
+	    }
+	}
+
+	// if this current node is a parent node, then recurse and
+	// explore each of its children
+	for (Node child = start.getFirstChild();
+	     child != null;
+	     child = child.getNextSibling()) {
+	    traverse (child);
+	}
+
+	// if the element tag name is 'opinion', then create a new
+	// opinion object from its bdua attribute values, and push it
+	// on the operands stack
+	if (nodeAttributes == 4) {
+	    operands.push(new Opinion(b, d, u, a));
+	} 
+	else {
+	    // else, the element must be an operator.
+	    // determine if the operator is supported by this
+	    // OpinionProcessor
+	    if (isValidOperator(start.getNodeName())) {
+		if (start.getNodeName().equals("consensus")) {
+		    relative_dogmatism.push(new Double(rd));
+		}
+		// push the operator onto the operator stack.
+		operators.push(start.getNodeName());
+		// operate the operator!
+		operate();
+	    }
+	}
+    } // traverse()
+
+
+    // isValidOperator()
+    //
+    // This determines whether an operator is supported by the
+    // OpinionProcessor.
+    private static boolean isValidOperator(String s) {
+
+	return (
+		s.equals("multiply")                   |
+		s.equals("co-multiply")                |
+                s.equals("add")                        |
+                s.equals("complement")                 |
+                s.equals("consensus")                  |
+                s.equals("conditional-inference")      |
+                s.equals("discount"));
+    } // isValidOperator()
+
+
+    // operate()
+    //
+    // this method is called when we are ready to operator on a set of operands.
+    // Each operator is assumed to be either a unary, binary, or ternary operator.
+    // If an operator is unary, it will pop one
+    // operand from the stack, and operate it.  Else, if it is ternary, 
+    // it will pop three operands from the stack. The default is that
+    // every operator is a binary operator, thus pops two operands from the
+    // stack, and operates on them.
+    private static void operate() {
+
+	String operator = null;
+	Opinion op1, op2, op3;
+
+	try {
+	    operator = (String) operators.pop();
+
+	    if (isUnaryOperator(operator)) {
+		// Pop 1.
+		op1 = (Opinion) operands.pop();
+		// Put dummy values in op2 and op3.
+		op2 = new Opinion(0.0, 0.0, 1.0, 0.5);
+		op3 = new Opinion(0.0, 0.0, 1.0, 0.5);
+	    }
+
+	    else if (isBinaryOperator(operator)) {
+		// Pop 2.
+		op1 = (Opinion) operands.pop();
+		op2 = (Opinion) operands.pop();
+		// Put dummy value in op3.
+		op3 = new Opinion(0.0, 0.0, 1.0, 0.5);
+	    }
+
+	    else if (isTernaryOperator(operator)) {
+		// Pop 3.
+		op1 = (Opinion) operands.pop();
+		op2 = (Opinion) operands.pop();
+		op3 = (Opinion) operands.pop();
+	    } 
+
+	    else {
+		// This is really an error case, but don't worry too much about it.
+		// Put dummy values in op1 op2 and op3.
+		op1 = new Opinion(0.0, 0.0, 1.0, 0.5);
+		op2 = new Opinion(0.0, 0.0, 1.0, 0.5);
+		op3 = new Opinion(0.0, 0.0, 1.0, 0.5);
+	    }
+
+	    // calculate, and push result back onto stack
+	    operands.push(operate(operator, op1, op2, op3));
+
+	} 
+	catch (java.util.EmptyStackException ese) {
+	    System.out.println("Empty stack exception (" + operator + ")");
+	    System.out.println("Advice: Check the xml syntax.");
+	    System.exit(1);
+	}
+    } // operate()
+
+
+    // operate()
+    //
+    // This method which takes input parameters overloads the method 
+    // without parameters. This Method takes an operator, and up to three operand
+    // opinions to operate on.  Depending on the type of operator, one or two
+    // of the input operands might be dummy and if so will not be used. 
+    // This method calls the Opinion class with one, two or three opinions as
+    // parameters and returns the result of the computation.
+    private static Opinion operate(String s, Opinion op1, Opinion op2, Opinion op3) {
+
+	try {
+	    if (s.equals("add")) {
+		// Sum of op1 and op2.
+		return Opinion.Addition(op2, op1);
+	    }
+
+	    else if (s.equals("complement")) {
+		// Complement of op1.
+		return Opinion.Complement(op1);
+	    }
+
+	    else if (s.equals("multiply")) {
+		// Product of op1 and op2.
+		return Opinion.Multiplication(op2, op1);
+	    }
+
+	    else if (s.equals("co-multiply")) {
+		// Co-product of op1 and op2.
+		return Opinion.CoMultiplication(op2, op1);
+	    }
+
+	    else if (s.equals("consensus")) {
+		// Consensus between op1 and op2.
+		return Opinion.Consensus(op2, op1, (Double) relative_dogmatism.pop());
+	    }
+
+	    else if (s.equals("discount")) {
+		// Discount op2 by op1. 
+		// The discount operator is not commutative, so the order
+		// of the operands counts. 
+		// op2 is A's opinion about B,
+		// op1 is B's opinion about x.
+		return Opinion.Discount(op2, op1);
+	    }
+
+	    else if (s.equals("conditional-inference")) {
+		// Conditional inference of op1 op2 op3.
+		// The order of the operands is important here as well.
+		// op3 is the opinion about x,
+		// op2 is the opinion about y|~x,
+		// op1 is the opinion about y|x.
+		return Opinion.ConditionalInference(op3, op2, op1);
+	    }
+
+	} 
+	catch (java.lang.IllegalArgumentException ae) {
+	    System.out.println("Exception: belief, disbelief and" +
+                                           " uncertainty do not add up to 1.");
+	    System.out.println("Advice: Check the bdua values in" +
+                                          " the xml file.");
+	    System.exit(1);
+	} 
+	catch (Exception ge) {
+		    
+	    System.exit(1);
+
+	}
+
+	return null;
+    } // operate()
+
+
+    // isUnaryOperator()
+    //
+    // returns TRUE if unary operator.
+    private static boolean isUnaryOperator(String s) {
+	return s.equals("complement");
+    } // isUnaryOperator()
+
+
+    // isBinaryOperator()
+    //
+    // returns TRUE if binary operator.
+    private static boolean isBinaryOperator(String s) {
+	return (s.equals("multiply")     |
+		s.equals("co-multiply")  |
+		s.equals("add")          |
+		s.equals("consensus")    |
+		s.equals("discount"));
+    } // isBinaryOperator()
+
+
+    // isTernaryOperator()
+    //
+    // returns TRUE if ternary operator.
+    private static boolean isTernaryOperator(String s) {
+	return s.equals("conditional-inference");
+    } // isTernaryOperator()
+
+
+    // process()
+    //
+    // This method creates a DOM of the xml schema, which then gets
+    // traversed to compute opinions, where the result gets printed to
+    // the screen.
+    public static Opinion process (String filename) {
+
+	try {
+	    // create a new DOM
+	    DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+	    DocumentBuilder db = dbf.newDocumentBuilder();
+
+	    // traverse the entire DOM tree structure from the
+	    // root node.
+	    traverse(db.parse(new File(filename)).getDocumentElement());
+
+	    return (Opinion) operands.pop();
+
+	} 
+	catch (javax.xml.parsers.ParserConfigurationException pce) {
+	    System.out.println("The parser was not configured correctly.");
+	    System.exit(1);
+	} 
+	catch (java.io.IOException ie) {
+	    System.out.println("Cannot read input file (" + filename + ")");
+	    System.exit(1);
+	} 
+	catch (org.xml.sax.SAXException se) {
+	    System.out.println("Problem parsing the file.");
+	    System.out.println("Advice: Check xml syntax.");
+	    System.exit(1);
+	}
+
+	return null;
+    } // process()
+}

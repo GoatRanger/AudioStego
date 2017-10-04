@@ -1,0 +1,154 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Miscellaneous</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="performance.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#whatsnew" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="../converting/index.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: JDK(TM) 1.1 -- And Beyond!
+<br>
+<b>Lesson</b>: What's New in 1.1?
+</font>
+
+<h2>
+Miscellaneous
+</h2>
+<blockquote>
+The following changes were also made to the JDK 1.1 release.
+
+<ul>
+<li> <strong><code>Byte</code>, <code>Short</code>, and <code>Void</code> Classes</strong><br>
+	Bytes and shorts are accommodated as wrapped numbers by adding
+	new classes <code>Byte</code> and <code>Short</code>.
+	The abstract class <code>Number</code> gets two
+	new concrete methods:
+	<code>byteValue</code> and <code>shortValue</code>;
+	the default implementations of these use the <code>intValue</code> method.
+	A new class, <code>Void</code>, is an uninstantiable placeholder.
+
+<p>
+<li> <strong>The <code>@deprecated</code> tag</strong><br>
+	Used in documentation comments for unambiguously marking
+	classes, methods, and fields that have been superseded by new
+	API. The compiler issues a warning when it processes source
+	code that uses deprecated API.
+
+<p>
+<li> <strong>Accessing Resource Files</strong><br>
+	JDK 1.1 provides a new mechanism for locating a resource file
+	independently of its location. For example, this mechanism can
+	locate a resource file whether it is an applet loaded from the
+	net using multiple HTTP connects, an applet loaded using JAR
+	files, or a "library" installed in the class path.
+
+<p>
+<li> <strong>Additions to APPLET Tag (HTML)</strong><br>
+      Enhancements of the <code>&lt;APPLET&gt;</code> tag used in HTML.
+</ul>
+
+</blockquote>
+<h3>Where to Find Documentation on These Topics</h3>
+<ul>
+<li> The only information currently available for the
+<a target="_blank" href="http://java.sun.com/products/archive/jdk/1.1/index.html/java.lang.Byte.html"><font color="#8800bb"><code>Byte</code></font></a><a target="_blank" href="http://java.sun.com/products/archive/jdk/1.1/index.html/java.lang.Byte.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>,
+<a target="_blank" href="http://java.sun.com/products/archive/jdk/1.1/index.html/java.lang.Short.html"><font color="#8800bb"><code>Short</code></font></a><a target="_blank" href="http://java.sun.com/products/archive/jdk/1.1/index.html/java.lang.Short.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>, and
+<a target="_blank" href="http://java.sun.com/products/archive/jdk/1.1/index.html/java.lang.Void.html"><font color="#8800bb"><code>Void</code></font></a><a target="_blank" href="http://java.sun.com/products/archive/jdk/1.1/index.html/java.lang.Void.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>classes is the javadoc-generated API documentation.
+
+<p>
+<li>
+See
+<a href="../converting/index.html">Migrating to 1.1</a>
+for information about how JDK 1.1 supersedes old "out-of-favor" APIs
+and how to convert your programs.
+
+<p>
+<li>
+
+<a target="_blank" href="http://java.sun.com/products/jdk/1.1/docs/guide/misc/resources.html"><font color="#009bbb">Accessing Resources </font></a><a target="_blank" href="http://java.sun.com/products/jdk/1.1/docs/guide/misc/resources.html"><img src="../../images/otherIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (outside of the tutorial)"></a> describes how you can locate resources in a location-independent manner.
+
+<p>
+<li>
+
+<a target="_blank" href="http://java.sun.com/products/jdk/1.1/docs/guide/misc/applet.html"><font color="#009bbb">APPLET Tag</font></a><a target="_blank" href="http://java.sun.com/products/jdk/1.1/docs/guide/misc/applet.html"><img src="../../images/otherIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (outside of the tutorial)"></a> documents all of the components of the <code>&lt;APPLET&gt</code> tag including
+the ones new for 1.1.
+</ul>
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="performance.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#whatsnew" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="../converting/index.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

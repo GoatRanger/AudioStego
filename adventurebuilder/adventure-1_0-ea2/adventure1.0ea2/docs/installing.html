@@ -1,0 +1,112 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.79 [en]C-{C-UDP; EBM-SONY1}  (Windows NT 5.0; U) [Netscape]">
+   <title>Java[tm] Adventure Builder Demo 1.0 Early Access 2 > Installing
+
+the Demo</title>
+</head>
+<body>
+&nbsp;
+<table BORDER=0 CELLSPACING=0 CELLPADDING=5 WIDTH="100%" >
+<caption><tbody>
+<br></tbody></caption>
+
+<tr>
+<td BGCOLOR="#000033"><b><font color="#CCCCFF"><a href="index.html">Java[tm]
+Adventure Builder Demo 1.0 Early Access 2 > </a></font><font color="#FFFFFF">Installing&nbsp;&nbsp;
+the Demo</font></b></td>
+
+<td BGCOLOR="#000033">
+<div align=right><b><font color="#CCCCFF"><a href="http://java.sun.com/j2ee/blueprints/">Java
+BluePrints</a></font></b></div>
+</td>
+</tr>
+</table>
+
+<h1>
+Installing the Demo</h1>
+&nbsp;&nbsp;&nbsp; This section describes how to install the Java&nbsp;
+Adventure Builder&nbsp; Demo, version 1.0 Early Access 2
+<h2>
+System Requirements</h2>
+Before installing the demo, you need to install the following software:
+<ul><b>1. Java 2 SDK, Standard Edition (J2SE<sup><font size=-2>TM</font></sup>&nbsp;&nbsp;&nbsp;
+SDK), v1.4 or higher </b>: <a href="http://java.sun.com/j2se/1.4/">download
+here</a>
+<p><b>2. Java 2 SDK, Enterprise Edition (J2EE<sup><font size=-2>TM</font></sup>&nbsp;&nbsp;&nbsp;
+SDK), v 1.4 Beta Release</b>: <a href="http://java.sun.com/j2ee/download.html">download&nbsp;
+here</a></ul>
+
+<h2>
+Required Environment Variables</h2>
+You must also set the environment variables <tt>JAVA_HOME</tt> and <tt>J2EE_HOME,
+which you do </tt>as follows:
+<ul><tt>JAVA_HOME</tt> must point to the root directory of your J2SE SDK&nbsp;
+installation.&nbsp; For example, if you installed the J2SE SDK in <tt>c:\jdk1.4.1</tt>,&nbsp;
+then set the value of <tt>JAVA_HOME to that path</tt>.
+<p><tt>J2EE_HOME</tt> must point to the root directory of your J2EE SDK&nbsp;&nbsp;
+installation. For example, if you installed the J2EE SDK in <tt>/usr/local/java/j2sdkee1.4</tt>,
+then set the value of <tt>J2EE_HOME to that path</tt>.</ul>
+Also, your <tt>PATH</tt> <b>must</b> include the following directories
+as the first two elements:
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; For Unix:
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <tt>$JAVA_HOME/bin</tt>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <tt>$J2EE_HOME/bin</tt>
+<br>&nbsp;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; For Windows:
+<br><tt>&nbsp;&nbsp;&nbsp; %JAVA_HOME%\bin</tt>&nbsp;
+<br><tt>&nbsp;&nbsp;&nbsp; %J2EE_HOME%\bin</tt>
+<p>Otherwise, some of the build tasks will not work.
+<h2>
+Installing the Demo</h2>
+To install the demo, follow these steps:
+<ol><b>1. Unzip the distribution bundle (adventure-1_0-ea2.zip) into any
+directory.</b>
+<p>Unzipping the distribution bundle creates a directory called <tt>adventure1.0ea2</tt>.
+The rest&nbsp; of this documentation refers to this directory as <tt>&lt;adventure.home></tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+.</ol>
+
+<blockquote><b>2. Start Cloudscape.</b>
+<p>If you are using Unix, open a shell prompt and enter these commands:
+<p><tt>cd $J2EE_HOME/bin</tt>
+<br><tt>cloudscape -start</tt>
+<p>If you are using Windows, open a command prompt and enter these commands:
+<p><tt>cd %J2EE_HOME%\bin</tt>
+<br><tt>cloudscape.bat -start</tt>
+<p><b>3. Run the setup script to install and configure database resources.</b></blockquote>
+
+<ol>If you are using Unix, open a shell prompt and enter these commands:
+<pre><tt>cd &lt;adventure.home>
+sh setup.sh</tt></pre>
+If you are using Windows, open a command prompt and enter these commands:
+<pre><tt>cd &lt;adventure.home>
+setup.bat</tt></pre>
+</ol>
+
+<blockquote><b>4. Start the J2EE server.</b>
+<p>If you are using Unix, open a shell prompt and enter these commands:
+<pre><tt>cd $J2EE_HOME/bin
+j2ee -verbose</tt></pre>
+If you are using Windows, open a command prompt and enter these commands:
+<pre><tt>cd %J2EE_HOME%\bin
+j2ee.bat -verbose</tt></pre>
+</blockquote>
+
+<ol><b>5. Run the setup script to deploy the applications.</b>
+<p>If you are using Unix, open a shell prompt and enter these commands:
+<pre><tt>cd &lt;adventure.home>
+sh setup.sh deploy-apps</tt></pre>
+If you are using Windows, open a command prompt and enter these commands:
+<pre><tt>cd &lt;adventure.home>
+setup.bat deploy-apps</tt></pre>
+</ol>
+After installing the demo, you can start <a href="using.html">using it</a>
+.
+<br>
+<hr noshade="" =""><a href="copyright.html">Copyright &copy; 2003 Sun&nbsp;&nbsp;
+Microsystems,&nbsp;&nbsp; Inc. All Rights Reserved.</a>
+<br>&nbsp;
+</body>
+</html>

@@ -1,0 +1,375 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Handling Plurals</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="messageFormat.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#format" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="../text/index.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Internationalization
+<br>
+<b>Lesson</b>: Formatting
+</font>
+
+<h2>
+Handling Plurals
+</h2>
+<blockquote>
+The words in a message may vary if both plural and singular word forms
+are possible. With the <CODE>ChoiceFormat</CODE> class, you can map a
+number to a word or a phrase, allowing you to construct grammatically
+correct messages.
+<P>
+In English the plural and singular forms of a word are usually
+different. This can present a problem when you are constructing
+messages that refer to quantities. For example, if your message reports
+the number of files on a disk, the following variations are possible:
+<blockquote><pre>
+There are no files on XDisk.
+There is one file on XDisk.
+There are 2 files on XDisk.
+</pre></blockquote>
+<P>
+The fastest way to solve this problem is to create a
+<CODE>MessageFormat</CODE> pattern like this:
+<blockquote><pre>
+There are {0,number} file(s) on {1}.
+</pre></blockquote>
+<P>
+Unfortunately the preceding pattern results in incorrect grammar: 
+<blockquote><pre>
+There are 1 file(s) on XDisk.
+</pre></blockquote>
+<P>
+You can do better than that, provided that you use the
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/text/ChoiceFormat.html"><font color="#8800bb"><code>ChoiceFormat</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/text/ChoiceFormat.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>
+ class.
+In this section you'll learn how to deal with plurals in a message by
+stepping through a sample program called
+
+<a target="_blank" href="example-1dot1/ChoiceFormatDemo.java"><font color="#bb000f"><code>ChoiceFormatDemo</code></font></a><a target="_blank" href="example-1dot1/ChoiceFormatDemo.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>.
+This program also uses the <CODE>MessageFormat</CODE> class, which is
+discussed in the previous section, <A HREF="messageFormat.html">Dealing
+with Compound Messages</A>.
+
+<a name="step1">
+</blockquote>
+<h3>1. Define the Message Pattern</h3>
+</a>
+<blockquote>
+First, identify the variables in the message: 
+
+<p><center><IMG SRC="../../figures/i18n/i18n-3.gif" WIDTH="227" HEIGHT="114" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p>
+<P>
+Next, replace the variables in the message with arguments, creating a
+pattern that can be applied to a <CODE>MessageFormat</CODE> object: 
+<blockquote><pre>
+There {0} on {1}.
+</pre></blockquote>
+<P>
+The argument for the disk name, which is represented by<CODE>{1}</CODE>,
+is easy enough to deal with. You just treat it like any other
+<CODE>String</CODE> variable in a <CODE>MessageFormat</CODE> pattern.
+This argument matches the element at index 1 in the array of argument
+values. (See <a href="#step7">step 7</a>.)
+<P>
+Dealing with argument<CODE>{0}</CODE> is more complex, for a couple of reasons: 
+<UL>
+<LI> The phrase that this argument replaces varies with the number of
+files. To construct this phrase at run time, you need to map the number
+of files to a particular <CODE>String</CODE>. For example, the number 1
+will map to the <CODE>String</CODE> containing the phrase <CODE>is one
+file</CODE>. The <CODE>ChoiceFormat</CODE> class allows you to perform
+the necessary mapping.
+<LI> If the disk contains multiple files, the phrase includes an
+integer. The <CODE>MessageFormat</CODE> class lets you insert a number
+into a phrase.
+</UL>
+</blockquote>
+
+<h3> 2. Create a ResourceBundle</h3>
+<blockquote>
+Because the message text must be translated, isolate it in a
+<CODE>ResourceBundle</CODE>:
+<blockquote><pre>
+ResourceBundle bundle =
+   ResourceBundle.getBundle(&quot;ChoiceBundle&quot;, currentLocale);
+</pre></blockquote>
+<P>
+The sample program backs the <CODE>ResourceBundle</CODE> with
+properties files. The
+<a href="example-1dot1/ChoiceBundle_en_US.properties">
+<CODE>ChoiceBundle_en_US.properties</CODE></a> file
+contains the following lines:
+<blockquote><pre>
+pattern = There {0} on {1}.
+noFiles = are no files
+oneFile = is one file
+multipleFiles = are {2} files
+</pre></blockquote>
+<P>
+The contents of this properties file show how the message will be
+constructed and formatted. The first line contains the pattern for
+<CODE>MessageFormat</CODE> . (See <a href="#step1">step 1</a>.) The other lines contain
+phrases that will replace argument <CODE>{0}</CODE> in the pattern. The
+phrase for the <CODE>multipleFiles</CODE> key contains the argument
+<CODE>{2}</CODE>, which will be replaced by a number.
+<P>
+Here is the French version of the properties file,
+<a href="example-1dot1/ChoiceBundle_fr_FR.properties">
+<CODE>ChoiceBundle_fr_FR.properties</CODE></a>: 
+<blockquote><pre>
+pattern = Il {0} sur {1}.
+noFiles = n'y a pas de fichiers
+oneFile = y a un fichier
+multipleFiles = y a {2} fichiers
+</pre></blockquote>
+</blockquote>
+
+<h3> 3. Create a Message Formatter</h3>
+<blockquote>
+In this step you instantiate <CODE>MessageFormat</CODE> and set its
+<CODE>Locale</CODE>:
+<blockquote><pre>
+MessageFormat messageForm = new MessageFormat(&quot;&quot;);
+messageForm.setLocale(currentLocale);
+</pre></blockquote>
+</blockquote>
+
+<h3> 4. Create a Choice Formatter</h3>
+<blockquote>
+The <CODE>ChoiceFormat</CODE> object allows you to choose, based on a
+<CODE>double </CODE> number, a particular <CODE>String</CODE>. The
+range of <CODE>double</CODE> numbers, and the <CODE>String</CODE>
+objects to which they map, are specified in arrays:
+<blockquote><pre>
+double[] fileLimits = {0,1,2};
+String [] fileStrings = {
+    bundle.getString(&quot;noFiles&quot;),
+    bundle.getString(&quot;oneFile&quot;),
+    bundle.getString(&quot;multipleFiles&quot;)
+};
+</pre></blockquote>
+<P>
+<CODE>ChoiceFormat</CODE> maps each element in the <CODE>double</CODE>
+array to the element in the <CODE>String</CODE> array that has the same
+index. In the sample code the 0 maps to the <CODE>String</CODE>
+returned by calling <CODE>bundle.getString(&quot;noFiles&quot;)</CODE>.
+By coincidence the index is the same as the value in the
+<CODE>fileLimits</CODE> array. If the code had set
+<CODE>fileLimits[0]</CODE> to seven, <CODE>ChoiceFormat</CODE> would
+map the number 7 to <CODE>fileStrings[0]</CODE>.
+<P>
+You specify the <CODE>double</CODE> and <CODE>String</CODE> arrays when
+instantiating <CODE>ChoiceFormat</CODE>:
+<blockquote><pre>
+ChoiceFormat choiceForm = new ChoiceFormat(fileLimits,
+                                           fileStrings);
+</pre></blockquote>
+</blockquote>
+
+<h3> 5. Apply the Pattern</h3>
+<blockquote>
+Remember the pattern you constructed in step 1? It's time to retrieve
+the pattern from the <CODE>ResourceBundle</CODE> and apply it to the
+<CODE>MessageFormat </CODE> object:
+<blockquote><pre>
+String pattern = bundle.getString(&quot;pattern&quot;);
+messageForm.applyPattern(pattern);
+</pre></blockquote>
+</blockquote>
+
+<h3> 6. Assign the Formats</h3>
+<blockquote>
+In this step you assign to the <CODE>MessageFormat</CODE> object the
+<CODE>ChoiceFormat</CODE> object created in step 4:
+<blockquote><pre>
+Format[] formats = {choiceForm, null,
+                    NumberFormat.getInstance()};
+messageForm.setFormats(formats);
+</pre></blockquote>
+<P>
+The <CODE>setFormats</CODE> method assigns <CODE>Format</CODE> objects
+to the arguments in the message pattern. You must invoke the
+<CODE>applyPattern</CODE> method before you call the
+<CODE>setFormats</CODE> method. The following table shows how the
+elements of the <CODE>Format</CODE> array correspond to the arguments
+in the message pattern:
+<P>
+<TABLE BORDER="1">
+<caption>
+<h3>The <CODE>Format</CODE> Array of the <CODE> ChoiceFormatDemo</CODE> Program</h3>
+</caption>
+<TR>
+<TH>
+Array Element
+</TH>
+<TH>
+Pattern Argument
+</TH>
+</TR>
+<TR>
+<TD>
+<CODE>choiceForm</CODE>
+
+</TD>
+<TD>
+<CODE>{0}</CODE>
+
+</TD>
+</TR>
+<TR>
+<TD>
+<CODE>null</CODE>
+
+</TD>
+<TD>
+<CODE>{1}</CODE>
+
+</TD>
+</TR>
+<TR>
+<TD>
+<CODE>NumberFormat.getInstance()</CODE>
+
+</TD>
+<TD>
+<CODE>{2}</CODE>
+
+</TD>
+</TR>
+</TABLE>
+
+</blockquote>
+
+<a name="step7">
+<h3>7. Set the Arguments and Format the Message</h3>
+</a>
+<blockquote>
+At run time the program assigns the variables to the array of arguments
+it passes to the <CODE>MessageFormat</CODE> object. The elements in the
+array correspond to the arguments in the pattern. For example,
+<CODE>messageArgument[1] </CODE> maps to pattern argument
+<CODE>{1}</CODE>, which is a <CODE>String</CODE> containing the name of
+the disk. In the previous step the program assigned a
+<CODE>ChoiceFormat </CODE> object to argument <CODE>{0}</CODE> of the
+pattern. Therefore the number assigned to
+<CODE>messageArgument[0]</CODE> determines which <CODE>String</CODE>
+the <CODE>ChoiceFormat </CODE> object selects. If
+<CODE>messageArgument[0]</CODE> is greater than or equal to 2, the
+<CODE>String</CODE> containing the phrase <CODE>are {2} files</CODE>
+replaces argument <CODE>{0}</CODE> in the pattern. The number assigned
+to <CODE>messageArgument[2]</CODE> will be substituted in place of
+pattern argument <CODE>{2}</CODE>. Here's the code that tries this
+out:
+<blockquote><pre>
+Object[] messageArguments = {null, &quot;XDisk&quot;, null};
+for (int numFiles = 0; numFiles &lt; 4; numFiles++) {
+    messageArguments[0] = new Integer(numFiles);
+    messageArguments[2] = new Integer(numFiles);
+    String result = messageForm.format(messageArguments);
+    System.out.println(result);
+}
+</pre></blockquote>
+</blockquote>
+
+<h3>8. Run the Demo Program</h3>
+<blockquote>
+Compare the messages displayed by the program with the phrases in the
+<CODE>ResourceBundle </CODE> of step 2. Notice that the
+<CODE>ChoiceFormat</CODE> object selects the correct phrase, which the
+<CODE>MessageFormat</CODE> object uses to construct the proper message.
+The output of the <CODE>ChoiceFormatDemo</CODE> program is as follows: 
+<blockquote><pre>
+currentLocale = en_US
+There are no files on XDisk.
+There is one file on XDisk.
+There are 2 files on XDisk.
+There are 3 files on XDisk.
+
+currentLocale = fr_FR
+Il n'y a pas des fichiers sur XDisk.
+Il y a un fichier sur XDisk.
+Il y a 2 fichiers sur XDisk.
+Il y a 3 fichiers sur XDisk.
+</pre></blockquote>
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="messageFormat.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#format" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="../text/index.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

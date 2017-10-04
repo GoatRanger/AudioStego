@@ -1,0 +1,282 @@
+/* Copyright (C) 2002  USMA
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * any later version.
+ 
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ 
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ */
+
+package bolo;
+
+import java.awt.*;
+import java.awt.geom.*;
+
+
+/**
+ * A lightly armed and armored vehicle that relies on speed.
+ */
+public abstract class Scout
+    extends RobotAPI {
+
+    static final double BULLET_MAX_RANGE = 250;
+    static final double BULLET_RELOAD_TIME = 0.1;
+    static final double RADIUS = 6.0;
+    final Weapon CHAFF = Chaff.newWeapon();
+    final Weapon MISSILE = Missile.newWeapon(6);
+    final Ammunition.Properties BULLET_PROPERTIES = 
+            new Ammunition.Properties(Bullet.RANGE, BULLET_MAX_RANGE, 
+                                      Bullet.VELOCITY, BULLET_RELOAD_TIME);
+    final Weapon BULLET = Bullet.newWeapon(BULLET_PROPERTIES);
+
+    /**
+     * Undocumented
+     * 
+     * @return Empty 
+     */
+    public final double bulletDelay() {
+
+        return BULLET.properties.reloadDelay;
+    }
+
+    /**
+     * Undocumented
+     * 
+     * @return Empty 
+     */
+    public final double bulletVelocity() {
+
+        return BULLET.properties.velocity;
+    }
+
+    /**
+     * Undocumented
+     * 
+     * @return Empty 
+     */
+    public final double chaffDelay() {
+
+        return CHAFF.properties.reloadDelay;
+    }
+
+    /**
+     * Undocumented
+     * 
+     * @return Empty 
+     */
+    public final double chaffVelocity() {
+
+        return CHAFF.properties.velocity;
+    }
+
+    /**
+     * Undocumented
+     * 
+     * @param radians Empty
+     */
+    public final void fireBullet(double radians) {
+        fire(BULLET, radians, 0);
+    }
+
+    /**
+     * Undocumented
+     * 
+     * @param degrees Empty
+     */
+    public final void fireBulletDegrees(double degrees) {
+        fire(BULLET, 
+             toRadians(degrees), 
+             0);
+    }
+
+    /**
+     * Undocumented
+     * 
+     * @param radians Empty
+     * @param distance Empty
+     */
+    public final void fireChaff(double radians, double distance) {
+        fire(CHAFF, radians, distance);
+    }
+
+    /**
+     * Undocumented
+     * 
+     * @param degrees Empty
+     * @param distance Empty
+     */
+    public final void fireChaffDegrees(double degrees, double distance) {
+        fire(CHAFF, 
+             toRadians(degrees), 
+             distance);
+    }
+
+    /**
+     * Undocumented
+     * 
+     * @param radians Empty
+     * @param distance Empty
+     */
+    public final void fireMissile(double radians, double distance) {
+        fire(MISSILE, radians, distance);
+    }
+
+    /**
+     * Undocumented
+     * 
+     * @param degrees Empty
+     * @param distance Empty
+     */
+    public final void fireMissileDegrees(double degrees, double distance) {
+        fire(MISSILE, 
+             toRadians(degrees), 
+             distance);
+    }
+
+    /**
+     * Undocumented
+     * 
+     * @return Empty 
+     */
+    public final double maxBulletRange() {
+
+        return BULLET.properties.maxRange;
+    }
+
+    /**
+     * Undocumented
+     * 
+     * @return Empty 
+     */
+    public final double maxChaffRange() {
+
+        return CHAFF.properties.maxRange;
+    }
+
+    /**
+     * Undocumented
+     * 
+     * @return Empty 
+     */
+    public final double maxMissileRange() {
+
+        return MISSILE.properties.maxRange;
+    }
+
+    /**
+     * Undocumented
+     * 
+     * @return Empty 
+     */
+    public final double minChaffRange() {
+
+        return CHAFF.properties.minRange;
+    }
+
+    /**
+     * Undocumented
+     * 
+     * @return Empty 
+     */
+    public final double minMissileRange() {
+
+        return MISSILE.properties.minRange;
+    }
+
+    /**
+     * Undocumented
+     * 
+     * @return Empty 
+     */
+    public final double missileDelay() {
+
+        return MISSILE.properties.reloadDelay;
+    }
+
+    /**
+     * Undocumented
+     * 
+     * @return Empty 
+     */
+    public final double missileVelocity() {
+
+        return MISSILE.properties.velocity;
+    }
+
+    /**
+     * Undocumented
+     * 
+     * @return Empty 
+     */
+    public final int numBullet() {
+
+        return BULLET.rounds;
+    }
+
+    /**
+     * Undocumented
+     * 
+     * @return Empty 
+     */
+    public final int numChaff() {
+
+        return CHAFF.rounds;
+    }
+
+    /**
+     * Undocumented
+     * 
+     * @return Empty 
+     */
+    public final int numMissiles() {
+
+        return MISSILE.rounds;
+    }
+
+    /**
+     * Undocumented
+     * 
+     * @param name Empty
+     * @param pos Empty
+     */
+    void initialize(String name, int pos) {
+        maxHealth = 75;
+        maxVelocity = 50;
+        radius = RADIUS;
+        rebound = RADIUS + 2;
+
+        // define the tank shape
+        double angle = 7 * Math.PI / 8;
+        float sin = (float)(RADIUS * Math.sin(angle));
+        float cos = (float)(RADIUS * Math.cos(angle));
+        GeneralPath scoutShape = new GeneralPath();
+        Shape circle = Util.circle(RADIUS);
+        scoutShape.append(circle, false);
+        scoutShape.moveTo(cos + 1, sin);
+        scoutShape.lineTo((float)RADIUS, 0);
+        scoutShape.lineTo(cos + 1, -sin);
+
+        /*
+           // make a narrow triangle shape
+           double angle = 3*Math.PI/4;
+           float sin = (float)(RADIUS * Math.sin(angle));
+           float cos = (float)(RADIUS * Math.cos(angle));
+           GeneralPath scoutShape = new GeneralPath();
+           scoutShape.moveTo((float)RADIUS,0.0f);
+           scoutShape.lineTo(cos,sin);
+           scoutShape.lineTo(cos/2,0.0f);
+           scoutShape.lineTo(cos,-sin);
+           scoutShape.closePath();
+         */
+        originalShape = scoutShape;
+        super.initialize(name, pos);
+    }
+}

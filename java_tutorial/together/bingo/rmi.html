@@ -1,0 +1,350 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Handling Player Requests</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="broadcasting.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#bingo" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="signatures.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Putting It All Together
+<br>
+<b>Lesson</b>: BINGO!
+</font>
+
+<h2>
+Handling Player Requests
+</h2>
+<blockquote>
+During its life, the Player application
+needs to make three different kinds of requests
+of the Game application.
+<ol>
+<li>
+When the Player application first starts up, it needs to ask
+the Game for status.
+<li>
+To join the next game, the Player must send a request to the Game.
+<li>
+When the player detects a BINGO, the Player must notify the Game.
+</ol>
+
+The nature of these requests dictates the following:
+<ul>
+<li>
+The Player must initiate the communication.
+<li>
+The Game must be able to send a reply.
+<li>
+The channel must be reliable and point-to-point.
+</ul>
+
+All of this leads us to Remote Method Invocation, a feature of 
+the JDK that allows code in one application to invoke the methods of
+an object resident in another application. The object whose methods
+are invoked is known as a <em>remote object</em>. The methods invoked
+are called <em>remote methods</em>.
+<p>
+In BINGO, the Game application contains the remote object (which we
+call the "Registrar") and the Player calls its remote methods. This satisfies
+the above requirements in that the Player initiates the communication
+(by invoking a method), the Game can send a reply (via the method's return
+value), and the channel is reliable and point-to-point (because RMI is
+implemented using TCP).
+
+<p>
+The next section talks about the code that glues the remote methods
+on the Game side to the remote method calls on the Player side.
+The two sections following that describe the RMI code in the
+Game and the RMI code in the Player, respectively.
+
+</blockquote>
+<h3>The Glue</h3>
+<blockquote>
+The Game's remote methods that can be called from the Player
+are codified in the
+
+<a target="_blank" href="example-swing/bingo/shared/Registrar.java"><font color="#bb000f"><code>bingo.shared.Registrar</code></font></a><a target="_blank" href="example-swing/bingo/shared/Registrar.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>
+interface shown here:
+
+<blockquote><pre>
+package bingo.shared;
+
+import java.rmi.*;
+
+public interface Registrar extends Remote {
+
+    public String whatsHappening()
+        throws RemoteException;
+
+    public Ticket mayIPlay(String playerName,
+                           int numCards, long seed)
+        throws RemoteException;
+
+    public Answer BINGO(int playerID, Card c)
+        throws RemoteException;
+}
+</pre></blockquote>
+
+As you can see, the interface contains one method per request that
+can be made by the Player. Each method has a different type of return
+value that contains the Game's response.
+
+<p><center><a href="../../figures/together/RMI.gif" target="_top"><IMG SRC="../../figures/together/RMI.gif" WIDTH="460" HEIGHT="149" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></a><br><em>This figure has been reduced to fit on the page. <br> Click the image to view it at its natural size.</em></center></p>
+The method declarations for remote methods look just like method declarations
+for "regular" methods: they have return values, arguments lists, and so on.
+However, these method declarations are different in that
+they contain a <code>throws RemoteException</code> clause at the end.
+This identifies them as remote methods.
+All remote methods may throw a <code>RemoteException</code> and so,
+must have this <code>throws</code> clause.
+<p>
+While not apparent from the code in the <code>Registrar</code> interface,
+the arguments and the return value of
+the remote methods must be <code>Serializable</code>.
+That is, the types of the arguments and return value of a remote method
+must either be primitive types, or if a reference type,
+then the class [PENDING: check about interfaces] or interface must
+implement the <code>Serializable</code> interface.
+<p>
+The <code>whatsHappening</code> method returns a <code>String</code> which like
+many of the classes in the <code>java.*</code> packages are
+<code>Serializable</code>.
+The <code>mayIPlay</code> method returns an
+
+<a target="_blank" href="example-swing/bingo/shared/Ticket.java"><font color="#bb000f"><code>bingo.game.Ticket</code></font></a><a target="_blank" href="example-swing/bingo/shared/Ticket.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>
+and the <code>Answer</code> method returns an
+
+<a target="_blank" href="example-swing/bingo/shared/Answer.java"><font color="#bb000f"><code>bingo.game.Answer</code></font></a><a target="_blank" href="example-swing/bingo/shared/Answer.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>.
+Upon inspection of these two classes you will notice each class declaration
+contains the following clause thereby satisfying the requirement:
+<blockquote><pre>
+implements Serializable
+</pre></blockquote>
+For information about object serialization, see 
+<a target="_top" href="../../essential/io/serialization.html">Object Serialization</a><a target="_top" href="../../essential/io/serialization.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Putting It All Together trail)"></a>.
+<p>
+Now let's look at the code in the Game that supports RMI.
+</blockquote>
+
+<h3>The Game Side of RMI</h3>
+<blockquote>
+The 
+
+<a target="_blank" href="example-swing/bingo/game/RegistrarImpl.java"><font color="#bb000f"><code>bingo.game.RegistrarImpl</code></font></a><a target="_blank" href="example-swing/bingo/game/RegistrarImpl.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>
+class implements the <code>Registrar</code> interface and
+consequently the Game's response to each of the Player's requests. This class
+implements the Game's remote object and its remote methods.
+<p>
+Here are the relevant lines of code from <code>RegistrarImpl</code>:
+<blockquote><pre>
+class RegistrarImpl extends UnicastRemoteObject
+                    <strong>implements Registrar</strong>, Constants
+{
+
+    RegistrarImpl (RingMaster ringMaster)
+        <strong>throws RemoteException</strong>
+    {
+	. . .
+    }
+
+    <strong>public String whatsHappening()
+        throws RemoteException</strong>
+    {
+	. . .
+    }
+
+    <strong>public Ticket mayIPlay(String playerName,
+                                   int numCards, long seed)
+        throws RemoteException</strong>
+    {
+	. . .
+    }
+
+    <strong>public Answer BINGO(int playerID, Card c)
+        throws RemoteException</strong>
+    {
+	. . .
+    }
+
+}
+</pre></blockquote>
+You'll note that the constructor for the <code>RegistrarImpl</code> class
+throws a <code>RemoteException</code> because the creation of any remote object
+may result in a <code>RemoteException</code>.
+<p>
+The Game's <code>main</code> method,
+which appears in the 
+
+<a target="_blank" href="example-swing/bingo/game/BINGO.java"><font color="#bb000f"><code>BINGO</code></font></a><a target="_blank" href="example-swing/bingo/game/BINGO.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a> class,
+creates an instance of <code>RegistrarImpl</code>
+and registers it for RMI with this code:
+<blockquote><pre>
+System.setSecurityManager(new RMISecurityManager());
+
+// <em>within a try clause</em>
+
+. . .
+
+    ringMaster = new RingMaster();
+
+    RegistrarImpl registrar = new RegistrarImpl(ringMaster);
+    hostname = InetAddress.getLocalHost().getHostName();
+    Naming.rebind("//" + hostname + "/Registrar", registrar);
+
+. . .
+</pre></blockquote>
+The <code>RegistrarImpl</code> object is registered as a remote
+object under the name of <code>//<em>hostname</em>/Registrar</code>
+(where <code><em>hostname</em></code> is the name of the machine on which the Game
+program is running).
+</blockquote>
+
+<h3>The Player Side of RMI</h3>
+<blockquote>
+To invoke methods on the <code>RegistrarImpl</code> object
+that was instantiated in the Game application,
+the Player needs two pieces of information:
+<ol>
+<li>
+The interface that defines the remote object's remote methods
+(<code>RegistrarImpl</code>). From the Player's perspective,
+this interface is the data type of the remote object.
+<li>
+The name under which the remote object registered for RMI.
+Remember that this includes the hostname on which the Game
+is running. By default, the Player uses the hostname on which
+the Player is running. To play with a Game on another host,
+the user must type a different hostname into the textfield provided
+in the Player's GUI.
+</ol>
+With these two pieces of information, the Player can get an
+object reference to the <code>RegistrarImpl</code> object that
+was instantiated in the Game.
+Here's the relevant code from the 
+
+<a target="_blank" href="example-swing/bingo/player/Player.java"><font color="#bb000f"><code>Player</code></font></a><a target="_blank" href="example-swing/bingo/player/Player.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a> class
+that does this:
+<blockquote><pre>
+Registrar registrar;
+. . .
+registrar = (Registrar)Naming.lookup("//" + host + "/Registrar");
+</pre></blockquote>
+The code declares a member variable, <code>registrar</code>, whose
+type is <code>Registrar</code>--the interface that defines all of
+the Game's remote methods. Next, the code
+looks up the remote object by name
+and assigns it to the <code>registrar</code> variable.
+<p>
+After these two lines of code have been successfully executed,
+<code>registrar</code> is an object reference to the <code>RegistrarImpl</code>
+object in the Game application.
+Through the <code>registrar</code> reference the Player can invoke methods
+just like with any other object reference--the difference is that the
+object referred to resides in a separate VM. The Player invokes methods
+on <code>registrar</code> on three separate occasions:
+
+<ol>
+<li>
+When the Player application first starts up, it queries
+the Game for the game status with this line of code:
+<blockquote><pre>
+statusText = registrar.whatsHappening();
+</pre></blockquote>
+<li>
+To join the next game, the Player calls <code>mayIPlay</code>:
+<blockquote><pre>
+ticket = registrar.mayIPlay(nameField.getText(),
+                            numCards, seed);
+</pre></blockquote>
+<li>
+When the player detects a BINGO, the player notifies
+the Game by calling the <code>BINGO</code> method:
+<blockquote><pre>
+Answer a = registrar.BINGO(ticket.ID, event.getCard());
+</pre></blockquote>
+</ol>
+
+This has been a description of how the Game and the Player
+applications use RMI to communicate. This has <em>not</em>
+been a discussion of RMI in general.
+For general RMI documentation see [PENDING].
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="broadcasting.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#bingo" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="signatures.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

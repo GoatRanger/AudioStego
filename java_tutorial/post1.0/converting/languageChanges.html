@@ -1,0 +1,260 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Changes to the Java Language</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="newClasses.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#converting" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="compatibility.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: JDK(TM) 1.1 -- And Beyond!
+<br>
+<b>Lesson</b>: Migrating to 1.1
+</font>
+
+<h2>
+Changes to the Java Language
+</h2>
+<blockquote>
+</blockquote>
+<h3>Inner Classes</h3>
+<blockquote>
+Probably the single most significant change to the Java language
+for JDK 1.1 is the ability to define classes as members of
+other classes. Such classes are called <em>inner classes</em>
+and are covered in
+<a target="_top" href="../../java/javaOO/nested.html">Implementing Nested Classes</a><a target="_top" href="../../java/javaOO/nested.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the JDK(TM) 1.1 -- And Beyond! trail)"></a>.
+</blockquote>
+
+<h3>Anonymous Classes</h3>
+<blockquote>
+When you are writing simple subclasses or implementations of interfaces,
+creating a bunch of classes for each trivial class can be awkward.
+Anonymous classes are a convenient short form of inner classes that
+have no name, only an implementation that is specified right along
+with the <code>new</code>. 
+<p>
+For a brief discussion of anonymous classes and an example that
+uses one, refer to
+<a target="_top" href="../../java/javaOO/innerclasses.html#anonymous">Anonymous Classes</a><a target="_top" href="../../java/javaOO/innerclasses.html#anonymous"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the JDK(TM) 1.1 -- And Beyond! trail)"></a>.
+</blockquote>
+
+<h3>Instance Initializers</h3>
+<blockquote>
+In JDK 1.0.2, the Java language supported
+<code>static</code> initializers that let you initialize
+class variables.
+<blockquote><pre>
+class ClassWithStaticInitializer {
+    static {
+	// <em>... initialization code ...</em>
+    }
+}
+</pre></blockquote>
+JDK 1.1 adds a similar syntax for performing
+<em>instance initialization</em>:
+<blockquote><pre>
+class ClassWithInstanceInitializer {
+    {
+	// <em>... initialization code ...</em>
+    }
+}
+</pre></blockquote>
+Initialization code introduced without the <code>static</code>
+keyword is executed by every constructor,
+just after the superclass constructor is called,
+in the same order that they appear in the source code,
+along with any instance variable initializations.
+<p>
+An instance initializer may not return,
+nor throw a checked exception,
+unless that exception is explicitly
+declared in the <code>throws</code> clause
+of each constructor.
+An instance initializer in an anonymous
+class <em>can</em> throw any exceptions.
+<p>
+Instance initializers are useful when instance
+variables (including blank finals) 
+must be initialized by code which must catch exceptions,
+or perform other kinds of control flow which cannot
+be expressed in a single initializer expression.
+Instance initializers are required if an anonymous
+class is to initialize itself, since an anonymous
+class cannot declare any constructors.
+<p>
+See
+<a target="_top" href="../../java/javaOO/classvars.html#initializing">Initializing Instance and Class Members</a><a target="_top" href="../../java/javaOO/classvars.html#initializing"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the JDK(TM) 1.1 -- And Beyond! trail)"></a> for details
+</blockquote>
+
+<h3>Array Initialization</h3>
+<blockquote>
+You can initialize the contents of an array when you
+<code>new</code> it. For example, the following would
+be a flexible way to create an array of strings:
+<p>
+<blockquote><pre>
+String[] tutorialTeam = new String[] {
+	    "Alison", "Kathy", "Mary"
+};
+</pre></blockquote>
+The array allocation syntax is extended to support
+initialization of the elements of anonymous arrays.
+</blockquote>
+
+<h3>Class literals</h3>
+<blockquote>
+A <em>class literal</em> is an expression
+consisting of the name of a class, interface, array, 
+or primitive type followed by a `<code>.</code>'
+and the token <code>class</code>.
+It evaluates to an object of type <code>Class</code>,
+the class object for the named type (or for void).
+<p>
+For reference types, a class literal is equivalent
+to a call to <code>Class.forName</code> 
+with the appropriate string,
+except that it does not raise any checked exceptions.
+(Its efficiency is likely to be comparable to that of a field access, 
+rather than a method call.)
+The class literal of a reference type can raise 
+<code>NoClassDefFoundError</code>,
+in much the same way that a class variable 
+reference can raise that error if the variable's class is not available.
+<p>
+The class literal of a primitive type
+or void is equivalent to a static variable 
+reference to a pre-installed primitive type descriptor,
+according to this table: 
+<Table Border="0">
+<caption></caption>
+<tr><td><br><pre>        boolean.class   ==   Boolean.TYPE
+        char.class      ==   Character.TYPE
+        byte.class      ==   Byte.TYPE
+        short.class     ==   Short.TYPE
+        int.class       ==   Integer.TYPE
+        long.class      ==   Long.TYPE
+        float.class     ==   Float.TYPE
+        double.class    ==   Double.TYPE
+        void.class      ==   Void.TYPE
+</pre>
+
+</Table>
+
+</blockquote>
+
+<h3>New Uses for final</h3>
+<blockquote>
+Method parameters and local variables can be declared <code>final</code>.
+If you do not expect to change the value of a parameter or variable
+inside the method, you can declare it <code>final</code> to let the
+compiler enforce that.
+The compiler can also optimize uses of a <code>final</code>
+parameter or variable since it knows the value will never change.
+<p>
+The <code>final</code>-ness of a parameter is not part of the
+method signature-it is simply a detail of the implementation.
+A subclass can override a method and add or drop any <code>final</code>
+parameter modifiers you wish.
+You can also add or drop <code>final</code> modifiers in a method's
+parameters without causing any harm to existing compiled code that
+uses that method.
+The <code>final</code> declaration does not show up in the
+documentation generated from doc comments.
+<p>
+You can defer initialization of a <code>final</code> field or variable,
+as long as you initialize it before it is used and assign a value to it
+exactly once. The compiler will check for proper assignment,
+as will the verifier before code is executed.
+Deferred initialization can be useful when the proper value can
+only be calculated by a loop or other code that is hard or
+impossible to encode in a variable initializer,
+such as code that throws exceptions that must be caught and handled.
+</blockquote>
+
+<h3>Transient Defined in 1.1</h3>
+<blockquote>
+The <code>transient</code> keyword, 
+has defined meaning for 1.1 (whereas it was
+undefined in 1.0.2. In 1.1, <code>transient</code>
+is used to mark member variables that should not
+be saved during object serialization.
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="newClasses.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#converting" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="compatibility.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

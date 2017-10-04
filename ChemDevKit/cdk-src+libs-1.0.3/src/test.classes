@@ -1,0 +1,2 @@
+org/openscience/cdk/test/CoverageTest*.class
+org/openscience/cdk/test/CDKTestCase*.class

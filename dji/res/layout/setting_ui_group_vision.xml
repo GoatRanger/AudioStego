@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.setting.ui.SettingUIStageView xmlns:android="http://schemas.android.com/apk/res-auto" setting_ui:layout_width="match_parent" setting_ui:layout_height="match_parent" setting_ui:titleText="@string/setting_ui_vision">
+    <ScrollView style="@style/gk">
+        <LinearLayout setting_ui:layout_height="wrap_content" style="@style/gj">
+            <TextView setting_ui:text="@string/setting_ui_vision_forward_title" style="@style/gf" />
+            <dji.setting.ui.vision.VisionFrontAssView style="@style/g3" />
+            <TextView setting_ui:text="@string/setting_ui_vision_down_title" style="@style/gf" />
+            <dji.setting.ui.vision.VisionDownVPSView style="@style/g3" />
+            <dji.setting.ui.vision.VisionFlatCheckView style="@style/g3" />
+            <dji.setting.ui.vision.PreciseLandingSwitchView style="@style/g3" />
+            <dji.setting.ui.vision.VisionAvoidViewGroup setting_ui:orientation="vertical" setting_ui:layout_width="match_parent" setting_ui:layout_height="wrap_content" setting_ui:baselineAligned="false">
+                <dji.setting.ui.vision.VisionReboundView style="@style/g3" />
+                <TextView setting_ui:text="@string/setting_ui_vision_tapfly_title" style="@style/gf" />
+                <dji.setting.ui.vision.VisionTapFlyParallelView style="@style/g3" />
+                <TextView setting_ui:text="@string/setting_ui_vision_track_title" style="@style/gf" />
+                <dji.setting.ui.vision.VisionTrackBackwardView style="@style/g3" />
+                <dji.setting.ui.vision.VisionTrackAssView style="@style/g3" />
+                <dji.setting.ui.vision.VisionTrackIntelligentView style="@style/g3" />
+            </dji.setting.ui.vision.VisionAvoidViewGroup>
+        </LinearLayout>
+    </ScrollView>
+</dji.setting.ui.SettingUIStageView>

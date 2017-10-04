@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="10"
+   name=""
+   committed-date="2005-02-01T05:59:34.421875Z"
+   url="svn://192.168.2.2/IT105Editor/docs/jalopy/api/de/hunsicker/jalopy/plugin/console"
+   last-author="Karl"
+   kind="dir"
+   uuid="0daf4267-3229-f84b-9084-f3c94b025f38"
+   revision="55"/>
+<entry
+   name="class-use"
+   kind="dir"/>
+<entry
+   committed-rev="10"
+   name="ConsolePlugin.html"
+   text-time="2005-03-02T06:14:29.843750Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="72bfdfd5868752cd7eef524e7d8bdea5"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:29.765625Z"/>
+<entry
+   committed-rev="10"
+   name="package-frame.html"
+   text-time="2005-03-02T06:14:29.843750Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="092c71d0de61e3eb7cb8ad8f63cd23a9"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:29.781250Z"/>
+<entry
+   committed-rev="10"
+   name="package-use.html"
+   text-time="2005-03-02T06:14:29.859375Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="3f3065f5f4edc7aa611ac96f3e2c5474"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:29.781250Z"/>
+<entry
+   committed-rev="10"
+   name="package-summary.html"
+   text-time="2005-03-02T06:14:29.859375Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="81e18cb631acb3325eb8a83f156b97a3"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:29.796875Z"/>
+<entry
+   committed-rev="10"
+   name="package-tree.html"
+   text-time="2005-03-02T06:14:29.875000Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="9899ba65ddd9f1848d433792163be1ef"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:29.828125Z"/>
+</wc-entries>

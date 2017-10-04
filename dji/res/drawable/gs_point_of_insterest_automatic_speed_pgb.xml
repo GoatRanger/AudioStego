@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="0x1020000">
+        <shape android:shape="rectangle">
+            <corners android:radius="@dimen/fpv_playback_seekbar_half_height" />
+            <stroke android:width="1px" android:color="@color/dc" />
+            <solid android:color="@color/dc" />
+        </shape>
+    </item>
+    <item android:id="0x102000d">
+        <clip android:clipOrientation="horizontal">
+            <shape android:shape="rectangle">
+                <corners android:radius="@dimen/fpv_playback_seekbar_half_height" />
+                <solid android:color="@color/er" />
+            </shape>
+        </clip>
+    </item>
+    <item android:id="0x102000f">
+        <clip android:clipOrientation="horizontal">
+            <shape android:shape="rectangle">
+                <corners android:radius="@dimen/fpv_playback_seekbar_half_height" />
+                <solid android:color="@color/er" />
+            </shape>
+        </clip>
+    </item>
+</layer-list>

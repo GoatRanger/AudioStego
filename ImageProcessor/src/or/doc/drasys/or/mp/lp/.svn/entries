@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="33"
+   name=""
+   committed-date="2005-02-01T06:11:53.421875Z"
+   url="svn://192.168.2.2/ImageProcessor/src/or/doc/drasys/or/mp/lp"
+   last-author="Karl"
+   kind="dir"
+   uuid="0daf4267-3229-f84b-9084-f3c94b025f38"
+   revision="55"/>
+<entry
+   committed-rev="33"
+   name="DenseSimplex.html"
+   text-time="2005-03-02T06:25:35.296875Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="961e6ed98ca0bb1f65caa0be207aecf1"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:35.218750Z"/>
+<entry
+   committed-rev="33"
+   name="package-frame.html"
+   text-time="2005-03-02T06:25:35.312500Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="c7e17b292330ce34f1b62ae16f7187c8"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:35.234375Z"/>
+<entry
+   committed-rev="33"
+   name="DenseLPBase.html"
+   text-time="2005-03-02T06:25:35.312500Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="96cc569d8b35c9eaeea1ef8ac392a343"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:35.250000Z"/>
+<entry
+   committed-rev="33"
+   name="LinearProgrammingI.html"
+   text-time="2005-03-02T06:25:35.328125Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="ceb60819960fb3ac7d5c19a74ee7b82f"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:35.250000Z"/>
+<entry
+   committed-rev="33"
+   name="package-summary.html"
+   text-time="2005-03-02T06:25:35.328125Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="e7c04b886bac77e9d18bed5662dad253"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:35.265625Z"/>
+<entry
+   committed-rev="33"
+   name="package-tree.html"
+   text-time="2005-03-02T06:25:35.343750Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="a236fb5a1f98f253482ee52f2d3c6def"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:35.281250Z"/>
+</wc-entries>

@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.publics.DJIUI.DJILinearLayout xmlns:android="http://schemas.android.com/apk/res-auto" phantom:orientation="vertical" phantom:id="@id/ap3" phantom:background="@drawable/stroke_dlg_dark_bg" phantom:paddingBottom="10dp" phantom:layout_width="match_parent" phantom:layout_height="wrap_content">
+    <include phantom:layout_width="match_parent" phantom:layout_height="wrap_content" layout="@layout/dlg_titlebar_view" />
+    <dji.publics.DJIUI.DJILinearLayout phantom:orientation="horizontal" phantom:id="@+id/fpv_hd_sdr_status_ly" style="@style/FpvGenRadiusItemLy">
+        <dji.publics.DJIUI.DJIRelativeLayout phantom:layout_width="UNKNOWN_DATA_0x1" phantom:layout_height="match_parent" phantom:layout_weight="1.0">
+            <dji.pilot.publics.widget.DJIStateTextView phantom:textColor="@color/om" phantom:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" phantom:id="@+id/fpv_hd_sdr_status_rc_title_tv" phantom:layout_width="wrap_content" phantom:layout_height="wrap_content" phantom:layout_marginLeft="20dp" phantom:text="@string/fpv_hd_assitant_reomte_controller" phantom:layout_centerVertical="true" phantom:djiTextFace="2" style="@style/BatteryDescTxt" />
+            <dji.pilot.publics.widget.DJISwitch phantom:id="@+id/fpv_sdr_status_rc_toggle" phantom:layout_marginRight="40dp" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" style="@style/CommonSwitch" />
+        </dji.publics.DJIUI.DJIRelativeLayout>
+        <dji.publics.DJIUI.DJIRelativeLayout phantom:layout_width="UNKNOWN_DATA_0x1" phantom:layout_height="match_parent" phantom:layout_weight="1.0">
+            <dji.pilot.publics.widget.DJIStateTextView phantom:textColor="@color/om" phantom:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" phantom:id="@+id/fpv_hd_sdr_status_uav_title_tv" phantom:layout_width="wrap_content" phantom:layout_height="wrap_content" phantom:layout_marginLeft="40dp" phantom:text="UAV" phantom:layout_centerVertical="true" phantom:djiTextFace="2" style="@style/BatteryDescTxt" />
+            <dji.pilot.publics.widget.DJISwitch phantom:id="@+id/fpv_sdr_status_uav_toggle" phantom:layout_marginRight="20dp" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" style="@style/CommonSwitch" />
+        </dji.publics.DJIUI.DJIRelativeLayout>
+    </dji.publics.DJIUI.DJILinearLayout>
+    <dji.publics.DJIUI.DJILinearLayout phantom:orientation="horizontal" phantom:layout_width="match_parent" phantom:layout_height="wrap_content">
+        <ScrollView phantom:id="@+id/fpv_hd_sdr_status_sv" phantom:scrollbars="vertical" phantom:layout_width="UNKNOWN_DATA_0x1" phantom:layout_height="UNKNOWN_DATA_0xa001" phantom:layout_weight="1.0">
+            <dji.publics.DJIUI.DJILinearLayout phantom:orientation="vertical" phantom:layout_width="match_parent" phantom:layout_height="wrap_content">
+                <dji.publics.DJIUI.DJIImageView phantom:id="@+id/fpv_hd_sdr_status_divider01_img" style="@style/FpvGenSettingDivider" />
+                <dji.publics.DJIUI.DJIRelativeLayout phantom:gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:id="@+id/fpv_hd_sdr_rc_status01_ry" style="@style/FpvGenMiddleItemLy">
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_rc_status01_desc_tv" phantom:layout_marginLeft="3dp" phantom:text="Name01" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_rc_status01_value_tv" phantom:layout_marginRight="3dp" phantom:text="Value01" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                </dji.publics.DJIUI.DJIRelativeLayout>
+                <dji.publics.DJIUI.DJIImageView phantom:id="@+id/fpv_hd_sdr_status_divider02_img" style="@style/FpvGenSettingDivider" />
+                <dji.publics.DJIUI.DJIRelativeLayout phantom:gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:id="@+id/fpv_hd_sdr_rc_status02_ry" style="@style/FpvGenMiddleItemLy">
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_rc_status02_desc_tv" phantom:layout_marginLeft="3dp" phantom:text="Name02" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_rc_status02_value_tv" phantom:layout_marginRight="3dp" phantom:text="Value02" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                </dji.publics.DJIUI.DJIRelativeLayout>
+                <dji.publics.DJIUI.DJIImageView phantom:id="@+id/fpv_hd_sdr_status_divider03_img" style="@style/FpvGenSettingDivider" />
+                <dji.publics.DJIUI.DJIRelativeLayout phantom:gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:id="@+id/fpv_hd_sdr_rc_status03_ry" style="@style/FpvGenMiddleItemLy">
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_rc_status03_desc_tv" phantom:layout_marginLeft="3dp" phantom:text="Name03" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_rc_status03_value_tv" phantom:layout_marginRight="3dp" phantom:text="Value03" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                </dji.publics.DJIUI.DJIRelativeLayout>
+                <dji.publics.DJIUI.DJIImageView phantom:id="@+id/fpv_hd_sdr_status_divider04_img" style="@style/FpvGenSettingDivider" />
+                <dji.publics.DJIUI.DJIRelativeLayout phantom:gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:id="@+id/fpv_hd_sdr_rc_status04_ry" style="@style/FpvGenMiddleItemLy">
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_rc_status04_desc_tv" phantom:layout_marginLeft="3dp" phantom:text="Name04" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_rc_status04_value_tv" phantom:layout_marginRight="3dp" phantom:text="Value04" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                </dji.publics.DJIUI.DJIRelativeLayout>
+                <dji.publics.DJIUI.DJIImageView phantom:id="@+id/fpv_hd_sdr_status_divider05_img" style="@style/FpvGenSettingDivider" />
+                <dji.publics.DJIUI.DJIRelativeLayout phantom:gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:id="@+id/fpv_hd_sdr_rc_status05_ry" style="@style/FpvGenMiddleItemLy">
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_rc_status05_desc_tv" phantom:layout_marginLeft="3dp" phantom:text="Name05" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_rc_status05_value_tv" phantom:layout_marginRight="3dp" phantom:text="Value05" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                </dji.publics.DJIUI.DJIRelativeLayout>
+                <dji.publics.DJIUI.DJIImageView phantom:id="@+id/fpv_hd_sdr_status_divider06_img" style="@style/FpvGenSettingDivider" />
+                <dji.publics.DJIUI.DJIRelativeLayout phantom:gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:id="@+id/fpv_hd_sdr_rc_status06_ry" style="@style/FpvGenMiddleItemLy">
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_rc_status06_desc_tv" phantom:layout_marginLeft="3dp" phantom:text="Name06" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_rc_status06_value_tv" phantom:layout_marginRight="3dp" phantom:text="Value06" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                </dji.publics.DJIUI.DJIRelativeLayout>
+                <dji.publics.DJIUI.DJIImageView phantom:id="@+id/fpv_hd_sdr_status_divider07_img" style="@style/FpvGenSettingDivider" />
+                <dji.publics.DJIUI.DJIRelativeLayout phantom:gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:id="@+id/fpv_hd_sdr_rc_status07_ry" style="@style/FpvGenMiddleItemLy">
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_rc_status07_desc_tv" phantom:layout_marginLeft="3dp" phantom:text="Name07" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_rc_status07_value_tv" phantom:layout_marginRight="3dp" phantom:text="Value07" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                </dji.publics.DJIUI.DJIRelativeLayout>
+                <dji.publics.DJIUI.DJIImageView phantom:id="@+id/fpv_hd_sdr_status_divider08_img" style="@style/FpvGenSettingDivider" />
+                <dji.publics.DJIUI.DJIRelativeLayout phantom:gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:id="@+id/fpv_hd_sdr_rc_status08_ry" style="@style/FpvGenMiddleItemLy">
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_rc_status08_desc_tv" phantom:layout_marginLeft="3dp" phantom:text="Name08" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_rc_status08_value_tv" phantom:layout_marginRight="3dp" phantom:text="Value08" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                </dji.publics.DJIUI.DJIRelativeLayout>
+                <dji.publics.DJIUI.DJIImageView phantom:id="@+id/fpv_hd_sdr_status_divider09_img" style="@style/FpvGenSettingDivider" />
+                <dji.publics.DJIUI.DJIRelativeLayout phantom:gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:id="@+id/fpv_hd_sdr_rc_status09_ry" style="@style/FpvGenMiddleItemLy">
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_rc_status09_desc_tv" phantom:layout_marginLeft="3dp" phantom:text="Name09" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_rc_status09_value_tv" phantom:layout_marginRight="3dp" phantom:text="Value09" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                </dji.publics.DJIUI.DJIRelativeLayout>
+                <dji.publics.DJIUI.DJIImageView phantom:id="@+id/fpv_hd_sdr_status_divider10_img" style="@style/FpvGenSettingDivider" />
+                <dji.publics.DJIUI.DJIRelativeLayout phantom:gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:id="@+id/fpv_hd_sdr_rc_status10_ry" style="@style/FpvGenMiddleItemLy">
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_rc_status10_desc_tv" phantom:layout_marginLeft="3dp" phantom:text="Name10" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_rc_status10_value_tv" phantom:layout_marginRight="3dp" phantom:text="Value10" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                </dji.publics.DJIUI.DJIRelativeLayout>
+                <dji.publics.DJIUI.DJIImageView phantom:id="@+id/fpv_hd_sdr_status_divider11_img" style="@style/FpvGenSettingDivider" />
+                <dji.publics.DJIUI.DJIRelativeLayout phantom:gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:id="@+id/fpv_hd_sdr_rc_status11_ry" style="@style/FpvGenMiddleItemLy">
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_rc_status11_desc_tv" phantom:layout_marginLeft="3dp" phantom:text="Name11" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_rc_status11_value_tv" phantom:layout_marginRight="3dp" phantom:text="Value11" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                </dji.publics.DJIUI.DJIRelativeLayout>
+                <dji.publics.DJIUI.DJIImageView phantom:id="@+id/fpv_hd_sdr_status_divider12_img" style="@style/FpvGenSettingDivider" />
+                <dji.publics.DJIUI.DJIRelativeLayout phantom:gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:id="@+id/fpv_hd_sdr_rc_status12_ry" style="@style/FpvGenMiddleItemLy">
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_rc_status12_desc_tv" phantom:layout_marginLeft="3dp" phantom:text="Name12" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_rc_status12_value_tv" phantom:layout_marginRight="3dp" phantom:text="Value12" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                </dji.publics.DJIUI.DJIRelativeLayout>
+                <dji.publics.DJIUI.DJIImageView phantom:id="@+id/fpv_hd_sdr_status_divider13_img" style="@style/FpvGenSettingDivider" />
+                <dji.publics.DJIUI.DJIRelativeLayout phantom:gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:id="@+id/fpv_hd_sdr_rc_status13_ry" style="@style/FpvGenMiddleItemLy">
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_rc_status13_desc_tv" phantom:layout_marginLeft="3dp" phantom:text="Name13" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_rc_status13_value_tv" phantom:layout_marginRight="3dp" phantom:text="Value13" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                </dji.publics.DJIUI.DJIRelativeLayout>
+                <dji.publics.DJIUI.DJIImageView phantom:id="@+id/fpv_hd_sdr_status_divider14_img" style="@style/FpvGenSettingDivider" />
+                <dji.publics.DJIUI.DJIRelativeLayout phantom:gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:id="@+id/fpv_hd_sdr_rc_status14_ry" style="@style/FpvGenMiddleItemLy">
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_rc_status14_desc_tv" phantom:layout_marginLeft="3dp" phantom:text="Name14" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_rc_status14_value_tv" phantom:layout_marginRight="3dp" phantom:text="Value14" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                </dji.publics.DJIUI.DJIRelativeLayout>
+                <dji.publics.DJIUI.DJIImageView phantom:id="@+id/fpv_hd_sdr_status_divider15_img" style="@style/FpvGenSettingDivider" />
+                <dji.publics.DJIUI.DJIRelativeLayout phantom:gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:id="@+id/fpv_hd_sdr_rc_status15_ry" style="@style/FpvGenMiddleItemLy">
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_rc_status15_desc_tv" phantom:layout_marginLeft="3dp" phantom:text="Name15" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_rc_status15_value_tv" phantom:layout_marginRight="3dp" phantom:text="Value15" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                </dji.publics.DJIUI.DJIRelativeLayout>
+                <dji.publics.DJIUI.DJIImageView phantom:id="@+id/fpv_hd_sdr_status_divider16_img" style="@style/FpvGenSettingDivider" />
+                <dji.publics.DJIUI.DJIRelativeLayout phantom:gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:id="@+id/fpv_hd_sdr_rc_status16_ry" style="@style/FpvGenMiddleItemLy">
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_rc_status16_desc_tv" phantom:layout_marginLeft="3dp" phantom:text="Name16" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_rc_status16_value_tv" phantom:layout_marginRight="3dp" phantom:text="Value16" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                </dji.publics.DJIUI.DJIRelativeLayout>
+                <dji.publics.DJIUI.DJIImageView phantom:id="@+id/fpv_hd_sdr_status_divider17_img" style="@style/FpvGenSettingDivider" />
+                <dji.publics.DJIUI.DJIRelativeLayout phantom:gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:id="@+id/fpv_hd_sdr_rc_status17_ry" style="@style/FpvGenMiddleItemLy">
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_rc_status17_desc_tv" phantom:layout_marginLeft="3dp" phantom:text="Name17" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_rc_status17_value_tv" phantom:layout_marginRight="3dp" phantom:text="Value17" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                </dji.publics.DJIUI.DJIRelativeLayout>
+                <dji.publics.DJIUI.DJIImageView phantom:id="@+id/fpv_hd_sdr_status_divider18_img" style="@style/FpvGenSettingDivider" />
+                <dji.publics.DJIUI.DJIRelativeLayout phantom:gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:id="@+id/fpv_hd_sdr_rc_status18_ry" style="@style/FpvGenMiddleItemLy">
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_rc_status18_desc_tv" phantom:layout_marginLeft="3dp" phantom:text="Name18" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_rc_status18_value_tv" phantom:layout_marginRight="3dp" phantom:text="Value18" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                </dji.publics.DJIUI.DJIRelativeLayout>
+                <dji.publics.DJIUI.DJIImageView phantom:id="@+id/fpv_hd_sdr_status_divider19_img" style="@style/FpvGenSettingDivider" />
+                <dji.publics.DJIUI.DJIRelativeLayout phantom:gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:id="@+id/fpv_hd_sdr_rc_status19_ry" style="@style/FpvGenMiddleItemLy">
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_rc_status19_desc_tv" phantom:layout_marginLeft="3dp" phantom:text="Name19" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_rc_status19_value_tv" phantom:layout_marginRight="3dp" phantom:text="Value19" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                </dji.publics.DJIUI.DJIRelativeLayout>
+                <dji.publics.DJIUI.DJIImageView phantom:id="@+id/fpv_hd_sdr_status_divider20_img" style="@style/FpvGenSettingDivider" />
+                <dji.publics.DJIUI.DJIRelativeLayout phantom:gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:id="@+id/fpv_hd_sdr_rc_status20_ry" style="@style/FpvGenMiddleItemLy">
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_rc_status20_desc_tv" phantom:layout_marginLeft="3dp" phantom:text="Name20" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_rc_status20_value_tv" phantom:layout_marginRight="3dp" phantom:text="Value20" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                </dji.publics.DJIUI.DJIRelativeLayout>
+                <dji.publics.DJIUI.DJIImageView phantom:id="@+id/fpv_hd_sdr_status_divider21_img" style="@style/FpvGenSettingDivider" />
+                <dji.publics.DJIUI.DJIRelativeLayout phantom:gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:id="@+id/fpv_hd_sdr_rc_status21_ry" style="@style/FpvGenMiddleItemLy">
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_rc_status21_desc_tv" phantom:layout_marginLeft="3dp" phantom:text="Name21" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_rc_status21_value_tv" phantom:layout_marginRight="3dp" phantom:text="Value21" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                </dji.publics.DJIUI.DJIRelativeLayout>
+                <dji.publics.DJIUI.DJIImageView phantom:id="@+id/fpv_hd_sdr_status_divider22_img" style="@style/FpvGenSettingDivider" />
+                <dji.publics.DJIUI.DJIRelativeLayout phantom:gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:id="@+id/fpv_hd_sdr_rc_status22_ry" style="@style/FpvGenMiddleItemLy">
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_rc_status22_desc_tv" phantom:layout_marginLeft="3dp" phantom:text="Name22" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_rc_status22_value_tv" phantom:layout_marginRight="3dp" phantom:text="Value22" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                </dji.publics.DJIUI.DJIRelativeLayout>
+                <dji.publics.DJIUI.DJIImageView phantom:id="@+id/fpv_hd_sdr_status_divider23_img" style="@style/FpvGenSettingDivider" />
+                <dji.publics.DJIUI.DJIRelativeLayout phantom:gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:id="@+id/fpv_hd_sdr_rc_status23_ry" style="@style/FpvGenMiddleItemLy">
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_rc_status23_desc_tv" phantom:layout_marginLeft="3dp" phantom:text="Name23" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_rc_status23_value_tv" phantom:layout_marginRight="3dp" phantom:text="Value23" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                </dji.publics.DJIUI.DJIRelativeLayout>
+                <dji.publics.DJIUI.DJIImageView phantom:id="@+id/fpv_hd_sdr_status_divider24_img" style="@style/FpvGenSettingDivider" />
+                <dji.publics.DJIUI.DJIRelativeLayout phantom:gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:id="@+id/fpv_hd_sdr_rc_status24_ry" style="@style/FpvGenMiddleItemLy">
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_rc_status24_desc_tv" phantom:layout_marginLeft="3dp" phantom:text="Name24" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_rc_status24_value_tv" phantom:layout_marginRight="3dp" phantom:text="Value24" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                </dji.publics.DJIUI.DJIRelativeLayout>
+                <dji.publics.DJIUI.DJIImageView phantom:id="@+id/fpv_hd_sdr_status_divider25_img" style="@style/FpvGenSettingDivider" />
+                <dji.publics.DJIUI.DJIRelativeLayout phantom:gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:id="@+id/fpv_hd_sdr_rc_status25_ry" style="@style/FpvGenMiddleItemLy">
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_rc_status25_desc_tv" phantom:layout_marginLeft="3dp" phantom:text="Name25" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_rc_status25_value_tv" phantom:layout_marginRight="3dp" phantom:text="Value25" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                </dji.publics.DJIUI.DJIRelativeLayout>
+                <dji.publics.DJIUI.DJIImageView phantom:id="@+id/fpv_hd_sdr_status_divider26_img" style="@style/FpvGenSettingDivider" />
+                <dji.publics.DJIUI.DJIRelativeLayout phantom:gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:id="@+id/fpv_hd_sdr_rc_status26_ry" style="@style/FpvGenMiddleItemLy">
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_rc_status26_desc_tv" phantom:layout_marginLeft="3dp" phantom:text="Name26" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_rc_status26_value_tv" phantom:layout_marginRight="3dp" phantom:text="Value26" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                </dji.publics.DJIUI.DJIRelativeLayout>
+                <dji.publics.DJIUI.DJIImageView phantom:id="@+id/fpv_hd_sdr_status_divider27_img" style="@style/FpvGenSettingDivider" />
+                <dji.publics.DJIUI.DJIRelativeLayout phantom:gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:id="@+id/fpv_hd_sdr_rc_status27_ry" style="@style/FpvGenMiddleItemLy">
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_rc_status27_desc_tv" phantom:layout_marginLeft="3dp" phantom:text="Name27" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_rc_status27_value_tv" phantom:layout_marginRight="3dp" phantom:text="Value27" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                </dji.publics.DJIUI.DJIRelativeLayout>
+                <dji.publics.DJIUI.DJIImageView phantom:id="@+id/fpv_hd_sdr_status_divider28_img" style="@style/FpvGenSettingDivider" />
+                <dji.publics.DJIUI.DJIRelativeLayout phantom:gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:id="@+id/fpv_hd_sdr_rc_status28_ry" style="@style/FpvGenMiddleItemLy">
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_rc_status28_desc_tv" phantom:layout_marginLeft="3dp" phantom:text="Name28" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_rc_status28_value_tv" phantom:layout_marginRight="3dp" phantom:text="Value28" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                </dji.publics.DJIUI.DJIRelativeLayout>
+                <dji.publics.DJIUI.DJIImageView phantom:id="@+id/fpv_hd_sdr_status_divider29_img" style="@style/FpvGenSettingDivider" />
+                <dji.publics.DJIUI.DJIRelativeLayout phantom:gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:id="@+id/fpv_hd_sdr_rc_status29_ry" style="@style/FpvGenMiddleItemLy">
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_rc_status29_desc_tv" phantom:layout_marginLeft="3dp" phantom:text="Name29" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_rc_status29_value_tv" phantom:layout_marginRight="3dp" phantom:text="Value29" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                </dji.publics.DJIUI.DJIRelativeLayout>
+                <dji.publics.DJIUI.DJIImageView phantom:id="@+id/fpv_hd_sdr_status_divider30_img" style="@style/FpvGenSettingDivider" />
+                <dji.publics.DJIUI.DJIRelativeLayout phantom:gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:id="@+id/fpv_hd_sdr_rc_status30_ry" style="@style/FpvGenMiddleItemLy">
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_rc_status30_desc_tv" phantom:layout_marginLeft="3dp" phantom:text="Name30" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_rc_status30_value_tv" phantom:layout_marginRight="3dp" phantom:text="Value30" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                </dji.publics.DJIUI.DJIRelativeLayout>
+                <dji.publics.DJIUI.DJIImageView phantom:id="@+id/fpv_hd_sdr_status_divider31_img" style="@style/FpvGenSettingDivider" />
+                <dji.publics.DJIUI.DJIRelativeLayout phantom:gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:id="@+id/fpv_hd_sdr_rc_status31_ry" style="@style/FpvGenMiddleItemLy">
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_rc_status31_desc_tv" phantom:layout_marginLeft="3dp" phantom:text="Name31" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_rc_status31_value_tv" phantom:layout_marginRight="3dp" phantom:text="Value31" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                </dji.publics.DJIUI.DJIRelativeLayout>
+                <dji.publics.DJIUI.DJIImageView phantom:id="@+id/fpv_hd_sdr_status_divider32_img" style="@style/FpvGenSettingDivider" />
+                <dji.publics.DJIUI.DJIRelativeLayout phantom:gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:id="@+id/fpv_hd_sdr_rc_status32_ry" style="@style/FpvGenMiddleItemLy">
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_rc_status32_desc_tv" phantom:layout_marginLeft="3dp" phantom:text="Name32" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_rc_status32_value_tv" phantom:layout_marginRight="3dp" phantom:text="Value32" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                </dji.publics.DJIUI.DJIRelativeLayout>
+            </dji.publics.DJIUI.DJILinearLayout>
+        </ScrollView>
+        <ScrollView phantom:id="@+id/fpv_hd_sdr_status_sv2" phantom:scrollbars="vertical" phantom:layout_width="UNKNOWN_DATA_0x1" phantom:layout_height="UNKNOWN_DATA_0xa001" phantom:layout_weight="1.0">
+            <dji.publics.DJIUI.DJILinearLayout phantom:orientation="vertical" phantom:layout_width="match_parent" phantom:layout_height="wrap_content">
+                <dji.publics.DJIUI.DJIImageView phantom:id="@+id/fpv_hd_sdr_uav_status_divider01_img" style="@style/FpvGenSettingDivider" />
+                <dji.publics.DJIUI.DJIRelativeLayout phantom:gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:id="@+id/fpv_hd_sdr_uav_status01_ry" style="@style/FpvGenMiddleItemLy">
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_uav_status01_desc_tv" phantom:layout_marginLeft="3dp" phantom:text="Name01" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_uav_status01_value_tv" phantom:layout_marginRight="3dp" phantom:text="Value01" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                </dji.publics.DJIUI.DJIRelativeLayout>
+                <dji.publics.DJIUI.DJIImageView phantom:id="@+id/fpv_hd_sdr_uav_status_divider02_img" style="@style/FpvGenSettingDivider" />
+                <dji.publics.DJIUI.DJIRelativeLayout phantom:gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:id="@+id/fpv_hd_sdr_uav_status02_ry" style="@style/FpvGenMiddleItemLy">
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_uav_status02_desc_tv" phantom:layout_marginLeft="3dp" phantom:text="Name02" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_uav_status02_value_tv" phantom:layout_marginRight="3dp" phantom:text="Value02" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                </dji.publics.DJIUI.DJIRelativeLayout>
+                <dji.publics.DJIUI.DJIImageView phantom:id="@+id/fpv_hd_sdr_uav_status_divider03_img" style="@style/FpvGenSettingDivider" />
+                <dji.publics.DJIUI.DJIRelativeLayout phantom:gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:id="@+id/fpv_hd_sdr_uav_status03_ry" style="@style/FpvGenMiddleItemLy">
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_uav_status03_desc_tv" phantom:layout_marginLeft="3dp" phantom:text="Name03" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_uav_status03_value_tv" phantom:layout_marginRight="3dp" phantom:text="Value03" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                </dji.publics.DJIUI.DJIRelativeLayout>
+                <dji.publics.DJIUI.DJIImageView phantom:id="@+id/fpv_hd_sdr_uav_status_divider04_img" style="@style/FpvGenSettingDivider" />
+                <dji.publics.DJIUI.DJIRelativeLayout phantom:gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:id="@+id/fpv_hd_sdr_uav_status04_ry" style="@style/FpvGenMiddleItemLy">
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_uav_status04_desc_tv" phantom:layout_marginLeft="3dp" phantom:text="Name04" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_uav_status04_value_tv" phantom:layout_marginRight="3dp" phantom:text="Value04" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                </dji.publics.DJIUI.DJIRelativeLayout>
+                <dji.publics.DJIUI.DJIImageView phantom:id="@+id/fpv_hd_sdr_uav_status_divider05_img" style="@style/FpvGenSettingDivider" />
+                <dji.publics.DJIUI.DJIRelativeLayout phantom:gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:id="@+id/fpv_hd_sdr_uav_status05_ry" style="@style/FpvGenMiddleItemLy">
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_uav_status05_desc_tv" phantom:layout_marginLeft="3dp" phantom:text="Name05" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_uav_status05_value_tv" phantom:layout_marginRight="3dp" phantom:text="Value05" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                </dji.publics.DJIUI.DJIRelativeLayout>
+                <dji.publics.DJIUI.DJIImageView phantom:id="@+id/fpv_hd_sdr_uav_status_divider06_img" style="@style/FpvGenSettingDivider" />
+                <dji.publics.DJIUI.DJIRelativeLayout phantom:gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:id="@+id/fpv_hd_sdr_uav_status06_ry" style="@style/FpvGenMiddleItemLy">
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_uav_status06_desc_tv" phantom:layout_marginLeft="3dp" phantom:text="Name06" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_uav_status06_value_tv" phantom:layout_marginRight="3dp" phantom:text="Value06" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                </dji.publics.DJIUI.DJIRelativeLayout>
+                <dji.publics.DJIUI.DJIImageView phantom:id="@+id/fpv_hd_sdr_uav_status_divider07_img" style="@style/FpvGenSettingDivider" />
+                <dji.publics.DJIUI.DJIRelativeLayout phantom:gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:id="@+id/fpv_hd_sdr_uav_status07_ry" style="@style/FpvGenMiddleItemLy">
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_uav_status07_desc_tv" phantom:layout_marginLeft="3dp" phantom:text="Name07" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_uav_status07_value_tv" phantom:layout_marginRight="3dp" phantom:text="Value07" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                </dji.publics.DJIUI.DJIRelativeLayout>
+                <dji.publics.DJIUI.DJIImageView phantom:id="@+id/fpv_hd_sdr_uav_status_divider08_img" style="@style/FpvGenSettingDivider" />
+                <dji.publics.DJIUI.DJIRelativeLayout phantom:gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:id="@+id/fpv_hd_sdr_uav_status08_ry" style="@style/FpvGenMiddleItemLy">
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_uav_status08_desc_tv" phantom:layout_marginLeft="3dp" phantom:text="Name08" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_uav_status08_value_tv" phantom:layout_marginRight="3dp" phantom:text="Value08" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                </dji.publics.DJIUI.DJIRelativeLayout>
+                <dji.publics.DJIUI.DJIImageView phantom:id="@+id/fpv_hd_sdr_uav_status_divider09_img" style="@style/FpvGenSettingDivider" />
+                <dji.publics.DJIUI.DJIRelativeLayout phantom:gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:id="@+id/fpv_hd_sdr_uav_status09_ry" style="@style/FpvGenMiddleItemLy">
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_uav_status09_desc_tv" phantom:layout_marginLeft="3dp" phantom:text="Name09" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_uav_status09_value_tv" phantom:layout_marginRight="3dp" phantom:text="Value09" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                </dji.publics.DJIUI.DJIRelativeLayout>
+                <dji.publics.DJIUI.DJIImageView phantom:id="@+id/fpv_hd_sdr_uav_status_divider10_img" style="@style/FpvGenSettingDivider" />
+                <dji.publics.DJIUI.DJIRelativeLayout phantom:gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:id="@+id/fpv_hd_sdr_uav_status10_ry" style="@style/FpvGenMiddleItemLy">
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_uav_status10_desc_tv" phantom:layout_marginLeft="3dp" phantom:text="Name10" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_uav_status10_value_tv" phantom:layout_marginRight="3dp" phantom:text="Value10" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                </dji.publics.DJIUI.DJIRelativeLayout>
+                <dji.publics.DJIUI.DJIImageView phantom:id="@+id/fpv_hd_sdr_uav_status_divider11_img" style="@style/FpvGenSettingDivider" />
+                <dji.publics.DJIUI.DJIRelativeLayout phantom:gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:id="@+id/fpv_hd_sdr_uav_status11_ry" style="@style/FpvGenMiddleItemLy">
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_uav_status11_desc_tv" phantom:layout_marginLeft="3dp" phantom:text="Name11" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_uav_status11_value_tv" phantom:layout_marginRight="3dp" phantom:text="Value11" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                </dji.publics.DJIUI.DJIRelativeLayout>
+                <dji.publics.DJIUI.DJIImageView phantom:id="@+id/fpv_hd_sdr_uav_status_divider12_img" style="@style/FpvGenSettingDivider" />
+                <dji.publics.DJIUI.DJIRelativeLayout phantom:gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:id="@+id/fpv_hd_sdr_uav_status12_ry" style="@style/FpvGenMiddleItemLy">
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_uav_status12_desc_tv" phantom:layout_marginLeft="3dp" phantom:text="Name12" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_uav_status12_value_tv" phantom:layout_marginRight="3dp" phantom:text="Value12" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                </dji.publics.DJIUI.DJIRelativeLayout>
+                <dji.publics.DJIUI.DJIImageView phantom:id="@+id/fpv_hd_sdr_uav_status_divider13_img" style="@style/FpvGenSettingDivider" />
+                <dji.publics.DJIUI.DJIRelativeLayout phantom:gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:id="@+id/fpv_hd_sdr_uav_status13_ry" style="@style/FpvGenMiddleItemLy">
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_uav_status13_desc_tv" phantom:layout_marginLeft="3dp" phantom:text="Name13" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_uav_status13_value_tv" phantom:layout_marginRight="3dp" phantom:text="Value13" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                </dji.publics.DJIUI.DJIRelativeLayout>
+                <dji.publics.DJIUI.DJIImageView phantom:id="@+id/fpv_hd_sdr_uav_status_divider14_img" style="@style/FpvGenSettingDivider" />
+                <dji.publics.DJIUI.DJIRelativeLayout phantom:gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:id="@+id/fpv_hd_sdr_uav_status14_ry" style="@style/FpvGenMiddleItemLy">
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_uav_status14_desc_tv" phantom:layout_marginLeft="3dp" phantom:text="Name14" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_uav_status14_value_tv" phantom:layout_marginRight="3dp" phantom:text="Value14" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                </dji.publics.DJIUI.DJIRelativeLayout>
+                <dji.publics.DJIUI.DJIImageView phantom:id="@+id/fpv_hd_sdr_uav_status_divider15_img" style="@style/FpvGenSettingDivider" />
+                <dji.publics.DJIUI.DJIRelativeLayout phantom:gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:id="@+id/fpv_hd_sdr_uav_status15_ry" style="@style/FpvGenMiddleItemLy">
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_uav_status15_desc_tv" phantom:layout_marginLeft="3dp" phantom:text="Name15" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_uav_status15_value_tv" phantom:layout_marginRight="3dp" phantom:text="Value15" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                </dji.publics.DJIUI.DJIRelativeLayout>
+                <dji.publics.DJIUI.DJIImageView phantom:id="@+id/fpv_hd_sdr_uav_status_divider16_img" style="@style/FpvGenSettingDivider" />
+                <dji.publics.DJIUI.DJIRelativeLayout phantom:gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:id="@+id/fpv_hd_sdr_uav_status16_ry" style="@style/FpvGenMiddleItemLy">
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_uav_status16_desc_tv" phantom:layout_marginLeft="3dp" phantom:text="Name16" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_uav_status16_value_tv" phantom:layout_marginRight="3dp" phantom:text="Value16" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                </dji.publics.DJIUI.DJIRelativeLayout>
+                <dji.publics.DJIUI.DJIImageView phantom:id="@+id/fpv_hd_sdr_uav_status_divider17_img" style="@style/FpvGenSettingDivider" />
+                <dji.publics.DJIUI.DJIRelativeLayout phantom:gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:id="@+id/fpv_hd_sdr_uav_status17_ry" style="@style/FpvGenMiddleItemLy">
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_uav_status17_desc_tv" phantom:layout_marginLeft="3dp" phantom:text="Name17" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_uav_status17_value_tv" phantom:layout_marginRight="3dp" phantom:text="Value17" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                </dji.publics.DJIUI.DJIRelativeLayout>
+                <dji.publics.DJIUI.DJIImageView phantom:id="@+id/fpv_hd_sdr_uav_status_divider18_img" style="@style/FpvGenSettingDivider" />
+                <dji.publics.DJIUI.DJIRelativeLayout phantom:gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:id="@+id/fpv_hd_sdr_uav_status18_ry" style="@style/FpvGenMiddleItemLy">
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_uav_status18_desc_tv" phantom:layout_marginLeft="3dp" phantom:text="Name18" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_uav_status18_value_tv" phantom:layout_marginRight="3dp" phantom:text="Value18" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                </dji.publics.DJIUI.DJIRelativeLayout>
+                <dji.publics.DJIUI.DJIImageView phantom:id="@+id/fpv_hd_sdr_uav_status_divider19_img" style="@style/FpvGenSettingDivider" />
+                <dji.publics.DJIUI.DJIRelativeLayout phantom:gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:id="@+id/fpv_hd_sdr_uav_status19_ry" style="@style/FpvGenMiddleItemLy">
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_uav_status19_desc_tv" phantom:layout_marginLeft="3dp" phantom:text="Name19" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_uav_status19_value_tv" phantom:layout_marginRight="3dp" phantom:text="Value19" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                </dji.publics.DJIUI.DJIRelativeLayout>
+                <dji.publics.DJIUI.DJIImageView phantom:id="@+id/fpv_hd_sdr_uav_status_divider20_img" style="@style/FpvGenSettingDivider" />
+                <dji.publics.DJIUI.DJIRelativeLayout phantom:gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:id="@+id/fpv_hd_sdr_uav_status20_ry" style="@style/FpvGenMiddleItemLy">
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_uav_status20_desc_tv" phantom:layout_marginLeft="3dp" phantom:text="Name20" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_uav_status20_value_tv" phantom:layout_marginRight="3dp" phantom:text="Value20" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                </dji.publics.DJIUI.DJIRelativeLayout>
+                <dji.publics.DJIUI.DJIImageView phantom:id="@+id/fpv_hd_sdr_uav_status_divider21_img" style="@style/FpvGenSettingDivider" />
+                <dji.publics.DJIUI.DJIRelativeLayout phantom:gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:id="@+id/fpv_hd_sdr_uav_status21_ry" style="@style/FpvGenMiddleItemLy">
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_uav_status21_desc_tv" phantom:layout_marginLeft="3dp" phantom:text="Name21" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_uav_status21_value_tv" phantom:layout_marginRight="3dp" phantom:text="Value21" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                </dji.publics.DJIUI.DJIRelativeLayout>
+                <dji.publics.DJIUI.DJIImageView phantom:id="@+id/fpv_hd_sdr_uav_status_divider22_img" style="@style/FpvGenSettingDivider" />
+                <dji.publics.DJIUI.DJIRelativeLayout phantom:gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:id="@+id/fpv_hd_sdr_uav_status22_ry" style="@style/FpvGenMiddleItemLy">
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_uav_status22_desc_tv" phantom:layout_marginLeft="3dp" phantom:text="Name22" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_uav_status22_value_tv" phantom:layout_marginRight="3dp" phantom:text="Value22" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                </dji.publics.DJIUI.DJIRelativeLayout>
+                <dji.publics.DJIUI.DJIImageView phantom:id="@+id/fpv_hd_sdr_uav_status_divider23_img" style="@style/FpvGenSettingDivider" />
+                <dji.publics.DJIUI.DJIRelativeLayout phantom:gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:id="@+id/fpv_hd_sdr_uav_status23_ry" style="@style/FpvGenMiddleItemLy">
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_uav_status23_desc_tv" phantom:layout_marginLeft="3dp" phantom:text="Name23" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_uav_status23_value_tv" phantom:layout_marginRight="3dp" phantom:text="Value23" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                </dji.publics.DJIUI.DJIRelativeLayout>
+                <dji.publics.DJIUI.DJIImageView phantom:id="@+id/fpv_hd_sdr_uav_status_divider24_img" style="@style/FpvGenSettingDivider" />
+                <dji.publics.DJIUI.DJIRelativeLayout phantom:gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:id="@+id/fpv_hd_sdr_uav_status24_ry" style="@style/FpvGenMiddleItemLy">
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_uav_status24_desc_tv" phantom:layout_marginLeft="3dp" phantom:text="Name24" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_uav_status24_value_tv" phantom:layout_marginRight="3dp" phantom:text="Value24" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                </dji.publics.DJIUI.DJIRelativeLayout>
+                <dji.publics.DJIUI.DJIImageView phantom:id="@+id/fpv_hd_sdr_uav_status_divider25_img" style="@style/FpvGenSettingDivider" />
+                <dji.publics.DJIUI.DJIRelativeLayout phantom:gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:id="@+id/fpv_hd_sdr_uav_status25_ry" style="@style/FpvGenMiddleItemLy">
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_uav_status25_desc_tv" phantom:layout_marginLeft="3dp" phantom:text="Name25" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_uav_status25_value_tv" phantom:layout_marginRight="3dp" phantom:text="Value25" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                </dji.publics.DJIUI.DJIRelativeLayout>
+                <dji.publics.DJIUI.DJIImageView phantom:id="@+id/fpv_hd_sdr_uav_status_divider26_img" style="@style/FpvGenSettingDivider" />
+                <dji.publics.DJIUI.DJIRelativeLayout phantom:gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:id="@+id/fpv_hd_sdr_uav_status26_ry" style="@style/FpvGenMiddleItemLy">
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_uav_status26_desc_tv" phantom:layout_marginLeft="3dp" phantom:text="Name26" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_uav_status26_value_tv" phantom:layout_marginRight="3dp" phantom:text="Value26" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                </dji.publics.DJIUI.DJIRelativeLayout>
+                <dji.publics.DJIUI.DJIImageView phantom:id="@+id/fpv_hd_sdr_uav_status_divider27_img" style="@style/FpvGenSettingDivider" />
+                <dji.publics.DJIUI.DJIRelativeLayout phantom:gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:id="@+id/fpv_hd_sdr_uav_status27_ry" style="@style/FpvGenMiddleItemLy">
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_uav_status27_desc_tv" phantom:layout_marginLeft="3dp" phantom:text="Name27" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_uav_status27_value_tv" phantom:layout_marginRight="3dp" phantom:text="Value27" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                </dji.publics.DJIUI.DJIRelativeLayout>
+                <dji.publics.DJIUI.DJIImageView phantom:id="@+id/fpv_hd_sdr_uav_status_divider28_img" style="@style/FpvGenSettingDivider" />
+                <dji.publics.DJIUI.DJIRelativeLayout phantom:gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:id="@+id/fpv_hd_sdr_uav_status28_ry" style="@style/FpvGenMiddleItemLy">
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_uav_status28_desc_tv" phantom:layout_marginLeft="3dp" phantom:text="Name28" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_uav_status28_value_tv" phantom:layout_marginRight="3dp" phantom:text="Value28" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                </dji.publics.DJIUI.DJIRelativeLayout>
+                <dji.publics.DJIUI.DJIImageView phantom:id="@+id/fpv_hd_sdr_uav_status_divider29_img" style="@style/FpvGenSettingDivider" />
+                <dji.publics.DJIUI.DJIRelativeLayout phantom:gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:id="@+id/fpv_hd_sdr_uav_status29_ry" style="@style/FpvGenMiddleItemLy">
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_uav_status29_desc_tv" phantom:layout_marginLeft="3dp" phantom:text="Name29" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_uav_status29_value_tv" phantom:layout_marginRight="3dp" phantom:text="Value29" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                </dji.publics.DJIUI.DJIRelativeLayout>
+                <dji.publics.DJIUI.DJIImageView phantom:id="@+id/fpv_hd_sdr_uav_status_divider30_img" style="@style/FpvGenSettingDivider" />
+                <dji.publics.DJIUI.DJIRelativeLayout phantom:gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:id="@+id/fpv_hd_sdr_uav_status30_ry" style="@style/FpvGenMiddleItemLy">
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_uav_status30_desc_tv" phantom:layout_marginLeft="3dp" phantom:text="Name30" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_uav_status30_value_tv" phantom:layout_marginRight="3dp" phantom:text="Value30" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                </dji.publics.DJIUI.DJIRelativeLayout>
+                <dji.publics.DJIUI.DJIImageView phantom:id="@+id/fpv_hd_sdr_uav_status_divider31_img" style="@style/FpvGenSettingDivider" />
+                <dji.publics.DJIUI.DJIRelativeLayout phantom:gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:id="@+id/fpv_hd_sdr_uav_status31_ry" style="@style/FpvGenMiddleItemLy">
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_uav_status31_desc_tv" phantom:layout_marginLeft="3dp" phantom:text="Name31" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_uav_status31_value_tv" phantom:layout_marginRight="3dp" phantom:text="Value31" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                </dji.publics.DJIUI.DJIRelativeLayout>
+                <dji.publics.DJIUI.DJIImageView phantom:id="@+id/fpv_hd_sdr_uav_status_divider32_img" style="@style/FpvGenSettingDivider" />
+                <dji.publics.DJIUI.DJIRelativeLayout phantom:gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:id="@+id/fpv_hd_sdr_uav_status32_ry" style="@style/FpvGenMiddleItemLy">
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_uav_status32_desc_tv" phantom:layout_marginLeft="3dp" phantom:text="Name32" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                    <dji.publics.DJIUI.DJITextView phantom:id="@+id/fpv_hd_sdr_uav_status32_value_tv" phantom:layout_marginRight="3dp" phantom:text="Value32" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                </dji.publics.DJIUI.DJIRelativeLayout>
+            </dji.publics.DJIUI.DJILinearLayout>
+        </ScrollView>
+    </dji.publics.DJIUI.DJILinearLayout>
+</dji.publics.DJIUI.DJILinearLayout>

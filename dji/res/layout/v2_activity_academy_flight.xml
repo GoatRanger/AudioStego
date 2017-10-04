@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:background="@color/om" android:fitsSystemWindows="@r$bool/is_fix_system" android:layout_width="match_parent" android:layout_height="match_parent">
+    <include layout="@layout/v2_academy_header" />
+    <LinearLayout android:orientation="vertical" android:background="@r$color/v2_new_academy_bgcolor" android:layout_width="match_parent" android:layout_height="match_parent"
+        <LinearLayout android:orientation="horizontal" android:background="@color/om" android:paddingLeft="@dimen/bp" android:paddingRight="@dimen/bq" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x7f0b052c">
+            <RelativeLayout android:id="@+id/v2_new_academy_novice_cheats" android:layout_width="UNKNOWN_DATA_0x1" android:layout_height="match_parent" android:layout_weight="1.0">
+                <TextView android:textColor="#727272" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/v2_academy_flight_novice_cheats" android:drawableTop="@r$drawable/newacademy_novice_cheat" android:drawablePadding="@dimen/ga" android:layout_centerInParent="true" />
+            </RelativeLayout>
+            <View android:background="#e6e6e6" android:layout_width="UNKNOWN_DATA_0x7f0b011c" android:layout_height="match_parent" android:layout_marginTop="@dimen/fo" android:layout_marginBottom="@dimen/fo" />
+            <RelativeLayout android:id="@+id/v2_new_academy_hot_tips" android:layout_width="UNKNOWN_DATA_0x1" android:layout_height="match_parent" android:layout_weight="1.0">
+                <TextView android:textColor="#727272" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/v2_academy_hot_tips" android:drawableTop="@r$drawable/newacademy_hottip" android:drawablePadding="@dimen/ga" android:layout_centerInParent="true" />
+            </RelativeLayout>
+            <View android:background="#e6e6e6" android:layout_width="UNKNOWN_DATA_0x7f0b011c" android:layout_height="match_parent" android:layout_marginTop="@dimen/fo" android:layout_marginBottom="@dimen/fo" />
+            <RelativeLayout android:id="@+id/v2_new_academy_faq" android:layout_width="UNKNOWN_DATA_0x1" android:layout_height="match_parent" android:layout_weight="1.0">
+                <TextView android:textColor="#727272" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/v2_academy_faq" android:drawableTop="@r$drawable/newacademy_faq" android:drawablePadding="@dimen/ga" android:layout_centerInParent="true" />
+            </RelativeLayout>
+        </LinearLayout>
+        <RelativeLayout android:id="@+id/v2_new_academy_search_parent" android:focusable="true" android:focusableInTouchMode="true" android:visibility="gone" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x7f0b0071" android:layout_marginLeft="@dimen/bp" android:layout_marginTop="@dimen/fj" android:layout_marginRight="@dimen/bq">
+            <EditText android:textSize="12sp" android:textColorHint="#d7d7d7" android:id="@+id/v2_new_academy_flight_search" android:background="@r$drawable/v2_new_academy_flight_search_bg" android:paddingLeft="@dimen/fj" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginLeft="@dimen/ft" android:layout_marginTop="@dimen/gw" android:layout_marginRight="@dimen/ft" android:layout_marginBottom="@dimen/fj" android:hint="@string/v2_academy_flight_search_hint" android:singleLine="true" android:selectAllOnFocus="true" android:drawableLeft="@r$drawable/newacademy_flight_search" android:drawablePadding="@dimen/gw" android:inputType="text|textCapCharacters|textCapWords|textCapSentences|textAutoCorrect|textAutoComplete|textMultiLine|textImeMultiLine|textNoSuggestions|textUri|textEmailAddress|textEmailSubject|textShortMessage|textLongMessage|textPersonName|textPostalAddress|textPassword|textVisiblePassword|textWebEditText|textFilter|textPhonetic|textWebEmailAddress|textWebPassword|phone" />
+        </RelativeLayout>
+        <LinearLayout android:layout_gravity="top|bottom|center_vertical|fill_vertical|center|fill" android:orientation="horizontal" android:paddingLeft="@dimen/g1" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x7f0b0078">
+            <TextView android:textSize="12sp" android:textColor="#4a4a4a" android:gravity="top|bottom|center_vertical|fill_vertical|center|fill" android:layout_gravity="top|bottom|center_vertical|fill_vertical|center|fill" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/v2_academy_hotfaq" />
+            <TextView android:textSize="8sp" android:textColor="@color/om" android:gravity="top|bottom|center_vertical|fill_vertical|center|fill" android:layout_gravity="top|bottom|center_vertical|fill_vertical|center|fill" android:background="@color/gj" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/gw" android:text="HOT" />
+        </LinearLayout>
+        <RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent">
+            <ProgressBar android:id="@+id/v2_new_academy_progressbar" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" />
+            <ListView android:id="@+id/v2_new_academy_flight_question_list" android:background="@color/om" android:layout_width="match_parent" android:layout_height="wrap_content" android:divider="#00000000" />
+            <include android:visibility="gone" layout="@layout/v2_new_academy_empty_lv" />
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>

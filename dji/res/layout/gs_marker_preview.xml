@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x7f0b03ed"
+    <LinearLayout android:orientation="vertical" android:background="@drawable/gs_bg_left" android:layout_width="UNKNOWN_DATA_0x7f0b03f0" android:layout_height="match_parent">
+        <dji.publics.DJIUI.DJITextView android:textSize="@dimen/zv" android:textColor="@color/et" android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:visibility="invisible" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/zq" android:text="@string/gs_txt_direction" />
+        <dji.publics.DJIUI.DJITextView android:textSize="@dimen/zv" android:textColor="@color/et" android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/zq" android:text="@string/gs_txt_height" />
+    </LinearLayout>
+    <com.meetme.android.horizontallistview.HorizontalListView android:id="@id/alt" android:background="@drawable/gs_bg_mid2" android:layout_width="wrap_content" android:layout_height="match_parent" android:listSelector="0x106000d" android:layout_weight="1.0" />
+    <LinearLayout android:orientation="vertical" android:background="@drawable/gs_bg_right" android:layout_width="UNKNOWN_DATA_0x7f0b03f0" android:layout_height="match_parent">
+        <ImageView android:id="@id/alu" android:background="@drawable/gs_selector_btn" android:clickable="true" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x7f0b03eb" android:src="@drawable/gs_icon_backspace" />
+        <ImageView android:background="@drawable/gs_line" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x7f0b03e9" />
+        <dji.publics.DJIUI.DJITextView android:textSize="@dimen/zu" android:textStyle="bold" android:textColor="0x106000b" android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@id/alv" android:background="@drawable/gs_selector_btn" android:clickable="true" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x7f0b03ec" android:text="@string/gs_txt_go" />
+    </LinearLayout>
+</LinearLayout>

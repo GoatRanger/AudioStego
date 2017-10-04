@@ -1,0 +1,407 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Using the Timer and TimerTask Classes</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="definition.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#threads" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="customizing.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Essential Java Classes
+<br>
+<b>Lesson</b>: Threads: Doing Two or More Tasks At Once
+</font>
+
+<h2>
+Using the Timer and TimerTask Classes
+</h2>
+<blockquote>
+In version 1.3, support for timers was added to the
+<code>java.util</code> package.
+The
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/Timer.html"><font color="#8800bb"><code>Timer</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/Timer.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> class in that package
+schedules instances of a class called
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/TimerTask.html"><font color="#8800bb"><code>TimerTask</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/TimerTask.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>.
+
+<blockquote><hr><strong>Note:</strong>&nbsp;If you’re writing a program with a graphical user interface (GUI), you
+might want to use the <code>javax.swing.Timer</code> class
+(added in version 1.2) instead
+of <code>java.util.Timer</code>.
+Another utility class, <code>SwingWorker</code>, helps you with another
+common job: performing a task in a background thread, optionally updating the
+GUI when the task completes. 
+You can find information about both classes
+in 
+<a target="_top" href="../../uiswing/misc/threads.html">How to Use Threads</a><a target="_top" href="../../uiswing/misc/threads.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Essential Java Classes trail)"></a>, a section in the trail
+<a target="_top" href="../../uiswing/index.html">Creating a GUI with JFC/Swing</a><a target="_top" href="../../uiswing/index.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Essential Java Classes trail)"></a>.
+<hr></blockquote>
+
+Here's an example,
+<a target="_blank" href="example-1dot3/Reminder.java"><font color="#bb000f"><code><code>Reminder.java</code></code></font></a><a target="_blank" href="example-1dot3/Reminder.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>, of using a timer to perform a task after a delay. 
+
+<blockquote><pre>
+import java.util.Timer;
+import java.util.TimerTask;
+
+/**
+ * Simple demo that uses java.util.Timer to schedule a task to execute
+ * once 5 seconds have passed.
+ */
+
+public class Reminder {
+    Timer timer;
+
+    public Reminder(int seconds) {
+        <b>timer = new Timer();</b>
+        <b>timer.schedule(new RemindTask(), seconds*1000);</b>
+    }
+
+    <b>class RemindTask extends TimerTask {</b>
+        <b>public void run() {</b>
+            System.out.println("Time's up!");
+            timer.cancel(); //Terminate the timer thread
+        }
+    }
+
+    public static void main(String args[]) {
+        System.out.println("About to schedule task.");
+        new Reminder(5);
+        System.out.println("Task scheduled.");
+    }
+}
+</pre></blockquote>
+
+<p>
+When you run the example, you first see this: 
+</p>
+
+<blockquote><pre>
+Task scheduled.
+</pre></blockquote>
+
+<p>
+Five seconds later, you see this: 
+</p>
+
+<blockquote><pre>
+Time's up!
+</pre></blockquote>
+
+<p>
+This simple program illustrates the basic parts of
+implementing and scheduling a task to be executed by a timer thread.
+</p>
+<ul>
+<li> Implement a custom subclass of <code>TimerTask</code>.
+     The <code>run</code> method contains the
+     code that performs the task.
+     In this example, the subclass is named
+     <code>RemindTask</code>. <br>
+<li> Create a thread by instantiating the
+     <code>Timer</code> class. <br>
+<li> Instantiate the timer task object
+     (<code>new RemindTask()</code>). <br>
+<li> Schedule the timer task for
+     execution. This example uses the
+     <code>schedule</code> method, with
+     the timer task as the first argument
+     and the delay in milliseconds
+     (<code>5000</code>) as the second argument.
+     Another way of scheduling a task is
+     to specify the time when the task should execute.
+     For example, the following code
+     schedules a task for execution
+     at 11:01 p.m.:
+<blockquote><pre>
+//Get the Date corresponding to 11:01:00 pm today.
+Calendar calendar = Calendar.getInstance();
+calendar.set(Calendar.HOUR_OF_DAY, 23);
+calendar.set(Calendar.MINUTE, 1);
+calendar.set(Calendar.SECOND, 0);
+Date time = calendar.getTime();
+
+timer = new Timer();
+timer.schedule(new RemindTask(), time);
+</pre></blockquote>
+
+</blockquote>
+<h3>
+Stopping Timer Threads
+</h3>
+<blockquote>
+By default, a program keeps running as long as its
+timer threads are running.
+You can terminate a timer thread in four ways.
+
+<ul>
+<li> Invoke <code>cancel</code> on the timer.
+     You can do this from anywhere in the program,
+     such as from a timer task’s <code>run</code> method. 
+
+<li> Make the timer’s thread a “daemon”
+     by creating the timer like this:
+     <code>new Timer(true)</code>.
+     If the only threads left in the program are daemon threads,
+     the program exits. 
+
+<li> After all the timer’s scheduled tasks have finished executing,
+     remove all references to the <code>Timer</code> object.
+     Eventually, the timer’s thread will terminate.
+
+<li> Invoke the <code>System.exit</code> method,
+     which makes the entire program (and all its threads) exit. 
+</ul>
+
+The <code>Reminder</code> example uses the first scheme,
+invoking the cancel method from the timer task’s <code>run</code> method. Making the timer thread a daemon wouldn’t
+work, because the program needs to keep running until the timer’s task
+executes. 
+
+<p>
+
+Sometimes, timer threads aren’t the only threads
+that can prevent a program from exiting when expected.
+For example, if you use the AWT at all—even if
+only to make beeps—the AWT automatically creates a nondaemon thread that
+keeps the program alive.
+The following modification of <code>Reminder</code> adds beeping,
+which requires us to also add a call to
+the <code>System.exit</code> method to make the program exit.
+Significant changes are in boldface.
+You can find the source code in
+<a target="_blank" href="example-1dot3/ReminderBeep.java"><font color="#bb000f"><code><code>ReminderBeep.java</code></code></font></a><a target="_blank" href="example-1dot3/ReminderBeep.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>.
+
+<blockquote><pre>
+...
+public class ReminderBeep {
+    ...
+    public ReminderBeep(int seconds) {
+	<b>toolkit = Toolkit.getDefaultToolkit();</b>
+        timer = new Timer();
+        timer.schedule(new RemindTask(), seconds*1000);
+    }
+
+    class RemindTask extends TimerTask {
+        public void run() {
+            System.out.println("Time's up!");
+	    <b>toolkit.beep();</b>
+	    <b>//timer.cancel(); //Not necessary because we call System.exit</b>
+	    <b>System.exit(0);   //Stops the AWT thread (and everything else)</b>
+        }
+    }
+    ...
+}
+</pre></blockquote>
+
+</blockquote>
+<h3>
+Performing a Task Repeatedly
+</h3>
+<blockquote>
+
+Here’s an example of using a timer to perform a task once per second. 
+
+<blockquote><pre>
+public class AnnoyingBeep {
+    Toolkit toolkit;
+    Timer timer;
+
+    public AnnoyingBeep() {
+	toolkit = Toolkit.getDefaultToolkit();
+        timer = new Timer();
+        <b>timer.schedule(new RemindTask(),
+	               0,        //initial delay
+	               1*1000);  //subsequent rate</b>
+    }
+
+    class RemindTask extends TimerTask {
+	int numWarningBeeps = 3;
+
+        public void run() {
+	    if (numWarningBeeps > 0) {
+	        toolkit.beep();
+		System.out.println("Beep!");
+		numWarningBeeps--;
+	    } else {
+	        toolkit.beep(); 
+                System.out.println("Time's up!");
+	        //timer.cancel(); //Not necessary because we call System.exit
+	        System.exit(0);   //Stops the AWT thread (and everything else)
+	    }
+        }
+    }
+    ...
+}
+</pre></blockquote>
+
+You can find the entire program in 
+<a target="_blank" href="example-1dot3/AnnoyingBeep.java"><font color="#bb000f"><code><code>AnnoyingBeep.java</code></code></font></a><a target="_blank" href="example-1dot3/AnnoyingBeep.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>.
+When you execute it,
+you see the following output
+(our comments about timing are shown in italics):
+
+<blockquote><pre>
+Task scheduled.
+Beep!      
+Beep!      <em>//one second after the first beep</em>
+Beep!      <em>//one second after the second beep</em>
+Time's up! <em>//one second after the third beep</em>
+</pre></blockquote>
+
+The <code>AnnoyingBeep</code> program uses
+a three-argument version of the schedule method to specify
+that its task should execute once a second, beginning immediately.
+Here are all the <code>Timer</code>
+methods you can use to schedule repeated executions of tasks:
+
+<ul>
+<li> <code>schedule(TimerTask <em>task</em>,
+                    long <em>delay</em>,
+		    long <em>period</em>)</code>
+<li> <code>schedule(TimerTask <em>task</em>,
+                    Date <em>time</em>,
+		    long <em>period</em>)</code>
+<li> <code>scheduleAtFixedRate(TimerTask <em>task</em>,
+                    long <em>delay</em>,
+		    long <em>period</em>)</code>
+<li> <code>scheduleAtFixedRate(TimerTask <em>task</em>,
+                    Date <em>firstTime</em>,
+		    long <em>period</em>)</code>
+</ul>
+
+<p>
+When scheduling a task for repeated execution, you should use one of the
+<code>schedule</code> methods when smoothness is important and a
+<code>scheduleAtFixedRate</code> method
+when time synchronization is more important.
+For example, the <code>AnnoyingBeep</code> program
+uses the <code>schedule</code> method,
+which means that the annoying beeps will all be at least 1 second apart.
+If one beep is late for any reason,
+all subsequent beeps will be delayed.
+If we decide that the <code>AnnoyingBeep</code> program
+should exit exactly 3 seconds after the first 
+beep—even
+if it means that two beeps might occur close
+together if a beep is delayed for any 
+reason—we
+should use the <code>scheduleAtFixedRate</code> method instead.
+</p>
+
+<h3>
+More Information about Timers
+</h3>
+<p>
+The timer tasks we've shown have been very simple.
+They do almost nothing and refer only to data that either can be
+safely accessed from multiple threads or is private to the timer task.
+As long as your timer task uses only API designed to be
+thread-safe—such as
+the methods in the <code>Timer</code> 
+class—implementing
+timers is relatively straightforward.
+However, if your timer implementation depends on shared resources,
+such as data used by other places in your program,
+you need to be careful.
+You can find out more later in this chapter in the section
+
+<a target="_top" href="multithreaded.html">Synchronizing Threads</a><a target="_top" href="multithreaded.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Essential Java Classes trail)"></a>. 
+</p>
+<p>
+For further information about timers, see
+</p>
+<ul>
+<li> The API documentation for
+
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/Timer.html"><font color="#8800bb"><code>Timer</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/Timer.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> and 
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/TimerTask.html"><font color="#8800bb"><code>TimerTask</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/TimerTask.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>
+<li>
+<a target="_blank" href="http://java.sun.com/products/jfc/tsc/articles/timer/"><font color="#009bbb">Using Timers in Swing Applications</font></a><a target="_blank" href="http://java.sun.com/products/jfc/tsc/articles/timer/"><img src="../../images/otherIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (outside of the tutorial)"></a>, an article in the online magazine
+<a target="_blank" href="http://java.sun.com/products/jfc/tsc/"><font color="#009bbb"><em>The Swing Connection</em></font></a><a target="_blank" href="http://java.sun.com/products/jfc/tsc/"><img src="../../images/otherIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (outside of the tutorial)"></a>.
+
+<li> The May 30, 2000, edition of the <em>Java Developer Connection</em>
+
+<a target="_blank" href="http://developer.java.sun.com/developer/TechTips/"><font color="#009bbb">"Tech Tips"</font></a><a target="_blank" href="http://developer.java.sun.com/developer/TechTips/"><img src="../../images/otherIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (outside of the tutorial)"></a>.
+
+<li> For information about GUI-specific timer facilities, 
+<a target="_top" href="../../uiswing/misc/threads.html">How to Use Threads</a><a target="_top" href="../../uiswing/misc/threads.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Essential Java Classes trail)"></a>, a section in the trail
+<a target="_top" href="../../uiswing/index.html">Creating a GUI with JFC/Swing</a><a target="_top" href="../../uiswing/index.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Essential Java Classes trail)"></a>.
+
+</ul>
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="definition.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#threads" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="customizing.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

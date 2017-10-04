@@ -1,0 +1,199 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Synchronizing and Coordinating Threads</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="UIdiagrams.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#bingo" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="synchronized.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Putting It All Together
+<br>
+<b>Lesson</b>: BINGO!
+</font>
+
+<h2>
+Synchronizing and Coordinating Threads
+</h2>
+<blockquote>
+The following diagram shows the threads in both the
+Game and Player applications.
+<p>
+[PENDING: figure here]
+<p>
+
+As you can see from the diagram,
+the Player program uses these threads:
+<ul>
+
+<li> The <code>Main</code> thread. The Java runtime system automatically
+     creates this thread. The <code>main</code> method for the Player
+     application is implemented in the
+     
+<a target="_blank" href="example-swing/bingo/player/Player.java"><font color="#bb000f"><code>Player</code></font></a><a target="_blank" href="example-swing/bingo/player/Player.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a> class
+     and runs in the <code>Main</code> thread. The <code>main</code> method
+     creates all of the objects necessary for the program to run,
+     initializes them, and starts whatever other threads are necessary
+     at this juncture. This thread does not need to be synchronized or
+     coordinated with any other threads: it does its job and then stops.
+
+<li> The Player has two listener threads that listen for status information broadcast
+     by the Game: <code>BallListenerThread</code> and <code>GameListenerThread</code>.
+     These threads run independently of all other threads and their activities need
+     not be synchronized or coordinated with any others.
+
+<li> The AWT thread is created automatically by the JDK runtime.
+     The drawing and event handling activities of the AWT thread
+     must be coordinated with the activities of other threads in the Player
+     application. [PENDING: explain why here or somewhere else?]
+
+</ul>
+
+The Game program uses these threads:
+<ul>
+<li> The Game application has a <code>Main</code> thread just like the Player
+     application. The <code>main</code> method for the Game
+     application is implemented in the
+     
+<a target="_blank" href="example-swing/bingo/game/BINGO.java"><font color="#bb000f"><code>BINGO</code></font></a><a target="_blank" href="example-swing/bingo/game/BINGO.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a> class
+     and runs in the <code>Main</code> thread.
+     As with the <code>Main</code> thread for the Player application,
+     this thread does not need to be synchronized or
+     coordinated with any other threads: it does its job and then stops.
+
+<li> The <code>GamesThread</code> is created by the <code>ControlPane</code>
+     when the user pushes the <strong>Let the Games Begin</strong> button.
+     This thread runs a continuous battery of BINGO games, one after the
+     other. Each game begins with a waiting period, then a registration
+     period, then the game. The activities of this thread must be
+     coordinated with the activities of other threads in the program.
+
+<li> For each game, <code>GamesThread</code> creates another thread,
+     <code>BallAnnouncer</code>, that announces the balls for the current game.
+     The activities of this thread must be
+     coordinated with the activities of other threads in the program.
+
+<li> The Game program also has three threads, one for each of its status panes:
+     <code>BallListenerThread</code>, <code>PlayerListenerThread</code>, and
+     <code>GameListenerThread</code>.
+     These threads listen for information broadcast from the game
+     and update their status panes with that information. These threads
+     run independently of all other threads and their activities need
+     not be synchronized or coordinated with any other threads in the game.
+
+<li> The AWT thread is created automatically by the JDK runtime and
+     doesn't affect thread synchronization in the Game application.
+
+</ul>
+
+</blockquote>
+<h3><a href="synchronized.html">Using Synchronized Code Segments</a>
+</h3>
+<blockquote>
+As the diagram shows, different threads
+access the same objects or data. For example, 
+when two Players attempt to register simultaneously,
+the two Player threads (running in different VMs) both
+modify the <code>Roster</code> object in the
+Game application by adding a player to the roster.
+In these cases, the threads must be synchronized so
+that the data accesses are guaranteed to be thread-safe.
+This is achieved through <code>synchronized</code> blocks and
+<code>synchronized</code> methods in the Game application.
+</blockquote>
+
+<h3><a href="playerThreads.html">Synchronizing Threads in the Player</a>
+</h3>
+<blockquote>
+The Player application uses a customized
+EventQueue that handles thread synchronization automatically.
+</blockquote>
+
+<h3><a href="gameThreads.html">Coordinating Threads in the Game</a>
+</h3>
+<blockquote>
+In the Game application, some threads must coordinate their activities.
+For example, the <code>GamesThread</code>
+must wait until the current game is over (a condition that is
+set by another thread) before it can begin another game.
+In such a case, the threads coordinate with one another
+using <code>wait</code> and <code>notifyAll</code>.
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="UIdiagrams.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#bingo" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="synchronized.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

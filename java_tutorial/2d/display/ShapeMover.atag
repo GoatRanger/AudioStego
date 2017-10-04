@@ -1,0 +1,5 @@
+<APPLET CODE="ShapeMover.class"
+        codebase="example-1dot2/"
+        archive="shapemover.jar"
+	WIDTH=550 HEIGHT=250>
+</APPLET>

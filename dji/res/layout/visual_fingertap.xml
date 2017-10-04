@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.publics.DJIUI.DJILinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:gravity="left|right|center_horizontal|fill_horizontal|center|fill|start|end" android:orientation="vertical" android:id="@+id/visual_fingertap" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content">
+    <dji.publics.DJIUI.DJIRelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <dji.publics.DJIUI.DJIImageView android:id="@+id/visual_fingertap_direction" android:background="@r$drawable/visual_point_dir" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true" android:contentDescription="@string/app_name" />
+        <dji.publics.DJIUI.DJIImageView android:id="@+id/visual_fingertap_status" android:background="@r$drawable/visual_point_now" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true" android:contentDescription="@string/app_name" />
+    </dji.publics.DJIUI.DJIRelativeLayout>
+    <dji.publics.DJIUI.DJITextView android:textSize="@dimen/rp" android:textColor="@color/om" android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@+id/visual_fingertap_desc_tv" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/visual_parallel_now" android:shadowColor="@color/a_" android:shadowDx="3.0" android:shadowDy="3.0" android:shadowRadius="3.0" />
+</dji.publics.DJIUI.DJILinearLayout>

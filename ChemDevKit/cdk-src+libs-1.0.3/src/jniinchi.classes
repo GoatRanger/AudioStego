@@ -1,0 +1,4 @@
+org/openscience/cdk/test/inchi/InChIGeneratorTest*.class
+org/openscience/cdk/inchi/InChIGeneratorFactory*.class
+org/openscience/cdk/inchi/InChIToStructure*.class
+org/openscience/cdk/inchi/InChIGenerator*.class

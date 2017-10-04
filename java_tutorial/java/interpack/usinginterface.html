@@ -1,0 +1,153 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Implementing an Interface</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="createinterface.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#interpack" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="interfaceAsType.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Learning the Java Language
+<br>
+<b>Lesson</b>: Interfaces and Packages
+</font>
+
+<h2>
+Implementing an Interface
+</h2>
+<blockquote>
+<P>An interface defines a protocol of behavior. A class that implements 
+an interface adheres to the protocol defined by that interface. 
+To declare a class that implements an interface, include an <CODE>implements</CODE> 
+clause in the class declaration. Your class can implement more 
+than one interface (the Java platform supports multiple inheritance 
+for interfaces), so the <CODE>implements</CODE> keyword is followed  
+by a comma-separated list of the interfaces implemented by the 
+class. 
+</P>
+<blockquote><hr><strong>By Convention:</strong>&nbsp; The <code>implements</code>
+clause follows the <code>extends</code> clause, if it exists. 
+<hr></blockquote>
+<p>
+
+<P>Here's a partial example of an applet that implements the <CODE>StockWatcher</CODE>
+interface: <BR>
+</P>
+
+<blockquote><pre>
+public class StockApplet extends Applet <B>implements StockWatcher</B> {
+    ...
+
+    public void valueChanged(String tickerSymbol, double newValue) {
+        if (tickerSymbol.equals(sunTicker)) {
+            ...
+        } else if (tickerSymbol.equals(oracleTicker)) {
+            ...
+        } else if (tickerSymbol.equals(ciscoTicker)) {
+            ...
+        }
+    }
+}
+</pre></blockquote>
+
+Note that this class refers to each constant defined in 
+<CODE>StockWatcher</CODE>,<CODE>sunTicker</CODE>, 
+<CODE>oracle-Ticker</CODE>, simple name. Classes that 
+implement an interface inherit the constants defined within that 
+interface. So those classes can use simple names to refer to the 
+constants. Any other class can use an interfaces constants with 
+a qualified name, like this: <BR>
+</P>
+
+<blockquote><pre>
+StockWatcher.sunTicker
+</pre></blockquote>
+
+When a class implements an interface, it is essentially signing 
+a contract. Either the class must implement all the methods declared 
+in the interface and its superinterfaces, or the class must be 
+declared <CODE>abstract</CODE>. The method signature--the name and 
+the number and type of arguments in the class--must match the method 
+signature as it appears in the interface. The <CODE>StockApplet</CODE> 
+implements the <CODE>StockWatcher</CODE> interface, so the applet 
+provides an implementation for the <CODE>valueChanged</CODE> method. 
+The method ostensibly updates the applets display or otherwise 
+uses this information. 
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="createinterface.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#interpack" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="interfaceAsType.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

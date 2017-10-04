@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.publics.DJIUI.DJILinearLayout xmlns:android="http://schemas.android.com/apk/res-auto" phantom:orientation="vertical" phantom:background="@drawable/stroke_dlg_dark_bg" phantom:paddingBottom="0dp" phantom:layout_width="match_parent" phantom:layout_height="wrap_content">
+    <dji.publics.DJIUI.DJIRelativeLayout phantom:layout_gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" phantom:layout_width="wrap_content" phantom:layout_height="wrap_content" phantom:layout_marginTop="@dimen/n2">
+        <dji.publics.DJIUI.DJIImageView phantom:id="@id/awt" phantom:background="@r$drawable/upgrade_progress_bkgnd" phantom:padding="24dp" phantom:layout_width="wrap_content" phantom:layout_height="wrap_content" phantom:layout_centerInParent="true" phantom:contentDescription="@string/app_name" />
+        <ProgressBar phantom:layout_width="wrap_content" phantom:layout_height="wrap_content" phantom:indeterminateDrawable="@r$drawable/update_progressing_anim" phantom:layout_centerInParent="true" />
+    </dji.publics.DJIUI.DJIRelativeLayout>
+    <dji.publics.DJIUI.DJITextView phantom:textSize="@dimen/rk" phantom:id="@id/awu" phantom:layout_marginTop="@dimen/n2" phantom:text="Camera" phantom:djiTextFace="0" style="@style/fpv_dialog_content" />
+    <dji.publics.DJIUI.DJITextView phantom:textSize="@dimen/rk" phantom:textColor="@color/dt" phantom:id="@+id/img_dlg_degree" phantom:text="50%" phantom:djiTextFace="0" style="@style/fpv_dialog_content" />
+    <ProgressBar phantom:layout_gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:id="@+id/img_dlg_bar" phantom:padding="0dp" phantom:visibility="visible" phantom:layout_width="match_parent" phantom:layout_height="wrap_content" phantom:layout_marginLeft="10dp" phantom:layout_marginRight="10dp" phantom:layout_marginBottom="30dp" phantom:maxHeight="2dp" phantom:max="100" phantom:progress="0" phantom:indeterminate="false" phantom:progressDrawable="@r$drawable/fpv_upgrade_progress" phantom:minHeight="2dp" style="?unknown_attr_ref: 1010078" />
+</dji.publics.DJIUI.DJILinearLayout>

@@ -1,0 +1,138 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Making Extensions Secure</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="../basics/index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#security" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="policy.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+
+<br>
+<font size="-1">
+<b>Trail</b>: The Extension Mechanism
+</font>
+
+<h2>
+Lesson: Making Extensions Secure
+</h2>
+<blockquote>
+Now that you've seen how to use extensions, 
+you may be wondering what security privileges extensions have. 
+If you're developing an extension that does file I/O, for example, 
+you'll need to know how your 
+extension is granted the appropriate permissions for reading 
+and writing files.  Conversely, if you're thinking about using an extension 
+developed by someone else, you'll want to understand clearly what 
+security privileges the extension has and how to change those 
+privileges should you desire to do so.
+<p>
+This lesson shows you how the 
+Java<font size="-2"><sup>TM</sup></font> platform's security architecture 
+treats extensions. You'll see how to tell what privileges are granted 
+to extension software, and you'll learn how to modify extension 
+privileges by following some simple steps. In addition, you'll learn 
+how to seal packages within your extensions to restrict access to 
+specified parts of your code.
+<p>
+This lesson has two sections:
+</blockquote>
+<h3><a href="policy.html">Setting Privileges for Extensions</a></h3>
+<blockquote>
+This section contains some examples that show you what conditions 
+must be met for extensions to be granted permissions to perform 
+security-sensitive operations.
+</blockquote>
+
+<h3><a href="sealing.html">Sealing Packages in Extensions</a></h3>
+<blockquote>
+You can optionally seal packages in extension JAR files as an additional 
+security measure. If a package is sealed, it means that all classes 
+defined in that package must originate from a single JAR file. This 
+section shows you how to modify an extension's manifest to seal 
+extension packages.
+</blockquote>
+
+<p>
+<h3>Additional Documentation</h3>
+<blockquote>
+You'll find links and references to relevant security documentation at 
+appropriate places throughout this lesson. 
+<p>
+For complete information on security, you can refer to the following:
+<ul>
+<li>the <a href="../../security1.2/index.html">Security in JDK 1.2</a> trail in this tutorial.
+<li>the security section of the 
+
+<a target="_blank" href="http://java.sun.com/products/jdk/1.2/docs/guide/security"><font color="#009bbb">JDK<font size="-2"><sup>TM</sup></font> documentation</font></a><a target="_blank" href="http://java.sun.com/products/jdk/1.2/docs/guide/security"><img src="../../images/otherIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (outside of the tutorial)"></a> .
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="../basics/index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#security" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="policy.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="33"
+   name=""
+   committed-date="2005-02-01T06:11:53.421875Z"
+   url="svn://192.168.2.2/ImageProcessor/src/or/doc/drasys/or/linear"
+   last-author="Karl"
+   kind="dir"
+   uuid="0daf4267-3229-f84b-9084-f3c94b025f38"
+   revision="55"/>
+<entry
+   name="blas"
+   kind="dir"/>
+<entry
+   committed-rev="33"
+   name="WS_FTP.LOG"
+   text-time="2005-03-02T06:25:32.218750Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="68409b21ff4caa76f6fe96bfd41ee130"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:31.656250Z"/>
+<entry
+   committed-rev="33"
+   name="package-frame.html"
+   text-time="2005-03-02T06:25:32.234375Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="d846b83e2b1b7bf28affdc6b6738320f"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:31.656250Z"/>
+<entry
+   committed-rev="33"
+   name="SingularException.html"
+   text-time="2005-03-02T06:25:32.234375Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="bdb0c2f90b7df0b473cc646d872ad373"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:31.671875Z"/>
+<entry
+   committed-rev="33"
+   name="LinearError.html"
+   text-time="2005-03-02T06:25:32.250000Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="51ea843395a89820f080d4d20997cd4e"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:31.687500Z"/>
+<entry
+   committed-rev="33"
+   name="package-summary.html"
+   text-time="2005-03-02T06:25:32.265625Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="5b2c845e29768f2c7877b64ae3eef649"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:31.703125Z"/>
+<entry
+   committed-rev="33"
+   name="package-tree.html"
+   text-time="2005-03-02T06:25:32.265625Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="640eb361e95c295f43ccea2ecd8c6c50"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:31.703125Z"/>
+<entry
+   committed-rev="33"
+   name="LinearException.html"
+   text-time="2005-03-02T06:25:32.281250Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="45deae418c9b94a173c6ab3b0cea6d6c"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:31.718750Z"/>
+<entry
+   name="algebra"
+   kind="dir"/>
+</wc-entries>

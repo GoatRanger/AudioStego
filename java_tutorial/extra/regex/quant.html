@@ -1,0 +1,461 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Quantifiers</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="pre_char_classes.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#regex" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="groups.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Bonus
+<br>
+<b>Lesson</b>: Regular Expressions
+</font>
+
+<h2>
+Quantifiers
+</h2>
+<blockquote>
+<!--Quantifiers-->
+
+<I>Quantifiers</I> allow you to specify the number of 
+ occurrences to match against. For convenience, the 
+three sections of the API specification 
+ describing greedy, relucant, and possessive quantifiers are presented 
+ below. 
+ At first glance it may appear that 
+the quantifiers <CODE>X?</code>, <code>X??</code> and <code>X?+</CODE> do exactly the same thing, since 
+they all promise to match "<code>X</code>, once or not at all". There are subtle implementation differences which will be explained near the end of this section. 
+
+<P>
+
+
+<TABLE WIDTH="546" BORDER="1" CELLSPACING="2" CELLPADDING="0"
+HEIGHT="208"><TR><TD COLSPAN="3" BGCOLOR="#dedeef">
+    <P><CENTER>&nbsp;<B>Quantifiers</B></CENTER></TD><TD WIDTH="48%"
+ROWSPAN="2" BGCOLOR="#dedeef">
+    <B>&nbsp;Meaning</B></TD></TR><TR><TD WIDTH="16%" HEIGHT="23"
+BGCOLOR="#ffe1e1">
+    &nbsp;<B>Greedy</B></TD><TD WIDTH="16%" HEIGHT="23" BGCOLOR="#e9fceb">
+    &nbsp;<B>Reluctant</B></TD><TD
+WIDTH="16%" HEIGHT="23" BGCOLOR="#ffffdb">
+    &nbsp;<B>Possessive</B></TD></TR><TR><TD WIDTH="16%"
+HEIGHT="23" BGCOLOR="#ffe1e1">
+    &nbsp;<CODE>X?</CODE></TD><TD WIDTH="16%" BGCOLOR="#e9fceb">
+    &nbsp;<CODE>X??</CODE></TD><TD
+WIDTH="16%" BGCOLOR="#ffffdb">
+    &nbsp;<CODE>X?+</CODE></TD><TD WIDTH="48%" HEIGHT="23"
+BGCOLOR="#dedeef">
+    &nbsp;<CODE><i>X</i></CODE>, once or not at all</TD></TR><TR><TD WIDTH="16%" HEIGHT="23" BGCOLOR="#ffe1e1">
+    &nbsp;<CODE>X*</CODE></TD><TD
+WIDTH="18%" BGCOLOR="#e9fceb">
+    &nbsp;<CODE>X*?</CODE></TD><TD WIDTH="16%" BGCOLOR="#ffffdb">
+    &nbsp;<CODE>X*+</CODE></TD><TD
+WIDTH="48%" HEIGHT="23" BGCOLOR="#dedeef">
+    &nbsp;<CODE><I>X</I></CODE>, zero or more times</TD></TR><TR><TD WIDTH="16%"
+HEIGHT="23" BGCOLOR="#ffe1e1">
+    &nbsp;<CODE>X+</CODE></TD><TD WIDTH="18%" BGCOLOR="#e9fceb">
+    &nbsp;<CODE>X+?</CODE></TD><TD
+WIDTH="16%" BGCOLOR="#ffffdb">
+    &nbsp;<CODE>X++</CODE></TD><TD WIDTH="48%" HEIGHT="23"
+BGCOLOR="#dedeef">
+    &nbsp;<CODE><i>X</I></CODE>, one or more times</TD></TR><TR><TD WIDTH="16%" HEIGHT="24" BGCOLOR="#ffe1e1">
+    &nbsp;<CODE>X{n} </CODE></TD><TD
+WIDTH="16%" BGCOLOR="#e9fceb">
+    &nbsp;<CODE>X{n}? </CODE></TD><TD WIDTH="18%" BGCOLOR="#ffffdb">
+    &nbsp;<CODE>X{n}+ </CODE></TD><TD
+WIDTH="48%" HEIGHT="24" BGCOLOR="#dedeef">
+    &nbsp;<CODE><i>X</I></CODE>, exactly <I><CODE>n</CODE></I> times</TD></TR><TR><TD WIDTH="16%"
+HEIGHT="24" BGCOLOR="#ffe1e1">
+    &nbsp;<CODE>X{n,}</CODE></TD><TD WIDTH="18%" BGCOLOR="#e9fceb">
+    &nbsp;<CODE>X{n,}?</CODE></TD><TD
+WIDTH="16%" BGCOLOR="#ffffdb">
+    &nbsp;<CODE>X{n,}+</CODE></TD><TD WIDTH="48%" HEIGHT="24"
+BGCOLOR="#dedeef">
+    &nbsp;<CODE><i>X</I></CODE>, at least <I><CODE>n</CODE></I> times</TD></TR><TR><TD WIDTH="16%" HEIGHT="24" BGCOLOR="#ffe1e1">
+    &nbsp;<CODE>X{n,m}</CODE></TD><TD
+WIDTH="16%" BGCOLOR="#e9fceb">
+    &nbsp;<CODE>X{n,m}?</CODE></TD><TD WIDTH="18%" BGCOLOR="#ffffdb">
+    &nbsp;<CODE>X{n,m}+</CODE></TD><TD
+WIDTH="48%" HEIGHT="24" BGCOLOR="#dedeef">
+    &nbsp;<CODE><i>X</I></CODE>, at least <I><CODE>n</CODE></I> but not
+    more than <I><CODE>m</CODE></I> times</TD></TR></TABLE>
+ 
+<P>
+Let's start our look at greedy quantifiers by creating three 
+different regular expressions: the letter "a" followed by either 
+<CODE>?</code>, <code>*</CODE>, or <CODE>+</CODE>. 
+Let's modify the <code>regex.txt</code> input 
+file for the test harness, 
+<a target="_blank" href="example-1dot4/RegexTestHarness.java"><font color="#bb000f"><code>RegexTestHarness</code></font></a><a target="_blank" href="example-1dot4/RegexTestHarness.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a> and see what happens when these 
+expressions are tested against an empty input 
+string <code>""</code>: 
+
+<blockquote><pre> 
+Current REGEX is: a?  // looking for the letter "a", once or not at all 
+Current INPUT is: 
+I found the text "" starting at index 0 and ending at index 0.
+
+Current REGEX is: a*  // looking for the letter "a", zero or more times
+Current INPUT is: 
+I found the text "" starting at index 0 and ending at index 0.
+
+Current REGEX is: a+  // looking for the letter "a", one or more times
+Current INPUT is: 
+No match found.
+</pre></blockquote> 
+
+<H3>Zero-Length Matches</H3>
+In the above example, the match is successful in the first two cases, because 
+the expressions <CODE>a?</CODE> and <CODE>a*</CODE> both allow for zero occurances of the letter <code>a</code>. 
+You'll also notice that the start and end indices are both zero, which is unlike any of the examples we've seen so far. 
+The empty input string <code>""</code> has no length, so 
+the test simply matches nothing at index 0.
+Matches of this sort are known as a <I>zero-length matches</I>.
+A zero-length match can occur in a several cases: in an empty input string, 
+at the beginning of an input string, after the last character of an input string, or in between 
+any two characters of an input string. 
+Zero-length matches are easily identifiable because they 
+always start and end at the same index position. 
+
+<P>
+Let's explore zero-length matches with a few more examples. 
+Change the input string to a single letter "a" and you'll notice something interesting:
+
+<blockquote><pre> 
+Current REGEX is: a?
+Current INPUT is: a
+I found the text "a" starting at index 0 and ending at index 1.
+I found the text "" starting at index 1 and ending at index 1.
+
+Current REGEX is: a*
+Current INPUT is: a
+I found the text "a" starting at index 0 and ending at index 1.
+I found the text "" starting at index 1 and ending at index 1.
+
+Current REGEX is: a+
+Current INPUT is: a
+I found the text "a" starting at index 0 and ending at index 1.
+</pre></blockquote> 
+
+All three quantifiers found the letter "a", but the first two 
+also found a zero-length match at index 1; that is, after the 
+last character of the input string.
+Remember, the matcher sees the character "a" as sitting in the cell between index 0 and index 1, and our test 
+harness loops until it can no longer find a match. Depending on the quantifier used, the presence of 
+"nothing" at the index after the last character may or may not trigger a match. 
+
+<P>
+Now change the input string to the letter "a" five times in a row and you'll get the following: 
+
+<blockquote><pre> 
+Current REGEX is: a?
+Current INPUT is: aaaaa
+I found the text "a" starting at index 0 and ending at index 1.
+I found the text "a" starting at index 1 and ending at index 2.
+I found the text "a" starting at index 2 and ending at index 3.
+I found the text "a" starting at index 3 and ending at index 4.
+I found the text "a" starting at index 4 and ending at index 5.
+I found the text "" starting at index 5 and ending at index 5.
+
+Current REGEX is: a*
+Current INPUT is: aaaaa
+I found the text "aaaaa" starting at index 0 and ending at index 5.
+I found the text "" starting at index 5 and ending at index 5.
+
+Current REGEX is: a+
+Current INPUT is: aaaaa
+I found the text "aaaaa" starting at index 0 and ending at index 5.
+</pre></blockquote> 
+
+The expression <CODE>a?</CODE> 
+finds an individual match for each character, since it matches when "a" appears zero or one times.
+The expression <CODE>a*</CODE> finds two separate matches: all of the letter a's in the first match, then the zero-length match 
+after the last character at index 5. 
+And finally, <CODE>a+</CODE> matches 
+all occurances of the letter a, ignoring the presense of "nothing" at the last index.
+ 
+<P>
+At this point, you might be wondering what the results would be if the first two quantifiers
+ encounter a letter 
+other than "a". For example, what happens if it encounters the letter "b", 
+as in "ababaaaab"?
+<P>
+ Let's find out:
+
+<blockquote><pre> 
+Current REGEX is: a?
+Current INPUT is: ababaaaab
+I found the text "a" starting at index 0 and ending at index 1.
+I found the text "" starting at index 1 and ending at index 1.
+I found the text "a" starting at index 2 and ending at index 3.
+I found the text "" starting at index 3 and ending at index 3.
+I found the text "a" starting at index 4 and ending at index 5.
+I found the text "a" starting at index 5 and ending at index 6.
+I found the text "a" starting at index 6 and ending at index 7.
+I found the text "a" starting at index 7 and ending at index 8.
+I found the text "" starting at index 8 and ending at index 8.
+I found the text "" starting at index 9 and ending at index 9.
+
+Current REGEX is: a*
+Current INPUT is: ababaaaab
+I found the text "a" starting at index 0 and ending at index 1.
+I found the text "" starting at index 1 and ending at index 1.
+I found the text "a" starting at index 2 and ending at index 3.
+I found the text "" starting at index 3 and ending at index 3.
+I found the text "aaaa" starting at index 4 and ending at index 8.
+I found the text "" starting at index 8 and ending at index 8.
+I found the text "" starting at index 9 and ending at index 9.
+
+Current REGEX is: a+
+Current INPUT is: ababaaaab
+I found the text "a" starting at index 0 and ending at index 1.
+I found the text "a" starting at index 2 and ending at index 3.
+I found the text "aaaa" starting at index 4 and ending at index 8.
+</pre></blockquote> 
+
+Even though the letter "b" appears in cells 1, 3, and 8, the output reports a  
+zero-length match at those locations. The regular expression <CODE>a?</CODE> is not 
+specifically looking for the letter "b"; it's merely looking for the presence (or lack thereof) of the letter "a". 
+If the quantifier allows for a match of "a" zero times, anything in the input string that's not an "a"
+will show up as a zero-length match. The remaining a's are matched according 
+to the rules discussed in the previous examples. 
+
+
+<P>
+To match a pattern exactly <I>n</I> number of times, simply
+specify the number inside a set of braces:
+
+<blockquote><pre> 
+Current REGEX is: a{3}
+Current INPUT is: aa
+No match found.
+
+Current REGEX is: a{3}
+Current INPUT is: aaa
+I found the text "aaa" starting at index 0 and ending at index 3.
+
+Current REGEX is: a{3}
+Current INPUT is: aaaa
+I found the text "aaa" starting at index 0 and ending at index 3.
+</pre></blockquote> 
+
+Here, the regular expression <CODE>a{3}</CODE> is searching for three 
+occurences of the letter "a" in a row. The first test fails 
+because the input string does not
+have enough a's to match against. The third test contains exactly 3 a's in the input string, which triggers a match. 
+The fourth example also triggers a match because there are exactly 3 a's at the beginning of the input string. 
+Anything following that is irrelevant to the first match. If the pattern should appear 
+again after that point, it would trigger subsequent matches:
+
+<blockquote><pre> 
+Current REGEX is: a{3}
+Current INPUT is: aaaaaaaaa
+I found the text "aaa" starting at index 0 and ending at index 3.
+I found the text "aaa" starting at index 3 and ending at index 6.
+I found the text "aaa" starting at index 6 and ending at index 9.
+</pre></blockquote> 
+
+To require a pattern to appear at least <I>n</I> times, add a comma after the number: 
+
+<blockquote><pre> 
+Current REGEX is: a{3,}
+Current INPUT is: aaaaaaaaa
+I found the text "aaaaaaaaa" starting at index 0 and ending at index 9.
+</pre></blockquote> 
+With the same input string, this test finds only one match, because
+the 9 a's in a row satisfy the need for "at least" 3 a's.
+<P>
+Finally, to specify an upper limit on the number of occurances, add a second number inside the braces:
+<blockquote><pre> 
+Current REGEX is: a{3,6} // find at least 3 (but no more than 6) a's in a row
+Current INPUT is: aaaaaaaaa
+I found the text "aaaaaa" starting at index 0 and ending at index 6.
+I found the text "aaa" starting at index 6 and ending at index 9.
+</pre></blockquote> 
+Here the first match is forced to stop at the upper limit of 6 characters. The second match includes whatever is left over, 
+which happens to be three a's--the mimimum number of characters allowed for this match. If the input string were one character shorter, 
+there would not be a second match since only two a's would remain.
+
+<H3>Capturing Groups and Character Classes with Quantifiers</H3>
+Until now, we've only tested quantifiers on input strings containing one character. In fact,  
+quantifiers can only attach to one character at a time, so the regular expression "abc+" would mean
+"a, followed by b, followed by c one or more 
+times". It would not mean "abc" one or more times. However, quantifiers can also 
+attach to 
+<a target="_top" href="char_classes.html">Character Classes</a><a target="_top" href="char_classes.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Bonus trail)"></a> and 
+<a target="_top" href="groups.html">Capturing Groups</a><a target="_top" href="groups.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Bonus trail)"></a>, such as <code>[abc]+</code> (a or b or c, one 
+or more times) or <code>(abc)+</code> (the group "abc", one or more times). 
+
+<P>
+Let's illustrate by specifing the group <CODE>(dog)</CODE>, three times in a row.
+
+<blockquote><pre> 
+Current REGEX is: (dog){3}
+Current INPUT is: dogdogdogdogdogdog
+I found the text "dogdogdog" starting at index 0 and ending at index 9.
+I found the text "dogdogdog" starting at index 9 and ending at index 18.
+
+Current REGEX is: dog{3}
+Current INPUT is: dogdogdogdogdogdog
+No match found.
+</pre></blockquote>
+ 
+Here the first example
+finds three matches, since the quantifier applies to the entire capturing group. Remove the
+parenthesis, however, and the match fails because the quantifier <CODE>{3}</CODE> now applies only to the letter "g".
+<P>
+Similarly, we can apply a quantifier to an entire character class:
+
+<blockquote><pre>
+Current REGEX is: [abc]{3}
+Current INPUT is: abccabaaaccbbbc
+I found the text "abc" starting at index 0 and ending at index 3.
+I found the text "cab" starting at index 3 and ending at index 6.
+I found the text "aaa" starting at index 6 and ending at index 9.
+I found the text "ccb" starting at index 9 and ending at index 12.
+I found the text "bbc" starting at index 12 and ending at index 15.
+
+Current REGEX is: abc{3}
+Current INPUT is: abccabaaaccbbbc
+No match found.
+</pre></blockquote> 
+
+Here the quantifier <CODE>{3}</CODE> applies to the entire character class
+in the first example, but only to the letter "c" in the second. 
+
+<A NAME="difs"></A>
+<H3>Differences Among Greedy, Reluctant, and Possessive Quantifiers</H3>
+As mentioned earlier, 
+there are subtle differences among greedy, reluctant, and 
+possessive quantifiers.
+<P>
+Greedy quantifiers are considered "greedy" because they force the matcher to read in, or <I>eat</I>, the entire 
+input string prior to attempting the first match. 
+If the first match attempt (the entire input string) fails, the matcher backs off the input string by one character
+and tries again, repeating the process until a match is found or there are no more characters left to back off from.    
+Depending on the quantifier used in the expression, the last thing it will try matching against is 1 or 0 characters.
+
+<P>
+The reluctant quantifiers, however, take the opposite approach: they start at the beginning of the input string, then reluctantly eat 
+one character at a time looking for a match. The last thing they try is the entire input string.
+<P>
+Finally, the possessive quantifiers always eat the entire input string, trying once (and only once) for a match. 
+Unlike the greedy quantifiers, possessive quantifiers never back off, even if doing so would allow 
+the overall match to succeed.
+<P>
+To illustrate, consider the input string <code>xfooxxxxxxfoo</code>.
+
+<blockquote><pre> 
+Current REGEX is: .*foo  // greedy quantifier
+Current INPUT is: xfooxxxxxxfoo
+I found the text "xfooxxxxxxfoo" starting at index 0 and ending at index 13.
+
+Current REGEX is: .*?foo  // reluctant quantifier
+Current INPUT is: xfooxxxxxxfoo
+I found the text "xfoo" starting at index 0 and ending at index 4.
+I found the text "xxxxxxfoo" starting at index 4 and ending at index 13.
+
+Current REGEX is: .*+foo // possessive quantifier
+Current INPUT is: xfooxxxxxxfoo
+No match found.
+</pre></blockquote> 
+
+The first example uses the greedy quantifier <CODE>.*</CODE> to find "anything", zero or more times, followed by the letters <code>"f" "o" "o"</code>.  
+Because the quantifier is greedy, the <CODE>.*</CODE> portion of the expression first eats the entire input string.
+ At this point, the overall 
+expression cannot succeed, because the last three letters 
+(<code>"f" "o" "o"</code>) have already been consumed. 
+So the matcher slowly backs off one letter at a time until the rightmost occurrence of "foo" has been regurgitated, at which point the 
+match succeeds and the search ends.
+<P>
+The second example, however, is reluctant, so it starts by first consuming "nothing". Because "foo" doesn't appear at the beginning of the 
+string, it's forced to swallow the first letter (an "x"), which triggers the first match at  0 and 4. Our test harness
+continues the process until the input string is exhausted. It finds another match at 4 and 13. 
+
+<P>
+The third example fails to find a match because the quantifier is possessive. 
+In this case, the entire 
+input string is consumed by <CODE>.*+</CODE>, leaving nothing left over to satisfy the "foo" at the end of the expression.
+Use a possessive quantifier for situations where you want to seize all of something without ever backing off; it will outperform the equivalent
+greedy quantifier in cases where the match is not immediately found. 
+
+<P>
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="pre_char_classes.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#regex" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="groups.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

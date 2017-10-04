@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.pilot.fpv.view.DJIGenFirstStageView xmlns:android="http://schemas.android.com/apk/res-auto" phantom:layout_width="match_parent" phantom:layout_height="match_parent">
+    <dji.pilot.publics.widget.DJITitleScrollView phantom:id="@+id/fpv_gensetting_sv" phantom:scrollbars="UNKNOWN_DATA_0x0" phantom:fadingEdgeLength="0dp" phantom:layout_width="match_parent" phantom:layout_height="match_parent" phantom:overScrollMode="ifContentScrolls">
+        <dji.publics.DJIUI.DJILinearLayout phantom:orientation="vertical" phantom:layout_width="match_parent" phantom:layout_height="wrap_content" phantom:baselineAligned="false">
+            <dji.publics.DJIUI.DJITextView phantom:textSize="@dimen/rq" phantom:textColor="@color/om" phantom:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" phantom:id="@+id/inner_tool_camera_water_tv" phantom:text="@string/inner_tool_camera_water" style="@style/FpvGenTopItemLy" />
+            <dji.publics.DJIUI.DJIImageView style="@style/FpvGenSettingDivider" />
+            <dji.publics.DJIUI.DJITextView phantom:textSize="@dimen/rq" phantom:textColor="@color/om" phantom:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" phantom:id="@+id/inner_tool_active_offline_tv" phantom:text="@string/inner_tool_active_offline" style="@style/FpvGenMiddleItemLy" />
+            <dji.publics.DJIUI.DJIImageView style="@style/FpvGenSettingDivider" />
+            <dji.publics.DJIUI.DJITextView phantom:textSize="@dimen/rq" phantom:textColor="@color/om" phantom:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" phantom:id="@+id/inner_tool_unlock_tv" phantom:text="@string/flyc_unlock_desc" style="@style/FpvGenMiddleItemLy" />
+            <dji.publics.DJIUI.DJIImageView style="@style/FpvGenSettingDivider" />
+            <dji.publics.DJIUI.DJITextView phantom:textSize="@dimen/rq" phantom:textColor="@color/om" phantom:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" phantom:id="@+id/inner_tool_wifi_upgrade_tv" phantom:text="@string/inner_tool_wifi_upgrade" style="@style/FpvGenMiddleItemLy" />
+            <dji.publics.DJIUI.DJIImageView style="@style/FpvGenSettingDivider" />
+            <dji.publics.DJIUI.DJITextView phantom:textSize="@dimen/rq" phantom:textColor="@color/om" phantom:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" phantom:id="@+id/inner_tool_rc_upgrade_tv" phantom:text="@string/inner_tool_rc_upgrade" style="@style/FpvGenMiddleItemLy" />
+            <dji.publics.DJIUI.DJIImageView style="@style/FpvGenSettingDivider" />
+            <dji.publics.DJIUI.DJITextView phantom:textSize="@dimen/rq" phantom:textColor="@color/om" phantom:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" phantom:id="@+id/inner_tool_format_sdcard_tv" phantom:text="@string/fpv_gensetting_format_sdcard" style="@style/FpvGenMiddleItemLy" />
+            <dji.publics.DJIUI.DJIImageView style="@style/FpvGenSettingDivider" />
+            <dji.publics.DJIUI.DJIRelativeLayout style="@style/FpvGenMiddleItemLy">
+                <dji.publics.DJIUI.DJITextView phantom:id="@+id/inner_tool_enable_gps_desc_tv" phantom:text="@string/inner_tool_enable_gps" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                <dji.pilot.publics.widget.DJISwitch phantom:id="@+id/inner_tool_enable_gps_switch" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" phantom:djiTextFace="0" style="@style/CommonSwitch" />
+            </dji.publics.DJIUI.DJIRelativeLayout>
+            <dji.publics.DJIUI.DJIImageView style="@style/FpvGenSettingDivider" />
+            <dji.publics.DJIUI.DJITextView phantom:textSize="@dimen/rq" phantom:textColor="@color/om" phantom:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" phantom:id="@+id/inner_tool_init_all_tv" phantom:text="@string/inner_tool_init_all" style="@style/FpvGenMiddleItemLy" />
+            <dji.publics.DJIUI.DJIImageView style="@style/FpvGenSettingDivider" />
+            <dji.publics.DJIUI.DJIRelativeLayout style="@style/FpvGenBottomItemLy">
+                <dji.publics.DJIUI.DJITextView phantom:id="@+id/inner_tool_tip_desc_tv" phantom:text="@string/inner_tool_tip" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                <dji.publics.DJIUI.DJITextView phantom:id="@+id/inner_tool_tip_value_tv" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+            </dji.publics.DJIUI.DJIRelativeLayout>
+            <dji.publics.DJIUI.DJIRelativeLayout style="@style/FpvGenTopItemLy">
+                <dji.publics.DJIUI.DJITextView phantom:id="@+id/inner_tool_vibrate_desc_tv" phantom:text="@string/inner_tool_vibrate" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                <dji.pilot.publics.widget.DJISwitch phantom:id="@+id/inner_tool_vibrate_switch" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" phantom:djiTextFace="0" style="@style/CommonSwitch" />
+            </dji.publics.DJIUI.DJIRelativeLayout>
+            <dji.publics.DJIUI.DJIImageView style="@style/FpvGenSettingDivider" />
+            <dji.publics.DJIUI.DJITextView phantom:textSize="@dimen/rq" phantom:textColor="@color/om" phantom:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" phantom:id="@+id/inner_tool_use_mode_tv" phantom:text="@string/inner_tool_usb_mode" style="@style/FpvGenMiddleItemLy" />
+            <dji.publics.DJIUI.DJIImageView style="@style/FpvGenSettingDivider" />
+            <dji.publics.DJIUI.DJIRelativeLayout style="@style/FpvGenMiddleItemLy">
+                <dji.publics.DJIUI.DJITextView phantom:id="@+id/inner_tool_gps_snr_desc_tv" phantom:text="@string/inner_tool_enable_gps_snr" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                <dji.pilot.publics.widget.DJISwitch phantom:id="@+id/inner_tool_gps_snr_switch" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" phantom:djiTextFace="0" style="@style/CommonSwitch" />
+            </dji.publics.DJIUI.DJIRelativeLayout>
+            <dji.publics.DJIUI.DJIImageView style="@style/FpvGenSettingDivider" />
+            <dji.publics.DJIUI.DJIRelativeLayout style="@style/FpvGenBottomItemLy">
+                <dji.publics.DJIUI.DJITextView phantom:id="@+id/inner_tool_snr_average_desc_tv" phantom:text="@string/inner_tool_gps_snr_average" phantom:layout_centerVertical="true" style="@style/FpvGenSettingDescTxt" />
+                <dji.pilot.publics.widget.DJIEditText phantom:id="@+id/inner_tool_snr_average_num_et" phantom:numeric="integer|signed|decimal" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" phantom:inputType="number|numberSigned|numberDecimal|numberPassword|phone" phantom:djiTextFace="2" style="@style/FpvGenSettingEtview" />
+            </dji.publics.DJIUI.DJIRelativeLayout>
+            <dji.publics.DJIUI.DJIRelativeLayout phantom:id="@+id/inner_tool_gps_snr_ly" phantom:visibility="gone" phantom:layout_height="wrap_content" style="@style/FpvGenTopItemLy">
+                <dji.pilot.fpv.inner.DJISnrView phantom:id="@+id/inner_tool_gps_snr_view" phantom:layout_width="match_parent" phantom:layout_height="UNKNOWN_DATA_0x7f0b01e6" phantom:layout_marginTop="@dimen/n3" phantom:layout_marginRight="@dimen/n1" />
+                <dji.publics.DJIUI.DJITextView phantom:textColor="@color/om" phantom:id="@+id/inner_tool_gps_max_txt" phantom:background="@drawable/corner_white_bg" phantom:paddingLeft="@dimen/n3" phantom:paddingRight="@dimen/n3" phantom:layout_marginLeft="@dimen/f_" phantom:layout_marginTop="@dimen/n1" style="@style/FpvGenSettingDescTxt" />
+                <dji.publics.DJIUI.DJITextView phantom:textColor="@color/om" phantom:id="@+id/inner_tool_gps_use_txt" phantom:background="@drawable/corner_white_bg" phantom:paddingLeft="@dimen/n3" phantom:paddingRight="@dimen/n3" phantom:layout_marginLeft="@dimen/n1" phantom:layout_marginTop="@dimen/n1" phantom:layout_toRightOf="@+id/inner_tool_gps_max_txt" style="@style/FpvGenSettingDescTxt" />
+            </dji.publics.DJIUI.DJIRelativeLayout>
+            <dji.publics.DJIUI.DJIRelativeLayout phantom:id="@+id/inner_tool_glonass_snr_ly" phantom:paddingTop="@dimen/n3" phantom:visibility="gone" phantom:layout_height="wrap_content" style="@style/FpvGenBottomItemLy">
+                <dji.pilot.fpv.inner.DJISnrView phantom:id="@+id/inner_tool_glonass_snr_view" phantom:layout_width="match_parent" phantom:layout_height="UNKNOWN_DATA_0x7f0b01e6" phantom:layout_marginTop="@dimen/n3" phantom:layout_marginRight="@dimen/n1" />
+                <dji.publics.DJIUI.DJITextView phantom:textColor="@color/om" phantom:id="@+id/inner_tool_glonass_max_txt" phantom:background="@drawable/corner_white_bg" phantom:paddingLeft="@dimen/n3" phantom:paddingRight="@dimen/n3" phantom:layout_marginLeft="@dimen/f_" phantom:layout_marginTop="@dimen/n1" style="@style/FpvGenSettingDescTxt" />
+                <dji.publics.DJIUI.DJITextView phantom:textColor="@color/om" phantom:id="@+id/inner_tool_glonass_use_txt" phantom:background="@drawable/corner_white_bg" phantom:paddingLeft="@dimen/n3" phantom:paddingRight="@dimen/n3" phantom:layout_marginLeft="@dimen/n1" phantom:layout_marginTop="@dimen/n1" phantom:layout_toRightOf="@+id/inner_tool_glonass_max_txt" style="@style/FpvGenSettingDescTxt" />
+            </dji.publics.DJIUI.DJIRelativeLayout>
+            <dji.publics.DJIUI.DJITextView phantom:textSize="@dimen/rq" phantom:textColor="@color/om" phantom:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" phantom:id="@+id/inner_tool_format_recorder_tv" phantom:text="@string/fpv_flyc_format_recorder" style="@style/FpvGenRadiusItemLy" />
+        </dji.publics.DJIUI.DJILinearLayout>
+    </dji.pilot.publics.widget.DJITitleScrollView>
+</dji.pilot.fpv.view.DJIGenFirstStageView>

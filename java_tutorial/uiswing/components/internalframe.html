@@ -1,0 +1,838 @@
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>How to Use Internal Frames</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="frame.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#components" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="label.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Creating a GUI with JFC/Swing
+<br>
+<b>Lesson</b>: Using Swing Components
+</font>
+
+<h2>
+How to Use Internal Frames
+</h2>
+<blockquote>
+
+With the
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JInternalFrame.html"><font color="#8800bb"><code>JInternalFrame</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JInternalFrame.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> class
+you can display a
+<a href="frame.html"><code>JFrame</code></a>-like window
+within another window.
+Usually, you add internal frames
+to a desktop pane.
+The desktop pane, in turn,
+might be used as the content pane of a <code>JFrame</code>.
+The desktop pane is an instance of
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JDesktopPane.html"><font color="#8800bb"><code>JDesktopPane</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JDesktopPane.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>, which is a subclass of
+<a href="layeredpane.html"><code>JLayeredPane</code></a>
+that has added API for managing multiple overlapping internal frames.
+
+<p>
+
+You should consider carefully whether to base your program's GUI
+around frames or internal frames.
+Switching from internal frames to frames
+or vice versa
+isn't necessarily a simple task.
+By experimenting with both frames and internal frames,
+you can get an idea of the tradeoffs involved
+in choosing one over the other.
+
+<p>
+
+Here is a picture of an application
+that has two internal frames
+(one of which is iconified)
+inside a regular frame:
+
+<p><center><IMG SRC="../../figures/uiswing/components/InternalFrameDemo14.gif" WIDTH="310" HEIGHT="160" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="InternalFrameDemo has multiple internal frames, managed by a desktop pane"></center></p><p>
+
+<blockquote><hr><strong>Try this:</strong>&nbsp;
+<ol>
+<li> <a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/components/example-1dot4/InternalFrameDemo.jnlp">Run InternalFrameDemo</a> using
+<a target="_top" href="../../information/javawebstart.html">Java<sup><font size=-2>TM</font></sup> Web Start</a><a target="_top" href="../../information/javawebstart.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.    Or, to compile and run the example yourself,
+     consult the
+     <a href="example-1dot4/index.html#InternalFrameDemo">example index</a>.
+
+<li> Create new internal frames
+     using the Create item in the Document menu.
+     <br>
+     Each internal frame comes up 30 pixels lower and to the right of
+     the place where the previous internal frame first appeared.
+     This functionality is implemented in the
+     <code>MyInternalFrame</code> class,
+     which is the custom subclass of <code>JInternalFrame</code>.
+</ol>
+<hr></blockquote>
+
+<p>
+
+The following code,
+taken from
+
+<a target="_blank" href="example-1dot4/InternalFrameDemo.java"><font color="#bb000f"><code>InternalFrameDemo.java</code></font></a><a target="_blank" href="example-1dot4/InternalFrameDemo.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>,
+creates the desktop and internal frames in the previous example.
+
+<blockquote><pre>
+<em>...//In the constructor of InternalFrameDemo, a JFrame subclass:</em>
+    desktop = new JDesktopPane();
+    createFrame(); //Create first window
+    setContentPane(desktop);
+    ...
+    //Make dragging a little faster but perhaps uglier.
+    desktop.setDragMode(JDesktopPane.OUTLINE_DRAG_MODE);
+...
+protected void createFrame() {
+    MyInternalFrame frame = new MyInternalFrame();
+    frame.setVisible(true); //necessary as of 1.3
+    desktop.add(frame);
+    try {
+        frame.setSelected(true);
+    } catch (java.beans.PropertyVetoException e) {}
+}
+
+<em>...//In the constructor of MyInternalFrame, a JInternalFrame subclass:</em>
+static int openFrameCount = 0;
+static final int xOffset = 30, yOffset = 30;
+
+public MyInternalFrame() {
+    super("Document #" + (++openFrameCount),
+          true, //resizable
+          true, //closable
+          true, //maximizable
+          true);//iconifiable
+    //...Create the GUI and put it in the window...
+    //...Then set the window size or call pack...
+    ...
+    //Set the window's location.
+    setLocation(xOffset*openFrameCount, yOffset*openFrameCount);
+}
+</pre></blockquote>
+
+</blockquote>
+<h3>
+<a name="frame">
+Internal Frames vs. Regular Frames
+</a>
+</h3>
+<blockquote>
+
+The code for using internal frames
+is similar in many ways to the code for using regular Swing frames.
+Because internal frames have root panes,
+setting up the GUI for a <code>JInternalFrame</code>
+is very similar to setting up the GUI for a <code>JFrame</code>.
+<code>JInternalFrame</code> also provides
+other API,
+such as <code>pack</code>,
+that makes it similar to <code>JFrame</code>.
+
+<blockquote><hr><strong>Note:</strong>&nbsp;Just as for a regular frame,
+you must invoke <code>setVisible(true)</code> or <code>show()</code>
+on an internal frame to display it.
+In early versions of the Java 2 platform (such as v1.2.2),
+this code has no effect because the internal frame is visible by default.
+However, starting in the 1.3 release,
+the internal frame does not appear until you
+explicitly make it visible.
+<hr></blockquote>
+
+<p>
+
+Internal frames aren't windows or top-level containers, however,
+which makes them different from frames.
+For example, you must add an internal frame
+to a container (usually a <code>JDesktopPane</code>);
+an internal frame can't be the root of a containment hierarchy.
+Also, internal frames don't generate window events.
+Instead, the user actions that would
+cause a frame to fire window events
+cause an internal frame to fire internal frame events.
+
+<p>
+
+Because internal frames are implemented with platform-independent code,
+they add some features that frames can't give you.
+One such feature is that
+internal frames give you more control over
+their state and capabilities than frames do.
+You can programatically iconify or maximize an internal frame.
+You can also specify what icon goes in the internal frame's
+title bar.
+You can even specify whether the internal frame
+has the window decorations
+to support resizing, iconifying, closing, and maximizing.
+
+<p>
+
+Another feature is that internal frames
+are designed to work within desktop panes.
+The <code>JInternalFrame</code> API
+contains methods such as <code>moveToFront</code>
+that work only if the internal frame's container
+is a layered pane such as a <code>JDesktopPane</code>.
+
+
+</blockquote>
+<h3>
+<a name="rules">
+Rules of Using Internal Frames
+</a>
+</h3>
+<blockquote>
+
+If you've built any programs using <code>JFrame</code>
+and the other Swing components,
+then you already know a lot
+about how to use internal frames.
+The following list
+summarizes the rules for using internal frames.
+For additional information, see
+<a href="frame.html">How to Make Frames</a>
+and
+<a href="jcomponent.html">The JComponent Class</a>.
+
+<dl>
+<dt> <strong>You must set the size of the internal frame.</strong>
+<dd> If you don't set the size of the internal frame,
+     it will have zero size
+     and thus never be visible.
+     You can set the size using one of the following methods:
+     <code>setSize</code>,
+     <code>pack</code>,
+     or <code>setBounds</code>.
+
+<dt> <strong>As a rule, you should set the location
+     of the internal frame.</strong>
+<dd> If you don't set the location of the internal frame,
+     it will come up at 0,0 (the upper left of its container).
+     You can use the <code>setLocation</code> or <code>setBounds</code>
+     method to specify the upper left point of the internal frame,
+     relative to its container.
+
+<dt> <strong>To add components to an internal frame,
+     you add them to the internal frame's content pane.</strong>
+<dd> This is exactly like the <code>JFrame</code> situation.
+     See <a href="toplevel.html#contentpane">Adding Components to the Content
+     Pane</a>
+     for details.
+
+<dt> <strong>Dialogs that are internal frames
+     should be implemented using
+     <code>JOptionPane</code> or
+     <code>JInternalFrame</code>,
+     not <code>JDialog</code>.</strong>
+<dd> To create a simple dialog,
+     you can use the <code>JOptionPane</code>
+     <code>showInternal<em>Xxx</em>Dialog</code> methods,
+     as described in
+     <a href="dialog.html">How to Make Dialogs</a>.
+
+<dt> <strong>You must add an internal frame to a container.</strong>
+<dd> If you don't add the internal frame to a container
+     (usually a <code>JDesktopPane</code>),
+     the internal frame won't appear.
+<dt> <strong>You need to call <code>show</code>
+     or <code>setVisible</code> on internal frames.</strong>
+<dd> Beginning with the 1.3 release,
+     internal frames are invisible by default.
+     You must invoke <code>setVisible(true)</code>
+     or <code>show()</code> to make them visible.
+<dt> <strong>Internal frames fire internal frame events,
+     not window events.</strong>
+<dd> Handling internal frame events is almost identical
+     to handling window events.
+     See <a href="../events/internalframelistener.html">How
+     to Write an Internal Frame Listener</a> for more information.
+
+</dl>
+
+
+<a name="drag">
+<blockquote><hr><strong>Performance tip:</strong>&nbsp;</a>
+
+When a desktop has many internal frames,
+the user might notice that moving them seems slow.
+Outline dragging
+is one way to avoid this problem.
+With outline dragging,
+only the outline of the internal frame is painted
+at the current mouse position while the internal frame's being dragged.
+The internal frame's innards
+are not repainted at a new position until dragging stops.
+The default behavior (called <em>live</em> dragging)
+is to reposition and repaint some or all of internal frame continuously
+while it's being moved;
+this can be slow if the desktop has many internal frames.
+
+<p>
+Use the <code>JDesktopPane</code> method
+<code>setDragMode</code>*
+to specify outline dragging.
+For example:
+
+<blockquote><pre>
+desktop.setDragMode(JDesktopPane.OUTLINE_DRAG_MODE);
+</pre></blockquote>
+<font color=gray>
+<p>
+[* PENDING: This gray text will become a footnote,
+like most other pre-1.4 info.]
+<p>
+The <code>setDragMode</code> method was added in 1.3.
+In J2SE v 1.2.2, you can specify outline dragging
+by setting a client property of the desktop pane,
+like this:
+<blockquote><pre>
+desktop.putClientProperty("JDesktopPane.dragMode",
+                          "outline");
+</pre></blockquote>
+</font>
+
+<hr></blockquote>
+
+<p>
+
+</blockquote>
+<h3>
+<a name="api">The Internal Frame API</a>
+</h3>
+<blockquote>
+
+The following tables list the commonly used
+<code>JInternalFrame</code> constructors and methods,
+as well as a few methods that <code>JDesktopPane</code> provides.
+Besides the API listed in this section,
+<code>JInternalFrame</code> inherits useful API from
+its superclasses,
+<code>JComponent</code>,
+<code>Component</code>, and
+<code>Container</code>.
+See <a href="jcomponent.html">The JComponent Class</a>
+for lists of methods from those classes.
+
+<p>
+
+Like <code>JInternalFrame</code>,
+<code>JDesktopPane</code> descends from
+<code>JComponent</code>,
+and thus provides the methods described in
+<a href="jcomponent.html">The JComponent Class</a>.
+Because <code>JDesktopPane</code> extends
+<code>JLayeredPane</code>,
+it also supports the methods described in
+<a href="layeredpane.html#api">The Layered Pane API</a>.
+
+<p>
+
+The API for using internal frames falls into these categories:
+
+<ul>
+<li><a href="#construct">Creating the internal frame</a>
+<li><a href="#add">Adding components to the internal frame</a>
+<li><a href="#layout">Specifying the internal frame's visibility, size, and location</a>
+<li><a href="#window">Performing window operations on the internal frame</a>
+<li><a href="#decorate">Controlling window decorations and capabilities</a>
+<li><a href="#JDesktopPane">Using the JDesktopPane API</a>
+</ul>
+
+<p>
+
+<table border=1>
+<caption><a name="construct">Creating the Internal Frame</a></caption>
+<tr>
+<th align=left>Constructor or Method
+</th>
+<th align=left>Purpose
+
+</th>
+</tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JInternalFrame.html#JInternalFrame()"><font color="#8800bb"><font size=2><code>JInternalFrame()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JInternalFrame.html#JInternalFrame()"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JInternalFrame.html#JInternalFrame(java.lang.String)"><font color="#8800bb"><font size=2><code>JInternalFrame(String)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JInternalFrame.html#JInternalFrame(java.lang.String)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JInternalFrame.html#JInternalFrame(java.lang.String, boolean)"><font color="#8800bb"><font size=2><code>JInternalFrame(String, boolean)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JInternalFrame.html#JInternalFrame(java.lang.String, boolean)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JInternalFrame.html#JInternalFrame(java.lang.String, boolean, boolean)"><font color="#8800bb"><font size=2><code>JInternalFrame(String, boolean, boolean)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JInternalFrame.html#JInternalFrame(java.lang.String, boolean, boolean)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JInternalFrame.html#JInternalFrame(java.lang.String, boolean, boolean, boolean)"><font color="#8800bb"><font size=2><code>JInternalFrame(String, boolean, boolean, boolean)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JInternalFrame.html#JInternalFrame(java.lang.String, boolean, boolean, boolean)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JInternalFrame.html#JInternalFrame(java.lang.String, boolean, boolean, boolean, boolean)"><font color="#8800bb"><font size=2><code>JInternalFrame(String, boolean, boolean, boolean, boolean)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JInternalFrame.html#JInternalFrame(java.lang.String, boolean, boolean, boolean, boolean)"></a>    </td>
+    <td>Create a <code>JInternalFrame</code> instance.
+        The first argument specifies the title (if any)
+        to be displayed by the internal frame.
+        The rest of the arguments specify
+        whether the internal frame should contain decorations allowing
+        the user to
+        resize, close, maximize, and iconify the internal frame
+        (specified in that order).
+        The default value for each boolean argument is <code>false</code>,
+        which means that the operation
+        is not allowed.
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JOptionPane.html#showInternalConfirmDialog(java.awt.Component, java.lang.Object)"><font color="#8800bb"><font size=2><code>static int showInternalConfirmDialog(Component, Object)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JOptionPane.html#showInternalConfirmDialog(java.awt.Component, java.lang.Object)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JOptionPane.html#showInternalInputDialog(java.awt.Component, java.lang.Object)"><font color="#8800bb"><font size=2><code>static String showInternalInputDialog(Component, Object)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JOptionPane.html#showInternalInputDialog(java.awt.Component, java.lang.Object)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JOptionPane.html#showInternalMessageDialog(java.awt.Component, java.lang.Object)"><font color="#8800bb"><font size=2><code>static Object showInternalMessageDialog(Component, Object)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JOptionPane.html#showInternalMessageDialog(java.awt.Component, java.lang.Object)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JOptionPane.html#showInternalOptionDialog(java.awt.Component, java.lang.Object, java.lang.String, int, int, javax.swing.Icon, java.lang.Object[], java.lang.Object)"><font color="#8800bb"><font size=2><code>static int showInternalOptionDialog(Component, Object, String, int, int, Icon, Object[], Object)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JOptionPane.html#showInternalOptionDialog(java.awt.Component, java.lang.Object, java.lang.String, int, int, javax.swing.Icon, java.lang.Object[], java.lang.Object)"></a>    </td>
+    <td>Create a <code>JInternalFrame</code>
+        that simulates a dialog.
+        See <a href="dialog.html">How to Make Dialogs</a> for details.
+    </td>
+  </tr>
+</table>
+
+<p>
+
+<table border=1>
+<caption><a name="add">Adding Components to the Internal Frame</a></caption>
+<tr>
+<th align=left>Method
+</th>
+<th align=left>Purpose
+
+</th>
+</tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JInternalFrame.html#setContentPane(java.awt.Container)"><font color="#8800bb"><font size=2><code>void setContentPane(Container)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JInternalFrame.html#setContentPane(java.awt.Container)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JInternalFrame.html#getContentPane()"><font color="#8800bb"><font size=2><code>Container getContentPane()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JInternalFrame.html#getContentPane()"></a>    </td>
+    <td>Set or get the internal frame's content pane,
+        which generally contains all of the internal frame's GUI,
+        with the exception of the menu bar and window decorations.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JInternalFrame.html#setJMenuBar(javax.swing.JMenuBar)"><font color="#8800bb"><font size=2><code>void setJMenuBar(JMenuBar)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JInternalFrame.html#setJMenuBar(javax.swing.JMenuBar)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JInternalFrame.html#getJMenuBar()"><font color="#8800bb"><font size=2><code>JMenuBar getJMenuBar()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JInternalFrame.html#getJMenuBar()"></a>    </td>
+    <td>Set or get the internal frame's menu bar.
+
+</td>
+</tr>
+<tr>
+<td><font size=2><code>void setLayeredPane(JLayeredPane)
+    <br>
+    JLayeredPane getLayeredPane()</code></font>
+</td>
+<td>Set or get the internal frame's layered pane.
+    </td>
+  </tr>
+</table>
+
+<p>
+
+<table border=1>
+<caption><a name="layout">Specifying the Internal Frame's Visibility, Size, and Location</a>
+<tr>
+<th align=left>Method
+</th>
+<th align=left>Purpose
+
+</th>
+</tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JComponent.html#setVisible(boolean)"><font color="#8800bb"><font size=2><code>void setVisible(boolean)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JComponent.html#setVisible(boolean)"></a>    </td>
+    <td>Make the internal frame visible (if <code>true</code>)
+        or invisible (if <code>false</code>).
+        You should invoke <code>setVisible(true)</code>
+        on each <code>JInternalFrame</code>
+        before adding it to its container.
+        (Inherited from <code>Component</code>).
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JInternalFrame.html#pack()"><font color="#8800bb"><font size=2><code>void pack()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JInternalFrame.html#pack()"></a>    </td>
+    <td>Size the internal frame so that
+        its components are at their preferred sizes.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#setLocation(java.awt.Point)"><font color="#8800bb"><font size=2><code>void setLocation(Point)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#setLocation(java.awt.Point)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#setLocation(int, int)"><font color="#8800bb"><font size=2><code>void setLocation(int, int)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#setLocation(int, int)"></a>    </td>
+    <td>Set the position of the internal frame.
+        (Inherited from <code>Component</code>).
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#setBounds(java.awt.Rectangle)"><font color="#8800bb"><font size=2><code>void setBounds(Rectangle)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#setBounds(java.awt.Rectangle)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#setBounds(int, int, int, int)"><font color="#8800bb"><font size=2><code>void setBounds(int, int, int, int)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#setBounds(int, int, int, int)"></a>    </td>
+    <td>Explicitly set the size and location of the internal frame.
+        (Inherited from <code>Component</code>).
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#setSize(java.awt.Dimension)"><font color="#8800bb"><font size=2><code>void setSize(Dimension)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#setSize(java.awt.Dimension)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#setSize(int, int)"><font color="#8800bb"><font size=2><code>void setSize(int, int)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#setSize(int, int)"></a>    </td>
+    <td>Explicitly set the size of the internal frame.
+        (Inherited from <code>Component</code>).
+
+    </td>
+  </tr>
+</table>
+
+<p>
+
+<table border=1>
+<caption><a name="window">Performing Window Operations
+on the Internal Frame</a></caption>
+<tr>
+<th align=left>Method
+</th>
+<th align=left>Purpose
+
+</th>
+</tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JInternalFrame.html#setDefaultCloseOperation(int)"><font color="#8800bb"><font size=2><code>void setDefaultCloseOperation(int)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JInternalFrame.html#setDefaultCloseOperation(int)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JInternalFrame.html#getDefaultCloseOperation()"><font color="#8800bb"><font size=2><code>int getDefaultCloseOperation()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JInternalFrame.html#getDefaultCloseOperation()"></a>    </td>
+    <td>Set or get what the internal frame does
+        when the user attempts to "close" the internal frame.
+        The default value (as of 1.3) is
+        <code>DISPOSE_ON_CLOSE</code>.  
+        Other possible values are <code>DO_NOTHING_ON_CLOSE</code>
+	and <code>HIDE_ON_CLOSE</code>
+	(which was the default value before 1.3).
+        See
+        <a href="frame.html#windowevents">Responding to Window-Closing Events</a>
+        for details.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JInternalFrame.html#addInternalFrameListener(javax.swing.event.InternalFrameListener)"><font color="#8800bb"><font size=2><code>void addInternalFrameListener(InternalFrameListener)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JInternalFrame.html#addInternalFrameListener(javax.swing.event.InternalFrameListener)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JInternalFrame.html#removeInternalFrameListener(javax.swing.event.InternalFrameListener)"><font color="#8800bb"><font size=2><code>void removeInternalFrameListener(InternalFrameListener)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JInternalFrame.html#removeInternalFrameListener(javax.swing.event.InternalFrameListener)"></a>    </td>
+    <td>Add or remove an internal frame listener
+        (<code>JInternalFrame</code>'s equivalent of a window listener).
+        See <a href="../events/internalframelistener.html">How
+        to Write an Internal Frame Listener</a> for more information.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JInternalFrame.html#moveToFront()"><font color="#8800bb"><font size=2><code>void moveToFront()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JInternalFrame.html#moveToFront()"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JInternalFrame.html#moveToBack()"><font color="#8800bb"><font size=2><code>void moveToBack()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JInternalFrame.html#moveToBack()"></a>    </td>
+    <td>If the internal frame's parent is a layered pane
+        such as a desktop pane,
+        moves the internal frame to the front or back (respectively)
+        of its layer.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JInternalFrame.html#setClosed(boolean)"><font color="#8800bb"><font size=2><code>void setClosed(boolean)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JInternalFrame.html#setClosed(boolean)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JInternalFrame.html#isClosed()"><font color="#8800bb"><font size=2><code>boolean isClosed()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JInternalFrame.html#isClosed()"></a>    </td>
+    <td>Set or get whether the internal frame is currently closed.
+    The argument to <code>setClosed</code> must be <code>true</code>.
+    When reopening a closed internal frame,
+    you make it visible and add it to a container
+    (usually the desktop pane you originally added it to).
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JInternalFrame.html#setIcon(boolean)"><font color="#8800bb"><font size=2><code>void setIcon(boolean)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JInternalFrame.html#setIcon(boolean)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JInternalFrame.html#isIcon()"><font color="#8800bb"><font size=2><code>boolean isIcon()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JInternalFrame.html#isIcon()"></a>    </td>
+    <td>Iconify or deiconify the internal frame,
+        or determine whether it's currently iconified.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JInternalFrame.html#setMaximum(boolean)"><font color="#8800bb"><font size=2><code>void setMaximum(boolean)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JInternalFrame.html#setMaximum(boolean)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JInternalFrame.html#isMaximum()"><font color="#8800bb"><font size=2><code>boolean isMaximum()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JInternalFrame.html#isMaximum()"></a>    </td>
+    <td>Maximize or restore the internal frame,
+        or determine whether it's maximized.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JInternalFrame.html#setSelected(boolean)"><font color="#8800bb"><font size=2><code>void setSelected(boolean)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JInternalFrame.html#setSelected(boolean)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JInternalFrame.html#isSelected()"><font color="#8800bb"><font size=2><code>boolean isSelected()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JInternalFrame.html#isSelected()"></a>    </td>
+    <td>Set or get whether the internal frame
+        is the currently "selected" (activated) internal frame.
+
+    </td>
+  </tr>
+</table>
+
+
+
+<p>
+
+<table border=1>
+<caption><a name="decorate">Controlling Window Decorations and Capabilities</a></caption>
+<tr>
+<th align=left>Method
+</th>
+<th align=left>Purpose
+
+</th>
+</tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JInternalFrame.html#setFrameIcon(javax.swing.Icon)"><font color="#8800bb"><font size=2><code>void setFrameIcon(Icon)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JInternalFrame.html#setFrameIcon(javax.swing.Icon)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JInternalFrame.html#getFrameIcon()"><font color="#8800bb"><font size=2><code>Icon getFrameIcon()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JInternalFrame.html#getFrameIcon()"></a>    </td>
+    <td>Set or get the icon displayed in the title bar of the
+        internal frame (usually in the top-left corner).
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JInternalFrame.html#setClosable(boolean)"><font color="#8800bb"><font size=2><code>void setClosable(boolean)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JInternalFrame.html#setClosable(boolean)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JInternalFrame.html#isClosable()"><font color="#8800bb"><font size=2><code>boolean isClosable()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JInternalFrame.html#isClosable()"></a>    </td>
+    <td>Set or get whether the user can close the internal frame.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JInternalFrame.html#setIconifiable(boolean)"><font color="#8800bb"><font size=2><code>void setIconifiable(boolean)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JInternalFrame.html#setIconifiable(boolean)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JInternalFrame.html#isIconifiable()"><font color="#8800bb"><font size=2><code>boolean isIconifiable()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JInternalFrame.html#isIconifiable()"></a>    </td>
+    <td>Set or get whether the internal frame
+        can be iconified.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JInternalFrame.html#setMaximizable(boolean)"><font color="#8800bb"><font size=2><code>void setMaximizable(boolean)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JInternalFrame.html#setMaximizable(boolean)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JInternalFrame.html#isMaximizable()"><font color="#8800bb"><font size=2><code>boolean isMaximizable()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JInternalFrame.html#isMaximizable()"></a>    </td>
+    <td>Set or get whether the user can
+        maximize this internal frame.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JInternalFrame.html#setResizable(boolean)"><font color="#8800bb"><font size=2><code>void setResizable(boolean)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JInternalFrame.html#setResizable(boolean)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JInternalFrame.html#isResizable()"><font color="#8800bb"><font size=2><code>boolean isResizable()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JInternalFrame.html#isResizable()"></a>    </td>
+    <td>Set or get whether the internal frame
+        can be resized.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JInternalFrame.html#setTitle(java.lang.String)"><font color="#8800bb"><font size=2><code>void setTitle(String)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JInternalFrame.html#setTitle(java.lang.String)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JInternalFrame.html#getTitle()"><font color="#8800bb"><font size=2><code>String getTitle()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JInternalFrame.html#getTitle()"></a>    </td>
+    <td>Set or get the window title.
+    </td>
+  </tr>
+</table>
+
+
+<p>
+
+<table border=1>
+<caption><a name="JDesktopPane">Using the <code>JDesktopPane</code> API</a></caption>
+</td>
+</tr>
+<tr>
+<th align=left>Constructor or Method
+</th>
+<th align=left>Purpose
+
+</th>
+</tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JDesktopPane.html#JDesktopPane()"><font color="#8800bb"><font size=2><code>JDesktopPane()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JDesktopPane.html#JDesktopPane()"></a>    </td>
+    <td>Creates a new instance of <code>JDesktopPane</code>.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JDesktopPane.html#getAllFrames()"><font color="#8800bb"><font size=2><code>JInternalFrame[] getAllFrames()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JDesktopPane.html#getAllFrames()"></a>    </td>
+    <td>Returns all <code>JInternalFrame</code> objects
+        that the desktop contains.
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JDesktopPane.html#getAllFramesInLayer(int)"><font color="#8800bb"><font size=2><code>JInternalFrame[] getAllFramesInLayer(int)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JDesktopPane.html#getAllFramesInLayer(int)"></a>    </td>
+    <td>Returns all <code>JInternalFrame</code> objects
+        that the desktop contains that are in the specified layer.
+        See <a href="layeredpane.html">How to Use Layered Panes</a>
+        for information about layers.
+    </td>
+
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JDesktopPane.html#setDragMode(int)"><font color="#8800bb"><font size=2><code>void setDragMode(int)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JDesktopPane.html#setDragMode(int)"></a><br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JDesktopPane.html#getDragMode()"><font color="#8800bb"><font size=2><code>int getDragMode()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JDesktopPane.html#getDragMode()"></a>    </td>
+    <td>Set or get the drag mode used for internal frames in this desktop.
+    The integer can be either
+    <code>JDesktopPane.LIVE_DRAG_MODE</code> or
+    <code>JDesktopPane.OUTLINE_DRAG_MODE</code>.
+    The default for the Java look and feel is live-drag mode.
+    This API was introduced in 1.3.
+    </td>
+
+  </tr>
+</table>
+
+</blockquote>
+<h3>
+<a name="eg">Examples that Use Internal Frames</a>
+</h3>
+<blockquote>
+
+The following examples use internal frames.
+Because internal frames are similar to regular frames,
+you should also look at
+<a href="frame.html#eg">Examples that Use Frames</a>.
+
+<p>
+
+<table>
+<tr>
+<th align=left> Example
+</th>
+<th align=left> Where Described
+</th>
+<th align=left> Notes
+
+</th>
+</tr>
+<tr>
+<td> <a href="example-1dot4/index.html#InternalFrameDemo"><code>MyInternalFrame</code></a>
+</td>
+<td> This page.
+</td>
+<td> Implements an internal frame
+     that appears at an offset to the previously created
+     internal frame.
+
+</td>
+</tr>
+<tr>
+<td> <a href="example-1dot4/index.html#InternalFrameDemo"><code>InternalFrameDemo</code></a>
+</td>
+<td> This page.
+</td>
+<td> Lets you create internal frames
+     (instances of <code>MyInternalFrame</code>)
+     that go into the application's <code>JDesktopPane</code>.
+
+</td>
+</tr>
+<tr>
+<td> <a href="../events/example-1dot4/index.html#InternalFrameEventDemo"><code>InternalFrameEventDemo</code></a>
+</td>
+<td> <a href="../events/internalframelistener.html">How to Write
+     an Internal Frame Listener</a>
+</td>
+<td> Demonstrates listening for internal frame events.
+     Also demonstrates positioning internal frames within a desktop pane.
+
+</td>
+</tr>
+</table>
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="frame.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#components" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="label.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

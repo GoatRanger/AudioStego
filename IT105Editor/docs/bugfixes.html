@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<HTML>
+  <HEAD>
+    <TITLE>IT105 Editor - Bug Fixes</TITLE>
+  </HEAD>
+  <BODY>
+  <h1>Changes from version 1.2 to version 1.3</h1>
+    <ol>
+      <li>Fixed a bug in the file dialog for Save As... where it wouldn't 
+          display the correct default extension</li>
+      <li>Added a &quot;Preview My Web&quot; that opens the cadet default on z-trooper</li>
+      <li>Added a <em>Deploy</em> option that copies a specified directory to the web 
+          directory on z-trooper</li>
+      <li>Fixed the lexical specification for XHTML to correctly identify unary tags
+          and reject attributes that don't have quoted values</li>
+    </ol>
+  <h1>Changes from version 1.1 to version 1.2</h1>
+    <ol>
+      <li>Fixed Syntax Coloring, automatically restarts if fails during run</li>
+      <li>Added a &quot;Preview&quot; option for HTML pages to preview the in-memory
+          document without saving</li>
+    </ol>
+  <h1>Changes from version 1.01 to version 1.1</h1>
+    <ol>
+       <li>Fixed a bug where &quot;Unknown Option&quot; would appear in the
+           status bar when the file was saved.</li>
+       <li>No longer automatically adds a file extension when saving a
+           file.</li>
+       <li>Fixed a bug where the compiler wouldn't return errors on a slow
+           computer (thread timing issue)</li>
+       <li>Fixed a bug that when closing a file that the editor would request a second save
+           of the file (wouldn't remember that the file was just closed)</li>
+       <li>Fixed the exit editor function so it doesn't call the close file
+           method first (duplicate effort)</li>
+       <li>Added validation of data from the clipboard to remove illegal
+           characters and reformat &quot;smart quotes&quot; from a word processor into
+           simple quotes (ASCII 34)</li>
+    </ol>
+  <h1>Changes from version 0.7 to 1.0</h1>
+    <ol>
+      <li>Added a <em>Close</em> function to close the current file without
+          closing the editor. (Renamed the old close to <em>Exit</em></li>
+      <li>Many more, don't remember them all!</li>
+    </ol>
+  <h1>Changes from version 0.6 to Version 0.7</h1>
+    <ol>
+        <li>Fixed the Java code template used when selecting New</li>
+        <li>Fixed errors in the XHTML code template</li>
+    </ol>
+  <h1>Changes from version 0.5 to Version 0.6</h1>
+    <ol>
+        <li>Added the ability to enable/disable error logging from the Help Menu</li>
+        <li>Fixed issues with the text size selection changing alignment between
+text and line number</li>
+        <li>Updated syntax coloring to reduce coloring errors caused by invalid
+lock acquiring sequence</li>
+    </ol>
+  <h1>Changes from version 0.4 to Version 0.5</h1>
+    <ol>
+        <li>Fixed deadlock issues where editor would freeze due to a race
+between the Document insertString and the syntax colorer</li>
+        <li>Added error logging for all major classes</li>
+        <li>Fixed issues with problem evaluation (Run Tests option) getting
+            incorrect results for tests with multiple outputs</li>
+        <li>Added a link to the IT105 course handbook on the Help Menu</li>
+        <li>Added line numbering to the editor pane</li>
+    </ol>
+  <h1>Changes from version 0.3 to Version 0.4</h1>
+    <ol>
+        <li>Added Problem evaluation/test functionality</li>
+    </ol>
+  <h1>Changes from Version 0.22 to Version 0.3</h1>
+  <ol>
+
+    <li>Added option to be able to resize the text in the editor window</li>
+    <li>Added ability to control the indentation (spaces per tab)</li>
+    <li>Added autosave delay selection option</li>
+    <li>Added voice annotation using FreeTTS</li>
+    <li>Added Options dialog to support single source option selection</li>
+  </ol>
+  <h1>Changes from Version 0.1 to Version 0.22</h1>
+<ol>
+  <li>Added right-click context menu (Save, Close, Copy, Cut, Paste, Compile, Run)</li>
+  <li>Fixed Bugs in Gauntlet error checking that caused Compile/Run menu options to be permanently disabled</li>
+  <li>Added this help functionality</li>
+  <li>Added the <i>View</i> menu with ability to change text size</li>
+  <li>Added Style selection in View.  Ability to change the look of the editor between Windows, Java/Metal, and Motif.</li>
+  <li>Fixed numerous problems with the cut/copy/paste functionality.</li>
+  <li>Fixed bug in file save where the file would be saved without the default extension (.java), resulting
+in the editor appearing to crash/lock-up when compiling (related to a Gauntlet bug)</li>
+</ol>
+  </BODY>
+</HTML>

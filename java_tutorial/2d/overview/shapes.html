@@ -1,0 +1,238 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Shapes</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="coordinate.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#overview" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="text.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: 2D Graphics
+<br>
+<b>Lesson</b>: Overview of the Java 2D API
+</font>
+
+<h2>
+Shapes
+</h2>
+<blockquote>
+The classes in the <CODE>java.awt.geom</CODE> package define common
+graphics primitives, such as points, lines, curves, arcs, rectangles,
+and ellipses.
+<p>
+<TABLE BORDER="1">
+<CAPTION>
+</blockquote>
+<h3> Classes in the <CODE>java.awt.geom</CODE> Package</h3>
+</CAPTION>
+<TR>
+<TD>
+<CODE>Arc2D</CODE>
+</TD>
+
+<TD>
+<CODE>Ellipse2D</CODE>
+</TD>
+
+<TD>
+<CODE>QuadCurve2D</CODE>
+</TD>
+
+</TR>
+<TR>
+<TD>
+<CODE>Area</CODE>
+</TD>
+
+<TD>
+<CODE>GeneralPath</CODE>
+</TD>
+
+<TD>
+<CODE>Rectangle2D</CODE>
+
+</TD>
+</TR>
+<TR>
+<TD>
+<CODE>CubicCurve2D</CODE>
+</TD>
+
+<TD>
+<CODE>Line2D</CODE>
+</TD>
+
+<TD>
+<CODE>RectangularShape</CODE>
+
+</TD>
+</TR>
+<TR>
+<TD>
+<CODE>Dimension2D</CODE>
+
+</TD>
+<TD>
+<CODE>Point2D</CODE>
+
+</TD>
+<TD>
+<CODE>RoundRectangle2D</CODE>
+
+</TD>
+</TR>
+</TABLE>
+<P>
+Except for <CODE>Point2D</CODE>
+and <CODE>Dimension2D</CODE>,
+each of the geometry classes (<EM CLASS="Emphasis">geometries</EM>)
+implements the <CODE>Shape</CODE>
+interface, which provides a common set of methods for describing and
+inspecting two-dimensional geometric objects.
+<P>
+With these classes you can create virtually any geometric shape and
+render it through <CODE>Graphics2D</CODE> by calling the
+<CODE>draw</CODE> method or the <CODE>fill</CODE> method. For example,
+the geometric shapes in the following <CODE>ShapesDemo2D</CODE> applet
+are defined by using basic Java 2D geometries.
+<P>
+If you're curious, the code for this program, is in
+
+<a target="_blank" href="../display/example-1dot2/ShapesDemo2D.java"><font color="#bb000f"><code>ShapesDemo2D.java</code></font></a><a target="_blank" href="../display/example-1dot2/ShapesDemo2D.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>.
+How to draw and fill shapes is described in the next lesson,
+<A HREF="../display/index.html">
+Displaying Graphics with Graphics2D</A>.
+
+<p><center><a href="../../figures/2d/2D-12.gif " target="_top"><IMG SRC="../../figures/2d/2D-12.gif " WIDTH="460" HEIGHT="165" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></a><br><em>This figure has been reduced to fit on the page. <br> Click the image to view it at its natural size.</em></center></p>
+<h3>Rectangular Shapes</h3>
+<blockquote>
+The <CODE>Rectangle2D</CODE>, <CODE>RoundRectangle2D</CODE>,
+<CODE>Arc2D</CODE>, and <CODE>Ellipse2D</CODE> primitives are all
+derived from <CODE>RectangularShape</CODE>, which defines methods for
+<CODE>Shape</CODE> objects that can be described by a rectangular
+bounding box. The geometry of a <CODE>RectangularShape</CODE> can be
+extrapolated from a rectangle that completely encloses the outline of
+the <CODE>Shape</CODE>.
+ 
+<p><center><IMG SRC="../../figures/2d/2D-13.gif " WIDTH="456" HEIGHT="87" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p>
+</blockquote>
+
+<h3>QuadCurve2D and CubicCurve2D</h3>
+<blockquote>
+The <code>QuadCurve2D</code> class allows you to create quadratic
+parametric curve segments.  A quadratic curve is defined by two endpoints
+and one control point.  
+<p>
+The <code>CubicCurve2D</code> class allows you to create cubic parametric
+curve segments.  A cubic curve is defined by two endpoints and two control
+points.  The following figures demonstrate examples of
+quadratic and cubic curves.  See 
+<a href="../display/strokeandfill.html">Stroking and Filling
+Graphics
+Primitives</a> to see implementations of cubic and quadratic curves.
+
+<p><center><IMG SRC="../../figures/2d/2D-14.gif " WIDTH="178" HEIGHT="138" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p> 
+<p><center><IMG SRC="../../figures/2d/2D-15.gif " WIDTH="290" HEIGHT="152" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p>
+</blockquote>
+
+<h3>GeneralPath</h3>
+<blockquote>
+The <CODE>GeneralPath</CODE> class enables you to construct an
+arbitrary shape by specifying a series of positions along the shape's
+boundary.  These positions can be connected by line segments, quadratic
+curves, or cubic (B&eacute;zier) curves.  The shape pictured below can be
+created with three line segments and a cubic curve.  See
+<a href="../display/strokeandfill.html">Stroking and Filling
+Graphics
+Primitives</a> to see the implementation of this shape.
+
+
+<p><center><IMG SRC="../../figures/2d/PolyShape.gif" WIDTH="150" HEIGHT="75" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p></blockquote>
+
+<h3>Areas</h3>
+<blockquote>
+With the <CODE>Area</CODE> class you can perform boolean operations,
+such as union, intersection, and subtraction, on any two
+<CODE>Shape</CODE> objects. This technique, often referred to as
+constructive area geometry, enables you to quickly create complex
+<CODE>Shape</CODE>
+ objects without having to describe each line segment or curve. 
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="coordinate.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#overview" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="text.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

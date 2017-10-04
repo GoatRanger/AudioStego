@@ -1,0 +1,234 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>The Method Body</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="arguments.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#javaOO" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="accesscontrol.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Learning the Java Language
+<br>
+<b>Lesson</b>: Classes and Inheritance
+</font>
+
+<h2>
+The Method Body
+</h2>
+<blockquote>
+
+In the code sample that follows, the method bodies
+for the <code>isEmpty</code> and <code>pop</code> methods are
+shown in bold:
+<blockquote><pre>
+class Stack {
+    static final int STACK_EMPTY = -1;
+    Object[] stackelements;
+    int topelement = STACK_EMPTY;
+    . . .
+    boolean isEmpty() {
+<strong>        if (topelement == STACK_EMPTY)
+            return true;
+        else
+            return false;</strong>
+    }
+    Object pop() {
+<strong>        if (topelement == STACK_EMPTY)
+            return null;
+        else {
+            return stackelements[topelement--];
+        }</strong>
+    }
+}
+</pre></blockquote>
+Besides regular Java language elements, you can use <code>this</code>
+in the method body to refer to members in the <em>current object</em>.
+The current object is the object whose method is being called. You can
+also use <code>super</code> to refer to members in the superclass that
+the current object has hidden or overridden. Also, a method body may contain
+declarations for variables that are local to that method.
+
+</blockquote>
+<h3>this</h3>
+<blockquote>
+Typically, within an object's method body you can just refer directly
+to the object's member variables. However, sometimes you need
+to disambiguate the member variable name if one of the arguments
+to the method has the same name.
+<p>
+For example, the following constructor for the <code>HSBColor</code> class initializes
+some of an object's member variables according to the arguments passed
+into the constructor. Each argument to the constructor has the
+same name as the object's member variable whose initial value the
+argument contains.
+<blockquote><pre>
+class HSBColor {
+    int hue, saturation, brightness;
+    HSBColor (int hue, int saturation, int brightness) {
+        this.hue = hue;
+        this.saturation = saturation;
+        this.brightness = brightness;
+    }
+</pre></blockquote>
+You must use the <code>this</code> keyword in this constructor because you
+have to disambiguate the argument <code>hue</code> from the member
+variable <code>hue</code> (and so on with the other arguments).
+Writing <code>hue = hue;</code> makes no sense.
+Argument names take precedence and hide member variables with the
+same name. So to refer to the member variable you must do so through
+the current object--using the <code>this</code> keyword to refer to the current object--explicitly.
+<p>
+Some programmers prefer to always use the <code>this</code> keyword when referring
+to a member variable of the object whose method the reference appears.
+Doing so makes the intent of the code explicit and reduces errors based
+on name sharing.
+<p>
+You can also use the <code>this</code> keyword to call one of the current object's
+methods. Again this is only necessary if there is some ambiguity in the
+method name and is often used to make the intent of the code clearer.
+</blockquote>
+
+<h3>super</h3>
+<blockquote>
+If your method hides one of its superclass's member variables, your
+method can refer to the hidden variable through the use of 
+the <code>super</code> keyword.
+Similarly, if your method overrides one of its superclass's methods,
+your method can invoke the overridden method through the use of
+the <code>super</code> keyword.
+<p>
+Consider this class:
+<blockquote><pre>
+class ASillyClass {
+    boolean aVariable;
+    void aMethod() {
+        aVariable = true;
+    }
+}
+</pre></blockquote>
+and its subclass which hides <code>aVariable</code> and overrides
+<code>aMethod</code>:
+<blockquote><pre>
+class ASillierClass extends ASillyClass {
+    boolean aVariable;
+    void aMethod() {
+        aVariable = false;
+        super.aMethod();
+        System.out.println(aVariable);
+        System.out.println(super.aVariable);
+    }
+}
+</pre></blockquote>
+First <code>aMethod</code> sets <code>aVariable</code> (the one declared
+in <code>ASillierClass</code> that hides the one declared in <code>ASillyClass</code>) to <code>false</code>.
+Next <code>aMethod</code> invoked its overridden method with this statement:
+<blockquote><pre>
+super.aMethod();
+</pre></blockquote>
+This sets the hidden version of the <code>aVariable</code> (the one
+declared in <code>ASillyClass</code>) to <code>true</code>.
+Then <code>aMethod</code> displays both versions of <code>aVariable</code>
+which have different values:
+<blockquote><pre>
+false
+true
+</pre></blockquote>
+</blockquote>
+
+<h3>Local Variables</h3>
+<blockquote>
+Within the body of the method you can declare more variables for
+use within that method. These variables are <em>local variables</em>
+and live only while control remains within the method.
+This method declares a local variable <code>i</code> that it uses
+to iterate over the elements of its array argument.
+<blockquote><pre>
+Object findObjectInArray(Object o, Object[] arrayOfObjects) {
+    int i;      // local variable
+    for (i = 0; i &lt; arrayOfObjects.length; i++) {
+        if (arrayOfObjects[i] == o)
+            return o;
+    }
+    return null;
+}
+</pre></blockquote>
+After this method returns, <code>i</code> no longer exists.
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="arguments.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#javaOO" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="accesscontrol.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

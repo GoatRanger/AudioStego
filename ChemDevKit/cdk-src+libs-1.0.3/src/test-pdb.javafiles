@@ -1,0 +1,4 @@
+org/openscience/cdk/test/MpdbTests.java
+org/openscience/cdk/test/templates/AminoAcidsTest.java
+org/openscience/cdk/test/tools/ProteinBuilderToolTest.java
+org/openscience/cdk/test/io/PDBReaderTest.java

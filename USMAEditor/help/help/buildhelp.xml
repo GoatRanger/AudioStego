@@ -1,0 +1,18 @@
+<project name="BuildHelp" default="build_help" basedir=".">
+  <target name="init">
+    <property name="javahelp.home" value="c:\jh2.0\javahelp\bin" />
+    <property name="javaviewer.home" value="c:\jh2.0\demos\bin" />
+  </target>
+    <target name="build_help" depends="init">
+    <delete dir="JavaHelpSearch" />
+    <java jar="${javahelp.home}/jhindexer.jar" fork="true">
+      <arg value="." />
+    </java>
+  </target>
+  <target name="view" depends="build_help">
+    <java jar="${javaviewer.home}/hsviewer.jar" fork="true">
+      <arg value="-helpset c:\projects\USMAEditor\help\help\editor.hs" />
+    </java>
+  </target>
+</project>
+<!-- to view: java -jar hsviewer.jar -helpset c:\projects\USMAEditor\help\help\editor.hs -->

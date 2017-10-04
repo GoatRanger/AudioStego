@@ -1,0 +1,34 @@
+<project name="simpleCompile" default="deploy" basedir=".">
+	<target name="init">
+		<property name="src.dir" value="./src" />
+		<property name="build.dir" value="./bin" />
+		<property name="jar.dir" value="./install" />
+		<property name="lib.dir" value ="c:\libs" />
+		<!--<property name="deploy.dir" value="//usmasvddspider/internal web/courses/it105/resources/it105editor" />-->
+		<property name="deploy.dir" value="c:\deploy" />
+	</target>
+
+	<target name="clean" depends="init">
+		<delete dir="${build.dir}" />
+	</target>
+
+	<target name="prepare" depends="clean">
+		<mkdir dir="${build.dir}" />
+	</target>
+
+	<target name="compile" depends="prepare">
+		<javac classpath=".;c:\libs\problemsets.jar;c:\libs\utility.jar;c:\libs\jalopy.jar;c:\libs\activation.jar;c:\libs\cssvalidator.jar;c:\libs\flute.jar;c:\libs\jakarta-oro.jar;c:\libs\jdom.jar;c:\libs\log4j.jar;c:\libs\sac.jar;c:\libs\servlet.jar;c:\libs\mail.jar" target="1.4" srcdir="${src.dir}" destdir="${build.dir}" />
+	</target>
+
+	<target name="package" depends="compile">
+		<jar jarfile="${jar.dir}/editor.jar">
+			<fileset dir="${build.dir}" includes="*" />
+		</jar>
+	</target>
+
+	<target name="deploy" depends="compile,init">
+		<copydir src="${libs.dir}" dest="${deploy.dir}" />
+		<copyfile src="${jar.dir}/editor.jar" dest="${deploy.dir}/editor.jar" />
+	</target>
+</project>
+

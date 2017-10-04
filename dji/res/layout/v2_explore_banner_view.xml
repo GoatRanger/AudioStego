@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res-auto" app:layout_width="match_parent" app:layout_height="wrap_content">
+    <android.support.v4.view.ViewPager app:id="@+id/explore_banner" app:layout_width="match_parent" app:layout_height="wrap_content" app:overScrollMode="never" />
+    <dji.pilot2.nativeexplore.view.IndicatorBar app:orientation="horizontal" app:id="@+id/explore_banner_indicator" app:paddingBottom="@dimen/fj" app:layout_width="wrap_content" app:layout_height="wrap_content" app:layout_alignBottom="@+id/explore_banner" app:layout_centerHorizontal="true" />
+    <HorizontalScrollView app:id="@+id/banner_activity_scrollview" app:scrollbars="UNKNOWN_DATA_0x0" app:layout_width="match_parent" app:layout_height="wrap_content" app:layout_below="@+id/explore_banner" app:overScrollMode="never">
+        <LinearLayout app:orientation="horizontal" app:id="@+id/banner_activity_linearlayout" app:layout_width="match_parent" app:layout_height="wrap_content" app:layout_marginBottom="@dimen/gw">
+            <RelativeLayout app:id="@+id/explore_activities_guide" app:layout_width="wrap_content" app:layout_height="wrap_content">
+                <dji.pilot2.nativeexplore.view.RoundCImageView app:padding="@dimen/ga" app:layout_width="match_parent" app:layout_height="match_parent" app:src="@r$drawable/v2_explore_guide_background" app:scaleType="centerCrop" app:cornerRadius="@dimen/gw" />
+                <TextView app:textColor="0x106000b" app:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" app:paddingLeft="@dimen/h7" app:paddingBottom="@dimen/h7" app:layout_width="wrap_content" app:layout_height="wrap_content" app:text="@string/v2_explore_guide_text" app:drawableLeft="@r$drawable/v2_explore_banner_pic" app:drawablePadding="@dimen/h7" app:layout_alignParentBottom="true" />
+            </RelativeLayout>
+        </LinearLayout>
+    </HorizontalScrollView>
+</RelativeLayout>

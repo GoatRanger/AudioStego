@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE toc
+  PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp TOC Version 1.0//EN"
+         "http://java.sun.com/products/javahelp/toc_1_0.dtd">
+<toc version="1.0">
+<tocitem image="toplevelfolder" target="overview" text="IT105 Editor Reference">
+    <tocitem text="Programming">
+      <tocitem text="XHTML">
+        <tocitem target="css_guide" text="CSS Reference" />
+      </tocitem>
+      <tocitem text="Java">
+      	<tocitem target="language" text="User Input/Output Commands"/>
+      	<tocitem target="language_robot" text="Robot Commands" />
+      </tocitem>
+    </tocitem>
+    <tocitem text="Appendices">
+      <tocitem target="problemsets" text="Using Problem Sets"/>
+      <tocitem target="bugs" text="Editor Bugs Fixes"/>
+    </tocitem>
+</tocitem>
+</toc>

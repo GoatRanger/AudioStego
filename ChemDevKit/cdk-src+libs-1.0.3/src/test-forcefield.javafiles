@@ -1,0 +1,3 @@
+org/openscience/cdk/test/MforcefieldTests.java
+org/openscience/cdk/test/modeling/forcefield/ForceFieldTests.java
+org/openscience/cdk/test/modeling/forcefield/TestPotentialFunction.java

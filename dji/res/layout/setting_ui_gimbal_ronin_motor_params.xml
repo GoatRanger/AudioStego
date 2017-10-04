@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.setting.ui.gimbal.ronin.MotorParams xmlns:android="http://schemas.android.com/apk/res-auto" setting_ui:orientation="vertical" setting_ui:layout_width="match_parent" setting_ui:layout_height="match_parent">
+    <dji.setting.ui.gimbal.ronin.CameraTypeSpinner setting_ui:id="@id/bt8" setting_ui:titleText="@string/setting_ui_ronin_camera_type_label" style="@style/g2" />
+    <TextView setting_ui:textColor="@color/hj" setting_ui:layout_width="wrap_content" setting_ui:layout_height="wrap_content" setting_ui:layout_marginTop="@dimen/ts" setting_ui:text="@string/setting_ui_ronin_motor_settings_label" style="@style/fw" />
+    <LinearLayout setting_ui:orientation="vertical" setting_ui:paddingLeft="0dp" setting_ui:paddingRight="0dp" setting_ui:layout_width="match_parent" setting_ui:layout_height="wrap_content"
+        <LinearLayout setting_ui:orientation="horizontal" setting_ui:layout_width="match_parent" setting_ui:layout_height="wrap_content" setting_ui:layout_marginLeft="@dimen/vd" setting_ui:layout_marginTop="@dimen/vd" setting_ui:baselineAligned="false">
+            <TextView setting_ui:layout_width="UNKNOWN_DATA_0x1" setting_ui:layout_height="wrap_content" setting_ui:layout_weight="1.0" style="@style/fx" />
+            <TextView setting_ui:textColor="@color/hj" setting_ui:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" setting_ui:layout_width="UNKNOWN_DATA_0x1" setting_ui:layout_height="wrap_content" setting_ui:layout_marginLeft="@dimen/vd" setting_ui:layout_marginRight="@dimen/vd" setting_ui:text="@string/setting_ui_ronin_motor_settings_axis_yaw" setting_ui:layout_weight="1.0" style="@style/fx" />
+            <TextView setting_ui:textColor="@color/hj" setting_ui:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" setting_ui:layout_width="UNKNOWN_DATA_0x1" setting_ui:layout_height="wrap_content" setting_ui:layout_marginLeft="@dimen/vd" setting_ui:layout_marginRight="@dimen/vd" setting_ui:text="@string/setting_ui_ronin_motor_settings_axis_pitch" setting_ui:layout_weight="1.0" style="@style/fx" />
+            <TextView setting_ui:textColor="@color/hj" setting_ui:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" setting_ui:layout_width="UNKNOWN_DATA_0x1" setting_ui:layout_height="wrap_content" setting_ui:layout_marginLeft="@dimen/vd" setting_ui:layout_marginRight="@dimen/vd" setting_ui:text="@string/setting_ui_ronin_motor_settings_axis_roll" setting_ui:layout_weight="1.0" style="@style/fx" />
+        </LinearLayout>
+        <LinearLayout setting_ui:orientation="horizontal" setting_ui:layout_width="match_parent" setting_ui:layout_height="wrap_content" setting_ui:layout_marginLeft="@dimen/vd" setting_ui:layout_marginTop="@dimen/vd" setting_ui:layout_marginBottom="@dimen/vd" setting_ui:baselineAligned="false">
+            <TextView setting_ui:layout_gravity="top|bottom|center_vertical|fill_vertical|center|fill" setting_ui:layout_width="UNKNOWN_DATA_0x1" setting_ui:layout_height="wrap_content" setting_ui:text="@string/setting_ui_ronin_motor_settings_force" setting_ui:layout_weight="1.0" style="@style/fx" />
+            <TextView setting_ui:id="@id/bt9" setting_ui:layout_width="UNKNOWN_DATA_0x1" setting_ui:layout_weight="1.0" style="@style/gp" />
+            <TextView setting_ui:id="@id/bt_" setting_ui:layout_width="UNKNOWN_DATA_0x1" setting_ui:layout_weight="1.0" style="@style/gp" />
+            <TextView setting_ui:id="@id/bta" setting_ui:layout_width="UNKNOWN_DATA_0x1" setting_ui:layout_weight="1.0" style="@style/gp" />
+        </LinearLayout>
+        <LinearLayout setting_ui:orientation="vertical" setting_ui:id="@id/btb" setting_ui:layout_width="match_parent" setting_ui:layout_height="wrap_content" setting_ui:baselineAligned="false"
+            <LinearLayout style="@style/fz" />
+            <LinearLayout setting_ui:orientation="horizontal" setting_ui:layout_width="match_parent" setting_ui:layout_height="wrap_content" setting_ui:layout_marginLeft="@dimen/vd" setting_ui:layout_marginTop="@dimen/vd" setting_ui:layout_marginBottom="@dimen/vd" setting_ui:baselineAligned="false">
+                <TextView setting_ui:layout_gravity="top|bottom|center_vertical|fill_vertical|center|fill" setting_ui:layout_width="UNKNOWN_DATA_0x1" setting_ui:layout_height="wrap_content" setting_ui:text="@string/setting_ui_ronin_motor_settings_hard" setting_ui:layout_weight="1.0" style="@style/fx" />
+                <TextView setting_ui:id="@id/btc" setting_ui:layout_width="UNKNOWN_DATA_0x1" setting_ui:layout_weight="1.0" style="@style/gp" />
+                <TextView setting_ui:id="@id/btd" setting_ui:layout_width="UNKNOWN_DATA_0x1" setting_ui:layout_weight="1.0" style="@style/gp" />
+                <TextView setting_ui:id="@id/bte" setting_ui:layout_width="UNKNOWN_DATA_0x1" setting_ui:layout_weight="1.0" style="@style/gp" />
+            </LinearLayout>
+            <LinearLayout style="@style/fz" />
+            <LinearLayout setting_ui:orientation="horizontal" setting_ui:layout_width="match_parent" setting_ui:layout_height="wrap_content" setting_ui:layout_marginLeft="@dimen/vd" setting_ui:layout_marginTop="@dimen/vd" setting_ui:layout_marginBottom="@dimen/vd" setting_ui:baselineAligned="false">
+                <TextView setting_ui:layout_gravity="top|bottom|center_vertical|fill_vertical|center|fill" setting_ui:layout_width="UNKNOWN_DATA_0x1" setting_ui:layout_height="wrap_content" setting_ui:text="@string/setting_ui_ronin_motor_settings_filter" setting_ui:layout_weight="1.0" style="@style/fx" />
+                <TextView setting_ui:id="@id/btf" setting_ui:layout_width="UNKNOWN_DATA_0x1" setting_ui:layout_weight="1.0" style="@style/gp" />
+                <TextView setting_ui:id="@id/btg" setting_ui:layout_width="UNKNOWN_DATA_0x1" setting_ui:layout_weight="1.0" style="@style/gp" />
+                <TextView setting_ui:id="@id/bth" setting_ui:layout_width="UNKNOWN_DATA_0x1" setting_ui:layout_weight="1.0" style="@style/gp" />
+            </LinearLayout>
+            <LinearLayout style="@style/fz" />
+            <LinearLayout setting_ui:orientation="horizontal" setting_ui:layout_width="match_parent" setting_ui:layout_height="wrap_content" setting_ui:layout_marginLeft="@dimen/vd" setting_ui:layout_marginTop="@dimen/vd" setting_ui:layout_marginBottom="@dimen/vd" setting_ui:baselineAligned="false">
+                <TextView setting_ui:layout_gravity="top|bottom|center_vertical|fill_vertical|center|fill" setting_ui:layout_width="UNKNOWN_DATA_0x1" setting_ui:layout_height="wrap_content" setting_ui:text="@string/setting_ui_ronin_motor_settings_feedback_control" setting_ui:layout_weight="1.0" style="@style/fx" />
+                <TextView setting_ui:id="@id/bti" setting_ui:layout_width="UNKNOWN_DATA_0x1" setting_ui:layout_weight="1.0" style="@style/gp" />
+                <TextView setting_ui:id="@id/btj" setting_ui:layout_width="UNKNOWN_DATA_0x1" setting_ui:layout_weight="1.0" style="@style/gp" />
+                <TextView setting_ui:id="@id/btk" setting_ui:layout_width="UNKNOWN_DATA_0x1" setting_ui:layout_weight="1.0" style="@style/gp" />
+            </LinearLayout>
+            <TextView setting_ui:layout_gravity="top|bottom|center_vertical|fill_vertical|center|fill" setting_ui:layout_width="match_parent" setting_ui:layout_height="wrap_content" setting_ui:layout_margin="@dimen/vd" setting_ui:text="@string/setting_ui_ronin_motor_settings_desc" style="@style/fx" />
+        </LinearLayout>
+        <LinearLayout style="@style/fz" />
+        <RelativeLayout setting_ui:id="@id/btl" setting_ui:background="@drawable/setting_ui_ronin_fold_bg" setting_ui:padding="@dimen/ue" setting_ui:clickable="true" setting_ui:layout_width="match_parent" setting_ui:layout_height="wrap_content">
+            <TextView setting_ui:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" setting_ui:id="@id/btm" setting_ui:layout_width="wrap_content" setting_ui:layout_height="wrap_content" setting_ui:text="@string/setting_ui_ronin_motor_settings_unfold_adv" setting_ui:drawableLeft="@drawable/setting_ui_arrow_down" setting_ui:drawablePadding="@dimen/vd" setting_ui:layout_centerInParent="true" />
+        </RelativeLayout>
+    </LinearLayout>
+</dji.setting.ui.gimbal.ronin.MotorParams>

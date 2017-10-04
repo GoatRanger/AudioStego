@@ -1,0 +1,166 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Import the Certificate as a Trusted Certificate</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="rstep1.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#toolsign" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="rstep3.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Security in Java 2 SDK 1.2
+<br>
+<b>Lesson</b>: Signing Code and Granting It Permissions
+</font>
+
+<h2>
+Import the Certificate as a Trusted Certificate
+</h2>
+<blockquote>
+Before you can grant the signed code permission to read a specified
+file, you need to import Susan's certificate as a trusted certificate
+in your keystore. 
+
+<p>Suppose that you have received
+from Susan
+
+<ul>
+<li>the signed JAR file <code>sCount.jar</code>, which
+contains the <code>Count.class</code> file, and <p>
+<li>the file <code>SusanJones.cer</code>, which
+contains the public key certificate for the public key corresponding
+to the private key used to sign the JAR file.
+</ul>
+
+<p>Even though you created these files and they haven't
+actually been transported anywhere, you can simulate 
+being someone other than the creater and sender, Susan.
+Pretend that you are now Ray.
+Acting as Ray, you will create a keystore named
+<code>raystore</code> and will use it to import the certificate
+into an entry with an alias of <code>susan</code>.
+
+<p>A keystore is created whenever you use a <code>keytool</code> 
+command specifying a keystore that doesn't yet exist.
+Thus we can create the <code>raystore</code> and import the 
+certificate via a single <code>keytool</code> command. Do the following
+in your command window.
+
+<ol>
+<li>Go to the directory containing the 
+public key certificate file <code>SusanJones.cer</code>. (You should
+actually already be there, since this lesson assumes that you stay
+in a single directory throughout.)<p>
+
+<li>Type the following command on one line:
+
+<blockquote><pre>
+<b>keytool -import -alias susan
+   -file SusanJones.cer -keystore raystore</b>
+</pre></blockquote>
+
+</ol>
+
+Since the keystore doesn't yet exist, it will be created, and you will
+be prompted for a keystore password; type whatever password you want.
+
+<p>The <code>keytool</code> command will print out the certificate information 
+and ask you to verify it, for example, by comparing the displayed certificate
+fingerprints with those obtained from another (trusted) 
+source of information. (Each fingerprint is a relatively short number 
+that uniquely and 
+reliably identifies the certificate.) For example, in the real world you might
+call up Susan and ask her what the fingerprints should be. She can get the
+fingerprints of the <code>SusanJones.cer</code> file she created by 
+executing the command
+
+<blockquote><pre>
+<b>keytool -printcert -file SusanJones.cer</b>
+</pre></blockquote>
+
+If the fingerprints she sees are the same as the ones reported to you by
+<code>keytool</code>, the certificate has not been modified
+in transit. In that case you let <code>keytool</code> proceed with placing  
+a trusted certificate entry in the keystore. 
+The entry contains the public key certificate 
+data from the file <code>SusanJones.cer</code> and is assigned the alias
+<code>susan</code>.
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="rstep1.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#toolsign" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="rstep3.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

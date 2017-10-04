@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res-auto" post:background="@color/om" post:layout_width="match_parent" post:layout_height="UNKNOWN_DATA_0x7f0b051d">
+    <dji.pilot2.nativeexplore.view.CircleProgressView post:id="@+id/v2_post_progress" post:layout_width="UNKNOWN_DATA_0x5a01" post:layout_height="UNKNOWN_DATA_0x5a01" post:layout_marginTop="50dp" post:layout_centerHorizontal="true" post:postmax="100" post:postprogress="0" post:poststartAngle="270" post:postringWidth="4dp" />
+    <dji.pilot.publics.widget.DJIStateTextView post:textSize="15sp" post:textColor="#212121" post:id="@+id/v2_post_uploading" post:layout_width="wrap_content" post:layout_height="wrap_content" post:layout_marginTop="25dp" post:text="@string/mine_repair_file_uploading" post:layout_below="@+id/v2_post_progress" post:layout_centerHorizontal="true" />
+    <dji.pilot.publics.widget.DJIStateTextView post:textSize="14sp" post:textColor="#9b9b9b" post:id="@+id/v2_post_cancel" post:padding="10dp" post:layout_width="wrap_content" post:layout_height="wrap_content" post:layout_marginTop="25dp" post:text="@string/v2_works_share_exit" post:layout_below="@+id/v2_post_uploading" post:layout_centerHorizontal="true" />
+</RelativeLayout>

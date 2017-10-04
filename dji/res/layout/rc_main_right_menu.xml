@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res-auto" home:orientation="horizontal" home:layout_width="wrap_content" home:layout_height="wrap_content">
+    <dji.pilot.home.rc.view.MainMenuRightButton home:id="@+id/main_right_btn_editor" home:drawableLeft="@r$drawable/rc_main_ic_home_s_editor" home:textRight="@string/rc_main_editor" style="@style/main_menu_button" />
+    <dji.pilot.home.rc.view.MainMenuRightButton home:id="@+id/main_right_btn_album" home:drawableLeft="@r$drawable/rc_main_ic_home_s_ablum" home:textRight="@string/rc_main_album" style="@style/main_menu_button" />
+    <dji.pilot.home.rc.view.MainMenuRightButton home:id="@+id/main_right_btn_skypixel" home:drawableLeft="@r$drawable/rc_main_ic_home_s_sp" home:textRight="@string/rc_main_skypixel" style="@style/main_menu_button" />
+</LinearLayout>

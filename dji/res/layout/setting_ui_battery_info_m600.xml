@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="horizontal" style="@style/g2"
+    <LinearLayout android:orientation="vertical" android:layout_width="UNKNOWN_DATA_0x1" android:layout_height="wrap_content" android:layout_weight="1.0">
+        <TextView android:layout_marginBottom="@dimen/vi" android:text="@string/setting_ui_battery_voltage_desc" style="@style/gu" />
+        <TextView android:id="@id/bpf" android:text="@string/setting_ui_na" style="@style/gr" />
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:layout_width="UNKNOWN_DATA_0x1" android:layout_height="wrap_content" android:layout_weight="1.0">
+        <TextView android:layout_marginBottom="@dimen/vi" android:text="@string/setting_ui_battery_current_volume" style="@style/gu" />
+        <TextView android:id="@id/bpa" android:text="@string/setting_ui_na" style="@style/gr" />
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:layout_width="UNKNOWN_DATA_0x1" android:layout_height="wrap_content" android:layout_weight="1.0">
+        <TextView android:layout_marginBottom="@dimen/vi" android:text="@string/setting_ui_battery_full_volume" style="@style/gu" />
+        <TextView android:id="@id/bpc" android:text="@string/setting_ui_na" style="@style/gr" />
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:layout_width="UNKNOWN_DATA_0x1" android:layout_height="wrap_content" android:layout_weight="1.0">
+        <TextView android:layout_marginBottom="@dimen/vi" android:text="@string/setting_ui_battery_temperature" style="@style/gu" />
+        <TextView android:id="@id/bpg" android:text="@string/setting_ui_na" style="@style/gr" />
+    </LinearLayout>
+</LinearLayout>

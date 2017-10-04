@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.device.common.view.DJIRadioGroup xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="match_parent">
+    <dji.phone.customui.DJILPRotationRelativeLayout android:layout_gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" style="@style/ey">
+        <RadioButton android:id="@id/b6m" android:background="@drawable/lp_selector_mode_video_auto" android:checked="true" android:button="0x0" android:layout_centerInParent="true" style="@style/f2" />
+        <TextView android:id="@id/b6n" android:text="@string/longan_record_mode_auto" android:layout_below="@id/b6m" style="@style/cd" />
+    </dji.phone.customui.DJILPRotationRelativeLayout>
+    <dji.phone.customui.DJILPRotationRelativeLayout android:layout_gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" style="@style/ey">
+        <RadioButton android:id="@id/bc4" android:background="@drawable/lp_selector_mode_video_timelapse" android:button="0x0" android:layout_centerInParent="true" style="@style/f2" />
+        <TextView android:textSize="@dimen/rp" android:id="@id/b6p" android:text="@string/longan_timelapse2_stationary_timelapse" android:layout_below="@id/bc4" style="@style/cd" />
+    </dji.phone.customui.DJILPRotationRelativeLayout>
+    <dji.phone.customui.DJILPRotationRelativeLayout android:layout_gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" style="@style/ey">
+        <RadioButton android:id="@id/bc5" android:background="@drawable/lp_selector_mode_video_motion_timelapse" android:button="0x0" android:layout_centerInParent="true" style="@style/f2" />
+        <TextView android:textSize="@dimen/rp" android:id="@id/bc6" android:text="@string/longan_timelapse2_motion_timelapse" android:layout_below="@id/bc5" style="@style/cd" />
+    </dji.phone.customui.DJILPRotationRelativeLayout>
+    <View android:layout_gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" style="@style/ey" />
+    <View android:layout_gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" style="@style/ey" />
+</dji.device.common.view.DJIRadioGroup>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res-auto">
+    <LinearLayout phantom:orientation="vertical" phantom:id="@+id/activefirstlinear1" phantom:layout_width="match_parent" phantom:layout_height="match_parent">
+        <View phantom:layout_width="match_parent" phantom:layout_height="UNKNOWN_DATA_0x1" phantom:layout_weight="0.5" />
+        <ImageView phantom:id="@+id/activefirstimageView1" phantom:layout_width="match_parent" phantom:layout_height="UNKNOWN_DATA_0x1" phantom:layout_marginLeft="-200dp" phantom:src="@r$drawable/v2_p3a_icon" phantom:scaleType="centerCrop" phantom:layout_weight="6.5" />
+        <dji.publics.DJIUI.DJITextView phantom:textSize="@dimen/a8o" phantom:textColor="@r$color/v2_active_title_01" phantom:gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:id="@+id/activefirsteditText1" phantom:layout_width="match_parent" phantom:layout_height="UNKNOWN_DATA_0x1" phantom:layout_marginLeft="@dimen/a8n" phantom:layout_marginRight="@dimen/a8n" phantom:text="@string/activate_statement_title" phantom:layout_weight="1.0" phantom:djiTextFace="0" />
+        <TextView phantom:textSize="@dimen/wx" phantom:textColor="@r$color/v2_active_title_03" phantom:id="@+id/activate_statement_product_desc" phantom:layout_width="match_parent" phantom:layout_height="UNKNOWN_DATA_0x1" phantom:layout_marginLeft="@dimen/a8n" phantom:layout_marginRight="@dimen/a8n" phantom:text="@string/activate_statement_content" phantom:layout_weight="1.0" />
+        <Button phantom:textSize="@dimen/active_txt_forteen" phantom:textColor="@color/om" phantom:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" phantom:id="@+id/activefirsteditText3" phantom:background="@r$drawable/v2_main_plantom_buttom_camera_blue_selector" phantom:layout_width="match_parent" phantom:layout_height="UNKNOWN_DATA_0x1" phantom:layout_marginLeft="@dimen/a8n" phantom:layout_marginTop="10dp" phantom:layout_marginRight="@dimen/a8n" phantom:layout_marginBottom="30dp" phantom:text="@string/continue_" phantom:singleLine="true" phantom:layout_weight="1.0" />
+        <View phantom:layout_width="match_parent" phantom:layout_height="UNKNOWN_DATA_0x1" phantom:layout_weight="1.0" />
+    </LinearLayout>
+</merge>

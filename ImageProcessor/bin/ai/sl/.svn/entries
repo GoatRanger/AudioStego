@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="33"
+   name=""
+   committed-date="2005-02-01T06:11:53.421875Z"
+   url="svn://192.168.2.2/ImageProcessor/src/ai/sl"
+   last-author="Karl"
+   kind="dir"
+   uuid="0daf4267-3229-f84b-9084-f3c94b025f38"
+   revision="55"/>
+<entry
+   committed-rev="33"
+   name="Opinion.java"
+   text-time="2005-03-02T06:25:39.140625Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="cbd5c22d5245174b23216dfbe67c64e7"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:39.078125Z"/>
+<entry
+   committed-rev="33"
+   name="OpinionProcessor.java"
+   text-time="2005-03-02T06:25:39.140625Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="16d0036ae96dadb3bb3d5e3bc7939032"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:39.093750Z"/>
+<entry
+   committed-rev="33"
+   name="Example1.java"
+   text-time="2005-03-02T06:25:39.156250Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="159e71330cf8a0955e8490da5fc8dd60"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:39.093750Z"/>
+<entry
+   committed-rev="33"
+   name="OpinionConsistency.java"
+   text-time="2005-03-02T06:25:39.171875Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="db57ebdff60f40044d3bf654c2ada54f"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:39.109375Z"/>
+<entry
+   committed-rev="33"
+   name="Calculate.java"
+   text-time="2005-03-02T06:25:39.171875Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="1ba319664a1eb817bf1bd086e9d6379b"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:39.125000Z"/>
+</wc-entries>

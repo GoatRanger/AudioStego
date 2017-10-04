@@ -1,0 +1,442 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Bean Context #2: Containment and Services</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="containment.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#beancontext" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="gui.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: JavaBeans(TM)
+<br>
+<b>Lesson</b>: Using the BeanContext API
+</font>
+
+<h2>
+Bean Context #2: Containment and Services
+</h2>
+<blockquote>
+<P>As mentioned in the introduction, the <code>BeanContext</code> API also provides a
+standard mechanism through which JavaBeans can discover and utilize the
+services offered by their enclosing <code>BeanContext</code>. 
+Service capability is defined by the
+<code>BeanContextServices</code>
+interface. Because this interface is a <code>BeanContext</code> extension, it inherits all 
+<code>BeanContext</code> membership capabilities.
+The discovery and
+requesting of services can be summarized in the following steps:
+
+<OL>
+
+<LI>A JavaBean that implements the
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/beancontext/BeanContextServicesListener.html"><font color="#8800bb"><code>java.beans.beancontext.BeanContextServicesListener</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/beancontext/BeanContextServicesListener.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> interface joins the bean context (the context itself
+is a <code>BeanContextServices</code> implementation),
+and registers its intent to be notified of new services via the context's
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/beancontext/BeanContextServices.html#addBeanContextServicesListener(java.beans.beancontext.BeanContextServicesListener)"><font color="#8800bb"><code>addBeanContextServicesListener(BeanContextServicesListener bcsl)</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/beancontext/BeanContextServices.html#addBeanContextServicesListener(java.beans.beancontext.BeanContextServicesListener)"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> method.
+
+<LI>A
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/beancontext/BeanContextServiceProvider.html"><font color="#8800bb"><code>java.beans.beancontext.BeanContextServiceProvider</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/beancontext/BeanContextServiceProvider.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>    registers
+    a new service with the context via the
+    context's <code>addService()</code> method. The context notifies
+    all currently registered listeners that this new service has been added.
+
+<LI>After being notified of the newly available service,
+    the listening JavaBean requests an instance of the service
+    from the context.
+
+<LI>The context tells the service provider to deliver the service to the requesting JavaBean.
+</OL>
+
+<P><A NAME="service_methods"></A> <B>BeanContextServices: Service Related Methods</B><BR>
+</P>
+
+Using a
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/beancontext/BeanContextServicesSupport.html"><font color="#8800bb"><code>java.beans.beancontext.BeanContextServicesSupport</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/beancontext/BeanContextServicesSupport.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> object as the bean context, it is possible to:
+
+<UL>
+	<LI>Add a service to this <code>BeanContext</code>: 
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/beancontext/BeanContextServicesSupport.html#addService(java.lang.Class, java.beans.beancontext.BeanContextServiceProvider)"><font color="#8800bb"><code>boolean addService(java.lang.Class serviceClass, BeanContextServiceProvider serviceProvider)</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/beancontext/BeanContextServicesSupport.html#addService(java.lang.Class, java.beans.beancontext.BeanContextServiceProvider)"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>
+	<LI>Add a service to this <code>BeanContext</code>:
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/beancontext/BeanContextServicesSupport.html#addService(java.lang.Class, java.beans.beancontext.BeanContextServiceProvider, boolean)"><font color="#8800bb"></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/beancontext/BeanContextServicesSupport.html#addService(java.lang.Class, java.beans.beancontext.BeanContextServiceProvider, boolean)"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>
+	<LI>Revoke a service:
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/beancontext/BeanContextServicesSupport.html#revokeService(java.lang.Class, java.beans.beancontext.BeanContextServiceProvider, boolean)"><font color="#8800bb"><code>void revokeService(java.lang.Class serviceClass, BeanContextServiceProvider serviceProvider, boolean revokeCurrentServicesNow)</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/beancontext/BeanContextServicesSupport.html#revokeService(java.lang.Class, java.beans.beancontext.BeanContextServiceProvider, boolean)"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>	<LI> Release a <code>BeanContextChild</code>'s (or any arbitrary object associated with a <code>BeanContextChild</code>) reference to the specified service:  
+
+
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/beancontext/BeanContextServicesSupport.html#releaseService(java.beans.beancontext.BeanContextChild, java.lang.Object, java.lang.Object)"><font color="#8800bb"><code>void releaseService(BeanContextChild child, java.lang.Object requestor, java.lang.Object service)</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/beancontext/BeanContextServicesSupport.html#releaseService(java.beans.beancontext.BeanContextChild, java.lang.Object, java.lang.Object)"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>	<LI>Add a <code>BeanContextServicesListener</code>
+
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/beancontext/BeanContextServicesSupport.html#addBeanContextServicesListener(java.beans.beancontext.BeanContextServicesListener)"><font color="#8800bb"><code>void addBeanContextServicesListener(BeanContextServicesListener bcsl)</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/beancontext/BeanContextServicesSupport.html#addBeanContextServicesListener(java.beans.beancontext.BeanContextServicesListener)"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>	<LI>Remove a <code>BeanContextServicesListener</code>:
+
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/beancontext/BeanContextServicesSupport.html#removeBeanContextServicesListener(java.beans.beancontext.BeanContextServicesListener)"><font color="#8800bb"><code>void removeBeanContextServicesListener(BeanContextServicesListener bcsl)</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/beancontext/BeanContextServicesSupport.html#removeBeanContextServicesListener(java.beans.beancontext.BeanContextServicesListener)"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>
+	<LI>Get the currently available services for this context: 
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/beancontext/BeanContextServicesSupport.html#getCurrentServiceClasses()"><font color="#8800bb"><code>Iterator getCurrentServiceClasses()</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/beancontext/BeanContextServicesSupport.html#getCurrentServiceClasses()"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>
+
+	<LI>Determine whether or not a given service is currently available from this context:
+
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/beancontext/BeanContextServicesSupport.html#hasService(java.lang.Class)"><font color="#8800bb"><code>boolean hasService(java.lang.Class serviceClass)</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/beancontext/BeanContextServicesSupport.html#hasService(java.lang.Class)"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>
+	<LI>Get a service from the context:
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/beancontext/BeanContextServicesSupport.html#getService(java.beans.beancontext.BeanContextChild, java.lang.Object, java.lang.Class, java.lang.Object, java.beans.beancontext.BeanContextServiceRevokedListener)"><font color="#8800bb"><code>Object getService(BeanContextChild child, java.lang.Object requestor, java.lang.Class serviceClass, java.lang.Object serviceSelector, BeanContextServiceRevokedListener bcsrl)</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/beancontext/BeanContextServicesSupport.html#getService(java.beans.beancontext.BeanContextChild, java.lang.Object, java.lang.Class, java.lang.Object, java.beans.beancontext.BeanContextServiceRevokedListener)"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>
+	<LI>Get the list of service dependent service parameters (Service Selectors) for the specified service: 
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/beancontext/BeanContextServicesSupport.html#getCurrentServiceSelectors(java.lang.Class)"><font color="#8800bb"><code>Iterator getCurrentServiceSelectors(java.lang.Class serviceClass)</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/beancontext/BeanContextServicesSupport.html#getCurrentServiceSelectors(java.lang.Class)"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a></UL>
+
+<P><A NAME="service_events"></A> <B>Service Event Notification</B></P>
+<P>JavaBeans nested into a <code>BeanContextServices</code> implement <code>BeanContextServicesListener</code> 
+to listen for new services
+being added, and/or <code>BeanContextServiceRevokedListener</code> to listen for services being revoked.</P>
+<P>
+There are two event types that may be intercepted by such listeners:
+<ul>
+<li>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/beancontext/BeanContextServiceAvailableEvent.html"><font color="#8800bb"><code>BeanContextServiceAvailableEvent</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/beancontext/BeanContextServiceAvailableEvent.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>: received by the <code>BeanContextServicesListener</code> in
+order to identify the service being registered. 
+<li>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/beancontext/BeanContextServiceRevokedEvent.html"><font color="#8800bb"><code>BeanContextServiceRevokedEvent</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/beancontext/BeanContextServiceRevokedEvent.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>: received by the
+<code>BeanContextServiceRevokedListener</code> in order to identify the
+service being revoked. 
+</ul>
+
+
+</P>
+
+
+<P><A NAME="service_provider"></A> <B>The Service Provider</B></P>
+<P>JavaBeans can query their enclosing bean context for a list of available services, or ask for a specific service
+by name. The service itself, however, is actually delivered by a <code>BeanContextServiceProvider</code>.
+The provider can be any object that implements the
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/beancontext/BeanContextServiceProvider.html"><font color="#8800bb"><code>java.beans.beancontext.BeanContextServiceProvider</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/beancontext/BeanContextServiceProvider.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> interface. Services
+become available in a context via the bean context's addService() registration method.</P>
+<P>BeanContextServiceProvider offers the following three methods, which will be automatically called when a bean requests (or releases) a service from its context:
+
+<UL>
+	<LI>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/beancontext/BeanContextServiceProvider.html#getService(java.beans.beancontext.BeanContextServices, java.lang.Object, java.lang.Class, java.lang.Object)"><font color="#8800bb"><code>Object getService(BeanContextServices bcs, java.lang.Object requestor, java.lang.Class serviceClass, java.lang.Object serviceSelector)</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/beancontext/BeanContextServiceProvider.html#getService(java.beans.beancontext.BeanContextServices, java.lang.Object, java.lang.Class, java.lang.Object)"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>	<LI>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/beancontext/BeanContextServiceProvider.html#getCurrentServiceSelectors(java.beans.beancontext.BeanContextServices, java.lang.Class)"><font color="#8800bb"><code>Iterator getCurrentServiceSelectors(BeanContextServices bcs, java.lang.Class serviceClass)</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/beancontext/BeanContextServiceProvider.html#getCurrentServiceSelectors(java.beans.beancontext.BeanContextServices, java.lang.Class)"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>	<LI>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/beancontext/BeanContextServiceProvider.html#releaseService(java.beans.beancontext.BeanContextServices, java.lang.Object, java.lang.Object)"><font color="#8800bb"><code>public void releaseService(BeanContextServices bcs, java.lang.Object requestor, java.lang.Object service)</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/beans/beancontext/BeanContextServiceProvider.html#releaseService(java.beans.beancontext.BeanContextServices, java.lang.Object, java.lang.Object)"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>	Release a service from any object that currently has a reference to it
+</UL>
+
+<P><A NAME="service"></A> <B>The Service</B></P>
+<P>The service itself is best described by this paragraph from the specification:
+
+
+<BLOCKQUOTE>
+	<P>
+<I>A service, represented by a Class object, 
+is typically a reference to either an interface, 
+or to an implementation
+that is not publicly instantiable. 
+This Class defines an interface protocol or contract 
+between a BeanContextServiceProvider,
+the factory of the service, 
+and an arbitrary object associated with a BeanContextChild
+ that is currently
+nested within the BeanContext the service is registered with.</I>
+</BLOCKQUOTE>
+<P>
+The following section presents a sample application that uses a word
+counting service to count the number of words in a given text file.
+<P><A NAME="word_count_example"></A>
+<H3>A Word Counting Service Example</H3>
+The classes defined in this sample application are:
+<UL>
+	<LI>
+<a target="_blank" href="example-1dot2/DocumentBean.java"><font color="#bb000f"><code>DocumentBean.java</code></font></a><a target="_blank" href="example-1dot2/DocumentBean.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>: A JavaBean that encapsulates a <code>File</code> object. Create an instance of this bean by passing it
+	a <code>String</code> indicating the name of the text file to represent. This bean extends <code>BeanContextChildSupport</code>, which allows
+	it to listen for addition/revocation of services in its context. When the bean detects that a 
+<code>WordCount</code> service
+	has been added to the context, it requests the service to count the number of words it contains.
+	<LI>
+<a target="_blank" href="example-1dot2/WordCountServiceProvider.java"><font color="#bb000f"><code>WordCountServiceProvider.java</code></font></a><a target="_blank" href="example-1dot2/WordCountServiceProvider.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>: A class that acts as the 
+factory for delivering the <code>WordCount</code> service. This
+	class implements the <code>BeanContextServiceProvider</code> interface.
+	<LI>
+<a target="_blank" href="example-1dot2/WordCount.java"><font color="#bb000f"><code>WordCount.java</code></font></a><a target="_blank" href="example-1dot2/WordCount.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>: This interface defines the service itself.
+	<LI>
+<a target="_blank" href="example-1dot2/DocumentTester.java"><font color="#bb000f"><code>DocumentTester.java</code></font></a><a target="_blank" href="example-1dot2/DocumentTester.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>: The main test program.
+</UL>
+
+<P><A NAME="DocumentBean.java"></A>
+<B>File:
+<a target="_blank" href="example-1dot2/DocumentBean.java"><font color="#bb000f"><code>DocumentBean.java</code></font></a><a target="_blank" href="example-1dot2/DocumentBean.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a></B></P>
+
+<blockquote><pre>
+import java.beans.beancontext.*;
+import java.io.*;
+import java.util.*;
+
+/**
+ * A JavaBean that encapsulates a text file. When added to a bean context,
+ * this bean listens for a WordCount service to become available. When
+ * the service does become available, the DocumentBean requests an 
+ * instance of the service. The service then counts the number of words in the file,
+ * and prints a report to standard output.
+ */
+public final class DocumentBean extends BeanContextChildSupport {
+
+    private File document; 
+    private BeanContextServices context;
+
+    /**
+     * Creates a new DocumentBean given the name of the file to read from.
+     * @param fileName the name of the file to read from
+     */
+    public DocumentBean(String fileName) {
+        document = new File(fileName);
+    }
+
+    /**
+     * Called when this bean detects that a new service
+     * has been registered with its context.
+     *
+     * @param bcsae the BeanContextServiceAvailableEvent
+     */
+    public void serviceAvailable(BeanContextServiceAvailableEvent bcsae) {
+        System.out.println(&quot;[Detected a service being added to the context]&quot;);
+
+        // Get a reference to the context
+        BeanContextServices context = bcsae.getSourceAsBeanContextServices();
+        System.out.println(&quot;Is the context offering a WordCount service? &quot;
+                           + context.hasService(WordCount.class)); 
+
+        // Use the service, if it's available
+        if (context.hasService(WordCount.class)) {        
+            System.out.println(&quot;Attempting to use the service...&quot;);
+            try {
+                WordCount service = (WordCount)context.getService(this, this,
+		                                           WordCount.class, document, this);
+                System.out.println(&quot;Got the service!&quot;);
+                service.countWords();
+            } catch(Exception e) { }
+        }        
+    }
+
+    /**
+     * Called when this bean detects that a service 
+     * has been revoked from the context.
+     *
+     * @param bcsre the BeanContextServiceRevokedEvent
+     */
+    public void serviceRevoked(BeanContextServiceRevokedEvent bcsre) {
+        System.out.println(&quot;[Detected a service being revoked from the context]&quot;);
+    }
+}
+</pre></blockquote>
+
+<P><A NAME="WordCountServiceProvider.java"></A>
+<B>File:
+<a target="_blank" href="example-1dot2/WordCountServiceProvider.java"><font color="#bb000f"><code>WordCountServiceProvider.java</code></font></a><a target="_blank" href="example-1dot2/WordCountServiceProvider.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a></B></P>
+
+<blockquote><pre>
+import java.beans.beancontext.*;
+import java.util.*;
+import java.io.*;
+
+/**
+ * This class is the factory that delivers a word counting service.
+ * The 3 methods defined in this class are the concrete implementations
+ * of the BeanContextServiceProvider interface. For this demonstration, the primary
+ * method of interest is getService(). The getService() methods returns a new
+ * WordCount instance. It is called by the bean context when a nested
+ * JavaBean requests the service.
+ */
+public final class WordCountServiceProvider implements BeanContextServiceProvider {
+
+    public Object getService(BeanContextServices bcs, 
+                             Object requestor,
+                             Class serviceClass,
+                             Object serviceSelector) {
+
+        // For this demo, we know that the cast from serviceSelector
+        // to File will always work.
+        final File document = (File)serviceSelector;
+
+        /*  Return an instance of the service. The service itself is 
+         *  the WordCount interface, which is implemented here using 
+         *  an anonymous inner class.
+         */
+        return new WordCount() {
+            public void countWords() {
+                try {
+                    // Create a Reader to the DocumentBean's File
+                    BufferedReader br = new BufferedReader(new FileReader(document));
+                    String line = null;
+                    int wordCount = 0;
+                    while ((line = br.readLine()) != null) {
+                        StringTokenizer st = new StringTokenizer(line);
+                        while (st.hasMoreTokens()) {
+                            System.out.println(&quot;Word &quot; + (++wordCount)
+                                               + &quot; is: &quot; + st.nextToken());
+                        }
+                    }
+                    System.out.println(&quot;Total number of words in the document: &quot;
+                                       + wordCount);
+                    System.out.println(&quot;[WordCount service brought to you by WordCountServiceProvider]&quot;);                
+                    br.close();
+                 } catch(Exception e) { }
+            }
+        };
+    }
+
+    public void releaseService(BeanContextServices bcs,
+                               Object requestor,
+                               Object service) {
+        // do nothing
+    }
+
+    public Iterator getCurrentServiceSelectors(BeanContextServices bcs, Class serviceClass) {
+        return null; // do nothing
+    }
+}
+</pre></blockquote>
+
+<P><A NAME="WordCount.java"></A>
+<B>File:
+<a target="_blank" href="example-1dot2/WordCount.java"><font color="#bb000f"><code>WordCount.java</code></font></a><a target="_blank" href="example-1dot2/WordCount.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a></B></P>
+
+<blockquote><pre>
+/**
+ * The WordCount service. Implementations of the
+ * countWords() method are provided by the 
+ * WordCountServiceProvider class.
+ */
+public interface WordCount {
+
+     /**
+      * Counts the number of words in the file.
+      */
+     public abstract void countWords();
+
+}
+</pre></blockquote>
+
+<P><A NAME="DocumentTester.java"></A>
+<B>File:
+<a target="_blank" href="example-1dot2/DocumentTester.java"><font color="#bb000f"><code>DocumentTester.java</code></font></a><a target="_blank" href="example-1dot2/DocumentTester.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a></B></P>
+
+<blockquote><pre>
+import java.beans.beancontext.*;
+import java.util.*;
+
+/**
+ * A test program that creates all of the objects,
+ * a tests the service capabilities. Run this program
+ * from the command line using java DocumentTester
+ */
+public class DocumentTester {
+
+     public static void main(String[] args) {       
+          BeanContextServicesSupport context = new BeanContextServicesSupport(); // a bean context
+          DocumentBean doc1 = new DocumentBean(&quot;Test.txt&quot;); 
+          context.add(doc1);
+          context.addBeanContextServicesListener(doc1); // listen for new services
+          WordCountServiceProvider provider = new WordCountServiceProvider();
+          context.addService(WordCount.class, provider); // add the service to the context
+     }
+}
+</pre></blockquote>
+
+<P><A NAME="Test.txt"></A>
+<B>File:
+<a target="_blank" href="example-1dot2/Test.txt"><font color="#bb000f"><code>Test.txt</code></font></a><a target="_blank" href="example-1dot2/Test.txt"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a></B></P>
+
+<blockquote><pre>
+This   text will  be analyzed  
+ 
+ by the WordCount 
+
+service.
+</pre></blockquote>
+
+<P><A NAME="output"></A> <B>Output:</B></P>
+<blockquote><pre>
+[Detected a service being added to the context]
+Is the context offering a WordCount service? true
+Attempting to use the service...
+Got the service!
+Word 1 is: This
+Word 2 is: text
+Word 3 is: will
+Word 4 is: be
+Word 5 is: analyzed
+Word 6 is: by
+Word 7 is: the
+Word 8 is: WordCount
+Word 9 is: service.
+Total number of words in the document: 9
+[WordCount service brought to you by WordCountServiceProvider]
+</pre></blockquote>
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="containment.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#beancontext" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="gui.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

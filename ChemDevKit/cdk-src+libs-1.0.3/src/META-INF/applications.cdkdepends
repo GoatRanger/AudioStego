@@ -1,0 +1,16 @@
+cdk-core.jar
+cdk-data.jar
+cdk-experimental.jar
+cdk-valencycheck.jar
+cdk-sdg.jar
+cdk-control.jar
+cdk-extra.jar
+cdk-io.jar
+cdk-interfaces.jar
+cdk-libio.jar
+cdk-libio-cml.jar
+cdk-qsar.jar
+cdk-render.jar
+cdk-standard.jar
+cdk-svg.jar
+cdk-smiles.jar

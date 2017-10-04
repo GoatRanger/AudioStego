@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.pilot2.usercenter.activate.ActivateDjiCare xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/activate_dji_care" android:layout_marginTop="0dp" style="@style/activate_llayout_style">
+    <dji.pilot.publics.widget.DJIStateTextView android:textSize="@dimen/rl" android:textColor="@color/at" android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@+id/active_dji_care_skip" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/gl" android:text="@string/v2_active_skip" android:layout_weight="0.5" />
+    <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x1" android:layout_weight="2.5">
+        <TextView android:id="@+id/activate_dji_care_title" android:text="@string/v2_activate_dji_care_title_keep_flying" style="@style/activate_des_title" />
+        <ImageView android:layout_gravity="left|right|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@+id/activate_dji_care_img" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@r$drawable/activate_dji_care_img_osmo" android:scaleType="centerInside" />
+    </LinearLayout>
+    <LinearLayout android:gravity="top|bottom|center_vertical|fill_vertical|center|fill" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x1" android:layout_weight="3.0">
+        <TextView android:id="@+id/active_dji_care_desc" android:text="@string/v2_active_dji_care_desc_drone" style="@style/activate_des_content" />
+        <TextView android:textSize="12sp" android:textStyle="bold" android:id="@+id/active_dji_care_tip" android:text="@string/v2_active_dji_care_desc_drone" style="@style/activate_des_content" />
+        <dji.pilot.publics.widget.DJIStateButton android:textSize="@dimen/rl" android:textColor="0x106000b" android:id="@+id/active_dji_care_btn" android:background="@r$drawable/active_view_corner_button_background" android:padding="@dimen/fj" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/g1" android:layout_marginTop="@dimen/gw" android:layout_marginRight="@dimen/g1" android:minHeight="0dp" android:text="@string/v2_active_dji_care_learn_more" />
+    </LinearLayout>
+</dji.pilot2.usercenter.activate.ActivateDjiCare>

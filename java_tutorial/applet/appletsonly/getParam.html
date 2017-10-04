@@ -1,0 +1,192 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Writing the Code to Support Parameters</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="paramQs.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#appletsonly" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="paramInfo.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Writing Applets
+<br>
+<b>Lesson</b>: Taking Advantage of the Applet API
+</font>
+
+<h2>
+Writing the Code to Support Parameters
+</h2>
+<blockquote>
+Applets use the <code>Applet getParameter</code> method
+to get user-specified values
+for applet parameters.
+The <code>getParameter</code> method is defined as follows:
+<blockquote><pre>
+public String getParameter(String name)
+</pre></blockquote>
+
+<p>
+
+Your applet might need to convert the string
+that <code>getParameter</code> returns into another form,
+such as an integer.
+The <code>java.lang</code> package provides classes such as Integer
+that you can use to help with converting strings to primitive types.
+Here's an example from the <code>AppletButton</code> class
+of converting a parameter's value into an integer:
+
+<blockquote><pre>
+int requestedWidth = 0;
+. . .
+String windowWidthString = getParameter("WINDOWWIDTH");
+if (windowWidthString != null) {
+    try {
+        requestedWidth = Integer.parseInt(windowWidthString);
+    } catch (NumberFormatException e) {
+        //Use default width.
+    }
+}
+</pre></blockquote>
+
+Note that if the user doesn't specify a value for the <code>WINDOWWIDTH</code> parameter,
+the above code uses a default value of 0,
+which the applet interprets as "use the window's natural size."
+It's important that you supply default values wherever possible.
+<p>
+Besides using the <code>getParameter</code> method to get values
+of applet-specific parameters, you can also use <code>getParameter</code>
+to get the values of attributes of the applet's
+<code>&lt;APPLET&gt;</code> tag.  See
+<a href="appletTag.html">The &lt;APPLET&gt; Tag</a>
+for a list of <code>&lt;APPLET&gt;</code> tag attributes.
+
+
+</blockquote>
+<h3>An Example: <code>AppletButton</code></h3>
+<blockquote>
+
+Below is the <code>AppletButton</code> code that gets the applet's parameters.
+For more information on <code>AppletButton</code>,
+see the 
+<a href=paramQs.html>previous page</a>.
+
+<blockquote><pre>
+String windowClass;
+String buttonText;
+String windowTitle;
+int requestedWidth = 0;
+int requestedHeight = 0;
+. . .
+public void init() {
+    windowClass = getParameter("WINDOWCLASS");
+    if (windowClass == null) {
+        windowClass = "TestWindow";
+    }
+
+    buttonText = getParameter("BUTTONTEXT");
+    if (buttonText == null) {
+        buttonText = "Click here to bring up a " + windowClass;
+    }
+
+    windowTitle = getParameter("WINDOWTITLE");
+    if (windowTitle == null) {
+        windowTitle = windowClass;
+    }
+
+    String windowWidthString = getParameter("WINDOWWIDTH");
+    if (windowWidthString != null) {
+        try {
+            requestedWidth = Integer.parseInt(windowWidthString);
+        } catch (NumberFormatException e) {
+            //Use default width.
+        }
+    }
+ 
+    String windowHeightString = getParameter("WINDOWHEIGHT");
+    if (windowHeightString != null) {
+        try {
+            requestedHeight = Integer.parseInt(windowHeightString);
+        } catch (NumberFormatException e) {
+            //Use default height.
+        }
+    }
+</pre></blockquote>
+
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="paramQs.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#appletsonly" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="paramInfo.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

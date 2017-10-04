@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <drawable name="usercenter_cloud_icon">res/drawable-zh-xxhdpi-v4/usercenter_cloud_icon.png</drawable>
+    <drawable name="v2_explore_guide_entrance">res/drawable-zh-large-xhdpi-v4/v2_explore_guide_entrance.png</drawable>
+    <drawable name="v2_explore_guide_entrance">res/drawable-zh-xxhdpi-v4/v2_explore_guide_entrance.png</drawable>
+</resources>

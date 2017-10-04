@@ -1,0 +1,184 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Compiling and Running the Hello World Application</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="server.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#hello" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="stringified.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: IDL
+<br>
+<b>Lesson</b>: The Hello Client-Server Example
+</font>
+
+<h2>
+Compiling and Running the Hello World Application
+</h2>
+<blockquote>
+This section shows you how to compile and run
+the server and the client program
+that together make up the "Hello World" application.
+
+<h3>Compiling the Client Application</h3>
+<OL>
+<LI> Compile <CODE>HelloClient.java</CODE>:
+<blockquote><pre>
+javac HelloClient.java HelloApp\*.java
+</pre></blockquote>
+<LI> Correct any errors in your file and recompile if necessary.
+<LI> You should see <CODE>HelloClient.class</CODE> in the
+     project directory.
+</OL>
+
+<h3>Compiling the Server</h3>
+<OL>
+<LI> Compile <CODE>HelloServer.java</CODE>:
+<blockquote><pre>
+javac HelloServer.java HelloApp\*.java
+</pre></blockquote>
+
+<LI> Correct any errors in your file and recompile if necessary.
+<LI> You should see <CODE>HelloServer.class</CODE> and
+     <CODE>HelloServant.class </CODE>.
+</OL>
+
+<h3>Running the Client-Server Application</h3>
+<OL>
+<LI> From an MS-DOS system prompt (Windows) or command shell (UNIX),
+start the Java IDL name server:
+<blockquote><pre>
+tnameserv -ORBInitialPort <I>nameserverport</I> 
+</pre></blockquote>
+Note that <CODE><I>nameserverport</I></CODE> is the port on which you want the name server to run. If you do not specify this, port 900 will be chosen by default. Also note that using Solaris software, you must become root to start a process on a port under 1024. For this reason, we recommend that you use a port number greater than or equal to 1024.<BR><BR>
+
+<LI> From a second prompt or shell,
+     start the Hello server:
+<blockquote><pre>
+java HelloServer -ORBInitialHost <I>nameserverhost</I>
+     -ORBInitialPort <I>nameserverport</I>
+</pre></blockquote>
+Note that <CODE><I>nameserverhost</I></CODE> is the host on which the IDL name server is running. You can omit <CODE>-ORBInitialHost <I>nameserverhost</I></CODE> if the name server is running on the same host as the Hello server. You can leave out <CODE>-ORBInitialPort <I>nameserverport</I></CODE> if the name server is running on the default port.<BR><BR>
+
+<LI> From a third prompt or shell,
+     run the Hello application client:
+<blockquote><pre>
+java HelloClient -ORBInitialHost <I>nameserverhost</I> 
+     -ORBInitialPort <I>nameserverport</I>
+</pre></blockquote>
+Note that <CODE><I>nameserverhost</I></CODE> is the host on which the IDL name server is running. You can omit <CODE>-ORBInitialHost <I>nameserverhost</I></CODE> if the name server is running on the same host as the Hello client. You can leave out <CODE>-ORBInitialPort <I>nameserverport</I></CODE> if the name server is running on the default port.<BR><BR>
+
+<LI>
+The client prints the string from the server to the command line:
+<blockquote><pre>
+Hello world!!
+</pre></blockquote>
+</OL>
+<P>
+Remember to stop both the <code>tnameserv</code> and the
+<code>HelloServer</code> processes
+after the client application returns successfully.
+</blockquote>
+
+<h3>Troubleshooting</h3>
+<blockquote>
+<dl>
+<DT CLASS="UNL-Head">
+<strong>Specifying ORB Initial Port</strong>
+<DD CLASS="UNL">
+The default ORB Initial Port is port 900. If you prefer, you can omit
+the port specifications if you start the name server on port 900. Using
+Solaris software, you must become root to start a process on a port
+under 1024. Remember to exit from root access before continuing with
+the tutorial if you choose to use this port for your name server.
+
+<DT CLASS="UNL-Head">
+<strong>Class Definition Not Found Error</strong>
+<DD CLASS="UNL">
+If the Java compiler (<CODE>javac</CODE>)
+throws a <code>NoClassDefFoundError</code>,
+try using <code>-cp</code> (classpath) command line option when
+compiling the source files.
+<blockquote><pre>
+javac -cp . *.java HelloApp\*.java
+</pre></blockquote>
+</dl>
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="server.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#hello" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="stringified.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

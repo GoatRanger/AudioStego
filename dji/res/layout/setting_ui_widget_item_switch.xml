@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="horizontal" style="@style/g2">
+    <TextView android:id="@id/bqz" android:text="Title" style="@style/gh" />
+    <TextView android:id="@id/br3" android:visibility="gone" style="@style/g6" />
+    <Switch android:id="@id/br0" style="@style/gg" />
+</LinearLayout>

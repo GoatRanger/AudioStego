@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="33"
+   name=""
+   committed-date="2005-02-01T06:11:53.421875Z"
+   url="svn://192.168.2.2/ImageProcessor/src/or/doc/drasys/or/stat"
+   last-author="Karl"
+   kind="dir"
+   uuid="0daf4267-3229-f84b-9084-f3c94b025f38"
+   revision="55"/>
+<entry
+   name="model"
+   kind="dir"/>
+<entry
+   committed-rev="33"
+   name="package-frame.html"
+   text-time="2005-03-02T06:25:34.859375Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="c15f2f2e5944c79c776026b01e364b28"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:34.718750Z"/>
+<entry
+   committed-rev="33"
+   name="StatError.html"
+   text-time="2005-03-02T06:25:34.859375Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="b231399fcb1d2bb92477349832d53925"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:34.734375Z"/>
+<entry
+   committed-rev="33"
+   name="package-summary.html"
+   text-time="2005-03-02T06:25:34.875000Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="8a0d5822d64e1a68196eb322e87b1457"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:34.750000Z"/>
+<entry
+   committed-rev="33"
+   name="PopulationProportion.html"
+   text-time="2005-03-02T06:25:34.890625Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="05db7e511ba6ff985f53badcaaf6e714"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:34.781250Z"/>
+<entry
+   committed-rev="33"
+   name="package-tree.html"
+   text-time="2005-03-02T06:25:34.890625Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="d28a5428e9a20f648dd33bcb65916d92"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:34.796875Z"/>
+<entry
+   committed-rev="33"
+   name="PopulationMedian.html"
+   text-time="2005-03-02T06:25:34.906250Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="f39fe095a3c396fe022f8f0d80e915e0"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:34.796875Z"/>
+<entry
+   committed-rev="33"
+   name="StatException.html"
+   text-time="2005-03-02T06:25:34.906250Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="e57255b83b7330ca563220dde3344eba"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:34.812500Z"/>
+<entry
+   committed-rev="33"
+   name="Stat.html"
+   text-time="2005-03-02T06:25:34.921875Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="ea5dd819bb913179badbf89cd8390424"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:34.828125Z"/>
+<entry
+   committed-rev="33"
+   name="PopulationMean.html"
+   text-time="2005-03-02T06:25:34.921875Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="ac5ab1d89528a0b66700631283645698"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:34.843750Z"/>
+</wc-entries>

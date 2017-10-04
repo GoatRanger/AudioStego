@@ -1,0 +1,345 @@
+
+
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>How to Write a Component Listener</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="changelistener.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#events" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="containerlistener.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Creating a GUI with JFC/Swing
+<br>
+<b>Lesson</b>: Writing Event Listeners
+</font>
+
+<h2>
+How to Write a Component Listener
+</h2>
+<blockquote>
+
+One or more component events are fired
+by a <code>Component</code> object
+just after the component is hidden, made visible, moved, or resized.
+An example of a component listener
+might be in a GUI builder tool
+that's displaying information about the size 
+of the currently selected component,
+and that needs to know when the component's size changes.
+You shouldn't need to use component events
+to manage basic layout and rendering.
+
+<p>
+The component-hidden and component-shown events
+occur only as the result of calls to a <code>Component</code>'s
+<code>setVisible</code> method.
+For example, a window might be miniaturized into an icon (iconified)
+without a component-hidden event being fired.
+
+<p>
+The following example demonstrates component events.
+The window contains a panel that has a label and a check box.
+The check box controls whether the label is visible.
+A text area displays a message every time
+the window, panel, label, or check box
+fires a component event.
+
+<p>
+<p><center><IMG SRC="../../figures/uiswing/events/ComponentEventDemo.gif" WIDTH="400" HEIGHT="200" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p><h4 align=center><font color=red>[PENDING: New screenshot
+forthcoming showing sample output.]</font></h4>
+
+<p>
+<blockquote><hr><strong>Try this:</strong>&nbsp;
+<ol>
+<li> <a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/events/example-1dot4/ComponentEventDemo.jnlp">Run
+     ComponentEventDemo</a> using
+     <a href=http://java.sun.com/products/javawebstart>
+     Java<sup><font size=-2>TM</font></sup> Web Start</a>.
+     Or, to compile and run the example yourself,
+     consult the
+     <a href="example-1dot4/index.html#ComponentEventDemo">example index</a>.
+<li> When the window appears, one or more component-shown
+     events have been fired.
+<li> Click the check box to hide the label.
+     <br>
+     The label fires a component-hidden event.
+     The panel fires component-moved and component-resized events.
+     The check box fires a component-moved event.
+
+<li> Click the check box again to show the label.
+     <br>
+     The label fires a component-shown event.
+     The panel fires component-moved and component-resized events.
+     The check box fires a component-moved event.
+
+<li> Iconify and then deiconify the window.
+     <br>
+     You do <em>not</em> get component-hidden or -shown events.
+     If you want to be notified of iconification events,
+     you should use a window listener or a window state listener.
+
+<li> Resize the window.
+     <br>
+     You'll see component-resized
+     (and possibly component-moved) events
+     from all four components &#151; label, check box, panel, and frame.
+     If the frame and panel's layout manager didn't make every component
+     as wide as possible,
+     the panel, label, and check box wouldn't have been resized.
+</ol>
+<hr></blockquote>
+
+<p>
+
+You can find the demo's code in 
+
+<a target="_blank" href="example-1dot4/ComponentEventDemo.java"><font color="#bb000f"><code>ComponentEventDemo.java</code></font></a><a target="_blank" href="example-1dot4/ComponentEventDemo.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>.
+Here is just the code related to handling component events:
+
+<blockquote><pre>
+public class ComponentEventDemo ... implements ComponentListener {
+    static JFrame frame;
+    JLabel label;
+    ...
+    public ComponentEventDemo() {
+        ...
+        JPanel panel = new JPanel(new BorderLayout());
+        label = new JLabel("This is a label", JLabel.CENTER);
+        label.addComponentListener(this);
+        panel.add(label, BorderLayout.CENTER);
+
+        JCheckBox checkbox = new JCheckBox("Label visible", true);
+        checkbox.addComponentListener(this);
+        panel.add(checkbox, BorderLayout.PAGE_END);
+        panel.addComponentListener(this);
+        ...
+        frame.addComponentListener(this);
+    }
+    ...
+    public void componentHidden(ComponentEvent e) {
+	displayMessage("componentHidden event from "
+		       + e.getComponent().getClass().getName());
+    }
+
+    public void componentMoved(ComponentEvent e) {
+        Component c = e.getComponent();
+        displayMessage("componentMoved event from "
+                       + c.getClass().getName()
+                       + "; new location: "
+                       + c.getLocation().x
+                       + ", "
+                       + c.getLocation().y);
+    }
+
+    public void componentResized(ComponentEvent e) {
+        Component c = e.getComponent();
+        displayMessage("componentResized event from "
+                       + c.getClass().getName()
+                       + "; new size: "
+                       + c.getSize().width
+                       + ", "
+                       + c.getSize().height);
+    }
+
+    public void componentShown(ComponentEvent e) {
+	displayMessage("componentShown event from "
+		       + e.getComponent().getClass().getName());
+    }
+
+    public static void main(String[] args) {
+        ...
+        //Create and set up the window.
+        frame = new JFrame("ComponentEventDemo");
+        ...
+        JComponent newContentPane = new ComponentEventDemo();
+        frame.setContentPane(newContentPane);
+        ...
+    }
+}
+</pre></blockquote>
+
+</blockquote>
+<h3>
+<a name="api">The Component Listener API</a>
+</h3>
+<blockquote>
+
+<p align=center><a name="componentlistener">The ComponentListener
+   Interface</a>
+<p><em>All of these methods are also in the adapter class,
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/event/ComponentAdapter.html"><font color="#8800bb"><code>ComponentAdapter</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/event/ComponentAdapter.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>.</em>
+<table border=1>
+<tr>
+<th align=left>Method</th>
+<th align=left>Purpose</th>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/event/ComponentListener.html#componentHidden(java.awt.event.ComponentEvent)"><font color="#8800bb"><font size=2><code>componentHidden(ComponentEvent)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/event/ComponentListener.html#componentHidden(java.awt.event.ComponentEvent)"></a></td>
+<td> Called after the listened-to component is hidden
+     as the result of the <code>setVisible</code> method being called.
+</td>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/event/ComponentListener.html#componentMoved(java.awt.event.ComponentEvent)"><font color="#8800bb"><font size=2><code>componentMoved(ComponentEvent)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/event/ComponentListener.html#componentMoved(java.awt.event.ComponentEvent)"></a></td>
+<td> Called after the listened-to component moves,
+     relative to its container.
+     For example, if a window is moved,
+     the window fires a component-moved event,
+     but the components it contains do not.
+</td>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/event/ComponentListener.html#componentResized(java.awt.event.ComponentEvent)"><font color="#8800bb"><font size=2><code>componentResized(ComponentEvent)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/event/ComponentListener.html#componentResized(java.awt.event.ComponentEvent)"></a></td>
+<td> Called after the listened-to component's
+     size (rectangular bounds) changes.
+</td>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/event/ComponentListener.html#componentShown(java.awt.event.ComponentEvent)"><font color="#8800bb"><font size=2><code>componentShown(ComponentEvent)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/event/ComponentListener.html#componentShown(java.awt.event.ComponentEvent)"></a></td>
+<td> Called after the listened-to component becomes visible
+     as the result of the <code>setVisible</code> method being called.
+</td>
+</tr>
+</table>
+
+<p align=center><a name="componentevent">The ComponentEvent
+   Class</a>
+<p>
+<table border=1>
+<tr>
+<th align=left>Method</th>
+<th align=left>Purpose</th>
+</tr>
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/event/ComponentEvent.html#getComponent()"><font color="#8800bb"><font size=2><code>Component getComponent()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/event/ComponentEvent.html#getComponent()"></a></td>
+<td> Returns the component that fired the event.
+     You can use this instead of the <code>getSource</code> method.
+</td>
+</tr>
+</table>
+
+</blockquote>
+
+<a name="eg">
+<h3>Examples that Use Component Listeners</h3>
+</a>
+<blockquote>
+The following table lists the
+examples that use component listeners.
+ 
+<p>
+ 
+<table>
+<tr>
+<th align=left> Example
+</th>
+<th align=left> Where Described
+</th>
+<th align=left> Notes
+
+</th>
+</tr>
+<tr valign=top>
+<td> <a href="example-1dot4/index.html#ComponentEventDemo"><code>ComponentEventDemo</code></a>
+</td>
+<td> This section
+</td>
+<td> Reports all component events that occur on several components
+     to demonstrate the circumstances under which component events are fired.
+
+</td>
+</tr>
+</table>
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="changelistener.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#events" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="containerlistener.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

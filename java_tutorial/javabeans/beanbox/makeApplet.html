@@ -1,0 +1,155 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Using the BeanBox to Generate Applets</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="usingBeanBox.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#beanbox" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="../writingbean/index.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: JavaBeans(TM)
+<br>
+<b>Lesson</b>: Using the BeanBox
+</font>
+
+<h2>
+Using the BeanBox to Generate Applets
+</h2>
+<blockquote>
+<p>
+You can use the BeanBox's File|MakeApplet... menu item to
+generate an applet from the BeanBox contents.
+Making an applet from the BeanBox
+creates:
+<ul>
+ <li>A JAR file containing class files and serialized data
+ <li>A test HTML file that uses the
+     JAR file (and any other JAR files needed)
+ <li>A subdirectory with Java sources and <code>makefile</code>
+ <li>A <code>readme</code> file with complete information about
+     the generated applet and all files involved
+</ul>
+
+<p>
+Take the following steps to generate an applet from
+the BeanBox:
+
+<ol>
+ <li>Use the Juggler example that you made in the
+     <a href="../events/index.html">events section</a>. If
+     you saved that example to a file, load it into
+     the BeanBox using the File|Load menu item. If
+     you didn't save it, follow the steps in the
+     events section to build the example.
+     The generated applet will have the same size as
+     the BeanBox frame, so you might want to adjust the
+     BeanBox size to the size of the applet you want.
+     <p>
+ <li>Choose File|Make Applet to bring up the MakeApplet dialog:
+
+<p><center><IMG SRC="../../figures/javabeans/makeAppletDialog.gif" WIDTH="391" HEIGHT="121" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p>
+     <br>
+     Use the default JAR file and applet name for this example.
+     Press the OK button. 
+</ol>
+
+<p>
+That's it. The generated files were placed in
+the <code>beanbox/tmp/myApplet</code> directory.
+You can inspect your handiwork by bringing
+up appletviewer in the following way:
+<blockquote><pre>
+appletviewer &lt;BDKInstallation&gt;/beanbox/tmp/myApplet.html
+</pre></blockquote>
+
+<p>
+Here is what you will see:
+
+<p><center><IMG SRC="../../figures/javabeans/jugglerApplet.gif" WIDTH="218" HEIGHT="279" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p>
+
+<p>
+Don't forget to look at the generated <code>myApplet_readme</code> file,
+and the other files generated.
+<p>
+Generated applets can be used in any JDK 1.1-compliant browser.
+The appletviewer is a good test platform. Another fully compliant browser
+is the 
+<a target="_blank" href="http://java.sun.com/products/hotjava/"><font color="#009bbb">HotJava browser</font></a><a target="_blank" href="http://java.sun.com/products/hotjava/"><img src="../../images/otherIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (outside of the tutorial)"></a> .See the generated <code>readme</code> file for more information.
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="usingBeanBox.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#beanbox" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="../writingbean/index.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

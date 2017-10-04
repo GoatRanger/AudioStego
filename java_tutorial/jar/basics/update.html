@@ -1,0 +1,233 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Updating a JAR File</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="mod.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#basics" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="run.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: JAR Files
+<br>
+<b>Lesson</b>: Using JAR Files: The Basics
+</font>
+
+<h2>
+Updating a JAR File
+</h2>
+<blockquote>
+The Jar tool in version 1.2 of the Java<font size="-2"><sup>TM</sup></font> 
+Development Kit provides a <tt>u</tt> option which you can use to 
+update the contents of an existing JAR file by modifying its 
+manifest or by adding files.  
+<p>
+The basic command for adding files has this format:
+<blockquote><pre>
+jar uf <i>jar-file input-file(s)</i>
+</pre></blockquote>
+<p>
+In this command:
+<ul>
+<li>The <tt>u</tt> option indicates that you want to <em>update</em> 
+an existing JAR file.
+<li>The <tt>f</tt> option indicates that the JAR file to update is 
+specified on the command line.  If the <tt>f</tt> option is not 
+present, the Jar tool will expect a JAR filename on stdin.
+<li><tt>jar-file</tt> is the existing JAR file that's to be updated.
+<li><tt>input-file(s)</tt> is a space-deliminated list of one or 
+more files that you want to add to the Jar file.
+</ul>
+<p>
+Any files already in the archive having the same pathname as a file 
+being added will be overwritten.
+<p>
+As when <a href="build.html">creating a new JAR file</a>, you can 
+optionally use the <tt>-C</tt> option to indicate a change of directory.
+<p>
+You can combine the <tt>u</tt> option with the <tt>m</tt> option to 
+update an existing JAR file's manifest:
+<blockquote><pre>
+jar umf manifest jar-file
+</pre></blockquote>
+<p>
+In this command:
+<ul>
+<li>The <tt>m</tt> option indicates that you want to update the 
+JAR file's <em>manifest</em>.
+<li><tt>manifest</tt> is the manifest whose contents you want to 
+merge into the manifest of the existing JAR file.
+</ul>
+
+</blockquote>
+<h3>Examples</h3>
+
+<blockquote>
+Recall that <tt>TicTacToe.jar</tt> has these contents:
+<blockquote><pre>
+META-INF/MANIFEST.MF
+TicTacToe.class
+audio/
+audio/beep.au
+audio/ding.au
+audio/return.au
+audio/yahoo1.au
+audio/yahoo2.au
+images/
+images/cross.gif
+images/not.gif
+</pre></blockquote>
+<p>
+Suppose that you want to add the file <tt>images/new.gif</tt> to the 
+JAR file. You could accomplish that by issuing this command from 
+the parent directory of the <tt>images</tt> directory:
+<blockquote><pre>
+jar uf TicTacToe.jar images/new.gif
+</pre></blockquote>
+<p>
+The revised JAR file would have this table of contents:
+<blockquote><pre>
+META-INF/MANIFEST.MF
+TicTacToe.class
+audio/
+audio/beep.au
+audio/ding.au
+audio/return.au
+audio/yahoo1.au
+audio/yahoo2.au
+images/
+images/cross.gif
+images/not.gif
+images/new.gif
+</pre></blockquote>
+<p>
+You can use the <tt>-C</tt> option to "change directories" during 
+execution of the command.  For example:
+<blockquote><pre>
+jar uf TicTacToe.jar -C images new.gif
+</pre></blockquote>
+This command would change to the <tt>images</tt> directory before adding 
+<tt>new.gif</tt> to the JAR file.  The <tt>images</tt> directory would not 
+be included in the pathname of <tt>new.gif</tt> when it's added to the 
+archive, resulting in a table of contents that looks like this:
+<blockquote><pre>
+META-INF/MANIFEST.MF
+TicTacToe.class
+audio/
+audio/beep.au
+audio/ding.au
+audio/return.au
+audio/yahoo1.au
+audio/yahoo2.au
+images/
+images/cross.gif
+images/not.gif
+new.gif
+</pre></blockquote>
+<p>
+As a final example, suppose you want to modify the default manifest of 
+<tt>TicTacToe.jar</tt>  
+by adding some version and vendor information. (Version and vendor 
+information is contained in special headers that you can add to a 
+JAR file's manifest. See the section on 
+<a href="manifest.html">Understanding the Manifest</a> for information 
+about special headers.)  You 
+would first prepare a text file containing the  
+headers that you wish to add to the default manifest. Your text file 
+might consist of this information, for example:
+<blockquote><pre>
+Name: TicTacToe.class
+Implementation-Title: "TicTacToe demo" 
+Implementation-Version: "build57"
+Implementation-Vendor: "Sun Microsystems, Inc."
+</pre></blockquote>
+<p>
+If the file containing this information was called <tt>versionInfo</tt>, 
+you would add the information to the manifest in <tt>TicTacToe.jar</tt> 
+by using this 
+command:
+<blockquote><pre>
+jar umf versionInfo TicTacToe.jar
+</pre></blockquote>
+After running this command, <tt>TicTacToe.jar</tt>'s manifest would 
+contain the information from your <tt>versionInfo</tt> file.
+
+
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="mod.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#basics" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="run.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

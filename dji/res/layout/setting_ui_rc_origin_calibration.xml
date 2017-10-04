@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" style="@style/g2">
+    <TextView android:text="@string/setting_ui_rc_calibration_1" style="@style/gr" />
+    <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/u1" android:src="@drawable/setting_ui_rc_calibration_1" />
+        <RelativeLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <dji.setting.ui.widget.DJIStickCircleView android:id="@id/bwf" android:layout_width="UNKNOWN_DATA_0x9601" android:layout_height="UNKNOWN_DATA_0x9601" android:layout_marginLeft="@dimen/uf" android:layout_alignParentLeft="true" />
+            <dji.setting.ui.widget.DJIStickCircleView android:id="@id/bwg" android:layout_width="UNKNOWN_DATA_0x9601" android:layout_height="UNKNOWN_DATA_0x9601" android:layout_marginRight="@dimen/uf" android:layout_alignParentRight="true" />
+        </RelativeLayout>
+    </LinearLayout>
+    <TextView android:text="@string/setting_ui_rc_calibration_2" style="@style/gr" />
+    <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/u1">
+        <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/setting_ui_rc_calibration_2" />
+        <LinearLayout android:gravity="top|bottom|center_vertical|fill_vertical|center|fill" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x7f0b0353" android:layout_marginLeft="@dimen/us" android:layout_marginRight="@dimen/us">
+            <ImageView android:id="@id/bwh" android:layout_width="UNKNOWN_DATA_0x7f0b0373" android:layout_height="UNKNOWN_DATA_0x7f0b0373" android:src="@drawable/setting_ui_rc_wheel_down" android:scaleType="centerInside" android:adjustViewBounds="true" android:contentDescription="@string/app_name" />
+            <dji.setting.ui.widget.DJICalProgressBar android:id="@id/tj" android:layout_width="UNKNOWN_DATA_0x1" android:layout_height="match_parent" android:layout_marginLeft="@dimen/ts" android:layout_marginRight="@dimen/ts" android:layout_weight="1.0" />
+            <ImageView android:id="@id/bwi" android:layout_width="UNKNOWN_DATA_0x7f0b0373" android:layout_height="UNKNOWN_DATA_0x7f0b0373" android:src="@drawable/setting_ui_rc_wheel_up" android:scaleType="centerInside" android:adjustViewBounds="true" android:contentDescription="@string/app_name" />
+        </LinearLayout>
+    </LinearLayout>
+    <TextView android:id="@id/bwj" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/us" style="@style/fx" />
+    <View style="@style/fz" />
+    <Button android:id="@id/bwk" android:text="@string/setting_ui_rc_cal" style="@style/g5" />
+    <View android:layout_marginBottom="@dimen/us" style="@style/fz" />
+</LinearLayout>

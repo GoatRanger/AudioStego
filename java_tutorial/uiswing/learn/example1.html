@@ -1,0 +1,306 @@
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Example One: Your First Swing Program</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#learn" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="example2.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Creating a GUI with JFC/Swing
+<br>
+<b>Lesson</b>: Learning Swing by Example
+</font>
+
+<h2>
+Example One: Your First Swing Program
+</h2>
+<blockquote>
+<!--Example 1-->
+
+This is the first of several sections that teach Swing basics by 
+looking at example code. This section examines the code for a 
+simple program, 
+<a target="_blank" href="example-1dot4/HelloWorldSwing.java"><font color="#bb000f"><code>HelloWorldSwing</code></font></a><a target="_blank" href="example-1dot4/HelloWorldSwing.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>. The examples in 
+the following sections will become progressively more difficult 
+as we introduce and explain more features.
+
+<P>
+Here's a snapshot of the <code>HelloWorldSwing</code> program:
+
+<p><center><IMG SRC="../../figures/uiswing/learn/1helloworldswing.gif" WIDTH="210" HEIGHT="49" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="The HelloWorldSwing application."></center></p>
+And here's the full code for <code>HelloWorldSwing</code>:
+
+<blockquote><pre>
+import javax.swing.*;        
+
+public class HelloWorldSwing {
+    /**
+     * Create the GUI and show it.  For thread safety,
+     * this method should be invoked from the
+     * event-dispatching thread.
+     */
+    private static void createAndShowGUI() {
+        //Make sure we have nice window decorations.
+        JFrame.setDefaultLookAndFeelDecorated(true);
+
+        //Create and set up the window.
+        JFrame frame = new JFrame("HelloWorldSwing");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        //Add the ubiquitous "Hello World" label.
+        JLabel label = new JLabel("Hello World");
+        frame.getContentPane().add(label);
+
+        //Display the window.
+        frame.pack();
+        frame.setVisible(true);
+    }
+
+    public static void main(String[] args) {
+        //Schedule a job for the event-dispatching thread:
+        //creating and showing this application's GUI.
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                createAndShowGUI();
+            }
+        });
+    }
+}
+</pre></blockquote>
+
+This is one of the simplest Swing applications you 
+can write. It doesn’t do much, but the code 
+demonstrates the basic code in every Swing program:
+<OL>
+  <li>Import the pertinent packages.
+  <li>Set up a top-level container.
+  <li>Display the container.
+  <li>Be thread-safe.
+</OL>
+The first line imports the main Swing package:
+
+<blockquote><pre>
+import javax.swing.*;
+</pre></blockquote>
+
+This is the only package that <code>HelloWorldSwing</code> needs. 
+However, most Swing programs also need to import two AWT packages:
+
+<blockquote><pre>
+import java.awt.*;
+import java.awt.event.*;
+</pre></blockquote>
+
+
+These packages are required because Swing components 
+use the AWT infrastructure, including the AWT event 
+model. The event model governs how a component reacts 
+to events such as button clicks and mouse motion. 
+You'll learn more about events in the upcoming section 
+<a target="_top" href="example2.html#handlingEvents">Handling Events</a><a target="_top" href="example2.html#handlingEvents"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.
+
+<P>
+Every program with a Swing GUI must have at least one 
+top-level Swing container. A top-level Swing container 
+provides the support Swing components need for painting 
+and event handling. There are three commonly used 
+top-level Swing containers: <code>JFrame</code>, 
+<code>JDialog</code>, and (for applets) 
+<code>JApplet</code>. Each <code>JFrame</code> object 
+implements a single main window, and each 
+<code>JDialog</code> implements a secondary window (a 
+window dependent on another window). Each 
+<code>JApplet</code> object implements an applet’s 
+display area within a browser window. 
+(<code>JApplet</code> is covered in 
+
+<a target="_top" href="../components/applet.html">How to Make Applets</a><a target="_top" href="../components/applet.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.)
+
+<P>
+The <code>HelloWorldSwing</code> example has only 
+one top-level container, a <code>JFrame</code>. 
+Imple­mented as an instance of the <code>JFrame</code> class, 
+a frame is a window that, by default, has dec­orations such as a 
+border, a title, and buttons for iconifying and closing the window. 
+Applications with a GUI typically use at least one frame. 
+
+<P>
+Here is the code that sets up and shows the frame:
+
+<blockquote><pre>
+JFrame.setDefaultLookAndFeelDecorated(true);
+JFrame frame = new JFrame("HelloWorldSwing");
+...
+frame.pack();
+frame.setVisible(true);
+</pre></blockquote>
+
+
+<blockquote><hr><strong>Note:</strong>&nbsp;The following line of code applies decorative borders and 
+window titles to frames. However, it works only as of v1.4. 
+If you’re using an earlier version, you’ll need to comment 
+out this code.
+<blockquote><pre>
+JFrame.setDefaultLookAndFeelDecorated(true);
+</pre></blockquote>
+<hr></blockquote>
+
+With the exception of top-level containers, such as 
+<code>JFrame</code>, all Swing components descend from 
+the <code>JComponent</code> class. <code>HelloWorldSwing</code> 
+uses a <code>JComponent</code> descendant called 
+<code>JLabel</code>, which displays the text 
+<code>Hello World</code>. These two lines of code 
+construct and then add the <code>JLabel</code> 
+component to the frame:
+
+<blockquote><pre>
+JLabel label = new JLabel("Hello World");
+frame.getContentPane().add(label);
+</pre></blockquote>
+
+Note that the label is added to the frame’s content pane 
+instead of to the frame itself. Every top-level container 
+has a content pane that contains, directly or indirectly, 
+all the visible components (except for menus and window 
+decorations) in the top-level container. 
+
+<!--More information about content panes is in the Using 
+Top-Level Containers section in lesson 3.-->
+
+<blockquote><hr><strong>Version Note:</strong>&nbsp;We anticipate that in v1.5 invoking add on a top-level 
+container will have the same effect as invoking it on 
+the top-level container’s content pane.
+<hr></blockquote>
+
+To make the program exit when the Close button  
+<!--close button figure-->
+<img src="../../images/../figures/uiswing/learn/2closebutton.gif" 
+     alt="close">
+is clicked, we include this code:
+
+<blockquote><pre>
+frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+</pre></blockquote>
+
+<blockquote><hr><strong>Version Note:</strong>&nbsp;In older programs, instead of a call to 
+<code>setDefaultCloseOperation</code>, you might 
+see code like the following:
+
+<blockquote><pre>
+frame.addWindowListener(new WindowAdapter() {
+    public void windowClosing(WindowEvent e) {
+        System.exit(0);
+    }
+});
+</pre></blockquote>
+
+It still works, but unnecessarily adds a class, which 
+bloats your program. You can find further information on 
+window events in 
+<a target="_top" href="../components/frame.html">How to Make Frames (Main Windows)</a><a target="_top" href="../components/frame.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a><hr></blockquote>
+
+The final bit of code in <code>HelloWorldSwing</code>—-and in 
+all of our examples—-looks like this:
+
+<blockquote><pre>
+javax.swing.SwingUtilities.invokeLater(new Runnable() {
+    public void run() {
+        /* create and show the GUI */ 
+    }
+});
+</pre></blockquote>
+
+You can copy this code and use it as-is. It might look 
+daunting, but we recommend it because it ensures that 
+the GUI won’t have a thread-safety problem that could 
+break the UI before it even appears onscreen. For more 
+information, you can read 
+<a target="_top" href="../misc/threads.html">How to Use Threads</a><a target="_top" href="../misc/threads.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.
+
+<p>
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#learn" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="example2.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

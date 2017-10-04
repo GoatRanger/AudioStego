@@ -1,0 +1,219 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Using JAR Files: The Basics</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="../index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#basics" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="build.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+
+<br>
+<font size="-1">
+<b>Trail</b>: JAR Files
+</font>
+
+<h2>
+Lesson: Using JAR Files: The Basics
+</h2>
+<blockquote>
+JAR files are packaged with the ZIP file format, so you 
+can use them for "ZIP-like" tasks such 
+as lossless data compression, archiving, decompression, and 
+archive unpacking. These are among the most common uses 
+of JAR files, and you can realize many JAR file benefits using 
+only these basic features.  
+<p>
+Even if you want to take advantage of advanced functionality 
+provided by the JAR file format such as electronic signing, you'll 
+first need to become familiar with the fundamental operations. 
+<p>
+To perform basic tasks with JAR files, you use the 
+Java<font size="-2"><sup>TM</sup></font> Archive Tool provided as 
+part of the Java Development Kit. 
+Because the Java Archive tool is invoked by using the <tt>jar</tt> 
+command, for convenience we'll call it the "Jar tool".
+<p>
+
+As a synopsis and preview of some of the topics to be covered in this 
+lesson, the following table summarizes common JAR-file operations:
+<p>
+<table border=1 cellpadding=5>
+<tr>
+<th>Operation</th><th>Command</th>
+</tr>
+<tr>
+<td>To create a JAR file</td><td> <tt>jar cf <i>jar-file input-file(s)</i></tt></td>
+</tr>
+<tr>
+<td>To view the contents of a JAR file</td><td> <tt>jar tf <i>jar-file</i></tt></td>
+</tr>
+<tr>
+<td>To extract the contents of a JAR file</td><td> <tt>jar xf <i>jar-file</i></tt></td>
+</tr>
+<tr>
+<td>To extract specific files from a JAR file</td><td> <tt>jar xf <i>jar-file archived-file(s)</i><tt></td>
+</tr>
+<tr>
+<td>To run an application packaged as a JAR file
+<br>(version 1.1)</td>
+<td valign=middle><pre>jre -cp <i>app.jar MainClass</i></pre></td>
+</tr>
+<tr>
+<td>To run an application packaged as a JAR file
+<br>(version 1.2 -- requires <tt>Main-Class</tt><br> 
+manifest header)</td>
+<td valign=middle><pre>java -jar <i>app.jar</i></pre></td>
+</tr>
+<tr>
+<td>To invoke an applet packaged as a JAR file</td><td valign=middle><pre>
+&lt;applet code=<em>AppletClassName.class</em>
+        archive="<em>JarFileName.jar</em>"
+        width=<em>width</em> height=<em>height</em>&gt;
+&lt;/applet&gt;</pre></td>
+</tr>
+
+
+</table>
+<p>
+This lesson will show you how to perform the most common 
+JAR-file operations, with examples for each of the basic features:  
+
+</blockquote>
+<h3><a href="build.html">Creating a JAR File</a></h3>
+<blockquote>
+This section shows you how to use the Jar tool to package files and 
+directories into a JAR file. 
+</blockquote>
+
+<h3><a href="view.html">Viewing the Contents of a JAR File</a></h3>
+<blockquote>
+You can display a JAR file's table of contents to see what it 
+contains without actually unpacking the JAR file.
+</blockquote>
+
+<h3><a href="unpack.html">Extracting the Contents of a JAR File</a></h3>
+<blockquote>
+You can use the Jar tool to unpack a JAR file. When extracting files, 
+the Jar tool makes copies of the desired files and writes them to the 
+current directory, reproducing the directory structure that the files 
+have in the archive.
+</blockquote>
+
+<h3><a href="mod.html">Modifying a Manifest File</a></h3>
+<blockquote>
+This section shows you a couple of ways that you can modify the 
+contents of a JAR file's manifest.  You might want to modify the 
+manifest, for example, to enable special JAR-file functionality. 
+</blockquote>
+
+<h3><a href="update.html">Updating a JAR File</a></h3>
+<blockquote>
+The Jar tool in version 1.2 of the Java Development Kit provides a 
+new functionality for updating the contents of an existing JAR file by 
+modifying its manifest or by adding files. This section shows you how 
+use this new feature.
+</blockquote>
+
+<h3><a href="run.html">Running JAR-Packaged Software</a></h3>
+<blockquote>
+This section shows you how to invoke and run applets and applications 
+that are packaged in JAR files. 
+</blockquote>
+
+<h3><a href="manifest.html">Understanding the Manifest</a></h3>
+<blockquote>
+Some of the more advanced features offered by the JAR file 
+format such as package sealing and electronic signing are 
+made possible by the JAR file's 
+<em>manifest</em>, a special file that JAR files contain. 
+In the final section of this lesson, you'll find basic information about 
+the structure and uses of the manifest file.
+</blockquote>
+<p>
+
+
+<h3>Additional References</h3>
+<blockquote>
+The documenation for the Java Development Kit includes reference 
+pages for the Jar tool:
+<ul>
+<li>
+<a target="_blank" href="http://java.sun.com/products/jdk/1.2/docs/tooldocs/win32/jar.html"><font color="#009bbb">Jar tool reference for Windows platform</font></a><a target="_blank" href="http://java.sun.com/products/jdk/1.2/docs/tooldocs/win32/jar.html"><img src="../../images/otherIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (outside of the tutorial)"></a> </li><li>
+<a target="_blank" href="http://java.sun.com/products/jdk/1.2/docs/tooldocs/solaris/jar.html"><font color="#009bbb">Jar tool reference for Solaris platform</font></a><a target="_blank" href="http://java.sun.com/products/jdk/1.2/docs/tooldocs/solaris/jar.html"><img src="../../images/otherIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (outside of the tutorial)"></a> </li></ul>
+</blockquote>
+<p>
+
+</blockquote>
+<p>
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="../index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#basics" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="build.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

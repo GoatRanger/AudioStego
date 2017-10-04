@@ -1,0 +1,215 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Using Package Members</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="createpkgs.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#interpack" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="managingfiles.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Learning the Java Language
+<br>
+<b>Lesson</b>: Interfaces and Packages
+</font>
+
+<h2>
+Using Package Members
+</h2>
+<blockquote>
+Only public package members are accessible outside the package 
+    in which they are defined. To use a public package member from 
+    outside its package, you must do one or more of the following: 
+
+    <UL>
+      <LI>Refer to the member by its long (qualified) name
+      <LI>Import the package member
+      <LI>Import the members entire package
+    </UL>
+Each is appropriate for different situations, as explained 
+    in the following sections. 
+
+</blockquote>
+<h3>Referring to a Package Member by Name</h3>
+<blockquote>
+So far, the examples in this tutorial have referred to classes 
+    and interfaces by their simple names, such as <CODE>Rectangle</CODE> 
+    and <CODE>StockWatcher</CODE>. You can use a package members 
+    simple name if the code you are writing is in the same package
+    as that member or if the members package has been imported. 
+    <P>
+    However, if you are trying to use a member from a different package 
+    and that package has not been imported, you must use the members 
+    qualified name, which includes the package name. This is the 
+    qualified name for the <CODE>Rectangle</CODE> class declared 
+    in the <CODE>graphics</CODE> package in the previous example: 
+<blockquote><pre>
+graphics.Rectangle
+</pre></blockquote>
+You could use this long name to create an instance of
+<code>graphics.Rectangle</code>:
+<blockquote><pre>
+graphics.Rectangle myRect = new graphics.Rectangle();
+</pre></blockquote>
+You'll find that using long names is okay for one-shot uses. But you'd
+likely get annoyed if you had to write <code>graphics.Rectangle</code>
+again and again. Also, your code would get very messy and difficult to read.
+In such cases, you can just import the member instead.
+</blockquote>
+
+<h3>Importing a Package Member</h3>
+<blockquote>
+To import a specific member into the current file, put an 
+    <CODE>import</CODE> statement at the beginning of your file before 
+    any class or interface definitions but after the <CODE>package</CODE> 
+    statement, if there is one. Here's how you would import the <CODE>Circle</CODE> 
+    class from the <CODE>graphics</CODE> package created in the previous 
+    section: 
+<blockquote><pre>
+import graphics.Circle;
+</pre></blockquote>
+Now you can refer to the <code>Circle</code> class by its simple name:
+<blockquote><pre>
+Circle myCircle = new Circle();
+</pre></blockquote>
+This approach works well if you use just a few members from 
+    the <CODE>graphics</CODE> package. But if you use many classes 
+    and interfaces from a package, you can import the entire package. 
+</blockquote>
+
+<h3>Importing an Entire Package</h3>
+<blockquote>
+To import all the classes and interfaces contained in a particular 
+    package, use the <CODE>import</CODE> statement with the asterisk 
+    <CODE>(*)</CODE> wildcard character: 
+<blockquote><pre>
+import graphics.*;
+</pre></blockquote>
+
+Now you can refer to any class or interface
+in the <code>graphics</code> package by
+its short name:
+<blockquote><pre>
+Circle myCircle = new Circle();
+Rectangle myRectangle = new Rectangle();
+</pre></blockquote>
+The asterisk in the <CODE>import</CODE> statement can be used 
+    only to specify all the classes within a package, as shown here. 
+    It cannot be used to match a subset of the classes in a package. 
+    For example, the following does not match all the classes in 
+    the <CODE>graphics</CODE> package that begin with <CODE>A</CODE>: 
+<blockquote><pre>
+import graphics.A*;	// <em>does not work</em>
+</pre></blockquote>
+Instead, it generates a compiler error. With the <CODE>import</CODE> 
+    statement, you can import only a single package member or an 
+    entire package. <P>
+    For your convenience, the Java runtime system automatically imports 
+    two entire packages:
+    </P>
+    <UL>
+      <LI>The <CODE>java.lang</CODE>package
+      <LI>The current package by default
+    </UL>
+</blockquote>
+
+<h3>Disambiguating a Name</h3>
+<blockquote>
+If by some chance a member in one package shares the same 
+    name with a member in another package and both packages are imported, 
+    you must refer to each member by its qualified name. For example, 
+    the previous example defined a class named <CODE>Rectangle</CODE> 
+    in the <CODE>graphics</CODE> package. The <CODE>java.awt</CODE> 
+    package also contains a <CODE>Rectangle</CODE> class. If both 
+    <CODE>graphics</CODE> and <CODE>java.awt</CODE> have been imported, 
+    the following is ambiguous: 
+
+<blockquote><pre>
+Rectangle rect;
+</pre></blockquote>
+
+In such a situation, you have to be more specific and use 
+the members qualified name to indicate exactly which <CODE>Rectangle</CODE> 
+class you want:  
+
+<blockquote><pre>
+graphics.Rectangle rect;
+</pre></blockquote>
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="createpkgs.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#interpack" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="managingfiles.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

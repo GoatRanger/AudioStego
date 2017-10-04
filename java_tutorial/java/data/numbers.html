@@ -1,0 +1,145 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Numbers</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="QandE/characters-questions.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#data" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="numberintro.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Learning the Java Language
+<br>
+<b>Lesson</b>: Object Basics and Simple Data Objects
+</font>
+
+<h2>
+Numbers
+</h2>
+<blockquote>
+This section begins with a discussion of the 
+
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/Number.html"><font color="#8800bb"><code>Number</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/Number.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>
+  class in 
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/package-summary.html"><font color="#8800bb"><code>java.lang</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/package-summary.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>  and its subclasses. In particular, this section talks about why you might 
+need these classes, points out the common methods and class variables they 
+have in common, and shows you how to convert instances to strings.
+<P>
+Additionally, this section talks about other classes you might need to work 
+with numbers. For instance, if you need to display a number in a particular 
+format, you can use the 
+
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/text/NumberFormat.html"><font color="#8800bb"><code>NumberFormat</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/text/NumberFormat.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>
+ and 
+
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/text/DecimalFormat.html"><font color="#8800bb"><code>DecimalFormat</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/text/DecimalFormat.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>
+ classes in <code>java.text</code> to format them. Also, the 
+
+
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/Math.html"><font color="#8800bb"><code>Math</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/Math.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>
+ class in <code>java.lang</code> contains class methods that perform 
+mathematical functions beyond those provided by the language. This class has 
+methods for the trigonometric functions, exponential functions, and so on.
+
+<!-- figure -->
+<p><center><IMG SRC="../../figures/java/number.gif" WIDTH="530" HEIGHT="126" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p>
+<p>
+Number classes:
+<ul>
+<li>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/Number.html"><font color="#8800bb"><code>Number</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/Number.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a><li>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/Byte.html"><font color="#8800bb"><code>Byte</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/Byte.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a><li>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/Double.html"><font color="#8800bb"><code>Double</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/Double.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a><li>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/Float.html"><font color="#8800bb"><code>Float</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/Float.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a><li>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/Integer.html"><font color="#8800bb"><code>Integer</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/Integer.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a><li>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/Long.html"><font color="#8800bb"><code>Long</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/Long.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a><li>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/Short.html"><font color="#8800bb"><code>Short</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/Short.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a><li>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/math/BigDecimal.html"><font color="#8800bb"><code>BigDecimal</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/math/BigDecimal.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a><li>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/math/BigInteger.html"><font color="#8800bb"><code>BigInteger</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/math/BigInteger.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a></ul>
+Wrappers for other data types (for completeness):
+<ul>
+<li>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/Boolean.html"><font color="#8800bb"><code>Boolean</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/Boolean.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a><li>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/Character.html"><font color="#8800bb"><code>Character</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/Character.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a><li>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/Void.html"><font color="#8800bb"><code>Void</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/Void.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a></ul>
+Beyond basic arithmetic:
+<ul>
+<li>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/Math.html"><font color="#8800bb"><code>Math</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/Math.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a></ul>
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="QandE/characters-questions.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#data" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="numberintro.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

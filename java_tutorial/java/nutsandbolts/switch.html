@@ -1,0 +1,228 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>The switch Statement</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="if.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#nutsandbolts" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="exception.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Learning the Java Language
+<br>
+<b>Lesson</b>: Language Basics
+</font>
+
+<h2>
+The switch Statement
+</h2>
+<blockquote>
+Use the
+<a href="javascript:var meth=openWin; meth('switch');" onMouseOver="self.status='Look up switch in glossary'; return true;" onMouseOut="self.status=''; return true;"><font color="#00bb00"><em>switch</em></font></a><a href="javascript:var meth=openWin; meth('switch');" onMouseOver="self.status='Look up switch in glossary'; return true;" onMouseOut="self.status=''; return true;"><img src="../../images/glossaryIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the glossary)"></a> statement to conditionally perform statements
+based on an integer expression.
+Following is a sample program,
+<a target="_blank" href="example/SwitchDemo.java"><font color="#bb000f"><code>SwitchDemo</code></font></a><a target="_blank" href="example/SwitchDemo.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>, that declares an integer named <code>month</code> whose value supposedly
+represents the month in a date. The program displays the name of the
+month, based on the value of <code>month</code>, using the <code>switch</code> statement:
+<blockquote><pre>
+public class SwitchDemo {
+    public static void main(String[] args) {
+
+        int month = 8;
+        switch (month) {
+            case 1:  System.out.println(&quot;January&quot;); break;
+            case 2:  System.out.println(&quot;February&quot;); break;
+            case 3:  System.out.println(&quot;March&quot;); break;
+            case 4:  System.out.println(&quot;April&quot;); break;
+            case 5:  System.out.println(&quot;May&quot;); break;
+            case 6:  System.out.println(&quot;June&quot;); break;
+            case 7:  System.out.println(&quot;July&quot;); break;
+            case 8:  System.out.println(&quot;August&quot;); break;
+            case 9:  System.out.println(&quot;September&quot;); break;
+            case 10: System.out.println(&quot;October&quot;); break;
+            case 11: System.out.println(&quot;November&quot;); break;
+            case 12: System.out.println(&quot;December&quot;); break;
+        }
+    }
+}
+</pre></blockquote>
+
+The <code>switch</code> statement evaluates its expression,
+in this case the value of <code>month</code>, and executes the
+appropriate
+<a href="javascript:var meth=openWin; meth('case');" onMouseOver="self.status='Look up case in glossary'; return true;" onMouseOut="self.status=''; return true;"><font color="#00bb00"><em>case</em></font></a><a href="javascript:var meth=openWin; meth('case');" onMouseOver="self.status='Look up case in glossary'; return true;" onMouseOut="self.status=''; return true;"><img src="../../images/glossaryIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the glossary)"></a> statement.
+Thus, the output of the program is: <code>August</code>.
+Of course, you could
+implement this by using an <code>if</code> statement:
+<blockquote><pre>
+int month = 8;
+if (month == 1) {
+    System.out.println("January");
+} else if (month == 2) {
+    System.out.println("February");
+}
+. . . // <em>and so on</em>
+</pre></blockquote>
+
+Deciding whether to use an <code>if</code> statement or a <code>switch</code> statement is a judgment call. You can decide which to use, based on readability and other factors. An <code>if</code> statement can be used to make decisions based on ranges of values or conditions, whereas a <code>switch</code> statement can 
+make decisions based only on a single integer value. Also, the value provided to each <code>case</code> statement must be unique.
+<p>
+
+
+Another point of interest in the <code>switch</code> statement is the
+<a href="javascript:var meth=openWin; meth('break');" onMouseOver="self.status='Look up break in glossary'; return true;" onMouseOut="self.status=''; return true;"><font color="#00bb00"><em>break</em></font></a><a href="javascript:var meth=openWin; meth('break');" onMouseOver="self.status='Look up break in glossary'; return true;" onMouseOut="self.status=''; return true;"><img src="../../images/glossaryIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the glossary)"></a> statement after each <code>case</code>. Each <code>break</code> 
+statement terminates the enclosing <code>switch</code> statement, and the flow of control continues with the first statement following the <code>switch</code> block. The <code>break</code> statements are necessary because without them, the <code>case</code> statements fall through. That is, without an explicit <code>break</code>, control will flow sequentially through subsequent <code>case</code> statements. Following is an example,  
+<a target="_blank" href="example/SwitchDemo2.java"><font color="#bb000f"><code>SwitchDemo2</code></font></a><a target="_blank" href="example/SwitchDemo2.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>, which illustrates why it might be useful to have <code>case</code>
+statements fall through:
+<blockquote><pre>
+public class SwitchDemo2 {
+    public static void main(String[] args) {
+
+        int month = 2;
+        int year = 2000;
+        int numDays = 0;
+
+        switch (month) {
+            case 1:
+            case 3:
+            case 5:
+            case 7:
+            case 8:
+            case 10:
+            case 12:
+                numDays = 31;
+                break;
+            case 4:
+            case 6:
+            case 9:
+            case 11:
+                numDays = 30;
+                break;
+            case 2:
+                if ( ((year % 4 == 0) &amp;&amp; !(year % 100 == 0))
+                     || (year % 400 == 0) )
+                    numDays = 29;
+                else
+                    numDays = 28;
+                break;
+        }
+        System.out.println(&quot;Number of Days = &quot; + numDays);
+    }
+}
+</pre></blockquote>
+
+The output from this program is:
+<blockquote><pre>
+Number of Days = 29
+</pre></blockquote>
+
+Technically, the final <code>break</code> is not required because flow would fall
+out of the <code>switch</code> statement anyway.
+However, we recommend using a <code>break</code>
+for the last <code>case</code> statement just in case you need to add more <code>case</code>
+statements at a later date.
+This makes modifying the code easier and less error-prone.
+<p>
+You will see <code>break</code> used to terminate loops in
+<a target="_top" href="branch.html">Branching Statements</a><a target="_top" href="branch.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Learning the Java Language trail)"></a>.
+<p>
+Finally, you can use the
+<a href="javascript:var meth=openWin; meth('default');" onMouseOver="self.status='Look up default in glossary'; return true;" onMouseOut="self.status=''; return true;"><font color="#00bb00"><em>default</em></font></a><a href="javascript:var meth=openWin; meth('default');" onMouseOver="self.status='Look up default in glossary'; return true;" onMouseOut="self.status=''; return true;"><img src="../../images/glossaryIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the glossary)"></a> statement at the end of the
+<code>switch</code> to handle all values that aren't explicitly handled
+by one of the <code>case</code> statements.
+<blockquote><pre>
+int month = 8;
+. . .
+switch (month) {
+    case 1:  System.out.println("January"); break;
+    case 2:  System.out.println("February"); break;
+    case 3:  System.out.println("March"); break;
+    case 4:  System.out.println("April"); break;
+    case 5:  System.out.println("May"); break;
+    case 6:  System.out.println("June"); break;
+    case 7:  System.out.println("July"); break;
+    case 8:  System.out.println("August"); break;
+    case 9:  System.out.println("September"); break;
+    case 10: System.out.println("October"); break;
+    case 11: System.out.println("November"); break;
+    case 12: System.out.println("December"); break;
+    default: System.out.println("Hey, that's not a valid month!"); break;
+}
+</pre></blockquote>
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="if.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#nutsandbolts" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="exception.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

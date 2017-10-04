@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="33"
+   name=""
+   committed-date="2005-02-01T06:11:53.421875Z"
+   url="svn://192.168.2.2/ImageProcessor/src/or/doc/drasys/or/geom/geo"
+   last-author="Karl"
+   kind="dir"
+   uuid="0daf4267-3229-f84b-9084-f3c94b025f38"
+   revision="55"/>
+<entry
+   committed-rev="33"
+   name="Range.html"
+   text-time="2005-03-02T06:25:33.828125Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="a6e007edc02fe6900358a68ac63bfb46"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:33.375000Z"/>
+<entry
+   committed-rev="33"
+   name="CoordinateSystem.html"
+   text-time="2005-03-02T06:25:33.843750Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="964ba87eeb023a53ad85e84ce4516e5f"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:33.390625Z"/>
+<entry
+   committed-rev="33"
+   name="EllipsoidI.html"
+   text-time="2005-03-02T06:25:33.843750Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="035e41fd073929536af460d40a3cc333"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:33.406250Z"/>
+<entry
+   committed-rev="33"
+   name="WS_FTP.LOG"
+   text-time="2005-03-02T06:25:33.859375Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="571b686ab362513ad432f2b6380c7d42"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:33.421875Z"/>
+<entry
+   committed-rev="33"
+   name="PointI.html"
+   text-time="2005-03-02T06:25:33.859375Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="5b23eb226af9ec647e22e968ac0491e6"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:33.421875Z"/>
+<entry
+   committed-rev="33"
+   name="GeoI.html"
+   text-time="2005-03-02T06:25:33.875000Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="ed84a4c5437e563af5fd5b19b39f8e6b"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:33.437500Z"/>
+<entry
+   committed-rev="33"
+   name="package-frame.html"
+   text-time="2005-03-02T06:25:33.875000Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="2486588186ffcfc6575f79e936798e1a"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:33.453125Z"/>
+<entry
+   committed-rev="33"
+   name="Ellipsoid.html"
+   text-time="2005-03-02T06:25:33.890625Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="0422e4fbb5683f1511c0644b1d02752b"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:33.453125Z"/>
+<entry
+   committed-rev="33"
+   name="RangeI.html"
+   text-time="2005-03-02T06:25:33.890625Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="bc17019d74a6335e6ffc1cdbf7ef0342"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:33.468750Z"/>
+<entry
+   committed-rev="33"
+   name="package-summary.html"
+   text-time="2005-03-02T06:25:33.906250Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="fa0d3040549f54cf1839c04c0959a327"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:33.484375Z"/>
+<entry
+   name="proj"
+   kind="dir"/>
+<entry
+   committed-rev="33"
+   name="package-tree.html"
+   text-time="2005-03-02T06:25:33.906250Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="63c8f8f9c097f4bb5d95b6bd853bd092"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:33.796875Z"/>
+<entry
+   committed-rev="33"
+   name="Point.html"
+   text-time="2005-03-02T06:25:33.921875Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="3b54b4feb70ba92d3b298b04683b7cd7"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:33.812500Z"/>
+<entry
+   committed-rev="33"
+   name="Geo.html"
+   text-time="2005-03-02T06:25:33.937500Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="672c04f209390751fc28a321e971bcfa"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:33.812500Z"/>
+</wc-entries>

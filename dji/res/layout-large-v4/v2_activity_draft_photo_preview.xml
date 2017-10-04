@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.publics.DJIUI.DJIOriLayout xmlns:android="http://schemas.android.com/apk/res-auto" phantom:id="@+id/v2_photo_editor_activity" phantom:background="@r$color/v2_topbar_black_bg" phantom:fitsSystemWindows="true" phantom:layout_width="match_parent" phantom:layout_height="match_parent" phantom:djiDeviceType="1">
+    <LinearLayout android:orientation="vertical" android:fitsSystemWindows="true" android:layout_width="match_parent" android:layout_height="match_parent">
+        <dji.publics.DJIUI.DJIRelativeLayout android:id="@+id/draft_photo_preview_header" android:background="@r$color/v2_topbar_black_bg" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x7f0b0083">
+            <dji.pilot.publics.widget.DJIStateImageView android:id="@+id/draft_photo_preview_back_button" android:paddingLeft="@dimen/c_" android:paddingRight="@dimen/c_" android:layout_width="wrap_content" android:layout_height="match_parent" android:src="@r$drawable/v2_arrow_left_back" android:layout_alignParentLeft="true" android:layout_centerVertical="true" android:onClick="onClickHandler" />
+            <dji.pilot.publics.widget.DJIStateTextView android:textSize="@dimen/rk" android:textColor="@color/om" android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="@dimen/fj" android:text="@string/v2_photo_preview_bar_title" android:layout_centerInParent="true" />
+        </dji.publics.DJIUI.DJIRelativeLayout>
+        <com.ortiz.touch.TouchImageView android:id="@+id/draft_photo_preview_image_view" android:background="@color/a_" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x1" android:scaleType="fitCenter" android:layout_weight="1.0" />
+    </LinearLayout>
+</dji.publics.DJIUI.DJIOriLayout>

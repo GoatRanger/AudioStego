@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.pilot.fpv.view.DJIRcLinkStageView xmlns:android="http://schemas.android.com/apk/res-auto" phantom:layout_width="match_parent" phantom:layout_height="match_parent">
+    <dji.publics.DJIUI.DJILinearLayout phantom:orientation="vertical" phantom:paddingTop="@dimen/n3" phantom:layout_width="match_parent" phantom:layout_height="wrap_content" phantom:baselineAligned="false">
+        <dji.publics.DJIUI.DJIRelativeLayout phantom:id="@+id/fpv_rc_link_freq_type_ly" phantom:visibility="gone" style="@style/FpvGenRadiusItemLy">
+            <dji.publics.DJIUI.DJITextView phantom:text="@string/fpv_hd_freq_type_desc" phantom:layout_centerVertical="true" phantom:djiTextFace="0" style="@style/FpvGenSettingDescTxt" />
+            <RadioGroup phantom:gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:orientation="horizontal" phantom:id="@+id/fpv_rc_link_freq_type_rg" phantom:layout_width="wrap_content" phantom:layout_height="match_parent" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true">
+                <dji.publics.DJIUI.DJIRadioButton phantom:id="@+id/fpv_rc_link_freq_type_full_band" phantom:paddingLeft="5dp" phantom:layout_height="match_parent" phantom:button="@drawable/selector_radiobutton" phantom:text="@string/fpv_hd_freq_type_full_band" phantom:singleLine="false" phantom:djiTextFace="0" style="@style/FpvGenSettingDescTxt" />
+                <dji.publics.DJIUI.DJIRadioButton phantom:id="@+id/fpv_rc_link_freq_type_2_4ghz" phantom:paddingLeft="5dp" phantom:layout_height="match_parent" phantom:layout_marginLeft="25dp" phantom:button="@drawable/selector_radiobutton" phantom:text="2.4GHz" phantom:singleLine="false" phantom:djiTextFace="0" style="@style/FpvGenSettingDescTxt" />
+            </RadioGroup>
+        </dji.publics.DJIUI.DJIRelativeLayout>
+        <dji.publics.DJIUI.DJIRelativeLayout phantom:id="@+id/fpv_rc_link_channel_freq_ly" phantom:visibility="visible" phantom:layout_height="wrap_content" style="@style/FpvGenRadiusItemLy">
+            <dji.pilot.fpv.view.FreqSnrSdrRcLinkView phantom:id="@+id/fpv_rc_link_channel_sdr_freq" phantom:visibility="visible" phantom:layout_width="match_parent" phantom:layout_height="UNKNOWN_DATA_0x7f0b01e6" phantom:layout_marginLeft="1dp" phantom:layout_marginTop="10dp" phantom:layout_marginRight="1dp" phantom:layout_centerHorizontal="true" />
+        </dji.publics.DJIUI.DJIRelativeLayout>
+        <ScrollView phantom:id="@+id/ChannelInfoScrollView" phantom:scrollbars="vertical" phantom:layout_width="match_parent" phantom:layout_height="UNKNOWN_DATA_0xb401" style="@style/FpvGenRadiusItemLy">
+            <RelativeLayout phantom:orientation="vertical" phantom:layout_width="match_parent" phantom:layout_height="match_parent">
+                <TextView phantom:textSize="14sp" phantom:textColor="0x106000b" phantom:id="@+id/ChannelInfoTV" phantom:layout_width="match_parent" phantom:layout_height="wrap_content" phantom:text="" />
+            </RelativeLayout>
+        </ScrollView>
+    </dji.publics.DJIUI.DJILinearLayout>
+</dji.pilot.fpv.view.DJIRcLinkStageView>

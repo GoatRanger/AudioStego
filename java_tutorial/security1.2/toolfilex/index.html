@@ -1,0 +1,135 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Exchanging Files</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="../toolsign/index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#toolfilex" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="sender.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+
+<br>
+<font size="-1">
+<b>Trail</b>: Security in Java 2 SDK 1.2
+</font>
+
+<h2>
+Lesson: Exchanging Files
+</h2>
+<blockquote>
+<p>If you want to electronically send an important document, such as
+a contract, to someone else, it is a good idea to digitally "sign" the
+document, so that the recipient has a way of checking that the document
+indeed came from you and was not altered in transit.
+
+<p>This lesson illustrates the use of  security-related tools
+for the exchange of an important document, in this case a contract. 
+You first pretend that you are the contract sender, Stan Smith.
+This lesson shows the steps Stan would use to put the
+contract in a JAR file, sign it, 
+and export the public key certificate for the public key
+corresponding to the private key used to sign the JAR file.
+
+<p>Then you pretend that you are Ruth, who has received
+the signed JAR file and the certificate.
+You'll use <code>keytool</code> to import the certificate into
+Ruth's keystore in an entry aliased by <code>stan</code>,
+and the <code>jarsigner</code> tool to verify the
+signature.
+
+<p>For further information about digital signatures,
+certificates, keystores, and the tools, see the
+
+<a target="_top" href="../sigcert/index.html">API and Tools Use for Secure Code and File Exchanges</a><a target="_top" href="../sigcert/index.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Security in Java 2 SDK 1.2 trail)"></a>
+lesson.
+
+<blockquote>
+<hr>
+<b>Note:</b> The commands executed in this lesson are assumed to 
+all be done from within the same directory.
+<hr></blockquote>
+
+<p>
+Here are the steps: 
+
+<ul>
+
+<li>
+<a href=sender.html>Steps for the Contract Sender</A><p>
+
+<li>
+<a href=receiver.html>Steps for the Contract Receiver</A>
+
+</ul>
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="../toolsign/index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#toolfilex" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="sender.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

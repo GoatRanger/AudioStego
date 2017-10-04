@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.pilot.visual.view.VisualScreenTouchView xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/visual_touch_view" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_centerInParent="true">
+    <dji.pilot.visual.view.DJIRedGradientView android:id="@+id/visual_down_view" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true" />
+    <include layout="@layout/visual_fly_control" />
+    <include layout="@layout/visual_fingerfly" />
+    <include layout="@layout/visual_track_view" />
+</dji.pilot.visual.view.VisualScreenTouchView>

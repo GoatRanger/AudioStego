@@ -1,0 +1,172 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Introducing the Security Manager</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="security.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#system" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="writingSMgr.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Essential Java Classes
+<br>
+<b>Lesson</b>: Accessing System Resources
+</font>
+
+<h2>
+Introducing the Security Manager
+</h2>
+<blockquote>
+Each Java application can have its own security manager object that
+acts as a full-time security guard. The SecurityManager class in
+the java.lang package is an abstract class that provides the programming
+interface and partial implementation for all Java security managers.
+<p>
+By default an application does not have a security manager. That is,
+the Java runtime system does not automatically create a security manager
+for every Java application. So by default an application allows all
+operations that are subject to security restrictions.
+<p>
+To change this default lenient behavior, an application must create
+and install its own security manager. You will learn how to create a
+security manager in 
+<a href="writingSMgr.html">Writing a Security Manager</a>, and how
+to install it in
+<a href="installSMgr.html">Installing Your Security Manager</a>.
+<p>
+
+<blockquote><hr><strong>Note:</strong>&nbsp; The existing browsers and applet viewers
+<strong>do</strong> create their own security manager when starting
+up. Thus an applet is subject to whatever access restrictions are
+imposed on it by the security manager for the particular application
+in which the applet is running.
+<hr></blockquote>
+<p>
+You can get the current security manager for an application using
+the System class's <code>getSecurityManager()</code> method:
+<blockquote><pre>
+SecurityManager appsm = System.getSecurityManager();
+</pre></blockquote>
+Note that <code>getSecurityManager()</code> returns null if there
+is no current security manager for the application so you should check
+to make sure that you have a valid object before calling any of its
+methods.
+<p>
+Once you have the security manager, you can request permission to allow
+or disallow certain operations. Indeed many of the classes in the Java
+packages do just this. For example, the <code>System.exit()</code> method,
+which terminates the Java interpreter, uses the security manager's
+<code>checkExit()</code> method to approve the exit operation:
+<blockquote><pre>
+SecurityManager security = System.getSecurityManager();
+if (security != null) {
+    security.checkExit(status);
+}
+. . .
+// <em>code continues here if</em> checkedExit() returns
+</pre></blockquote>
+If the security manager approves the exit operation, the
+<code>checkExit()</code> returns normally.
+If the security manager disallows the operation,
+the <code>checkExit()</code> method throws a SecurityException.
+In this manner, the security manager allows or disallows
+a potentially threatening operation before it can be completed.
+<p>
+The SecurityManager class defines many other methods used to verify
+other kinds of operations. For example, SecurityManager's <code>checkAccess()</code>
+method verifies thread accesses, and <code>checkPropertyAccess()</code>
+verifies access to the specified property. Each operation or group of
+operations has its own <code>check<em>XXX</em>()</code> method.
+<p>
+In addition, the set of <code>check<em>XXX</em>()</code> methods represent
+the set of operations in the Java package classes and the Java runtime
+that are already subject to the protection of the security manager. So,
+typically, your code will not have to invoke any of SecurityManager's
+<code>check<em>XXX</em>()</code> methods--the Java package classes and the
+Java runtime already do this for you at a low enough level that any operation
+represented by a <code>check<em>XXX</em>()</code> method is already protected.
+However, when writing your own security manager, you may have to override
+SecurityManager's <code>check<em>XXX</em>()</code> methods to tighten or
+modify the security policy for specific operations, or you may have to add
+a few of your own to put other kinds of operations under the scrutiny of
+the security manager.
+<a href="more.html">Deciding What SecurityManager Methods to Override</a>
+explains which operation or group of operations each <code>check<em>XXX</em>()</code>
+method in the SecurityManager class is designed to protect.
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="security.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#system" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="writingSMgr.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

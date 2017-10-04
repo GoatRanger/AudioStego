@@ -1,0 +1,703 @@
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>The Text Component API</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="generaltext.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#components" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="componentlist.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Creating a GUI with JFC/Swing
+<br>
+<b>Lesson</b>: Using Swing Components
+</font>
+
+<h2>
+The Text Component API
+</h2>
+<blockquote>
+<a name="api"> </a>
+This section lists commonly used parts
+of the API shared by text components,
+much of it defined by the 
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html"><font color="#8800bb"><code>JTextComponent</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> class.
+<a href="generaltext.html">Text Component Features</a>
+discusses how to use some of this API.
+
+<p>
+Also see
+<a href="jcomponent.html">The JComponent Class</a>,
+which describes the API that text components
+inherit from <code>JComponent</code>.
+For information about the API 
+for specific text components,
+see the how-to page for the component:
+<a href="textfield.html">text field</a>,
+<a href="passwordfield.html">password field</a>,
+<a href="formattedtextfield.html">formatted text field</a>,
+<a href="textarea.html">text area</a>, or
+<a href="editorpane.html">editor pane and text pane</a>.
+
+<p>
+For a complete listing of and further details about the text API,
+see the API documentation for
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html"><font color="#8800bb"><code>JTextComponent</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> and for the various classes and
+interfaces in the
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/package-summary.html"><font color="#8800bb">text package</font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/package-summary.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>.
+
+<p>
+The API listed in this section falls into these categories:
+
+<ul>
+<li> <a href="#appearance">Setting Attributes</a>
+<li> <a href="#selection">Manipulating the Selection</a>
+<li> <a href="#conversions">Converting Positions Between the Model and The View</a>
+<li> <a href="#apiforcommands">Text Editing Commands</a>
+<li> <a href="#docclasses">Classes and Interfaces that Represent Documents</a>
+<li> <a href="#docmethods">Working with Documents</a>
+<li> <a href="#carrots">Manipulating Carets and Selection Highlighters</a>
+<li> <a href="#io">Reading and Writing Text</a>
+</ul>
+
+<p>
+<table border=1> 
+<caption><a name="appearance">  
+Setting Attributes
+<br>
+<em>These methods are in the <code>JTextComponent</code> class.</em>
+</a></caption>
+<tr>
+<th>Method</th><th>Description
+
+</th>
+</tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html#setDisabledTextColor(java.awt.Color)"><font color="#8800bb"><font size=2><code>void setDisabledTextColor(Color)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html#setDisabledTextColor(java.awt.Color)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html#getDisabledTextColor()"><font color="#8800bb"><font size=2><code>Color getDisabledTextColor()</code></font></code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html#getDisabledTextColor()"></a>    </td>
+    <td>Set or get the color used to display text when the text
+        component is disabled.
+
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html#setMargin(java.awt.Insets)"><font color="#8800bb"><font size=2><code>void setMargin(Insets)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html#setMargin(java.awt.Insets)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html#getMargin()"><font color="#8800bb"><font size=2><code>Insets getMargin()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html#getMargin()"></a>    </td>
+    <td>Set or get the margin between the text and the text component's border.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html#setEditable(boolean)"><font color="#8800bb"><font size=2><code>void setEditable(boolean)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html#setEditable(boolean)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html#isEditable()"><font color="#8800bb"><font size=2><code>boolean isEditable()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html#isEditable()"></a>    </td>
+    <td>Set or get whether the user can edit the text in the text component.
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html#setDragEnabled(boolean)"><font color="#8800bb"><font size=2><code>void setDragEnabled(boolean)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html#setDragEnabled(boolean)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html#getDragEnabled()"><font color="#8800bb"><font size=2><code>boolean getDragEnabled()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html#getDragEnabled()"></a>    </td>
+    <td>Set or get the <code>dragEnabled</code> property, which must be true
+        to enable drag handling on this component.  The default value is false.
+        See
+<a target="_top" href="../../dnd/index.html">Drag and Drop</a><a target="_top" href="../../dnd/index.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>        for more details. Introduced in 1.4.
+  </tr>
+</table>
+
+<p>
+<table border=1>
+<caption><a name="selection">
+Manipulating the Selection</a>
+<br>
+<em>These methods are in the <code>JTextComponent</code> class.</em>
+</caption>
+<tr>
+<th>Method</th><th>Description
+
+</th>
+</tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html#getSelectedText()"><font color="#8800bb"><font size=2><code>String getSelectedText()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html#getSelectedText()"></a>    </td>
+    <td>Get the currently selected text.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html#selectAll()"><font color="#8800bb"><font size=2><code>void selectAll()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html#selectAll()"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html#select(int, int)"><font color="#8800bb"><font size=2><code>void select(int, int)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html#select(int, int)"></a>    </td>
+    <td>Select all text or select text within a start and end range.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html#setSelectionStart(int)"><font color="#8800bb"><font size=2><code>void setSelectionStart(int)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html#setSelectionStart(int)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html#setSelectionEnd(int)"><font color="#8800bb"><font size=2><code>void setSelectionEnd(int)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html#setSelectionEnd(int)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html#getSelectionStart()"><font color="#8800bb"><font size=2><code>int getSelectionStart()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html#getSelectionStart()"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html#getSelectionEnd()"><font color="#8800bb"><font size=2><code>int getSelectionEnd()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html#getSelectionEnd()"></a>    </td>
+    <td>Set or get extent of the current selection by index.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html#setSelectedTextColor(java.awt.Color)"><font color="#8800bb"><font size=2><code>void setSelectedTextColor(Color)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html#setSelectedTextColor(java.awt.Color)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html#getSelectedTextColor()"><font color="#8800bb"><font size=2><code>Color getSelectedTextColor()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html#getSelectedTextColor()"></a>    </td>
+    <td>Set or get the color of selected text.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html#setSelectionColor(java.awt.Color)"><font color="#8800bb"><font size=2><code>void setSelectionColor(Color)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html#setSelectionColor(java.awt.Color)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html#getSelectionColor()"><font color="#8800bb"><font size=2><code>Color getSelectionColor()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html#getSelectionColor()"></a>    </td>
+    <td>Set or get the background color of selected text.
+    </td>
+  </tr>
+</table>
+
+<p>
+<table border=1> 
+<caption><a name="conversions">  
+Converting Positions Between the Model and the View
+</a>
+<br>
+<em>These methods are in the <code>JTextComponent</code> class.</em>
+</caption>
+
+<tr>
+<th>Method</th><th>Description
+
+</th>
+</tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html#viewToModel(java.awt.Point)"><font color="#8800bb"><font size=2><code>int viewToModel(Point)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html#viewToModel(java.awt.Point)"></a>    </td>
+    <td>Convert the specified point in the view coordinate system
+        to a position within the text.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html#modelToView(int)"><font color="#8800bb"><font size=2><code>Rectangle modelToView(int)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html#modelToView(int)"></a>    </td>
+    <td>Convert the specified position within the text
+        to a rectangle in the view coordinate system.
+    </td>
+  </tr>
+</table>
+
+<p>
+<table border=1>
+<caption><a name="apiforcommands">
+Text Editing Commands
+</a></caption>
+ 
+<tr>
+<th>Class or Method</th><th>Description
+</th>
+</tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html#cut()"><font color="#8800bb"><font size=2><code>void cut()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html#cut()"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html#copy()"><font color="#8800bb"><font size=2><code>void copy()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html#copy()"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html#paste()"><font color="#8800bb"><font size=2><code>void paste()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html#paste()"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html#replaceSelection(java.lang.String)"><font color="#8800bb"><font size=2><code>void replaceSelection(String)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html#replaceSelection(java.lang.String)"></a>    <br><em>(in <code>JTextComponent</code>)</em>
+    </td>
+    <td>Cut, copy, and paste text using the system clipboard.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/EditorKit.html"><font color="#8800bb"><font size=2><code>EditorKit</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/EditorKit.html"></a>    </td>
+    <td>
+    Provides a text component's view factory, document, caret, and actions,
+    as well as reading and writing
+    documents of a particular format.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/DefaultEditorKit.html"><font color="#8800bb"><font size=2><code>DefaultEditorKit</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/DefaultEditorKit.html"></a>    </td>
+    <td>A concrete subclass of <code>EditorKit</code> that
+        provides the basic text editing capabilities.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/StyledEditorKit.html"><font color="#8800bb"><font size=2><code>StyledEditorKit</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/StyledEditorKit.html"></a>    </td>
+    <td>A subclass of <code>Default EditorKit</code> that
+        provides additional editing capabilities for styled text.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/DefaultEditorKit.html#field_summary"><font color="#8800bb"><font size=2><code>String <em>xxxx</em>Action</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/DefaultEditorKit.html#field_summary"></a>    <br><em>(in <code>DefaultEditorKit</code>)</em>
+    </td>
+    <td>The names of all the actions supported by the default editor kit.
+	See <a href="generaltext.html#commands">Associating Text Actions with
+	Menus and Buttons</a>.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/DefaultEditorKit.BeepAction.html"><font color="#8800bb"><font size=2><code>BeepAction</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/DefaultEditorKit.BeepAction.html"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/DefaultEditorKit.CopyAction.html"><font color="#8800bb"><font size=2><code>CopyAction</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/DefaultEditorKit.CopyAction.html"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/DefaultEditorKit.CutAction.html"><font color="#8800bb"><font size=2><code>CutAction</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/DefaultEditorKit.CutAction.html"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/DefaultEditorKit.DefaultKeyTypedAction.html"><font color="#8800bb"><font size=2><code>DefaultKeyTypedAction</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/DefaultEditorKit.DefaultKeyTypedAction.html"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/DefaultEditorKit.InsertBreakAction.html"><font color="#8800bb"><font size=2><code>InsertBreakAction</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/DefaultEditorKit.InsertBreakAction.html"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/DefaultEditorKit.InsertContentAction.html"><font color="#8800bb"><font size=2><code>InsertContentAction</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/DefaultEditorKit.InsertContentAction.html"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/DefaultEditorKit.InsertTabAction.html"><font color="#8800bb"><font size=2><code>InsertTabAction</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/DefaultEditorKit.InsertTabAction.html"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/DefaultEditorKit.PasteAction.html"><font color="#8800bb"><font size=2><code>PasteAction</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/DefaultEditorKit.PasteAction.html"></a>    <br><em>(in <code>DefaultEditorKit</code>)</em>
+    </td>
+    <td>Inner classes that implement various text editing commands.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/StyledEditorKit.AlignmentAction.html"><font color="#8800bb"><font size=2><code>AlignmentAction</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/StyledEditorKit.AlignmentAction.html"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/StyledEditorKit.BoldAction.html"><font color="#8800bb"><font size=2><code>BoldAction</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/StyledEditorKit.BoldAction.html"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/StyledEditorKit.FontFamilyAction.html"><font color="#8800bb"><font size=2><code>FontFamilyAction</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/StyledEditorKit.FontFamilyAction.html"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/StyledEditorKit.FontSizeAction.html"><font color="#8800bb"><font size=2><code>FontSizeAction</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/StyledEditorKit.FontSizeAction.html"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/StyledEditorKit.ForegroundAction.html"><font color="#8800bb"><font size=2><code>ForegroundAction</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/StyledEditorKit.ForegroundAction.html"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/StyledEditorKit.ItalicAction.html"><font color="#8800bb"><font size=2><code>ItalicAction</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/StyledEditorKit.ItalicAction.html"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/StyledEditorKit.StyledTextAction.html"><font color="#8800bb"><font size=2><code>StyledTextAction</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/StyledEditorKit.StyledTextAction.html"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/StyledEditorKit.UnderlineAction.html"><font color="#8800bb"><font size=2><code>UnderlineAction</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/StyledEditorKit.UnderlineAction.html"></a>    <br><em>(in <code>StyledEditorKit</code>)</em>
+  </td>
+    <td>Inner classes that implement various editing commands
+        for styled text.
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html#getActions()"><font color="#8800bb"><font size=2><code>Action[] getActions()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html#getActions()"></a>    <br><em>(in <code>JTextComponent</code>)</em>
+    </td>
+    <td>Get the actions supported by this component.
+        This method gets the array of actions from the editor kit
+        if one is used by the component.
+
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JComponent.html#getInputMap()"><font color="#8800bb"><font size=2><code>InputMap getInputMap()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JComponent.html#getInputMap()"></a>    <br><em>(in <code>JComponent</code>)</em>
+    </td>
+    <td>Gets the input map that binds key strokes to actions.
+	See
+	<a href="generaltext.html#bindingkeystrokes">Associating
+	Text Actions with Key Strokes</a>.
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/InputMap.html#put(javax.swing.KeyStroke, java.lang.Object)"><font color="#8800bb"><font size=2><code>void put(KeyStroke, Object)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/InputMap.html#put(javax.swing.KeyStroke, java.lang.Object)"></a>    <br><em>(in <code>InputMap</code>)</em>
+    </td>
+    <td>Binds the specified key to the specified action.
+	You generally specify the action by its name, 
+	which for standard editing actions is
+	represented by a string constant such as 
+	<code>DefaultEditorKit.backwardAction</code>.
+    </td>
+  </tr>
+</table>
+
+<p>
+<table border=1> 
+<caption><a name="docclasses">  
+Classes and Interfaces that Represent Documents
+</a></caption>
+<tr>
+<th>Interface or Class</th><th>Description
+
+</th>
+</tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/Document.html"><font color="#8800bb"><font size=2><code>Document</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/Document.html"></a>    </td>
+    <td>An interface that defines the API that must be implemented
+        by all documents.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/AbstractDocument.html"><font color="#8800bb"><font size=2><code>AbstractDocument</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/AbstractDocument.html"></a>    </td>
+    <td>An abstract superclass implementation
+        of the <code>Document</code> interface.
+        This is the superclass for all documents
+        provided by the Swing text package.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/PlainDocument.html"><font color="#8800bb"><font size=2><code>PlainDocument</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/PlainDocument.html"></a>    </td>
+    <td>A class that implements the <code>Document</code> interface.
+        This is the default document for the plain text components
+        (text field, password field, and text area).
+        Additionally used by editor pane and text pane
+        when loading plain text or text of an unknown format.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/StyledDocument.html"><font color="#8800bb"><font size=2><code>StyledDocument</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/StyledDocument.html"></a>    </td>
+    <td>A <code>Document</code> subinterface.
+        Defines the API that must be implemented by documents that
+        support styled text.
+        <code>JTextPane</code> requires that its document be of this type.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/DefaultStyledDocument.html"><font color="#8800bb"><font size=2><code>DefaultStyledDocument</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/DefaultStyledDocument.html"></a>    </td>
+    <td>A class that implements the <code>StyledDocument</code> interface.
+        The default document for <code>JTextPane</code>.
+    </td>
+  </tr>
+</table>
+
+<p>
+<table border=1>
+<caption><a name="docmethods">
+Working with Documents
+</a></caption>
+<tr>
+<th>Class or Method</th><th>Description
+
+</th>
+</tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/DocumentFilter.html"><font color="#8800bb"><font size=2><code>DocumentFilter</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/DocumentFilter.html"></a>    </td>
+    <td>The superclass of all document filters.
+	You can use a document filter to change
+	what gets inserted or removed from a document,
+	without having to implement a document yourself.
+	See <a href="generaltext.html#filter">
+	Implementing a Document Filter</a>.
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/AbstractDocument.html#setDocumentFilter(javax.swing.text.DocumentFilter)"><font color="#8800bb"><font size=2><code>void setDocumentFilter(DocumentFilter)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/AbstractDocument.html#setDocumentFilter(javax.swing.text.DocumentFilter)"></a>    <br><em>(in <code>AbstractDocument</code>)</em>
+    </td>
+    <td>Set the document filter.
+    </td>
+  </tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html#setDocument(javax.swing.text.Document)"><font color="#8800bb"><font size=2><code>void setDocument(Document)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html#setDocument(javax.swing.text.Document)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html#getDocument()"><font color="#8800bb"><font size=2><code>Document getDocument()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html#getDocument()"></a>    <br><em>(in <code>JTextComponent</code>)</em>
+    </td>
+    <td>Set or get the document for a text component.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTextField.html#createDefaultModel()"><font color="#8800bb"><font size=2><code>Document createDefaultModel()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTextField.html#createDefaultModel()"></a>    <br><em>(in <code>JTextField</code>)</em>
+    </td>
+    <td>Override this method to
+        create a custom document instead of the default
+        <code>PlainDocument</code>.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/Document.html#addDocumentListener(javax.swing.event.DocumentListener)"><font color="#8800bb"><font size=2><code>void addDocumentListener(DocumentListener)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/Document.html#addDocumentListener(javax.swing.event.DocumentListener)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/Document.html#removeDocumentListener(javax.swing.event.DocumentListener)"><font color="#8800bb"><font size=2><code>void removeDocumentListener(DocumentListener)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/Document.html#removeDocumentListener(javax.swing.event.DocumentListener)"></a>    <br><em>(in <code>Document</code>)</em>
+    </td>
+    <td>Add or remove a document listener to a document.
+    See
+    <a href="generaltext.html#doclisteners">
+    Listening for Changes on a Document</a>.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/Document.html#addUndoableEditListener(javax.swing.event.UndoableEditListener)"><font color="#8800bb"><font size=2><code>void addUndoableEditListener(UndoableEditListener)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/Document.html#addUndoableEditListener(javax.swing.event.UndoableEditListener)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/Document.html#removeUndoableEditListener(javax.swing.event.UndoableEditListener)"><font color="#8800bb"><font size=2><code>void removeUndoableEditListener(UndoableEditlistener)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/Document.html#removeUndoableEditListener(javax.swing.event.UndoableEditListener)"></a>    <br><em>(in <code>Document</code>)</em>
+    </td>
+    <td>Add or remove an undoable edit listener to a document.
+        Undoable edit listeners are used in
+        <a href="generaltext.html#undo">Implementing Undo and Redo</a>.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/Document.html#getLength()"><font color="#8800bb"><font size=2><code>int getLength()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/Document.html#getLength()"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/Document.html#getStartPosition()"><font color="#8800bb"><font size=2><code>Position getStartPosition()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/Document.html#getStartPosition()"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/Document.html#getEndPosition()"><font color="#8800bb"><font size=2><code>Position getEndPosition()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/Document.html#getEndPosition()"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/Document.html#getText(int, int)"><font color="#8800bb"><font size=2><code>String getText(int, int)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/Document.html#getText(int, int)"></a>    <br><em>(in <code>Document</code>)</em>
+    </td>
+    <td><code>Document</code> methods that return useful
+        information about the document.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/Document.html#getProperty(java.lang.Object)"><font color="#8800bb"><font size=2><code>Object getProperty(Object)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/Document.html#getProperty(java.lang.Object)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/Document.html#putProperty(java.lang.Object, java.lang.Object)"><font color="#8800bb"><font size=2><code>void putProperty(Object, Object)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/Document.html#putProperty(java.lang.Object, java.lang.Object)"></a>    <br><em>(in <code>Document</code>)</em>
+    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/AbstractDocument.html#setDocumentProperties(java.util.Dictionary)"><font color="#8800bb"><font size=2><code>void setDocumentProperties(Dictionary)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/AbstractDocument.html#setDocumentProperties(java.util.Dictionary)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/AbstractDocument.html#getDocumentProperties()"><font color="#8800bb"><font size=2><code>Dictionary getDocumentProperties()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/AbstractDocument.html#getDocumentProperties()"></a>    <br><em>(in <code>AbstractDocument</code>)</em>
+    </td>
+    <td>A <code>Document</code> maintains a set of
+        properties that you can manipulate with these
+        methods. The example described in
+        <a href="textfield.html#documentlistener">
+        Using a Document Listener on a Text Field</a>
+        uses a property to name text components so that
+        a shared document listener can identify the
+        document that generated the event.
+    </td>
+  </tr>
+</table>
+
+<p>
+<table border=1>
+<caption><a name="carrots">
+Manipulating Carets and Selection Highlighters
+</a>
+<br>
+<em>The methods in this table are defined in the <code>JTextComponent</code> class.</em>
+</caption>
+<tr>
+<th>Interface, Class, or Method</th><th>Description
+
+</th>
+</tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/Caret.html"><font color="#8800bb"><font size=2><code>Caret</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/Caret.html"></a>    </td>
+    <td>An interface that defines the API for objects that
+        represent an insertion point within documents.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/DefaultCaret.html"><font color="#8800bb"><font size=2><code>DefaultCaret</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/DefaultCaret.html"></a>    </td>
+    <td>The default caret used by all text components.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html#setCaret(javax.swing.text.Caret)"><font color="#8800bb"><font size=2><code>void setCaret(Caret)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html#setCaret(javax.swing.text.Caret)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html#getCaret()"><font color="#8800bb"><font size=2><code>Caret getCaret()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html#getCaret()"></a>    </td>
+    <td>Set or get the caret object used by a text component.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html#setCaretColor(java.awt.Color)"><font color="#8800bb"><font size=2><code>void setCaretColor(Color)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html#setCaretColor(java.awt.Color)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html#getCaretColor()"><font color="#8800bb"><font size=2><code>Color getCaretColor()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html#getCaretColor()"></a>    </td>
+    <td>Set or get the color of the caret.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html#setCaretPosition(int)"><font color="#8800bb"><font size=2><code>void setCaretPosition(int)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html#setCaretPosition(int)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html#moveCaretPosition(int)"><font color="#8800bb"><font size=2><code>void moveCaretPosition(int)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html#moveCaretPosition(int)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html#getCaretPosition()"><font color="#8800bb"><font size=2><code>int getCaretPosition()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html#getCaretPosition()"></a>    </td>
+    <td>Set or get the current position of the caret within the document.
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html#addCaretListener(javax.swing.event.CaretListener)"><font color="#8800bb"><font size=2><code>void addCaretListener(CaretListener)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html#addCaretListener(javax.swing.event.CaretListener)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html#removeCaretListener(javax.swing.event.CaretListener)"><font color="#8800bb"><font size=2><code>void removeCaretListener(CaretListener)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html#removeCaretListener(javax.swing.event.CaretListener)"></a>    </td>
+    <td>Add or remove a caret listener to a text component.
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/NavigationFilter.html"><font color="#8800bb"><font size=2><code>NavigationFilter</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/NavigationFilter.html"></a>    </td>
+    <td>The superclass for all navigation filters.
+	A navigation filter lets you modify caret 
+	changes that are about to occur
+	for a text component.
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html#setNavigationFilter(javax.swing.text.NavigationFilter)"><font color="#8800bb"><font size=2><code>void setNavigationFilter(NavigationFilter)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html#setNavigationFilter(javax.swing.text.NavigationFilter)"></a>    </td>
+    <td>Attach a navigation filter to a text component.
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/Highlighter.html"><font color="#8800bb"><font size=2><code>Highlighter</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/Highlighter.html"></a>    </td>
+    <td>An interface that defines the API for objects used
+        to highlight the current selection.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/DefaultHighlighter.html"><font color="#8800bb"><font size=2><code>DefaultHighlighter</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/DefaultHighlighter.html"></a>    </td>
+    <td>The default highlighter used by all text components.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html#setHighlighter(javax.swing.text.Highlighter)"><font color="#8800bb"><font size=2><code>void setHighlighter(Highlighter)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html#setHighlighter(javax.swing.text.Highlighter)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html#getHighlighter()"><font color="#8800bb"><font size=2><code>Highlighter getHighlighter()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html#getHighlighter()"></a>    </td>
+    <td>Set or get the highlighter used by a text component.
+
+    </td>
+  </tr>
+</table>
+
+<p>
+<table border=1>
+<caption><a name="io">
+Reading and Writing Text
+</a></caption>
+
+<tr>
+<th>Method</th><th>Description
+
+</th>
+</tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html#read(java.io.Reader, java.lang.Object)"><font color="#8800bb"><font size=2><code>void read(Reader, Object)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html#read(java.io.Reader, java.lang.Object)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html#write(java.io.Writer)"><font color="#8800bb"><font size=2><code>void write(Writer)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/JTextComponent.html#write(java.io.Writer)"></a>    <br><em>(in <code>JTextComponent</code>)</em>
+    </td>
+    <td>Read or write text.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/EditorKit.html#read(java.io.Reader, javax.swing.text.Document, int)"><font color="#8800bb"><font size=2><code>void read(Reader, Document, int)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/EditorKit.html#read(java.io.Reader, javax.swing.text.Document, int)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/EditorKit.html#read(java.io.InputStream, javax.swing.text.Document, int)"><font color="#8800bb"><font size=2><code>void read(InputStream, Document, int)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/EditorKit.html#read(java.io.InputStream, javax.swing.text.Document, int)"></a>    <br><em>(in <code>EditorKit</code>)</em>
+    </td>
+    <td>Read text from a stream into a document.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/EditorKit.html#write(java.io.Writer, javax.swing.text.Document, int, int)"><font color="#8800bb"><font size=2><code>void write(Writer, Document, int, int)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/EditorKit.html#write(java.io.Writer, javax.swing.text.Document, int, int)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/EditorKit.html#write(java.io.OutputStream, javax.swing.text.Document, int, int)"><font color="#8800bb"><font size=2><code>void write(OutputStream, Document, int, int)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/text/EditorKit.html#write(java.io.OutputStream, javax.swing.text.Document, int, int)"></a>    <br><em>(in <code>EditorKit</code>)</em>
+    </td>
+    <td>Write text from a document to a stream.
+
+    </td>
+  </tr>
+</table>
+
+</blockquote>
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="generaltext.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#components" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="componentlist.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

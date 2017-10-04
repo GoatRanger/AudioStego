@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent">
+    <dji.publics.DJIUI.DJIRelativeLayout android:id="@+id/mine_header" android:background="@color/om" android:visibility="gone" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x7f0b0123" android:layout_marginTop="@dimen/fj">
+        <dji.pilot.publics.widget.DJIStateImageView android:id="@+id/setting_icon" android:layout_width="UNKNOWN_DATA_0x7f0b0112" android:layout_height="UNKNOWN_DATA_0x7f0b0112" android:layout_marginLeft="@dimen/fj" android:src="@r$drawable/v2_nativeexplore_back" android:scaleType="centerInside" android:layout_centerVertical="true" />
+        <dji.pilot.publics.widget.DJIStateTextView android:textSize="@dimen/rk" android:textColor="@r$color/standard3_0_secondary_text_color" android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/v2_mine_More" android:layout_centerInParent="true" />
+    </dji.publics.DJIUI.DJIRelativeLayout>
+    <ScrollView android:background="@r$color/v2_mine_backgound" android:fitsSystemWindows="@r$bool/is_fix_system" android:scrollbars="UNKNOWN_DATA_0x0" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@+id/mine_header" android:overScrollMode="ifContentScrolls">
+        <LinearLayout android:orientation="vertical" android:id="@+id/v2_mine_final_ly" android:paddingBottom="@dimen/v2_mine_main_item_gap_bold" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <include layout="@layout/v2_mine_user_menu_fragment" />
+            <include layout="@layout/v2_mine_middle_tab" />
+            <View android:background="@r$color/v2_mine_profile_border" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x200" />
+            <LinearLayout android:orientation="vertical" android:id="@+id/layout_menu_mine" android:layout_width="match_parent" android:layout_height="wrap_content">
+                <dji.pilot2.mine.view.MineButton android:id="@+id/mine_dji_coupon" android:background="@color/om" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x7f0b012c" android:layout_marginTop="@dimen/fj" />
+                <View android:background="@r$color/v2_mine_profile_border" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x200" />
+                <dji.pilot2.mine.view.MineButton android:id="@+id/mine_upload_mission" android:background="@color/om" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x7f0b012c" />
+                <View android:background="@r$color/v2_mine_profile_border" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x200" />
+                <dji.pilot2.mine.view.MineButton android:id="@+id/mine_message" android:background="@color/om" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x7f0b012c" />
+                <View android:background="@r$color/v2_mine_profile_border" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x200" />
+                <dji.pilot2.mine.view.MineButton android:id="@+id/mine_dji_collection" android:background="@color/om" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x7f0b012c" />
+                <View android:background="@r$color/v2_mine_profile_border" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x200" />
+                <dji.pilot2.mine.view.MineButton android:id="@+id/mine_dji_bbs" android:background="@color/om" android:visibility="gone" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x7f0b012c" />
+                <dji.pilot2.mine.view.MineButton android:id="@+id/mine_dji_unlock_list" android:background="@color/om" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x7f0b012c" />
+                <View android:id="@+id/mine_unlock_list_under_line" android:background="@r$color/v2_mine_profile_border" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x200" />
+                <dji.pilot2.mine.view.MineButton android:id="@+id/mine_dji_more" android:background="@color/om" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x7f0b012c" />
+                <View android:background="@r$color/v2_mine_profile_border" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x200" />
+            </LinearLayout>
+            <dji.pilot2.mine.view.MineButton android:id="@+id/mine_dji_setting" android:background="@color/om" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x7f0b012c" android:layout_marginTop="@dimen/fj" />
+        </LinearLayout>
+    </ScrollView>
+    <LinearLayout android:orientation="vertical" android:id="@+id/v2_mine_more_ly" android:background="@color/om" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/ft" android:layout_below="@+id/mine_header">
+        <dji.pilot2.mine.view.MineButton android:id="@+id/mine_dji_dds" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x7f0b012f" />
+        <View android:id="@+id/mine_repire_line" android:background="@r$color/v2_mine_profile_border" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x200" />
+        <dji.pilot2.mine.view.MineButton android:id="@+id/mine_repair" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x7f0b012f" />
+        <View android:background="@r$color/v2_mine_profile_border" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x200" />
+        <dji.pilot2.mine.view.MineButton android:id="@+id/mine_contact_dji" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x7f0b012f" />
+        <View android:background="@r$color/v2_mine_profile_border" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x200" />
+        <dji.pilot2.mine.view.MineButton android:id="@+id/mine_feed_back" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x7f0b012f" />
+    </LinearLayout>
+</RelativeLayout>

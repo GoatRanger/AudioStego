@@ -1,0 +1,199 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>The Primary Classes</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="theCode.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#bingo" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="gamePackage.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Putting It All Together
+<br>
+<b>Lesson</b>: BINGO!
+</font>
+
+<h2>
+The Primary Classes
+</h2>
+<blockquote>
+</blockquote>
+<h3>The Engine of the Game</h3>
+<blockquote>
+The following is a diagram of the classes that make up
+the Game's "engine":
+
+<p><center><a href="../../figures/together/GKEngine.gif" target="_top"><IMG SRC="../../figures/together/GKEngine.gif" WIDTH="460" HEIGHT="344" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></a><br><em>This figure has been reduced to fit on the page. <br> Click the image to view it at its natural size.</em></center></p>
+<blockquote><hr><strong>Note:</strong>&nbsp;This diagram does not include all of
+the classes that comprise the Game application. Rather it just
+shows the key classes. Later pages in this lesson include other
+diagrams that show the some of the relationships between the
+other classes.
+<hr></blockquote>
+
+The
+
+<a target="_blank" href="example-swing/bingo/game/BINGO.java"><font color="#bb000f"><code>BINGO</code></font></a><a target="_blank" href="example-swing/bingo/game/BINGO.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>
+class contains the <code>main</code> method for the Game application,
+so let's begin there.
+<code>BINGO</code> creates a 
+
+<a target="_blank" href="example-swing/bingo/game/RingMaster.java"><font color="#bb000f"><code>RingMaster</code></font></a><a target="_blank" href="example-swing/bingo/game/RingMaster.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>
+object. The <code>RingMaster</code> is the most central object of the Game
+application and provides much of the code that glues everything together.
+The <code>RingMaster</code> creates many helper objects such as the
+
+<a target="_blank" href="example-swing/bingo/game/NotaryPublic.java"><font color="#bb000f"><code>NotaryPublic</code></font></a><a target="_blank" href="example-swing/bingo/game/NotaryPublic.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>
+for signing BINGO cards, the 
+
+<a target="_blank" href="example-swing/bingo/game/Roster.java"><font color="#bb000f"><code>Roster</code></font></a><a target="_blank" href="example-swing/bingo/game/Roster.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>
+for keeping track of registered players, and so on.
+<p>
+The <code>main</code> method also creates three other objects: a
+
+<a target="_blank" href="example-swing/bingo/game/RegistrarImpl.java"><font color="#bb000f"><code>RegistrarImpl</code></font></a><a target="_blank" href="example-swing/bingo/game/RegistrarImpl.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>
+object (which handles all RMI requests from Players), and a
+
+<a target="_blank" href="example-swing/bingo/game/ControlPane.java"><font color="#bb000f"><code>ControlPane</code></font></a><a target="_blank" href="example-swing/bingo/game/ControlPane.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>
+and an
+
+<a target="_blank" href="example-swing/bingo/shared/OverallStatusPane.java"><font color="#bb000f"><code>OverallStatusPane</code></font></a><a target="_blank" href="example-swing/bingo/shared/OverallStatusPane.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>
+(both of which implement parts of the Game's user interface).
+<p>
+When the user clicks the <strong>Let the Games Begin</strong> button,
+the <code>ControlPane</code> creates and starts a
+
+<a target="_blank" href="example-swing/bingo/game/GamesThread.java"><font color="#bb000f"><code>GamesThread</code></font></a><a target="_blank" href="example-swing/bingo/game/GamesThread.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>
+which creates and starts a new 
+
+<a target="_blank" href="example-swing/bingo/game/BallAnnouncer.java"><font color="#bb000f"><code>BallAnnouncer</code></font></a><a target="_blank" href="example-swing/bingo/game/BallAnnouncer.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>
+for each game.
+
+</blockquote>
+
+<h3>The Game's User Interface</h3>
+<blockquote>
+The following is a diagram of the classes that
+implement the Game's user interface:
+
+<p><center><a href="../../figures/together/GKUI.gif" target="_top"><IMG SRC="../../figures/together/GKUI.gif" WIDTH="460" HEIGHT="389" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></a><br><em>This figure has been reduced to fit on the page. <br> Click the image to view it at its natural size.</em></center></p>
+The classes above and to the left of the swoosh are in the
+<code>bingo.game</code> package. The classes below and to
+the right of the swoosh are in the <code>bingo.shared</code>
+package because they do not depend directly on any code in the 
+Game and they can be shared by the Player (as
+
+<a target="_blank" href="example-swing/bingo/shared/LightBoardPane.java"><font color="#bb000f"><code>LightBoardPane</code></font></a><a target="_blank" href="example-swing/bingo/shared/LightBoardPane.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>
+and 
+
+<a target="_blank" href="example-swing/bingo/shared/GameStatusLabel.java"><font color="#bb000f"><code>GameStatusLabel</code></font></a><a target="_blank" href="example-swing/bingo/shared/GameStatusLabel.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>
+are).
+<p>
+The best way to understand the classes that make up the Game's
+UI is to identify the areas of the user interface that each class controls. So,
+here's a box diagram that shows you what class controls each area
+of the Game's user interface:
+<p>
+[PENDING: put in a snapshot of the game with callouts
+indicating which classes control which part of the window]
+<p>
+<a href="UIdiagrams.html">Using the JFC to Implement the UI's</a>
+contains similar box diagrams, but instead of showing the BINGO
+classes that implement each area of the user interface, they
+show you which Swing components are
+used in the GUI elements (either because the
+classes shown here create Swing objects or
+subclass the classes).
+</blockquote>
+
+<h3>The Player</h3>
+<blockquote>
+The following is a diagram of the classes that
+make up the Player application:
+<p>
+[PENDING]
+<p>
+</blockquote>
+
+<h3>A Legend of the Symbols Used in the Diagrams</h3>
+<blockquote>
+
+<p><center><a href="../../figures/together/legend.gif" target="_top"><IMG SRC="../../figures/together/legend.gif" WIDTH="460" HEIGHT="116" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></a><br><em>This figure has been reduced to fit on the page. <br> Click the image to view it at its natural size.</em></center></p>
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="theCode.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#bingo" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="gamePackage.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

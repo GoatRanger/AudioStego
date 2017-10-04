@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="10"
+   name=""
+   committed-date="2005-02-01T05:59:34.421875Z"
+   url="svn://192.168.2.2/IT105Editor/docs/jalopy/api/de/hunsicker/jalopy/plugin"
+   last-author="Karl"
+   kind="dir"
+   uuid="0daf4267-3229-f84b-9084-f3c94b025f38"
+   revision="55"/>
+<entry
+   name="class-use"
+   kind="dir"/>
+<entry
+   committed-rev="10"
+   name="AbstractPlugin.Action.html"
+   text-time="2005-03-02T06:14:30.062500Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="d217fa186a182dd59cddc877111d33e7"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:29.687500Z"/>
+<entry
+   name="console"
+   kind="dir"/>
+<entry
+   committed-rev="10"
+   name="AbstractAppender.html"
+   text-time="2005-03-02T06:14:30.062500Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="c55daac87977c80ea2bedc994301b847"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:29.890625Z"/>
+<entry
+   committed-rev="10"
+   name="AbstractPlugin.html"
+   text-time="2005-03-02T06:14:30.078125Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="e3965849135023764d84e46ec313ecc1"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:29.906250Z"/>
+<entry
+   committed-rev="10"
+   name="package-frame.html"
+   text-time="2005-03-02T06:14:30.078125Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="9b4c826d47a269c760a2e64df88a542c"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:29.937500Z"/>
+<entry
+   committed-rev="10"
+   name="package-use.html"
+   text-time="2005-03-02T06:14:30.093750Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="4af8c6deb6d72dd72daeb4761e67e93f"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:29.953125Z"/>
+<entry
+   committed-rev="10"
+   name="SwingAppender.html"
+   text-time="2005-03-02T06:14:30.093750Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="3678756c3ad1be2b1940ea73153a06d5"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:29.953125Z"/>
+<entry
+   committed-rev="10"
+   name="Project.html"
+   text-time="2005-03-02T06:14:30.109375Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="d9312c1eb2a716d20aedb52ce0ff0eeb"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:29.968750Z"/>
+<entry
+   committed-rev="10"
+   name="Editor.html"
+   text-time="2005-03-02T06:14:30.125000Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="224277b2d4b3dcaa889049c578679626"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:30.000000Z"/>
+<entry
+   committed-rev="10"
+   name="package-summary.html"
+   text-time="2005-03-02T06:14:30.125000Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="28bd9b9b3e3793e3aba29ccc660d80f6"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:30.015625Z"/>
+<entry
+   committed-rev="10"
+   name="ProjectFile.html"
+   text-time="2005-03-02T06:14:30.140625Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="1c74e7bc585e6fb04df5200bd4264dae"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:30.015625Z"/>
+<entry
+   committed-rev="10"
+   name="StatusBar.html"
+   text-time="2005-03-02T06:14:30.140625Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="71b62f956d3702a64b59b28af80ebc79"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:30.031250Z"/>
+<entry
+   committed-rev="10"
+   name="package-tree.html"
+   text-time="2005-03-02T06:14:30.156250Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="81d52ef1ddd1ca200f164099b43a41de"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:30.046875Z"/>
+</wc-entries>

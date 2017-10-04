@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.pilot.fpv.camera.newfn.DJICameraIsothermView xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent">
+    <dji.publics.DJIUI.DJILinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:baselineAligned="false" android:divider="@drawable/camera_other_divider" android:showDividers="middle|end" android:dividerPadding="0dp">
+        <dji.publics.DJIUI.DJIRelativeLayout android:id="@+id/camera_newfn_isotherm_enable_ly" style="@style/CameraFnLy">
+            <dji.publics.DJIUI.DJITextView android:textSize="@dimen/rq" android:text="@string/tau_camera_isotherm" android:layout_centerVertical="true" style="@style/bm" />
+            <dji.pilot.publics.widget.DJISwitch android:id="@+id/camera_newfn_isotherm_enable_sw" android:checked="false" android:layout_alignParentRight="true" android:layout_centerVertical="true" style="@style/CommonSwitch" />
+        </dji.publics.DJIUI.DJIRelativeLayout>
+        <dji.publics.DJIUI.DJIRelativeLayout android:id="@+id/camera_newfn_isotherm_unit_ly" android:visibility="gone" style="@style/CameraFnLy">
+            <dji.publics.DJIUI.DJITextView android:textSize="@dimen/rq" android:text="@string/tau_isotherm_units" android:layout_centerVertical="true" style="@style/bm" />
+            <dji.publics.DJIUI.DJIImageView android:id="@+id/camera_newfn_isotherm_unit_arrow" android:background="@drawable/arrow_right" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentRight="true" android:layout_centerVertical="true" android:contentDescription="@string/app_name" />
+            <dji.publics.DJIUI.DJITextView android:textSize="@dimen/rq" android:id="@+id/camera_newfn_isotherm_unit_tv" android:layout_marginRight="@dimen/n3" android:text="@string/tau_isotherm_unit_percentage" android:layout_toLeftOf="@+id/camera_newfn_isotherm_unit_arrow" android:layout_centerVertical="true" style="@style/bm" />
+        </dji.publics.DJIUI.DJIRelativeLayout>
+        <include android:id="@+id/camera_newfn_isotherm_upper_ly" android:visibility="gone" layout="@layout/camera_newfn_isotherm_item" />
+        <include android:id="@+id/camera_newfn_isotherm_middle_ly" android:visibility="gone" layout="@layout/camera_newfn_isotherm_item" />
+        <include android:id="@+id/camera_newfn_isotherm_lower_ly" android:visibility="gone" layout="@layout/camera_newfn_isotherm_item" />
+    </dji.publics.DJIUI.DJILinearLayout>
+</dji.pilot.fpv.camera.newfn.DJICameraIsothermView>

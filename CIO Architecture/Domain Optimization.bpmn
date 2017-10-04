@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:BpmnDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:bpmn="http://stp.eclipse.org/bpmn" xmi:id="_B_pnoR9QEd-zlaK-AFKncQ" iD="_B_pnoB9QEd-zlaK-AFKncQ">
+  <artifacts xmi:type="bpmn:TextAnnotation" xmi:id="_vzHT0R9REd-zlaK-AFKncQ" iD="_vzHT0B9REd-zlaK-AFKncQ" name="For efficiency reviews covering IT, this will always be true, since it will include a review of existing IT.">
+    <associations xmi:type="bpmn:Association" xmi:id="_wVMGIB9REd-zlaK-AFKncQ"/>
+  </artifacts>
+  <artifacts xmi:type="bpmn:TextAnnotation" xmi:id="_453c8R9REd-zlaK-AFKncQ" iD="_453c8B9REd-zlaK-AFKncQ" name="In a review for duplication or efficiency in IT, this review includes identification of duplication in system functions or multiple systems supporting a single capability/business process.">
+    <associations xmi:type="bpmn:Association" xmi:id="_5fpqkB9REd-zlaK-AFKncQ"/>
+  </artifacts>
+  <artifacts xmi:type="bpmn:TextAnnotation" xmi:id="_IvTroR9SEd-zlaK-AFKncQ" iD="_IvTroB9SEd-zlaK-AFKncQ" name="In the case of duplication/efficiency, this packet would include all identified issues in redundancy or inefficiency for a given portfolio's capability set.">
+    <associations xmi:type="bpmn:Association" xmi:id="_JDZFQB9SEd-zlaK-AFKncQ"/>
+  </artifacts>
+  <artifacts xmi:type="bpmn:TextAnnotation" xmi:id="_ZzwEER9SEd-zlaK-AFKncQ" iD="_ZzwEEB9SEd-zlaK-AFKncQ" name="In the case of efficiency reduction, this addition may include recommended changes to the future state architectural description to reflect recommended changes.  May also identify potential courses of action.  Intent is to enable automated analysis and reporting of duplication, and ensure transition plan information is current with the repository.">
+    <associations xmi:type="bpmn:Association" xmi:id="_aNMe0B9SEd-zlaK-AFKncQ"/>
+  </artifacts>
+  <artifacts xmi:type="bpmn:TextAnnotation" xmi:id="_10nt0R9SEd-zlaK-AFKncQ" iD="_10nt0B9SEd-zlaK-AFKncQ" name="These updates would include any modifications based on the IRC/BoD, confirmation of proposals already added, or removal of any other COAs associated with the review.">
+    <associations xmi:type="bpmn:Association" xmi:id="_2ONSgB9SEd-zlaK-AFKncQ"/>
+  </artifacts>
+  <artifacts xmi:type="bpmn:TextAnnotation" xmi:id="_YB0W8R9TEd-zlaK-AFKncQ" iD="_YB0W8B9TEd-zlaK-AFKncQ" name="For an efficiency review initiated by the Domain, this review might not be executed, as there is not a specific proposal that was submitted.">
+    <associations xmi:type="bpmn:Association" xmi:id="_Yt29kB9TEd-zlaK-AFKncQ"/>
+  </artifacts>
+  <artifacts xmi:type="bpmn:TextAnnotation" xmi:id="_ffPKwR9TEd-zlaK-AFKncQ" iD="_ffPKwB9TEd-zlaK-AFKncQ" name="One aspect of transition planning could include evaluation of the compliance levels of the existing investments, as any investments not compliant with DIACAP or related requirements are more likely candidates for a transition effort.">
+    <associations xmi:type="bpmn:Association" xmi:id="_f2vr0B9TEd-zlaK-AFKncQ"/>
+  </artifacts>
+  <pools xmi:type="bpmn:Pool" xmi:id="_iuFzwB9QEd-zlaK-AFKncQ" iD="_it8CwR9QEd-zlaK-AFKncQ" name="CIO">
+    <artifacts xmi:type="bpmn:DataObject" xmi:id="_iuFzwR9QEd-zlaK-AFKncQ" iD="_it8Cwh9QEd-zlaK-AFKncQ" name="Human Capital Strategy">
+      <associations xmi:type="bpmn:Association" xmi:id="_iuFzwh9QEd-zlaK-AFKncQ"/>
+    </artifacts>
+    <artifacts xmi:type="bpmn:DataObject" xmi:id="_iuFzwx9QEd-zlaK-AFKncQ" iD="_it8Cwx9QEd-zlaK-AFKncQ" name="Domain Capability/Operational Architecture"/>
+    <artifacts xmi:type="bpmn:DataObject" xmi:id="_iuFzxR9QEd-zlaK-AFKncQ" iD="_it8CxB9QEd-zlaK-AFKncQ" name="Investment Operational Description">
+      <associations xmi:type="bpmn:Association" xmi:id="_iuFzxh9QEd-zlaK-AFKncQ"/>
+      <associations xmi:type="bpmn:Association" xmi:id="_iuFzxx9QEd-zlaK-AFKncQ"/>
+    </artifacts>
+    <artifacts xmi:type="bpmn:DataObject" xmi:id="_iuFzyB9QEd-zlaK-AFKncQ" iD="_it8CxR9QEd-zlaK-AFKncQ" name="Domain System Architecture"/>
+    <artifacts xmi:type="bpmn:DataObject" xmi:id="_iuFzyh9QEd-zlaK-AFKncQ" iD="_it8Cxh9QEd-zlaK-AFKncQ" name="Investment System Description">
+      <associations xmi:type="bpmn:Association" xmi:id="_1UZY0B9WEd-1ds5OMs5cQw"/>
+      <associations xmi:type="bpmn:Association" xmi:id="_2Cz-AB9WEd-1ds5OMs5cQw"/>
+    </artifacts>
+    <artifacts xmi:type="bpmn:DataObject" xmi:id="_iuFzzR9QEd-zlaK-AFKncQ" iD="_it8Cxx9QEd-zlaK-AFKncQ" name="Domain Transition Plan">
+      <associations xmi:type="bpmn:Association" xmi:id="_24EyEB9WEd-1ds5OMs5cQw"/>
+    </artifacts>
+    <artifacts xmi:type="bpmn:TextAnnotation" xmi:id="_e7LGUR9REd-zlaK-AFKncQ" iD="_e7LGUB9REd-zlaK-AFKncQ" name="For Duplication across the domain, includes a review and identification of capabilities that have multiple system supporting them.  May also include reviews across a business process for inefficiency in information flow.">
+      <associations xmi:type="bpmn:Association" xmi:id="_gpaJwB9REd-zlaK-AFKncQ"/>
+    </artifacts>
+    <artifacts xmi:type="bpmn:TextAnnotation" xmi:id="_SIgPoR9SEd-zlaK-AFKncQ" iD="_SIgPoB9SEd-zlaK-AFKncQ" name="This review is against all current investments with a recommendation for a modified future state.">
+      <associations xmi:type="bpmn:Association" xmi:id="_ShfXYB9SEd-zlaK-AFKncQ"/>
+    </artifacts>
+    <artifacts xmi:type="bpmn:TextAnnotation" xmi:id="__v4dER9SEd-zlaK-AFKncQ" iD="__v4dEB9SEd-zlaK-AFKncQ" name="This report is a summary of the overall transition plan as it applies to the active POM cycle to inform MDEP managers of the approved implementation plan.  This may differ from the overall Transition Plan, as the Domain Transition Plan could include identification of other activities across DOTMLPF, where the RM are primarily concerned with the materiel solutions.">
+      <associations xmi:type="bpmn:Association" xmi:id="_AD92sB9TEd-zlaK-AFKncQ"/>
+    </artifacts>
+    <vertices xmi:type="bpmn:Activity" xmi:id="_iuFz0B9QEd-zlaK-AFKncQ" iD="_it8CyB9QEd-zlaK-AFKncQ" associations="_iuFzxh9QEd-zlaK-AFKncQ _Yt29kB9TEd-zlaK-AFKncQ" outgoingEdges="_zgWoUR9WEd-1ds5OMs5cQw" incomingEdges="_w4PWkR9WEd-1ds5OMs5cQw" name="Review Business Case" lanes="_iuFz9x9QEd-zlaK-AFKncQ"/>
+    <vertices xmi:type="bpmn:Activity" xmi:id="_iuFz0R9QEd-zlaK-AFKncQ" iD="_it8CyR9QEd-zlaK-AFKncQ" associations="_f2vr0B9TEd-zlaK-AFKncQ _1UZY0B9WEd-1ds5OMs5cQw" outgoingEdges="_iuFz6x9QEd-zlaK-AFKncQ" incomingEdges="_oNKc0R9WEd-1ds5OMs5cQw _sc-FIR9WEd-1ds5OMs5cQw" name="Review Core IT Compliance Requirements" lanes="_iuFz9x9QEd-zlaK-AFKncQ"/>
+    <vertices xmi:type="bpmn:Activity" xmi:id="_iuFz0h9QEd-zlaK-AFKncQ" iD="_it8Cyh9QEd-zlaK-AFKncQ" outgoingEdges="_sc-FIR9WEd-1ds5OMs5cQw _tKWIgR9WEd-1ds5OMs5cQw" incomingEdges="_zgWoUR9WEd-1ds5OMs5cQw" name="Development Requested or Approved?" lanes="_iuFz9x9QEd-zlaK-AFKncQ" activityType="GatewayDataBasedExclusive"/>
+    <vertices xmi:type="bpmn:Activity" xmi:id="_iuFz0x9QEd-zlaK-AFKncQ" iD="_it8Cyx9QEd-zlaK-AFKncQ" outgoingEdges="_w4PWkR9WEd-1ds5OMs5cQw _xYqjER9WEd-1ds5OMs5cQw" incomingEdges="_wgSJkR9WEd-1ds5OMs5cQw" lanes="_iuFz9h9QEd-zlaK-AFKncQ _iuFz9x9QEd-zlaK-AFKncQ" activityType="GatewayParallel"/>
+    <vertices xmi:type="bpmn:Activity" xmi:id="_iuFz1B9QEd-zlaK-AFKncQ" iD="_it8CzB9QEd-zlaK-AFKncQ" associations="_iuFzwh9QEd-zlaK-AFKncQ _iuFzxx9QEd-zlaK-AFKncQ _gpaJwB9REd-zlaK-AFKncQ _24EyEB9WEd-1ds5OMs5cQw" outgoingEdges="_y7wGcR9WEd-1ds5OMs5cQw" incomingEdges="_xYqjER9WEd-1ds5OMs5cQw" name="Conduct Strategic Review of Operational Architecture Description" lanes="_iuFz9x9QEd-zlaK-AFKncQ"/>
+    <vertices xmi:type="bpmn:Activity" xmi:id="_iuFz1R9QEd-zlaK-AFKncQ" iD="_it8CzR9QEd-zlaK-AFKncQ" associations="_5fpqkB9REd-zlaK-AFKncQ _2Cz-AB9WEd-1ds5OMs5cQw" outgoingEdges="_v_QgIR9WEd-1ds5OMs5cQw" incomingEdges="_oxnNsR9WEd-1ds5OMs5cQw" name="Conduct Review of System Architectural Description Against Domain" lanes="_iuFz9x9QEd-zlaK-AFKncQ"/>
+    <vertices xmi:type="bpmn:Activity" xmi:id="_iuFz1h9QEd-zlaK-AFKncQ" iD="_it8Czh9QEd-zlaK-AFKncQ" associations="_wVMGIB9REd-zlaK-AFKncQ" outgoingEdges="_oNKc0R9WEd-1ds5OMs5cQw _oxnNsR9WEd-1ds5OMs5cQw" incomingEdges="_y7wGcR9WEd-1ds5OMs5cQw" name="Development Requested or Approved?" lanes="_iuFz9x9QEd-zlaK-AFKncQ" activityType="GatewayDataBasedExclusive"/>
+    <vertices xmi:type="bpmn:Activity" xmi:id="_iuFz1x9QEd-zlaK-AFKncQ" iD="_it8Czx9QEd-zlaK-AFKncQ" associations="_JDZFQB9SEd-zlaK-AFKncQ" incomingEdges="_vHnGcR9WEd-1ds5OMs5cQw" name="Compile Investment Review Packet" lanes="_iuFz9x9QEd-zlaK-AFKncQ">
+      <outgoingMessages xmi:type="bpmn:MessagingEdge" href="platform:/resource/CIO%20Architecture/Analysis.bpmn#_dk1-4R6IEd-wJcTvC20LGA"/>
+    </vertices>
+    <vertices xmi:type="bpmn:Activity" xmi:id="_iuFz2B9QEd-zlaK-AFKncQ" iD="_it8C0B9QEd-zlaK-AFKncQ" associations="_2ONSgB9SEd-zlaK-AFKncQ" outgoingEdges="_KzNDwR9XEd-1ds5OMs5cQw" incomingEdges="_IVz0QR9XEd-1ds5OMs5cQw" name="Update Domain Transition Plan" lanes="_iuFz9x9QEd-zlaK-AFKncQ"/>
+    <vertices xmi:type="bpmn:Activity" xmi:id="_iuFz2R9QEd-zlaK-AFKncQ" iD="_it8C0R9QEd-zlaK-AFKncQ" associations="_AD92sB9TEd-zlaK-AFKncQ" incomingEdges="_KzNDwR9XEd-1ds5OMs5cQw" name="Develop Report for Resource Management" lanes="_iuFz9h9QEd-zlaK-AFKncQ _iuFz9x9QEd-zlaK-AFKncQ"/>
+    <vertices xmi:type="bpmn:Activity" xmi:id="_iuFz2h9QEd-zlaK-AFKncQ" iD="_it8C0h9QEd-zlaK-AFKncQ" associations="_aNMe0B9SEd-zlaK-AFKncQ" outgoingEdges="_iuFz6h9QEd-zlaK-AFKncQ" incomingEdges="_v_QgIR9WEd-1ds5OMs5cQw" name="Add currently Unsupported/Modified Capability to Domain Architectural Description As Recommended Future Investment" lanes="_iuFz9x9QEd-zlaK-AFKncQ"/>
+    <vertices xmi:type="bpmn:Activity" xmi:id="_iuFz2x9QEd-zlaK-AFKncQ" iD="_it8C0x9QEd-zlaK-AFKncQ" associations="_iuFz_B9QEd-zlaK-AFKncQ" outgoingEdges="_Di430R9XEd-1ds5OMs5cQw" name="Develop Investment Approval Packet" lanes="_iuFz9x9QEd-zlaK-AFKncQ">
+      <incomingMessages xmi:type="bpmn:MessagingEdge" href="platform:/resource/CIO%20Architecture/Analysis.bpmn#_8K7XYR6IEd-wJcTvC20LGA"/>
+    </vertices>
+    <vertices xmi:type="bpmn:Activity" xmi:id="_iuFz3B9QEd-zlaK-AFKncQ" iD="_it8C1B9QEd-zlaK-AFKncQ" associations="_ShfXYB9SEd-zlaK-AFKncQ" incomingEdges="_Di430R9XEd-1ds5OMs5cQw" name="Coordinate Investment Review" lanes="_iuFz9x9QEd-zlaK-AFKncQ">
+      <outgoingMessages xmi:type="bpmn:MessagingEdge" href="platform:/resource/CIO%20Architecture/Analysis.bpmn#_46M-wB6OEd-wJcTvC20LGA"/>
+    </vertices>
+    <vertices xmi:type="bpmn:Activity" xmi:id="_iuFz3R9QEd-zlaK-AFKncQ" iD="_it8C1R9QEd-zlaK-AFKncQ" outgoingEdges="_vHnGcR9WEd-1ds5OMs5cQw" incomingEdges="_iuFz6h9QEd-zlaK-AFKncQ _iuFz6x9QEd-zlaK-AFKncQ _tKWIgR9WEd-1ds5OMs5cQw" lanes="_iuFz9x9QEd-zlaK-AFKncQ" activityType="GatewayParallel"/>
+    <vertices xmi:type="bpmn:Activity" xmi:id="_iuFz3h9QEd-zlaK-AFKncQ" iD="_it8C1h9QEd-zlaK-AFKncQ" outgoingEdges="_LqZxgR9XEd-1ds5OMs5cQw" name="Record  Governance Body Decision" lanes="_iuFz9x9QEd-zlaK-AFKncQ">
+      <incomingMessages xmi:type="bpmn:MessagingEdge" href="platform:/resource/CIO%20Architecture/Analysis.bpmn#_H4-EIR6PEd-wJcTvC20LGA"/>
+    </vertices>
+    <vertices xmi:type="bpmn:Activity" xmi:id="_iuFz3x9QEd-zlaK-AFKncQ" iD="_it8C1x9QEd-zlaK-AFKncQ" associations="_iuF0Ah9QEd-zlaK-AFKncQ" outgoingEdges="_MHadoR9XEd-1ds5OMs5cQw" name="Record Portfolio Decision on Investment" lanes="_iuFz9h9QEd-zlaK-AFKncQ _iuFz9x9QEd-zlaK-AFKncQ">
+      <incomingMessages xmi:type="bpmn:MessagingEdge" href="platform:/resource/CIO%20Architecture/Analysis.bpmn#_myx0cR6QEd-wJcTvC20LGA"/>
+    </vertices>
+    <vertices xmi:type="bpmn:Activity" xmi:id="_iuFz4B9QEd-zlaK-AFKncQ" iD="_it8C2B9QEd-zlaK-AFKncQ" outgoingEdges="_IVz0QR9XEd-1ds5OMs5cQw" incomingEdges="_LqZxgR9XEd-1ds5OMs5cQw _MHadoR9XEd-1ds5OMs5cQw" lanes="_iuFz9x9QEd-zlaK-AFKncQ" activityType="GatewayDataBasedExclusive"/>
+    <vertices xmi:type="bpmn:Activity" xmi:id="_iuFz4R9QEd-zlaK-AFKncQ" iD="_it8C2R9QEd-zlaK-AFKncQ" lanes="_iuFz9x9QEd-zlaK-AFKncQ" activityType="EventEndEmpty"/>
+    <vertices xmi:type="bpmn:Activity" xmi:id="_iuFz4h9QEd-zlaK-AFKncQ" iD="_it8C2h9QEd-zlaK-AFKncQ" outgoingEdges="_wgSJkR9WEd-1ds5OMs5cQw" lanes="_iuFz9h9QEd-zlaK-AFKncQ" activityType="EventStartEmpty"/>
+    <sequenceEdges xmi:type="bpmn:SequenceEdge" xmi:id="_iuFz6h9QEd-zlaK-AFKncQ" iD="_it8C4h9QEd-zlaK-AFKncQ"/>
+    <sequenceEdges xmi:type="bpmn:SequenceEdge" xmi:id="_iuFz6x9QEd-zlaK-AFKncQ" iD="_it8C4x9QEd-zlaK-AFKncQ"/>
+    <sequenceEdges xmi:type="bpmn:SequenceEdge" xmi:id="_oNKc0R9WEd-1ds5OMs5cQw" iD="_oNKc0B9WEd-1ds5OMs5cQw"/>
+    <sequenceEdges xmi:type="bpmn:SequenceEdge" xmi:id="_oxnNsR9WEd-1ds5OMs5cQw" iD="_oxnNsB9WEd-1ds5OMs5cQw"/>
+    <sequenceEdges xmi:type="bpmn:SequenceEdge" xmi:id="_sc-FIR9WEd-1ds5OMs5cQw" iD="_sc-FIB9WEd-1ds5OMs5cQw"/>
+    <sequenceEdges xmi:type="bpmn:SequenceEdge" xmi:id="_tKWIgR9WEd-1ds5OMs5cQw" iD="_tKWIgB9WEd-1ds5OMs5cQw"/>
+    <sequenceEdges xmi:type="bpmn:SequenceEdge" xmi:id="_vHnGcR9WEd-1ds5OMs5cQw" iD="_vHnGcB9WEd-1ds5OMs5cQw"/>
+    <sequenceEdges xmi:type="bpmn:SequenceEdge" xmi:id="_v_QgIR9WEd-1ds5OMs5cQw" iD="_v_QgIB9WEd-1ds5OMs5cQw"/>
+    <sequenceEdges xmi:type="bpmn:SequenceEdge" xmi:id="_wgSJkR9WEd-1ds5OMs5cQw" iD="_wgSJkB9WEd-1ds5OMs5cQw"/>
+    <sequenceEdges xmi:type="bpmn:SequenceEdge" xmi:id="_w4PWkR9WEd-1ds5OMs5cQw" iD="_w4PWkB9WEd-1ds5OMs5cQw"/>
+    <sequenceEdges xmi:type="bpmn:SequenceEdge" xmi:id="_xYqjER9WEd-1ds5OMs5cQw" iD="_xYqjEB9WEd-1ds5OMs5cQw"/>
+    <sequenceEdges xmi:type="bpmn:SequenceEdge" xmi:id="_y7wGcR9WEd-1ds5OMs5cQw" iD="_y7wGcB9WEd-1ds5OMs5cQw"/>
+    <sequenceEdges xmi:type="bpmn:SequenceEdge" xmi:id="_zgWoUR9WEd-1ds5OMs5cQw" iD="_zgWoUB9WEd-1ds5OMs5cQw"/>
+    <sequenceEdges xmi:type="bpmn:SequenceEdge" xmi:id="_Di430R9XEd-1ds5OMs5cQw" iD="_Di430B9XEd-1ds5OMs5cQw"/>
+    <sequenceEdges xmi:type="bpmn:SequenceEdge" xmi:id="_IVz0QR9XEd-1ds5OMs5cQw" iD="_IVz0QB9XEd-1ds5OMs5cQw"/>
+    <sequenceEdges xmi:type="bpmn:SequenceEdge" xmi:id="_KzNDwR9XEd-1ds5OMs5cQw" iD="_KzNDwB9XEd-1ds5OMs5cQw"/>
+    <sequenceEdges xmi:type="bpmn:SequenceEdge" xmi:id="_LqZxgR9XEd-1ds5OMs5cQw" iD="_LqZxgB9XEd-1ds5OMs5cQw"/>
+    <sequenceEdges xmi:type="bpmn:SequenceEdge" xmi:id="_MHadoR9XEd-1ds5OMs5cQw" iD="_MHadoB9XEd-1ds5OMs5cQw"/>
+    <lanes xmi:type="bpmn:Lane" xmi:id="_iuFz9h9QEd-zlaK-AFKncQ" iD="_it8C7h9QEd-zlaK-AFKncQ" name="lane" activities="_iuFz2R9QEd-zlaK-AFKncQ _iuFz3x9QEd-zlaK-AFKncQ _iuF0BB9QEd-zlaK-AFKncQ _iuFz0x9QEd-zlaK-AFKncQ _iuF0Bh9QEd-zlaK-AFKncQ _iuFz4h9QEd-zlaK-AFKncQ _iuF0Bx9QEd-zlaK-AFKncQ _iuF0BR9QEd-zlaK-AFKncQ"/>
+    <lanes xmi:type="bpmn:Lane" xmi:id="_iuFz9x9QEd-zlaK-AFKncQ" iD="_it8C7x9QEd-zlaK-AFKncQ" name="lane0" activities="_iuFz2B9QEd-zlaK-AFKncQ _iuFz2h9QEd-zlaK-AFKncQ _iuFz4R9QEd-zlaK-AFKncQ _iuFz1x9QEd-zlaK-AFKncQ _iuFz3x9QEd-zlaK-AFKncQ _iuFz3B9QEd-zlaK-AFKncQ _iuFz2x9QEd-zlaK-AFKncQ _iuFz0R9QEd-zlaK-AFKncQ _iuFz1h9QEd-zlaK-AFKncQ _iuFz1B9QEd-zlaK-AFKncQ _iuFz0h9QEd-zlaK-AFKncQ _iuFz0x9QEd-zlaK-AFKncQ _iuFz4B9QEd-zlaK-AFKncQ _iuFz1R9QEd-zlaK-AFKncQ _iuFz0B9QEd-zlaK-AFKncQ _iuFz3R9QEd-zlaK-AFKncQ _iuFz3h9QEd-zlaK-AFKncQ _iuFz2R9QEd-zlaK-AFKncQ"/>
+  </pools>
+  <pools xmi:type="bpmn:Pool" xmi:id="_iuFz-B9QEd-zlaK-AFKncQ" iD="_it8DuB9QEd-zlaK-AFKncQ" name="Portfolio">
+    <artifacts xmi:type="bpmn:DataObject" xmi:id="_iuFz-R9QEd-zlaK-AFKncQ" iD="_it8DuR9QEd-zlaK-AFKncQ" name="Portfolio Capabilities">
+      <associations xmi:type="bpmn:Association" xmi:id="_iuFz-h9QEd-zlaK-AFKncQ"/>
+    </artifacts>
+    <artifacts xmi:type="bpmn:DataObject" xmi:id="_iuFz-x9QEd-zlaK-AFKncQ" iD="_it8Duh9QEd-zlaK-AFKncQ" name="Portfolio Recommendation">
+      <associations xmi:type="bpmn:Association" xmi:id="_iuFz_B9QEd-zlaK-AFKncQ"/>
+    </artifacts>
+    <artifacts xmi:type="bpmn:DataObject" xmi:id="_iuFz_h9QEd-zlaK-AFKncQ" iD="_it8Dux9QEd-zlaK-AFKncQ" name="Investment Business Case">
+      <associations xmi:type="bpmn:Association" xmi:id="_iuFz_x9QEd-zlaK-AFKncQ"/>
+    </artifacts>
+    <artifacts xmi:type="bpmn:DataObject" xmi:id="_iuF0AR9QEd-zlaK-AFKncQ" iD="_it8DvB9QEd-zlaK-AFKncQ" name="Portfolio Decision">
+      <associations xmi:type="bpmn:Association" xmi:id="_iuF0Ah9QEd-zlaK-AFKncQ"/>
+      <associations xmi:type="bpmn:Association" xmi:id="_iuF0Ax9QEd-zlaK-AFKncQ"/>
+    </artifacts>
+    <vertices xmi:type="bpmn:Activity" xmi:id="_iuF0BB9QEd-zlaK-AFKncQ" iD="_it8DvR9QEd-zlaK-AFKncQ" associations="_iuFz_x9QEd-zlaK-AFKncQ _iuFz-h9QEd-zlaK-AFKncQ" outgoingEdges="_7hBTIR9WEd-1ds5OMs5cQw" name="Conduct Portfolio Business Case Review" lanes="_iuFz9h9QEd-zlaK-AFKncQ">
+      <incomingMessages xmi:type="bpmn:MessagingEdge" href="platform:/resource/CIO%20Architecture/Analysis.bpmn#_dk1-4R6IEd-wJcTvC20LGA"/>
+    </vertices>
+    <vertices xmi:type="bpmn:Activity" xmi:id="_iuF0BR9QEd-zlaK-AFKncQ" iD="_it8Dvh9QEd-zlaK-AFKncQ" outgoingEdges="_-98tAR9WEd-1ds5OMs5cQw __ahUQR9WEd-1ds5OMs5cQw" incomingEdges="_7hBTIR9WEd-1ds5OMs5cQw" name="Portfolio Manager Level Approval?" lanes="_iuFz9h9QEd-zlaK-AFKncQ" activityType="GatewayDataBasedExclusive"/>
+    <vertices xmi:type="bpmn:Activity" xmi:id="_iuF0Bh9QEd-zlaK-AFKncQ" iD="_it8Dvx9QEd-zlaK-AFKncQ" incomingEdges="__ahUQR9WEd-1ds5OMs5cQw" name="Return to Domain Governance" lanes="_iuFz9h9QEd-zlaK-AFKncQ">
+      <outgoingMessages xmi:type="bpmn:MessagingEdge" href="platform:/resource/CIO%20Architecture/Analysis.bpmn#_8K7XYR6IEd-wJcTvC20LGA"/>
+    </vertices>
+    <vertices xmi:type="bpmn:Activity" xmi:id="_iuF0Bx9QEd-zlaK-AFKncQ" iD="_it8DwB9QEd-zlaK-AFKncQ" associations="_iuF0Ax9QEd-zlaK-AFKncQ" incomingEdges="_-98tAR9WEd-1ds5OMs5cQw" name="Provide Portfolio Decision on Business Case for Investment" lanes="_iuFz9h9QEd-zlaK-AFKncQ">
+      <outgoingMessages xmi:type="bpmn:MessagingEdge" href="platform:/resource/CIO%20Architecture/Analysis.bpmn#_myx0cR6QEd-wJcTvC20LGA"/>
+    </vertices>
+    <sequenceEdges xmi:type="bpmn:SequenceEdge" xmi:id="_7hBTIR9WEd-1ds5OMs5cQw" iD="_7hBTIB9WEd-1ds5OMs5cQw"/>
+    <sequenceEdges xmi:type="bpmn:SequenceEdge" xmi:id="_-98tAR9WEd-1ds5OMs5cQw" iD="_-98tAB9WEd-1ds5OMs5cQw"/>
+    <sequenceEdges xmi:type="bpmn:SequenceEdge" xmi:id="__ahUQR9WEd-1ds5OMs5cQw" iD="__ahUQB9WEd-1ds5OMs5cQw"/>
+  </pools>
+  <pools xmi:type="bpmn:Pool" xmi:id="_iuF0Cx9QEd-zlaK-AFKncQ" iD="_it8EBx9QEd-zlaK-AFKncQ" name="IRC/BoD">
+    <artifacts xmi:type="bpmn:TextAnnotation" xmi:id="_unRWUR9SEd-zlaK-AFKncQ" iD="_unRWUB9SEd-zlaK-AFKncQ" name="The IRC/BoD would provide approval of the overall transition plan for the given capability, which could include changes to IT investments over the POM.">
+      <associations xmi:type="bpmn:Association" xmi:id="_vJCmoB9SEd-zlaK-AFKncQ"/>
+    </artifacts>
+    <vertices xmi:type="bpmn:Activity" xmi:id="_iuF0DB9QEd-zlaK-AFKncQ" iD="_it8ECB9QEd-zlaK-AFKncQ" associations="_vJCmoB9SEd-zlaK-AFKncQ" name="Provide Decision on Business Case for Investment">
+      <incomingMessages xmi:type="bpmn:MessagingEdge" href="platform:/resource/CIO%20Architecture/Analysis.bpmn#_46M-wB6OEd-wJcTvC20LGA"/>
+      <outgoingMessages xmi:type="bpmn:MessagingEdge" href="platform:/resource/CIO%20Architecture/Analysis.bpmn#_H4-EIR6PEd-wJcTvC20LGA"/>
+    </vertices>
+  </pools>
+</bpmn:BpmnDiagram>

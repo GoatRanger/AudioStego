@@ -1,0 +1,152 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Introduction</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#regex" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="test_harness.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Bonus
+<br>
+<b>Lesson</b>: Regular Expressions
+</font>
+
+<h2>
+Introduction
+</h2>
+<blockquote>
+<!--Introduction-->
+
+<H3>What are regular expressions?</H3>
+
+<I>Regular expressions</I> are a way to describe a set of strings  
+based on common characteristics shared by each string in the set. They
+can be used as a tool to search, edit or manipulate text or data.  
+You must learn a specific syntax to create regular expressions--one that 
+goes beyond the normal syntax of the Java<SUP><FONT SIZE="1">TM</FONT></SUP>  programming language.
+
+Regular expressions range from being simple to quite complex, 
+but once you understand the basics of how they're constructed, you'll be able to understand any regular expression.   
+<P>
+
+
+This tutorial will teach you the regular expression syntax supported by the 
+
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/regex/package-summary.html"><font color="#8800bb"><code>java.util.regex</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/regex/package-summary.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> API, and will present plenty of working examples to illustrate how the various objects interact.
+
+In the world of regular expressions, there are 
+many different flavors to choose from, such as 
+grep, Perl, Tcl, Python, PHP, and awk. The regular expressions in 
+the <code>java.util.regex</code> API are most similar to Perl. 
+
+
+
+<H3>How are regular expressions represented in this package?</H3>
+
+The <CODE>java.util.regex</CODE> package consists of three classes: 
+
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/regex/Pattern.html"><font color="#8800bb"><code>Pattern</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/regex/Pattern.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>,  
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/regex/Matcher.html"><font color="#8800bb"><code>Matcher</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/regex/Matcher.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>, and 
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/regex/PatternSyntaxException.html"><font color="#8800bb"><code>PatternSyntaxException</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/regex/PatternSyntaxException.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>.
+
+<P>
+<UL>
+<LI>A <code>Pattern</code> object is a compiled representation of a regular expression.  
+The <code>Pattern</code> class provides no public constructors. 
+To create a pattern, you must call one of its public static 
+<code>compile</code> methods, both of which will return a <code>Pattern</code>  object. You should understand regular expressions fairly well to use these methods since they accept a regular expression (a string) as their first argument. 
+The first few lessons of this tutorial will teach you the required syntax.
+
+ <P>
+<LI>A <code>Matcher</code> object is the engine that interprets the 
+pattern and performs match operations against an input string.
+Like the <code>Pattern</code> class, <code>Matcher</code> defines no public constructors. You obtain a <code>Matcher</code> object by calling 
+the public <code>matcher</code> method on a <code>Pattern</code> object.
+<P>
+<LI>A <code>PatternSyntaxException</code> object is an unchecked exception that indicates a syntax error in a regular expression pattern.
+</UL>
+In the last few sections in this lesson, we'll explore each class in 
+detail with a separate section devoted to each class. 
+But first, let's learn the details of how regular expressions are created.
+The next section introduces a simple test harness that we'll use repeatedly to 
+explore how regular expressions are constructed.</P>
+<P>
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#regex" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="test_harness.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

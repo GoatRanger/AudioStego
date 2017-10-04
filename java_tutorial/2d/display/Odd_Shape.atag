@@ -1,0 +1,5 @@
+<APPLET CODE="Odd_Shape.class"
+        codebase="example-1dot2/"
+        archive="odd_shape.jar"
+	WIDTH=350 HEIGHT=250>
+</APPLET>

@@ -1,0 +1,1360 @@
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>How to Use Buttons, Check Boxes, and Radio Buttons</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="applet.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#components" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="colorchooser.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Creating a GUI with JFC/Swing
+<br>
+<b>Lesson</b>: Using Swing Components
+</font>
+
+<h2>
+How to Use Buttons, Check Boxes, and Radio Buttons
+</h2>
+<blockquote>
+
+<p>
+To create a button,
+you can instantiate one of the many classes that descend from the
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html"><font color="#8800bb"><code>AbstractButton</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> class.
+The following table shows the Swing-defined
+<code>AbstractButton</code> subclasses
+that you might want to use:
+
+<p>
+
+<table border=0 cellspacing=5>
+<tr>
+<th align=left >Class<th align=left >Summary<th align=left >Where Described
+
+</th>
+</tr>
+<tr valign=top>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JButton.html"><font color="#8800bb"><code>JButton</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JButton.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a></td>
+<td> A common button.
+</td>
+<td> <a href="#abstractbutton">How to Use the Common Button API</a> and
+     <a href="#jbutton">How to Use JButton Features</a>
+
+</td>
+</tr>
+<tr valign=top>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JCheckBox.html"><font color="#8800bb"><code>JCheckBox</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JCheckBox.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a></td>
+<td> A check box button.
+</td>
+<td> <a href="#checkbox">How to Use Check Boxes</a>
+
+</td>
+</tr>
+<tr valign=top>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JRadioButton.html"><font color="#8800bb"><code>JRadioButton</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JRadioButton.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a></td>
+<td> One of a group of radio buttons.
+</td>
+<td> <a href="#radiobutton">How to Use Radio Buttons</a>
+
+</td>
+</tr>
+<tr valign=top>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JMenuItem.html"><font color="#8800bb"><code>JMenuItem</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JMenuItem.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a></td>
+<td> An item in a menu.
+</td>
+<td> <a href="menu.html">How to Use Menus</a>
+
+</td>
+</tr>
+<tr valign=top>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JCheckBoxMenuItem.html"><font color="#8800bb"><code>JCheckBoxMenuItem</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JCheckBoxMenuItem.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a></td>
+<td> A menu item that has a check box.
+</td>
+<td> <a href="menu.html">How to Use Menus</a>
+     and <a href="#checkbox">How to Use Check Boxes</a>
+
+</td>
+</tr>
+<tr valign=top>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JRadioButtonMenuItem.html"><font color="#8800bb"><code>JRadioButtonMenuItem</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JRadioButtonMenuItem.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a></td>
+<td> A menu item that has a radio button.
+</td>
+<td> <a href="menu.html">How to Use Menus</a>
+     and <a href="#radiobutton">How to Use Radio Buttons</a>
+
+</td>
+</tr>
+<tr valign=top>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JToggleButton.html"><font color="#8800bb"><code>JToggleButton</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JToggleButton.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a></td>
+<td> Implements toggle functionality
+     inherited by 
+     <code>JCheckBox</code> and 
+     <code>JRadioButton</code>.
+     Can be instantiated or subclassed
+     to create two-state buttons.
+</td>
+<td> Used in some
+     <a href="#tbeg">examples</a>
+</td>
+</tr>
+</table>
+
+<blockquote><hr><strong>Note:</strong>&nbsp;If you want to collect a group of buttons into a row or column,
+then you should check out
+<a href="toolbar.html">tool bars</a>.
+<hr></blockquote>
+
+First, this section explains the basic button API
+that <code>AbstractButton</code> defines &#151;
+and thus all Swing buttons have in common.
+Next, it describes the small amount of API that
+<code>JButton</code> adds to <code>AbstractButton</code>.
+After that, this section shows you how to use specialized API
+to implement check boxes and radio buttons.
+
+</blockquote>
+<h3>
+<a name="abstractbutton">How to Use the Common Button API</a>
+</h3>
+<blockquote>
+
+Here is a picture of an application that displays three buttons:
+
+<p><center><IMG SRC="../../figures/uiswing/components/ButtonDemo.gif" WIDTH="496" HEIGHT="112" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="A snapshot of ButtonDemo"></center></p>
+<p>
+
+
+<blockquote><hr><strong>Try this:</strong>&nbsp;
+<ol>
+<li> <a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/components/example-1dot4/ButtonDemo.jnlp">Run ButtonDemo</a> using
+<a target="_top" href="../../information/javawebstart.html">Java<sup><font size=-2>TM</font></sup> Web Start</a><a target="_top" href="../../information/javawebstart.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.    Or, to compile and run the example yourself,
+     consult the 
+     <a href="example-1dot4/index.html#ButtonDemo">example index</a>.
+<li> Click the left button.
+     <br>
+     It disables the middle button
+     (and itself, since it's no longer useful)
+     and enables the right button.
+<li> Click the right button.
+     <br>
+     It enables the middle button
+     and the left button,
+     and disables itself.
+</ol>
+<hr></blockquote>
+
+<p>
+
+As the <code>ButtonDemo</code> example shows,
+a Swing button can display both text and an image.
+In <code>ButtonDemo</code>,
+each button has its text in a different place,
+relative to its image.
+The underlined letter in each button's text
+shows the <em>mnemonic</em> &#151; the keyboard alternative &#151;
+for each button.
+In most look and feels,
+the user can click a button by pressing the Alt key and the mnemonic.
+For example, Alt-M would click the Middle button in ButtonDemo.
+
+<p>
+
+When a button is disabled,
+the look and feel automatically generates
+the button's disabled appearance.
+However, you could provide an image to be substituted for the normal image.
+For example, you could provide 
+gray versions of the images used in the left and right buttons.
+
+<p>
+
+How you implement event handling 
+depends on the type of button you use 
+and how you use it.
+Generally, you implement an 
+<a target="_top" href="../events/actionlistener.html">action listener</a><a target="_top" href="../events/actionlistener.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>,
+which is notified every time the user clicks the button.
+For <a href="#checkbox">check boxes</a>
+you usually use an
+<a target="_top" href="../events/itemlistener.html">item listener</a><a target="_top" href="../events/itemlistener.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>,
+which is notified when the check box is selected or deselected.
+
+<p>
+
+Below is the code from 
+
+<a target="_blank" href="example-1dot4/ButtonDemo.java"><font color="#bb000f"><code>ButtonDemo.java</code></font></a><a target="_blank" href="example-1dot4/ButtonDemo.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>
+that creates the buttons in the previous example
+and reacts to button clicks.
+The bold code is the code
+that would remain if the buttons had no images.
+
+<p>
+
+<blockquote><pre>
+<em>//In initialization code:</em>
+    ImageIcon leftButtonIcon = createImageIcon("images/right.gif");
+    ImageIcon middleButtonIcon = createImageIcon("images/middle.gif");
+    ImageIcon rightButtonIcon = createImageIcon("images/left.gif");
+
+    <b>b1 = new JButton("Disable middle button"</b>, leftButtonIcon<b>);</b>
+    b1.setVerticalTextPosition(AbstractButton.CENTER);
+    b1.setHorizontalTextPosition(AbstractButton.LEADING); //aka LEFT, for left-to-right locales
+    <b>b1.setMnemonic(KeyEvent.VK_D);</b>
+    <b>b1.setActionCommand("disable");</b>
+
+    <b>b2 = new JButton("Middle button"</b>, middleButtonIcon<b>);</b>
+    b2.setVerticalTextPosition(AbstractButton.BOTTOM);
+    b2.setHorizontalTextPosition(AbstractButton.CENTER);
+    <b>b2.setMnemonic(KeyEvent.VK_M);</b>
+
+    <b>b3 = new JButton("Enable middle button"</b>, rightButtonIcon<b>);</b>
+    //Use the default text position of CENTER, TRAILING (RIGHT).
+    <b>b3.setMnemonic(KeyEvent.VK_E);
+    b3.setActionCommand("enable");
+    b3.setEnabled(false);</b>
+
+    //Listen for actions on buttons 1 and 3.
+    <b>b1.addActionListener(this);
+    b3.addActionListener(this);
+
+    b1.setToolTipText("Click this button to disable "
+                      + "the middle button.");
+    b2.setToolTipText("This middle button does nothing "
+                      + "when you click it.");
+    b3.setToolTipText("Click this button to enable the "
+                      + "middle button.");</b>
+    ...
+}
+
+<b>public void actionPerformed(ActionEvent e) {
+    if ("disable".equals(e.getActionCommand())) {
+        b2.setEnabled(false);
+        b1.setEnabled(false);
+        b3.setEnabled(true);
+    } else {
+        b2.setEnabled(true);
+        b1.setEnabled(true);
+        b3.setEnabled(false);
+    }
+} </b>
+
+protected static ImageIcon createImageIcon(String path) {
+    java.net.URL imgURL = ButtonDemo.class.getResource(path);
+    <em>...//error handling omitted for clarity...</em>
+    return new ImageIcon(imgURL);
+}
+</pre></blockquote>
+
+
+
+</blockquote>
+<h3>
+<a name="jbutton">How to Use JButton Features</a>
+</h3>
+<blockquote>
+
+Ordinary buttons &#151; 
+<code>JButton</code> objects &#151;
+have just a bit more functionality
+than the <code>AbstractButton</code> class provides:
+You can make a <code>JButton</code>
+be the default button.
+
+<p>
+At most one button in a top-level container
+can be the default button.
+The default button typically has a highlighted appearance
+and acts clicked whenever the 
+top-level container has the keyboard focus
+and the user presses the Return or Enter key.
+Here is a picture of a dialog,
+implemented in the
+<a href="example-1dot4/index.html#ListDialog">ListDialog</a> example,
+in which the <b>Set</b> button
+is the default button:
+
+<p><center><IMG SRC="../../figures/uiswing/components/ListDialogRunner.gif" WIDTH="280" HEIGHT="190" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="In the Java Look & Feel, the default button has a heavy border"></center></p>
+<p>
+You set the default button
+by invoking the <code>setDefaultButton</code> method
+on a top-level container's root pane.
+Here is the code that sets up the default button
+for the <code>ListDialog</code> example:
+
+<blockquote><pre>
+<em>//In the constructor for a JDialog subclass:</em>
+getRootPane().setDefaultButton(setButton);
+</pre></blockquote>
+
+The exact implementation of the default button feature
+depends on the look and feel.
+For example, in the Windows look and feel,
+the default button changes to whichever button has the focus,
+so that pressing Enter
+clicks the focused button.
+When no button has the focus, 
+the button you originally specified
+as the default button becomes the default button again.
+
+</blockquote>
+<a name="checkbox">
+<h3>How to Use Check Boxes</h3>
+</a>
+<blockquote>
+The 
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JCheckBox.html"><font color="#8800bb"><code>JCheckBox</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JCheckBox.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> class provides support for check box buttons.
+You can also put check boxes in <a href="menu.html">menus</a>,
+using the 
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JCheckBoxMenuItem.html"><font color="#8800bb"><code>JCheckBoxMenuItem</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JCheckBoxMenuItem.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> class.
+Because 
+<code>JCheckBox</code> 
+and 
+<code>JCheckBoxMenuItem</code> 
+inherit from <code>AbstractButton</code>,
+Swing check boxes have all the usual button characteristics,
+as discussed earlier in this section.
+For example, you can specify images
+to be used in check boxes.
+
+<p>
+
+Check boxes are similar to <a href="#radiobutton">radio buttons</a>
+but their selection model is different, by convention.
+Any number of check boxes in a group
+&#151; none, some, or all &#151;
+can be selected.
+A group of radio buttons, on the other hand, 
+can have only one button selected.
+
+<p>
+
+Here is a picture of an application that uses four check boxes
+to customize a cartoon:
+
+<p><center><IMG SRC="../../figures/uiswing/components/CheckBoxDemo.gif" WIDTH="204" HEIGHT="186" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="NOT a tutorial reader!"></center></p>
+<p>
+
+
+<blockquote><hr><strong>Try this:</strong>&nbsp;
+<ol>
+<li> <a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/components/example-1dot4/CheckBoxDemo.jnlp">Run CheckBoxDemo</a> using
+<a target="_top" href="../../information/javawebstart.html">Java Web Start</a><a target="_top" href="../../information/javawebstart.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.
+     Or, to compile and run the example yourself,
+     consult the 
+     <a href="example-1dot4/index.html#CheckBoxDemo">example index</a>.
+
+<li> Click the <b>Chin</b> button or press Alt-c.
+     <br>
+     The <b>Chin</b> check box becomes unselected,
+     and the chin disappears from the picture.
+     The other check boxes remain selected.
+     This application has one item listener
+     that listens to all the check boxes.
+     Each time the item listener receives an event,
+     the application loads a new picture that reflects
+     the current state of the check boxes.
+</ol>
+<hr></blockquote>
+
+<p>
+
+A check box generates one item event and one action event
+per click.
+Usually, you listen only for item events,
+since they let you determine
+whether the click selected or deselected the check box.
+Below is the code from 
+
+<a target="_blank" href="example-1dot4/CheckBoxDemo.java"><font color="#bb000f"><code>CheckBoxDemo.java</code></font></a><a target="_blank" href="example-1dot4/CheckBoxDemo.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>
+that creates the check boxes in the previous example
+and reacts to clicks.
+
+<blockquote><pre>
+<em>//In initialization code:</em>
+    chinButton = new JCheckBox("Chin");
+    chinButton.setMnemonic(KeyEvent.VK_C); 
+    chinButton.setSelected(true);
+
+    glassesButton = new JCheckBox("Glasses");
+    glassesButton.setMnemonic(KeyEvent.VK_G); 
+    glassesButton.setSelected(true);
+
+    hairButton = new JCheckBox("Hair");
+    hairButton.setMnemonic(KeyEvent.VK_H); 
+    hairButton.setSelected(true);
+
+    teethButton = new JCheckBox("Teeth");
+    teethButton.setMnemonic(KeyEvent.VK_T); 
+    teethButton.setSelected(true);
+
+    //Register a listener for the check boxes.
+    chinButton.addItemListener(this);
+    glassesButton.addItemListener(this);
+    hairButton.addItemListener(this);
+    teethButton.addItemListener(this);
+...
+public void itemStateChanged(ItemEvent e) {
+    ...
+    Object source = e.getItemSelectable();
+
+    if (source == chinButton) {
+        <em>//...make a note of it...</em>
+    } else if (source == glassesButton) {
+        <em>//...make a note of it...</em>
+    } else if (source == hairButton) {
+        <em>//...make a note of it...</em>
+    } else if (source == teethButton) {
+        <em>//...make a note of it...</em>
+    }
+
+    if (e.getStateChange() == ItemEvent.DESELECTED)
+        <em>//...make a note of it...</em>
+    ...
+    updatePicture();
+}
+</pre></blockquote>
+
+
+</blockquote>
+<a name="radiobutton">
+<h3>How to Use Radio Buttons</h3>
+</a>
+<blockquote>
+Radio buttons are groups of buttons
+in which,
+by convention,
+only one button at a time can be selected.
+The Swing release supports radio buttons with the
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JRadioButton.html"><font color="#8800bb"><code>JRadioButton</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JRadioButton.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> and
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/ButtonGroup.html"><font color="#8800bb"><code>ButtonGroup</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/ButtonGroup.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> classes.
+To put a radio button in a 
+<a href="menu.html">menu</a>, use the
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JRadioButtonMenuItem.html"><font color="#8800bb"><code>JRadioButtonMenuItem</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JRadioButtonMenuItem.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> class.
+Other ways of displaying one-of-many choices are 
+<a href="combobox.html">combo boxes</a> and
+<a href="list.html">lists</a>.
+Radio buttons look similar to
+<a href="#checkbox">check boxes</a>,
+but, by convention,
+check boxes place no limits on how many items
+can be selected at a time.
+
+<p>
+
+Because <code>JRadioButton</code> inherits from <code>AbstractButton</code>,
+Swing radio buttons have all the usual button characteristics,
+as discussed earlier in this section.
+For example, 
+you can specify the image displayed in a radio button.
+<p>
+
+Here is a picture of an application that uses five radio buttons
+to let you choose which kind of pet is displayed:
+
+<p><center><IMG SRC="../../figures/uiswing/components/RadioButtonDemo.gif" WIDTH="288" HEIGHT="202" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="A snapshot of RadioButtonDemo"></center></p>
+<p>
+
+
+<blockquote><hr><strong>Try this:</strong>&nbsp;
+<ol>
+<li> <a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/components/example-1dot4/RadioButtonDemo.jnlp">Run RadioButtonDemo</a> using
+<a target="_top" href="../../information/javawebstart.html">Java Web Start</a><a target="_top" href="../../information/javawebstart.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.
+     Or, to compile and run the example yourself,
+     consult the 
+     <a href="example-1dot4/index.html#RadioButtonDemo">example index</a>.
+
+<li> Click the <b>Dog</b> button or press Alt-d.
+     <br>
+     The <b>Dog</b> button becomes selected,
+     which makes the <b>Bird</b> button become unselected.
+     The picture switches from a bird to a dog.
+     This application has one action listener 
+     that listens to all the radio buttons.
+     Each time the action listener receives an event,
+     the application displays the picture
+     for the radio button
+     that was just clicked.
+     
+</ol>
+<hr></blockquote>
+
+<p>
+
+Each time the user clicks a radio button
+(even if it was already selected),
+the button fires an
+<a target="_top" href="../events/actionlistener.html">action event</a><a target="_top" href="../events/actionlistener.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.
+One or two 
+<a target="_top" href="../events/itemlistener.html">item events</a><a target="_top" href="../events/itemlistener.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a> also occur &#151;
+one from the button that was just selected,
+and another from the button that lost the selection (if any).
+Usually, you handle radio button clicks using an action listener.
+
+<p>
+
+Below is the code from 
+
+<a target="_blank" href="example-1dot4/RadioButtonDemo.java"><font color="#bb000f"><code>RadioButtonDemo.java</code></font></a><a target="_blank" href="example-1dot4/RadioButtonDemo.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>
+that creates the radio buttons in the previous example
+and reacts to clicks.
+
+<blockquote><pre>
+<em>//In initialization code:</em>
+    //Create the radio buttons.
+    JRadioButton birdButton = new JRadioButton(birdString);
+    birdButton.setMnemonic(KeyEvent.VK_B);
+    birdButton.setActionCommand(birdString);
+    birdButton.setSelected(true);
+
+    JRadioButton catButton = new JRadioButton(catString);
+    catButton.setMnemonic(KeyEvent.VK_C);
+    catButton.setActionCommand(catString);
+
+    JRadioButton dogButton = new JRadioButton(dogString);
+    dogButton.setMnemonic(KeyEvent.VK_D);
+    dogButton.setActionCommand(dogString);
+
+    JRadioButton rabbitButton = new JRadioButton(rabbitString);
+    rabbitButton.setMnemonic(KeyEvent.VK_R);
+    rabbitButton.setActionCommand(rabbitString);
+
+    JRadioButton pigButton = new JRadioButton(pigString);
+    pigButton.setMnemonic(KeyEvent.VK_P);
+    pigButton.setActionCommand(pigString);
+
+    //Group the radio buttons.
+    ButtonGroup group = new ButtonGroup();
+    group.add(birdButton);
+    group.add(catButton);
+    group.add(dogButton);
+    group.add(rabbitButton);
+    group.add(pigButton);
+
+    //Register a listener for the radio buttons.
+    birdButton.addActionListener(this);
+    catButton.addActionListener(this);
+    dogButton.addActionListener(this);
+    rabbitButton.addActionListener(this);
+    pigButton.addActionListener(this);
+...
+public void actionPerformed(ActionEvent e) {
+    picture.setIcon(new ImageIcon("images/" 
+                                  + e.getActionCommand() 
+                                  + ".gif"));
+}
+</pre></blockquote>
+
+<p>
+
+For each group of radio buttons,
+you need to create a <code>ButtonGroup</code> instance
+and add each radio button to it.
+The <code>ButtonGroup</code>
+takes care of unselecting the previously selected button
+when the user selects another button in the group.
+
+<p>
+
+You should generally initialize a group of radio buttons
+so that one is selected.
+However, the API doesn't enforce this rule &#151;
+a group of radio buttons can have no initial selection.
+Once the user has made a selection,
+exactly one button is selected from then on.
+There's no supported API for unselecting all the buttons.
+
+<blockquote><hr><strong>Version Note:</strong>&nbsp;
+In versions prior to 1.4,
+invoking <code>setSelected(null, true)</code>
+on the <code>ButtonGroup</code>
+happened to deselect all the buttons.
+It no longer does so.
+<hr></blockquote>
+
+</blockquote>
+<h3>
+<a name="api">The Button API</a>
+</h3>
+<blockquote>
+
+The following tables list the commonly used
+button-related API.
+Other methods you might call,
+such as <code>setFont</code> and <code>setForeground</code>,
+are listed in the API tables in
+<a href="jcomponent.html#api">The JComponent Class</a>.
+
+<p>
+
+The API for using buttons falls into these categories:
+
+<ul>
+<li><a href="#contents">Setting or Getting the Button's Contents</a>
+<li><a href="#looks">Fine Tuning the Button's Appearance</a>
+<li><a href="#acts">Implementing the Button's Functionality</a>
+<li><a href="#checkboxapi">Check Box Constructors</a>
+<li><a href="#radiobuttonapi">Radio Button Constructors</a>
+<li><a href="#togglebuttonapi">Toggle Button Constructors</a>
+<li><a href="#buttongroup">Commonly Used Button Group Constructors/Methods</a>
+
+</ul>
+
+<p>
+
+<table border=1>
+<caption><a name="contents">Setting or Getting the Button's Contents</a></caption>
+<tr>
+<th>Method or Constructor
+</th>
+<th>Purpose
+
+</th>
+</tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JButton.html#JButton(javax.swing.Action)"><font color="#8800bb"><font size=2><code>JButton(Action)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JButton.html#JButton(javax.swing.Action)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JButton.html#JButton(java.lang.String, javax.swing.Icon)"><font color="#8800bb"><font size=2><code>JButton(String, Icon)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JButton.html#JButton(java.lang.String, javax.swing.Icon)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JButton.html#JButton(java.lang.String)"><font color="#8800bb"><font size=2><code>JButton(String)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JButton.html#JButton(java.lang.String)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JButton.html#JButton(javax.swing.Icon)"><font color="#8800bb"><font size=2><code>JButton(Icon)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JButton.html#JButton(javax.swing.Icon)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JButton.html#JButton()"><font color="#8800bb"><font size=2><code>JButton()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JButton.html#JButton()"></a></td>
+<td>Create a <code>JButton</code> instance,
+    initializing it to have the specified text/image/action.
+    The <code>JButton(Action)</code> constructor was
+    added to <code>JButton</code> in 1.3.
+
+</td>
+</tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#setAction(javax.swing.Action)"><font color="#8800bb"><font size=2><code>void setAction(Action)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#setAction(javax.swing.Action)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#getAction()"><font color="#8800bb"><font size=2><code>Action getAction()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#getAction()"></a>    <br>
+</td>
+<td>Set or get the button's properties according to values
+    from the <code>Action</code> instance.  Introduced in 1.3.
+</td>
+</tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#setText(java.lang.String)"><font color="#8800bb"><font size=2><code>void setText(String)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#setText(java.lang.String)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#getText()"><font color="#8800bb"><font size=2><code>String getText()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#getText()"></a>    <br>
+</td>
+<td>Set or get the text displayed by the button.
+You can use HTML formatting, as described in
+<a href="html.html">Using HTML in Swing Components</a>.
+
+</td>
+</tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#setIcon(javax.swing.Icon)"><font color="#8800bb"><font size=2><code>void setIcon(Icon)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#setIcon(javax.swing.Icon)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#getIcon()"><font color="#8800bb"><font size=2><code>Icon getIcon()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#getIcon()"></a>    <br>
+</td>
+<td>Set or get the image displayed by the button
+    when the button isn't selected or pressed.
+
+</td>
+</tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#setDisabledIcon(javax.swing.Icon)"><font color="#8800bb"><font size=2><code>void setDisabledIcon(Icon)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#setDisabledIcon(javax.swing.Icon)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#getDisabledIcon()"><font color="#8800bb"><font size=2><code>Icon getDisabledIcon()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#getDisabledIcon()"></a>    <br>
+</td>
+<td>Set or get the image displayed by the button
+    when it's disabled.
+    If you don't specify a disabled image,
+    then the look and feel creates one
+    by manipulating the default image.
+
+</td>
+</tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#setPressedIcon(javax.swing.Icon)"><font color="#8800bb"><font size=2><code>void setPressedIcon(Icon)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#setPressedIcon(javax.swing.Icon)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#getPressedIcon()"><font color="#8800bb"><font size=2><code>Icon getPressedIcon()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#getPressedIcon()"></a>    <br>
+</td>
+<td>Set or get the image displayed by the button
+    when it's being pressed.
+
+</td>
+</tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#setSelectedIcon(javax.swing.Icon)"><font color="#8800bb"><font size=2><code>void setSelectedIcon(Icon)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#setSelectedIcon(javax.swing.Icon)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#getSelectedIcon()"><font color="#8800bb"><font size=2><code>Icon getSelectedIcon()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#getSelectedIcon()"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#setDisabledSelectedIcon(javax.swing.Icon)"><font color="#8800bb"><font size=2><code>void setDisabledSelectedIcon(Icon)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#setDisabledSelectedIcon(javax.swing.Icon)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#getDisabledSelectedIcon()"><font color="#8800bb"><font size=2><code>Icon getDisabledSelectedIcon()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#getDisabledSelectedIcon()"></a>    <br>
+</td>
+<td>Set or get the image displayed by the button
+    when it's selected.
+    If you don't specify a disabled selected image,
+    then the look and feel creates one
+    by manipulating the selected 
+    image.
+
+</td>
+</tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#setRolloverEnabled(boolean)"><font color="#8800bb"><font size=2><code>setRolloverEnabled(boolean)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#setRolloverEnabled(boolean)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#isRolloverEnabled()"><font color="#8800bb"><font size=2><code>boolean isRolloverEnabled()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#isRolloverEnabled()"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#setRolloverIcon(javax.swing.Icon)"><font color="#8800bb"><font size=2><code>void setRolloverIcon(Icon)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#setRolloverIcon(javax.swing.Icon)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#getRolloverIcon()"><font color="#8800bb"><font size=2><code>Icon getRolloverIcon()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#getRolloverIcon()"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#setRolloverSelectedIcon(javax.swing.Icon)"><font color="#8800bb"><font size=2><code>void setRolloverSelectedIcon(Icon)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#setRolloverSelectedIcon(javax.swing.Icon)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#getRolloverSelectedIcon()"><font color="#8800bb"><font size=2><code>Icon getRolloverSelectedIcon()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#getRolloverSelectedIcon()"></a>    <br>
+</td>
+<td>Use <code>setRolloverIcon(someIcon)</code>
+    to make the button display the specified icon
+    when the cursor passes over it.
+    The <code>setRolloverSelectedIcon</code> method
+    lets you specify the rollover icon when the
+    button is selected &#151; this is useful for
+    two-state buttons such as toggle buttons.
+    Setting the rollover icon automatically
+    calls <code>setRollover(true)</code>,
+    enabling rollover.
+</td>
+</tr>
+</table>
+
+<p>
+
+<table border=1>
+<caption><a name="looks">Fine Tuning the Button's Appearance</a></caption>
+<tr>
+<th>Method or Constructor
+</th>
+<th>Purpose
+
+</th>
+</tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#setHorizontalAlignment(int)"><font color="#8800bb"><font size=2><code>void setHorizontalAlignment(int)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#setHorizontalAlignment(int)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#setVerticalAlignment(int)"><font color="#8800bb"><font size=2><code>void setVerticalAlignment(int)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#setVerticalAlignment(int)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#getHorizontalAlignment()"><font color="#8800bb"><font size=2><code>int getHorizontalAlignment()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#getHorizontalAlignment()"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#getVerticalAlignment()"><font color="#8800bb"><font size=2><code>int getVerticalAlignment()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#getVerticalAlignment()"></a></td>
+<td>Set or get where in the button its contents should be placed.
+    The <code>AbstractButton</code> class allows 
+    any one of the following values
+    for horizontal alignment:
+    <code>RIGHT</code>,
+    <code>LEFT</code>, 
+    <code>CENTER</code> (the default),
+    <code>LEADING</code>, and
+    <code>TRAILING</code>.
+    For vertical alignment:
+    <code>TOP</code>, 
+    <code>CENTER</code> (the default), and
+    <code>BOTTOM</code>.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#setHorizontalTextPosition(int)"><font color="#8800bb"><font size=2><code>void setHorizontalTextPosition(int)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#setHorizontalTextPosition(int)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#setVerticalTextPosition(int)"><font color="#8800bb"><font size=2><code>void setVerticalTextPosition(int)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#setVerticalTextPosition(int)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#getHorizontalTextPosition()"><font color="#8800bb"><font size=2><code>int getHorizontalTextPosition()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#getHorizontalTextPosition()"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#getVerticalTextPosition()"><font color="#8800bb"><font size=2><code>int getVerticalTextPosition()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#getVerticalTextPosition()"></a></td>
+<td>Set or get where the button's text should be placed,
+    relative to the button's image.
+    The <code>AbstractButton</code> class allows 
+    any one of the following values
+    for horizontal position:
+    <code>LEFT</code>, 
+    <code>CENTER</code>,
+    <code>RIGHT</code>,
+    <code>LEADING</code>, and
+    <code>TRAILING</code> (the default).
+    For vertical position:
+    <code>TOP</code>, 
+    <code>CENTER</code> (the default), and
+    <code>BOTTOM</code>.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#setMargin(java.awt.Insets)"><font color="#8800bb"><font size=2><code>void setMargin(Insets)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#setMargin(java.awt.Insets)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#getMargin()"><font color="#8800bb"><font size=2><code>Insets getMargin()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#getMargin()"></a>    </td>
+    <td>Set or get the number of pixels between 
+    the button's border and its contents.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#setFocusPainted(boolean)"><font color="#8800bb"><font size=2><code>void setFocusPainted(boolean)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#setFocusPainted(boolean)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#isFocusPainted()"><font color="#8800bb"><font size=2><code>boolean isFocusPainted()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#isFocusPainted()"></a>    </td>
+    <td>Set or get whether the button
+        should look different when it has the focus.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#setBorderPainted(boolean)"><font color="#8800bb"><font size=2><code>void setBorderPainted(boolean)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#setBorderPainted(boolean)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#isBorderPainted()"><font color="#8800bb"><font size=2><code>boolean isBorderPainted()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#isBorderPainted()"></a>    </td>
+    <td>Set or get whether the border of the button
+        should be painted.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#setIconTextGap(int)"><font color="#8800bb"><font size=2><code>void setIconTextGap(int)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#setIconTextGap(int)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#getIconTextGap()"><font color="#8800bb"><font size=2><code>int getIconTextGap()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#getIconTextGap()"></a>    <br>
+    </td>
+    <td>Set or get the amount of space between the text and the icon
+        displayed in this button.  Introduced in 1.4.
+    </td>
+  </tr>
+</table>
+
+<p>
+
+<table border=1>
+<caption><a name="acts">Implementing the Button's Functionality</a></caption>
+<tr>
+<th>Method or Constructor
+</th>
+<th>Purpose
+
+</th>
+</tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#setMnemonic(int)"><font color="#8800bb"><font size=2><code>void setMnemonic(int)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#setMnemonic(int)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#getMnemonic()"><font color="#8800bb"><font size=2><code>char getMnemonic()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#getMnemonic()"></a>    <br>
+</td>
+<td>Set or get the keyboard alternative to clicking the button.
+    One form of the <code>setMnemonic</code> method
+    accepts a character argument;
+    however, 
+    the Swing team recommends that you use an <code>int</code> argument
+    instead, 
+    specifying a <code>KeyEvent.VK_<em>X</em></code> constant.
+
+</td>
+</tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#setDisplayedMnemonicIndex(int)"><font color="#8800bb"><font size=2><code>void setDisplayedMnemonicIndex(int)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#setDisplayedMnemonicIndex(int)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#getDisplayedMnemonicIndex()"><font color="#8800bb"><font size=2><code>int getDisplayedMnemonicIndex()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#getDisplayedMnemonicIndex()"></a>    <br>
+    </td>
+    <td>Set or get a hint as to which character in the text should be
+        decorated to represent the mnemonic.  Note that not all look
+        and feels may support this. Introduced in 1.4.
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#setActionCommand(java.lang.String)"><font color="#8800bb"><font size=2><code>void setActionCommand(String)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#setActionCommand(java.lang.String)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#getActionCommand()"><font color="#8800bb"><font size=2><code>String getActionCommand()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#getActionCommand()"></a>    <br>
+    </td>
+    <td>Set or get the name of the action performed by the button.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#addActionListener(java.awt.event.ActionListener)"><font color="#8800bb"><font size=2><code>void addActionListener(ActionListener)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#addActionListener(java.awt.event.ActionListener)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#removeActionListener()"><font color="#8800bb"><font size=2><code>ActionListener removeActionListener()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#removeActionListener()"></a>    <br>
+    </td>
+    <td>Add or remove an object that listens for action events
+        fired by the button.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#addItemListener(java.awt.event.ItemListener)"><font color="#8800bb"><font size=2><code>void addItemListener(ItemListener)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#addItemListener(java.awt.event.ItemListener)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#removeItemListener()"><font color="#8800bb"><font size=2><code>ItemListener removeItemListener()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#removeItemListener()"></a>    <br>
+    </td>
+    <td>Add or remove an object that listens for item events
+        fired by the button.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#setSelected(boolean)"><font color="#8800bb"><font size=2><code>void setSelected(boolean)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#setSelected(boolean)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#isSelected()"><font color="#8800bb"><font size=2><code>boolean isSelected()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#isSelected()"></a>    <br>
+    </td>
+    <td>Set or get whether the button is selected.
+        Makes sense only for buttons that have on/off state,
+        such as check boxes.
+
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#doClick()"><font color="#8800bb"><font size=2><code>void doClick()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#doClick()"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#doClick(int)"><font color="#8800bb"><font size=2><code>void doClick(int)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#doClick(int)"></a>    <br>
+    </td>
+    <td>Programmatically perform a "click".
+        The optional argument specifies the amount of time
+        (in milliseconds)
+        that the button should look pressed.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#setMultiClickThreshhold(long)"><font color="#8800bb"><font size=2><code>void setMultiClickThreshhold(long)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#setMultiClickThreshhold(long)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#getMultiClickThreshhold()"><font color="#8800bb"><font size=2><code>long getMultiClickThreshhold()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractButton.html#getMultiClickThreshhold()"></a>    </td>
+    <td>Set or get the amount of time (in milliseconds) required between
+        mouse press events for the button to generate corresponding action
+        events. Introduced in 1.4.
+    </td>
+  </tr>
+</table>
+
+<p>
+
+<table border=1>
+<caption><a name="checkboxapi">Check Box Constructors</a></caption>
+<tr>
+<th>Constructor
+</th>
+<th>Purpose
+
+</th>
+</tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JCheckBox.html#JCheckBox(javax.swing.Action)"><font color="#8800bb"><font size=2><code>JCheckBox(Action)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JCheckBox.html#JCheckBox(javax.swing.Action)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JCheckBox.html#JCheckBox(java.lang.String)"><font color="#8800bb"><font size=2><code>JCheckBox(String)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JCheckBox.html#JCheckBox(java.lang.String)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JCheckBox.html#JCheckBox(java.lang.String, boolean)"><font color="#8800bb"><font size=2><code>JCheckBox(String, boolean)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JCheckBox.html#JCheckBox(java.lang.String, boolean)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JCheckBox.html#JCheckBox(javax.swing.Icon)"><font color="#8800bb"><font size=2><code>JCheckBox(Icon)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JCheckBox.html#JCheckBox(javax.swing.Icon)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JCheckBox.html#JCheckBox(javax.swing.Icon, boolean)"><font color="#8800bb"><font size=2><code>JCheckBox(Icon, boolean)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JCheckBox.html#JCheckBox(javax.swing.Icon, boolean)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JCheckBox.html#JCheckBox(java.lang.String, javax.swing.Icon)"><font color="#8800bb"><font size=2><code>JCheckBox(String, Icon)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JCheckBox.html#JCheckBox(java.lang.String, javax.swing.Icon)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JCheckBox.html#JCheckBox(java.lang.String, javax.swing.Icon, boolean)"><font color="#8800bb"><font size=2><code>JCheckBox(String, Icon, boolean)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JCheckBox.html#JCheckBox(java.lang.String, javax.swing.Icon, boolean)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JCheckBox.html#JCheckBox()"><font color="#8800bb"><font size=2><code>JCheckBox()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JCheckBox.html#JCheckBox()"></a>
+</td>
+<td>Create a <code>JCheckBox</code> instance.
+    The string argument specifies the text,
+    if any, that the check box should display.
+    Similarly, the <code>Icon</code> argument
+    specifies the image that should be used
+    instead of the look and feel's default check box image.
+    Specifying the boolean argument as <code>true</code>
+    initializes the check box to be selected.
+    If the boolean argument is absent or <code>false</code>,
+    then the check box is initially unselected.
+    The <code>JCheckBox(Action)</code> constructor
+    was introduced in 1.3.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JCheckBoxMenuItem.html#JCheckBoxMenuItem(javax.swing.Action)"><font color="#8800bb"><font size=2><code>JCheckBoxMenuItem(Action)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JCheckBoxMenuItem.html#JCheckBoxMenuItem(javax.swing.Action)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JCheckBoxMenuItem.html#JCheckBoxMenuItem(java.lang.String)"><font color="#8800bb"><font size=2><code>JCheckBoxMenuItem(String)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JCheckBoxMenuItem.html#JCheckBoxMenuItem(java.lang.String)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JCheckBoxMenuItem.html#JCheckBoxMenuItem(java.lang.String, boolean)"><font color="#8800bb"><font size=2><code>JCheckBoxMenuItem(String, boolean)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JCheckBoxMenuItem.html#JCheckBoxMenuItem(java.lang.String, boolean)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JCheckBoxMenuItem.html#JCheckBoxMenuItem(javax.swing.Icon)"><font color="#8800bb"><font size=2><code>JCheckBoxMenuItem(Icon)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JCheckBoxMenuItem.html#JCheckBoxMenuItem(javax.swing.Icon)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JCheckBoxMenuItem.html#JCheckBoxMenuItem(java.lang.String, javax.swing.Icon)"><font color="#8800bb"><font size=2><code>JCheckBoxMenuItem(String, Icon)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JCheckBoxMenuItem.html#JCheckBoxMenuItem(java.lang.String, javax.swing.Icon)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JCheckBoxMenuItem.html#JCheckBoxMenuItem(java.lang.String, javax.swing.Icon, boolean)"><font color="#8800bb"><font size=2><code>JCheckBoxMenuItem(String, Icon, boolean)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JCheckBoxMenuItem.html#JCheckBoxMenuItem(java.lang.String, javax.swing.Icon, boolean)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JCheckBoxMenuItem.html#JCheckBoxMenuItem()"><font color="#8800bb"><font size=2><code>JCheckBoxMenuItem()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JCheckBoxMenuItem.html#JCheckBoxMenuItem()"></a>
+  </td>
+  <td>Create a <code>JCheckBoxMenuItem</code> instance.
+      The arguments are interpreted in the same way as the arguments
+      to the <code>JCheckBox</code> constructors,
+      except that any specified icon is shown in addition
+      to the normal check box icon.
+      The <code>JCheckBoxMenuItem(Action)</code> constructor
+      was introduced in 1.3.
+  </td>
+  </tr>
+</table>
+
+<p>
+
+<table border=1>
+<caption><a name="radiobuttonapi">Radio Button Constructors</a></caption>
+<tr>
+<th>Constructor
+</th>
+<th>Purpose
+
+</th>
+</tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JRadioButton.html#JRadioButton(javax.swing.Action)"><font color="#8800bb"><font size=2><code>JRadioButton(Action)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JRadioButton.html#JRadioButton(javax.swing.Action)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JRadioButton.html#JRadioButton(java.lang.String)"><font color="#8800bb"><font size=2><code>JRadioButton(String)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JRadioButton.html#JRadioButton(java.lang.String)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JRadioButton.html#JRadioButton(java.lang.String, boolean)"><font color="#8800bb"><font size=2><code>JRadioButton(String, boolean)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JRadioButton.html#JRadioButton(java.lang.String, boolean)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JRadioButton.html#JRadioButton(javax.swing.Icon)"><font color="#8800bb"><font size=2><code>JRadioButton(Icon)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JRadioButton.html#JRadioButton(javax.swing.Icon)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JRadioButton.html#JRadioButton(javax.swing.Icon, boolean)"><font color="#8800bb"><font size=2><code>JRadioButton(Icon, boolean)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JRadioButton.html#JRadioButton(javax.swing.Icon, boolean)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JRadioButton.html#JRadioButton(java.lang.String, javax.swing.Icon)"><font color="#8800bb"><font size=2><code>JRadioButton(String, Icon)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JRadioButton.html#JRadioButton(java.lang.String, javax.swing.Icon)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JRadioButton.html#JRadioButton(java.lang.String, javax.swing.Icon, boolean)"><font color="#8800bb"><font size=2><code>JRadioButton(String, Icon, boolean)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JRadioButton.html#JRadioButton(java.lang.String, javax.swing.Icon, boolean)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JRadioButton.html#JRadioButton()"><font color="#8800bb"><font size=2><code>JRadioButton()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JRadioButton.html#JRadioButton()"></a>
+    </td>
+    <td>Create a <code>JRadioButton</code> instance.
+        The string argument specifies the text,
+        if any, that the radio button should display.
+        Similarly, the <code>Icon</code> argument
+        specifies the image that should be used
+        instead of the look and feel's default radio button image.
+        Specifying the boolean argument as <code>true</code>
+        initializes the radio button to be selected,
+        subject to the approval of the <code>ButtonGroup</code> object.
+        If the boolean argument is absent or <code>false</code>,
+        then the radio button is initially unselected.
+        The <code>JRadioButton(Action)</code> constructor
+        was introduced in 1.3.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JRadioButtonMenuItem.html#JRadioButtonMenuItem(javax.swing.Action)"><font color="#8800bb"><font size=2><code>JRadioButtonMenuItem(Action)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JRadioButtonMenuItem.html#JRadioButtonMenuItem(javax.swing.Action)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JRadioButtonMenuItem.html#JRadioButtonMenuItem(java.lang.String)"><font color="#8800bb"><font size=2><code>JRadioButtonMenuItem(String)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JRadioButtonMenuItem.html#JRadioButtonMenuItem(java.lang.String)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JRadioButtonMenuItem.html#JRadioButtonMenuItem(javax.swing.Icon)"><font color="#8800bb"><font size=2><code>JRadioButtonMenuItem(Icon)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JRadioButtonMenuItem.html#JRadioButtonMenuItem(javax.swing.Icon)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JRadioButtonMenuItem.html#JRadioButtonMenuItem(java.lang.String, javax.swing.Icon)"><font color="#8800bb"><font size=2><code>JRadioButtonMenuItem(String, Icon)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JRadioButtonMenuItem.html#JRadioButtonMenuItem(java.lang.String, javax.swing.Icon)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JRadioButtonMenuItem.html#JRadioButtonMenuItem()"><font color="#8800bb"><font size=2><code>JRadioButtonMenuItem()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JRadioButtonMenuItem.html#JRadioButtonMenuItem()"></a>
+    </td>
+    <td>Create a <code>JRadioButtonMenuItem</code> instance.
+        The arguments are interpreted in the same way as the arguments
+        to the <code>JRadioButton</code> constructors,
+        except that any specified icon is shown in addition
+        to the normal radio button icon.
+        The <code>JRadioButtonMenuItem(Action)</code> constructor
+        was introduced in 1.3.
+    </td>
+  </tr>
+</table>
+
+<p>
+
+<table border=1>
+<caption><a name="togglebuttonapi">Toggle Button Constructors</a></caption>
+<tr>
+<th>Constructor
+</th>
+<th>Purpose
+
+</th>
+</tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JToggleButton.html#JToggleButton(javax.swing.Action)"><font color="#8800bb"><font size=2><code>JToggleButton(Action)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JToggleButton.html#JToggleButton(javax.swing.Action)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JToggleButton.html#JToggleButton(java.lang.String)"><font color="#8800bb"><font size=2><code>JToggleButton(String)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JToggleButton.html#JToggleButton(java.lang.String)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JToggleButton.html#JToggleButton(java.lang.String, boolean)"><font color="#8800bb"><font size=2><code>JToggleButton(String, boolean)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JToggleButton.html#JToggleButton(java.lang.String, boolean)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JToggleButton.html#JToggleButton(javax.swing.Icon)"><font color="#8800bb"><font size=2><code>JToggleButton(Icon)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JToggleButton.html#JToggleButton(javax.swing.Icon)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JToggleButton.html#JToggleButton(javax.swing.Icon, boolean)"><font color="#8800bb"><font size=2><code>JToggleButton(Icon, boolean)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JToggleButton.html#JToggleButton(javax.swing.Icon, boolean)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JToggleButton.html#JToggleButton(java.lang.String, javax.swing.Icon)"><font color="#8800bb"><font size=2><code>JToggleButton(String, Icon)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JToggleButton.html#JToggleButton(java.lang.String, javax.swing.Icon)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JToggleButton.html#JToggleButton(java.lang.String, javax.swing.Icon, boolean)"><font color="#8800bb"><font size=2><code>JToggleButton(String, Icon, boolean)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JToggleButton.html#JToggleButton(java.lang.String, javax.swing.Icon, boolean)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JToggleButton.html#JToggleButton()"><font color="#8800bb"><font size=2><code>JToggleButton()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JToggleButton.html#JToggleButton()"></a>
+    </td>
+    <td>Create a <code>JToggleButton</code> instance,
+        which is similar to a <code>JButton</code>,
+        but with two states.
+        Normally, you use a <code>JRadioButton</code>
+        or <code>JCheckBox</code> instead of
+        directly instantiating <code>JToggleButton</code>,
+        but <code>JToggleButton</code> can be useful
+        when you don't want the typical radio button
+        or check box appearance.
+        The string argument specifies the text,
+        if any, that the toggle button should display.
+        Similarly, the <code>Icon</code> argument
+        specifies the image that should be used.
+        Specifying the boolean argument as <code>true</code>
+        initializes the toggle button to be selected.
+        If the boolean argument is absent or <code>false</code>,
+        then the toggle button is initially unselected.
+        The <code>JToggleButton(Action)</code> constructor
+        was introduced in 1.3.
+
+    </td>
+  </tr>
+</table>
+
+<p>
+<table border=1>
+<caption><a name="buttongroup">Commonly Used Button Group Constructors/Methods</a></caption>
+<tr>
+<th>Constructor or Method
+</th>
+<th>Purpose
+
+</th>
+</tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/ButtonGroup.html#ButtonGroup()"><font color="#8800bb"><font size=2><code>ButtonGroup()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/ButtonGroup.html#ButtonGroup()"></a>    </td>
+    <td>Create a <code>ButtonGroup</code> instance.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/ButtonGroup.html#add(javax.swing.AbstractButton)"><font color="#8800bb"><font size=2><code>void add(AbstractButton)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/ButtonGroup.html#add(javax.swing.AbstractButton)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/ButtonGroup.html#remove(javax.swing.AbstractButton)"><font color="#8800bb"><font size=2><code>void remove(AbstractButton)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/ButtonGroup.html#remove(javax.swing.AbstractButton)"></a>    </td>
+    <td>Add a button to the group,
+        or remove a button from the group.
+
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/DefaultButtonModel.html#getGroup()"><font color="#8800bb"><font size=2><code>public ButtonGroup getGroup()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/DefaultButtonModel.html#getGroup()"></a>    <br>
+    <em>(in <code>DefaultButtonModel</code>)</em>
+    </td>
+    <td>Get the <code>ButtonGroup</code>, if any, 
+    that controls a button.
+    For example:
+    <br>
+    <code>ButtonGroup group = ((DefaultButtonModel)button.getModel()).getGroup();</code>
+    <br>
+    Introduced in 1.3.
+    </td>
+  </tr>
+</table>
+
+
+</blockquote>
+<h3>
+<a name="eg">Examples that Use Various Kinds of Buttons</a>
+</h3>
+<blockquote>
+
+The following examples use buttons.
+Also see <a href="toolbar.html#eg">Examples that Use Tool Bars</a>,
+which lists programs that add <code>JButton</code> objects
+to <code>JToolBar</code>s.
+
+<p>
+
+<table>
+<tr>
+<th align=left> Example
+</th>
+<th align=left> Where Described
+</th>
+<th align=left> Notes
+
+</th>
+</tr>
+<tr>
+<td> <a href="example-1dot4/index.html#ButtonDemo"><code>ButtonDemo</code></a>
+</td>
+<td> <a href="#abstractbutton">How to Use the Common Button API</a>
+</td>
+<td> Uses mnemonics and icons.  Specifies the button text position,
+     relative to the button icon.
+     Uses action commands.
+
+</td>
+</tr>
+<tr>
+<td> <a href="example-1dot4/index.html#ButtonHtmlDemo"><code>ButtonHtmlDemo</code></a>
+</td>
+<td> <a href="html.html">Using HTML in Swing Components</a>
+</td>
+<td> A version of ButtonDemo that uses HTML formatting in its buttons.
+
+</td>
+</tr>
+<tr>
+<td> <a href="example-1dot4/index.html#ListDialog"><code>ListDialog</code></a>
+</td>
+<td> <a href="#jbutton">How to Use JButton Features</a>
+</td>
+<td> Implements a dialog with two buttons,
+     one of which is the default button.
+
+</td>
+</tr>
+<tr>
+<td> <a href="example-1dot4/index.html#DialogDemo"><code>DialogDemo</code></a>
+</td>
+<td> <a href="dialog.html">How to Make Dialogs</a>
+</td>
+<td> Has "Show it" buttons
+     whose behavior is tied to the state
+     of radio buttons.
+     Uses sizable, though anonymous, inner classes
+     to implement the action listeners.
+     
+</td>
+</tr>
+<tr>
+<td> <a href="example-1dot4/index.html#ProgressBarDemo"><code>ProgressBarDemo</code></a>
+</td>
+<td> <a href="progress.html">How to Monitor Progress</a>
+</td>
+<td> Implements a button's action listener with a named inner class.
+
+</td>
+</tr>
+<tr>
+<td> <a href="example-1dot4/index.html#CheckBoxDemo"><code>CheckBoxDemo</code></a>
+</td>
+<td> <a href="#checkbox">How to Use Check Boxes</a>
+</td>
+<td> Uses check box buttons 
+     to determine which of 16 images it should display.
+
+</td>
+</tr>
+<tr>
+<td> <a href="../misc/example-1dot4/index.html#ActionDemo"><code>ActionDemo</code></a>
+</td>
+<td> 
+<a target="_top" href="../misc/action.html">How to Use Actions</a><a target="_top" href="../misc/action.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a></td>
+<td> Uses check box menu items 
+     to set the state of the program.
+
+</td>
+</tr>
+<tr>
+<td> <a href="example-1dot4/index.html#RadioButtonDemo"><code>RadioButtonDemo</code></a>
+</td>
+<td> <a href="#radiobutton">How to Use Radio Buttons</a>
+</td>
+<td> Uses radio buttons 
+     to determine which of five images it should display.
+
+</td>
+</tr>
+<tr>
+<td> <a href="example-1dot4/index.html#DialogDemo"><code>DialogDemo</code></a>
+</td>
+<td> <a href="dialog.html">How to Make Dialogs</a>
+</td>
+<td> Contains several sets of radio buttons,
+     which it uses to determine which dialog to bring up.
+
+</td>
+</tr>
+<tr>
+<td> <a href="example-1dot4/index.html#MenuDemo"><code>MenuDemo</code></a>
+</td>
+<td> <a href="menu.html">How to Use Menus</a>
+</td>
+<td> Contains radio button menu items and check box menu items.
+</td>
+</tr>
+
+<tr>
+<td> <a name="tbeg"> <a
+href="example-1dot4/index.html#ColorChooserDemo2"><code>ColorChooserDemo2</code></a>
+</a>
+</td>
+<td> <a href="colorchooser.html">How to Use Color Choosers</a>
+<td> The crayons in <code>CrayonPanel</code> are implemented as toggle buttons.
+</tr>
+
+<tr>
+<td> <a
+href="example-1dot4/index.html#ScrollDemo"><code>ScrollDemo</code></a>
+</td>
+<td> <a href="scrollpane.html">How to Use Scroll Panes</a>
+<td> The <strong>cm</strong> button is a toggle button.
+</tr>
+     
+<tr>
+<td>
+<a target="_blank" href="../../together/bingo/example-swing/bingo/player/NumberButton.java"><font color="#bb000f"><code>NumberButton</code></font></a><a target="_blank" href="../../together/bingo/example-swing/bingo/player/NumberButton.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a></td>
+<td> The 
+<a target="_top" href="../../together/bingo/index.html">BINGO!</a><a target="_top" href="../../together/bingo/index.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>     lesson.
+</td>
+<td> Extends <code>JToggleButton</code>.
+</td>
+</tr>
+
+</table>
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="applet.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#components" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="colorchooser.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

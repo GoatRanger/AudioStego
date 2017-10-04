@@ -1,0 +1,202 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Inner Classes</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="nested.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#javaOO" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="QandE/nested-questions.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Learning the Java Language
+<br>
+<b>Lesson</b>: Classes and Inheritance
+</font>
+
+<h2>
+Inner Classes
+</h2>
+<blockquote>
+To help you get a handle on inner classes and what they are good for,
+let's revisit the <code>Stack</code> class.
+Suppose you want to add a feature to
+this class that lets another class enumerate over the elements in the
+stack using the interface defined in <code>java.util.Enumeration</code>.
+This interface contains two method declarations:
+<blockquote><pre>
+public boolean hasMoreElements();
+public Object nextElement();
+</pre></blockquote>
+The <code>Enumeration</code> interface defines
+the interface for a single loop over the elements:
+<blockquote><pre>
+while (hasMoreElements())
+    nextElement()
+</pre></blockquote>
+If <code>Stack</code> implemented the <code>Enumeration</code>
+interface itself,
+you could not restart the loop
+and you could not enumerate the contents more than once.
+Also, you couldn't allow two enumerations to happen simultaneously.
+So <code>Stack</code> shouldn't implement <code>Enumeration</code>.
+Rather, a helper class should do the work for <code>Stack</code>.
+<p>
+The helper class must have access to the <code>Stack</code>'s elements.
+It also must
+be able to access them directly because the <code>Stack</code>'s
+public interface supports only LIFO access.
+This is where inner classes come in.
+<p>
+Here's an implementation of <code>Stack</code>
+that defines a helper class (called an <em>adapter class</em>)
+for enumerating over its elements:
+
+<blockquote><pre>
+public class Stack {
+    private Vector items;
+
+    <em>...//code for Stack's methods and constructors not shown...</em>
+
+    public Enumeration enumerator() {
+        return new StackEnum();
+    }
+
+    class StackEnum implements Enumeration {
+        int currentItem = items.size() - 1;
+        public boolean hasMoreElements() {
+            return (currentItem >= 0);
+        }
+        public Object nextElement() {
+            if (!hasMoreElements())
+                throw new NoSuchElementException();
+            else
+                return items.elementAt(currentItem--);
+        }
+    }
+}
+</pre></blockquote>
+
+Note that the <code>StackEnum</code> class refers
+directly to <code>Stack</code>'s <code>items</code> instance variable.
+<p>
+Inner classes are used primarily to implement adapter classes like the
+one shown in this example. If you plan on handling events from the AWT,
+then you'll want to know about using adapter classes because the
+event-handling mechanism in the AWT makes extensive use of them.
+
+</blockquote>
+<a name="anonymous">
+<h3>Anonymous Classes</h3>
+</a>
+<blockquote>
+You can declare an inner class without naming it.
+Here's yet another version of
+the now-tired <code>Stack</code> class,
+in this case using an anonymous class for
+its enumerator:
+
+<blockquote><pre>
+public class Stack {
+    private Vector items;
+
+    <em>...//code for Stack's methods and constructors not shown...</em>
+
+    public Enumeration enumerator() {
+        return new Enumeration() {
+            int currentItem = items.size() - 1;
+            public boolean hasMoreElements() {
+                return (currentItem >= 0);
+            }
+            public Object nextElement() {
+                if (!hasMoreElements())
+                    throw new NoSuchElementException();
+                else
+                    return items.elementAt(currentItem--);
+            }
+        }
+    }
+}
+</pre></blockquote>
+
+Anonymous classes can make code difficult to read. You should limit
+their use to those classes that are very small (no more than a method
+or two) and whose use is well-understood (like the AWT event-handling
+adapter classes).
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="nested.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#javaOO" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="QandE/nested-questions.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.setting.ui.SettingUIStageView xmlns:android="http://schemas.android.com/apk/res-auto" setting_ui:layout_width="match_parent" setting_ui:layout_height="match_parent" setting_ui:titleText="@string/setting_ui_vision">
+    <dji.setting.ui.guidance.VisionGuidanceView setting_ui:layout_height="match_parent" style="@style/g2" />
+</dji.setting.ui.SettingUIStageView>

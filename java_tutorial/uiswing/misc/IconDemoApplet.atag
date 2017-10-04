@@ -1,0 +1,31 @@
+<applet code="IconDemoApplet.class"
+        codebase="example-1dot4/"
+        archive="iconAppletClasses.jar,
+                 iconStartupImages.jar,
+                 iconAppletImages.jar"
+	width="400"
+	height="360"
+>
+    <param NAME="IMAGEDIR" VALUE="images">
+
+    <param NAME="IMAGE0" VALUE="stickerface.gif">
+    <param NAME="CAPTION0" VALUE="Sticker Face">
+    <param NAME="WIDTH0" VALUE="230">
+    <param NAME="HEIGHT0" VALUE="238">
+
+    <param NAME="IMAGE1" VALUE="lainesTongue.gif">
+    <param NAME="CAPTION1" VALUE="Study of Laine's Tongue">
+    <param NAME="WIDTH1" VALUE="369">
+    <param NAME="HEIGHT1" VALUE="237">
+
+    <param NAME="IMAGE2" VALUE="kathyCosmo.gif">
+    <param NAME="CAPTION2" VALUE="Kathy & Cosmo">
+    <param NAME="WIDTH2" VALUE="288">
+    <param NAME="HEIGHT2" VALUE="200">
+
+    <param NAME="IMAGE3" VALUE="ewanPumpkin.gif">
+    <param NAME="CAPTION3" VALUE="Ewan Dinkins">
+    <param NAME="WIDTH3" VALUE="278">
+    <param NAME="HEIGHT3" VALUE="237">
+
+</applet>

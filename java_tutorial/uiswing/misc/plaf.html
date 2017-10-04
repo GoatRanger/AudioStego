@@ -1,0 +1,367 @@
+
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>How to Set the Look and Feel</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="keybinding.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#misc" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="threads.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Creating a GUI with JFC/Swing
+<br>
+<b>Lesson</b>: Using Other Swing Features
+</font>
+
+<h2>
+How to Set the Look and Feel
+</h2>
+<blockquote>
+
+If you don't care which look and feel your program uses,
+you can skip this section entirely.
+For example, most of the programs in this trail 
+don't specify the look and feel,
+so that you can easily run the programs with your preferred look and feel.
+
+<p>
+When a program does not set its look and feel,
+the Swing UI manager must figure out which look and feel to use.
+It first checks whether the user has
+specified a preferred look and feel.
+If so, it attempts to use that.
+If not,
+or if the user's choice isn't valid,
+then the UI manager chooses the Java look and feel.
+
+
+<blockquote><hr><strong>Version Note:</strong>&nbsp;Release 1.4.2 introduces two look and feels:
+GTK+ and Microsoft Windows XP.
+<hr></blockquote>
+
+<p>
+You aren't limited to the look and feels supplied with
+the Java platform. You can use any look and feel that's
+in your program's class path.  External look and feels
+are usually provided in one or more JAR files that you 
+add to your program's class path at runtime.  For example:
+<blockquote><pre>
+java -classpath .;C:\java\lnfdir\newlnf.jar SwingApplication
+</pre></blockquote>
+
+<p>
+Once an external look and feel is in your program's class path,
+your program can use it just like any of the look and feels
+shipped with the Java platform.
+
+<p>
+
+<p>
+<ul>
+<li> <a href="#programmatic">Programmatically Setting the Look and Feel</a>
+<li> <a href="#commandLine">Specifying the Look and Feel: Command Line</a>
+<li> <a href="#properties">Specifying the Look and Feel: swing.properties</a>
+<li> <a href="#steps">How the UI Manager Chooses the Look and Feel</a>
+<li> <a href="#dynamic">Changing the Look and Feel After Startup</a>
+</ul>
+
+</blockquote>
+<h3>
+<a name="programmatic">
+Programmatically Setting the Look and Feel
+</a>
+</h3>
+<blockquote>
+
+To programmatically specify a look and feel,
+use the <code>UIManager.setLookAndFeel</code> method.
+For example, the bold code in the following snippet
+makes the program use the Java look and feel:
+
+<blockquote><pre>
+public static void main(String[] args) {
+    try {
+        <b>UIManager.setLookAndFeel(
+            UIManager.getCrossPlatformLookAndFeelClassName());</b>
+    } catch (Exception e) { }
+
+    new SwingApplication(); //Create and show the GUI.
+}
+</pre></blockquote>
+
+<p>
+<blockquote><hr><strong>Note:</strong>&nbsp;If you are going to set the look and feel,
+you should do it as the very first step in your application.
+Otherwise you run the risk of initializing the Java look and feel
+regardless of what look and feel you've
+requested. This can happen inadvertently when a static field
+references a Swing class, which causes the look and feel
+to be loaded. If no look and feel has yet been
+specified, the default Java look and feel is loaded.
+<hr></blockquote>
+
+<p>
+The argument to <code>setLookAndFeel</code>
+is the fully qualified name of the appropriate subclass
+of <code>LookAndFeel</code>.
+To specify the Java look and feel, 
+we used the <code>getCrossPlatformLookAndFeelClassName</code> method.
+If you want to specify the native look and feel for
+whatever platform the user runs the program on,
+use <code>getSystemLookAndFeelClassName</code> instead.
+To specify a particular UI,
+you can use the actual class name.  For example,
+if you design a program to look best with the
+GTK+ look and feel,
+you can use this code to set the look and feel:
+
+<blockquote><pre>
+UIManager.setLookAndFeel(
+	    "com.sun.java.swing.plaf.gtk.GTKLookAndFeel");
+</pre></blockquote>
+
+<blockquote><hr><strong>Note:</strong>&nbsp;The GTK+ look and feel was released in all versions of
+the 1.4.2 SDK.  However, it was not included in the
+1.4.2 JRE release for Microsoft Windows.  If you are
+running the 1.4.2 JRE for Windows and wish to use the
+GTK+ look and feel, you need to download the 1.4.2 SDK.
+We expect GTK+ to be shipped for all platforms in future
+JRE releases.
+<hr></blockquote>
+
+<p>
+Here are some of the arguments
+you can use for <code>setLookAndFeel</code>:
+
+<dl>
+<dt> <code>UIManager.getCrossPlatformLookAndFeelClassName()</code>
+<dd> Returns the look and feel that works on all platforms &#151;
+     the Java look and feel.
+<p>
+<dt> <code>UIManager.getSystemLookAndFeelClassName()</code>
+<dd> Specifies the look and feel for the current platform.
+     On Microsoft Windows platforms, this specifies the Windows look and feel.
+     On Mac OS platforms, this specifies the Mac OS look and feel.
+     On other Unix platforms, such as Solaris or Linux, this returns
+     the CDE/Motif look and feel.
+<p>
+<dt> <code>"com.sun.java.swing.plaf.gtk.GTKLookAndFeel"</code>
+<dd> Specifies the GTK+ look and feel. Introduced in release 1.4.2.
+     You can specify the particular theme either using a
+<a target="_blank" href="http://developer.gnome.org/doc/API/2.0/gtk/gtk-Resource-Files.html"><font color="#009bbb">resource file</font></a><a target="_blank" href="http://developer.gnome.org/doc/API/2.0/gtk/gtk-Resource-Files.html"><img src="../../images/otherIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (outside of the tutorial)"></a>     or the <code>gtkthemefile</code> command-line parameter. 
+     Here is an example:
+<blockquote><pre>
+java -Dswing.gtkthemefile=<i>customTheme</i>/gtkrc <i>Application</i>
+</pre></blockquote>
+<p>
+<dt> <code>"javax.swing.plaf.metal.MetalLookAndFeel"</code>
+<dd> Specifies the Java look and feel.
+     (The codename for this look and feel was <em>Metal</em>.)
+<p>
+<dt> <code>"com.sun.java.swing.plaf.windows.WindowsLookAndFeel"</code>
+<dd> Specifies the Windows look and feel.
+     Currently, you can use this look and feel only on Microsoft Windows systems.
+<blockquote><hr><strong>Version Note:</strong>&nbsp;As of release 1.4.2, <code>WindowsLookAndFeel</code>
+has been updated to mimic the Windows XP look and feel
+when running on the Windows XP platform.
+<hr></blockquote>
+<p>
+<dt> <code>"com.sun.java.swing.plaf.motif.MotifLookAndFeel"</code>
+<dd> Specifies the CDE/Motif look and feel.
+     This look and feel can be used on any platform.
+</dl>
+<p>
+
+You aren't limited to the preceding arguments.
+You can specify the name for any look and feel 
+that is in your program's class path.
+
+</blockquote>
+<h3>
+<a name="commandLine">
+Specifying the Look and Feel: Command Line
+</a>
+</h3>
+<blockquote>
+
+You can specify the look and feel at the command line by
+using the <code>-D</code> flag to set the
+<code>swing.defaultlaf</code> property.  For example:
+
+<blockquote><pre>
+java -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel MyApp
+
+java -Dswing.defaultlaf=com.sun.java.swing.plaf.windows.WindowsLookAndFeel MyApp
+</pre></blockquote>
+
+</blockquote>
+<h3>
+<a name="properties">
+Specifying the Look and Feel: swing.properties
+</a>
+</h3>
+<blockquote>
+
+Yet another way to specify the current look and feel is to use the
+<code>swing.properties</code> file to set the <code>swing.defaultlaf</code>
+property.  This file is located
+in the <code>lib</code> directory of the Java release.
+For example, if you're using the Java interpreter
+in <code><em>javaHomeDirectory</em>\bin</code>,
+then the <code>swing.properties</code> file (if it exists)
+is in <code><em>javaHomeDirectory</em>\lib</code>.
+Here is an example of the contents of a 
+<a href="example-1dot4/swing.properties"><code>swing.properties</code></a>
+file:
+<blockquote><pre>
+# Swing properties
+
+swing.defaultlaf=com.sun.java.swing.plaf.windows.WindowsLookAndFeel
+
+</pre></blockquote>
+
+</blockquote>
+<h3>
+<a name="steps">
+How the UI Manager Chooses the Look and Feel 
+</a>
+</h3>
+<blockquote>
+
+Here are the look-and-feel determination steps
+that occur when the UI manager first initializes itself:
+
+<ol>
+<li> If the program sets the look and feel
+     before any components are created,
+     the UI manager tries to create an instance
+     of the specified look-and-feel class.
+     If successful,
+     all components use that look and feel.
+
+<p>
+<li> If the program hasn't successfully specified
+     a look and feel, then the UI manager uses the
+     look and feel specified by the <code>swing.defaultlaf</code>
+     property.  If the property is specified in both
+     the <code>swing.properties</code>
+     file <em>and</em> on the command line, the command-line
+     definition takes precedence.
+
+<p>
+<li> If none of these steps has resulted in a valid
+     look and feel,
+     the program uses the Java look and feel.
+</ol>
+
+</blockquote>
+<h3>
+<a name="dynamic">
+Changing the Look and Feel After Startup
+</a>
+</h3>
+<blockquote>
+
+You can change the look and feel 
+with <code>setLookAndFeel</code>
+even after the program's GUI is visible.
+To make existing components reflect the new look and feel,
+invoke the
+<code>SwingUtilities</code> <code>updateComponentTreeUI</code> method
+once per top-level container.
+Then you might wish to resize each top-level container
+to reflect the new sizes of its contained components.
+For example:
+
+<blockquote><pre>
+UIManager.setLookAndFeel(lnfName);
+SwingUtilities.updateComponentTreeUI(frame);
+frame.pack();
+</pre></blockquote>
+
+
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="keybinding.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#misc" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="threads.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

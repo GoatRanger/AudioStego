@@ -1,0 +1,146 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Giving Information about Parameters</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="getParam.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#appletsonly" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="html.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Writing Applets
+<br>
+<b>Lesson</b>: Taking Advantage of the Applet API
+</font>
+
+<h2>
+Giving Information about Parameters
+</h2>
+<blockquote>
+Now that you've provided all those nice parameters to the user,
+you need to help the user set the parameter values correctly.
+Of course, your applet's documentation
+should describe each parameter
+and give the user examples and hints of setting them.
+Your job doesn't stop there, though.
+You should also implement the <code>getParameterInfo</code> method
+so that it returns information about your applet's parameters.
+Browsers can use this information
+to help the user set your applet's parameter values.
+<p>
+
+Below is an example of implementing the 
+<code>getParameterInfo</code> method.
+This example is from the 
+
+<a target="_blank" href="../../getStarted/example/Animator.java"><font color="#bb000f"><code>Animator</code></font></a><a target="_blank" href="../../getStarted/example/Animator.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a> applet,
+a wonderfully flexible applet
+that provides 13 parameters 
+for users to customize their animation.
+<blockquote><pre>
+public String[][] getParameterInfo() {
+    String[][] info = {
+      // Parameter Name     Kind of Value   Description
+        {"imagesource",     "URL",          "a directory"},
+        {"startup",         "URL",          "displayed at startup"},
+        {"background",      "URL",          "displayed as background"},
+        {"startimage",      "int",          "start index"},
+        {"endimage",        "int",          "end index"},
+        {"namepattern",     "URL",          "used to generate indexed names"},
+        {"pause",           "int",          "milliseconds"},
+        {"pauses",          "ints",         "milliseconds"},
+        {"repeat",          "boolean",      "repeat or not"},
+        {"positions",       "coordinates",  "path"},
+        {"soundsource",     "URL",          "audio directory"},
+        {"soundtrack",      "URL",          "background music"},
+        {"sounds",          "URLs",         "audio samples"},
+    };
+    return info;
+}    
+</pre></blockquote>
+
+As you can see, 
+the <code>getParameterInfo</code> method
+must return an array of three-<code>String</code> arrays.
+In each three-<code>String</code> array,
+the first string is the parameter name.
+The second string gives the user a hint about
+what general kind of value the applet needs for the parameter.
+The third string describes the meaning of the parameter.
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="getParam.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#appletsonly" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="html.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

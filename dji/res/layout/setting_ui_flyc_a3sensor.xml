@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" style="@style/g2"
+    <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <View android:layout_width="UNKNOWN_DATA_0x7f0b03b5" android:layout_height="UNKNOWN_DATA_0x101" android:layout_weight="0.0" />
+        <TextView android:layout_width="UNKNOWN_DATA_0x1" android:text="@string/setting_ui_redundancy_sensor_imu_acc_label" android:layout_weight="1.0" style="@style/gr" />
+        <View android:layout_width="UNKNOWN_DATA_0x7f0b03b5" android:layout_height="UNKNOWN_DATA_0x101" android:layout_weight="0.0" />
+        <TextView android:layout_width="UNKNOWN_DATA_0x1" android:text="@string/setting_ui_redundancy_sensor_imu_gryo_label" android:layout_weight="1.0" style="@style/gr" />
+    </LinearLayout>
+    <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <View android:layout_width="UNKNOWN_DATA_0x7f0b03b5" android:layout_height="UNKNOWN_DATA_0x101" />
+        <TextView android:layout_width="UNKNOWN_DATA_0x1" android:text="@string/setting_ui_redundancy_sensor_imu_bias" android:layout_weight="1.0" style="@style/gu" />
+        <View android:layout_width="UNKNOWN_DATA_0x7f0b03b5" android:layout_height="UNKNOWN_DATA_0x101" android:layout_weight="0.0" />
+        <TextView android:layout_width="UNKNOWN_DATA_0x1" android:text="@string/setting_ui_redundancy_sensor_imu_bias" android:layout_weight="1.0" style="@style/gu" />
+    </LinearLayout>
+    <LinearLayout android:gravity="top|bottom|center_vertical|fill_vertical|center|fill" android:orientation="horizontal" android:id="@id/bq1" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x7f0b0348">
+        <TextView android:id="@id/bqa" android:layout_width="UNKNOWN_DATA_0x7f0b03b5" android:text="@string/setting_ui_a3sensor_acc0" android:drawableLeft="@drawable/setting_ui_flyc_circle" style="@style/gr" />
+        <dji.setting.ui.flyc.StatusView android:id="@id/bqb" android:layout_width="UNKNOWN_DATA_0x1" android:layout_height="wrap_content" android:layout_marginRight="@dimen/w8" android:layout_weight="1.0" />
+        <TextView android:id="@id/bqc" android:layout_width="UNKNOWN_DATA_0x7f0b03b5" android:text="@string/setting_ui_a3sensor_gyro0" android:drawableLeft="@drawable/setting_ui_flyc_circle" style="@style/gr" />
+        <dji.setting.ui.flyc.StatusView android:id="@id/bqd" android:layout_width="UNKNOWN_DATA_0x1" android:layout_height="wrap_content" android:layout_marginRight="@dimen/w8" android:layout_weight="1.0" />
+    </LinearLayout>
+    <LinearLayout android:gravity="top|bottom|center_vertical|fill_vertical|center|fill" android:orientation="horizontal" android:id="@id/bq4" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x7f0b0348">
+        <TextView android:id="@id/bqe" android:layout_width="UNKNOWN_DATA_0x7f0b03b5" android:text="@string/setting_ui_a3sensor_acc1" android:drawableLeft="@drawable/setting_ui_flyc_circle" style="@style/gr" />
+        <dji.setting.ui.flyc.StatusView android:id="@id/bqf" android:layout_width="UNKNOWN_DATA_0x1" android:layout_height="wrap_content" android:layout_marginRight="@dimen/w8" android:layout_weight="1.0" />
+        <TextView android:id="@id/bqg" android:layout_width="UNKNOWN_DATA_0x7f0b03b5" android:text="@string/setting_ui_a3sensor_gyro1" android:drawableLeft="@drawable/setting_ui_flyc_circle" style="@style/gr" />
+        <dji.setting.ui.flyc.StatusView android:id="@id/bqh" android:layout_width="UNKNOWN_DATA_0x1" android:layout_height="wrap_content" android:layout_marginRight="@dimen/w8" android:layout_weight="1.0" />
+    </LinearLayout>
+    <LinearLayout android:gravity="top|bottom|center_vertical|fill_vertical|center|fill" android:orientation="horizontal" android:id="@id/bq7" android:visibility="gone" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x7f0b0348">
+        <TextView android:id="@id/bqi" android:layout_width="UNKNOWN_DATA_0x7f0b03b5" android:text="@string/setting_ui_a3sensor_acc2" android:drawableLeft="@drawable/setting_ui_flyc_circle" style="@style/gr" />
+        <dji.setting.ui.flyc.StatusView android:id="@id/bqj" android:layout_width="UNKNOWN_DATA_0x1" android:layout_height="wrap_content" android:layout_marginRight="@dimen/w8" android:layout_weight="1.0" />
+        <TextView android:id="@id/bqk" android:layout_width="UNKNOWN_DATA_0x7f0b03b5" android:text="@string/setting_ui_a3sensor_gyro2" android:drawableLeft="@drawable/setting_ui_flyc_circle" style="@style/gr" />
+        <dji.setting.ui.flyc.StatusView android:id="@id/bql" android:layout_width="UNKNOWN_DATA_0x1" android:layout_height="wrap_content" android:layout_marginRight="@dimen/w8" android:layout_weight="1.0" />
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" style="@style/g2">
+        <Button android:id="@id/bq_" android:text="@string/setting_ui_redundancy_sensor_imu_calc" style="@style/g5" />
+    </LinearLayout>
+</LinearLayout>

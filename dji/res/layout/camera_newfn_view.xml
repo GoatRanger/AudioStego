@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.pilot.fpv.camera.newfn.DJICameraFnView xmlns:android="http://schemas.android.com/apk/res-auto" pilot:orientation="vertical" pilot:background="@r$drawable/camera_setting_bg" pilot:layout_width="UNKNOWN_DATA_0x7f0b0164" pilot:layout_height="match_parent" pilot:baselineAligned="false">
+    <dji.publics.DJIUI.DJIRelativeLayout pilot:background="@color/ak" pilot:layout_width="match_parent" pilot:layout_height="UNKNOWN_DATA_0x7f0b0162">
+        <dji.publics.DJIUI.DJILinearLayout pilot:orientation="horizontal" pilot:id="@+id/camera_newfn_tab_ly" pilot:layout_width="match_parent" pilot:layout_height="match_parent" pilot:baselineAligned="false">
+            <dji.pilot.publics.widget.DJIStateImageView pilot:id="@+id/camera_newfn_tab_photo" pilot:padding="@dimen/n4" pilot:layout_width="UNKNOWN_DATA_0x1" pilot:layout_height="match_parent" pilot:src="@r$drawable/selector_camera_photo" pilot:scaleType="center" pilot:adjustViewBounds="true" pilot:layout_weight="1.0" pilot:contentDescription="@string/app_name" />
+            <dji.pilot.publics.widget.DJIStateImageView pilot:id="@+id/camera_newfn_tab_video" pilot:padding="@dimen/n4" pilot:layout_width="UNKNOWN_DATA_0x1" pilot:layout_height="match_parent" pilot:src="@r$drawable/selector_camera_video" pilot:scaleType="center" pilot:adjustViewBounds="true" pilot:layout_weight="1.0" pilot:contentDescription="@string/app_name" />
+            <dji.pilot.publics.widget.DJIStateImageView pilot:id="@+id/camera_newfn_tab_other" pilot:padding="@dimen/n4" pilot:layout_width="UNKNOWN_DATA_0x1" pilot:layout_height="match_parent" pilot:src="@r$drawable/selector_camera_other" pilot:scaleType="center" pilot:adjustViewBounds="true" pilot:layout_weight="1.0" pilot:contentDescription="@string/app_name" />
+        </dji.publics.DJIUI.DJILinearLayout>
+        <dji.publics.DJIUI.DJIImageView pilot:id="@+id/camera_newfn_tab_indicator" pilot:background="@color/d9" pilot:layout_width="UNKNOWN_DATA_0x7f0b0161" pilot:layout_height="UNKNOWN_DATA_0x201" pilot:layout_alignParentBottom="true" pilot:contentDescription="@string/app_name" />
+        <dji.publics.DJIUI.DJIRelativeLayout pilot:id="@+id/camera_newfn_subtitle_ly" pilot:visibility="gone" pilot:layout_width="match_parent" pilot:layout_height="match_parent">
+            <dji.pilot.publics.widget.DJIStateImageView pilot:id="@+id/camera_newfn_subtitle_back" pilot:paddingLeft="@dimen/rp" pilot:paddingRight="@dimen/rp" pilot:layout_width="wrap_content" pilot:layout_height="match_parent" pilot:src="@r$drawable/dlg_arrow_left" pilot:scaleType="center" pilot:adjustViewBounds="true" pilot:contentDescription="@string/app_name" />
+            <dji.publics.DJIUI.DJITextView pilot:textSize="@dimen/rl" pilot:id="@+id/camera_newfn_subtitle_title" pilot:layout_centerInParent="true" pilot:djiTextFace="0" style="@style/bm" />
+        </dji.publics.DJIUI.DJIRelativeLayout>
+    </dji.publics.DJIUI.DJIRelativeLayout>
+    <ViewAnimator pilot:id="@+id/camera_newfn_content_va" pilot:layout_width="match_parent" pilot:layout_height="match_parent" pilot:animateFirstView="true">
+        <dji.pilot.fpv.view.DJIStageView pilot:id="@+id/camera_newfn_content_photo" pilot:layout_width="match_parent" pilot:layout_height="match_parent" pilot:animateFirstView="true" />
+        <dji.pilot.fpv.view.DJIStageView pilot:id="@+id/camera_newfn_content_video" pilot:layout_width="match_parent" pilot:layout_height="match_parent" pilot:animateFirstView="true" />
+        <dji.pilot.fpv.view.DJIStageView pilot:id="@+id/camera_newfn_content_other" pilot:layout_width="match_parent" pilot:layout_height="match_parent" pilot:animateFirstView="true" />
+    </ViewAnimator>
+</dji.pilot.fpv.camera.newfn.DJICameraFnView>

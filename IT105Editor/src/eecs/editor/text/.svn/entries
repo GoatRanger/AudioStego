@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="10"
+   name=""
+   committed-date="2005-02-01T05:59:34.421875Z"
+   url="svn://192.168.2.2/IT105Editor/src/eecs/editor/text"
+   last-author="Karl"
+   kind="dir"
+   uuid="0daf4267-3229-f84b-9084-f3c94b025f38"
+   revision="55"/>
+<entry
+   committed-rev="10"
+   name="SyntaxDocument.java"
+   text-time="2005-03-02T06:14:19.281250Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="c3478bbd5e6a7c7fd6bb91b6880f137f"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:19.156250Z"/>
+<entry
+   committed-rev="10"
+   name="HTMLSyntaxDocument.java"
+   text-time="2005-03-02T06:14:19.281250Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="032584df4a263a50b40a6cb426ed8709"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:19.156250Z"/>
+<entry
+   name="CVS"
+   kind="dir"/>
+<entry
+   committed-rev="10"
+   name="package.html"
+   text-time="2005-03-02T06:14:19.296875Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="c84a3772db028d97e0db68870de4e58f"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:19.250000Z"/>
+<entry
+   committed-rev="10"
+   name="CssSyntaxDocument.java"
+   text-time="2005-03-02T06:14:19.312500Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="d5f1a7c24de79d7af438f5263d4b78b6"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:19.265625Z"/>
+</wc-entries>

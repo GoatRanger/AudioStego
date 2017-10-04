@@ -1,0 +1,417 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>How Do These Concepts Translate into Code?</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="interface.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#concepts" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="QandE/questions.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Learning the Java Language
+<br>
+<b>Lesson</b>: Object-Oriented Programming Concepts
+</font>
+
+<h2>
+How Do These Concepts Translate into Code?
+</h2>
+<blockquote>
+
+Now that you have a conceptual understanding of object-oriented programming
+let's look at how these concepts get translated into code.
+<p>
+Here is an
+<a href="javascript:var meth=openWin; meth('applet');" onMouseOver="self.status='Look up applet in glossary'; return true;" onMouseOut="self.status=''; return true;"><font color="#00bb00"><em>applet</em></font></a><a href="javascript:var meth=openWin; meth('applet');" onMouseOver="self.status='Look up applet in glossary'; return true;" onMouseOut="self.status=''; return true;"><img src="../../images/glossaryIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the glossary)"></a> named <code>ClickMe</code>.
+A red spot appears when you click the mouse within the applet's bounds.
+<p>
+<blockquote>
+<applet code="ClickMe.class"
+        codebase="example-1dot1/"
+        width="300" height="150">
+</applet>
+</blockquote>
+
+<blockquote><hr><strong>Note:</strong> If you don't see the applet running above, you need to install Java Plug-in, which happens automatically when you <a href="http://java.sun.com/j2se/downloads.html" target="_blank">install the J2SE JRE or SDK</a>. We strongly recommend that you install the latest version; at least 1.3.1 is required for all our applets. You can find more information in the <a href="http://java.sun.com/products/plugin" target="_blank">Java Plug-in home page.</a><hr></blockquote>
+<p>
+The <CODE>ClickMe</CODE> applet is a relatively simple 
+program and the code for it is short.
+However, if you don't have much experience with programming, you might find the code daunting. We don't expect you to understand everything in this program right away, and this section won't explain every detail. The intent is to expose you to some source code and to associate it with the concepts and terminology you just learned. You will learn the details in later trails.
+</blockquote>
+
+<h3>The Source Code and the Applet Tag for ClickMe</h3>
+<blockquote>
+To compile this applet you need two source files:
+<a target="_blank" href="example-1dot1/ClickMe.java"><font color="#bb000f"><code>ClickMe.java</code></font></a><a target="_blank" href="example-1dot1/ClickMe.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a> and
+<a target="_blank" href="example-1dot1/Spot.java"><font color="#bb000f"><code>Spot.java</code></font></a><a target="_blank" href="example-1dot1/Spot.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>.
+To run the applet you need to create an html file
+with this applet tag in it:
+<blockquote>
+<pre>
+&lt;applet code="ClickMe.class"
+        width="300" height="150"&gt;
+&lt;/applet&gt;
+</pre>
+</blockquote>
+Then load the page into your browser or the appletviewer tool.
+Make sure all the necessary files are in the same directory.
+</blockquote>
+
+
+<p><center><IMG SRC="../../figures/java/con27.gif" WIDTH="514" HEIGHT="111" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p>
+<blockquote><hr><strong>Note:</strong>&nbsp;If you're having problems running this example:
+ <ul>
+  <li> Make sure you download <i>both</i> <code>Spot.java</code> and 
+       <code>ClickMe.java</code> and place them in the same directory.</li> 
+  <li>If you can compile one file but not the other, you probably have a 
+      CLASSPATH problem.
+      If "<code>.</code>" (indicating your current directory) isn't in 
+      your class path, the <code>ClickMe</code> 
+      class can't find the <code>Spot</code> class, even though they are 
+      in the same directory. Try unsetting CLASSPATH and recompiling, like this:
+
+<blockquote><pre>
+set CLASSPATH=
+javac ClickMe.java
+</pre></blockquote>
+If your problem is fixed, then you should modify your
+global CLASSPATH variable to add "<code>.</code>" to it.  
+See 
+<a target="_blank" href="http://java.sun.com/j2se/1.3/install-windows.html#Environment"><font color="#009bbb">Update the PATH variable (for Microsoft Windows)</font></a><a target="_blank" href="http://java.sun.com/j2se/1.3/install-windows.html#Environment"><img src="../../images/otherIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (outside of the tutorial)"></a> (or the appropriate documentation for your platform).
+</ul>
+<hr></blockquote>
+
+<h3>Objects in the ClickMe Applet</h3>
+<blockquote>
+
+Many objects play a part in this applet. The two most obvious ones are the ones you can see: the applet itself and the spot, which is red on-screen. 
+<P>
+The browser creates the applet object when it encounters the applet tag in the HTML code containing the applet. The applet tag provides the name of the class from which to create the applet object. In this case, the class name is <code>ClickMe</code>.. 
+<P>
+
+The <code>ClickMe</code>.applet in turn creates an object to represent the spot on the screen. Every time you click the mouse in the applet, the applet moves the spot by changing the object's <code>x</code> and <code>y</code> location and repainting itself. The spot does not draw itself; the applet draws the spot, based on information contained within the spot object. 
+<P>
+
+Besides these two obvious objects, other, nonvisible objects play a part in this applet. Three objects represent the three colors used in the applet (black, white, and red); an event object represents the user action of clicking the mouse, and so on.
+<P>
+</blockquote>
+
+<h3>Classes in the ClickMe Applet</h3>
+<blockquote>
+Because the object that represents the spot on the screen is very simple, let's look at its class, named <code>Spot</code>.
+It declares three instance variables:
+<code>size</code> contains the spot's radius,
+<code>x</code> contains the spot's current horizontal location,
+and
+<code>y</code> contains the spot's current vertical location:
+
+<blockquote><pre>
+public class Spot {
+    //instance variables
+    public int size;
+    public int x, y;
+
+    //constructor
+    public Spot(int intSize) {
+        size = intSize;
+        x = -1;
+        y = -1;
+    }
+}
+</pre></blockquote>
+Additionally, the class has a
+<a href="javascript:var meth=openWin; meth('constructor');" onMouseOver="self.status='Look up constructor in glossary'; return true;" onMouseOut="self.status=''; return true;"><font color="#00bb00"><em>constructor</em></font></a><a href="javascript:var meth=openWin; meth('constructor');" onMouseOver="self.status='Look up constructor in glossary'; return true;" onMouseOut="self.status=''; return true;"><img src="../../images/glossaryIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the glossary)"></a>-- a subroutine used to initialize new objects created from the class. You can recognize a constructor because it has the same name as the class. The constructor initializes all three of the object's variables. The initial value of <code>size</code> is provided as an argument to the constructor by the caller. The <code>x</code> and <code>y</code> variables are set to -1
+indicating that the spot is not on-screen when the applet starts up.
+
+<p>
+The applet creates a new spot object 
+when the applet is initialized.
+Here's the relevant code from the applet class:
+<blockquote><pre>
+private Spot spot = null;
+private static final int RADIUS = 7;
+...
+spot = new Spot(RADIUS);
+</pre></blockquote>
+The first line shown declares a variable named <code>spot</code> whose data type is <code>Spot</code>, the class from which the object is created, and initializes the variable to <code>null</code>. The second line declares an 
+integer variable named <code>RADIUS</code> whose value is <code>7</code>. 
+Finally, the last line shown creates the object; <code>new</code> allocates 
+memory space for the object. <code>Spot(RADIUS)</code> calls the constructor 
+you saw previously and passes in the value of <code>RADIUS</code>. Thus the 
+spot object's <code>size</code> is set to 7
+
+<p><center><IMG SRC="../../figures/java/con28.gif" WIDTH="418" HEIGHT="139" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p>
+The figure on the left is a representation of the <code>Spot</code> class. The figure on the right is a spot object. 
+</blockquote>
+
+
+<h3>Messages in the ClickMe Applet</h3>
+<blockquote>
+As you know, object A can use a message to request that object B do something, and a message has three components:
+<ol>
+<li> The object to which the message is addressed
+<li> The name of the method to perform
+<li> Any parameters the method needs
+</ol>
+
+Here are two lines of code from the <code>ClickMe</code> applet:
+<blockquote><pre>
+g.setColor(Color.white);
+g.fillRect(0, 0, getSize().width - 1, getSize().height - 1);
+</pre></blockquote>
+
+Both are messages from the applet to an object named <code>g</code>--a <code>Graphics</code> object that knows how to draw simple on-screen shapes and text. This object is provided to the applet when the browser instructs the applet to draw itself. The first line sets the color to white; the second fills a rectangle the size of the applet, thus painting the extent of the applet's area white.
+<p>
+The following figure highlights each message component
+in the first message:
+
+<p><center><IMG SRC="../../figures/java/con29.gif" WIDTH="280" HEIGHT="83" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p>
+</blockquote>
+
+<h3>Inheritance in the ClickMe Applet</h3>
+<blockquote>
+To run in a browser, an object must be an applet. This means that the object must be an instance of a class that derives from the <code>Applet</code> class provided
+by the Java platform.
+<p>
+The <code>ClickMe</code> applet object is an instance
+of the <code>ClickMe</code> class, which is declared like this:
+<blockquote><pre>
+public class ClickMe <font color="red">extends Applet</font> implements MouseListener {
+   ...
+}
+</pre></blockquote>
+
+The <code>extends Applet</code> clause makes <code>ClickMe</code>
+a subclass of <code>Applet</code>.
+<code>ClickMe</code> inherits a lot of
+capability from its superclass, including
+the ability
+to be initialized, started, and stopped by the browser,
+to draw within an area on a browser page,
+and
+to register to receive mouse events.
+Along with these benefits,
+the <code>ClickMe</code> class has certain obligations:
+its painting code must be in a method called <code>paint</code>,
+its initialization code must be in a method called <code>init</code>,
+and so on.
+<blockquote><pre>
+public void init() {
+    ... // ClickMe's initialization code here
+}
+
+public void paint(Graphics g) {
+    ... // ClickMe's painting code here
+}
+</pre></blockquote>
+</blockquote>
+
+<h3>Interfaces in the ClickMe Applet</h3>
+<blockquote>
+The <code>ClickMe</code> applet responds to mouse clicks by
+displaying a red spot at the click location.
+If an object wants to be notified of mouse clicks,
+the Java platform event system requires that the object
+implement the <code>MouseListener</code> interface.
+The object must also register as a mouse listener.
+<p>
+The <code>MouseListener</code> interface
+declares five different methods each of which is called for
+a different kind of mouse event:
+when the mouse is clicked,
+when the mouse moves outside of the applet,
+and so on.
+Even though the applet is interested only in mouse clicks
+it must implement all five methods.
+The methods for the events that it isn't interested in are empty.
+<p>
+The complete code for the <code>ClickMe</code> applet
+is shown below.
+The code that participates in mouse event handling is red:
+<blockquote><pre>
+import java.applet.Applet;
+import java.awt.*;
+import java.awt.event.*;
+
+public class ClickMe extends Applet <font color="red">implements MouseListener</font> {
+    private Spot spot = null;
+    private static final int RADIUS = 7;
+
+    public void init() {
+        <font color="red">addMouseListener(this);</font>
+    }
+
+    public void paint(Graphics g) {
+        // draw a black border and a white background
+        g.setColor(Color.white);
+        g.fillRect(0, 0, getSize().width - 1, getSize().height - 1);
+        g.setColor(Color.black);
+        g.drawRect(0, 0, getSize().width - 1, getSize().height - 1);
+
+        // draw the spot
+        g.setColor(Color.red);
+        if (spot != null) {
+            g.fillOval(spot.x - RADIUS,
+                       spot.y - RADIUS,
+                       RADIUS * 2, RADIUS * 2);
+        }
+    }
+    <font color="red">public void mousePressed(MouseEvent event) {
+        if (spot == null) {
+            spot = new Spot(RADIUS);
+        }
+        spot.x = event.getX();
+        spot.y = event.getY();
+        repaint();
+    }
+    public void mouseClicked(MouseEvent event) {}
+    public void mouseReleased(MouseEvent event) {}
+    public void mouseEntered(MouseEvent event) {}
+    public void mouseExited(MouseEvent event) {}</font>
+}
+</pre></blockquote>
+</blockquote>
+
+<h3>API Documentation</h3>
+
+The <code>ClickMe</code> applet inherits a lot of capability from its superclass. To learn more about how <code>ClickMe</code> works, you need to learn about its superclass, <code>Applet</code>. How do you find that information? You can find detailed descriptions of every class in the API documentation, which constitute the specification for the classes that make up the Java platform. 
+<P>
+
+The API documentation for the Java 2 Platform is online at <code>java.sun.com</code>. It's helpful to have the API documentation for all releases you use bookmarked in your browser.
+
+
+<UL>
+<LI>
+<a target="_blank" href="http://java.sun.com/j2se/1.5.0/docs/api/index.html"><font color="#8800bb">API documents for Java 2 Platform, Standard Edition, v1.5</font></a><a target="_blank" href="http://java.sun.com/j2se/1.5.0/docs/api/index.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>
+<LI>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/index.html"><font color="#8800bb">API documents for Java 2 Platform, Standard Edition, v1.4</font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/index.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>
+<LI>
+<a target="_blank" href="http://java.sun.com/j2se/1.3/docs/api/index.html"><font color="#8800bb">API documents for Java 2 Platform, Standard Edition, v1.3</font></a><a target="_blank" href="http://java.sun.com/j2se/1.3/docs/api/index.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>
+<LI>
+<a target="_blank" href="http://java.sun.com/products/archive/j2se/1.2.2_017/download-docs.html"><font color="#8800bb">API documents for Java 2 Platform, Standard Edition, v1.2</font></a><a target="_blank" href="http://java.sun.com/products/archive/j2se/1.2.2_017/download-docs.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>
+<LI>
+<a target="_blank" href="http://java.sun.com/products/archive/jdk/1.1/index.html"><font color="#8800bb">API documents for JDK 1.1</font></a><a target="_blank" href="http://java.sun.com/products/archive/jdk/1.1/index.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a></UL>
+
+<P>
+To learn more about all the classes and interfaces from the Java platform used by the ClickMe applet, you can look at the API documentation for these classes: 
+<UL>
+<LI>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/applet/Applet.html"><font color="#8800bb"><code>java.applet.Applet</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/applet/Applet.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a><LI>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Graphics.html"><font color="#8800bb"><code>java.awt.Graphics</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Graphics.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>
+<LI>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Color.html"><font color="#8800bb"><code>java.awt.Color</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Color.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>
+<LI>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/event/MouseListener.html"><font color="#8800bb"><code>java.awt.event.MouseListener</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/event/MouseListener.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>
+<LI>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/event/MouseEvent.html"><font color="#8800bb"><code>java.awt.event.MouseEvent</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/event/MouseEvent.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>
+</UL>
+
+
+
+<h3>Summary</h3>
+<blockquote>
+This discussion glossed over many details and left some things unexplained, but you should have some understanding now of what object-oriented concepts look like in code. You should now have a general understanding of the following:
+<ul>
+<li>
+That a class is a prototype for objects
+<li>
+That objects are created from classes
+<li>
+That an object's class is its type
+<li>
+How to create an object from a class
+<li>
+What constructors are
+<li>
+How to initialize objects
+<li>
+What the code for a class looks like
+<LI>
+What class variables and methods are
+<LI>
+What instance variables and methods are
+<LI>
+How to find out what a class's superclass is
+<li>
+That an interface is a protocol of behavior
+<LI>
+What it means to implement an interface
+</ul>
+</blockquote>
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="interface.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#concepts" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="QandE/questions.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

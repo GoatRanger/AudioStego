@@ -1,0 +1,490 @@
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Example Two: <code>SwingApplication</code></title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="example1.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#learn" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="example3.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Creating a GUI with JFC/Swing
+<br>
+<b>Lesson</b>: Learning Swing by Example
+</font>
+
+<h2>
+Example Two: <code>SwingApplication</code>
+</h2>
+<blockquote>
+<!--User Interfaces that Swing: A Quick Start Guide-->
+
+Topics illustrated in this example: 
+<UL>
+  <li><A HREF="#lookandfeel">Look and Feel</A>
+  <li><A HREF="#buttonsandlabels">Setting Up Buttons and Labels</A>
+  <li><A HREF="#addComponents">Adding Components to Containers</A>
+  <li><A HREF="#borders">Adding Borders Around Components</A>
+  <li><A HREF="#handlingEvents">Handling Events</A>
+</UL>
+
+Let’s look at another simple program, 
+
+<a target="_blank" href="example-1dot4/SwingApplication.java"><font color="#bb000f"><code>SwingApplication</code></font></a><a target="_blank" href="example-1dot4/SwingApplication.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>.
+Each time the user clicks the button (<code>JButton</code>), the 
+label (<code>JLabel</code>) is updated. 
+
+<p><center><IMG SRC="../../figures/uiswing/learn/3SwingApplication.gif" WIDTH="475" HEIGHT="126" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="The simple GUI of SwingApplication presents a JButton and a JLabel."></center></p>
+<A NAME="lookandfeel"></A>
+<h3>Look and Feel</h3>
+<blockquote>
+
+The following screenshots show the GUI of the 
+<code>SwingApplication</code>, each one with a different 
+look and feel.
+
+<center><table>
+<tr>
+<td><center>
+<p><center><IMG SRC="../../figures/uiswing/learn/SwingApplication.gif" WIDTH="230" HEIGHT="125" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="Java look and feel"></center></p>Java look and feel<p>
+</center></td>
+<td><center>
+<p><center><IMG SRC="../../figures/uiswing/learn/SwingApplication-gtk.gif" WIDTH="203" HEIGHT="115" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="GTK+ look and feel"></center></p>GTK+ look and feel<p>
+</center></td> 
+</tr><tr>
+<td><center>
+<p><center><IMG SRC="../../figures/uiswing/learn/SwingApplication-ms.gif" WIDTH="222 " HEIGHT="117" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="Windows look and feel"></center></p>Windows look and feel<p>
+</center></td>
+<td><center>
+<p><center><IMG SRC="../../figures/uiswing/learn/SwingApplication-mac.gif" WIDTH="251" HEIGHT="125" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="Mac OS look and feel"></center></p>Mac OS look and feel<p>
+</center></td> 
+</tr>
+</table></center>
+
+<BR>
+
+<blockquote><hr><strong>Version Note:</strong>&nbsp;The appearance of many look and feels changes from release 
+to release. For example, in v1.5 we expect the Java look 
+and feel to use slightly different colors and decorations, 
+though components will stay the same size as before.
+<hr></blockquote>
+
+Swing allows you to specify which look and feel your program uses--Java, 
+GTK+, Windows, and so on. The code in bold in the following 
+snippet shows you how <code>SwingApplication</code> specifies 
+that it should use the Java look and feel:
+
+<blockquote><pre>
+String lookAndFeel = null;
+...
+<B>lookAndFeel = UIManager.getCrossPlatformLookAndFeelClassName();</B>
+...
+try {
+    <B>UIManager.setLookAndFeel(lookAndFeel);</B>
+} catch (Exception e) { }
+...<EM>// Create and show the GUI...</EM>
+</pre></blockquote>
+
+This code essentially says, "I don’t care what the user has chosen. 
+Use the cross-platform (Java) look and feel." You can learn more in 
+the section 
+<a target="_top" href="../misc/plaf.html">How to Set the Look and Feel</a><a target="_top" href="../misc/plaf.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.
+</blockquote>
+
+
+<A NAME="buttonsandlabels"></A>
+<h3>Setting Up Buttons and Labels</h3>
+
+<blockquote>
+Like most GUIs, the <code>SwingApplication</code> GUI 
+contains a button and a label. (Unlike most GUIs, that's 
+about all that <code>SwingApplication</code> contains.) 
+Here's the code that initializes the button:
+
+<blockquote><pre>
+JButton button = new JButton("I'm a Swing button!");
+button.setMnemonic('i'); 
+button.addActionListener(<I>/*...create an action listener...*/</I>);
+</pre></blockquote>
+
+The first line creates the button. The second sets the 
+letter "<code>i</code>" as the mnemonic that the user can 
+use to simulate a click of the button. For example, in 
+the Java look and feel, typing <code>Alt-i</code> does this. 
+The third line registers an event handler for the button 
+click, as discussed later in this section.
+
+<P>
+Here's the code that initializes and manipulates the label:
+<blockquote><pre>
+...<I>// where instance variables are declared:</I>
+private static String labelPrefix = "Number of button clicks: ";
+private int numClicks = 0;
+
+...<I>// in GUI initialization code:</I>
+final JLabel label = new JLabel(labelPrefix + "0    ");
+...
+label.setLabelFor(button);
+
+...<I>// in the event handler for button clicks:</I>
+label.setText(labelPrefix + numClicks);
+</pre></blockquote>
+
+It's pretty straightforward, except for 
+the line that invokes the <code>setLabelFor</code> method. 
+That code exists solely as a hint to assistive technologies, 
+such as screen readers,  
+that the label describes the button.
+
+<P>
+Now that you know how to set up buttons, you also 
+know much of what’s needed to set up check boxes 
+and radio buttons, as they all inherit from the 
+<code>AbstractButton</code> class. 
+
+Check boxes are similar to radio buttons, but by convention 
+their selection models are different. Any number of check 
+boxes in a group--none, some, or all--can be selected. On 
+the other hand, by convention only one button can be 
+selected from a group of radio buttons. The following figures 
+show two programs that use check boxes and radio buttons. 
+
+<center><table>
+<tr><td>
+<p><center><IMG SRC="../../figures/uiswing/learn/4CheckBoxDemo.gif" WIDTH="204" HEIGHT="169" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="CheckBoxDemo"></center></p></td><td>
+<p><center><IMG SRC="../../figures/uiswing/learn/5RadioButtonDemo.gif" WIDTH="288" HEIGHT="195" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="RadioButtonDemo"></center></p></td></tr>
+</table></center>
+
+<!--
+<blockquote>
+<em>Caption:</em> As you'd expect, the 
+<a target="_blank" href="../components/example-swing/CheckBoxDemo.java"><font color="#bb000f"><code>CheckBoxDemo</code></font></a><a target="_blank" href="../components/example-swing/CheckBoxDemo.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a> application shows the use of check boxes, and the 
+<a target="_blank" href="../components/example-swing/RadioButtonDemo.java"><font color="#bb000f"><code>RadioButtonDemo</code></font></a><a target="_blank" href="../components/example-swing/RadioButtonDemo.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a> application shows the use of radio buttons. 
+</blockquote>
+-->
+
+You'll get a chance to take a closer look at radio buttons in 
+the section 
+<a target="_top" href="example6.html">Example Six: <code>VoteDialog</code></a><a target="_top" href="example6.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.
+</blockquote>
+
+
+<A NAME="addComponents"></A>
+<h3>Adding Components to Containers</h3>
+<blockquote>
+
+<code>SwingApplication</code> groups its label and 
+button in a container (a <code>JPanel</code>) before 
+adding the components to the frame. Here’s the code that 
+initializes the container:
+
+<blockquote><pre>
+JPanel panel = new JPanel(new GridLayout 0,1);
+panel.add(button);
+panel.add(label);
+panel.setBorder(BorderFactory.createEmptyBorder(...));
+</pre></blockquote>
+
+The first line creates the container and assigns it a 
+<I>layout manager</I>--an object that determines the size and 
+position of each component added to the container. The code 
+<code>new GridLayout(0,1)</code> creates a layout manager that 
+forces the container’s contents to be displayed in a single 
+column, with every component having the same size. 
+<P>
+The next two lines add the button and the label to the container. The last line adds a border to it. We’ll discuss the border in the next section.
+<P>
+Layout management concepts and individual layout managers are 
+covered in 
+<a target="_top" href="../layout/index.html">Laying Out Components Within a Container</a><a target="_top" href="../layout/index.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.
+</blockquote>
+
+<A NAME="borders"></A>
+<H3>Adding Borders Around Components</H3>
+<blockquote>
+If you take another look at the snapshot of 
+<code>SwingApplication</code>, you'll 
+notice that there is extra space surrounding the 
+<code>JPanel</code> on all four edges.  
+<p><center><IMG SRC="../../figures/uiswing/learn/3SwingApplication.gif" WIDTH="445" HEIGHT="122" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="Screenshot of SwingApplication"></center></p>Here's the code that adds a border to the panel:
+
+<blockquote><pre>
+pane.setBorder(BorderFactory.createEmptyBorder(
+                                30, //top
+                                30, //left
+                                10, //bottom
+                                30) //right
+                                );
+</pre></blockquote>
+
+The code creates and sets a border that provides some empty 
+space around the container’s contents--30 extra pixels on 
+the top, left, and right and 10 extra pixels on the bottom. 
+Borders are a feature that 
+<code>JPanel</code> inherits from the <code>JComponent</code> class.
+A <code>Border</code> object isn’t a <code>JComponent</code>; 
+instead, it’s used by one or more <code>JComponent</code>s to 
+paint the component’s edges. You can learn more in 
+<a target="_top" href="../misc/border.html">How to Use Borders</a><a target="_top" href="../misc/border.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.
+</blockquote>
+
+<A NAME="handlingEvents"></A>
+<h3>Handling Events</h3>
+<blockquote>
+Every time the user types a character or pushes 
+a mouse button, an event occurs. Any object can 
+be notified of the event. All the object has to 
+do is implement the appropriate interface and be 
+registered as an <I>event listener</I> on the 
+appropriate <I>event source</I>.
+<P>
+<code>SwingApplication</code> class implements an event 
+handler for button clicks (action events). Here’s the relevant code:
+<blockquote><pre> 
+public class SwingApplication implements ActionListener {
+    ...
+        JButton button = new JButton("I'm a Swing button!");
+        button.addActionListener(this);
+    ....
+
+    public void actionPerformed(ActionEvent e) {
+        numClicks++;
+        label.setText(labelPrefix + numClicks);
+   }
+}
+</pre></blockquote>
+
+
+
+Every event handler requires three pieces of code:
+
+<OL>
+<li>In the declaration for the event handler class, one 
+line of code specifies that the class either implements 
+a listener interface or extends a class that implements 
+a listener interface. For example: 
+<blockquote><pre>
+public class MyClass implements ActionListener { 
+</pre></blockquote>
+
+<li>Another line of code registers an instance of the event handler class as a listener on one or more components. For example: 
+<blockquote><pre>
+someComponent.addActionListener(instanceOfMyClass);
+</pre></blockquote>
+
+
+<li>The event handler class has code that implements the methods in the listener interface. For example: 
+<blockquote><pre>
+public void actionPerformed(ActionEvent e) { 
+    ...<I>//code that reacts to the action...</I> 
+} 
+</pre></blockquote>
+</OL>
+
+In general, to detect when the user clicks an onscreen 
+button (or does the keyboard equivalent), a program must 
+have an object that implements the <code>ActionListener</code> 
+interface. The program must register this object as an action 
+listener on the button (the event source), using the 
+<code>addActionListener</code> method. When the user clicks 
+the onscreen button, the button fires an action event. This 
+results in the invocation of the action listener's 
+<code>actionPerformed</code> method (the only method in the 
+<code>ActionListener</code> interface). The single argument 
+to the method is an <code>ActionEvent</code> object that 
+gives information about the event and its source.
+
+<p><center><IMG SRC="../../figures/uiswing/learn/6actionlistener.gif" WIDTH="362" HEIGHT="42" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="When the user clicks a button, the button's action listeners are notified."></center></p>
+Swing components can generate many kinds of events. The following table 
+lists a few examples.
+
+<blockquote>
+<table border=1>
+<tr>
+<td COLSPAN=2><CENTER><B>Some Events and Their Associated Event Listeners</B>
+              </CENTER>
+</td>
+</tr>
+
+<tr>
+<td><B>Act that Results in the Event</B></td>
+<td><B>Listener Type</B></td>
+</tr>
+
+<tr>
+<td>
+User clicks a button, presses Enter while typing <BR>
+in a text field, or chooses a menu item
+</td><td><code>
+ActionListener
+</code></td>
+</tr>
+
+<tr>
+<td>
+User closes a frame (main window)
+</td><td><code>
+WindowListener
+
+</code></td>
+</tr>
+
+<tr>
+<td>
+User presses a mouse button while the cursor is <BR>
+over a component
+</td><td><code>
+MouseListener
+</code></td>
+</tr>
+
+<tr>
+<td>
+User moves the mouse over a component
+</td><td><code>
+MouseMotionListener
+</code></td>
+</tr>
+
+<tr>
+<td>
+Component becomes visible
+</td><td><code>
+ComponentListener
+</code></td>
+</tr>
+
+<tr>
+<td>
+Component gets the keyboard focus
+</td><td><code>
+FocusListener
+</code></td>
+</tr>
+
+<tr>
+<td>
+Table or list selection changes
+</td><td><code>
+ListSelectionListener
+</code></td>
+</tr>
+
+<tr>
+<td>
+Any property in a component changes such as <BR>
+the text on a label
+</td><td><code>
+PropertyChangeListener
+</code></td>
+</tr>
+</table>
+</blockquote>
+<P>
+
+To learn more about how to detect events from a particular component, 
+refer to each component's how-to section in 
+<a target="_top" href="../components/index.html">Using Swing Components</a><a target="_top" href="../components/index.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>. 
+
+
+<blockquote><hr><strong>Note:</strong>&nbsp;Event-handling code executes in an single thread, 
+the <I>event-dispatching thread</I>. This ensures that 
+each event handler finishes execution before the 
+next one executes. For instance, the 
+<code>actionPerformed</code> method in the preceding 
+example executes in the event-dispatching thread. 
+Painting code also executes in the event-dispatching 
+thread. Therefore, event-handling code should execute 
+quickly so that the program’s GUI stays responsive. 
+If an event takes too long to execute, the GUI will 
+freeze--that is, it won’t repaint or respond to mouse clicks. 
+<a target="_top" href="../events/index.html">Writing Event Listeners</a><a target="_top" href="../events/index.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a> has for more information.
+<hr></blockquote>
+
+</blockquote>
+
+
+<p>
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="example1.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#learn" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="example3.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

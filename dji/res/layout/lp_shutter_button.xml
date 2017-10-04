@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.phone.controview.DJILPCameraShutterButton xmlns:android="http://schemas.android.com/apk/res/android" android:gravity="top|bottom|center_vertical|fill_vertical|center|fill" android:id="@id/b7s" android:layout_width="wrap_content" android:layout_height="wrap_content">
+    <dji.device.common.view.DJIStateImageViewCompat android:id="@id/b7t" android:background="@drawable/lp_selector_shutter_photo" android:visibility="invisible" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true" />
+    <dji.device.common.view.DJIStateImageViewCompat android:id="@id/b7u" android:background="@drawable/lp_selector_shutter_video" android:visibility="invisible" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true" />
+</dji.phone.controview.DJILPCameraShutterButton>

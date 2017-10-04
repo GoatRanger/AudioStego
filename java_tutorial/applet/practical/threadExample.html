@@ -1,0 +1,315 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Threads in Applets: Examples</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="threads.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#practical" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="server.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Writing Applets
+<br>
+<b>Lesson</b>: Practical Considerations when Writing Applets
+</font>
+
+<h2>
+Threads in Applets: Examples
+</h2>
+<blockquote>
+This page discusses two examples of using threads in applets.
+The first applet, AnimatorApplet,
+shows how to use a thread to perform repeated tasks.
+AnimatorApplet is from the page
+<a target="_top" href="../../ui/drawing/animLoop.html">Creating the Animation Loop</a><a target="_top" href="../../ui/drawing/animLoop.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Writing Applets trail)"></a>.
+The second applet this page discusses, SoundExample,
+shows how to use threads for one-time initialization tasks.
+SoundExample is featured in
+<a target="_top" href="../appletsonly/sound.html">Playing Sounds</a><a target="_top" href="../appletsonly/sound.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Writing Applets trail)"></a>.
+
+<p>
+
+This page does not explain basic thread code.
+To learn about the Java implementation of threads,
+refer to 
+<a target="_top" href="../../essential/threads/index.html">Threads: Doing Two or More Tasks At Once</a><a target="_top" href="../../essential/threads/index.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Writing Applets trail)"></a>.
+
+
+</blockquote>
+<h3>
+Using a Thread to Perform Repeated Tasks
+</h3>
+<blockquote>
+An applet that performs the same task over and over again
+typically should have a thread 
+with a <code>while</code> (or <code>do...while</code>) loop
+that performs the task.
+A typical example is an applet that performs timed animation,
+such as a movie player or a game.
+Animation applets need a thread
+that requests repaints at regular intervals.
+Another example is an applet
+that reads data supplied by a server-side application.
+(See
+<a href="workaround.html">Using a Server to Work Around Security Restrictions</a>
+for such an example.)
+
+<p>
+
+Applets typically create threads for repetitive tasks
+in the applet <code>start</code> method.
+Creating the thread there
+makes it easy for the applet to stop the thread
+when the user leaves the page.
+All you need to do is implement the <code>stop</code> method 
+so that it stops the applet's thread.
+When the user returns to the applet's page,
+the <code>start</code> method is called again,
+and the applet can again create a thread
+to perform the repetitive task.
+
+<p>
+
+Below is <code>AnimatorApplet</code>'s implementation of the
+<code>start</code> and
+<code>stop</code> methods.
+(Here is all of the applet's
+
+<a target="_blank" href="../../ui/drawing/example-1dot1/AnimatorApplet.java"><font color="#bb000f"><code>source code</code></font></a><a target="_blank" href="../../ui/drawing/example-1dot1/AnimatorApplet.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>.)
+
+<blockquote><pre>
+public void start() {
+    if (frozen) {
+        //Do nothing.  The user has requested that we
+        //stop changing the image.
+    } else {
+        //Start animating!
+        if (animatorThread == null) {
+            animatorThread = new Thread(this);
+        }
+        animatorThread.start();
+    }
+}
+
+public void stop() {
+    animatorThread = null;
+}
+</pre></blockquote>
+
+<p>
+
+The <code>this</code> in <code>new Thread(this)</code>
+indicates that the applet provides the body of the thread.
+It does so by implementing the <code>java.lang</code> <code>Runnable</code> interface,
+which requires the applet to provide a <code>run</code> method
+that forms the body of the thread.
+We'll discuss <code>AnimatorApplet</code>'s <code>run</code> method more a little later.
+
+<p>
+
+Notice that nowhere
+in the <code>AnimatorApplet</code> class is
+the <code>Thread stop</code> method called.
+This is because calling the <code>Thread stop</code> method 
+is like clubbing the thread over the head.
+It's a drastic way to get the thread to stop what it's doing.
+Instead, you can write the thread's <code>run</code> method 
+in such a way that the thread will gracefully exit
+when you tap it on the shoulder.
+This shoulder tap comes in the form of
+setting to null an instance variable of type <code>Thread</code>.
+
+<p>
+
+In <code>AnimatorApplet</code>,
+this instance variable is called <code>animatorThread</code>.
+The <code>start</code> method sets it
+to refer to the newly created <code>Thread</code> object.
+When the applet needs to kill the thread,
+it sets <code>animatorThread</code> to null.
+This kills the thread <em>not</em> by making it be garbage collected --
+it can't be garbage collected while it's runnable --
+but because at the top of its loop, 
+the thread checks <code>animatorThread</code>,
+continuing or exiting depending on the value of <code>animatorThread</code>.
+Here's the relevant code:
+
+<blockquote><pre>
+public void run() {
+    . . .
+    while (Thread.currentThread() == animatorThread) {
+        ...<em>//Display a frame of animation and then sleep.</em>
+    }
+}
+</pre></blockquote>
+
+<p>
+
+If <code>animatorThread</code> refers to the same thread
+as the currently executing thread,
+the thread continues executing.
+If, on the other hand, <code>animatorThread</code> is null,
+the thread exits.
+If <code>animatorThread</code> refers to <em>another</em> thread,
+then a race condition has occurred:
+<code>start</code> has been called so soon after <code>stop</code>
+(or this thread has taken such a long time in its loop)
+that <code>start</code> has created another thread
+before this thread reached the top of its <code>while</code> loop.
+Whatever the cause of the race condition, this thread should exit.
+
+<p>
+
+For more information about <code>AnimatorApplet</code>,
+go to 
+<a target="_top" href="../../ui/drawing/animLoop.html">Creating the Animation Loop</a><a target="_top" href="../../ui/drawing/animLoop.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Writing Applets trail)"></a>.
+
+
+</blockquote>
+<h3>
+Using a Thread to Perform One-Time Initialization
+</h3>
+<blockquote>
+
+If your applet needs to perform some initialization task 
+that can take a while,
+you should consider ways of performing the initialization
+in a thread.
+For example, anything that requires making a network connection
+should generally be done in a background thread.
+Fortunately, GIF and JPEG image loading
+is automatically done in the background
+using threads that you don't need to worry about.
+
+<p>
+
+Sound loading, unfortunately, 
+is not guaranteed to be done in the background.
+In current implementations,
+the <code>Applet getAudioClip</code> methods 
+don't return until they've loaded all the audio data. 
+As a result, if you want to preload sounds,
+you might want to create one or more threads to do so.
+
+<p>
+
+Using a thread to perform a one-time initialization task for an applet
+is a variation of the classic producer/consumer scenario.
+The thread that performs the task is the producer,
+and the applet is the consumer.
+<a target="_top" href="../../essential/threads/synchronization.html">The Producer/Consumer Example</a><a target="_top" href="../../essential/threads/synchronization.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Writing Applets trail)"></a> discusses how to use Java threads in a producer/consumer scenario.
+
+<p>
+
+SoundExample adheres closely to the model presented in Synchronizing Threads.
+Like the Synchronizing Threads example,
+SoundExample features three classes:
+
+<ul>
+<li> The producer:
+     
+<a target="_blank" href="../appletsonly/example-1dot1/SoundLoader.java"><font color="#bb000f"><code>SoundLoader</code></font></a><a target="_blank" href="../appletsonly/example-1dot1/SoundLoader.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>,
+     a <code>Thread</code> subclass.
+<li> The consumer:
+     
+<a target="_blank" href="../appletsonly/example-1dot1/SoundExample.java"><font color="#bb000f"><code>SoundExample</code></font></a><a target="_blank" href="../appletsonly/example-1dot1/SoundExample.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>,
+     an <code>Applet</code> subclass.
+     Unlike the Synchronizing Threads consumer example,
+     <code>SoundExample</code> is not a <code>Thread</code>;
+     it doesn't even implement the <code>Runnable</code> interface.
+     However, the <code>SoundExample</code> instance methods are executed
+     by at least two threads, depending on the application 
+     that executes the <code>SoundExample</code> applet.
+<li> The storage object:
+     
+<a target="_blank" href="../appletsonly/example-1dot1/SoundList.java"><font color="#bb000f"><code>SoundList</code></font></a><a target="_blank" href="../appletsonly/example-1dot1/SoundList.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>,
+     a <code>Hashtable</code> subclass.
+     Unlike <code>CubbyHole</code> in the Synchronizing Threads example,
+     <code>SoundList</code> can return null values 
+     if the sound data hasn't been stored yet.
+     This makes sense for this applet
+     because it needs to be able to react immediately
+     to a user request to play the sound,
+     even if the sound hasn't been loaded yet.
+</ul>
+
+For more information on <code>SoundExample</code>, go to
+<a target="_top" href="../appletsonly/sound.html">Playing Sounds</a><a target="_top" href="../appletsonly/sound.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Writing Applets trail)"></a>.
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="threads.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#practical" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="server.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

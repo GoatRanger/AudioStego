@@ -1,0 +1,8 @@
+org/openscience/cdk/test/MsmilesTests*.class
+org/openscience/cdk/test/smiles/SmilesParserTest*.class
+org/openscience/cdk/test/smiles/InterruptableSmilesParserTest*.class
+org/openscience/cdk/test/smiles/SmilesGeneratorTest*.class
+org/openscience/cdk/test/smiles/DeduceBondSystemToolTest*.class
+org/openscience/cdk/test/tools/NormalizerTest*.class
+org/openscience/cdk/test/io/SMILESReaderTest*.class
+org/openscience/cdk/test/io/iterator/IteratingSMILESReaderTest*.class

@@ -1,0 +1,204 @@
+/*
+ * Created on Sep 18, 2003
+ *
+ * To change the template for this generated file go to
+ * Window&gt;Preferences&gt;Java&gt;Code Generation&gt;Code and Comments
+ */
+package eecs;
+
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.GridLayout;
+import java.awt.LayoutManager;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.Timer;
+
+/**
+ *  This program was designed to provide a network status for the computers in a specified classroom.
+ *  It was specifically targeted at the USMA classrooms in 2003, when there were a number of issues with systems not
+ *  working, and instructors not discovering the problem until classtime. This program would allow an instructor
+ *  to quickly check the status of a room, especially if it was a room they didn't normally use.
+ *  It's fairly basic, and largely "hard-coded" - wasn't intended to be flexible, only functional.
+ *  
+ * @author Karl
+ *
+
+ */
+public class NetMonitor extends JFrame {
+  
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+protected JPanel room;
+
+  protected JLabel[] computer;
+  
+  protected ImageIcon goodIcon;
+  protected ImageIcon badIcon;
+  
+  String roomNum = "";
+
+  public NetMonitor(String room) {
+    initComponents(roomNum);
+    this.setSize(650,450);
+    this.pack();
+    Timer t = new Timer(4000,new UpdateMon());
+    t.start();    
+  }
+  public NetMonitor() {
+    boolean invalid = true;
+    Pattern p = Pattern.compile("^[0-9]{3}$");
+    while (invalid) {
+        roomNum = JOptionPane.showInputDialog(null,"Room Number to Monitor (3 digit):");
+        Matcher m = p.matcher(roomNum);
+        if (m.find()) {
+          invalid = false;
+        } else {
+          JOptionPane.showMessageDialog(null,"I assume THxxx, all you need to type is the xxx part."); 
+        }
+    }
+    initComponents(roomNum);
+    this.setSize(650,450);
+    this.pack();
+    Timer t = new Timer(4000,new UpdateMon());
+    t.start(); 
+    
+  }
+  
+  protected void initComponents(String place) {
+//    if (place == null) {
+//      roomNum = JOptionPane.showInputDialog(null,"Room Number to Monitor (3 digit):");
+//    }
+    
+    room = new JPanel();
+    room.setSize(new Dimension(650,450));
+    room.setPreferredSize(new Dimension(650,450));
+    room.setLayout(new BorderLayout());
+    LayoutManager layout = new GridLayout(3,6);
+    JPanel seats = new JPanel();
+    seats.setSize(new Dimension(600,400));
+    seats.setPreferredSize(new Dimension(600,400));
+    seats.setLayout(layout);
+    //room.setLayout(layout);
+    room.add(seats,BorderLayout.CENTER);
+    computer = new JLabel[20];
+    badIcon = new ImageIcon(getClass().getResource("Stop24.gif"));
+    goodIcon = new ImageIcon(getClass().getResource("Good.gif"));
+    if (Integer.parseInt(roomNum)%2 == 0) {  
+      for (int i=1; i<=18;i++) {
+        String num = String.valueOf(i);
+        if (num.length() < 2) num = "0" + num;
+        computer[i] = new JLabel("TH" + roomNum + num);
+        computer[i].setIcon(goodIcon);
+        computer[i].setVerticalTextPosition(JLabel.BOTTOM);
+        seats.add(computer[i]);
+      }
+      JPanel north = new JPanel();
+      north.setLayout(new BorderLayout());
+      computer[0] = new JLabel("TH"+roomNum+"00");
+      computer[0].setIcon(badIcon);
+      north.add(computer[0],BorderLayout.EAST);
+      room.add(north,BorderLayout.NORTH);
+    } else {
+      for (int row=0;row<3; row++) {
+
+        for (int i=6; i>=1;i--) {
+          int cnum = i+(row*6);
+          String num = String.valueOf(cnum);
+          System.out.println(cnum);
+          if (num.length() < 2) num = "0" + num;
+          computer[cnum] = new JLabel("TH" + roomNum + num);
+          computer[cnum].setIcon(goodIcon);
+          computer[cnum].setVerticalTextPosition(JLabel.BOTTOM);
+          seats.add(computer[cnum]);
+        }
+      }
+      JPanel north = new JPanel();
+      north.setLayout(new BorderLayout());
+      computer[0] = new JLabel("TH"+roomNum+"00");
+      computer[0].setIcon(badIcon);
+      north.add(computer[0],BorderLayout.WEST);
+      room.add(north,BorderLayout.NORTH);
+    }
+    computer[19] = new JLabel("TH"+roomNum+"19");
+    computer[19].setIcon(badIcon);
+    room.add(computer[19],BorderLayout.SOUTH);
+    this.getContentPane().add(room);
+    this.setTitle("Network Monitor - Room TH"+ roomNum);
+  }
+  
+  public static void main(String[] args) {
+    NetMonitor monitor;
+    if (args.length > 0 && args[0]!= null) {
+      monitor = new NetMonitor(args[0]);
+    } else {
+      monitor = new NetMonitor();
+    }
+    monitor.setVisible(true);
+  }
+  
+  public void init() {
+    NetMonitor monitor;
+//    if (args.length > 0 && args[0]!= null) {
+//      monitor = new NetMonitor(args[0]);
+//    } else {
+      monitor = new NetMonitor();
+//    }
+    monitor.setVisible(true);    
+  }
+  
+  protected class UpdateMon implements ActionListener {
+    
+    /* (non-Javadoc)
+     * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+     */
+    public void actionPerformed(ActionEvent arg0) {
+        for (int i=0; i<computer.length; i++) {
+          String num = String.valueOf(i);
+          if (num.length() < 2) num = "0" + num;
+          if (active("TH"+roomNum+num)) {
+            computer[i].setIcon(goodIcon);
+          } else {
+            computer[i].setIcon(badIcon);
+          }
+        }
+        repaint();
+    }
+    
+    /**
+     * Check if the specified computer is available. Since this is normally run with admin
+     * credentials, just attempt to create a file in the root - and if the file can be created
+     * then the computer is available.
+     * Although there are other ways to test availability, this check also validates that an instructor
+     * would be able to quickly push files to computers in the room, which is often desired.
+     * 
+     * @param cName The name of the computer to check
+     * @return boolean TRUE if the computer could be actively validated.
+     */
+    private boolean active(String cName) {
+      boolean isActive = true;
+      File f;
+      //File f = new File("\\usmawkdd"+cName+"\\c$\\boot.ini");
+      if (Math.random() > 0.5) {
+        f = new File("\\boot3.ini");
+      } else {
+        f = new File("\\boot.ini");
+      }
+      if (!f.exists()) isActive = false;
+      return isActive;
+    }
+
+  }
+}

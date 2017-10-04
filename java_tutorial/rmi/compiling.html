@@ -1,0 +1,433 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Compiling the Example Programs</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="example.html" target="_top"><img src="../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="./TOC.html" target="_top"><img src="../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="running.html" target="_top"><img src="../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="./index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../search.html" target="_top">Search</a>
+<br><a href="../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: RMI
+</font>
+
+<h2>
+Compiling the Example Programs
+</h2>
+<blockquote>
+In a real-world scenario in which a service like the compute engine is
+deployed, a developer would likely create a JAR (Java ARchive) file
+that contains the <CODE>Compute</CODE> and <CODE>Task</CODE> interfaces
+for server classes to implement and client program to use. Next, a
+developer, perhaps the same developer of the interface JAR file, would
+write an implementation of the <CODE>Compute</CODE> interface and
+deploy that service on a machine available to clients. Developers of
+client programs can use the <CODE>Compute</CODE> and the
+<CODE>Task</CODE> interfaces, contained in the JAR file, and
+independently develop a task and client program that uses a
+<CODE>Compute</CODE> service.
+<P>
+In this section you learn how to set up the JAR file, server classes,
+and client classes. You will see that the client's <CODE>Pi</CODE>
+class will be downloaded to the server at runtime. Also, the
+<CODE>ComputeEngine</CODE>'s remote stub will be downloaded from the
+server to the client at runtime.
+<P>
+The example separates the interfaces, remote object implementation, and
+client code into three packages:
+<UL>
+<LI> <CODE>compute</CODE> (
+     
+<a target="_blank" href="example-1dot2/compute/Compute.java"><font color="#bb000f"><code>Compute</code></font></a><a target="_blank" href="example-1dot2/compute/Compute.java"><img src="../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>
+     and
+     
+<a target="_blank" href="example-1dot2/compute/Task.java"><font color="#bb000f"><code>Task</code></font></a><a target="_blank" href="example-1dot2/compute/Task.java"><img src="../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>
+     interfaces)
+<LI> <CODE>engine</CODE> (
+     
+<a target="_blank" href="example-1dot2/engine/ComputeEngine.java"><font color="#bb000f"><code>ComputeEngine</code></font></a><a target="_blank" href="example-1dot2/engine/ComputeEngine.java"><img src="../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>
+     implementation class and its stub)
+<LI> <CODE>client</CODE> (
+     
+<a target="_blank" href="example-1dot2/client/ComputePi.java"><font color="#bb000f"><code>ComputePi</code></font></a><a target="_blank" href="example-1dot2/client/ComputePi.java"><img src="../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a> client code and
+     
+<a target="_blank" href="example-1dot2/client/Pi.java"><font color="#bb000f"><code>Pi</code></font></a><a target="_blank" href="example-1dot2/client/Pi.java"><img src="../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a> task implementation)
+</UL>
+<P>
+Let's first build the interface JAR file to provide to server and client developers.
+
+</blockquote>
+<h3>Build a JAR File of Interface Classes</h3>
+<blockquote>
+First, you need to compile the interface source files in the
+<CODE>compute</CODE> package and then build a JAR file that contains
+their class files. Let's suppose a user, <CODE>waldo</CODE>, has
+written these particular interfaces and has placed the source files in
+<CODE>c:\home\waldo\src\compute</CODE> (on
+UNIX:<CODE>/home/waldo/src/compute</CODE>). Given these paths, you can
+use the following commands to compile the interfaces and create the JAR
+file.
+<p>
+<blockquote>
+<hr>
+<DT><strong>Microsoft Windows</strong>:</DT>
+<DD>
+<pre>
+cd c:\home\waldo\src
+javac compute\Compute.java
+javac compute\Task.java
+jar cvf compute.jar compute\*.class
+</pre>
+</DD>
+
+<DT><strong>UNIX</strong>:</DT>
+<DD>
+<pre>
+cd /home/waldo/src
+javac compute/Compute.java
+javac compute/Task.java
+jar cvf compute.jar compute/*.class
+</pre>
+</DD>
+<hr></blockquote>
+
+<P>
+The <CODE>jar</CODE> command displays the following output (due to the
+<CODE>-v</CODE> option):
+<blockquote><pre>
+added manifest
+adding: compute/Compute.class (in=281) (out=196)
+    	(deflated 30%)
+adding: compute/Task.class (in=200) (out=164)
+    	(deflated 18%)
+</pre></blockquote>
+<P>
+Now you can distribute the <CODE>compute.jar</CODE> file to developers
+of server and client applications so that they can make use of the
+interfaces.
+<P>
+When you build either server- or client-side classes with the
+<CODE>javac</CODE> and <CODE>rmic</CODE> compilers, you generally need
+to specify where the resulting class files should reside so that they
+are network accessible. In this example this location is, for UNIX,
+<CODE>/home/user/public_html/classes</CODE>, because some web servers
+allow accessing a user's <CODE>public_html</CODE> directory via an HTTP
+URL constructed as <CODE>http://host/~user/</CODE>. If your web server
+does not support this convention, you could use a file URL instead. The
+file URLs take the form
+<CODE>file:/home/user/public_html/classes/</CODE> on UNIX or, on the
+Microsoft Windows platform, <CODE>file:/c:/home/user/public_html/classes/</CODE>.
+You may also select another type of URL, as appropriate.
+<P>
+The network accessibility of the class files allows the RMI runtime to
+download code when needed. Rather than defining its own protocol for
+code downloading, RMI uses URL protocols supported by the Java platform
+(for example, HTTP) to download code. Note that a full, heavyweight web
+server is not needed to accomplish this downloading of class files. In
+fact, a simple HTTP server that provides all of the functionality
+needed to make classes available for downloading in RMI via HTTP can be
+found at
+<a href="ftp://ftp.javasoft.com/pub/jdk1.1/rmi/class-server.zip">
+ftp://ftp.javasoft.com/pub/jdk1.1/rmi/class-server.zip</a>.
+</blockquote>
+
+<h3>Build the Server Classes</h3>
+<blockquote>
+The <CODE>engine</CODE> package contains only one server-side
+implementation class, <CODE>Com-puteEngine</CODE>, the remote object
+implementation of the <CODE>Compute</CODE> interface. Since
+<CODE>ComputeEngine</CODE> is an implementation of a remote interface,
+you need to generate a stub for the remote object so that clients can
+contact the remote object.
+<P>
+Let's say that <CODE>ann</CODE>, the developer of the
+<CODE>ComputeEngine</CODE> class, has placed
+<CODE>ComputeEngine.java</CODE> in the
+<CODE>c:\home\ann\src\engine</CODE> directory and is deploying the
+class files for clients to use in a subdirectory of her
+<CODE>public_html</CODE> directory,
+<CODE>c:\home\ann\public_html\classes</CODE> (on UNIX that would be
+<CODE>/home/ann/public_html/classes</CODE>, accessible via some web
+servers as <CODE>http://host/~ann/classes/</CODE>).
+<P>
+Now let's assume that the <CODE>compute.jar</CODE> file is located in
+the directory <CODE>c:\home\ann\public_html\classes</CODE>. To compile
+the <CODE>ComputeEngine</CODE> class, your class path must include the
+<CODE>compute.jar</CODE> file and the source directory itself.
+
+<p>
+
+<blockquote><hr><strong>Note:</strong>&nbsp;
+Normally we recommend that you set the class path on the command line,
+using the <CODE>-classpath</CODE> option.
+However, for several compounding reasons this example uses the
+<CODE> CLASSPATH</CODE> environment variable,
+because both <CODE>javac</CODE> and <CODE>rmic</CODE>
+require a class path and the <CODE>-classpath</CODE> option is
+treated differently in JDK 1.1 and JDK 1.2.
+For detailed information on
+<code>CLASSPATH</code>
+refer to:
+<p>
+<DT><strong>Solaris</strong>:</DT>
+<br>
+
+<a target="_blank" href="http://java.sun.com/products/jdk/1.2/docs/tooldocs/solaris/classpath.html"><font color="#009bbb">http://java.sun.com/products/jdk/1.2/docs/tooldocs/solaris/classpath.html</font></a><a target="_blank" href="http://java.sun.com/products/jdk/1.2/docs/tooldocs/solaris/classpath.html"><img src="../images/otherIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (outside of the tutorial)"></a> </DD>
+<p>
+<DT><strong>Microsoft Windows</strong>: </DT>
+<br>
+
+<a target="_blank" href="http://java.sun.com/products/jdk/1.2/docs/tooldocs/win32/classpath.html"><font color="#009bbb">http://java.sun.com/products/jdk/1.2/docs/tooldocs/win32/classpath.html</font></a><a target="_blank" href="http://java.sun.com/products/jdk/1.2/docs/tooldocs/win32/classpath.html"><img src="../images/otherIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (outside of the tutorial)"></a> </DD>
+<P>
+</P>
+
+We recommend that you do not set <CODE>CLASSPATH</CODE>
+in a login or startup file and that you remember to unset it when
+you're finished working with this example.
+<hr></blockquote>
+
+<P>
+Here's how to set the <CODE>CLASSPATH</CODE> environment variable
+<p>
+<blockquote>
+<hr>
+<DT>
+<strong>Microsoft Windows</strong>:
+</DT>
+<br>
+<pre>
+set CLASSPATH=c:\home\ann\src;c:\home\ann\public_html\classes\compute.jar
+</pre>
+<DT>
+<strong>UNIX</strong>:
+</DT>
+<br>
+<pre>
+setenv CLASSPATH /home/ann/src:/home/ann/public_html/classes/compute.jar
+</pre>
+</DD>
+<hr></blockquote>
+
+<P>
+Now you compile the <CODE>ComputeEngine.java</CODE> source file,
+generate a stub for the <CODE>ComputeEngine</CODE> class, and make that
+stub network accessible. To create stub (and optionally skeleton
+files), run the <CODE>rmic</CODE> compiler on the fully qualified class
+names of the remote object implementations that must be found in the
+class path. The <CODE>rmic</CODE> command takes one or more class names
+as input and produces as output class files of the form
+<CODE>ClassName_Stub.class</CODE> and
+<CODE>ClassName_Skel.class</CODE>. A skeleton file will not be
+generated if you run <CODE>rmic</CODE> with the <CODE>-v1.2</CODE>
+option. This option should be used only if all of your clients will be
+running JDK 1.2 or compatible versions.
+<p>
+
+<blockquote>
+<hr>
+<DT><strong>Microsoft Windows</strong>:</DT>
+<DD>
+<pre>
+cd c:\home\ann\src
+javac engine\ComputeEngine.java
+rmic -d . engine.ComputeEngine
+mkdir c:\home\ann\public_html\classes\engine
+cp engine\ComputeEngine_*.class
+    c:\home\ann\public_html\classes\engine
+</pre>
+</DD>
+<DT>
+<strong>UNIX</strong>:
+</DT>
+<DD>
+<pre>
+cd /home/ann/src
+javac engine/ComputeEngine.java
+rmic -d . engine.ComputeEngine
+mkdir /home/ann/public_html/classes/engine
+cp engine/ComputeEngine_*.class
+    /home/ann/public_html/classes/engine
+</pre>
+</DD>
+<hr></blockquote>
+<P>
+The <CODE>-d</CODE> option tells the <CODE>rmic</CODE>
+compiler to place the generated class files, <CODE>ComputeEngine_Stub.class</CODE>
+and <CODE>ComputeEngine_Skel.class</CODE>, in the directory
+c:<CODE>\home\ann\src\engine</CODE>. You also need to make the stubs
+and the skeletons network accessible, so you must copy the stub and the
+skeleton class to the area:  <CODE>public_html\classes</CODE>.
+<P>
+Since the <CODE>ComputeEngine</CODE>'s stub implements the
+<CODE>Compute</CODE> interface, which refers to the <CODE>Task</CODE>
+interface, you need to make these two interface class files network
+accessible along with the stub. So the final step is to unpack the
+<CODE>compute.jar</CODE> file in the directory
+<CODE>c:\home\ann\public_html\classes</CODE> to make the
+<CODE>Compute</CODE> and the <CODE>Task</CODE> interfaces available for
+downloading.
+
+<p>
+<blockquote>
+<hr>
+<DT>
+<strong>Microsoft Windows</strong>:
+</DT>
+<DD>
+<pre>
+cd c:\home\ann\public_html\classes
+jar xvf compute.jar
+</pre>
+</DD>
+<DT><strong>UNIX</strong>:</DT>
+<DD>
+<pre>
+cd /home/ann/public_html/classes
+jar xvf compute.jar
+</pre>
+</DD>
+<hr></blockquote>
+<P>
+The <CODE>jar</CODE> command displays the following output:
+
+<blockquote><pre>
+created: META-INF/
+extracted: META-INF/MANIFEST.MF
+extracted: compute/Compute.class
+extracted: compute/Task.class
+</pre></blockquote>
+
+Now the compute engine is ready to deploy. You could do that now or
+wait until after you have built the client. While we are on a building
+spree, let's build the client-side program next.
+</blockquote>
+
+<h3>Build the Client Classes</h3>
+<blockquote>
+Let's assume that user <CODE>jones</CODE> has created the client code
+in the directory <CODE>c:\home\jones\src\client</CODE> and will deploy
+the <CODE>Pi</CODE> class, so that it can be downloaded to the compute
+engine, in the network-accessible
+directory<CODE>c:\home\jones\public_html\classes</CODE>, also available
+via some web servers as <CODE>http://host/~jones/classes/</CODE>. The
+two client-side classes are contained in the files <CODE>Pi.java</CODE>
+and <CODE>ComputePi.java</CODE> in the <CODE>client</CODE>
+subdirectory.
+<P>
+In order to build the client code, you need the
+<CODE>compute.jar</CODE> file that contains the <CODE>Compute</CODE>
+and the <CODE>Task</CODE> interfaces that the client uses. Let's say
+that the <CODE>compute.jar</CODE> file is located in
+<CODE>c:\home\jones\public_html\classes</CODE>. The client classes can
+be built as follows:
+<p>
+<blockquote>
+<hr>
+<DT>
+<strong>Microsoft Windows</strong>:
+</DT>
+<DD>
+<pre>
+set CLASSPATH=c:\home\jones\src;c:\home\jones\public_html\classes\compute.jar
+cd c:\home\jones\src
+javac client\ComputePi.java
+javac -d c:\home\jones\public_html\classes client\Pi.java
+</pre>
+</DD>
+<DT>
+<strong>UNIX</strong>:
+</DT>
+<DD>
+<pre>
+setenv CLASSPATH /home/jones/src:/home/jones/public_html/classes/compute.jar
+cd /home/jones/src
+javac client/ComputePi.java
+javac -d /home/jones/public_html/classes client/Pi.java
+</pre>
+</DD>
+<hr></blockquote>
+<P>
+Only the <CODE>Pi</CODE> class needs to be placed in the directory
+<CODE>public_html\classes\<BR> client</CODE>. (The <CODE>client</CODE>
+directory is created by <CODE>javac</CODE> if it does not exist.) The
+reason is that only the <CODE>Pi</CODE> class needs to be available for
+downloading to the compute engine's virtual machine. Now you can run
+the server and then the client.
+
+
+</blockquote>
+
+<img src="../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="example.html" target="_top"><img src="../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="./TOC.html" target="_top"><img src="../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="running.html" target="_top"><img src="../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="./index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../search.html" target="_top">Search</a>
+<br><a href="../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

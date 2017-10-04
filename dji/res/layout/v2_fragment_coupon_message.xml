@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:background="@color/om" android:layout_width="match_parent" android:layout_height="match_parent">
+    <include android:id="@+id/v2_coupon_header" layout="@layout/v2_coupon_header" />
+    <RelativeLayout android:id="@+id/v2_coupon_msg_bg" android:background="@r$drawable/v2_coupon_bg_pad" android:visibility="visible" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@+id/v2_coupon_header"
+        <RelativeLayout android:background="@color/om" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginLeft="@dimen/a2" android:layout_marginTop="@dimen/a4" android:layout_marginRight="@dimen/a3" android:layout_marginBottom="@dimen/a1">
+            <ListView android:id="@+id/v2_coupon_list" android:paddingTop="10dp" android:visibility="visible" android:scrollbars="UNKNOWN_DATA_0x0" android:layout_width="match_parent" android:layout_height="match_parent" />
+        </RelativeLayout>
+    </RelativeLayout>
+    <dji.publics.DJIUI.DJITextView android:textColor="#9b9b9b" android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@+id/v2_coupon_emptymsg" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/v2_coupon_no_msg" android:layout_centerInParent="true" android:layout_centerHorizontal="true" />
+    <RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@+id/v2_coupon_header">
+        <include android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/v2_coupon_loading" />
+    </RelativeLayout>
+</RelativeLayout>

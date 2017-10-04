@@ -1,0 +1,174 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Questions and Exercises: Operators</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="../opsummary.html" target="_top"><img src="../../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../../TOC.html#nutsandbolts" target="_top"><img src="../../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="../expressions.html" target="_top"><img src="../../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="../index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../../search.html" target="_top">Search</a>
+<br><a href="../../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Learning the Java Language
+<br>
+<b>Lesson</b>: Language Basics
+</font>
+
+<h2>
+Questions and Exercises: Operators
+</h2>
+<blockquote>
+</blockquote>
+
+<h3>Questions</h3>
+<blockquote>
+<ol>
+<li>
+Consider the following code snippet:
+<blockquote><pre>
+arrayOfInts[j] > arrayOfInts[j+1]
+</pre></blockquote>
+What operators does the code contain?
+<li>
+Consider the following code snippet: 
+<blockquote><pre>
+int i = 10;
+int n = i++%5;
+</pre></blockquote>
+<ol TYPE=a>
+<li>
+What are the values of <code>i</code> and <code>n</code>
+after the code is executed? 
+<li>
+What are the final values of <code>i</code> and <code>n</code>
+if instead of using the postfix increment operator (<code>i++</code>),
+you use the prefix version (<code>++i)</code>)? 
+</ol>
+<li>
+What is the value of <code>i</code> after the following code snippet executes?
+<blockquote><pre>
+int i = 8;
+i >>=2;
+</pre></blockquote>
+<li>
+What is the value of <code>i</code> after
+the following code snippet executes?    
+<blockquote><pre>
+int i = 17;
+i >>=1;
+</pre></blockquote>
+</ol>
+</blockquote>
+
+<h3>Exercises</h3>
+<blockquote>
+<ol>
+<li>
+Write a program that tests whether a floating point number is zero.
+(Hint: You shouldn't generally use the equality operator <code>==</code> with
+floating point numbers, since floating point numbers by nature are hard
+to match exactly. Instead, test whether the number is close to zero.)
+<li>
+Write a program that calculates the number of US dollars equivalent to
+a given number of French francs. Assume an exchange rate of 6.85062
+francs per dollar. If you want to control the format of the numbers
+your program displays, you can use the
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/text/DecimalFormat.html"><font color="#8800bb"><code>DecimalFormat</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/text/DecimalFormat.html"><img src="../../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> class, which is
+discussed in
+<a target="_top" href="../../data/decimalFormat.html">Customizing Formats</a><a target="_top" href="../../data/decimalFormat.html"><img src="../../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Learning the Java Language trail)"></a><li>
+Write a program that uses the bits in a single integer to represent the
+true/false data shown in the following figure:
+<p><center><IMG SRC="../../../figures/java/opex.gif" WIDTH="356" HEIGHT="147" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p>Include in the program a variable named <code>status</code>,
+and have the program print the meaning of <code>status</code>.
+For example, if <code>status</code> is 1 (only bit 0 is
+set) the program should print something like this:
+<blockquote><pre>
+Ready to receive requests
+</pre></blockquote>
+<ol TYPE=a>
+<li>
+Show your code.
+<li>
+What is the output when status is 8?
+<li>
+What is the output when status is 7?
+</ol>
+</ol>
+</blockquote>
+
+<a target="_top" href="answers_operators.html">Check your answers.</a><a target="_top" href="answers_operators.html"><img src="../../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Learning the Java Language trail)"></a><blockquote>
+</blockquote>
+
+<img src="../../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="../opsummary.html" target="_top"><img src="../../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../../TOC.html#nutsandbolts" target="_top"><img src="../../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="../expressions.html" target="_top"><img src="../../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="../index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../../search.html" target="_top">Search</a>
+<br><a href="../../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.device.common.view.set.view.LonganCameraShotcutsView xmlns:android="http://schemas.android.com/apk/res-auto" phantom:orientation="vertical" phantom:background="@color/ab" phantom:layout_width="UNKNOWN_DATA_0x7f0b04e5" phantom:layout_height="match_parent">
+    <RelativeLayout phantom:layout_width="match_parent" phantom:layout_height="UNKNOWN_DATA_0x7f0b04e3">
+        <dji.publics.DJIUI.DJITextView phantom:textSize="@dimen/rl" phantom:textColor="@color/om" phantom:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" phantom:id="@id/b2r" phantom:background="@color/aa" phantom:layout_width="match_parent" phantom:layout_height="match_parent" phantom:layout_centerInParent="true" phantom:alpha="0.8" />
+        <dji.device.common.view.DJIStateImageViewCompat phantom:id="@id/b2s" phantom:paddingLeft="@dimen/rp" phantom:paddingRight="@dimen/rp" phantom:layout_width="wrap_content" phantom:layout_height="match_parent" phantom:src="@drawable/longan_back_icon" phantom:scaleType="center" phantom:adjustViewBounds="true" phantom:layout_alignParentLeft="true" phantom:contentDescription="@string/app_name" />
+    </RelativeLayout>
+    <dji.device.common.view.set.view.DJIStageViewCompat phantom:id="@id/b2t" phantom:layout_width="match_parent" phantom:layout_height="match_parent" />
+</dji.device.common.view.set.view.LonganCameraShotcutsView>

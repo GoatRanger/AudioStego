@@ -1,0 +1,140 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Finding Superclasses</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="getModifiers.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#class" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="getInterfaces.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: The Reflection API
+<br>
+<b>Lesson</b>: Examining Classes
+</font>
+
+<h2>
+Finding Superclasses
+</h2>
+<blockquote>
+Because the Java programming language supports inheritance, an application such as a class browser must 
+be able to identify superclasses. To determine the superclass of a class,
+you invoke the <code>getSuperclass</code> method. This method returns a 
+<code>Class</code> object representing the superclass, or returns null if the class has no 
+superclass. To  identify all ancestors of a class, call  <code>getSuperclass</code> 
+iteratively until it returns null.
+
+<p>
+The program that follows   finds the names of the <code>Button</code> class's ancestors by 
+calling <code>getSuperclass</code> iteratively.
+
+
+<blockquote><pre>
+import java.lang.reflect.*;
+import java.awt.*;
+
+class SampleSuper {
+
+   public static void main(String[] args) {
+      Button b = new Button();
+      printSuperclasses(b);
+   }
+
+   static void printSuperclasses(Object o) {
+      Class subclass = o.getClass();
+      Class superclass = subclass.getSuperclass();
+      while (superclass != null) {
+         String className = superclass.getName();
+         System.out.println(className);
+         subclass = superclass;
+         superclass = subclass.getSuperclass();
+      }
+   }
+}
+</pre></blockquote>
+
+The output of the sample program verifies that
+the parent of <code>Button</code> is <code>Component</code>,
+and that the parent of <code>Component</code> is <code>Object</code>:
+
+<blockquote><pre>
+java.awt.Component
+java.lang.Object
+</pre></blockquote>
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="getModifiers.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#class" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="getInterfaces.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

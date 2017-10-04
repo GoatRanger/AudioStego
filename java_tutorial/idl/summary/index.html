@@ -1,0 +1,182 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Summary</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="../hello/index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#summary" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="../end.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+
+<br>
+<font size="-1">
+<b>Trail</b>: IDL
+</font>
+
+<h2>
+Lesson: Summary
+</h2>
+<blockquote>
+In this trail you've seen how to use Java IDL, the CORBA-compliant
+remote object technology, to develop a simple client-server
+application, as well as two differnt ways to locate remote CORBA
+objects. Java IDL and Java RMI are the two remote-object technologies
+provided with the Java Development Kit software.
+<P>
+This summary compares features of Java RMI and Java IDL to help make it
+easier to choose between the two. It also provides pointers to other
+sources of information on CORBA, IDL, and the OMG.
+
+</blockquote>
+<h3>Deciding Whether to Use RMI or IDL</h3>
+<blockquote>
+Because they have similar purposes, RMI and Java IDL have some similar
+features and capabilities--as well as some differences. This section
+summarizes several of these similarities and differences to help you
+understand these technologies better and make choosing between them
+easier.
+
+<dl>
+<dt>
+<strong>100% Pure Java vs. Support for Legacy Applications</strong>
+<dd>
+Java RMI is a 100% Pure Java solution for remote objects, providing all
+the advantages of Java's &quot;write once, run anywhere&quot;
+abilities. Servers and clients developed with Java RMI can be deployed
+anywhere on a network on any platform that supports the Java runtime
+environment.
+<P>
+Java IDL, in contrast, is based on an industry standard for remotely
+invoking objects written in any supported programming language. As a
+result, Java IDL provides a way to connect to &quot;legacy&quot;
+applications that still serve vital business needs but that were
+written in languages other than Java.
+
+<p>
+<dt>
+<strong>Communication Protocols</strong>
+<dd>
+Java RMI and Java IDL currently use different protocols for
+communicating between objects on different platforms. Java IDL uses the
+CORBA-standard Internet Inter-Orb Protocol (IIOP), the protocol shared
+by all CORBA-compliant Object Request Brokers. Together with IDL, IIOP
+enables objects residing on diverse platforms and written in diverse
+languages to interact in standard ways. Java RMI currently uses the
+Java Remote Messaging Protocol (JRMP)--a protocol developed
+specifically for Java's remote object capabilities.
+<p>
+For the future, Sun and IBM have announced plans to enable RMI to use
+the IIOP protocol to communicate with CORBA-compliant remote
+objects.
+
+<p>
+<dt>
+<strong>Objects by Reference, Objects by Value</strong>
+<dd>
+In Java IDL, a client interacts with a remote object by reference. That
+is, the client never gets an actual copy of the server object in its
+own runtime environment. Instead, the client uses stubs in the local
+runtime to manipulate the server object residing on the remote
+platform.
+<P>
+In contrast, RMI enables a client to interact with a remote object by
+reference, or to download it and manipulate it in the local runtime
+environment by value. This is because all objects in RMI are Java
+objects. RMI uses the object serialization capabilities of the Java
+language to transport objects from the server to the client. Java IDL,
+because it interacts with objects written in any language, can't take
+advantage of this &quot;write once, run anywhere&quot; feature of the
+Java programming language.
+<P>
+Note that future versions of the CORBA specification will include
+protocols for passing objects by value.
+</dl>
+</blockquote>
+
+<h3>For More Information</h3>
+<blockquote>
+<A href="_jidlGlossary.html">Java IDL glossary</A>
+gives definitions for new terms you may have
+encountered throughout the tutorial.
+You can read more background information and details
+in the Java IDL documentation found online:
+
+<a target="_blank" href="http://java.sun.com/products/jdk/idl/index.html"><font color="#009bbb">http://java.sun.com/products/jdk/idl/index.html</font></a><a target="_blank" href="http://java.sun.com/products/jdk/idl/index.html"><img src="../../images/otherIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (outside of the tutorial)"></a> .<P>
+Additional information on the OMG and CORBA standard are available from
+the 
+
+<a target="_blank" href="http://www.omg.org/"><font color="#009bbb">OMG Web site</font></a><a target="_blank" href="http://www.omg.org/"><img src="../../images/otherIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (outside of the tutorial)"></a>. In particular, take a look at the beginners' guide, 
+
+<a target="_blank" href="http://www.omg.org/gettingstarted/"><font color="#009bbb">Getting Started with OMG Specifications and Process</font></a><a target="_blank" href="http://www.omg.org/gettingstarted/"><img src="../../images/otherIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (outside of the tutorial)"></a>.
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="../hello/index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#summary" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="../end.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

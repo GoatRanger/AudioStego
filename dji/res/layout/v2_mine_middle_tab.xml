@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="horizontal" android:background="@color/om" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x7f0b013a">
+    <RelativeLayout android:id="@+id/v2_mine_store_ly" android:clickable="true" android:layout_width="UNKNOWN_DATA_0x1" android:layout_height="match_parent" android:layout_weight="1.0">
+        <ImageView android:id="@+id/v2_mine_store_new" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@r$drawable/v2_store_new" android:layout_alignParentTop="true" android:layout_alignParentRight="true" />
+        <ImageView android:id="@+id/v2_mine_store" android:layout_width="UNKNOWN_DATA_0x7f0b0119" android:layout_height="UNKNOWN_DATA_0x7f0b0119" android:layout_marginTop="@dimen/fj" android:src="@r$drawable/v2_mine_store_icon" android:scaleType="centerCrop" android:layout_centerHorizontal="true" />
+        <dji.pilot.publics.widget.DJIStateTextView android:textSize="@dimen/ft" android:textColor="@r$color/standard3_0_secondary_text_color" android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@+id/mine_button_store" android:layout_width="wrap_content" android:layout_height="UNKNOWN_DATA_0x7f0b0112" android:layout_marginTop="@dimen/fj" android:text="@string/v2_mine_store_dji" android:layout_below="@+id/v2_mine_store" android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+    <View android:background="@r$color/v2_mine_profile_border" android:layout_width="UNKNOWN_DATA_0x200" android:layout_height="match_parent" />
+    <RelativeLayout android:id="@+id/v2_mine_academy_ly" android:layout_width="UNKNOWN_DATA_0x1" android:layout_height="wrap_content" android:layout_weight="1.0">
+        <ImageView android:id="@+id/v2_mine_academy" android:layout_width="UNKNOWN_DATA_0x7f0b0119" android:layout_height="UNKNOWN_DATA_0x7f0b0119" android:layout_marginTop="@dimen/fj" android:src="@r$drawable/v2_mine_for_icon" android:scaleType="centerCrop" android:layout_centerHorizontal="true" />
+        <dji.pilot.publics.widget.DJIStateTextView android:textSize="@dimen/ft" android:textColor="@r$color/standard3_0_secondary_text_color" android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@+id/mine_button_academy" android:layout_width="wrap_content" android:layout_height="UNKNOWN_DATA_0x7f0b0112" android:layout_marginTop="@dimen/fj" android:text="@string/mine_dji_bbs" android:layout_below="@+id/v2_mine_academy" android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.publics.DJIUI.DJIRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent">
+    <dji.publics.DJIUI.DJIImageView android:visibility="gone" android:layout_width="UNKNOWN_DATA_0x7f0b0119" android:layout_height="UNKNOWN_DATA_0x7f0b010a" android:layout_marginLeft="@dimen/fj" android:layout_marginTop="@dimen/gr" android:src="@r$drawable/rc_main_dji_logo" />
+    <dji.pilot.home.rc.view.MainMenuRightView android:id="@+id/rc_main_right_menu" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="27dp" android:layout_marginBottom="40dp" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" />
+    <dji.pilot.home.rc.view.MainMenuTopView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="8dp" />
+    <dji.pilot.home.rc.view.MainConnectionStateView android:layout_width="match_parent" android:layout_height="match_parent" />
+    <include android:layout_width="UNKNOWN_DATA_0xf001" android:layout_height="UNKNOWN_DATA_0x2d01" android:layout_marginBottom="20dp" android:layout_above="@+id/rc_main_right_menu" android:layout_alignParentRight="true" layout="@layout/djipad_upgrade_tip_banner_view" />
+</dji.publics.DJIUI.DJIRelativeLayout>

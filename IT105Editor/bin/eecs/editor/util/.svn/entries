@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="10"
+   name=""
+   committed-date="2005-02-01T05:59:34.421875Z"
+   url="svn://192.168.2.2/IT105Editor/src/eecs/editor/util"
+   last-author="Karl"
+   kind="dir"
+   uuid="0daf4267-3229-f84b-9084-f3c94b025f38"
+   revision="55"/>
+<entry
+   committed-rev="10"
+   name="GauntletCompileTask.java"
+   text-time="2005-03-02T06:14:20.265625Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="4bf3a548ea16cf39298ecb77d351a610"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:20.078125Z"/>
+<entry
+   committed-rev="10"
+   name="XMLIndent.java"
+   text-time="2005-03-02T06:14:20.281250Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="ec84f8f294bc3242d195b1500378ff61"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:20.078125Z"/>
+<entry
+   committed-rev="10"
+   name="URLSubmit.java"
+   text-time="2005-03-02T06:14:20.281250Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="0b939ec54a42661b3f5bc68b0838e003"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:20.093750Z"/>
+<entry
+   committed-rev="10"
+   name="HTMLChecker.java"
+   text-time="2005-03-02T06:14:20.296875Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="77f1e0ddd1216e1a01f611ff1973816c"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:20.125000Z"/>
+<entry
+   name="CVS"
+   kind="dir"/>
+<entry
+   committed-rev="10"
+   name="Constants.java"
+   text-time="2005-03-02T06:14:20.312500Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="29dfabddd642836c4a0f1c2c76e55dd9"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:20.218750Z"/>
+<entry
+   committed-rev="10"
+   name="CSSChecker.java"
+   text-time="2005-03-02T06:14:20.312500Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="5307ba03b249862708618bca88800138"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:20.234375Z"/>
+<entry
+   committed-rev="10"
+   name="package.html"
+   text-time="2005-03-02T06:14:20.328125Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="ce93779e2a0b3e7d5116a2604b193ca9"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:20.250000Z"/>
+<entry
+   committed-rev="10"
+   name="MRUManager.java"
+   text-time="2005-03-02T06:14:20.328125Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="df2ab2a0b787546ddcadf7dd49f12ba8"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:20.250000Z"/>
+</wc-entries>

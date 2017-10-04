@@ -1,0 +1,144 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>What Is an Object?</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#concepts" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="message.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Learning the Java Language
+<br>
+<b>Lesson</b>: Object-Oriented Programming Concepts
+</font>
+
+<h2>
+What Is an Object?
+</h2>
+<blockquote>
+
+Objects are key to understanding
+<a href="javascript:var meth=openWin; meth('object-oriented design');" onMouseOver="self.status='Look up object-oriented in glossary'; return true;" onMouseOut="self.status=''; return true;"><font color="#00bb00"><em>object-oriented</em></font></a><a href="javascript:var meth=openWin; meth('object-oriented design');" onMouseOver="self.status='Look up object-oriented in glossary'; return true;" onMouseOut="self.status=''; return true;"><img src="../../images/glossaryIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the glossary)"></a> technology. You can look around you now and see many examples of real-world objects: your dog, your desk, your television set, your bicycle.
+<P>
+
+These real-world objects share two characteristics: They all have <em>state</em> and <em>behavior</em>. For example, dogs have state (name, color, breed, hungry) and behavior (barking, fetching, and wagging tail). Bicycles have state (current gear, current pedal cadence, two wheels, number of gears) and behavior (braking, accelerating, slowing down, changing gears).
+<P>
+Software objects are modeled after real-world objects in that they too have state and behavior. A software object maintains its state in one or more 
+<a href="javascript:var meth=openWin; meth('variable');" onMouseOver="self.status='Look up variables in glossary'; return true;" onMouseOut="self.status=''; return true;"><font color="#00bb00"><em>variables</em></font></a><a href="javascript:var meth=openWin; meth('variable');" onMouseOver="self.status='Look up variables in glossary'; return true;" onMouseOut="self.status=''; return true;"><img src="../../images/glossaryIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the glossary)"></a>. A variable is an item of data named by an identifier. A software object implements its behavior with 
+<a href="javascript:var meth=openWin; meth('method');" onMouseOver="self.status='Look up methods in glossary'; return true;" onMouseOut="self.status=''; return true;"><font color="#00bb00"><em>methods</em></font></a><a href="javascript:var meth=openWin; meth('method');" onMouseOver="self.status='Look up methods in glossary'; return true;" onMouseOut="self.status=''; return true;"><img src="../../images/glossaryIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the glossary)"></a>. A method is a function (subroutine) associated with an object.
+
+<blockquote><hr><strong>Definition:</strong>&nbsp;An object is a software bundle of variables
+and related methods.
+<hr></blockquote>
+
+You can represent real-world objects by using software objects. You might want to represent real-world dogs as software objects in an animation program or a real-world bicycle as a software object in the program that controls an electronic exercise bike. You can also use software objects to model abstract concepts. For example, an <EM>event</EM> is a common object used in GUI window systems to represent the action of a user pressing a mouse button or a key on the keyboard. 
+
+<p>
+The following illustration is a common visual representation of a software
+object:
+
+<p><center><IMG SRC="../../figures/java/con17.gif" WIDTH="317" HEIGHT="133 " ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p>
+Everything that the software object knows (state) and can do (behavior) is expressed by the variables and the methods within that object. A software object that modeled your real-world bicycle would have variables that indicated the bicycle's current state: its speed is 10 mph, its pedal cadence is 90 rpm, and its current gear is the 5th gear. These variables are formally known as 
+<a href="javascript:var meth=openWin; meth('instance variable');" onMouseOver="self.status='Look up instance variables in glossary'; return true;" onMouseOut="self.status=''; return true;"><font color="#00bb00"><em>instance variables</em></font></a><a href="javascript:var meth=openWin; meth('instance variable');" onMouseOver="self.status='Look up instance variables in glossary'; return true;" onMouseOut="self.status=''; return true;"><img src="../../images/glossaryIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the glossary)"></a> because they contain the state for a particular bicycle object, and in object-oriented terminology, a particular object is called an <EM>instance</EM>. 
+<P>
+
+The following figure illustrates a bicycle modeled as a software object.
+
+<p><center><IMG SRC="../../figures/java/con18.gif" WIDTH="230" HEIGHT="133 " ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p>
+In addition to its variables, the software bicycle would also have methods to brake, change the pedal cadence, and change gears. (The bike would not have a method for changing the speed of the bicycle, as the bike's speed is just a side effect of what gear it's in, how fast the rider is pedaling, whether the brakes are on, and how steep the hill is.) These methods are formally known as 
+
+<a href="javascript:var meth=openWin; meth('instance method');" onMouseOver="self.status='Look up instance methods in glossary'; return true;" onMouseOut="self.status=''; return true;"><font color="#00bb00"><em>instance methods</em></font></a><a href="javascript:var meth=openWin; meth('instance method');" onMouseOver="self.status='Look up instance methods in glossary'; return true;" onMouseOut="self.status=''; return true;"><img src="../../images/glossaryIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the glossary)"></a>
+ because they inspect or change the state of a particular bicycle instance.
+
+<p>
+The object diagrams show that the object's variables make up the center, or nucleus, of the object. Methods surround and hide the object's nucleus from other objects in the program. Packaging an object's variables within the protective custody of its methods is called
+<a href="javascript:var meth=openWin; meth('encapsulation');" onMouseOver="self.status='Look up encapsulation in glossary'; return true;" onMouseOut="self.status=''; return true;"><font color="#00bb00"><em>encapsulation</em></font></a><a href="javascript:var meth=openWin; meth('encapsulation');" onMouseOver="self.status='Look up encapsulation in glossary'; return true;" onMouseOut="self.status=''; return true;"><img src="../../images/glossaryIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the glossary)"></a> This conceptual picture of an object-a nucleus of variables packaged within a protective membrane of methods-is an ideal representation of an object and is the ideal that designers of object-oriented systems strive for. However, it's not the whole story. Often, for practical reasons, an object may wish to expose some of its variables or hide some of its methods. In the Java programming language, an object can specify one of four access levels for each of its variables and methods. The access level determines which other objects and classes can access that variable or method. Variable and method access in Java is covered in
+<a target="_top" href="../javaOO/accesscontrol.html">Controlling Access to Members of a Class</a><a target="_top" href="../javaOO/accesscontrol.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Learning the Java Language trail)"></a>.
+
+Encapsulating related variables and methods into a neat software bundle is a simple yet powerful idea that provides two primary benefits to software developers:
+<ul>
+<li>
+<B>Modularity:</B> The source code for an object can be written and maintained independently of the source code for other objects. Also, an object can be easily passed around in the system. You can give your bicycle to someone else, and it will still work.
+<li>
+<B>Information hiding:</B> An object has a public interface that other objects can use to communicate with it. The object can maintain private information and methods that can be changed at any time without affecting the other objects that depend on it. You don't need to understand the gear mechanism on your bike to use it.
+</ul>
+
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#concepts" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="message.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

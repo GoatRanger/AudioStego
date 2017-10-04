@@ -1,0 +1,7 @@
+<html>
+<head></head>
+<body>
+<p>These are all of the extensions to the editor for text editing.  Includes custom editor kits, syntax highlighting documents, and supporting files.
+Works in conjunction with <a href="../language/package.html">eecs.editor.language</a> languages to provide full language support.</p>
+</body>
+</html> 

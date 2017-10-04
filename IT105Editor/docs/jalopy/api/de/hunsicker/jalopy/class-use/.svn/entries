@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="10"
+   name=""
+   committed-date="2005-02-01T05:59:34.421875Z"
+   url="svn://192.168.2.2/IT105Editor/docs/jalopy/api/de/hunsicker/jalopy/class-use"
+   last-author="Karl"
+   kind="dir"
+   uuid="0daf4267-3229-f84b-9084-f3c94b025f38"
+   revision="55"/>
+<entry
+   committed-rev="10"
+   name="Jalopy.State.html"
+   text-time="2005-03-02T06:14:25.046875Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="0ca0fc1cca410baae11d098a3f415ee5"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:25.000000Z"/>
+<entry
+   committed-rev="10"
+   name="Jalopy.html"
+   text-time="2005-03-02T06:14:25.062500Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="e6fe692629d4824bcef95b300be35559"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:25.015625Z"/>
+<entry
+   committed-rev="10"
+   name="VersionMismatchException.html"
+   text-time="2005-03-02T06:14:25.078125Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="25ae026db99dc314f13811e34a25d091"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:25.031250Z"/>
+</wc-entries>

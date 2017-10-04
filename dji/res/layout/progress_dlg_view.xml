@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.publics.DJIUI.DJILinearLayout xmlns:android="http://schemas.android.com/apk/res-auto" phantom:orientation="vertical" phantom:background="@drawable/stroke_dlg_dark_bg" phantom:paddingLeft="20dp" phantom:paddingTop="10dp" phantom:paddingRight="20dp" phantom:paddingBottom="15dp" phantom:layout_width="match_parent" phantom:layout_height="wrap_content" phantom:baselineAligned="false">
+    <ProgressBar phantom:layout_gravity="left|right|center_horizontal|fill_horizontal|center|fill|start|end" phantom:id="@+id/progress_dlg_pgb" phantom:layout_width="wrap_content" phantom:layout_height="wrap_content" style="@style/mediumCustomProgressBar" />
+    <dji.publics.DJIUI.DJITextView phantom:textSize="14sp" phantom:textColor="@color/om" phantom:ellipsize="end" phantom:gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:id="@+id/progress_dlg_content_tv" phantom:layout_width="wrap_content" phantom:layout_height="wrap_content" phantom:layout_marginTop="5dp" phantom:maxLines="5" phantom:djiTextFace="0" />
+</dji.publics.DJIUI.DJILinearLayout>

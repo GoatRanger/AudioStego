@@ -1,0 +1,173 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Before You Ship That Applet</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#finishing" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="perfect.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Writing Applets
+<br>
+<b>Lesson</b>: Finishing an Applet
+</font>
+
+<h2>
+Before You Ship That Applet
+</h2>
+<blockquote>
+Stop!
+Before you let the whole world know about your applet,
+make sure the answer to all of the following questions is
+<strong>yes</strong>.
+<p>
+
+<ol>
+<strong>
+<li> Have you removed or disabled debugging output? 
+</strong> <p>
+
+<blockquote>
+     Debugging output
+     (generally created with <code>System.out.println</code>),
+     while useful to you,
+     is generally confusing or annoying to users.
+     If you need to give textual feedback to the user, 
+     try to do it inside the applet's display area
+     or in the status area at the bottom of the window.
+     Information on using the status area is in
+<a target="_top" href="../appletsonly/showStatus.html">Displaying Short Status Strings</a><a target="_top" href="../appletsonly/showStatus.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Writing Applets trail)"></a>.
+</blockquote>
+<p>
+
+<strong> 
+<li> Does the applet stop running when it's offscreen?
+</strong> 
+<p>
+<blockquote>
+     Most applets should not use CPU resources when the browser 
+     is iconified or is displaying a page that
+     doesn't contain the applet.  If your applet code doesn't launch
+     any threads explicitly, then you're OK.
+     <p>
+
+     If your applet code launches any threads, then unless you
+     have a <em>really good</em> excuse not to,
+     you should implement the <code>stop</code>
+     method so that it stops and destroys
+     (by setting to null)
+     the threads you launched. 
+     For an example of implementing the <code>stop</code> method, see 
+<a target="_top" href="../practical/threadExample.html">Threads in Applets: Examples</a><a target="_top" href="../practical/threadExample.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Writing Applets trail)"></a>.
+</blockquote>
+<p>
+
+<strong> 
+<li> If the applet does something that might get annoying --
+     play sounds or animation, for example --
+     does it give the user a way of stopping the annoying behavior?
+</strong>
+<p>
+
+<blockquote>
+     Be kind to your users.
+     Give them a way to stop the applet in its tracks, without leaving the page.
+     In an applet that otherwise doesn't respond to mouse clicks,
+     you can do this by implementing the <code>mouseDown</code> method
+     so that a mouse click suspends or resumes the annoying thread.
+     For example:
+<blockquote><pre>
+boolean frozen = false; //an instance variable
+
+public boolean mouseDown(Event e, int x, int y) {
+    if (frozen) { 
+	frozen = false;
+        start();
+    } else {
+	frozen = true;
+        stop();
+    }
+    return true;
+}
+</pre></blockquote>
+</blockquote>
+
+</ol>
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#finishing" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="perfect.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

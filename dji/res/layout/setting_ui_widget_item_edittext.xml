@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="horizontal" style="@style/g2">
+    <TextView android:gravity="top|bottom|center_vertical|fill_vertical|center|fill" android:id="@id/bqz" android:text="@string/setting_ui_flyc_limit_height" style="@style/gh" />
+    <TextView android:id="@id/br3" android:visibility="gone" style="@style/g6" />
+    <TextView android:id="@id/byg" android:visibility="gone" style="@style/gi" />
+    <EditText android:id="@id/br4" android:text="0" style="@style/g8" />
+</LinearLayout>

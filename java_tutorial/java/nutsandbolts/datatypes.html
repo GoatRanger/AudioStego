@@ -1,0 +1,251 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Data Types</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="variables.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#nutsandbolts" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="variableNames.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Learning the Java Language
+<br>
+<b>Lesson</b>: Language Basics
+</font>
+
+<h2>
+Data Types
+</h2>
+<blockquote>
+
+Every variable must have a data type. A variable's data type determines the values that the variable can contain and the operations that can be performed on it. For example, in the
+<a target="_blank" href="example-1dot1/MaxVariablesDemo.java"><font color="#bb000f"><code>MaxVariablesDemo</code></font></a><a target="_blank" href="example-1dot1/MaxVariablesDemo.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a> program,
+the declaration <code>int largestInteger</code>
+declares that <code>largestInteger</code> has an integer data type (<code>int</code>). Integers can contain only integral values (both positive and negative). You can perform arithmetic operations, such as addition, on integer variables.
+<p>
+The Java programming language has two categories of data types:
+<em>primitive</em> and
+<a href="javascript:var meth=openWin; meth('reference');" onMouseOver="self.status='Look up reference in glossary'; return true;" onMouseOut="self.status=''; return true;"><font color="#00bb00"><em>reference</em></font></a><a href="javascript:var meth=openWin; meth('reference');" onMouseOver="self.status='Look up reference in glossary'; return true;" onMouseOut="self.status=''; return true;"><img src="../../images/glossaryIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the glossary)"></a>.
+A variable of primitive type contains a single value of the appropriate size and format for its type: a number, a character, or a boolean value. For example, an integer value is 32 bits of data in a format known as two's complement, the value of a <code>char</code> is 16 bits of data formatted as a Unicode character, and so on.
+
+<p><center><IMG SRC="../../figures/java/n30.gif" WIDTH="192" HEIGHT="24 " ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p>
+<p>
+The following table lists, by keyword,
+all of the primitive data types supported by Java,
+their sizes and formats, and a brief description of each.
+The <code>MaxVariablesDemo</code>
+program declares one variable of each primitive type.
+<p>
+<strong>Primitive Data Types</strong>
+<p>
+<table border cellpadding=5>
+<th>Keyword</th>
+<th>Description</th>
+<th>Size/Format</th>
+<tr><td colspan=3 align=center><em>(integers)</em></td></tr>
+<tr><td><code>byte</td>
+    <td> Byte-length integer</td>
+    <td>8-bit two's complement</td></td>
+</tr>
+<tr><td><code>short</td>
+    <td>Short integer</td>
+    <td>16-bit two's complement</td>
+</tr>
+<tr><td><code>int</td>
+    <td>Integer</td>
+    <td>32-bit two's complement</td>
+</tr>
+<tr><td><code>long</td>
+    <td>Long integer</td>
+    <td>64-bit two's complement</td>
+</tr>
+<tr><td colspan=3 align=center><em>(real numbers)</em></td></tr>
+<tr><td><code>float</td>
+    <td>Single-precision floating point</td>
+    <td>32-bit IEEE 754</td>
+</tr>
+<tr><td><code>double</td>
+    <td>Double-precision floating point</td>
+    <td>64-bit IEEE 754</td>
+</tr>
+<tr><td colspan=3 align=center><em>(other types)</em></td></tr>
+<tr><td><code>char</td>
+    <td>A single character</td>
+    <td>16-bit Unicode character</td>
+</tr>
+<tr><td><code>boolean</td>
+    <td>A boolean value (<code>true</code> or <code>false</code>)</td>
+    <td>true or false</td>
+</tr>
+</table>
+<p>
+
+<blockquote><hr><strong>Purity Tip:</strong>&nbsp;In other languages,
+the format and size of primitive data types
+may depend on the platform on which a program is running.
+In contrast, the Java programming language specifies the size and format
+of its primitive data types.
+Hence, you don't have to worry about system-dependencies.
+<hr></blockquote>
+
+<P>
+You can put a literal primitive value directly in your code. For example, if you need to assign the value 4 to an integer variable you can write this:
+
+<blockquote><pre>
+int anInt = 4;
+</pre></blockquote>
+
+The digit 4 is a literal integer value. Here are some examples of literal values of various primitive types:
+<p>
+<b>Examples of LiteralValues and Their Data Types </b>
+<br>
+<P><TABLE BORDER="1" CELLSPACING="3" CELLPADDING="4">
+  <TR>
+    <TD>
+    <B>Literal</B></TD> 
+    <TD>
+    <B>Data Type</B></TD> 
+  </TR>
+  <TR>
+    <TD>
+    178</TD> 
+    <TD>
+    <CODE>int</CODE></TD> 
+  </TR>
+  <TR>
+    <TD>
+    8864L</TD> 
+    <TD>
+    <CODE>long</CODE></TD> 
+  </TR>
+  <TR>
+    <TD>
+    <CODE>37.266</CODE></TD> 
+    <TD>
+    <CODE>double</CODE></TD> 
+  </TR>
+  <TR>
+    <TD>
+    37.266D</TD> 
+    <TD>
+    <CODE>double</CODE></TD> 
+  </TR>
+  <TR>
+    <TD>
+    <CODE>87.363F</CODE></TD> 
+    <TD>
+    <CODE>float</CODE></TD> 
+  </TR>
+  <TR>
+    <TD>
+    26.77e3</TD> 
+    <TD>
+    <CODE>double</CODE></TD> 
+  </TR>
+  <TR>
+    <TD>
+    <EM>'</EM>
+    <CODE>c</CODE> <EM>'</EM></TD> 
+    <TD>
+    <CODE>char</CODE></TD> 
+  </TR>
+  <TR>
+    <TD>
+   <CODE> true</CODE></TD> 
+    <TD>
+    <CODE>boolean</CODE></TD> 
+  </TR>
+  <TR>
+    <TD>
+    <CODE>false</CODE></TD> 
+    <TD>
+    <CODE>boolean</CODE></TD> 
+  </TR>
+</TABLE></P>
+<p>
+Generally speaking, a series of digits with no decimal point is typed as an integer. You can specify a long integer by putting an <code>'L'</code> or <code>'l'</code> after the number. <code>'L'</code> is preferred as it cannot be confused with the digit <code>'1'</code>. A series of digits with a decimal point is of type double. You can specify a float by putting an <code>'f'</code> or <code>'F'</code> after the number. A literal character value is any single Unicode character between single quote marks. The two boolean literals are simply <code>true</code> and <code>false</code>.
+<P>
+
+Arrays, classes, and interfaces are 
+<a href="javascript:var meth=openWin; meth('reference');" onMouseOver="self.status='Look up reference in glossary'; return true;" onMouseOut="self.status=''; return true;"><font color="#00bb00"><em>reference</em></font></a><a href="javascript:var meth=openWin; meth('reference');" onMouseOver="self.status='Look up reference in glossary'; return true;" onMouseOut="self.status=''; return true;"><img src="../../images/glossaryIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the glossary)"></a> types. The value of a reference type variable, in contrast to that of a primitive type, is a reference to (an address of) the value or set of values represented by the variable.
+<P>
+
+A reference is called a pointer, or a memory address in other languages. The Java programming language does not support the explicit use of addresses like other languages do. You use the variable's name instead.
+
+<p><center><IMG SRC="../../figures/java/n31.gif" WIDTH="420" HEIGHT="77 " ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p>
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="variables.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#nutsandbolts" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="variableNames.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

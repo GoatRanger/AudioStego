@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res-auto" phantom:orientation="vertical" style="@style/g2">
+    <TextView phantom:layout_marginTop="@dimen/vd" phantom:text="@string/setting_ui_wifi_channel_index_title" style="@style/gh" />
+    <com.meetme.android.horizontallistview.HorizontalListView phantom:id="@id/bz1" phantom:scrollbars="UNKNOWN_DATA_0x0" phantom:fadingEdge="UNKNOWN_DATA_0x0" phantom:fadingEdgeLength="0dp" phantom:layout_width="match_parent" phantom:layout_height="UNKNOWN_DATA_0x7f0b0343" phantom:listSelector="0x106000d" phantom:drawSelectorOnTop="false" phantom:cacheColorHint="0x106000d" phantom:divider="0x106000d" phantom:choiceMode="singleChoice" phantom:fadeScrollbars="false" phantom:overScrollMode="ifContentScrolls" phantom:dividerWidth="0dp" />
+</LinearLayout>

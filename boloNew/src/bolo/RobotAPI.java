@@ -1,0 +1,499 @@
+/* Copyright (C) 2002  USMA
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * any later version.
+ 
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ 
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ */
+
+package bolo;
+
+import java.awt.*;
+import java.awt.font.*;
+import java.awt.geom.*;
+
+import java.util.*;
+
+
+// I've split what used to be RoboWarrior into two parts:
+//  -- Robot implements all the internals of robots
+//  -- RobotAPI provides the public API for programming robots
+abstract class RobotAPI
+    extends Robot {
+
+    // Radians and Degrees:
+    public static final double NORTH = Const.NORTH;
+    public static final double SOUTH = Const.SOUTH;
+    public static final double EAST = Const.EAST;
+    public static final double WEST = Const.WEST;
+    public static final double PI = Math.PI;
+    public static final double RADIANS_30 = Math.PI / 6;
+    public static final double RADIANS_45 = Math.PI / 4;
+    public static final double RADIANS_60 = Math.PI / 3;
+    public static final double RADIANS_90 = Math.PI / 2;
+    public static final double RADIANS_180 = Math.PI;
+    public static final double RADIANS_360 = 2 * Math.PI;
+
+    // Distance
+
+    /**
+     * Undocumented
+     * 
+     * @param dx Empty
+     * @param dy Empty
+     * @return Empty 
+     */
+    public static double distance(double dx, double dy) {
+
+        return Math.sqrt(dx * dx + dy * dy);
+    }
+
+    // by defining main here, you can run bolo by running a robot
+
+    /**
+     * Undocumented
+     * 
+     * @param args Empty
+     */
+    public static void main(String[] args) {
+        Bolo.playGame();
+    }
+
+    /**
+     * Undocumented
+     * 
+     * @param degrees Empty
+     * @return Empty 
+     */
+    public static double normalizeDegrees(double degrees) {
+
+        if (degrees < 0 || degrees >= 360) {
+            degrees -= 360 * Math.floor(degrees / 360);
+        }
+	return degrees;
+    }
+
+    /**
+     * Undocumented
+     * 
+     * @param radians Empty
+     * @return Empty 
+     */
+    public static double normalizeRadians(double radians) {
+
+        if (radians < 0 || radians >= RADIANS_360) {
+            radians -= RADIANS_360 * Math.floor(radians / RADIANS_360);
+        }
+	return radians;
+    }
+
+    /**
+     * Undocumented
+     * 
+     * @param radians Empty
+     * @return Empty 
+     */
+    public static double toDegrees(double radians) {
+
+        return Math.toDegrees(radians);
+    }
+
+    /**
+     * Undocumented
+     * 
+     * @param degrees Empty
+     * @return Empty 
+     */
+    public static double toRadians(double degrees) {
+
+        return Math.toRadians(degrees);
+    }
+
+    /* There are XXX categories of commands:
+       - Velocity
+       - Heading
+       - Laser Scanner
+       - Passive Scan Detector
+       - Hospital
+       - Weapons
+       - Time
+       - Health
+       - Collision
+       - Weapons information?
+     */
+
+    // Velocity
+
+    /**
+     * Undocumented
+     * 
+     * @param v Empty
+     */
+    public final void setVelocity(double v) {
+        Thread.yield();
+        velocity = Util.bound(0, v, maxVelocity);
+    }
+
+    // Weapons (most weapons related commands are defined by the chassis)
+
+    /**
+     * Undocumented
+     * 
+     * @return Empty 
+     */
+    public final boolean canFire() {
+        Thread.yield();
+
+        return (timeToReload <= 0.0);
+    }
+
+    // Collision
+
+    /**
+     * Undocumented
+     * 
+     * @return Empty 
+     */
+    public final boolean checkForCollision() {
+        Thread.yield();
+
+        boolean tmp = collision;
+        collision = false;
+
+        return tmp;
+    }
+
+    /**
+     * Undocumented
+     * 
+     * @return Empty 
+     */
+    public final double currentHeading() {
+
+        return heading;
+    }
+
+    /**
+     * Undocumented
+     * 
+     * @return Empty 
+     */
+    public final double currentHeadingDegrees() {
+
+        return toDegrees(heading);
+    }
+
+    // Health
+
+    /**
+     * Undocumented
+     * 
+     * @return Empty 
+     */
+    public final double currentHealth() {
+
+        return health;
+    }
+
+    /**
+     * Undocumented
+     * 
+     * @return Empty 
+     */
+    public final double currentVelocity() {
+
+        return velocity;
+    }
+
+    // Time
+
+    /**
+     * Undocumented
+     * 
+     * @return Empty 
+     */
+    public final double elapsedTime() {
+        Thread.yield();
+
+        return Clock.read();
+    }
+
+    // Passive Scan Detector
+
+    /**
+     * Undocumented
+     * 
+     * @return Empty 
+     */
+    public final boolean hitByScan() {
+        Thread.yield();
+
+        boolean tmp = hitByScan;
+        hitByScan = false;
+
+        return tmp;
+    }
+
+    // Hospital
+
+    /**
+     * Undocumented
+     * 
+     * @return Empty 
+     */
+    public final double hospitalDistance() {
+
+        return distance(Arena.HOSPITAL_X - x, Arena.HOSPITAL_Y - y);
+    }
+
+    /**
+     * Undocumented
+     * 
+     * @return Empty 
+     */
+    public final double hospitalHeading() {
+        Thread.yield();
+
+        double dx = Arena.HOSPITAL_X - x;
+        double dy = Arena.HOSPITAL_Y - y;
+
+        if (dx == 0) {
+
+            return (dy >= 0) ? SOUTH : NORTH;
+        }
+
+        double theta = Math.atan(dy / dx);
+
+        return (dx > 0) ? theta : theta + PI;
+    }
+
+    /**
+     * Undocumented
+     * 
+     * @return Empty 
+     */
+    public final double hospitalHeadingDegrees() {
+
+        return toDegrees(hospitalHeading());
+    }
+
+    /**
+     * Undocumented
+     * 
+     * @return Empty 
+     */
+    public final double maxHealth() {
+
+        return maxHealth;
+    }
+
+    /**
+     * Undocumented
+     * 
+     * @return Empty 
+     */
+    public final double maxVelocity() {
+
+        return maxVelocity;
+    }
+
+    // Heading (in radians)
+
+    /**
+     * Undocumented
+     * 
+     * @param theta Empty
+     */
+    public final void pivotLeft(double theta) {
+        Thread.yield();
+        heading -= theta;
+        updateRotatedShape();
+    }
+
+    // Heading (in degrees)
+
+    /**
+     * Undocumented
+     * 
+     * @param degrees Empty
+     */
+    public final void pivotLeftDegrees(double degrees) {
+        pivotLeft(toRadians(degrees));
+    }
+
+    /**
+     * Undocumented
+     * 
+     * @param theta Empty
+     */
+    public final void pivotRight(double theta) {
+        Thread.yield();
+        heading += theta;
+        updateRotatedShape();
+    }
+
+    /**
+     * Undocumented
+     * 
+     * @param degrees Empty
+     */
+    public final void pivotRightDegrees(double degrees) {
+        pivotRight(toRadians(degrees));
+    }
+
+    /**
+     * Undocumented
+     * 
+     * @param theta Empty
+     */
+    public final void pivotTo(double theta) {
+        Thread.yield();
+        heading = theta;
+        updateRotatedShape();
+    }
+
+    /**
+     * Undocumented
+     * 
+     * @param degrees Empty
+     */
+    public final void pivotToDegrees(double degrees) {
+        pivotTo(toRadians(degrees));
+    }
+
+    // Laser Scanner
+
+    /**
+     * Undocumented
+     * 
+     * @param radians Empty
+     * @return Empty 
+     */
+    public final boolean scan(double radians) {
+        scanReady = false;
+        scanHeading = radians;
+        Arena.actionQueue.add(new Action() {
+            void action() {
+                scan();
+            }
+        });
+
+        while (!scanReady) {
+            Thread.yield();
+        }
+
+        return foundRobot;
+    }
+
+    /**
+     * Undocumented
+     * 
+     * @param degrees Empty
+     * @return Empty 
+     */
+    public final double scanDegrees(double degrees) {
+
+        return Math.toRadians(degrees);
+    }
+
+    /**
+     * Undocumented
+     * 
+     * @return Empty 
+     */
+    public final double scannedFromDistance() {
+
+        return scannedFromDistance;
+    }
+
+    /**
+     * Undocumented
+     * 
+     * @return Empty 
+     */
+    public final double scannedFromHeading() {
+
+        return scannedFromHeading;
+    }
+
+    /**
+     * Undocumented
+     * 
+     * @return Empty 
+     */
+    public final double scannedFromHeadingDegrees() {
+
+        return toDegrees(scannedFromHeading);
+    }
+
+    /**
+     * Undocumented
+     * 
+     * @return Empty 
+     */
+    public final double targetDistance() {
+
+        return targetDistance;
+    }
+
+    /**
+     * Undocumented
+     * 
+     * @return Empty 
+     */
+    public final double targetHeading() {
+
+        return targetHeading;
+    }
+
+    /**
+     * Undocumented
+     * 
+     * @return Empty 
+     */
+    public final double targetHeadingDegrees() {
+
+        return toDegrees(targetHeading);
+    }
+
+    /**
+     * Undocumented
+     * 
+     * @return Empty 
+     */
+    public final double targetVelocity() {
+
+        return targetVelocity;
+    }
+
+    /**
+     * Undocumented
+     * 
+     * @param time Empty
+     * @return Empty 
+     */
+    public final double timeSince(double time) {
+        Thread.yield();
+
+        return Clock.read() - time;
+    }
+
+    /**
+     * Undocumented
+     * 
+     * @return Empty 
+     */
+    public final double whenScanned() {
+
+        return whenScanned;
+    }
+}

@@ -1,0 +1,4 @@
+org/openscience/cdk/test/iupac/ParserTest*.class
+org/openscience/cdk/iupac/parser/AttachedGroup*.class
+org/openscience/cdk/iupac/parser/MoleculeBuilder*.class
+org/openscience/cdk/applications/SDFSubstructureFinder*.class

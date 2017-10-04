@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.device.camera.view.focus.LonganDZoomView xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:background="@drawable/longan_ssd_bg" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content">
+    <Button android:textStyle="bold" android:textColor="@color/pn" android:id="@id/b32" android:background="@color/j5" android:layout_width="UNKNOWN_DATA_0x7f0b0127" android:layout_height="UNKNOWN_DATA_0x7f0b013e" android:text="T" />
+    <View android:id="@id/b33" android:background="@color/oq" android:layout_width="UNKNOWN_DATA_0x7f0b0127" android:layout_height="UNKNOWN_DATA_0x59999a31" />
+    <TextView android:textSize="@dimen/rp" android:textColor="@color/om" android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@id/b34" android:background="0x106000c" android:visibility="gone" android:layout_width="UNKNOWN_DATA_0x7f0b0127" android:layout_height="UNKNOWN_DATA_0x7f0b0112" android:alpha="0.6" />
+    <Button android:textStyle="bold" android:textColor="@color/pn" android:id="@id/b35" android:background="@color/j5" android:layout_width="UNKNOWN_DATA_0x7f0b0127" android:layout_height="UNKNOWN_DATA_0x7f0b013e" android:text="W" />
+</dji.device.camera.view.focus.LonganDZoomView>

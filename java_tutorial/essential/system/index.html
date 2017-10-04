@@ -1,0 +1,213 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Accessing System Resources</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="../attributes/index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#system" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="using.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+
+<br>
+<font size="-1">
+<b>Trail</b>: Essential Java Classes
+</font>
+
+<h2>
+Lesson: Accessing System Resources
+</h2>
+<blockquote>
+Sometimes, a program requires access to system resources such as system
+properties, standard input and output, or the current time. Your
+program could make system calls directly to the window or operating
+system, but then your program would be able to run only in that
+particular environment. Each time you want to run the program in a new
+environment, you'd have to port your program by rewriting the
+system-dependent sections of code.
+<p>
+The Java platform lets your program access system resources through a
+(relatively) system-independent API implemented by the
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/System.html"><font color="#8800bb"><code>System</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/System.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> class and
+through a system-dependent API implemented by the
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/Runtime.html"><font color="#8800bb"><code>Runtime</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/Runtime.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> class.
+<p>
+
+<blockquote><hr><strong>Purity Tip:</strong>&nbsp;
+Some of the system resources available through the <code>System</code>
+and <code>Runtime</code> classes cannot be used in 100% Pure Java programs.
+These resources are noted throughout this lesson. 
+<hr></blockquote>
+<p>
+Most system programming needs are met through the <code>System</code> class.
+However, in rare cases, a program might have to access the system
+through the <code>Runtime</code> object that represents the current runtime
+environment. The last section of this lesson, The
+<a href="runtime.html"><code>Runtime</code> Object</a>
+explains how to do this and talks about the trade-offs of
+accessing the system directly via the Runtime object.
+<p>
+The following diagram shows that the <code>System</code>
+class allows your Java programs to use system resources
+but insulates them from system-specific details.
+
+<p><center><IMG SRC="../../figures/essential/2yourpr.gif" WIDTH="197" HEIGHT="119" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p>
+If you've experimented with other lessons in this tutorial, you've no
+doubt already seen the <code>System</code> class's
+standard output stream used in
+several examples to display text. This and other resources available
+through <code>System</code> are briefly described here and
+covered in the sections indicated.
+
+</blockquote>
+<h3><a href=using.html>Using the <code>System</code> Class</a>
+</h3>
+<blockquote>
+All of <code>System</code>'s methods and variables
+are class methods and class variables.
+You don't instantiate the <code>System</code> class to use it;
+you use the <code>System</code> class's
+methods and variables directly from a reference
+to the <code>System</code> class.
+</blockquote>
+
+<h3><a href=iostreams.html>The Standard I/O Streams</a>
+</h3>
+<blockquote>
+Probably the most frequently used items from the <code>System</code>
+class are the streams used for reading and writing text. The
+<code>System</code> class provides
+one stream for reading text--the standard input stream--and two streams
+for writing text--the standard output and standard error streams.
+</blockquote>
+
+<h3><a href="properties.html"><code>System</code> Properties</a>
+</h3>
+<blockquote>
+Properties are key/value pairs that your Java programs can use to set
+up various attributes or parameters between invocations. The Java
+platform itself maintains a set of system properties that contain
+information about the current platform. You can access the system
+properties through the <code>System</code> class.
+</blockquote>
+
+<h3><a href="garbage.html">Forcing Finalization and Garbage Collection</a>
+</h3>
+<blockquote>
+In Java, you don't have to free an object when you're done with it-the
+garbage collector runs periodically in the background and cleans up
+unreferenced objects. Or you can force the garbage collector to run
+using <code>System</code>'s <code>gc</code> method. Also, you can
+request that the runtime system
+perform object finalization using <code>System</code>'s
+<code>runFinalization</code> method.
+</blockquote>
+
+<h3><a href="security.html">Providing Your Own Security Manager</a></h3>
+<blockquote>
+The security manager is an application-wide object that determines
+whether potentially threatening operations should be allowed. You use
+the <code>System</code> class to set and get the security manager for an
+application. Subclasses of <code>java.lang.SecurityManager</code>
+implement a specific management policy.
+</blockquote>
+
+<h3><a href="misc.html">Miscellaneous <code>System</code> Methods</a>
+</h3>
+<blockquote>
+The <code>System</code> class includes several miscellaneous methods
+that let you get the current time in milliseconds, exit the
+interpreter, and copy arrays.
+</blockquote>
+
+<h3><a href=runtime.html>The <code>Runtime</code> Object</a>
+</h3>
+<blockquote>
+Most system programming needs are met through the programming interface
+provided by the <code>System</code> class.
+However, in rare cases, a program must
+bypass the system-independent interface
+of the <code>System</code> class and use system
+resources directly from the runtime environment.
+The Java environment provides a
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/Runtime.html"><font color="#8800bb"><code>Runtime</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/Runtime.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>object, which represents the current runtime environment.
+You can use a <code>Runtime</code> object
+to access system resources directly.
+<p>
+
+<blockquote><hr><strong>Note:</strong>&nbsp;
+Messaging the <code>Runtime</code> object directly compromises
+your ability to run your program on different systems.
+You should do this only in special situations.
+<hr></blockquote>
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="../attributes/index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#system" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="using.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

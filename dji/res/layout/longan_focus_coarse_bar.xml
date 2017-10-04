@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
+    <dji.device.common.view.DJIStateImageViewCompat android:id="@id/j3" android:background="@color/ak" android:padding="@dimen/n3" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x7f0b00ea" android:src="@drawable/camera_focus_ring_bottom" android:scaleType="centerInside" android:adjustViewBounds="true" android:contentDescription="@string/app_name" />
+    <SeekBar android:id="@id/b36" android:padding="0dp" android:layout_width="UNKNOWN_DATA_0x1f401" android:layout_height="wrap_content" android:maxHeight="@dimen/n3" android:progress="0" android:progressDrawable="@drawable/fpv_playback_video_progress" android:minHeight="@dimen/n3" android:thumb="@drawable/fpv_advanced_slider_disable_icon" android:thumbOffset="0dp" />
+    <dji.device.common.view.DJIStateImageViewCompat android:id="@id/j5" android:background="@color/ak" android:padding="@dimen/n3" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x7f0b00ea" android:src="@drawable/camera_focus_ring_top" android:scaleType="centerInside" android:adjustViewBounds="true" android:contentDescription="@string/app_name" />
+</LinearLayout>

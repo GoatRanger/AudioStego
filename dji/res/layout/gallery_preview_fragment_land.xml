@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/gallery_content" android:background="@color/a_" android:layout_width="match_parent" android:layout_height="match_parent">
+    <include android:id="@+id/hg_gallery_header" layout="@layout/gallery_header" />
+    <dji.pilot.support.DJINonViewPager android:id="@+id/v2_playbackpreview_pager" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@+id/hg_gallery_header" />
+    <RelativeLayout android:id="@+id/v2_playbackpreview_Bottom" android:background="#75100d10" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true"
+        <RelativeLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x2801">
+            <dji.pilot.gallery.previewActivity.widget.DJISliderbar android:id="@+id/v2_playbackpreview_slider" android:visibility="gone" android:layout_width="UNKNOWN_DATA_0x9601" android:layout_height="match_parent" android:layout_marginLeft="20dp" android:layout_marginRight="10dp" />
+            <LinearLayout android:gravity="top|bottom|center_vertical|fill_vertical|center|fill" android:orientation="horizontal" android:id="@+id/v2_playbackpreview_l" android:layout_width="wrap_content" android:layout_height="UNKNOWN_DATA_0x2801" android:layout_centerHorizontal="true">
+                <dji.pilot.publics.widget.DJIStateImageView android:id="@+id/v2_playbackpreview_pre" android:layout_width="wrap_content" android:layout_height="match_parent" android:src="@r$drawable/gallery_preview_pre" android:scaleType="centerInside" />
+                <dji.pilot.publics.widget.DJIStateImageView android:id="@+id/v2_playbackpreview_play" android:layout_width="UNKNOWN_DATA_0x1e01" android:layout_height="match_parent" android:layout_marginLeft="45dp" android:src="@r$drawable/gallery_preview_playsmall" android:scaleType="centerInside" />
+                <dji.pilot.publics.widget.DJIStateImageView android:id="@+id/v2_playbackpreview_next" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_marginLeft="45dp" android:src="@r$drawable/gallery_preview_next" android:scaleType="centerInside" />
+            </LinearLayout>
+            <dji.pilot.publics.widget.DJIStateImageView android:id="@+id/v2_playbackpreview_delete" android:layout_width="UNKNOWN_DATA_0x1e01" android:layout_height="match_parent" android:layout_marginRight="20dp" android:src="@r$drawable/gallery_preview_delete" android:scaleType="centerInside" android:layout_alignParentRight="true" />
+            <dji.pilot.publics.widget.DJIStateImageView android:id="@+id/v2_playbackpreview_info" android:layout_width="UNKNOWN_DATA_0x1e01" android:layout_height="match_parent" android:layout_marginLeft="20dp" android:layout_marginRight="10dp" android:src="@r$drawable/gallery_preview_info" android:scaleType="centerInside" />
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

@@ -1,0 +1,162 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Identifying the Interfaces Implemented by a Class</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="getSuperclass.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#class" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="isInterface.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: The Reflection API
+<br>
+<b>Lesson</b>: Examining Classes
+</font>
+
+<h2>
+Identifying the Interfaces Implemented by a Class
+</h2>
+<blockquote>
+The type of an object is determined by not only its class and superclass, but 
+also by its interfaces. In a class declaration, the interfaces are listed after the 
+<code>implements</code> keyword.  
+For example, the 
+<code>RandomAccessFile</code> class implements the
+<code>DataOutput</code> and <code>DataInput</code> interfaces:
+<blockquote><pre>
+public class RandomAccessFile implements DataOutput, DataInput
+</pre></blockquote>
+
+You invoke the <code>getInterfaces</code> method
+to determine which interfaces a class implements.
+The <code>getInterfaces</code> method returns an 
+array of <code>Class</code> objects.
+The reflection API represents interfaces
+with <code>Class</code> objects.
+Each <code>Class</code> object in the array
+returned by <code>getInterfaces</code>
+represents one of the interfaces implemented by the class.
+
+You can 
+invoke the <code>getName</code> method on the <code>Class</code> 
+objects in the array returned
+by <code>getInterfaces</code> to retrieve the interface 
+names.  
+To find out how to get additional information about
+interfaces, see the section
+<a href="isInterface.html">Examining Interfaces</a>.
+
+<p>
+The program that follows prints the interfaces implemented by the 
+<code>RandomAccessFile</code> class.
+
+<blockquote><pre>
+import java.lang.reflect.*;
+import java.io.*;
+
+class SampleInterface {
+
+   public static void main(String[] args) {
+      try {
+          RandomAccessFile r = new RandomAccessFile("myfile", "r");
+          printInterfaceNames(r);
+      } catch (IOException e) {
+          System.out.println(e);
+      }
+   }
+
+   static void printInterfaceNames(Object o) {
+      Class c = o.getClass();
+      Class[] theInterfaces = c.getInterfaces();
+      for (int i = 0; i < theInterfaces.length; i++) {
+         String interfaceName = theInterfaces[i].getName();
+         System.out.println(interfaceName);
+      }
+   }
+}
+</pre></blockquote>
+
+Note that the interface names printed by the sample program
+are fully qualified:
+
+<blockquote><pre>
+java.io.DataOutput
+java.io.DataInput
+</pre></blockquote>
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="getSuperclass.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#class" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="isInterface.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

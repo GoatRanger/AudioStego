@@ -1,0 +1,182 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Solving Common Applet Problems</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="../finishing/index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#problems" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="../end.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+
+<br>
+<font size="-1">
+<b>Trail</b>: Writing Applets
+</font>
+
+<h2>
+Lesson: Solving Common Applet Problems
+</h2>
+<blockquote>
+This section covers some common problems that you might encounter
+when writing Java applets.  After each problem is a list
+of possible solutions.
+
+<p>
+
+<strong>Problem:</strong>
+Applet Viewer says there's no <code>&lt;APPLET&gt;</code> tag on my HTML page,
+but it really is there.
+
+<ul>
+<li> Check whether you have a closing applet tag: 
+     <code>&lt;/APPLET&gt;</code>.
+</ul>
+
+<strong>Problem:</strong>
+I recompiled my applet, but my applet viewing application
+won't show the new version,
+even though I told it to reload it.
+
+<ul>
+<li> In many applet viewers (including browsers),
+     reloading isn't reliable.
+     This is why we recommend that you simply use the JDK Applet Viewer,
+     invoking it anew every time you change the applet.
+<li> If you get an old version of the applet, no matter what you do,
+     make sure that you don't have an old copy of the applet in a directory in
+     your <code>CLASSPATH</code>.
+     See 
+<a target="_top" href="../../java/interpack/managingfiles.html">Managing Source and Class Files</a><a target="_top" href="../../java/interpack/managingfiles.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Writing Applets trail)"></a>     for information about the CLASSPATH environment variable.
+</ul>
+
+<strong>Problem:</strong>
+The light gray background of my applet
+causes the applet to flicker
+when it's drawn on a page of a different color.
+
+<ul>
+<li> You need to set the background color of the applet
+     so that it works well with the page color.
+     See
+<a target="_top" href="../practical/gui.html">Using the AWT to Create a GUI</a><a target="_top" href="../practical/gui.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Writing Applets trail)"></a>     for details.
+</ul>
+
+<strong>Problem:</strong>
+The <code>Applet</code> <code>getImage</code> method doesn't work.
+
+<ul>
+<li> Make sure you're calling <code>getImage</code>
+     from the <code>init</code> method
+     or a method that's called after <code>init</code>.
+     The <code>getImage</code> method does not work
+     when it's called from a constructor.
+</ul>
+
+<strong>Problem:</strong>
+Now that I've copied my applet's class file onto my HTTP server, the applet
+doesn't work.
+
+<ul>
+<li> Does you applet define more than one class?
+     If so, make sure that the class file
+     (<code><em>ClassName</em>.class</code>)
+     for each class is on the HTTP server.
+     Even if all the classes are defined in one source file,
+     the compiler produces one class file per class.
+<li> Did you copy all the data files for your applet --
+     image and sound files, for example --
+     to the server?
+<li> Make sure all the applet's class and data files can be read by everyone.
+<li> Make sure the applet's class and data files
+     weren't garbled during the transfer.  One common source
+     of trouble is using the ASCII mode of FTP (rather than
+     the BINARY mode) to transfer files.
+</ul>
+
+<strong>Problem:</strong>
+I can't get my applet to run.  The browser displays a ClassCastException.
+
+<ul>
+<li> If your applet has multiple classes,
+     did you specify the right one
+     (an Applet subclass)
+     in the applet tag's CODE attribute?
+</ul>
+
+Other problems that affect applets are discussed in the
+<a target="_top" href="../../ui/index.html">Creating a User Interface (AWT Only)</a><a target="_top" href="../../ui/index.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Writing Applets trail)"></a> trail.
+Specifically, look at whichever of the following sections
+are related to your problem:
+<a target="_top" href="../../ui/components/problems.html">Common Component Problems</a><a target="_top" href="../../ui/components/problems.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Writing Applets trail)"></a>,
+<a target="_top" href="../../ui/layout/problems.html">Common Layout Problems</a><a target="_top" href="../../ui/layout/problems.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Writing Applets trail)"></a>,
+<a target="_top" href="../../ui/drawing/problems.html">Common Graphics Problems</a><a target="_top" href="../../ui/drawing/problems.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Writing Applets trail)"></a>.
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="../finishing/index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#problems" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="../end.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

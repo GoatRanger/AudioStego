@@ -1,0 +1,4 @@
+org/openscience/cdk/test/iupac/ParserTest.java
+org/openscience/cdk/iupac/parser/AttachedGroup.java
+org/openscience/cdk/iupac/parser/MoleculeBuilder.java
+org/openscience/cdk/applications/SDFSubstructureFinder.java

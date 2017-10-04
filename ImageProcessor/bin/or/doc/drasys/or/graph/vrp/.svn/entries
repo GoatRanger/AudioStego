@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="33"
+   name=""
+   committed-date="2005-02-01T06:11:53.421875Z"
+   url="svn://192.168.2.2/ImageProcessor/src/or/doc/drasys/or/graph/vrp"
+   last-author="Karl"
+   kind="dir"
+   uuid="0daf4267-3229-f84b-9084-f3c94b025f38"
+   revision="55"/>
+<entry
+   committed-rev="33"
+   name="ImproveBase.html"
+   text-time="2005-03-02T06:25:25.187500Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="2b94788b6f5a8a0f5b03deb3008e3c1e"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:24.875000Z"/>
+<entry
+   committed-rev="33"
+   name="WS_FTP.LOG"
+   text-time="2005-03-02T06:25:25.203125Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="a9d4ffc45f02c91d793c6f4abb1b8f26"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:24.890625Z"/>
+<entry
+   committed-rev="33"
+   name="ConstructBase.html"
+   text-time="2005-03-02T06:25:25.187500Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="ed1050fd871536652f999c8c38bf46f5"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:24.890625Z"/>
+<entry
+   committed-rev="33"
+   name="VRPI.html"
+   text-time="2005-03-02T06:25:25.218750Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="2b36564c6cc19f55fd9db15e5cac5b97"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:24.921875Z"/>
+<entry
+   committed-rev="33"
+   name="RandomizableI.html"
+   text-time="2005-03-02T06:25:25.203125Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="2311e44b2a83a58d5d8157d173d000e0"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:24.906250Z"/>
+<entry
+   committed-rev="33"
+   name="VRPError.html"
+   text-time="2005-03-02T06:25:25.234375Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="0c72657186ba426f618dfe5035fe86d7"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:24.953125Z"/>
+<entry
+   committed-rev="33"
+   name="ClarkeWrightBase.html"
+   text-time="2005-03-02T06:25:25.234375Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="55f02ba877a87a8914d4f5d4ce3d77f5"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:24.937500Z"/>
+<entry
+   committed-rev="33"
+   name="BestOf.html"
+   text-time="2005-03-02T06:25:25.250000Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="a4b043cde9a63395bbbd41b4a6e2b98f"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:24.953125Z"/>
+<entry
+   committed-rev="33"
+   name="package-frame.html"
+   text-time="2005-03-02T06:25:25.250000Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="83d4818fbc343dc8d6580155196c89f5"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:24.968750Z"/>
+<entry
+   committed-rev="33"
+   name="VRPException.html"
+   text-time="2005-03-02T06:25:25.281250Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="b1c61859c482d42d9ce8c659e35c2439"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:25.015625Z"/>
+<entry
+   committed-rev="33"
+   name="package-summary.html"
+   text-time="2005-03-02T06:25:25.265625Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="d19e116bef5f027370d9021e25d7ffbb"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:25.000000Z"/>
+<entry
+   committed-rev="33"
+   name="ClarkeWright.html"
+   text-time="2005-03-02T06:25:25.265625Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="4239fd041d0aca7d1ac5e260fcda0f27"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:24.984375Z"/>
+<entry
+   committed-rev="33"
+   name="package-tree.html"
+   text-time="2005-03-02T06:25:25.296875Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="53e9cc89f1417b100cb2c302de927e6c"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:25.015625Z"/>
+<entry
+   committed-rev="33"
+   name="ImproveI.html"
+   text-time="2005-03-02T06:25:25.296875Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="4e713ce50696f54b26462b21e618bee3"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:25.031250Z"/>
+<entry
+   committed-rev="33"
+   name="ConstructI.html"
+   text-time="2005-03-02T06:25:25.312500Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="8f944f0da6a584b3aa88812fd853c2cf"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:25.046875Z"/>
+<entry
+   committed-rev="33"
+   name="RandomizableBase.html"
+   text-time="2005-03-02T06:25:25.312500Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="aa80db9e9aad4d46bc7461fd56bbd8ea"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:25.062500Z"/>
+<entry
+   committed-rev="33"
+   name="Composite.html"
+   text-time="2005-03-02T06:25:25.328125Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="8856c27ab91f779015bc7b432d447b20"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:25.078125Z"/>
+<entry
+   committed-rev="33"
+   name="VRPBase.html"
+   text-time="2005-03-02T06:25:25.328125Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="242599e823f8d974db0187d09207f467"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:25.093750Z"/>
+<entry
+   committed-rev="33"
+   name="ImproveWithTSP.html"
+   text-time="2005-03-02T06:25:25.343750Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="851d97b8433b4264786d9ef302499c07"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:25.093750Z"/>
+<entry
+   committed-rev="33"
+   name="GillettMillerBase.html"
+   text-time="2005-03-02T06:25:25.359375Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="c497cfa8ef1a0cb216bf85ea12cf37b3"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:25.109375Z"/>
+<entry
+   committed-rev="33"
+   name="SolutionNotFoundException.html"
+   text-time="2005-03-02T06:25:25.359375Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="8de72930c94809fd198316c889bd9bc5"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:25.125000Z"/>
+<entry
+   committed-rev="33"
+   name="GillettMiller.html"
+   text-time="2005-03-02T06:25:25.375000Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="8fe18fa3a72eab0f89822f9e2a5ed38c"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:25.140625Z"/>
+<entry
+   committed-rev="33"
+   name="Randomizer.html"
+   text-time="2005-03-02T06:25:25.375000Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="ce4ad4a12fd4f221f2baaefe46749e0c"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:25.156250Z"/>
+<entry
+   committed-rev="33"
+   name="BestOfAll.html"
+   text-time="2005-03-02T06:25:25.390625Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="dbaa12d10209852f1d0b731fa6e7e2fe"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:25.171875Z"/>
+</wc-entries>

@@ -1,0 +1,738 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Stroking and Filling Graphics Primitives</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#display" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="transforming.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: 2D Graphics
+<br>
+<b>Lesson</b>: Displaying Graphics with Graphics2D
+</font>
+
+<h2>
+Stroking and Filling Graphics Primitives
+</h2>
+<blockquote>
+By changing the stroke and paint attributes in the
+<CODE>Graphics2D</CODE> context before rendering, you can easily apply
+fancy line styles and fill patterns to graphics primitives. For
+example, you can draw a dashed line by creating an appropriate
+<CODE>Stroke</CODE> object and calling <CODE>setStroke</CODE> to add it
+to the <CODE>Graphics2D</CODE> context before you render the line.
+Similarly, you can apply a gradient fill to a <CODE>Shape</CODE> by
+creating a <CODE>GradientPaint</CODE> object and adding it to the
+<CODE>Graphics2D</CODE> context by calling <CODE>setPaint</CODE> before
+you render the <CODE>Shape</CODE>.
+<P>
+The following applet
+demonstrates how you can render basic geometries by using the
+<CODE>Graphics2D</CODE> <CODE>draw</CODE> and <CODE>fill</CODE>
+methods.
+
+<p>
+
+<p><center><a href="ShapesDemo2D.html" target="_blank"><IMG SRC="../../figures/2d/2D-12.gif" WIDTH="549" HEIGHT="197" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="Click this figure to run the applet."></a><br><em>This is a picture of the applet's GUI.  To run the applet, click the picture.  The applet will appear in a new browser window.</em></center></p>
+
+<a target="_blank" href="example-1dot2/ShapesDemo2D.java"><font color="#bb000f"><code>ShapesDemo2D.java</code></font></a><a target="_blank" href="example-1dot2/ShapesDemo2D.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>
+contains the complete code for this applet.
+
+<p>
+
+Each of the shapes drawn by the applet is constructed from one of the geometries
+and is then rendered through <CODE>Graphics2D</CODE>. The
+<CODE>rectHeight</CODE> and <CODE>rectWidth</CODE> variables in this
+example define the dimensions of the space where each shape is drawn,
+in pixels. The <EM CLASS="Emphasis">x</EM> and
+<EM CLASS="Emphasis">y</EM> variables change for each shape so that they
+are drawn in a grid formation.
+<p>
+<TABLE BORDER="1">
+<TR>
+<TD>
+<IMG SRC="../../figures/2d/2D-16.gif" WIDTH="134" HEIGHT="49" ALT=""></TD>
+<TD>
+<pre>
+// draw Line2D.Double
+g2.draw(new Line2D.Double(x, y+rectHeight-1,
+                          x + rectWidth, y));
+</pre>
+</TD>
+</TR>
+<TR>
+<TD>
+<IMG SRC="../../figures/2d/2D-17.gif" WIDTH="135" HEIGHT="49" ALT=""></TD>
+<TD>
+<pre>
+// draw Rectangle2D.Double
+g2.setStroke(stroke);
+g2.draw(new Rectangle2D.Double(x, y,
+                               rectWidth,
+                               rectHeight));
+</pre>
+</TD>
+</TR>
+<TR>
+<TD>
+<IMG SRC="../../figures/2d/2D-18.gif" WIDTH="135" HEIGHT="49" ALT=""></TD>
+<TD>
+<pre>
+// draw RoundRectangle2D.Double
+g2.setStroke(dashed);
+g2.draw(new RoundRectangle2D.Double(x, y,
+                                   rectWidth,
+                                   rectHeight,
+                                   10, 10));
+</pre>
+
+</TD>
+</TR>
+<TR>
+<TD>
+<IMG SRC="../../figures/2d/2D-19.gif" WIDTH="71" HEIGHT="51" ALT=""></TD>
+<TD>
+<pre>
+// draw Arc2D.Double
+g2.setStroke(wideStroke);
+g2.draw(new Arc2D.Double(x, y,
+                         rectWidth,
+                         rectHeight,
+                         90, 135,
+                         Arc2D.OPEN));
+</pre>
+
+</TD>
+</TR>
+<TR>
+<TD>
+<IMG SRC="../../figures/2d/2D-20.gif" WIDTH="136" HEIGHT="49" ALT=""></TD>
+<TD>
+<pre>
+// draw Ellipse2D.Double
+g2.setStroke(stroke);
+g2.draw(new Ellipse2D.Double(x, y,
+                             rectWidth,
+                             rectHeight));
+</pre>
+
+</TD>
+</TR>
+<TR>
+<TD>
+<IMG SRC="../../figures/2d/2D-21.gif" WIDTH="134" HEIGHT="49" ALT=""></TD>
+<TD>
+<pre>
+// draw GeneralPath (polygon)
+int x1Points[] = {x, x+rectWidth,
+                  x, x+rectWidth};
+int y1Points[] = {y, y+rectHeight,
+                  y+rectHeight, y};
+GeneralPath polygon = new
+	 GeneralPath(GeneralPath.WIND_EVEN_ODD,
+		     x1Points.length);
+polygon.moveTo(x1Points[0], y1Points[0]);
+
+for (int index = 1;
+     index &lt; x1Points.length;
+     index++) {
+        polygon.lineTo(x1Points[index],
+                       y1Points[index]);
+};
+
+polygon.closePath();
+g2.draw(polygon);
+</pre>
+
+</TD>
+</TR>
+<TR>
+<TD>
+<IMG SRC="../../figures/2d/2D-22.gif" WIDTH="134" HEIGHT="49" ALT=""></TD>
+<TD>
+<pre>
+// draw GeneralPath (polyline)
+int x2Points[] = {x, x+rectWidth, x,
+                  x+rectWidth};
+int y2Points[] = {y, y+rectHeight,
+                  y+rectHeight, y};
+GeneralPath polyline = new
+         GeneralPath(GeneralPath.WIND_EVEN_ODD,
+           	     x2Points.length);
+
+polyline.moveTo (x2Points[0], y2Points[0]);
+
+for (int index = 1;
+     index &lt; x2Points.length;
+     index++) {
+ 	 polyline.lineTo(x2Points[index],
+         y2Points[index]);
+};
+
+g2.draw(polyline);
+</pre>
+
+</TD>
+</TR>
+<TR>
+<TD>
+<IMG SRC="../../figures/2d/2D-23.gif" WIDTH="134" HEIGHT="48" ALT=""></TD>
+<TD>
+<pre>
+// fill Rectangle2D.Double (red)
+g2.setPaint(red);
+g2.fill(new Rectangle2D.Double(x, y,
+        rectWidth, rectHeight));
+</pre>
+
+</TD>
+</TR>
+<TR>
+<TD>
+<IMG SRC="../../figures/2d/2D-24.gif " WIDTH="134" HEIGHT="48" ALT=""></TD>
+<TD>
+<pre>
+// fill RoundRectangle2D.Double
+g2.setPaint(redtowhite);
+g2.fill(new RoundRectangle2D.Double(x, y,
+                                   rectWidth,
+                                   rectHeight,
+                                   10, 10));
+</pre>
+
+</TD>
+</TR>
+<TR>
+<TD>
+<IMG SRC="../../figures/2d/2D-25.gif " WIDTH="67" HEIGHT="45" ALT=""></TD>
+<TD>
+<pre>
+// fill Arc2D
+g2.setPaint(red);
+g2.fill(new Arc2D.Double(x, y, rectWidth,
+                         rectHeight, 90,
+                         135, Arc2D.OPEN));
+</pre>
+
+</TD>
+</TR>
+<TR>
+<TD>
+<IMG SRC="../../figures/2d/2D-26.gif " WIDTH="136" HEIGHT="49" ALT=""></TD>
+<TD>
+<pre>
+// fill Ellipse2D.Double
+g2.setPaint(redtowhite);
+g2.fill (new Ellipse2D.Double(x, y,
+                              rectWidth,
+                              rectHeight));
+</pre>
+
+</TD>
+</TR>
+<TR>
+<TD>
+<IMG SRC="../../figures/2d/2D-27.gif " WIDTH="134" HEIGHT="49" ALT=""></TD>
+<TD>
+<pre>
+// fill and stroke GeneralPath
+int x3Points[] = {x, x+rectWidth, x,
+                  x+rectWidth};
+int y3Points[] = {y, y+rectHeight,
+                  y+rectHeight, y};
+
+GeneralPath filledPolygon = new
+         GeneralPath(GeneralPath.WIND_EVEN_ODD,
+		     x3Points.length);
+filledPolygon.moveTo(x3Points[0],
+                     y3Points[0]);
+
+for (int index = 1;
+     index &lt; x3Points.length;
+     index++) 	{
+	filledPolygon.lineTo(x3Points[index],
+                             y3Points[index]);
+
+};
+filledPolygon.closePath();
+g2.setPaint(red);
+g2.fill(filledPolygon);
+</pre>
+
+</TD>
+</TR>
+</TABLE>
+<P>
+Note that this example uses the double-precision implementations of the
+geometries classes. Where applicable, float and double-precision
+implementations of each of the geometries are provided as inner
+classes.
+</blockquote>
+
+<h3>Drawing Curves</h3>
+<blockquote>
+The <code>Cubic</code> and <code>Quad</code> applets
+demonstrate how to create cubic and quadratic curves using
+<code>CubicCurve2D</code> and <code>QuadCurve2D</code> respectively.
+These applets also demonstrate how the curves are drawn with respect to
+the positioning of the control points by allowing you to interactively
+move both the control points and the end points.
+
+<h3>Example: Quad</h3>
+<blockquote>
+The <code>Quad</code> applet demonstrates a quadratic curve, which is a
+curved segment that has two endpoints and only one control point.  The 
+control point determines the shape of the curve by controlling both of the 
+endpoint tangent vectors.
+
+<p><center><a href="Quad.html" target="_blank"><IMG SRC="../../figures/2d/QuadApp.gif" WIDTH="350" HEIGHT="250" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="Click this figure to run the applet."></a><br><em>This is a picture of the applet's GUI.  To run the applet, click the picture.  The applet will appear in a new browser window.</em></center></p>
+
+<a target="_blank" href="example-1dot2/Quad.java"><font color="#bb000f"><code>Quad.java</code></font></a><a target="_blank" href="example-1dot2/Quad.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>
+contains the complete code for this applet.
+<p>
+
+First, a new quadratic curve is created with two endpoints and a control
+point and the locations of the points are set with respect to
+the size of the window.
+<blockquote>
+<pre>
+QuadCurve2D.Double quad = new QuadCurve2D.Double();
+
+Point2D.Double start, end, control;
+start = new Point2D.Double();
+one = new Point2D.Double();
+control = new Point2D.Double();
+
+quad.setCurve(start, one, control);
+
+start.setLocation(w/2-50, h/2);
+end.setLocation(w/2+50, h/2);
+control.setLocation((int)(start.x)+50, (int)(start.y)-50);
+</pre>
+</blockquote>
+
+Every time the user moves one of the points, the curve is reset.
+
+<blockquote>
+<pre>
+quad.setCurve(start, control, end);
+</pre>
+</blockquote>
+</blockquote>
+<p>
+
+<h3>Example: Cubic</h3>
+<blockquote>
+The <code>Cubic</code> sample demonstrates a cubic curve, which is a
+curved segment that has two endpoints and two control points.  Each 
+control point determines the shape of the curve by controlling one of the 
+endpoint tangent vectors.  In the <code>Cubic</code> sample, colored
+squares are drawn where the control points and endpoints are located.  The
+blue control point controls the tangent vector of the red endpoint and
+the green control point controls the tangent vector of the magenta
+endpoint.
+
+<p><center><a href="Cubic.html" target="_blank"><IMG SRC="../../figures/2d/CubicApp.gif" WIDTH="350" HEIGHT="250" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="Click this figure to run the applet."></a><br><em>This is a picture of the applet's GUI.  To run the applet, click the picture.  The applet will appear in a new browser window.</em></center></p>
+
+<a target="_blank" href="example-1dot2/Cubic.java"><font color="#bb000f"><code>Cubic.java</code></font></a><a target="_blank" href="example-1dot2/Cubic.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>
+contains the complete code for this applet.
+<p>
+
+A new cubic curve is created with two endpoints and a two control points
+and the locations of the points are set with respect to the size of the
+window.
+<blockquote>
+<pre>        
+CubicCurve2D.Double cubic = new CubicCurve2D.Double();
+        
+Point2D.Double start, end, one, two;
+start = new Point2D.Double();
+one = new Point2D.Double();
+two = new Point2D.Double();
+end = new Point2D.Double();
+
+cubic.setCurve(start, one, two, end);
+
+...
+
+start.setLocation(w/2-50, h/2);
+end.setLocation(w/2+50, h/2);
+one.setLocation((int)(start.x)+25, (int)(start.y)-25);
+two.setLocation((int)(end.x)-25, (int)(end.y)+25);
+</pre>
+</blockquote>
+
+As in the <code>Quad</code> example, the curve is reset every time the
+points are moved.
+
+<blockquote>
+<pre>
+cubic.setCurve(start, one, two, end); 
+</pre>
+</blockquote>
+
+</blockquote>
+</blockquote>
+
+<p>
+<h3>Drawing Arbitrary Shapes</h3>
+<blockquote>
+The <code>ShapesDemo</code> example uses <code>GeneralPath</code>
+to make the hourglass-shaped polygons, but you can also use
+<code>GeneralPath</code> to make arbitrary shapes with both straight
+and curved lines.  
+
+<h3>Example: Odd_Shape</h3>
+<blockquote>
+The <code>Odd_Shape</code> sample uses <code>GeneralPath</code> to create the
+arbitrary shape shown in the 
+<A HREF="../overview/shapes.html">Shapes</A> section.
+<p>
+<p><center><a href="Odd_Shape.html" target="_blank"><IMG SRC="../../figures/2d/PolyApp.gif" WIDTH="350   " HEIGHT="200   " ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="Click this figure to run the applet."></a><br><em>This is a picture of the applet's GUI.  To run the applet, click the picture.  The applet will appear in a new browser window.</em></center></p>
+
+<a target="_blank" href="example-1dot2/Odd_Shape.java"><font color="#bb000f"><code>Odd_Shape.java</code></font></a><a target="_blank" href="example-1dot2/Odd_Shape.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>
+contains the complete code for this applet.
+<p>
+
+The following code creates a new <code>GeneralPath</code> and adds the
+first point to the path.
+<blockquote>
+<pre>
+GeneralPath oddShape = new GeneralPath();
+...
+
+x = w/2 + 50;
+y = h/2 - 25;
+
+x2 = x; 
+y2 = y;
+
+oddShape.moveTo(x, y);
+</pre>
+</blockquote>
+
+After the first point is added to the path, three straight lines are
+added to the path.
+
+<blockquote>
+<pre>
+x -= 100;
+oddShape.lineTo(x, y);
+y += 50;
+oddShape.lineTo(x, y);
+x += 100;
+oddShape.lineTo(x, y);
+</pre>
+</blockquote>
+
+Finally, a cubic curve is added to the path.
+
+<blockquote>
+<pre>
+x += 10;
+y -= 10;
+x1 = x - 20;
+y1 = y - 20;
+oddShape.curveTo(x, y, x1, y1, x2, y2);
+</pre>
+</blockquote>
+
+
+</blockquote>
+</blockquote>
+
+<p>
+
+
+<h3>Defining Fancy Line Styles and Fill Patterns</h3>
+<blockquote>
+You probably noticed that in the previous example some of the shapes
+have thicker outlines or are filled with a two-color gradient. Using
+the Java 2D <CODE>Stroke</CODE> and <CODE>Paint</CODE> classes, you can
+easily define fancy line styles and fill patterns.
+<h3>Line Styles</h3>
+<blockquote>
+Line styles are defined by the stroke attribute in the
+<CODE>Graphics2D</CODE> rendering context. To set the stroke attribute,
+you create a <CODE>BasicStroke</CODE> object and pass it into the
+<CODE>Graphics2D</CODE> <CODE>setStroke</CODE> method.
+<P>
+A <CODE>BasicStroke</CODE> object holds information about the line
+width, join style, end-cap style, and dash style. This information is
+used when a <CODE>Shape</CODE> is rendered with the <CODE>draw</CODE>
+method.
+<P>
+The <EM CLASS="Emphasis">line width</EM>
+is the thickness of the line measured perpendicular to its trajectory.
+The line width is specified as a <CODE>float</CODE> value in user
+coordinate units, which are roughly equivalent to 1/72 inch when the
+default transform is used.
+<P>
+The <EM CLASS="Emphasis">join style</EM>
+is the decoration that is applied where two line segments meet.
+<CODE>BasicStroke</CODE> supports three join styles:
+<P>
+
+<IMG SRC="../../figures/2d/2D-28.gif " WIDTH="30" HEIGHT="26" ALT=""><CODE>JOIN_BEVEL</CODE>
+
+<P>
+<IMG SRC="../../figures/2d/2D-29.gif " WIDTH="30" HEIGHT="33" ALT=""><CODE>JOIN_MITER</CODE>
+
+<P>
+<IMG SRC="../../figures/2d/2D-30.gif " WIDTH="30" HEIGHT="29" ALT=""><CODE> JOIN_ROUND</CODE>
+
+<P>
+The <EM CLASS="Emphasis">end-cap style</EM>
+is the decoration that is applied where a line segment ends.
+<CODE>BasicStroke</CODE> supports three end-cap styles:
+<P>
+<IMG SRC="../../figures/2d/2D-31.gif " WIDTH="26" HEIGHT="8" ALT=""><CODE>CAP_BUTT</CODE>
+
+<P>
+<IMG SRC="../../figures/2d/2D-32.gif " WIDTH="32" HEIGHT="8" ALT=""><CODE>CAP_ROUND</CODE>
+
+<P>
+<IMG SRC="../../figures/2d/2D-33.gif " WIDTH="32" HEIGHT="8" ALT=""><CODE>CAP_SQUARE</CODE>
+
+<P>
+The <EM CLASS="Emphasis">dash style</EM>
+defines the pattern of opaque and transparent sections applied along
+the length of the line. The dash style is defined by a dash array and
+a dash phase. The <EM CLASS="Emphasis">dash array</EM>
+defines the dash pattern. Alternating elements in the array represent
+the dash length and the length of the space between dashes in user
+coordinate units. Element 0 represents the first dash, element 1 the
+first space, and so on. The <EM CLASS="Emphasis">dash phase</EM>
+is an offset into the dash pattern, also specified in user coordinate
+units. The dash phase indicates what part of the dash pattern is
+applied to the beginning of the line.
+</blockquote>
+
+<h3>Fill Patterns</h3>
+<blockquote>
+Fill patterns are defined by the paint attribute in the
+<CODE>Graphics2D</CODE> rendering context. To set the paint attribute,
+you create an instance of an object that implements the
+<CODE>Paint</CODE> interface and pass it into the
+<CODE>Graphics2D</CODE> <CODE>setPaint</CODE> method.
+<P>
+Three classes implement the <CODE>Paint</CODE> interface:
+<CODE>Color</CODE>, <CODE>GradientPaint</CODE>, and
+<CODE>TexturePaint</CODE>. <CODE>GradientPaint</CODE> and
+<CODE>TexturePaint</CODE> are new in JDK 1.2.
+<P>
+To create a <EM CLASS="ClassName">GradientPaint</EM>,
+you specify a beginning position and color and an ending position and
+color. The gradient changes proportionally from one color to the other
+along the line connecting the two positions.
+
+<p><center><IMG SRC="../../figures/2d/2D-34.gif " WIDTH="302" HEIGHT="129" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p>
+<P>
+The pattern for a <CODE>TexturePaint</CODE>
+is defined by a <CODE>BufferedImage</CODE>.
+To create a <CODE>TexturePaint</CODE>,
+you specify the image that contains the pattern and a rectangle that
+is used to replicate and anchor the pattern.
+<p><center><IMG SRC="../../figures/2d/2D-35.gif  " WIDTH="374" HEIGHT="127" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p></blockquote>
+
+<h3>Example: StrokeAndFill</h3>
+<blockquote>
+The <CODE>StrokeAndFill</CODE> applet allows the user to select a
+graphics primitive, a line style, and a paint style and to either
+stroke the object's outline, fill it with the selected paint, or stroke
+the object in black and then fill it with the selected paint.
+<p>
+<p><center><a href="StrokeAndFillDemo.html" target="_blank"><IMG SRC="../../figures/2d/2D-36.gif  " WIDTH="450" HEIGHT="250" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="Click this figure to run the applet."></a><br><em>This is a picture of the applet's GUI.  To run the applet, click the picture.  The applet will appear in a new browser window.</em></center></p><P>
+
+<a target="_blank" href="example-1dot2/StrokeAndFill.java"><font color="#bb000f"><code>StrokeAndFill.java</code></font></a><a target="_blank" href="example-1dot2/StrokeAndFill.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>
+contains the complete code for this applet.
+
+<P>
+The primitives are initialized and entered into an array of
+<code>Shape</code> objects.  The following code creates a
+<code>Rectangle</code> and an <code>Ellipse2D.Double</code> and enters
+them into the <code>shapes</code> array.
+<p>
+<blockquote><pre>
+shapes[0] = new Rectangle(0, 0, 100, 100);
+shapes[1] = new Ellipse2D.Double(0.0, 0.0, 100.0, 100.0);
+</pre></blockquote>
+<p>
+To create a <code>Shape</code> object from a text string, you must first
+create a <code>TextLayout</code> object from the text string.
+<p>
+<blockquote><pre>
+TextLayout textTl = new TextLayout("Text", 
+	  new Font("Helvetica", 1, 96), 
+	  new FontRenderContext(null, false, false));
+</pre></blockquote>
+<p>
+The following lines transform the <code>TextLayout</code> so that it is
+centered on the origin and then enter the <code>Shape</code> object
+resulting from the call to <code>getOutline</code> into the
+<code>shapes</code> array.
+<p>
+<blockquote><pre>
+AffineTransform textAt = new AffineTransform();
+textAt.translate(0,
+    (float)textTl.getBounds().getHeight());
+shapes[2] = textTl.getOutline(textAt);
+</pre></blockquote>
+<p>
+You can choose a primitive by accessing the appropriate index into the
+<code>shapes</code> array.
+<p>
+<blockquote><pre>
+Shape shape = 
+    shapes[Transform.primitive.getSelectedIndex()];
+</pre></blockquote>
+<p>
+How rendering is performed depends on which rendering option is chosen.
+<UL> <LI> When the user chooses <EM CLASS="Emphasis">stroke</EM>,
+     <CODE>Graphics2D.draw</CODE> is called to perform the rendering. If
+     <EM CLASS="Emphasis">text</EM> is chosen as the primitive, the glyph
+     outlines are retrieved and then rendered with the <CODE>draw</CODE>
+     method.
+<LI> When the user chooses <EM CLASS="Emphasis">fill</EM>,
+     <CODE>Graphics2D.fill</CODE> or <CODE>Graphics2D.drawString</CODE>
+     is called to perform the rendering.
+<LI> When the user chooses <EM CLASS="Emphasis">stroke and fill</EM>,
+     <CODE>fill</CODE> or <CODE>drawString</CODE> is called to fill the
+     <CODE>Shape</CODE>, and then <CODE>draw</CODE> is called to stroke its
+     outline.
+</UL>
+
+
+<blockquote><hr><strong>Note:</strong>&nbsp;
+To both fill and stroke a graphics primitive, you need to make two
+separate method calls: <CODE>fill</CODE> or <CODE>drawString</CODE> to
+fill its interior and <CODE>draw</CODE> to stroke its
+outline.
+<hr></blockquote>
+
+<P>
+The three line styles used in this example--thin, thick, and
+dashed--are instances of <CODE>BasicStroke</CODE>.
+<blockquote><pre>
+// Sets the Stroke.
+...
+case 0 : g2.setStroke(new BasicStroke(3.0f)); break;
+case 1 : g2.setStroke(new BasicStroke(8.0f)); break;
+case 2 : float dash[] = {10.0f};
+         g2.setStroke(new BasicStroke(3.0f,
+             BasicStroke.CAP_BUTT,
+             BasicStroke.JOIN_MITER,
+             10.0f, dash, 0.0f));
+         break;
+</pre></blockquote>
+<P>
+The dash style in this example has 10 unit dashes alternating with 10
+unit spaces. The beginning of the dash pattern is applied to the
+beginning of the line--the dash phase is set to 0.0.
+<P>
+Three paint styles are used in this example--solid, gradient, and
+polka. The solid-color paint style is an instance of
+<CODE>Color</CODE>, the gradient an instance of
+<CODE>GradientPaint</CODE>, and the pattern an instance of
+<CODE>TexturePaint</CODE>.
+
+<blockquote><pre>
+// Sets the Paint.
+...
+case 0 : g2.setPaint(Color.blue); break;
+case 1 : g2.setPaint(new GradientPaint(0, 0,
+                          Color.lightGray,
+                          w-250, h, Color.blue, false));
+         break;
+case 2 : BufferedImage bi = new BufferedImage(5, 5,
+                                BufferedImage.TYPE_INT_RGB);
+         Graphics2D big = bi.createGraphics();
+         big.setColor(Color.blue);
+         big.fillRect(0, 0, 5, 5);
+         big.setColor(Color.lightGray);
+         big.fillOval(0, 0, 5, 5);
+         Rectangle r = new Rectangle(0,0,5,5);
+         g2.setPaint(new TexturePaint(bi, r));
+         break;
+</pre></blockquote>
+</blockquote>
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#display" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="transforming.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

@@ -1,0 +1,5 @@
+<APPLET CODE="ImageOps.class"
+        codebase="example-1dot2/"
+        archive="imageops.jar"
+        WIDTH=550 HEIGHT=550>
+</APPLET>

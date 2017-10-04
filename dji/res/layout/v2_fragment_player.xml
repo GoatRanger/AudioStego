@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent">
+    <SurfaceView android:id="@+id/fragment_player_surface_view" android:background="@r$color/grey_not_selected" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <dji.publics.DJIUI.DJIImageView android:id="@+id/preview_play_button" android:background="0x106000d" android:visibility="invisible" android:layout_width="UNKNOWN_DATA_0x7f0b012f" android:layout_height="UNKNOWN_DATA_0x7f0b012f" android:src="@r$drawable/v2_btn_playback" android:layout_centerHorizontal="true" android:layout_centerVertical="true" android:contentDescription="@string/no_value" />
+    <dji.publics.DJIUI.DJITextView android:textSize="@dimen/rp" android:textColor="@color/om" android:id="@+id/preview_time_tv" android:background="@r$drawable/ve_play_time_bg" android:paddingLeft="@dimen/gw" android:paddingRight="@dimen/gw" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="@dimen/gw" android:singleLine="true" android:layout_alignTop="@+id/fragment_player_surface_view" android:layout_alignRight="@+id/fragment_player_surface_view" />
+</RelativeLayout>

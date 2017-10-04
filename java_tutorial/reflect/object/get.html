@@ -1,0 +1,180 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Getting Field Values</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="arg.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#object" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="set.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: The Reflection API
+<br>
+<b>Lesson</b>: Manipulating Objects
+</font>
+
+<h2>
+Getting Field Values
+</h2>
+<blockquote>
+If you are writing a development tool such as a debugger, you must be able to 
+obtain field values. This is a three-step process:
+
+<ol>
+<li>
+Create a <code>Class</code> object.  
+The section <a href="../class/getClass.html">Retrieving Class Objects</a>
+shows you how to do this.
+
+<li>
+Create a <code>Field</code> object by invoking <code>getField</code> on the <code>Class</code> object.  
+For more information, see the section
+<a href="../class/getFields.html">Identifying Class Fields</a>.
+
+<li>
+Invoke one of the <code>get</code> methods on the <code>Field</code> object.
+</ol>
+
+The 
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/reflect/Field.html"><font color="#8800bb"><code>Field</code> </font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/reflect/Field.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>class has specialized methods for getting the values of primitive 
+types.  For example, the <code>getInt</code> method returns the 
+contents as an <code>int</code> value,
+<code>getFloat</code> returns a <code>float</code>, and so forth. 
+If the field stores an object instead of a primitive, then use the <code>get</code> 
+method to retrieve the object.
+
+<p>
+The following sample program demonstrates the three steps listed
+previously.
+This program gets the value of the <code>height</code> field
+from a <code>Rectangle</code> object.
+Because the <code>height</code> is a primitive type (<code>int</code>), the object returned by the <code>get</code> method 
+is a wrapper object (<code>Integer</code>).
+
+<p>
+In the sample program, the name of the <code>height</code> field
+is known at compile time.
+However, in a development tool such as a GUI builder,
+the field name might not be known until runtime.
+To find out what fields belong to a class,
+you can use the techniques described in
+the section
+<a href="../class/getFields.html">Identifying Class Fields</a>.
+
+<p>
+Here is the source code for the sample program:
+
+<blockquote><pre>
+import java.lang.reflect.*;
+import java.awt.*;
+
+class SampleGet {
+
+   public static void main(String[] args) {
+      Rectangle r = new Rectangle(100, 325);
+      printHeight(r);
+
+   }
+
+   static void printHeight(Rectangle r) {
+      Field heightField;
+      Integer heightValue;
+      Class c = r.getClass();
+      try {
+        heightField = c.getField("height");
+        heightValue = (Integer) heightField.get(r);
+        System.out.println("Height: " + heightValue.toString());
+      } catch (NoSuchFieldException e) {
+          System.out.println(e);
+      } catch (SecurityException e) {
+          System.out.println(e);
+      } catch (IllegalAccessException e) {
+          System.out.println(e);
+      }
+   }
+}
+</pre></blockquote>
+
+The output of the sample program verifies the value of
+the <code>height</code> field:
+
+<blockquote><pre>
+Height: 325
+</pre></blockquote>
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="arg.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#object" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="set.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

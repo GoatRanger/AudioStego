@@ -1,0 +1,75 @@
+38.422
+unknown
+Karl
+38.828
+DoubleRandom
+Karl
+40.25
+unknown
+Karl
+1000.0
+unknown
+Karl
+1000.0
+unknown
+Karl
+1000.0
+unknown
+Karl
+1000.0
+none
+Joe Cadet
+1000.0
+none
+Joe Cadet
+1000.0
+none
+Joe Cadet
+1000.0
+none
+Joe Cadet
+1000.0
+none
+Joe Cadet
+1000.0
+none
+Joe Cadet
+1000.0
+none
+Joe Cadet
+1000.0
+none
+Joe Cadet
+1000.0
+none
+Joe Cadet
+1000.0
+none
+Joe Cadet
+1000.0
+none
+Joe Cadet
+1000.0
+none
+Joe Cadet
+1000.0
+none
+Joe Cadet
+1000.0
+none
+Joe Cadet
+1000.0
+none
+Joe Cadet
+1000.0
+none
+Joe Cadet
+1000.0
+none
+Joe Cadet
+1000.0
+none
+Joe Cadet
+1000.0
+none
+Joe Cadet

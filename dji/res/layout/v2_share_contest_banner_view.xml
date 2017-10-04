@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res-auto" app:layout_width="match_parent" app:layout_height="match_parent">
+    <dji.pilot2.widget.WrapContentHeightViewPager app:id="@+id/explore_banner" app:layout_width="match_parent" app:layout_height="match_parent" app:overScrollMode="never" />
+    <dji.pilot2.nativeexplore.view.IndicatorBar app:orientation="horizontal" app:id="@+id/explore_banner_indicator" app:paddingBottom="@dimen/fj" app:layout_width="wrap_content" app:layout_height="wrap_content" app:layout_alignBottom="@+id/explore_banner" app:layout_centerHorizontal="true" />
+</RelativeLayout>

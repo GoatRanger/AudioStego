@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.publics.DJIUI.DJIRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/first_tip_content" android:layout_width="UNKNOWN_DATA_0x7f0b010d" android:layout_height="wrap_content">
+    <dji.publics.DJIUI.DJIImageView android:id="@+id/v2_dds_tip_arrow" android:background="@r$drawable/v2_dds_top_arrow" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/fj" android:layout_alignParentRight="true" android:alpha="0.95" />
+    <dji.publics.DJIUI.DJILinearLayout android:orientation="vertical" android:background="@r$drawable/v2_dialog_dds_content_bg" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@+id/v2_dds_tip_arrow" android:alpha="0.95">
+        <dji.publics.DJIUI.DJITextView android:textSize="@dimen/rl" android:textColor="@r$color/grey_not_selected" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/fj" android:layout_marginBottom="@dimen/gw" android:text="@string/v2_dds_tip" />
+        <ImageView android:background="@r$color/grey_not_selected" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x101" android:layout_marginLeft="@dimen/fj" />
+        <dji.publics.DJIUI.DJITextView android:textSize="@dimen/rl" android:textColor="@color/au" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/fj" android:layout_marginTop="@dimen/gw" android:layout_marginBottom="@dimen/gw" android:text="@string/ve_beginners_guide_done" />
+    </dji.publics.DJIUI.DJILinearLayout>
+</dji.publics.DJIUI.DJIRelativeLayout>

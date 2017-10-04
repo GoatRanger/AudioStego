@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res-auto" style="@style/gj">
+    <dji.setting.ui.vision.VisionFrontSensorView setting_ui:titleText="@string/setting_ui_vision_front_sensor" style="@style/g9" />
+    <dji.setting.ui.vision.VisionBackSensorView setting_ui:titleText="@string/setting_ui_vision_back_sensor" style="@style/g9" />
+    <dji.setting.ui.vision.VisionDownSensorView setting_ui:titleText="@string/setting_ui_vision_down_sensor" style="@style/g9" />
+    <dji.setting.ui.vision.VisionCaliView style="@style/g3" />
+</LinearLayout>

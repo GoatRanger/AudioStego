@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="horizontal" style="@style/g2">
+    <include android:id="@id/bph" layout="@layout/setting_ui_battery_volume_part_ly_inspire2" />
+    <include android:id="@id/bpi" layout="@layout/setting_ui_battery_volume_part_ly_inspire2" />
+    <dji.setting.ui.battery.inspire2.Inspire2InfoView android:layout_width="UNKNOWN_DATA_0xc801" android:layout_height="match_parent" />
+</LinearLayout>

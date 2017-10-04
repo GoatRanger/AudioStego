@@ -1,0 +1,171 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Understanding Inheritance</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="subclasses.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#javaOO" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="override.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Learning the Java Language
+<br>
+<b>Lesson</b>: Classes and Inheritance
+</font>
+
+<h2>
+Understanding Inheritance
+</h2>
+<blockquote>
+A subclass inherits variables and methods from its superclass and all
+of its ancestors. The subclass can use these members as is, or it can
+hide the member variables or override the methods.
+
+</blockquote>
+<h3>What Members Does a Subclass Inherit?</h3>
+<blockquote>
+
+<blockquote><hr><strong>Rule:</strong>&nbsp; A subclass inherits all of the members in its
+superclass that are accessible to that subclass unless the subclass
+explicitly hides a member variable or overrides a method. Note that
+constructors are not members and are not inherited by subclasses.
+<hr></blockquote>
+
+The following list itemizes the members that are inherited by a subclass:
+<ul>
+<li>
+Subclasses inherit those superclass members declared as
+<code>public</code> or <code>protected</code>.
+<li>
+Subclasses inherit those superclass members declared with no access
+specifier as long as the subclass is in the same package as the
+superclass.
+<li>
+Subclasses don't inherit a superclass's member if the subclass declares
+a member with the same name. In the case of member variables, the
+member variable in the subclass hides the one in the superclass. In the
+case of methods, the method in the subclass overrides the one in the
+superclass.
+</ul>
+Creating a subclass can be as simple as including the <code>extends</code>
+clause in your class declaration. However, you usually have to make other
+provisions in your code when subclassing a class, such as overriding
+methods or providing implementations for abstract methods.
+</blockquote>
+
+<h3>Hiding Member Variables</h3>
+<blockquote>
+As mentioned in the previous section, member variables defined in the
+subclass hide member variables that have the same name in the
+superclass.
+<p>
+While this feature of the Java language is powerful and convenient, it
+can be a fruitful source of errors. When naming your member variables,
+be careful to hide only those member variables that you actually wish
+to hide.
+<p>
+One interesting feature of Java member variables is that a class can
+access a hidden member variable through its superclass. Consider the
+following superclass and subclass pair:
+<blockquote><pre>
+class Super {
+    Number aNumber;
+}
+class Subbie extends Super {
+    Float aNumber;
+}
+</pre></blockquote>
+The <code>aNumber</code> variable in <code>Subbie</code> hides
+<code>aNumber</code> in <code>Super</code>. But you can access
+<code>Super</code>'s <code>aNumber</code> from <code>Subbie</code>
+with
+<blockquote><pre>
+super.aNumber
+</pre></blockquote>
+<code>super</code> is a Java language keyword that allows a method to
+refer to hidden variables and overridden methods of the superclass.
+</blockquote>
+
+<h3><a href="override.html">Overriding Methods</a></h3>
+<blockquote>
+The ability of a subclass to override a method in its superclass allows
+a class to inherit from a superclass whose behavior is "close enough"
+and then supplement or modify the behavior of that superclass.
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="subclasses.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#javaOO" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="override.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

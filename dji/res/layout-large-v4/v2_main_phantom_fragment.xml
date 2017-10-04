@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.publics.DJIUI.DJIOriLayout xmlns:android="http://schemas.android.com/apk/res-auto" phantom:layout_width="match_parent" phantom:layout_height="wrap_content" phantom:djiDeviceType="1">
+    <include phantom:id="@+id/v2phantomf1abc" layout="@layout/v2_phantom_header_bar" />
+    <RelativeLayout phantom:layout_width="match_parent" phantom:layout_height="match_parent" phantom:layout_below="@+id/v2phantomf1abc">
+        <LinearLayout phantom:orientation="vertical" phantom:layout_width="match_parent" phantom:layout_height="match_parent">
+            <FrameLayout phantom:layout_width="match_parent" phantom:layout_height="UNKNOWN_DATA_0x1" phantom:layout_weight="2.0">
+                <include phantom:id="@+id/v2_phantom_fragment_content_title_noconnect_layout" layout="@layout/v2_phantom_content_title_noconnect" />
+                <include phantom:id="@+id/v2_phantom_fragment_content_title_connect_layout" phantom:visibility="gone" layout="@layout/v2_phantom_content_title_connect" />
+            </FrameLayout>
+            <FrameLayout phantom:layout_width="match_parent" phantom:layout_height="UNKNOWN_DATA_0x1" phantom:layout_weight="4.5">
+                <include phantom:id="@+id/v2_phantom_fragment_content_noconnect_layout" layout="@layout/v2_phantom_content_noconnect" />
+                <include phantom:id="@+id/v2_phantom_fragment_content_connect_layout" phantom:visibility="gone" layout="@layout/v2_phantom_content_connect" />
+            </FrameLayout>
+            <FrameLayout phantom:layout_width="match_parent" phantom:layout_height="UNKNOWN_DATA_0x1" phantom:layout_weight="2.0">
+                <include phantom:id="@+id/v2_phantom_fragment_content_bottom_layout" layout="@layout/v2_phantom_content_bottom" />
+            </FrameLayout>
+        </LinearLayout>
+        <include layout="@layout/v2_upgrade_tip_banner_view" />
+        <include layout="@layout/v2_upgrade_p4_tip_banner_view" />
+        <include layout="@layout/v2_home_ble_banner_view" />
+    </RelativeLayout>
+</dji.publics.DJIUI.DJIOriLayout>

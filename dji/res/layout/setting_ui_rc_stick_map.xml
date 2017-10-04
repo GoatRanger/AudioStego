@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" style="@style/g2">
+    <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+        <ImageView android:id="@id/bxf" android:background="0x0" android:visibility="gone" android:src="@drawable/setting_ui_rc_stick_up_normal" style="@style/gm" />
+        <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content"
+            <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content"
+                <LinearLayout style="@style/gn">
+                    <ImageView android:id="@id/bxg" android:src="@drawable/setting_ui_rc_stick_up_normal" style="@style/gm" />
+                    <TextView android:id="@id/bxh" android:text="0" style="@style/go" />
+                    <ImageView android:id="@id/bxi" android:src="@drawable/setting_ui_rc_stick_up_normal" style="@style/gm" />
+                    <TextView android:id="@id/bxj" android:text="1" style="@style/go" />
+                </LinearLayout>
+                <LinearLayout style="@style/gn">
+                    <ImageView android:id="@id/bxk" android:src="@drawable/setting_ui_rc_stick_up_normal" style="@style/gm" />
+                    <TextView android:id="@id/bxl" android:text="2" style="@style/go" />
+                    <ImageView android:id="@id/bxm" android:src="@drawable/setting_ui_rc_stick_up_normal" style="@style/gm" />
+                    <TextView android:id="@id/bxn" android:text="3" style="@style/go" />
+                </LinearLayout>
+                <LinearLayout style="@style/gn">
+                    <ImageView android:id="@id/bxo" android:src="@drawable/setting_ui_rc_stick_up_normal" style="@style/gm" />
+                    <TextView android:id="@id/bxp" android:text="4" style="@style/go" />
+                    <ImageView android:id="@id/bxq" android:src="@drawable/setting_ui_rc_stick_up_normal" style="@style/gm" />
+                    <TextView android:id="@id/bxr" android:text="5" style="@style/go" />
+                </LinearLayout>
+                <LinearLayout android:id="@id/bxs" style="@style/gn">
+                    <ImageView android:id="@id/bxt" android:src="@drawable/setting_ui_rc_stick_up_normal" style="@style/gm" />
+                    <TextView android:id="@id/bxu" android:text="6" style="@style/go" />
+                    <ImageView android:id="@id/bxv" android:src="@drawable/setting_ui_rc_stick_up_normal" style="@style/gm" />
+                    <TextView android:id="@id/bxw" android:text="7" style="@style/go" />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/ts">
+                <FrameLayout android:layout_width="UNKNOWN_DATA_0x1" android:layout_height="wrap_content" android:layout_weight="1.0">
+                    <RelativeLayout android:layout_gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:layout_width="UNKNOWN_DATA_0x7f0b031d" android:layout_height="UNKNOWN_DATA_0x7f0b031c">
+                        <ImageView android:id="@id/bxx" android:layout_alignParentLeft="true" android:layout_centerVertical="true" style="@style/gm" />
+                        <ImageView android:id="@id/bxy" android:layout_alignParentRight="true" android:layout_centerVertical="true" style="@style/gm" />
+                        <ImageView android:id="@id/bxz" android:layout_alignParentTop="true" android:layout_centerHorizontal="true" style="@style/gm" />
+                        <ImageView android:id="@id/by0" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" style="@style/gm" />
+                        <ImageView android:layout_width="UNKNOWN_DATA_0x7f0b0350" android:layout_height="UNKNOWN_DATA_0x7f0b0350" android:src="@drawable/setting_ui_rc_stick_circle" android:layout_centerInParent="true" />
+                    </RelativeLayout>
+                </FrameLayout>
+                <FrameLayout android:layout_width="UNKNOWN_DATA_0x1" android:layout_height="wrap_content" android:layout_weight="1.0">
+                    <RelativeLayout android:layout_gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:layout_width="UNKNOWN_DATA_0x7f0b031d" android:layout_height="UNKNOWN_DATA_0x7f0b031c">
+                        <ImageView android:id="@id/by1" android:layout_alignParentLeft="true" android:layout_centerVertical="true" style="@style/gm" />
+                        <ImageView android:id="@id/by2" android:layout_alignParentRight="true" android:layout_centerVertical="true" style="@style/gm" />
+                        <ImageView android:id="@id/by3" android:layout_alignParentTop="true" android:layout_centerHorizontal="true" style="@style/gm" />
+                        <ImageView android:id="@id/by4" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" style="@style/gm" />
+                        <ImageView android:layout_width="UNKNOWN_DATA_0x7f0b0350" android:layout_height="UNKNOWN_DATA_0x7f0b0350" android:src="@drawable/setting_ui_rc_stick_circle" android:layout_centerInParent="true" />
+                    </RelativeLayout>
+                </FrameLayout>
+            </LinearLayout>
+        </LinearLayout>
+        <Button android:layout_gravity="left|right|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@id/by5" android:visibility="gone" android:text="@string/setting_ui_rc_gimbal_speed_desc" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" style="@style/g4" />
+    </RelativeLayout>
+</LinearLayout>

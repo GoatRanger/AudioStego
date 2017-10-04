@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="10"
+   name=""
+   committed-date="2005-02-01T05:59:34.421875Z"
+   url="svn://192.168.2.2/IT105Editor/docs/jalopy/api/de/hunsicker/jalopy/storage"
+   last-author="Karl"
+   kind="dir"
+   uuid="0daf4267-3229-f84b-9084-f3c94b025f38"
+   revision="55"/>
+<entry
+   committed-rev="10"
+   name="ConventionKeys.html"
+   text-time="2005-03-02T06:14:27.593750Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="291fa5fab6a2dfd74ecb89f157626d6e"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:26.937500Z"/>
+<entry
+   committed-rev="10"
+   name="History.Method.html"
+   text-time="2005-03-02T06:14:27.609375Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="7ea925380c0a9b10a16bedcc09254a7b"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:26.953125Z"/>
+<entry
+   committed-rev="10"
+   name="Convention.html"
+   text-time="2005-03-02T06:14:27.625000Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="76692cb22abfcac91b43a249082b1a50"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:26.968750Z"/>
+<entry
+   committed-rev="10"
+   name="package-frame.html"
+   text-time="2005-03-02T06:14:27.640625Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="2bf04f9f876a02c67c350fa31d3057ef"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:26.984375Z"/>
+<entry
+   committed-rev="10"
+   name="package-use.html"
+   text-time="2005-03-02T06:14:27.640625Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="5dbbb13974ccb1213a9bfce7a4b934a4"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:27.000000Z"/>
+<entry
+   committed-rev="10"
+   name="package-summary.html"
+   text-time="2005-03-02T06:14:27.656250Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="57aeb10135a7f794aa280b14e51779e6"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:27.015625Z"/>
+<entry
+   committed-rev="10"
+   name="Environment.Variable.html"
+   text-time="2005-03-02T06:14:27.671875Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="a89237029c283571ce53297d23bd21ad"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:27.046875Z"/>
+<entry
+   committed-rev="10"
+   name="Key.html"
+   text-time="2005-03-02T06:14:27.671875Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="ce294f078013e4c0edc69865646d7e77"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:27.031250Z"/>
+<entry
+   committed-rev="10"
+   name="package-tree.html"
+   text-time="2005-03-02T06:14:27.656250Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="d028bb1545bcde06f2119f8d590f5ebe"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:27.015625Z"/>
+<entry
+   committed-rev="10"
+   name="ImportPolicy.html"
+   text-time="2005-03-02T06:14:27.687500Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="fc2eb90bbfa33c4c0e8c9829350923e7"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:27.062500Z"/>
+<entry
+   committed-rev="10"
+   name="History.ChecksumCharArrayWriter.html"
+   text-time="2005-03-02T06:14:27.703125Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="c4555a7e2c230804353b78994f310c5b"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:27.078125Z"/>
+<entry
+   name="class-use"
+   kind="dir"/>
+<entry
+   committed-rev="10"
+   name="History.Policy.html"
+   text-time="2005-03-02T06:14:27.703125Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="cb087502798af3e32088049429e8dd2e"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:27.484375Z"/>
+<entry
+   committed-rev="10"
+   name="History.html"
+   text-time="2005-03-02T06:14:27.734375Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="6f07bf72ad317e4396f65db3b5ee30bf"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:27.500000Z"/>
+<entry
+   committed-rev="10"
+   name="History.Entry.html"
+   text-time="2005-03-02T06:14:27.718750Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="52b9aa856158ecee9c79d2d17e7b3672"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:27.484375Z"/>
+<entry
+   committed-rev="10"
+   name="Loggers.html"
+   text-time="2005-03-02T06:14:27.750000Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="b8f811eb7cc12913511fb3e5bfa163d5"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:27.515625Z"/>
+<entry
+   committed-rev="10"
+   name="Environment.html"
+   text-time="2005-03-02T06:14:27.750000Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="1638baf2b4df0f109b80c5ee664c338d"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:27.531250Z"/>
+<entry
+   committed-rev="10"
+   name="Project.html"
+   text-time="2005-03-02T06:14:27.765625Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="53d68e93944bf6642cb3fc5e6c661df6"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:27.546875Z"/>
+<entry
+   committed-rev="10"
+   name="Convention.Key.html"
+   text-time="2005-03-02T06:14:27.765625Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="71b267200f2cc234945e558b6066e448"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:27.562500Z"/>
+<entry
+   committed-rev="10"
+   name="ConventionDefaults.html"
+   text-time="2005-03-02T06:14:27.781250Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="bd09c5f2b10ef780bb6c4b84f9ae499a"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:27.578125Z"/>
+</wc-entries>

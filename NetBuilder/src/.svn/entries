@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="36"
+   name=""
+   committed-date="2005-02-01T06:13:37.812500Z"
+   url="svn://192.168.2.2/NetBuilder/src"
+   last-author="Karl"
+   kind="dir"
+   uuid="0daf4267-3229-f84b-9084-f3c94b025f38"
+   revision="55"/>
+<entry
+   name="simulator"
+   kind="dir"/>
+<entry
+   name="utils"
+   kind="dir"/>
+<entry
+   name="event"
+   kind="dir"/>
+<entry
+   name="gui"
+   kind="dir"/>
+<entry
+   name="network"
+   kind="dir"/>
+</wc-entries>

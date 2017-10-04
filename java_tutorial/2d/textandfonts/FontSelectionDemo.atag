@@ -1,0 +1,5 @@
+<APPLET CODE="FontSelection.class"
+        codebase="example-1dot2/"
+        archive="fontselection.jar"
+	WIDTH=550 HEIGHT=250>
+</APPLET>

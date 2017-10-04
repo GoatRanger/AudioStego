@@ -1,0 +1,215 @@
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Questions and Exercises: Learning Swing by Example</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550">
+<tr>
+<td align="left" valign="center">
+<a href="../learn/summary.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#learn" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="../components/index.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Creating a GUI with JFC/Swing
+<br>
+<b>Lesson</b>: Learning Swing by Example
+</font>
+
+<h2>
+Questions and Exercises: Learning Swing by Example
+</h2>
+
+<h3>Questions</h3>
+
+<BLOCKQUOTE>
+<FONT COLOR="RED">Question 1:</FONT> 
+On what thread should GUIs be created, to guarantee thread safety?
+<BR>
+<FONT COLOR="GREEN">Answer 1:</FONT> The event-dispatching thread. 
+
+<P>
+<FONT COLOR="RED">Question 2:</FONT>   
+Why should you be careful to minimize the time spent in event-handler code?
+<BR>
+<FONT COLOR="GREEN">Answer 2:</FONT> Painting code also executes in the event-dispatching
+thread. Therefore, event-handling code should execute quickly so that 
+the program’s GUI stays responsive. If an
+event takes too long to execute, the GUI will freeze--that is, 
+it won’t repaint or respond to mouse clicks.
+
+<P>
+<FONT COLOR="RED">Question 3:</FONT>   
+What is the purpose of the <code>setLabelFor</code> method?
+<BR>
+<FONT COLOR="GREEN">Answer 3:</FONT> 
+The <code>setLabelFor</code> method provides a hint to assistive
+technologies, such as screen readers, that the label describes 
+a particular component. 
+
+<P>
+<FONT COLOR="RED">Question 4:</FONT>  
+What is the content pane?
+<BR>
+<FONT COLOR="GREEN">Answer 4:</FONT> The content pane is the  
+main container in <code>JApplet</code>, <code>JDialog</code>, and 
+<code>JFrame</code> objects. 
+<P>
+<FONT COLOR="RED">Question 5:</FONT>  
+Describe the three code segments that must be implemented for an event handler.
+<BR>
+<FONT COLOR="GREEN">Answer 5:</FONT> 
+<OL>
+<li>In the declaration for the event handler class, one 
+line of code specifies that the class either implements 
+a listener interface or extends a class that implements 
+a listener interface. For example: 
+<blockquote><pre>
+public class MyClass implements ActionListener { 
+</pre></blockquote>
+
+<li>Another line of code registers an instance of the event handler class as a listener on one or more components. For example: 
+<blockquote><pre>
+someComponent.addActionListener(instanceOfMyClass);
+</pre></blockquote>
+
+
+<li>The event handler class has code that implements the methods in the listener interface. For example: 
+<blockquote><pre>
+public void actionPerformed(ActionEvent e) { 
+    ...<I>//code that reacts to the action...</I> 
+} 
+</pre></blockquote>
+</OL>
+
+<P>
+<FONT COLOR="RED">Question 6:</FONT>  
+Which text component is best suited for controlling the format of a single line of user-entered text?
+<BR>
+<FONT COLOR="GREEN">Answer 6:</FONT> <code>JFormattedTextField</code>
+
+<P>
+<FONT COLOR="RED">Question 7:</FONT>  
+What is lazy image loading and why would you use it?
+<BR>
+<FONT COLOR="GREEN">Answer 7:</FONT> With lazy image loading you only load 
+images as they are needed. By loading images as needed, you reduce the application's 
+initialization time; however, the downside is that the user may notice a 
+delay as an image is loaded. 
+
+</BLOCKQUOTE>
+
+
+
+<h3>Exercises</h3>
+<blockquote>
+<FONT COLOR="RED">Question 1:</FONT>   
+Write the code that creates a label displaying the following text, 
+with the italics and font size as shown in this screenshot:
+<p><center><IMG SRC="../../figures/uiswing/QandE/Test1.gif" WIDTH="144" HEIGHT="65" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p>
+<BR>
+<FONT COLOR="GREEN">Answer 1:</FONT> Here's the code that sets the label text: 
+<blockquote>
+<pre>
+private static String labelText = 
+        "&lt;html&gt;The &lt;em&gt;last&lt;/em%gt; word is &lt;font size=+2&gt;big&lt;/font&gt;.&lt;/html&gt;";
+</pre>
+</blockquote>
+For the full code, see <a target="source" href="example-1dot4/Test1.java"><font color="#bb000f"><co
+de>Test1</code></font></a><a href="example-1dot4/Test1.java">
+<img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt="(
+in a .java source file)"></a>.
+
+
+<P>
+<FONT COLOR="RED">Question 2:</FONT>  Convert the 
+<A HREF="../learn/example-1dot4/LunarPhases.java"><code>LunarPhases</code></A> 
+example to use radio buttons instead of a combo box.
+<BR>
+<FONT COLOR="GREEN">Answer 2:</FONT> See 
+<A HREF="example-1dot4/LunarPhasesRB.java"><code>LunarPhasesRB</code></A>.
+
+<P>
+<FONT COLOR="RED">Question 3:</FONT>  Add a <B>Show Dialog</B> check box to the <code>VoteDialog</code> 
+example so that the dialogs are  shown only if this check box 
+is selected.
+<BR>
+<FONT COLOR="GREEN">Answer 3:</FONT>  
+
+<P>
+
+
+
+
+
+
+</blockquote>
+
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3">
+<br>
+<table width="550">
+<tr>
+<td align="left" valign="center">
+<a href="../learn/summary.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#learn" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="../components/index.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+</body>
+</html>

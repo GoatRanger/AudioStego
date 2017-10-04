@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:background="@color/om" android:fitsSystemWindows="@r$bool/is_fix_system" android:layout_width="match_parent" android:layout_height="match_parent">
+    <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent">
+        <dji.publics.DJIUI.DJIRelativeLayout android:id="@+id/explore_top_bar_ly" android:background="@color/om" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x7f0b0083">
+            <dji.pilot.publics.widget.DJIStateImageView android:id="@+id/explore_search_back_button" android:paddingLeft="@dimen/c_" android:paddingRight="@dimen/c_" android:layout_width="wrap_content" android:layout_height="match_parent" android:src="@r$drawable/v2_explore_arrow_left_back" android:layout_alignParentLeft="true" android:layout_centerVertical="true" android:onClick="onClickHandler" />
+            <dji.publics.DJIUI.DJITextView android:textSize="@dimen/rk" android:textColor="@r$color/v2_new_text_color" android:ellipsize="end" android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@+id/explore_search_title_txt" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" android:maxLines="1" android:layout_centerInParent="true" />
+            <dji.pilot.publics.widget.DJIStateImageView android:id="@+id/more_detail" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_marginRight="@dimen/fj" android:src="@r$drawable/v2_artwork_detail_more_icon" android:layout_alignParentRight="true" android:layout_centerVertical="true" android:onClick="onClickHandler" />
+            <View android:background="@r$color/v2_new_divider_line_color" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x40000031" android:layout_alignParentBottom="true" />
+        </dji.publics.DJIUI.DJIRelativeLayout>
+        <RelativeLayout android:id="@+id/artwork_load" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <ProgressBar android:id="@+id/artwork_loading_progress_bar" android:padding="@dimen/g1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true" style="@*style/Widget.Holo.ProgressBar.Small" />
+        </RelativeLayout>
+        <ScrollView android:background="@color/om" android:scrollbars="UNKNOWN_DATA_0x0" android:layout_width="match_parent" android:layout_height="match_parent" android:overScrollMode="always">
+            <include android:id="@+id/explore_item" android:visibility="gone" layout="@layout/v2_native_explore_item" />
+        </ScrollView>
+    </LinearLayout>
+    <RelativeLayout android:id="@+id/loading_panel" android:background="@color/ai" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent">
+        <dji.publics.DJIUI.DJIImageView android:id="@+id/load_pgb" android:background="@r$anim/progress_animation_list" android:layout_width="UNKNOWN_DATA_0x7f0b0112" android:layout_height="UNKNOWN_DATA_0x7f0b0112" android:layout_centerInParent="true" />
+    </RelativeLayout>
+</RelativeLayout>

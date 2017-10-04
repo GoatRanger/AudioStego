@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:background="@color/om" android:padding="@dimen/ga" android:layout_width="wrap_content" android:layout_height="wrap_content">
+    <dji.pilot.publics.widget.DJIStateTextView android:textSize="@dimen/rl" android:id="@+id/text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/gw" />
+    <dji.pilot.publics.widget.DJIStateImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/gq" android:src="@r$drawable/v2_acad_dropdown_arrow" android:layout_centerVertical="true" />
+</RelativeLayout>

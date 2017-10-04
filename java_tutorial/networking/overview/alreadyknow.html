@@ -1,0 +1,153 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>What You May Already Know About Networking in Java</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#overview" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="networking.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Custom Networking
+<br>
+<b>Lesson</b>: Overview of Networking
+</font>
+
+<h2>
+What You May Already Know About Networking in Java
+</h2>
+<blockquote>
+The word <em>networking</em> strikes fear in the hearts of many programmers.
+Fear not! Using the networking capabilities provided in the Java
+environment is quite easy. In fact, you may be using the
+network already without even realizing it!
+
+</blockquote>
+<h3>Loading Applets from the Network</h3>
+<blockquote>
+If you have access to a Java-enabled browser, you have undoubtedbly
+already executed many applets. The applets you've run are referenced
+by a special tag in an HTML file &#151; the <code>&lt;APPLET&gt;</code> tag.
+Applets can be located anywhere, whether on your local machine
+or somewhere out on the Internet. The location of the applet is
+completely invisible to you, the user. However, the location of
+the applet is encoded within the <code>&lt;APPLET&gt;</code> tag. The browser
+decodes this information, locates the applet, and runs it. If the
+applet is on some machine other than your own, the browser must
+download the applet before it can be run.
+<p>
+This is the highest level of access that you have to the Internet
+from the Java development environment. Someone else has taken the
+time to write a browser that does all of the grunt work of connecting
+to the network and getting data from it, thereby enabling you to
+run applets from anywhere in the world.
+<p>
+<strong>For more information:</strong><br>
+<a target="_top" href="../../getStarted/cupojava/index.html">Your First Cup of Java</a><a target="_top" href="../../getStarted/cupojava/index.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Custom Networking trail)"></a> shows you how to write your first applet and run it.
+<p>
+The
+<a target="_top" href="../../applet/index.html">Writing Applets</a><a target="_top" href="../../applet/index.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Custom Networking trail)"></a> trail describes how to write Java applets from A to Z.
+</blockquote>
+
+<h3>Loading Images from URLs</h3>
+<blockquote>
+If you've ventured into writing your own Java applets and applications,
+you may have run into a class in the java.net package called URL. This
+class represents a Uniform Resource Locator and is the address of some
+resource on the network. Your applets and applications can use a URL
+to reference and even connect to resources out on the network.
+For example, to load an image from the network, your Java program must 
+first create a URL that contains the address to the image.
+<p>
+This is the next highest level of interaction you can have with the
+Internet &#151; your Java program gets an address of something it wants,
+creates a URL for it, and then uses some existing function in
+the Java development environment that does the grunt work of
+connecting to the network and retrieving the resource.
+<p>
+<strong>For more information:</strong><br>
+<a target="_top" href="../../uiswing/misc/icon.html">How to Use Icons</a><a target="_top" href="../../uiswing/misc/icon.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Custom Networking trail)"></a> shows you how to load an image into your Java program (whether applets
+or applications) when you have its URL. Before you can load the image
+you must create a URL object with the address of the resource in it.
+<p>
+<a target="_top" href="../urls/index.html">Working with URLs</a><a target="_top" href="../urls/index.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Custom Networking trail)"></a>, the next lesson in this trail,
+provides a complete discussion about URLs, including how your programs
+can connect to them and read from and write to that connection.
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#overview" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="networking.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

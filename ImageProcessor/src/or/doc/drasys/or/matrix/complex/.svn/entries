@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="33"
+   name=""
+   committed-date="2005-02-01T06:11:53.421875Z"
+   url="svn://192.168.2.2/ImageProcessor/src/or/doc/drasys/or/matrix/complex"
+   last-author="Karl"
+   kind="dir"
+   uuid="0daf4267-3229-f84b-9084-f3c94b025f38"
+   revision="55"/>
+<entry
+   committed-rev="33"
+   name="ContiguousMatrix.Sub.html"
+   text-time="2005-03-02T06:25:29.656250Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="75106cd94ce2612f2f44614a07980286"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:29.265625Z"/>
+<entry
+   committed-rev="33"
+   name="MatrixI.html"
+   text-time="2005-03-02T06:25:29.671875Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="b60fe16e344a7e514dd2045414028639"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:29.265625Z"/>
+<entry
+   committed-rev="33"
+   name="SVFReader.html"
+   text-time="2005-03-02T06:25:29.687500Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="5f9d3b160222b8f42394bc1059c90745"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:29.312500Z"/>
+<entry
+   committed-rev="33"
+   name="DenseVector.html"
+   text-time="2005-03-02T06:25:29.671875Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="6a552124f3a4baeb50af5287057973d2"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:29.281250Z"/>
+<entry
+   committed-rev="33"
+   name="SMFWriter.html"
+   text-time="2005-03-02T06:25:29.703125Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="c1d4b3ba42a48a4d6cfee9522ca3efa6"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:29.328125Z"/>
+<entry
+   committed-rev="33"
+   name="ContiguousVector.html"
+   text-time="2005-03-02T06:25:29.703125Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="597d4aabca427e1fee9d0989a928b9db"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:29.328125Z"/>
+<entry
+   committed-rev="33"
+   name="DenseMatrix.html"
+   text-time="2005-03-02T06:25:29.734375Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="bcc7d471d54481158911d55025a1c447"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:29.375000Z"/>
+<entry
+   committed-rev="33"
+   name="ComplexContainerI.html"
+   text-time="2005-03-02T06:25:29.718750Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="afe2838d1da9abb4ade05c139d25167d"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:29.359375Z"/>
+<entry
+   committed-rev="33"
+   name="package-frame.html"
+   text-time="2005-03-02T06:25:29.718750Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="6d460d2e52e721a6533ce29fec2fafd2"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:29.343750Z"/>
+<entry
+   committed-rev="33"
+   name="ContiguousMatrix.html"
+   text-time="2005-03-02T06:25:29.750000Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="9278bb3332465824f22b9e18431fdfef"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:29.375000Z"/>
+<entry
+   committed-rev="33"
+   name="SizableVectorI.html"
+   text-time="2005-03-02T06:25:29.796875Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="18571a9c6d995eed0a1a65615295512f"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:29.421875Z"/>
+<entry
+   committed-rev="33"
+   name="VectorElementI.html"
+   text-time="2005-03-02T06:25:29.781250Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="424cbe62f4555b2c6a510d8ce4cef818"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:29.406250Z"/>
+<entry
+   committed-rev="33"
+   name="RowMajorMatrix.html"
+   text-time="2005-03-02T06:25:29.765625Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="d4607416acb96c4cfea68bbfeaa38a75"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:29.406250Z"/>
+<entry
+   committed-rev="33"
+   name="package-summary.html"
+   text-time="2005-03-02T06:25:29.796875Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="4943ed9ece150ec87ac364d7de974e0b"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:29.437500Z"/>
+<entry
+   committed-rev="33"
+   name="MatrixElementI.html"
+   text-time="2005-03-02T06:25:29.812500Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="edc923b466298f83a23ae64226140de3"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:29.437500Z"/>
+<entry
+   committed-rev="33"
+   name="SizableMatrixI.html"
+   text-time="2005-03-02T06:25:29.812500Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="b58797e4bf2296819a16859b33b3e8d2"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:29.453125Z"/>
+<entry
+   committed-rev="33"
+   name="package-tree.html"
+   text-time="2005-03-02T06:25:30.390625Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="038719f7241675f7bd4bbf6c6be766fd"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:29.468750Z"/>
+<entry
+   committed-rev="33"
+   name="ContiguousVectorI.html"
+   text-time="2005-03-02T06:25:30.390625Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="c7b8e48748cdcd581288ee01d6d584c7"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:29.484375Z"/>
+<entry
+   committed-rev="33"
+   name="SVFWriter.html"
+   text-time="2005-03-02T06:25:30.406250Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="f09b379b121a6003554625d3e9fad9cc"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:29.500000Z"/>
+<entry
+   committed-rev="33"
+   name="ContiguousMatrixI.html"
+   text-time="2005-03-02T06:25:30.406250Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="6110c1d7b09e58ef991823dedb0bc48e"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:29.500000Z"/>
+<entry
+   committed-rev="33"
+   name="VectorReaderI.html"
+   text-time="2005-03-02T06:25:30.421875Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="43e23811badee293aafdface7b9f1ecb"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:29.515625Z"/>
+<entry
+   committed-rev="33"
+   name="MatrixReaderI.html"
+   text-time="2005-03-02T06:25:30.437500Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="b60d7b79170e201fefbf5d23c57be0da"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:29.531250Z"/>
+<entry
+   committed-rev="33"
+   name="Vect.html"
+   text-time="2005-03-02T06:25:30.437500Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="a722f462e3a9fecbd7205332fb8955f8"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:29.546875Z"/>
+<entry
+   committed-rev="33"
+   name="Matrix.html"
+   text-time="2005-03-02T06:25:30.453125Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="73c6489011a5e21e5ffee4547eebb7f3"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:29.562500Z"/>
+<entry
+   committed-rev="33"
+   name="SMFReader.html"
+   text-time="2005-03-02T06:25:30.453125Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="6aa6477301f1d58a09ac24805dfb31f5"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:29.578125Z"/>
+<entry
+   committed-rev="33"
+   name="VectorWriterI.html"
+   text-time="2005-03-02T06:25:30.468750Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="570925ce4cea2b8f5f49c71f45db6d24"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:29.593750Z"/>
+<entry
+   committed-rev="33"
+   name="MatrixWriterI.html"
+   text-time="2005-03-02T06:25:30.484375Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="5883ccb5843d3e3e35cec534b7de0295"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:29.593750Z"/>
+<entry
+   committed-rev="33"
+   name="ComplexContainer.html"
+   text-time="2005-03-02T06:25:30.484375Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="48e935cd17f7774798c17843d955fff7"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:29.609375Z"/>
+<entry
+   committed-rev="33"
+   name="ColumnMajorMatrix.html"
+   text-time="2005-03-02T06:25:30.500000Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="b0fb1acfc20afdc2dd672ba9c3d4c6e8"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:29.625000Z"/>
+<entry
+   committed-rev="33"
+   name="VectorI.html"
+   text-time="2005-03-02T06:25:30.500000Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="544bb9200158b98398c7605df0fea6a6"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:29.640625Z"/>
+</wc-entries>

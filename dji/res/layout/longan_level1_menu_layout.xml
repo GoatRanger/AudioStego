@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.device.camera.view.menu.DJILevel1MenuViewLongan xmlns:android="http://schemas.android.com/apk/res-auto" phantom:orientation="vertical" phantom:background="0x106000d" phantom:layout_width="wrap_content" phantom:layout_height="wrap_content" phantom:splitMotionEvents="true">
+    <include phantom:id="@id/b40" phantom:layout_width="match_parent" phantom:layout_height="match_parent" layout="@layout/longan_radiogroup_photomodes" />
+    <ViewStub phantom:id="@id/b41" phantom:layout="@layout/longan_radiogroup_videomodes" phantom:layout_width="match_parent" phantom:layout_height="match_parent" />
+    <ViewStub phantom:id="@id/b42" phantom:layout="@layout/longan_radiogroup_parameters" phantom:layout_width="match_parent" phantom:layout_height="match_parent" />
+</dji.device.camera.view.menu.DJILevel1MenuViewLongan>

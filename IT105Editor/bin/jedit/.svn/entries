@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="53"
+   name=""
+   committed-date="2005-02-25T22:16:45.420625Z"
+   url="svn://192.168.2.2/IT105Editor/src/jedit"
+   last-author="karl"
+   kind="dir"
+   uuid="0daf4267-3229-f84b-9084-f3c94b025f38"
+   revision="55"/>
+<entry
+   committed-rev="10"
+   name="PatchTokenMarker.java"
+   text-time="2005-03-02T06:14:21.187500Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="c0d500d44fdb76887ea17e16ea70f162"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:20.640625Z"/>
+<entry
+   committed-rev="10"
+   name="TeXTokenMarker.java"
+   text-time="2005-03-02T06:14:21.203125Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="f08461b7ffa41458636fde912c5c94ad"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:20.640625Z"/>
+<entry
+   committed-rev="10"
+   name="TextAreaDefaults.java"
+   text-time="2005-03-02T06:14:21.218750Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="fc22bc93aee964de92a858385249b674"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:20.656250Z"/>
+<entry
+   committed-rev="10"
+   name="SyntaxStyle.java"
+   text-time="2005-03-02T06:14:21.218750Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="d1a168485c9cc476bf747dca0c8eb2b9"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:20.671875Z"/>
+<entry
+   committed-rev="10"
+   name="TextUtilities.java"
+   text-time="2005-03-02T06:14:21.234375Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="ff9da90fec56d7cb66f5f320fab33349"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:20.687500Z"/>
+<entry
+   committed-rev="10"
+   name="TokenMarker.java"
+   text-time="2005-03-02T06:14:21.234375Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="ab9e392f31c0d89a0bd940ec689204a0"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:20.703125Z"/>
+<entry
+   committed-rev="10"
+   name="JavaTokenMarker.java"
+   text-time="2005-03-02T06:14:21.250000Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="02ee6dc5a440ccb1f2fcce5875cdf6d3"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:20.703125Z"/>
+<entry
+   committed-rev="10"
+   name="CTokenMarker.java"
+   text-time="2005-03-02T06:14:21.250000Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="721d61f1793b83be78b3a26fcfc4d479"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:20.718750Z"/>
+<entry
+   committed-rev="10"
+   name="SyntaxDocument.java"
+   text-time="2005-03-02T06:14:21.265625Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="6dc5c876b59a4874886bb58dd97a38c1"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:20.734375Z"/>
+<entry
+   committed-rev="10"
+   name="CSSTokenMarker.java"
+   text-time="2005-03-02T06:14:21.265625Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="d2651ce66124b8612edd917b9392ac33"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:20.750000Z"/>
+<entry
+   committed-rev="10"
+   name="EiffelTokenMarker.java"
+   text-time="2005-03-02T06:14:21.281250Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="b5d2b15bb8ff4ebd361e703aab0ba921"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:20.765625Z"/>
+<entry
+   committed-rev="10"
+   name="ShellScriptTokenMarker.java"
+   text-time="2005-03-02T06:14:21.296875Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="510c4500775e8fe54f228c7f61d456cc"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:20.765625Z"/>
+<entry
+   committed-rev="10"
+   name="TextAreaPainter.java"
+   text-time="2005-03-02T06:14:21.296875Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="7f3a9c8bbf9244e67f63b69f5324ab65"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:20.781250Z"/>
+<entry
+   committed-rev="10"
+   name="DefaultInputHandler.java"
+   text-time="2005-03-02T06:14:21.312500Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="86b633ce306b4742b47a0ed9183a80cf"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:20.828125Z"/>
+<entry
+   committed-rev="10"
+   name="SQLTokenMarker.java"
+   text-time="2005-03-02T06:14:21.312500Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="9318e30f282d6da6b34b7823b66f5dec"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:20.796875Z"/>
+<entry
+   committed-rev="10"
+   name="XMLTokenMarker.java"
+   text-time="2005-03-02T06:14:21.328125Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="8f3559560388596185f234ba895cf1e5"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:20.843750Z"/>
+<entry
+   committed-rev="10"
+   name="PerlTokenMarker.java"
+   text-time="2005-03-02T06:14:21.343750Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="5d26d726689b3370dd41b3c91b6a6186"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:20.859375Z"/>
+<entry
+   committed-rev="10"
+   name="PropsTokenMarker.java"
+   text-time="2005-03-02T06:14:21.343750Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="e020224544fe211eeaae34ce21a6c347"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:20.875000Z"/>
+<entry
+   committed-rev="10"
+   name="HTMLTokenMarker.java"
+   text-time="2005-03-02T06:14:21.359375Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="77711f019f7f709b322454c36d9e9136"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:20.890625Z"/>
+<entry
+   committed-rev="10"
+   name="JavaScriptTokenMarker.java"
+   text-time="2005-03-02T06:14:21.375000Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="039ea38130ae435a795678ab264daa18"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:20.890625Z"/>
+<entry
+   committed-rev="10"
+   name="TextAreaExtension.java"
+   text-time="2005-03-02T06:14:21.390625Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="6cc2217ad2dc53ec84cdaaacffd79920"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:20.921875Z"/>
+<entry
+   committed-rev="10"
+   name="Gutter.java"
+   text-time="2005-03-02T06:14:21.375000Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="7d117a4a0ccb485385f18ef07b236a75"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:20.921875Z"/>
+<entry
+   committed-rev="10"
+   name="IDLTokenMarker.java"
+   text-time="2005-03-02T06:14:21.390625Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="7da99cc4dab7a798da6ebe11e7b48202"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:20.937500Z"/>
+<entry
+   name="CVS"
+   kind="dir"/>
+<entry
+   committed-rev="10"
+   name="MakefileTokenMarker.java"
+   text-time="2005-03-02T06:14:21.421875Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="90d13455e652c661602e46df947fce41"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:21.031250Z"/>
+<entry
+   committed-rev="10"
+   name="Token.java"
+   text-time="2005-03-02T06:14:21.406250Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="5c3b478005e455bd28db7ef641a6e3aa"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:21.015625Z"/>
+<entry
+   committed-rev="10"
+   name="SyntaxUtilities.java"
+   text-time="2005-03-02T06:14:21.437500Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="9205a75d0f2152ca2cd1e93b31e99c32"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:21.046875Z"/>
+<entry
+   committed-rev="10"
+   name="KeywordMap.java"
+   text-time="2005-03-02T06:14:21.421875Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="a7c075b2bc72b40aa2da5107ed28ead4"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:21.031250Z"/>
+<entry
+   committed-rev="10"
+   name="PythonTokenMarker.java"
+   text-time="2005-03-02T06:14:21.453125Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="cdcf2227be9e0156d0996a2098db118e"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:21.062500Z"/>
+<entry
+   committed-rev="10"
+   name="BatchFileTokenMarker.java"
+   text-time="2005-03-02T06:14:21.437500Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="4fe0813e0e118f5dfc37b9abb3864bb5"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:21.062500Z"/>
+<entry
+   committed-rev="10"
+   name="TSQLTokenMarker.java"
+   text-time="2005-03-02T06:14:21.453125Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="9de84c341df21384e5a35ff52f9316aa"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:21.093750Z"/>
+<entry
+   committed-rev="10"
+   name="CCTokenMarker.java"
+   text-time="2005-03-02T06:14:21.468750Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="0a1fc736e66b5329ff563d29e7100784"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:21.109375Z"/>
+<entry
+   committed-rev="10"
+   name="PHPTokenMarker.java"
+   text-time="2005-03-02T06:14:21.468750Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="92aac2b40cf092d0c0efadea1b99c23d"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:21.125000Z"/>
+<entry
+   committed-rev="10"
+   name="README.txt"
+   text-time="2005-03-02T06:14:21.484375Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="b56639a03fb5cc70462128d5629f1aaa"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:21.125000Z"/>
+<entry
+   committed-rev="53"
+   name="JEditTextArea.java"
+   text-time="2005-03-02T06:14:21.484375Z"
+   committed-date="2005-02-25T22:16:45.420625Z"
+   checksum="82c1acc6cddedc84ba1216931fe412b9"
+   last-author="karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:21.156250Z"/>
+<entry
+   committed-rev="53"
+   name="InputHandler.java"
+   text-time="2005-03-02T06:14:21.500000Z"
+   committed-date="2005-02-25T22:16:45.420625Z"
+   checksum="f0cc6786365fe7475453bf07cd91e762"
+   last-author="karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:21.171875Z"/>
+</wc-entries>

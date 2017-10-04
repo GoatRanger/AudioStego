@@ -1,0 +1,200 @@
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Example Six: <code>VoteDialog</code></title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="example5.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#learn" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="summary.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Creating a GUI with JFC/Swing
+<br>
+<b>Lesson</b>: Learning Swing by Example
+</font>
+
+<h2>
+Example Six: <code>VoteDialog</code>
+</h2>
+<blockquote>
+<!--Learn by Example-->
+<!--Example Six: VoteDialog-->
+
+Topics covered in this example include:
+<ul>
+  <li><A HREF="#radiobuttons">Radio Buttons</A>
+  <li><A HREF="#dialogs">Dialogs</A>
+</ul>
+
+The last example in this lesson is 
+<a target="_blank" href="example-1dot4/VoteDialog.java"><font color="#bb000f"><code>VoteDialog</code></font></a><a target="_blank" href="example-1dot4/VoteDialog.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>. 
+It illustrates the use of dialogs and radio buttons. 
+
+<P>
+In <code>VoteDialog</code>, the user casts a vote by selecting a radio 
+button and clicking the <B>Vote</B> button. After the button is 
+clicked, a dialog appears with an informational message or 
+a follow-up question.  
+
+<P>
+Here's a picture of the <code>VoteDialog</code> application:
+<p><center><IMG SRC="../../figures/uiswing/learn/15VoteDialog.gif" WIDTH="347" HEIGHT="248" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="The VoteDialog application."></center></p>
+</BLOCKQUOTE>
+<A NAME="radiobuttons"></A>
+<H3>Radio Buttons</H3>
+<BLOCKQUOTE>
+
+The <code>VoteDialog</code> application has one action listener that listens to clicks on the top-level container’s button. Each time the action listener receives an event, the application determines which radio button was selected and displays the appropriate dialog.
+
+<P> 
+For each group of radio buttons, you need to create a <code>ButtonGroup</code> instance and add each radio button to it. <code>ButtonGroup</code> takes care of unselecting the previously selected button when the user selects another one in the group. You should generally initialize a group of radio buttons so that one is selected. However, the API doesn’t enforce this rule: A group of radio buttons can have no initial selection. Once the user has made a selection, exactly one button is selected from then on. 
+
+<P>
+Here’s the code from 
+<a target="_blank" href="example-1dot4/VoteDialog.java"><font color="#bb000f"><code>VoteDialog.java</code></font></a><a target="_blank" href="example-1dot4/VoteDialog.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a> that creates the radio buttons and the <code>ButtonGroup</code> instance that controls them. The <code>setActionCommand</code> method associates a specific dialog with each radio button item. We use the <code>setSelected</code> method to specify the default selected radio button.
+
+<blockquote><pre>
+final int numButtons = 4;
+JRadioButton[] radioButtons = new JRadioButton[numButtons];
+
+final ButtonGroup group = new ButtonGroup();
+...
+
+final String defaultMessageCommand = "default";
+final String yesNoCommand = "yesno";
+final String yeahNahCommand = "yeahnah";
+final String yncCommand = "ync";
+
+radioButtons[0] = new JRadioButton("&lt;html&gt;Candidate 1: 
+      &lt;font color=red&gt;Sparky the Dog&lt;/font&gt;&lt;/html&gt;");
+radioButtons[0].setActionCommand(defaultMessageCommand);
+
+radioButtons[1] = new JRadioButton("&lt;html&gt;Candidate 2: 
+      &lt;font color=green&gt;Shady Sadie&lt;/font&gt;&lt;/html&gt;");
+radioButtons[1].setActionCommand(yesNoCommand);
+
+radioButtons[2] = new JRadioButton("&lt;html&gt;Candidate 3: 
+      &lt;font color=blue&gt;R.I.P. McDaniels&lt;/font&gt;&lt;/html&gt;");
+radioButtons[2].setActionCommand(yeahNahCommand);
+
+radioButtons[3] = new JRadioButton("&lt;html&gt;Candidate 4: 
+      &lt;font color=maroon&gt;Duke the Java&lt;font size=-2&gt;&lt;sup&gt;TM&lt;/sup&gt;
+      &lt;/font size&gt; Platform Mascot&lt;/font&gt;&lt;/html&gt;");
+radioButtons[3].setActionCommand(yncCommand);
+
+for (int i = 0; i &lt; numButtons; i++) {
+    group.add(radioButtons[i]);
+}
+
+//Select the first button by default.
+radioButtons[0].setSelected(true);
+</pre></blockquote>
+
+Note the use of HTML code on the radio buttons, which lets us specify multiple text colors within each button.
+
+
+
+</BLOCKQUOTE>
+<A NAME="dialogs"></A>
+<H3>Dialogs</H3>
+
+<BLOCKQUOTE>
+In our previous examples, our top-level container has always 
+been a <code>JFrame</code>. Another kind of top-level container is a <I>dialog</I>--a window that is more limited than a frame. To create simple, standard dialogs, you use the 
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JOptionPane.html"><font color="#8800bb"><code>JOptionPane</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JOptionPane.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> class. The dialogs that <code>JOptionPane</code> provides are modal. When a modal dialog is visible, it blocks user input to all other windows in the program. 
+<P>
+The code for simple dialogs can be minimal. For example, the following figure shows an informational dialog. Here’s the code that creates and shows it:
+
+<blockquote><pre>
+JOptionPane.showMessageDialog(frame, "There's no \"there\" there.");
+</pre></blockquote>
+
+<p><center><IMG SRC="../../figures/uiswing/learn/16NoThere.gif" WIDTH="272" HEIGHT="123" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="A simple dialog."></center></p>
+Every dialog is dependent on a frame. When that frame is destroyed, so are its dependent dialogs. When the frame is iconified, its dependent dialogs disappear from the screen. When the frame is deiconified, its dependent dialogs return to the screen. The AWT automatically provides this behavior. You can get more information on dialogs in 
+ 
+<a target="_top" href="../components/dialog.html">How to Make Dialogs</a><a target="_top" href="../components/dialog.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.
+
+
+<p>
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="example5.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#learn" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="summary.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

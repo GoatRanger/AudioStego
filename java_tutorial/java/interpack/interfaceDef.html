@@ -1,0 +1,174 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>What Is an Interface?</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="interfaces.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#interpack" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="createinterface.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Learning the Java Language
+<br>
+<b>Lesson</b>: Interfaces and Packages
+</font>
+
+<h2>
+What Is an Interface?
+</h2>
+<blockquote>
+This section shows you how to create and to 
+use interfaces and talks about why 
+you would use an interface instead of a class. 
+<P>
+
+An <I>interface</I> defines a protocol of behavior that can be 
+implemented by any class anywhere in the class hierarchy. An interface 
+defines a set of methods but does not implement them. A class 
+that implements the interface agrees to implement all the methods 
+defined in the interface, thereby agreeing to certain behavior.
+<P>
+
+<blockquote><hr><strong>Definition:</strong>&nbsp;An <I>interface</I> 
+  is a named collection of method definitions (without implementations). 
+  An interface can also declare constants. 
+<hr></blockquote>
+<p>
+
+<P>Because an interface is simply a list of unimplemented, and 
+therefore abstract, methods, you might wonder how an interface 
+differs from an abstract class. The differences are significant. 
+<BR>
+</P>
+
+<UL>
+  <LI>An interface cannot implement any methods, whereas an abstract 
+  class can.
+  <LI>A class can implement many interfaces but can have only one 
+  superclass.
+  <LI>An interface is not part of the class hierarchy. Unrelated 
+  classes can implement the same interface.
+</UL>
+
+<P>Let's set up the example we'll be using in this section. Suppose 
+that you have written a class that can watch stock prices coming 
+over a data feed. This class allows other classes to register 
+to be notified when the value of a particular stock changes. First, 
+your class, which we'll call  
+ <code>StockMonitor</code>, would implement 
+a method that lets other objects register for notification:<BR>
+</P>
+
+<BLOCKQUOTE>
+<PRE>
+public class StockMonitor {
+     public void watchStock(StockWatcher watcher,
+     String tickerSymbol, double delta) {
+     ...
+     }
+}
+</PRE>
+</BLOCKQUOTE>
+
+<P>The first argument to this method is a <CODE>StockWatcher</CODE> 
+object. <CODE>StockWatcher</CODE> is the name of an interface whose 
+code you will see in the next section. That interface declares 
+one method: <CODE>valueChanged</CODE>. An object that wants to 
+be notified of stock changes must be an instance of a class that 
+implements this interface and thus implements the <CODE>valueChanged  
+</CODE> method. The other two arguments provide the symbol of the 
+stock to watch and the amount of change that the watcher considers 
+interesting enough to be notified of. When the <CODE>StockMonitor</CODE> 
+class detects an interesting change, it calls the <CODE>valueChanged</CODE> 
+method of the watcher.
+<P>
+The <CODE>watchStock</CODE> method ensures, through the data type 
+of its first argument, that all registered objects implement the 
+<CODE>valueChanged</CODE> method. It makes sense to use an interface 
+data type here because it matters only that registrants implement 
+a particular method. If <CODE>StockMonitor</CODE> had used a class 
+name as the data type, that would artificially force a class relationship 
+on its users. Because a class can have only one superclass, it 
+would also limit what type of objects can use this service. By 
+using an interface, the registered objects class could be anything--<CODE>Applet</CODE> 
+or <CODE>Thread</CODE>--for instance, thus allowing any class anywhere 
+in the class hierarchy to use this service.<BR> 
+</P>
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="interfaces.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#interpack" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="createinterface.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

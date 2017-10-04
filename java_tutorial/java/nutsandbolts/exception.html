@@ -1,0 +1,137 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Exception Handling Statements</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="switch.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#nutsandbolts" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="branch.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Learning the Java Language
+<br>
+<b>Lesson</b>: Language Basics
+</font>
+
+<h2>
+Exception Handling Statements
+</h2>
+<blockquote>
+
+The Java programming language provides a mechanism
+known as
+<a href="javascript:var meth=openWin; meth('exception');" onMouseOver="self.status='Look up exceptions in glossary'; return true;" onMouseOut="self.status=''; return true;"><font color="#00bb00"><em>exceptions</em></font></a><a href="javascript:var meth=openWin; meth('exception');" onMouseOver="self.status='Look up exceptions in glossary'; return true;" onMouseOut="self.status=''; return true;"><img src="../../images/glossaryIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the glossary)"></a> to help programs report and handle errors.
+When an error occurs, the program throws an exception. What does this mean? It means that the normal flow of the program is interrupted and that the runtime environment attempts to find an <em>exception handler</em>--a block of code that can handle a particular type of error. The exception handler can attempt to recover from the error or, if it determines that the error is unrecoverable, provide a gentle exit from the program. 
+<p>
+Three statements play a part in handling exceptions:
+<ul>
+<li>
+The
+<a href="javascript:var meth=openWin; meth('try');" onMouseOver="self.status='Look up try in glossary'; return true;" onMouseOut="self.status=''; return true;"><font color="#00bb00"><em>try</em></font></a><a href="javascript:var meth=openWin; meth('try');" onMouseOver="self.status='Look up try in glossary'; return true;" onMouseOut="self.status=''; return true;"><img src="../../images/glossaryIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the glossary)"></a> statement identifies a block of statements within which
+an exception might be thrown.
+<li>
+The 
+<a href="javascript:var meth=openWin; meth('catch');" onMouseOver="self.status='Look up catch in glossary'; return true;" onMouseOut="self.status=''; return true;"><font color="#00bb00"><em>catch</em></font></a><a href="javascript:var meth=openWin; meth('catch');" onMouseOver="self.status='Look up catch in glossary'; return true;" onMouseOut="self.status=''; return true;"><img src="../../images/glossaryIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the glossary)"></a> statement must be associated with a
+<code>try</code> statement and identifies a block of statements that
+can handle a particular type of exception.
+The statements are executed if an exception of a particular
+type occurs within the <code>try</code> block.
+<li>
+The
+<a href="javascript:var meth=openWin; meth('finally');" onMouseOver="self.status='Look up finally in glossary'; return true;" onMouseOut="self.status=''; return true;"><font color="#00bb00"><em>finally</em></font></a><a href="javascript:var meth=openWin; meth('finally');" onMouseOver="self.status='Look up finally in glossary'; return true;" onMouseOut="self.status=''; return true;"><img src="../../images/glossaryIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the glossary)"></a> statement must be associated with a <code>try</code> statement
+and identifies a block of statements that are
+executed regardless of whether or not an error occurs
+within the <code>try</code> block.
+</ul>
+
+<p>
+Here's the general form of these statements:
+<blockquote><pre>
+try {
+    <em>statement(s)</em>
+} catch (<em>exceptiontype</em> <em>name</em>) {
+    <em>statement(s)</em>
+} finally {
+    <em>statement(s)</em>
+}
+</pre></blockquote>
+This has been a brief overview of the statements provided by the Java programming language used in reporting and handling errors. However, other factors and considerations, such as the difference between runtime and checked exceptions and the hierarchy of exceptions classes, which represent various types of exceptions, play a role in using the exception mechanism.
+The 
+<a target="_top" href="../../essential/exceptions/index.html">Handling Errors with Exceptions</a><a target="_top" href="../../essential/exceptions/index.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Learning the Java Language trail)"></a> lesson provides a complete discussion on this subject.
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="switch.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#nutsandbolts" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="branch.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

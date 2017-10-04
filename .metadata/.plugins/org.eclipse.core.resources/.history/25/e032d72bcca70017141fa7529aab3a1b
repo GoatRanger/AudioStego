@@ -1,0 +1,141 @@
+
+An unexpected exception has been detected in native code outside the VM.
+Unexpected Signal : EXCEPTION_ACCESS_VIOLATION (0xc0000005) occurred at PC=0x77F58E20
+Function=RtlFreeHeap+0x3E2
+Library=C:\WINDOWS\System32\ntdll.dll
+
+Current Java thread:
+	at java.util.zip.ZipFile.getEntry(Native Method)
+	at java.util.zip.ZipFile.getEntry(Unknown Source)
+	- locked <0x10500e90> (a java.util.jar.JarFile)
+	at java.util.jar.JarFile.getEntry(Unknown Source)
+	at java.util.jar.JarFile.getJarEntry(Unknown Source)
+	at sun.misc.URLClassPath$JarLoader.getResource(Unknown Source)
+	at sun.misc.URLClassPath.getResource(Unknown Source)
+	at java.net.URLClassLoader$1.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.net.URLClassLoader.findClass(Unknown Source)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	- locked <0x10511048> (a sun.misc.Launcher$ExtClassLoader)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	- locked <0x105086f0> (a sun.misc.Launcher$AppClassLoader)
+	at sun.misc.Launcher$AppClassLoader.loadClass(Unknown Source)
+	- locked <0x105086f0> (a sun.misc.Launcher$AppClassLoader)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at java.lang.ClassLoader.loadClassInternal(Unknown Source)
+	- locked <0x105086f0> (a sun.misc.Launcher$AppClassLoader)
+	at java.lang.Class.getDeclaredConstructors0(Native Method)
+	at java.lang.Class.privateGetDeclaredConstructors(Unknown Source)
+	at java.lang.Class.getConstructor0(Unknown Source)
+	at java.lang.Class.newInstance0(Unknown Source)
+	at java.lang.Class.newInstance(Unknown Source)
+	at eecs.editor.language.JavaKit.run(JavaKit.java:458)
+	at eecs.editor.EditPanel.run(EditPanel.java:539)
+	at eecs.editor.Editor.runAction(Editor.java:2242)
+	at eecs.editor.Editor.access$47(Editor.java:2229)
+	at eecs.editor.Editor$RunAction.actionPerformed(Editor.java:2967)
+	at javax.swing.AbstractButton.fireActionPerformed(Unknown Source)
+	at javax.swing.AbstractButton$ForwardActionEvents.actionPerformed(Unknown Source)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(Unknown Source)
+	at javax.swing.DefaultButtonModel.setPressed(Unknown Source)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(Unknown Source)
+	at java.awt.AWTEventMulticaster.mouseReleased(Unknown Source)
+	at java.awt.Component.processMouseEvent(Unknown Source)
+	at java.awt.Component.processEvent(Unknown Source)
+	at java.awt.Container.processEvent(Unknown Source)
+	at java.awt.Component.dispatchEventImpl(Unknown Source)
+	at java.awt.Container.dispatchEventImpl(Unknown Source)
+	at java.awt.Component.dispatchEvent(Unknown Source)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Unknown Source)
+	at java.awt.LightweightDispatcher.processMouseEvent(Unknown Source)
+	at java.awt.LightweightDispatcher.dispatchEvent(Unknown Source)
+	at java.awt.Container.dispatchEventImpl(Unknown Source)
+	at java.awt.Window.dispatchEventImpl(Unknown Source)
+	at java.awt.Component.dispatchEvent(Unknown Source)
+	at java.awt.EventQueue.dispatchEvent(Unknown Source)
+	at java.awt.EventDispatchThread.pumpOneEventForHierarchy(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+	at java.awt.EventDispatchThread.run(Unknown Source)
+
+Dynamic libraries:
+0x00400000 - 0x00407000 	C:\Program Files\Java\j2re1.4.2_03\bin\javaw.exe
+0x77F50000 - 0x77FF7000 	C:\WINDOWS\System32\ntdll.dll
+0x77E60000 - 0x77F46000 	C:\WINDOWS\system32\kernel32.dll
+0x77DD0000 - 0x77E5D000 	C:\WINDOWS\system32\ADVAPI32.dll
+0x78000000 - 0x78087000 	C:\WINDOWS\system32\RPCRT4.dll
+0x77D40000 - 0x77DCC000 	C:\WINDOWS\system32\USER32.dll
+0x7E090000 - 0x7E0D1000 	C:\WINDOWS\system32\GDI32.dll
+0x77C10000 - 0x77C63000 	C:\WINDOWS\system32\MSVCRT.dll
+0x08000000 - 0x08138000 	C:\Program Files\Java\j2re1.4.2_03\bin\client\jvm.dll
+0x76B40000 - 0x76B6C000 	C:\WINDOWS\System32\WINMM.dll
+0x10000000 - 0x10007000 	C:\Program Files\Java\j2re1.4.2_03\bin\hpi.dll
+0x00820000 - 0x0082E000 	C:\Program Files\Java\j2re1.4.2_03\bin\verify.dll
+0x00830000 - 0x00849000 	C:\Program Files\Java\j2re1.4.2_03\bin\java.dll
+0x00850000 - 0x0085D000 	C:\Program Files\Java\j2re1.4.2_03\bin\zip.dll
+0x03250000 - 0x0335F000 	C:\Program Files\Java\j2re1.4.2_03\bin\awt.dll
+0x73000000 - 0x73023000 	C:\WINDOWS\System32\WINSPOOL.DRV
+0x76390000 - 0x763AC000 	C:\WINDOWS\System32\IMM32.dll
+0x771B0000 - 0x772D4000 	C:\WINDOWS\system32\ole32.dll
+0x03370000 - 0x033C0000 	C:\Program Files\Java\j2re1.4.2_03\bin\fontmanager.dll
+0x51000000 - 0x51047000 	C:\WINDOWS\System32\ddraw.dll
+0x73BC0000 - 0x73BC6000 	C:\WINDOWS\System32\DCIMAN32.dll
+0x5C000000 - 0x5C0C8000 	C:\WINDOWS\System32\D3DIM700.DLL
+0x22000000 - 0x22007000 	C:\WINDOWS\System32\PGPhk.dll
+0x076E0000 - 0x076EF000 	C:\Program Files\Java\j2re1.4.2_03\bin\net.dll
+0x71AB0000 - 0x71AC4000 	C:\WINDOWS\System32\WS2_32.dll
+0x71AA0000 - 0x71AA8000 	C:\WINDOWS\System32\WS2HELP.dll
+0x71A50000 - 0x71A8B000 	C:\WINDOWS\System32\mswsock.dll
+0x76F20000 - 0x76F45000 	C:\WINDOWS\System32\DNSAPI.dll
+0x76FB0000 - 0x76FB7000 	C:\WINDOWS\System32\winrnr.dll
+0x76F60000 - 0x76F8C000 	C:\WINDOWS\system32\WLDAP32.dll
+0x76FC0000 - 0x76FC5000 	C:\WINDOWS\System32\rasadhlp.dll
+0x76D60000 - 0x76D76000 	C:\WINDOWS\System32\iphlpapi.dll
+0x76D40000 - 0x76D56000 	C:\WINDOWS\System32\MPRAPI.dll
+0x76E40000 - 0x76E6F000 	C:\WINDOWS\System32\ACTIVEDS.dll
+0x76E10000 - 0x76E35000 	C:\WINDOWS\System32\adsldpc.dll
+0x71C20000 - 0x71C6E000 	C:\WINDOWS\System32\NETAPI32.dll
+0x76B20000 - 0x76B35000 	C:\WINDOWS\System32\ATL.DLL
+0x77120000 - 0x771AB000 	C:\WINDOWS\system32\OLEAUT32.dll
+0x76E80000 - 0x76E8D000 	C:\WINDOWS\System32\rtutils.dll
+0x71BF0000 - 0x71C01000 	C:\WINDOWS\System32\SAMLIB.dll
+0x76670000 - 0x76757000 	C:\WINDOWS\System32\SETUPAPI.dll
+0x71A90000 - 0x71A98000 	C:\WINDOWS\System32\wshtcpip.dll
+0x07850000 - 0x07858000 	C:\Program Files\Java\j2re1.4.2_03\bin\nio.dll
+0x773D0000 - 0x77BC2000 	C:\WINDOWS\system32\shell32.dll
+0x70A70000 - 0x70AD5000 	C:\WINDOWS\system32\SHLWAPI.dll
+0x71950000 - 0x71A34000 	C:\WINDOWS\WinSxS\x86_Microsoft.Windows.Common-Controls_6595b64144ccf1df_6.0.10.0_x-ww_f7fb5805\comctl32.dll
+0x77340000 - 0x773CB000 	C:\WINDOWS\system32\comctl32.dll
+0x71B20000 - 0x71B31000 	C:\WINDOWS\system32\MPR.dll
+0x75F60000 - 0x75F66000 	C:\WINDOWS\System32\drprov.dll
+0x71C10000 - 0x71C1D000 	C:\WINDOWS\System32\ntlanman.dll
+0x71CD0000 - 0x71CE6000 	C:\WINDOWS\System32\NETUI0.dll
+0x71C90000 - 0x71CCC000 	C:\WINDOWS\System32\NETUI1.dll
+0x71C80000 - 0x71C86000 	C:\WINDOWS\System32\NETRAP.dll
+0x75F70000 - 0x75F79000 	C:\WINDOWS\System32\davclnt.dll
+0x75F40000 - 0x75F5F000 	C:\WINDOWS\system32\appHelp.dll
+0x07970000 - 0x07992000 	C:\Program Files\Java\j2re1.4.2_03\bin\dcpr.dll
+0x76C90000 - 0x76CB2000 	C:\WINDOWS\system32\imagehlp.dll
+0x6D510000 - 0x6D58D000 	C:\WINDOWS\system32\DBGHELP.dll
+0x77C00000 - 0x77C07000 	C:\WINDOWS\system32\VERSION.dll
+0x76BF0000 - 0x76BFB000 	C:\WINDOWS\System32\PSAPI.DLL
+
+Heap at VM Abort:
+Heap
+ def new generation   total 768K, used 42K [0x10010000, 0x100e0000, 0x104f0000)
+  eden space 704K,   2% used [0x10010000, 0x10014650, 0x100c0000)
+  from space 64K,  38% used [0x100d0000, 0x100d6388, 0x100e0000)
+  to   space 64K,   0% used [0x100c0000, 0x100c0000, 0x100d0000)
+ tenured generation   total 9376K, used 8741K [0x104f0000, 0x10e18000, 0x14010000)
+   the space 9376K,  93% used [0x104f0000, 0x10d79668, 0x10d79800, 0x10e18000)
+ compacting perm gen  total 11264K, used 11058K [0x14010000, 0x14b10000, 0x18010000)
+   the space 11264K,  98% used [0x14010000, 0x14adca50, 0x14adcc00, 0x14b10000)
+
+Local Time = Wed Jun 09 08:05:00 2004
+Elapsed Time = 48
+#
+# The exception above was detected in native code outside the VM
+#
+# Java VM: Java HotSpot(TM) Client VM (1.4.2_03-b02 mixed mode)
+#

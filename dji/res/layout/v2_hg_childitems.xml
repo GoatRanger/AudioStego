@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="match_parent">
+    <include android:id="@+id/v2_bg_childitem1" android:layout_width="UNKNOWN_DATA_0x1" android:layout_height="wrap_content" android:layout_weight="1.0" layout="@layout/v2_hg_childitem" />
+    <include android:id="@+id/v2_bg_childitem2" android:layout_width="UNKNOWN_DATA_0x1" android:layout_height="wrap_content" android:layout_marginLeft="4dp" android:layout_weight="1.0" layout="@layout/v2_hg_childitem" />
+    <include android:id="@+id/v2_bg_childitem3" android:layout_width="UNKNOWN_DATA_0x1" android:layout_height="wrap_content" android:layout_marginLeft="4dp" android:layout_weight="1.0" layout="@layout/v2_hg_childitem" />
+    <include android:id="@+id/v2_bg_childitem4" android:visibility="gone" android:layout_width="UNKNOWN_DATA_0x1" android:layout_height="wrap_content" android:layout_marginLeft="4dp" android:layout_weight="1.0" layout="@layout/v2_hg_childitem" />
+    <include android:id="@+id/v2_bg_childitem5" android:visibility="gone" android:layout_width="UNKNOWN_DATA_0x1" android:layout_height="wrap_content" android:layout_marginLeft="4dp" android:layout_weight="1.0" layout="@layout/v2_hg_childitem" />
+    <include android:id="@+id/v2_bg_childitem6" android:visibility="gone" android:layout_width="UNKNOWN_DATA_0x1" android:layout_height="wrap_content" android:layout_marginLeft="4dp" android:layout_weight="1.0" layout="@layout/v2_hg_childitem" />
+</LinearLayout>

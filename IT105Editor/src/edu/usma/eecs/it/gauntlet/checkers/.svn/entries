@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="10"
+   name=""
+   committed-date="2005-02-01T05:59:34.421875Z"
+   url="svn://192.168.2.2/IT105Editor/src/edu/usma/eecs/it/gauntlet/checkers"
+   last-author="Karl"
+   kind="dir"
+   uuid="0daf4267-3229-f84b-9084-f3c94b025f38"
+   revision="55"/>
+<entry
+   committed-rev="10"
+   name="LoopControlChecker.java"
+   text-time="2005-03-02T06:14:22.140625Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="855a2b5d4776d507eb9da3aaff506c09"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:21.937500Z"/>
+<entry
+   committed-rev="10"
+   name="CurlyBraceChecker.java"
+   text-time="2005-03-02T06:14:22.140625Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="5af5b1ac30ea1d721e165cf00c472b6d"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:21.953125Z"/>
+<entry
+   committed-rev="10"
+   name="FileNameChecker.java"
+   text-time="2005-03-02T06:14:22.156250Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="e65cc2f12722218a4987b003b4d14ffd"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:21.968750Z"/>
+<entry
+   committed-rev="10"
+   name="ParenthesesChecker.java"
+   text-time="2005-03-02T06:14:22.171875Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="bbc155007554ed356e0409934d1304d7"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:21.984375Z"/>
+<entry
+   committed-rev="10"
+   name="PrintlineChecker.java"
+   text-time="2005-03-02T06:14:22.171875Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="32a3cc990700c51c3a38583e82aed433"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:22.000000Z"/>
+<entry
+   committed-rev="10"
+   name="DeclarationChecker.java"
+   text-time="2005-03-02T06:14:22.187500Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="698afefc7e1613ca44a146d3d396d84b"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:22.000000Z"/>
+<entry
+   name="CVS"
+   kind="dir"/>
+<entry
+   committed-rev="10"
+   name="InitializationChecker.java"
+   text-time="2005-03-02T06:14:22.187500Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="d44e583bb2ed56c00216d5f055f53003"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:22.093750Z"/>
+<entry
+   committed-rev="10"
+   name="SemicolonChecker.java"
+   text-time="2005-03-02T06:14:22.203125Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="9fd51c0de3d317d9d29d9bc2690540e4"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:22.093750Z"/>
+<entry
+   committed-rev="10"
+   name="DoubleQuoteChecker.java"
+   text-time="2005-03-02T06:14:22.203125Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="876009dc52433617e0beac168fcd7ce4"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:22.109375Z"/>
+<entry
+   committed-rev="10"
+   name="EvilSemicolonChecker.java"
+   text-time="2005-03-02T06:14:22.218750Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="88888388bd5f18cc594f2bb499efd681"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:22.125000Z"/>
+</wc-entries>

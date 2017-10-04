@@ -1,0 +1,180 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Methods for Drawing and Event Handling</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="appletMethods.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#overview" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="containerMethods.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Writing Applets
+<br>
+<b>Lesson</b>: Overview of Applets
+</font>
+
+<h2>
+Methods for Drawing and Event Handling
+</h2>
+<blockquote>
+The <code>Simple</code> applet
+defines its onscreen appearance
+by overriding the <code>paint</code> method:
+
+<blockquote><pre>
+class Simple extends Applet {
+    . . .
+    public void <strong>paint</strong>(Graphics g) { . . . }
+    . . .
+}
+</pre></blockquote>
+<p>
+
+The <code>paint</code>
+method is one of two display methods an applet can override:
+<dl>
+<dt> <code>paint</code>
+<dd> The basic display method.
+     Many applets implement the <code>paint</code> method 
+     to draw the applet's representation within a browser page.
+<dt> <code>update</code>
+<dd> A method you can use along with <code>paint</code>
+     to improve drawing performance.
+</dl>
+<p>
+
+Applets inherit their <code>paint</code>
+and <code>update</code> methods
+from the <code>Applet</code> class,
+which inherits them from the Abstract Window Toolkit (AWT) <code>Component</code> class.
+For an overview of the <code>Component</code> class, and the AWT in general, 
+see the
+<a target="_top" href="../../ui/overview/index.html">Overview of the Java UI</a><a target="_top" href="../../ui/overview/index.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Writing Applets trail)"></a> trail.
+Within the overview, the architecture
+of the AWT drawing system is discussed on the
+<a target="_top" href="../../ui/overview/drawing.html">Drawing</a><a target="_top" href="../../ui/overview/drawing.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Writing Applets trail)"></a> page.
+<p>
+
+Applets inherit a group of event-handling methods
+from the <code>Component</code> class.
+(The architecture of the AWT event system is discussed 
+on the 
+<a target="_top" href="../../ui/overview/events.html">Events</a><a target="_top" href="../../ui/overview/events.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Writing Applets trail)"></a> page.)
+The <code>Component</code> class defines several methods,
+such as <code>action</code> and <code>mouseDown</code>,
+for handling particular types of events,
+and then one catch-all method called  <code>handleEvent</code>.
+
+<p>
+
+To react to an event,
+an applet must override either the appropriate event-specific method
+or the <code>handleEvent</code> method.
+For example, 
+adding the following code to the <code>Simple</code> applet
+makes it respond to mouse clicks.
+
+<blockquote><pre>
+import java.awt.Event;
+. . .
+public boolean mouseDown(Event event, int x, int y) {
+    addItem("click!... ");
+    return true;
+}
+</pre></blockquote>
+
+Below is the resulting applet.
+When you click within its rectangle,
+it displays the word "click!...".
+<p>
+<applet codebase="example-1dot1/"
+	code=SimpleClick.class width=500 height=20> 
+<blockquote>
+<hr>
+You can't run applets.
+Here's what you'd see if you could:
+
+<p><center><IMG SRC="../../figures/applet/3init.gif" WIDTH="394" HEIGHT="23" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p>
+<hr></blockquote>
+
+</applet>
+<p>
+
+<blockquote><hr><strong>Note:</strong> If you don't see the applet running above, you need to install Java Plug-in, which happens automatically when you <a href="http://java.sun.com/j2se/downloads.html" target="_blank">install the J2SE JRE or SDK</a>. We strongly recommend that you install the latest version; at least 1.3.1 is required for all our applets. You can find more information in the <a href="http://java.sun.com/products/plugin" target="_blank">Java Plug-in home page.</a><hr></blockquote>
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="appletMethods.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#overview" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="containerMethods.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

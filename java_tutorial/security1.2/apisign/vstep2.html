@@ -1,0 +1,150 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Input and Convert the Encoded Public Key Bytes</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="vstep1.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#apisign" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="vstep3.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Security in Java 2 SDK 1.2
+<br>
+<b>Lesson</b>: Generating and Verifying Signatures
+</font>
+
+<h2>
+Input and Convert the Encoded Public Key Bytes
+</h2>
+<blockquote>
+Next, <code>VerSig</code> needs to import the encoded public key bytes 
+from the file specified 
+as the first command line argument and to convert them to a <code>PublicKey</code>.
+A <code>PublicKey</code> is needed because that is what the 
+<code>Signature</code> <code>initVerify</code>
+method requires in order to initialize the <code>Signature</code> object for verification.
+
+<p>First, read in the encoded public key bytes.
+
+<blockquote><pre>
+        FileInputStream keyfis = new FileInputStream(args[0]);
+        byte[] encKey = new byte[keyfis.available()];  
+        keyfis.read(encKey);
+
+        keyfis.close();
+</pre></blockquote>
+
+Now the byte array <code>encKey</code> contains the encoded public key bytes.
+
+<p>You can use a <code>KeyFactory</code> class in order to instantiate a DSA public key
+from its encoding. The <code>KeyFactory</code> class provides conversions between
+opaque keys
+(of type <code>Key</code>) and key specifications, which are 
+transparent representations of the underlying key material.
+With an opaque key you can obtain the algorithm name,
+format name, and encoded key bytes, but not the key material,
+which, for example, may consist of the key itself and the algorithm
+parameters used to calculate the key.
+(Note that <code>PublicKey</code>, because it extends <code>Key</code>, is
+itself a <code>Key</code>.)
+
+<p>So, first you need a key specification.
+You can obtain one via the following, assuming that the key was encoded according to 
+the X.509 standard, which is the case, for example, if the key was generated
+with the built-in DSA key-pair generator supplied by the SUN provider:
+
+<blockquote><pre>
+        X509EncodedKeySpec pubKeySpec = new X509EncodedKeySpec(encKey);
+</pre></blockquote>
+
+<p>Now you need a <code>KeyFactory</code> object to do the conversion. 
+That object must be one that works with DSA keys.
+
+<blockquote><pre>
+        KeyFactory keyFactory = KeyFactory.getInstance("DSA", "SUN");
+</pre></blockquote>
+
+<p>Finally, you can use the <code>KeyFactory</code> object to generate a 
+<code>PublicKey</code> from the key specification.
+
+<blockquote><pre>
+        PublicKey pubKey = keyFactory.generatePublic(pubKeySpec);
+</pre></blockquote>
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="vstep1.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#apisign" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="vstep3.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

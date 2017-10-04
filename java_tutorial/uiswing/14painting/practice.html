@@ -1,0 +1,350 @@
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Implementing a Custom Component</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="concepts2.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#14painting" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="summary.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Creating a GUI with JFC/Swing
+<br>
+<b>Lesson</b>: Performing Custom Painting
+</font>
+
+<h2>
+Implementing a Custom Component
+</h2>
+<blockquote>
+Before you implement a component that performs custom painting,
+first make sure that you 
+really need to do so.
+You might be able to use the text and image
+capabilities of
+<a target="_top" href="../components/label.html">labels</a><a target="_top" href="../components/label.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>,
+<a target="_top" href="../components/button.html">buttons</a><a target="_top" href="../components/button.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>, or
+<a target="_top" href="../components/text.html">text components</a><a target="_top" href="../components/text.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a> instead.
+And remember, you can sometimes use 
+<a target="_top" href="../misc/border.html">borders</a><a target="_top" href="../misc/border.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a> to customize the outside edges
+of a component and 
+<a target="_top" href="../misc/icon.html">icons</a><a target="_top" href="../misc/icon.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a> to paint an area
+that perhaps varies by component state.
+If you need to make changes to many standard components,
+you should consider doing it by customizing a 
+<a target="_top" href="../misc/plaf.html">look and feel</a><a target="_top" href="../misc/plaf.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a> such as the GTK+ look and feel.
+
+<p>
+
+If you really need to perform custom painting,
+then you need to decide which superclass to use.
+Your component can extend <code>JComponent</code>,
+<code>JPanel</code>,
+or a more specialized Swing component class.
+
+<p>
+For example, if you're creating a custom button class,
+you should probably implement it by extending a button class
+such as 
+<code>JButton</code> or <code>JToggleButton</code>.
+That way you'll inherit the state management provided by those classes.
+If you're creating a component that 
+paints on top of an image,
+you might want to create a <code>JLabel</code> subclass.
+A component that's a specialized container
+should probably extend <code>JPanel</code>.
+On the other hand, if you're implementing a component
+that generates and displays a graph, for example &#151;
+with or without providing user interaction &#151;
+then you might want to use a 
+<code>JComponent</code> subclass.
+
+<p>
+When implementing custom painting code
+for a component,
+keep these rules in mind:
+
+<ul>
+<li> Your custom painting code should be in a method with the
+     signature <code>protected void paintComponent(Graphics)</code>.
+<li> You can &#151; and probably should &#151; use a border
+     to paint the outside edges
+     of your component.
+<li> Except when painting the background of the component,
+     you should avoid painting over the border area of the
+     component.
+     You can determine this area 
+     using the <code>getInsets</code> method.
+<li> Your component must honor the <em>opaque</em> property.
+     If your component is opaque,
+     it must paint its complete area
+     using an opaque color or colors.
+     If its <em>opaque</em> property is false,
+     then you have the option of not painting over the entire component.
+<li> Make sure that when the <code>paintComponent</code> method exits,
+     the <code>Graphics</code> object that was passed into it
+     has the same state that it had
+     at the start of the method.
+<li> To gain access to the power of the 
+<a target="_top" href="../../2d/index.html">2D graphics API</a><a target="_top" href="../../2d/index.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>,
+     you can cast the <code>Graphics</code> parameter
+     into a <code>Graphics2D</code> object.
+</ul>
+
+<p>
+Besides those painting-related considerations,
+here are a few more rules to keep in mind:
+<ul>
+<li> Your component should return reasonable size information.
+     Specifically, you should either override the
+     <code>getMinimumSize</code>, <code>getPreferredSize</code>,
+     and <code>getMaximumSize</code> methods
+     or make sure that your component's superclass
+     supplies values that are appropriate.
+<li> Your component should be as accessible as possible.
+     For details, see
+<a target="_top" href="../misc/access.html#accessiblecomponents">Making Custom Components Accessible</a><a target="_top" href="../misc/access.html#accessiblecomponents"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.
+<li> You should separate out strings and resources
+     such as images
+     so that your component can be easily localized.
+     More information is in
+<a target="_top" href="../../i18n/index.html">Internationalization</a><a target="_top" href="../../i18n/index.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.
+
+</blockquote>
+<h3>
+An Example of Custom Painting
+</h3>
+<blockquote>
+
+The following application gives an example of custom painting.
+It features a custom component called
+<code>IconDisplayer</code>
+that paints an icon multiple times,
+with all but the rightmost icon transparent.
+
+<p><center><IMG SRC="../../figures/uiswing/14painting/IconDisplayer.gif" WIDTH="465" HEIGHT="105" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="4 faded rocket ships follow Duke's rocket ship"></center></p>
+You can
+<b><a href=http://javaweb.sfbay/~kwalrath/tutorial/uiswing/14painting/example-1dot4/IconDisplayer.jnlp>run the IconDisplayer
+application</a></b>
+using 
+<a target="_top" href="../../information/javawebstart.html">Java<sup><font size=-2>TM</font></sup> Web Start</a><a target="_top" href="../../information/javawebstart.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.    Or, to compile and run the example yourself,
+     consult the
+     <a href="example-1dot4/index.html#IconDisplayer">example index</a>.
+
+<p>
+The source code is in 
+<a target="_blank" href="example-1dot4/IconDisplayer.java"><font color="#bb000f"><code>IconDisplayer.java</code></font></a><a target="_blank" href="example-1dot4/IconDisplayer.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>.
+Here are the main painting-related parts:
+
+<blockquote><pre>
+public class IconDisplayer extends JComponent {
+    ...
+    protected void paintComponent(Graphics g) {
+        if (isOpaque()) { //paint background
+            g.setColor(getBackground());
+            g.fillRect(0, 0, getWidth(), getHeight());
+        }
+
+        if (icon != null) {
+            ...
+            Graphics2D g2d = (Graphics2D)g.create();
+
+            while (<em>/* we're not done */</em>) {
+                <em>/* Paint an icon. */</em>
+            }
+            g2d.dispose(); //clean up
+        }
+    }
+    ...
+}
+</pre></blockquote>
+
+<p>
+The first thing the <code>paintComponent</code> method does is check
+whether the <code>IconDisplayer</code> needs to be opaque and,
+if so, paint its background.
+If <code>IconDisplayer</code> were
+a subclass of something other than <code>JComponent</code>,
+we might omit this code
+and just call <code>super.paintComponent</code>.
+
+<p>
+The second part of the <code>paintComponent</code> method
+paints the main part of the component.
+It creates a copy of the <code>Graphics</code> object
+it was handed
+and casts it 
+into a <code>Graphics2D</code> object.
+The typecast lets <code>paintComponent</code> use 
+2D features such as alpha compositing;
+the copy lets it avoid 
+making changes to the passed-in <code>Graphics</code> object,
+which would have to be undone before returning.
+
+<p>
+Here's a complete listing of the code that paints the icon repeatedly:
+
+<blockquote><pre>
+if (icon != null) {
+    Insets insets = getInsets();
+    int iconWidth = icon.getIconWidth();
+    int iconX = getWidth() - insets.right
+                           - iconWidth;
+    int iconY = insets.top;
+    boolean faded = false;
+    
+    Graphics2D g2d = (Graphics2D)g.create();
+
+    g.getClipBounds(clipRect);
+    while (iconX >= insets.left) {
+	iconRect.setBounds(iconX, iconY, iconWidth,
+			   icon.getIconHeight());
+	if (iconRect.intersects(clipRect)) {
+            icon.paintIcon(this, g2d, iconX, iconY);
+	}
+        iconX -= (iconWidth + pad);
+        if (!faded) { 
+            g2d.setComposite(AlphaComposite.getInstance(
+                AlphaComposite.SRC_OVER, 0.1f));
+            faded = true;
+        }
+    }
+    g2d.dispose(); //clean up
+}
+</pre></blockquote>
+
+<p>
+The first thing the code does is prepare for painting icons.
+It gets its border size, using the <code>getInsets</code> method.
+It then uses the insets,
+along with the component and icon sizes,
+when calculating where the first icon &#151;
+the rightmost one &#151;
+should be painted.
+The icon is an <code>ImageIcon</code>,
+so it's easy to get its size using methods
+such as <code>getIconWidth</code>,
+and it can paint itself using the <code>Icon</code>-defined
+method <code>paintIcon</code>.
+The code next gets a <code>Graphics2D</code> object
+so that it can use alpha compositing when painting 
+some of the icons.
+
+<p>
+Next comes a bit of performance tuning.
+The code gets the <em>clipping area</em>, 
+using the <code>Graphics</code> method
+<code>getClipBounds</code>.
+The clipping area is the part of the component
+that needs to be repainted.
+For example, 
+if a window covering the right half of the component goes away,
+then only the right half of the component needs to be repainted.
+After getting the clipping area,
+the code checks whether this clipping area 
+intersects with the icon's current painting area.
+If so, it paints the icon.
+If not, it saves a little time by not painting the icon.
+
+<p>
+After dealing with the first (rightmost) occurrence of the icon, 
+the code invokes <code>setComposite</code>
+on the <code>Graphics2D</code> object,
+specifying parameters that make the subsequently painted icons
+appear to be only 10% opaque.
+You can find information on using alpha compositing in
+<a target="_top" href="../../2d/display/compositing.html">Compositing Graphics</a><a target="_top" href="../../2d/display/compositing.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>,
+a section in the
+<a target="_top" href="../../2d/index.html">2D Graphics</a><a target="_top" href="../../2d/index.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a> trail.
+
+<p>
+
+After the <code>paintComponent</code> method
+paints all the icons, 
+there's nothing for it to do but clean up.
+In this case,
+the cleanup is as simple as
+disposing of the <code>Graphics2D</code> object
+the method created.
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="concepts2.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#14painting" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="summary.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

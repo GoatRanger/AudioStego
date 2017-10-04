@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.setting.ui.SettingUIStageView xmlns:android="http://schemas.android.com/apk/res-auto" setting_ui:layout_width="match_parent" setting_ui:layout_height="match_parent" setting_ui:titleText="@string/setting_ui_general">
+    <ScrollView style="@style/gk">
+        <LinearLayout style="@style/gj">
+            <TextView setting_ui:text="@string/setting_ui_general_units" style="@style/gf" />
+            <dji.setting.ui.general.UnitView setting_ui:titleText="@string/setting_ui_general_parameter_unit" style="@style/g2" />
+            <dji.setting.ui.general.FlirTemptureView setting_ui:titleText="@string/setting_ui_general_temperature" style="@style/g2" />
+            <TextView setting_ui:text="@string/setting_ui_general_camera_module" style="@style/gf" />
+            <dji.setting.ui.general.ShowMfSwitchView setting_ui:titleText="@string/setting_ui_general_open_mf_switch_title" style="@style/g2" />
+            <dji.setting.ui.general.TapZoomMultiView setting_ui:titleText="@string/setting_ui_general_zoom_multi_title" style="@style/g9" />
+            <dji.setting.ui.general.FpvLongPressSelectView setting_ui:titleText="@string/setting_ui_general_longpress_select" style="@style/g2" />
+            <TextView setting_ui:text="@string/setting_ui_general_liveshare" style="@style/gf" />
+            <dji.setting.ui.general.LiveShareView setting_ui:titleText="@string/setting_ui_general_liveshare_select" setting_ui:subLayout="@layout/setting_ui_group_general_liveshare" setting_ui:showDivider="false" style="@style/g2" />
+            <TextView setting_ui:text="@string/setting_ui_general_map" style="@style/gf" />
+            <dji.setting.ui.general.AMapView setting_ui:titleText="@string/setting_ui_general_amap" style="@style/g2" />
+            <dji.setting.ui.general.CoordinateView setting_ui:titleText="@string/setting_ui_general_coordinate" style="@style/g2" />
+            <dji.setting.ui.general.ShowRouteView setting_ui:titleText="@string/setting_ui_general_show_route" style="@style/g2" />
+            <dji.setting.ui.general.ClearRouteView setting_ui:titleText="@string/setting_ui_general_clear_route" style="@style/g9" />
+            <TextView setting_ui:text="@string/setting_ui_general_videocache_title" style="@style/gf" />
+            <dji.setting.ui.general.VideoCacheOpenSwitch setting_ui:titleText="@string/setting_ui_general_videocache_openswitch_title" style="@style/g2" />
+            <dji.setting.ui.general.VideoCacheSizeSpinner setting_ui:titleText="@string/setting_ui_general_videocache_size_title" style="@style/g9" />
+            <dji.setting.ui.general.VideoCacheAutoCleanSwitch setting_ui:titleText="@string/setting_ui_general_videocache_autoclean_title" setting_ui:descText="@string/setting_ui_general_videocache_autoclean_desc" style="@style/g9" />
+            <dji.setting.ui.general.VideoCacheClearButton setting_ui:titleText="@string/setting_ui_general_videocache_clean_title" style="@style/g9" />
+            <TextView setting_ui:text="@string/setting_ui_general_flight_logs" style="@style/gf" />
+            <dji.setting.ui.widget.ItemViewGroup setting_ui:titleText="@string/setting_ui_general_flight_logs" setting_ui:subLayout="@layout/setting_ui_group_general_pop_logs" style="@style/g2" />
+            <dji.setting.ui.general.ClearFlightLogsButton setting_ui:titleText="@string/setting_ui_general_clear_flight_logs" style="@style/g9" />
+            <TextView setting_ui:text="@string/setting_ui_flyc_other" style="@style/gf" />
+            <dji.setting.ui.general.GeoOpenView setting_ui:titleText="@string/general_open_geo" style="@style/g2" />
+            <dji.setting.ui.widget.ItemViewGroup setting_ui:titleText="@string/setting_ui_general_about" setting_ui:subLayout="@layout/setting_ui_group_general_about" setting_ui:showDivider="false" style="@style/g2" />
+        </LinearLayout>
+    </ScrollView>
+</dji.setting.ui.SettingUIStageView>

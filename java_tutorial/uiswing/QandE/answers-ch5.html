@@ -1,0 +1,194 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Solving Common Event-Handling Problems</title>
+<script language="JavaScript">
+
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="questions-ch5.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#events" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="../14painting/index.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="../events/index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Creating a GUI with JFC/Swing
+<br>
+<b>Lesson</b>: Writing Event Listeners
+</font>
+
+<!--END HEADER-->
+
+<H2>Answers: Writing Event Listeners</H2>
+
+Use this lesson&#146;s tables, the <A HREF="../components/index.html">component
+how-to sections</A> and the <A HREF="../events/handling.html">event
+listeners how-to sections</A> to complete these questions and
+exercises.
+
+<H3>Questions</H3>
+
+<BLOCKQUOTE>
+  <P><FONT COLOR="#ff0000">Question 1:</FONT> What listener would
+  you implement to be notified when a particular component has
+  appeared on screen? What method tells you this information?<BR>
+  <FONT COLOR="#009900">Answer 1:</FONT> You would register a 
+  <code>ComponentListener</code> on the component. The 
+  <code>componentShown</code> method.  This method is called when
+  the window is first displayed or is deiconified.
+  </P>
+
+  <P><FONT COLOR="#ff0000">Question 2:</FONT> What listener would
+  you implement to be notified when the user has finished editing
+  a text field by pressing Enter? What listener would you implement
+  to be notified as each character is typed into a text field?
+  Note that you should not implement a general-purpose key listener,
+  but a listener specific to text.<BR>
+  <FONT COLOR="#009900">Answer 2:</FONT> To be notified when the user 
+    presses Enter, you would register an 
+    <code>ActionListener</code> on the text field; 
+    the <code>actionPerformed</code> method is called when the user types
+    Enter.  Note that the Enter character is not part of
+    the resulting string. To be notified as each character 
+    is typed, you would register a <code>DocumentListener</code> 
+    on the text field's
+    <code>Document</code>.  The <code>insertUpdate</code> method 
+    is then called as each
+    character is typed.   Note that this is not the correct way
+    to implement input validation.  For that behavior you should
+    check out the 
+    <A HREF="../misc/focus.html#inputverificationapi">Input Verification API</A> 
+    section in 
+    <A HREF="../misc/focus.html">How to Use the Focus Subsystem</A>.  </P>
+
+  <P><FONT COLOR="#ff0000">Question 3:</FONT> What listener would
+  you implement to be notified when a spinner&#146;s value has
+  changed? How would you get the spinner&#146;s new value?<BR>
+  <FONT COLOR="#009900">Answer 3:</FONT> To be notified when the value 
+  has changed, you would register a 
+  <code>ChangeListener</code> on the spinner. You would get 
+  the new value through the 
+  event's source in the <code>stateChanged</code> method.  
+  The following code snippet shows how this could be done:
+<blockquote><pre>
+public void stateChanged(ChangeEvent e) {
+    JSpinner mySpinner = (JSpinner)(e.getSource());
+    SpinnerNumberModel model = (SpinnerNumberModel)(mySpinner.getModel());
+    Number currentValue = model.getNumber();
+    ...
+}
+</pre></blockquote>
+
+  <P><FONT COLOR="#ff0000">Question 4:</FONT> The default behavior
+  for the focus subsystem is to
+  consume the focus traversal keys, such as Tab and Shift Tab.
+  Say you want to prevent this behavior in one of your application&#146;s
+  components. How would you accomplish this?<BR>
+  <FONT COLOR="#009900">Answer 4:</FONT>
+   You call <code>setFocusTraversalKeysEnabled(false)</code> on that particular
+   component.  Note that you must then handle focus traversal manually.
+   See 
+    <A HREF="../events/keylistener.html">How to Write a Key Listener</A> 
+ and 
+    <A HREF="../misc/focus.html">How to Use the Focus Subsystem</A>
+ for more information.
+  </P>
+</BLOCKQUOTE>
+
+<H3>Exercises</H3>
+
+<BLOCKQUOTE>
+  <P><FONT COLOR="#ff0000">Exercise 1.</FONT> Take the 
+<a target="source" href="../events/example-1dot4/Beeper.java"><font color="#bb000f"><code>Beeper.java</code></font></a><a href="../events/example-1dot4/Beeper.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt="(in a .java source file)"></a> 
+example and add a text field. Implement it so that when
+  the user has finishing entering data, the system beeps.<BR>
+
+  <FONT COLOR="#009900">Answer 1:</FONT> See 
+<a target="source" href="example-1dot4/Beeper1.java"><font color="#bb000f"><code>Beeper1.java</code></font></a><a href="example-1dot4/Beeper1.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt="(in a .java source file)"></a> 
+
+  <P><FONT COLOR="#ff0000">Exercise 2.</FONT> Take the 
+<a target="source" href="../events/example-1dot4/Beeper.java"><font color="#bb000f"><code>Beeper.java</code></font></a><a href="../events/example-1dot4/Beeper.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt="(in a .java source file)"></a> 
+  example and add a selectable component that allows the
+  user to enter a number from 1 to 10. For example, you can use
+  a combo box, a set of radio buttons, or a spinner. Implement
+  it so that when the user has selected the number, the system
+  beeps that many times.<BR>
+  <FONT COLOR="#009900">Answer 2:</FONT> See 
+<a target="source" href="example-1dot4/Beeper2.java"><font color="#bb000f"><code>Beeper2.java</code></font></a><a href="example-1dot4/Beeper2.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt="(in a .java source file)"></a> 
+
+</BLOCKQUOTE>
+<!--START FOOTER-->
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="questions-ch5.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#events" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="../14painting/index.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="../events/index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+

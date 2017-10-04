@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.pilot.set.view.WifiSetterView xmlns:android="http://schemas.android.com/apk/res-auto" set:orientation="vertical" set:clickable="true" set:layout_width="match_parent" set:layout_height="match_parent">
+    <LinearLayout set:gravity="top|bottom|center_vertical|fill_vertical|center|fill" set:orientation="horizontal" set:layout_width="match_parent" set:layout_height="wrap_content">
+        <TextView set:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" set:paddingRight="@dimen/a5m" set:clickable="true" set:layout_width="UNKNOWN_DATA_0x7f0b04c9" set:text="@string/wifi_ssid_desc" set:layout_weight="0.0" style="@style/fl" />
+        <EditText set:id="@id/bnl" set:background="0x0" set:layout_width="match_parent" set:layout_height="wrap_content" set:text="" set:ems="10" set:imeOptions="actionGo|actionSearch|actionSend|actionNext|actionDone|actionPrevious" style="@style/fl" />
+    </LinearLayout>
+    <View style="@style/fc" />
+    <LinearLayout set:gravity="top|bottom|center_vertical|fill_vertical|center|fill" set:orientation="horizontal" set:layout_width="match_parent" set:layout_height="wrap_content">
+        <TextView set:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" set:paddingRight="@dimen/a5m" set:clickable="true" set:layout_width="UNKNOWN_DATA_0x7f0b04c9" set:text="@string/wifi_pwd_desc" set:layout_weight="0.0" style="@style/fl" />
+        <EditText set:id="@id/bnm" set:background="0x0" set:layout_width="match_parent" set:layout_height="wrap_content" set:text="" set:ems="10" style="@style/fl" />
+    </LinearLayout>
+    <View style="@style/fc" />
+    <ProgressBar set:layout_gravity="left|right|center_horizontal|fill_horizontal|center|fill|start|end" set:id="@id/bnn" set:visibility="gone" set:layout_width="wrap_content" set:layout_height="wrap_content" set:layout_marginTop="@dimen/a5l" style="0x1010079" />
+    <Button set:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" set:layout_gravity="left|right|center_horizontal|fill_horizontal|center|fill|start|end" set:id="@id/bno" set:background="@drawable/set_btn_bg" set:layout_width="UNKNOWN_DATA_0x3c01" set:layout_height="UNKNOWN_DATA_0x1e01" set:layout_marginTop="5dp" set:layout_marginBottom="5dp" set:text="@string/wifi_apply" set:layout_weight="0.0" style="@style/fl" />
+    <View style="@style/fc" />
+    <LinearLayout set:orientation="vertical" set:clickable="true" set:layout_width="match_parent" set:layout_height="match_parent" set:layout_marginLeft="@dimen/a4e">
+        <dji.pilot.set.view.WifiFrequencySwitchView style="@style/fh" />
+    </LinearLayout>
+</dji.pilot.set.view.WifiSetterView>

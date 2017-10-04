@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.device.common.view.set.view.LonganShotcutsMicGainView xmlns:android="http://schemas.android.com/apk/res/android" android:background="@color/j5" android:layout_width="match_parent" android:layout_height="match_parent">
+    <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent">
+        <dji.publics.DJIUI.DJITextView android:textSize="@dimen/rq" android:id="@id/b4_" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/rp" android:layout_marginTop="@dimen/gw" android:layout_marginRight="@dimen/n3" android:text="@string/longan_shotcuts_mic_gain" android:layout_centerVertical="true" style="@style/bm" />
+        <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x1e01" android:layout_marginLeft="@dimen/rp" android:layout_marginTop="@dimen/gw" android:layout_marginRight="@dimen/n3">
+            <dji.device.common.view.DJIStateImageViewCompat android:id="@id/b4a" android:src="@drawable/fpv_camera_minus" android:layout_weight="1.0" style="@style/h3" />
+            <TextView android:id="@id/b4b" android:text="0" android:layout_weight="1.0" style="@style/h4" />
+            <dji.device.common.view.DJIStateImageViewCompat android:id="@id/b4c" android:src="@drawable/fpv_camera_plus" android:layout_weight="1.0" style="@style/h3" />
+            <dji.device.common.view.DJIStateTextView android:textColor="@color/om" android:id="@id/b4d" android:background="@drawable/longan_camera_mode_bg" android:layout_marginLeft="20dp" android:text="@string/longan_shotcuts_mic_gain_default" android:layout_weight="3.0" style="@style/h3" />
+        </LinearLayout>
+        <SeekBar android:id="@id/b4e" android:padding="0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20dp" android:maxHeight="28dp" android:progressDrawable="@drawable/longan_mic_gain_sb" android:minHeight="28dp" android:thumb="@drawable/longan_mic_thumb" android:thumbOffset="0dp" />
+        <View android:background="@color/or" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x26666731" android:layout_marginTop="@dimen/gw" />
+        <dji.publics.DJIUI.DJIRelativeLayout android:id="@id/b4f" android:paddingLeft="@dimen/n3" android:paddingRight="@dimen/rp" android:clickable="true" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x7f0b0456" android:layout_marginTop="@dimen/gw">
+            <dji.publics.DJIUI.DJITextView android:textSize="@dimen/rq" android:id="@id/q6" android:layout_height="UNKNOWN_DATA_0x7f0b0456" android:text="@string/set_video_sound" android:layout_centerVertical="true" style="@style/bm" />
+            <dji.device.common.view.set.view.DJISwitchCompat android:id="@id/b4g" android:clickable="false" android:layout_alignParentRight="true" android:layout_centerVertical="true" style="@style/fs" />
+        </dji.publics.DJIUI.DJIRelativeLayout>
+        <dji.publics.DJIUI.DJIRelativeLayout android:id="@id/b4h" android:paddingLeft="@dimen/n3" android:paddingRight="@dimen/rp" android:focusable="true" android:focusableInTouchMode="true" android:visibility="gone" android:clickable="true" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x7f0b0456" android:layout_marginTop="@dimen/gw">
+            <dji.publics.DJIUI.DJITextView android:textSize="@dimen/rq" android:layout_height="UNKNOWN_DATA_0x7f0b0456" android:text="@string/longan_shotcuts_inner_mic" android:layout_centerVertical="true" style="@style/bm" />
+            <dji.device.common.view.set.view.DJISwitchCompat android:id="@id/b4i" android:clickable="false" android:layout_alignParentRight="true" android:layout_centerVertical="true" style="@style/fs" />
+        </dji.publics.DJIUI.DJIRelativeLayout>
+        <View android:id="@id/b4j" android:background="@color/or" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x26666731" android:layout_marginTop="@dimen/gw" />
+        <dji.publics.DJIUI.DJIRelativeLayout android:id="@id/b4k" android:paddingLeft="@dimen/n3" android:paddingRight="@dimen/rp" android:clickable="true" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x7f0b0456" android:layout_marginTop="@dimen/gw">
+            <dji.publics.DJIUI.DJITextView android:textSize="@dimen/rq" android:layout_height="UNKNOWN_DATA_0x7f0b0456" android:text="@string/longan_shotcuts_record_fan" android:layout_centerVertical="true" style="@style/bm" />
+            <dji.device.common.view.set.view.DJISwitchCompat android:id="@id/b4l" android:clickable="false" android:layout_alignParentRight="true" android:layout_centerVertical="true" style="@style/fs" />
+        </dji.publics.DJIUI.DJIRelativeLayout>
+    </LinearLayout>
+</dji.device.common.view.set.view.LonganShotcutsMicGainView>

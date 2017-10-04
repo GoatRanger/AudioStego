@@ -1,0 +1,147 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>The CORBA Architecture</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="intro.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#intro" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="model.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: IDL
+<br>
+<b>Lesson</b>: Introducing Java IDL
+</font>
+
+<h2>
+The CORBA Architecture
+</h2>
+<blockquote>
+In this section, you get some additional detail on CORBA, IDL, and the
+Java IDL ORB promised earlier.
+<P>
+Any relationship between distributed objects has two sides: the client
+and the server. The server provides a remote interface, and the client
+calls a remote interface. These relationships are common to most
+distributed object standards, including RMI and CORBA. Note that in
+this context, the terms client and server define object-level rather
+than application-level interaction--any application could be a server
+for some objects and a client of others. In fact, a single object could
+be the client of an interface provided by a remote object and at the
+same time implement an interface to be called remotely by other
+objects.
+<P>
+This figure shows how a one-method distributed object is shared between
+a CORBA client and server to implement the classic
+&quot;Hello World&quot; application.
+
+<p><center><IMG SRC="../../figures/idl/IDL-1.gif" WIDTH="241" HEIGHT="114" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p>
+<center>
+A one-method distributed object shared between a CORBA client and server.
+</center>
+<P>
+On the client side, the application includes a reference for the remote
+object. The object reference has a stub method, which is a stand-in for
+the method being called remotely. The stub is actually wired into the
+ORB, so that calling it invokes the ORB's connection capabilities,
+which forwards the invocation to the server.
+<P>
+On the server side, the ORB uses skeleton code to translate the remote
+invocation into a method call on the local object. The skeleton
+translates the call and any parameters to their implementation-specific
+format and calls the method being invoked. When the method returns, the
+skeleton code transforms results or errors, and sends them back to the
+client via the ORBs.
+<P>
+Between the ORBs, communication proceeds by means of a shared protocol,
+IIOP--the Internet Inter-ORB Protocol. IIOP, which is based on the
+standard TCP/IP internet protocol, defines how CORBA-compliant ORBs
+pass information back and forth. Like CORBA and IDL, the IIOP standard
+is defined by OMG, the Object Management Group.
+<P>
+In addition to these simple distributed object capabilities,
+CORBA-compliant ORBs can provide a number of optional services defined
+by the OMG. These include services for looking up objects by name,
+maintaining persistent objects, supporting transaction processing,
+enabling messaging, and many other abilities useful in today's
+distributed, multi-tiered computing environments. Several Java ORBs
+from third-party vendors support some or all of these additional
+capabilities. The ORB provided with Java IDL supports one optional
+service, the ability to locate objects by name.
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="intro.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#intro" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="model.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

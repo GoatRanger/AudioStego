@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.phone.controview.DJILPCameraZoomSeekBar xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+    <ImageView android:layout_gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@id/bdr" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/lp_zoom_reduce_landscape" />
+    <View android:layout_width="UNKNOWN_DATA_0x7f0b0100" android:layout_height="UNKNOWN_DATA_0x101" />
+    <SeekBar android:layout_gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@id/bds" android:layout_width="UNKNOWN_DATA_0x7f0b011d" android:layout_height="wrap_content" android:maxWidth="1500dp" android:maxHeight="1500dp" android:progressDrawable="@drawable/lp_zoom_bg" android:thumb="@drawable/lp_zoom_circle" android:thumbOffset="-1dp" android:splitTrack="true" />
+    <View android:layout_width="UNKNOWN_DATA_0x7f0b0100" android:layout_height="UNKNOWN_DATA_0x101" />
+    <ImageView android:layout_gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@id/bdt" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/lp_zoom_increase" />
+</dji.phone.controview.DJILPCameraZoomSeekBar>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res-auto" longan:orientation="vertical" longan:background="@color/j5" longan:layout_width="wrap_content" longan:layout_height="wrap_content">
+    <dji.device.common.view.progressbar.LonganRoundProgressBar longan:id="@id/rd" longan:layout_width="UNKNOWN_DATA_0x7f0b0477" longan:layout_height="UNKNOWN_DATA_0x7f0b0477" longan:progress_unreached_color="@color/or" longan:progress_reached_color="@color/ax" longan:progress_reached_bar_height="2dp" longan:progress_unreached_bar_height="2dp" longan:progress_text_size="@dimen/rp" longan:progress_text_color="@color/ax" longan:longan_radius="@dimen/gw" />
+</LinearLayout>

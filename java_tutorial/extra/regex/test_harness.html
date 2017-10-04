@@ -1,0 +1,180 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Test Harness</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="intro.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#regex" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="literals.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Bonus
+<br>
+<b>Lesson</b>: Regular Expressions
+</font>
+
+<h2>
+Test Harness
+</h2>
+<blockquote>
+<!--A Simple Test Harness-->
+ 
+This section defines a reusable test harness 
+to explore the regular expression 
+constructs that the <code>regex</code> API supports.  
+
+You can run this code with the command <CODE>java RegexTestHarness</CODE>. 
+No command-line arguments are accepted. At runtime, 
+it loads the regular expression and input data from a plain text file, <CODE>regex.txt</CODE>, which 
+resides in the same directory. This file contains a simple format: the regular expression appears on the first line, and the input string appears on the second line. To update the test, simply edit those two lines, save the file, and run the test again. There is no need to recompile any code. 
+
+<blockquote><hr><strong>Note:</strong>&nbsp;You can download the test harness code, 
+<a target="_blank" href="example-1dot4/RegexTestHarness.java"><font color="#bb000f"><code>RegexTestHarness.java</code></font></a><a target="_blank" href="example-1dot4/RegexTestHarness.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>.
+<hr></blockquote> 
+
+<P>
+The output provides some useful information including the regular expression, the input string, the matched text (if found), and the start and end indices of where the match has occurred. Here's the
+  code:
+
+<blockquote><pre> 
+import java.io.*;
+import java.util.regex.*;
+
+public final class RegexTestHarness {
+
+    private static String REGEX;
+    private static String INPUT;
+    private static BufferedReader br;
+    private static Pattern pattern;
+    private static Matcher matcher;
+    private static boolean found;
+
+    public static void main(String[] argv) {
+        initResources();
+        processTest();
+        closeResources();
+    }
+
+    private static void initResources() {
+       try {
+           br = new BufferedReader(new FileReader("regex.txt"));
+       }
+       catch (FileNotFoundException fnfe) {
+            System.out.println("Cannot locate input file! "+fnfe.getMessage());
+            System.exit(0);
+        }
+       try {
+           REGEX = br.readLine();
+           INPUT = br.readLine();
+       } catch (IOException ioe) {}
+
+        pattern = Pattern.compile(REGEX);
+        matcher = pattern.matcher(INPUT);
+
+        System.out.println("Current REGEX is: "+REGEX);
+        System.out.println("Current INPUT is: "+INPUT);
+    }
+
+    private static void processTest() {
+        while(matcher.find()) {
+            System.out.println("I found the text \"" + matcher.group() +
+                               "\" starting at index " + matcher.start() +
+                               " and ending at index " + matcher.end() + ".");
+            found = true;
+        }
+
+        if(!found){
+            System.out.println("No match found.");
+        }
+    }
+
+    private static void closeResources() {
+       try{
+           br.close();
+       }catch(IOException ioe){}
+    }
+}
+</pre></blockquote> 
+
+
+Before continuing with the next section, save and compile this code to ensure that your development environment supports the <CODE>java.util.regex</CODE> package.  
+<P>
+
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="intro.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#regex" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="literals.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

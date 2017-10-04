@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" style="@style/g2"
+    <LinearLayout android:orientation="horizontal" style="@style/g2">
+        <TextView android:id="@id/bqz" android:text="@string/setting_ui_gimbal_config" style="@style/gh" />
+        <dji.setting.ui.widget.DJISpinnerButton android:id="@id/bsz" android:text="usa" style="@style/gc" />
+    </LinearLayout>
+    <LinearLayout style="@style/g2">
+        <TextView android:text="@string/setting_ui_gimbal_pitch" style="@style/gh" />
+        <dji.setting.ui.widget.DJINumberProgress android:id="@id/bt0" android:layout_width="UNKNOWN_DATA_0x7f0b036e" android:layout_height="match_parent" />
+    </LinearLayout>
+    <LinearLayout style="@style/g2">
+        <TextView android:text="@string/setting_ui_gimbal_yaw" style="@style/gh" />
+        <dji.setting.ui.widget.DJINumberProgress android:id="@id/bt1" android:layout_width="UNKNOWN_DATA_0x7f0b036e" android:layout_height="match_parent" />
+    </LinearLayout>
+    <LinearLayout android:orientation="horizontal" style="@style/g2">
+        <TextView android:text="@string/setting_ui_gimbal_yaw_follow" style="@style/gh" />
+        <Switch android:id="@id/bt2" style="@style/gg" />
+    </LinearLayout>
+    <LinearLayout android:id="@id/bt3" style="@style/g2">
+        <TextView android:text="@string/setting_ui_gimbal_pitch_time" style="@style/gh" />
+        <dji.setting.ui.widget.DJINumberProgress android:id="@id/bt4" android:layout_width="UNKNOWN_DATA_0x7f0b036e" android:layout_height="match_parent" />
+    </LinearLayout>
+    <LinearLayout android:id="@id/bt5" style="@style/g2">
+        <TextView android:text="@string/setting_ui_gimbal_yaw_time" style="@style/gh" />
+        <dji.setting.ui.widget.DJINumberProgress android:id="@id/bt6" android:layout_width="UNKNOWN_DATA_0x7f0b036e" android:layout_height="match_parent" />
+    </LinearLayout>
+    <LinearLayout android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:orientation="horizontal" style="@style/g2">
+        <Button android:id="@id/bt7" android:text="@string/setting_ui_flyc_resetall" style="@style/g5" />
+    </LinearLayout>
+</LinearLayout>

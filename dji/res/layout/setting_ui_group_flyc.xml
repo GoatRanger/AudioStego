@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.setting.ui.SettingUIStageView xmlns:android="http://schemas.android.com/apk/res-auto" setting_ui:layout_width="match_parent" setting_ui:layout_height="match_parent" setting_ui:titleText="@string/setting_ui_flyc">
+    <ScrollView style="@style/gk">
+        <LinearLayout style="@style/gj">
+            <TextView setting_ui:text="@string/setting_ui_flyc_base" style="@style/gf" />
+            <dji.setting.ui.flyc.HomePointView setting_ui:titleText="@string/setting_ui_flyc_home_point" style="@style/g2" />
+            <dji.setting.ui.flyc.GohomeNewView setting_ui:titleText="@string/setting_ui_flyc_gohome_height" style="@style/g9" />
+            <dji.setting.ui.flyc.FpaView setting_ui:titleText="@string/setting_ui_fpv_flyc_fpa" style="@style/g2" />
+            <TextView setting_ui:text="@string/setting_ui_flyc_limit" style="@style/gf" />
+            <dji.setting.ui.flyc.BeginerView setting_ui:titleText="@string/setting_ui_flyc_beginner" style="@style/g9" />
+            <dji.setting.ui.flyc.TriplePodView setting_ui:titleText="@string/setting_ui_flyc_triple_pod" style="@style/g2" />
+            <dji.setting.ui.flyc.LimitHeightView setting_ui:titleText="@string/setting_ui_flyc_limit_height" setting_ui:descText="@string/setting_ui_flyc_limit_height_range" style="@style/g2" />
+            <dji.setting.ui.flyc.LimitDistanceView style="@style/g9" />
+            <TextView setting_ui:text="@string/setting_ui_flyc_adv_setting_group" style="@style/gf" />
+            <dji.setting.ui.widget.ItemViewGroup setting_ui:titleText="@string/setting_ui_flyc_adv_setting" setting_ui:subLayout="@layout/setting_ui_group_flyc_adv" setting_ui:showDivider="false" style="@style/g2" />
+        </LinearLayout>
+    </ScrollView>
+</dji.setting.ui.SettingUIStageView>

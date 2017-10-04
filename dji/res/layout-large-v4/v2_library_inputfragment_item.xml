@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:background="@color/om" android:paddingBottom="5dp" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x7f0b012c" android:layout_marginTop="5dp">
+    <ImageView android:id="@+id/lib_check_select" android:background="@r$drawable/v2_library_itemselect_false" android:layout_width="UNKNOWN_DATA_0x7f0b0119" android:layout_height="UNKNOWN_DATA_0x7f0b0119" android:layout_marginLeft="5dp" />
+    <dji.publics.DJIUI.DJITextView android:id="@+id/lib_item_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10dp" android:layout_marginTop="5dp" android:text="123" android:layout_toRightOf="@+id/lib_check_select" />
+</RelativeLayout>

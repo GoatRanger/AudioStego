@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="52"
+   name=""
+   committed-date="2005-02-25T22:14:35.936250Z"
+   url="svn://192.168.2.2/ProblemSets/src/eecs/problem"
+   last-author="karl"
+   kind="dir"
+   uuid="0daf4267-3229-f84b-9084-f3c94b025f38"
+   revision="55"/>
+<entry
+   committed-rev="51"
+   name="Problem.java"
+   text-time="2005-03-02T06:21:58.765625Z"
+   committed-date="2005-02-25T22:14:23.608125Z"
+   checksum="c234376b907f2220ddbdcd5f924f36b6"
+   last-author="karl"
+   kind="file"
+   prop-time="2005-03-02T06:21:58.718750Z"/>
+<entry
+   committed-rev="52"
+   name="ProblemManager.java"
+   text-time="2005-03-02T06:21:58.781250Z"
+   committed-date="2005-02-25T22:14:35.936250Z"
+   checksum="b1d1969c01d63fec91d779576c3d4470"
+   last-author="karl"
+   kind="file"
+   prop-time="2005-03-02T06:21:58.734375Z"/>
+<entry
+   committed-rev="21"
+   name="Constants.java"
+   text-time="2005-03-02T06:21:58.796875Z"
+   committed-date="2005-02-01T06:08:17.750000Z"
+   checksum="de6b3a3bbe0c702f73e148d00ace9199"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:21:58.750000Z"/>
+</wc-entries>

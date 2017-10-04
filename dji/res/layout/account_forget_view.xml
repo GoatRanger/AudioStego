@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.publics.DJIUI.DJILinearLayout xmlns:android="http://schemas.android.com/apk/res-auto" phantom:orientation="vertical" phantom:layout_width="match_parent" phantom:layout_height="match_parent" phantom:baselineAligned="false">
+    <include phantom:layout_width="match_parent" phantom:layout_height="UNKNOWN_DATA_0x7f0b017c" layout="@layout/dlg_titlebar_view" />
+    <FrameLayout phantom:background="@color/d3" phantom:layout_width="match_parent" phantom:layout_height="match_parent">
+        <WebView phantom:id="@+id/home_account_forget_webview" phantom:fadingEdge="UNKNOWN_DATA_0x0" phantom:layout_width="match_parent" phantom:layout_height="match_parent" phantom:overScrollMode="ifContentScrolls" />
+        <ProgressBar phantom:id="@+id/home_account_forget_progress_pgb" phantom:visibility="gone" phantom:layout_width="match_parent" phantom:layout_height="UNKNOWN_DATA_0x301" phantom:progress="50" phantom:indeterminate="false" phantom:progressDrawable="@r$drawable/store_loading_progress" style="?unknown_attr_ref: 1010078" />
+    </FrameLayout>
+</dji.publics.DJIUI.DJILinearLayout>

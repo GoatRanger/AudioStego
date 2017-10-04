@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent">
+    <FrameLayout android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x1" android:layout_weight="1.0">
+        <ListView android:id="@id/box" android:scrollbars="UNKNOWN_DATA_0x0" android:fadingEdge="UNKNOWN_DATA_0x0" android:layout_width="match_parent" android:layout_height="match_parent" android:listSelector="0x106000d" android:drawSelectorOnTop="false" android:cacheColorHint="0x106000d" android:divider="@color/ov" android:dividerHeight="1px" android:choiceMode="singleChoice" android:overScrollMode="ifContentScrolls" />
+        <TextView android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@id/boy" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:text="@string/setting_ui_battery_history_loading" style="@style/gv" />
+    </FrameLayout>
+    <LinearLayout android:gravity="top|bottom|center_vertical|fill_vertical|center|fill" android:layout_gravity="left|right|center_horizontal|fill_horizontal|center|fill|start|end" android:orientation="horizontal" android:paddingTop="@dimen/w8" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:baselineAligned="false"
+        <LinearLayout android:gravity="top|bottom|center_vertical|fill_vertical|center|fill" android:orientation="horizontal" android:id="@id/boz" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:baselineAligned="false">
+            <TextView android:id="@id/bp0" android:text="@string/setting_ui_battery_serial_number" style="@style/gu" />
+            <TextView android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@id/bp1" android:layout_width="wrap_content" android:layout_marginLeft="@dimen/ur" style="@style/gu" />
+        </LinearLayout>
+        <LinearLayout android:gravity="top|bottom|center_vertical|fill_vertical|center|fill" android:orientation="horizontal" android:id="@id/bp2" android:paddingLeft="@dimen/u1" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:baselineAligned="false">
+            <TextView android:id="@id/bp3" android:text="@string/setting_ui_battery_charge_times_dot" style="@style/gu" />
+            <TextView android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@id/bp4" android:layout_width="wrap_content" android:layout_marginLeft="@dimen/ur" style="@style/gu" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

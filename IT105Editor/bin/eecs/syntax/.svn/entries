@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="10"
+   name=""
+   committed-date="2005-02-01T05:59:34.421875Z"
+   url="svn://192.168.2.2/IT105Editor/src/eecs/syntax"
+   last-author="Karl"
+   kind="dir"
+   uuid="0daf4267-3229-f84b-9084-f3c94b025f38"
+   revision="55"/>
+<entry
+   committed-rev="10"
+   name="install.bte"
+   text-time="2005-03-02T06:14:18.593750Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="edbdcb0b30a471e2f01180f8f1958ba5"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:18.250000Z"/>
+<entry
+   name="Lexer"
+   kind="dir"/>
+<entry
+   committed-rev="10"
+   name="download.bte"
+   text-time="2005-03-02T06:14:18.625000Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="620df8ac08c1e6a3bcd94657930acf7a"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:18.281250Z"/>
+<entry
+   committed-rev="10"
+   name="tohtml.bte"
+   text-time="2005-03-02T06:14:18.609375Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="1d6203051284a71d984479af9c58bdd1"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:18.265625Z"/>
+<entry
+   committed-rev="10"
+   name="index.bte"
+   text-time="2005-03-02T06:14:18.609375Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="808a892e34bf93b6c9f57a61bdb0e8e3"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:18.265625Z"/>
+<entry
+   committed-rev="10"
+   name="page.bte"
+   text-time="2005-03-02T06:14:18.625000Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="4fea83a1a760a5d066e5da8459e7d774"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:18.281250Z"/>
+<entry
+   committed-rev="10"
+   name="COPYING.TXT"
+   text-time="2005-03-02T06:14:18.640625Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="eca1de0bb44b5a08fb2a49ea070db87a"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:18.328125Z"/>
+<entry
+   committed-rev="10"
+   name="features.bte"
+   text-time="2005-03-02T06:14:18.656250Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="b706f6f4625671db9480a0da8afd88df"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:18.359375Z"/>
+<entry
+   committed-rev="10"
+   name="style.css"
+   text-time="2005-03-02T06:14:18.656250Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="4c7c823d4c2ad04f7790dbf4130dcf61"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:18.359375Z"/>
+<entry
+   committed-rev="10"
+   name="syntax.mf"
+   text-time="2005-03-02T06:14:18.640625Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="bd1488bac64b39e818470841cf1a5e04"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:18.343750Z"/>
+<entry
+   committed-rev="10"
+   name="spell.sh"
+   text-time="2005-03-02T06:14:18.671875Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="78e600c9220fb37dd7aa1e343b5ee0c6"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:18.375000Z"/>
+<entry
+   committed-rev="10"
+   name="release.sh"
+   text-time="2005-03-02T06:14:18.671875Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="7f512cc2f04eac2e442dffe407c3208f"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:18.375000Z"/>
+<entry
+   committed-rev="10"
+   name="syntax.gif"
+   text-time="2005-03-02T06:14:18.687500Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="f4e26555c82ed66fdbf08b208189265a"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:18.406250Z"/>
+<entry
+   committed-rev="10"
+   name="license.bte"
+   text-time="2005-03-02T06:14:18.687500Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="ac59e502ad9bf675d2e9dfd2cdb6d8d6"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:18.484375Z"/>
+<entry
+   name="CVS"
+   kind="dir"/>
+<entry
+   committed-rev="10"
+   name="ant.bte"
+   text-time="2005-03-02T06:14:18.703125Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="c9b846793ce2ae1b80e232e7b58035d7"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:18.500000Z"/>
+<entry
+   committed-rev="10"
+   name="package.html"
+   text-time="2005-03-02T06:14:18.703125Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="1c0f6a9a48be5885188981faa518b2de"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:18.515625Z"/>
+<entry
+   committed-rev="10"
+   name="editor.bte"
+   text-time="2005-03-02T06:14:18.718750Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="1dcdb904cf34bf603ea9456775a7b894"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:18.515625Z"/>
+<entry
+   committed-rev="10"
+   name="syntax.bte"
+   text-time="2005-03-02T06:14:18.718750Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="b063bb1d1e14b7a61e3467d9ce67fbf2"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:18.531250Z"/>
+<entry
+   committed-rev="10"
+   name="simple.bte"
+   text-time="2005-03-02T06:14:18.734375Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="ca8f7d1b27346300388f7592824cc9c8"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:18.546875Z"/>
+<entry
+   committed-rev="10"
+   name="texted.bte"
+   text-time="2005-03-02T06:14:18.734375Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="fccbbe0144326a5dcf553c4551a21e4f"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:18.546875Z"/>
+<entry
+   committed-rev="10"
+   name="printable.css"
+   text-time="2005-03-02T06:14:18.750000Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="757a8e1ad7347d882dbe62cd209a5a86"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:18.562500Z"/>
+<entry
+   committed-rev="10"
+   name="syntax.dict"
+   text-time="2005-03-02T06:14:18.750000Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="5c8c38b2d5c499e43cab422eb794ee10"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:18.578125Z"/>
+<entry
+   committed-rev="10"
+   name="Makefile"
+   text-time="2005-03-02T06:14:18.765625Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="bede3d6ade57d91692f79089770cb4ee"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:18.578125Z"/>
+</wc-entries>

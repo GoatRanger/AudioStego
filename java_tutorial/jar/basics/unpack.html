@@ -1,0 +1,176 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Extracting the Contents of a JAR File</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="view.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#basics" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="mod.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: JAR Files
+<br>
+<b>Lesson</b>: Using JAR Files: The Basics
+</font>
+
+<h2>
+Extracting the Contents of a JAR File
+</h2>
+<blockquote>
+The basic command to use for extracting the contents of a JAR file is:
+<blockquote><pre>
+jar xf <i>jar-file [archived-file(s)]</i>
+</pre></blockquote>
+<p>
+Let's look at the options and arguments in this command:
+<ul>
+<li>The <tt>x</tt> option indicates that you want to <em>extract</em> 
+files from the JAR archive.
+<li>The <tt>f</tt> options indicates that the JAR <em>file</em> from 
+which files are to be extracted is specified on the command line, 
+rather than through stdin.
+<li>The <tt>jar-file</tt> argument is the filename (or path and filename) 
+of the JAR file from which to extract files.
+<li><tt>archived-file(s)</tt> is an optional argument consisting of 
+a space-separated list of the files to be extracted from the archive.  
+If this argument is not present, the Jar tool will extract all the files 
+in the archive.  
+</ul>
+<p>
+As usual, the order in which the <tt>x</tt> and <tt>f</tt> options appear 
+in the command doesn't matter, but there must not be a space between them.
+<p>
+When extracting files, the Jar tool makes copies of the desired files and 
+writes them to the current directory, reproducing the directory structure 
+that the files have in the archive. The original JAR file remains unchanged. 
+<p>
+
+<blockquote>
+<hr>
+<em><b>Caution:</b> When it extracts files, the Jar tool  
+will overwrite any existing files having the same pathname as the 
+extracted files.</em>
+<hr></blockquote>
+
+</blockquote>
+<h3>An Example</h3>
+<blockquote>
+Let's extract some files from the TicTacToe JAR file we've been using 
+in previous sections.  Recall that the contents of <tt>TicTacToe.jar</tt> 
+are:
+<blockquote><pre>
+META-INF/MANIFEST.MF
+TicTacToe.class
+audio/
+audio/beep.au
+audio/ding.au
+audio/return.au
+audio/yahoo1.au
+audio/yahoo2.au
+images/
+images/cross.gif
+images/not.gif
+</pre></blockquote>
+<p>
+Suppose you want to extract the <tt>TicTacToe</tt> class file and 
+the <tt>cross.gif</tt> image file.  To do so, you can use this command:
+<blockquote><pre>
+jar xf TicTacToe.jar TicTacToe.class images/cross.gif
+</pre></blockquote>
+<p>
+This command does two things:
+<ul>
+<li>It places a copy of <tt>TicTacToe.class</tt> in the current 
+directory.
+<li>It creates the directory <tt>images</tt>, if it doesn't already 
+exist, and places a copy of <tt>cross.gif</tt> within it.
+</ul>
+<p>
+The original TicTacToe JAR file remains unchanged.
+<p>
+As many files as desired can be extracted from the JAR file in the 
+same way. When the command doesn't specify which files to extract, the 
+Jar tool extracts all files in the archive. For example, you can extract 
+all the files in the TicTacToe archive by using this command:
+<blockquote><pre>
+jar xf TicTacToe.jar
+</pre></blockquote>
+<p>
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="view.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#basics" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="mod.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

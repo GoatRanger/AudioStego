@@ -1,0 +1,1 @@
+java -Xrunhprof:cpu=samples,heap=dump,monitor=y,depth=10,thread=y -cp .;activation.jar;editor.jar;editordocs.jar;flute.jar;jakarta-oro.jar;jalopy.jar;jdom.jar;jlf.jar;log4j.jar;mail.jar;mysql-conn.jar;sac.jar;servlet.jar;tools.jar;validator.jar;xerces.jar eecs.editor.EditorTabbed

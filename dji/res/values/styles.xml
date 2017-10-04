@@ -1,0 +1,2073 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="a">
+        <item>@drawable/launcher_splash</item>
+    </style>
+    <style name="a">
+        <item>@drawable/launcher_splash</item>
+        <item>true</item>
+    </style>
+    <style name="b">
+        <item>?unknown_ref: 0</item>
+        <item>true</item>
+    </style>
+    <style name="b">
+        <item>?unknown_ref: 0</item>
+        <item>true</item>
+        <item>true</item>
+    </style>
+    <style name="c">
+        <item>@color/b8</item>
+        <item>@dimen/x_</item>
+        <item>@dimen/x9</item>
+        <item>@dimen/x9</item>
+        <item>false</item>
+        <item>true</item>
+    </style>
+    <style name="c">
+        <item>?unknown_attr_ref: 10104e2</item>
+    </style>
+    <style name="d">
+        <item>?unknown_ref: 10a0000</item>
+        <item>?unknown_ref: 10a0001</item>
+        <item>?unknown_ref: 10a0000</item>
+        <item>?unknown_ref: 10a0001</item>
+    </style>
+    <style name="e">
+        <item>?unknown_ref: 106000d</item>
+        <item>?unknown_ref: 0</item>
+        <item>true</item>
+        <item>true</item>
+        <item>true</item>
+        <item>?unknown_ref: 0</item>
+        <item>true</item>
+        <item>false</item>
+    </style>
+    <style name="f">
+    </style>
+    <style name="g">
+        <item>@color/a_</item>
+        <item>true</item>
+    </style>
+    <style name="h">
+    </style>
+    <style name="i">
+    </style>
+    <style name="j">
+    </style>
+    <style name="k">
+        <item>@dimen/x_</item>
+        <item>@dimen/x9</item>
+        <item>@dimen/x9</item>
+        <item>false</item>
+        <item>true</item>
+    </style>
+    <style name="l">
+        <item>-2</item>
+        <item>-2</item>
+        <item>@string/app_name</item>
+    </style>
+    <style name="m">
+        <item>@dimen/rq</item>
+        <item>@color/a0</item>
+    </style>
+    <style name="n">
+        <item>@dimen/rq</item>
+    </style>
+    <style name="o">
+        <item>?unknown_ref: 108009a</item>
+        <item>2dp</item>
+        <item>5dp</item>
+        <item>2dp</item>
+        <item>0dp</item>
+    </style>
+    <style name="p">
+    </style>
+    <style name="q">
+        <item>@dimen/k1</item>
+        <item>1</item>
+        <item>@color/om</item>
+        <item>11</item>
+        <item>34dp</item>
+        <item>34dp</item>
+    </style>
+    <style name="r">
+        <item>@drawable/arrow_right</item>
+        <item>-2</item>
+        <item>-2</item>
+        <item>true</item>
+        <item>true</item>
+        <item>@string/app_name</item>
+    </style>
+    <style name="s">
+        <item>@dimen/rq</item>
+        <item>@color/om</item>
+        <item>11</item>
+    </style>
+    <style name="t">
+        <item>@dimen/rq</item>
+        <item>true</item>
+    </style>
+    <style name="u">
+        <item>@drawable/selector_fn_item</item>
+        <item>@dimen/rp</item>
+        <item>@dimen/rp</item>
+        <item>-1</item>
+        <item>@dimen/i3</item>
+    </style>
+    <style name="v">
+        <item>@dimen/n3</item>
+        <item>@dimen/i3</item>
+        <item>-1</item>
+        <item>7</item>
+        <item>true</item>
+        <item>true</item>
+        <item>@string/app_name</item>
+    </style>
+    <style name="w">
+        <item>@dimen/rq</item>
+        <item>@dimen/n3</item>
+        <item>true</item>
+    </style>
+    <style name="x">
+        <item>@drawable/selector_camera_mode</item>
+        <item>@dimen/ei</item>
+        <item>@dimen/eg</item>
+    </style>
+    <style name="y">
+        <item>@dimen/rl</item>
+        <item>@color/oz</item>
+        <item>11</item>
+    </style>
+    <style name="z">
+        <item>14sp</item>
+        <item>@color/om</item>
+        <item>-2</item>
+        <item>-1</item>
+    </style>
+    <style name="a0">
+        <item>10sp</item>
+        <item>@color/om</item>
+        <item>60dp</item>
+        <item>15dp</item>
+    </style>
+    <style name="a1">
+        <item>12sp</item>
+        <item>1</item>
+        <item>@color/om</item>
+        <item>11</item>
+        <item>40dp</item>
+        <item>17dp</item>
+    </style>
+    <style name="a2">
+        <item>@dimen/rq</item>
+        <item>@color/p0</item>
+        <item>53</item>
+        <item>0dp</item>
+        <item>1.0</item>
+    </style>
+    <style name="a3">
+        <item>@color/b7</item>
+    </style>
+    <style name="a4">
+        <item>@color/b8</item>
+    </style>
+    <style name="a5">
+        <item>56dp</item>
+        <item>24dp</item>
+        <item>@string/switch_on</item>
+        <item>@string/switch_off</item>
+        <item>@drawable/switch_common_thumb</item>
+        <item>@style/d7</item>
+        <item>@drawable/switch_common_track</item>
+        <item>55dp</item>
+        <item>4dp</item>
+    </style>
+    <style name="a6">
+        <item>@dimen/f_</item>
+        <item>@dimen/f7</item>
+        <item></item>
+        <item></item>
+        <item>@drawable/cirsw_thumb</item>
+        <item>@drawable/cirsw_track</item>
+        <item>@dimen/f_</item>
+        <item>@dimen/f9</item>
+    </style>
+    <style name="a7">
+        <item>@dimen/rj</item>
+        <item>11</item>
+        <item>@drawable/selector_edittext_bg</item>
+        <item>@dimen/qq</item>
+    </style>
+    <style name="a8">
+        <item>?unknown_ref: 106000d</item>
+        <item>?unknown_ref: 0</item>
+        <item>true</item>
+        <item>true</item>
+        <item>false</item>
+        <item>?unknown_ref: 0</item>
+        <item>?unknown_ref: 1030002</item>
+        <item>true</item>
+    </style>
+    <style name="a9">
+        <item>true</item>
+    </style>
+    <style name="a_">
+        <item>1.0</item>
+    </style>
+    <style name="aa">
+        <item>@dimen/rq</item>
+        <item>@color/om</item>
+        <item>3</item>
+    </style>
+    <style name="ab">
+        <item>@dimen/hr</item>
+        <item>@dimen/hr</item>
+        <item>@drawable/my_flight_nullmoment</item>
+        <item>6</item>
+        <item>true</item>
+        <item>@string/app_name</item>
+    </style>
+    <style name="ac">
+        <item>@dimen/rp</item>
+        <item>@color/a_</item>
+        <item>2</item>
+        <item>11</item>
+        <item>0dp</item>
+        <item>@dimen/ho</item>
+        <item>1.0</item>
+    </style>
+    <style name="ad">
+        <item>@dimen/rp</item>
+        <item>@color/a_</item>
+        <item>2</item>
+        <item>11</item>
+        <item>@dimen/hx</item>
+        <item>true</item>
+    </style>
+    <style name="ae">
+        <item>@dimen/ng</item>
+        <item>@color/ow</item>
+        <item>3</item>
+        <item>-1</item>
+        <item>-2</item>
+        <item>@string/flight_record_na</item>
+    </style>
+    <style name="af">
+        <item>@dimen/nh</item>
+        <item>@color/om</item>
+        <item>2</item>
+        <item>3</item>
+        <item>-1</item>
+        <item>-2</item>
+        <item>true</item>
+    </style>
+    <style name="ag">
+        <item>@dimen/nj</item>
+        <item>@dimen/nj</item>
+        <item>@dimen/fj</item>
+        <item>true</item>
+        <item>@string/app_name</item>
+    </style>
+    <style name="ah">
+        <item>@color/a_</item>
+        <item>11</item>
+        <item>@dimen/fr</item>
+        <item>@dimen/fj</item>
+        <item>@dimen/fr</item>
+        <item>@dimen/fj</item>
+        <item>-2</item>
+        <item>-2</item>
+        <item>@dimen/gw</item>
+    </style>
+    <style name="ai">
+        <item>@dimen/rp</item>
+        <item>@color/om</item>
+        <item>2</item>
+        <item>11</item>
+        <item>-2</item>
+        <item>-2</item>
+    </style>
+    <style name="aj">
+        <item>@dimen/rp</item>
+        <item>@color/a_</item>
+        <item>2</item>
+        <item>11</item>
+        <item>0dp</item>
+        <item>@dimen/hx</item>
+        <item>1.0</item>
+    </style>
+    <style name="ak">
+        <item>@dimen/rp</item>
+        <item>@color/a_</item>
+        <item>2</item>
+        <item>11</item>
+        <item>@dimen/hx</item>
+        <item>true</item>
+    </style>
+    <style name="al">
+        <item>@dimen/rq</item>
+        <item>@color/om</item>
+        <item>13</item>
+        <item>@dimen/nv</item>
+        <item>-2</item>
+        <item>true</item>
+        <item>true</item>
+    </style>
+    <style name="am">
+        <item>@dimen/rq</item>
+        <item>@color/om</item>
+        <item>13</item>
+        <item>@dimen/nw</item>
+        <item>-2</item>
+        <item>true</item>
+    </style>
+    <style name="an">
+        <item>@dimen/gw</item>
+        <item>-1</item>
+    </style>
+    <style name="ao">
+        <item>@color/p7</item>
+        <item>2</item>
+        <item>10</item>
+        <item>-2</item>
+        <item>-2</item>
+        <item>true</item>
+    </style>
+    <style name="ap">
+        <item>@dimen/rq</item>
+        <item>-2</item>
+        <item>-2</item>
+    </style>
+    <style name="aq">
+        <item>@drawable/selector_gen_bottom_corner</item>
+        <item>@dimen/n3</item>
+    </style>
+    <style name="ar">
+        <item>true</item>
+        <item>true</item>
+    </style>
+    <style name="as">
+        <item>@drawable/selector_gen_middle_corner</item>
+    </style>
+    <style name="at">
+        <item>@drawable/selector_gen_radius_corner</item>
+        <item>@dimen/n3</item>
+        <item>@dimen/n3</item>
+    </style>
+    <style name="au">
+        <item>@dimen/rq</item>
+        <item>@color/ov</item>
+        <item>false</item>
+    </style>
+    <style name="av">
+        <item>@dimen/rq</item>
+    </style>
+    <style name="aw">
+        <item>@dimen/rp</item>
+    </style>
+    <style name="ax">
+        <item>@color/db</item>
+        <item>-1</item>
+        <item>1px</item>
+        <item>@dimen/n2</item>
+        <item>@dimen/n2</item>
+        <item>@string/app_name</item>
+    </style>
+    <style name="ay">
+        <item>@color/db</item>
+        <item>1px</item>
+        <item>-1</item>
+        <item>@string/app_name</item>
+    </style>
+    <style name="az">
+        <item>@dimen/rq</item>
+        <item>2</item>
+        <item>1</item>
+        <item>@color/om</item>
+        <item>11</item>
+        <item>@drawable/selector_edittext_bg</item>
+        <item>@dimen/n4</item>
+        <item>@dimen/l6</item>
+        <item>-2</item>
+        <item>@dimen/n3</item>
+        <item>true</item>
+        <item>2002</item>
+        <item>6</item>
+    </style>
+    <style name="b0">
+        <item>@dimen/rq</item>
+        <item>2</item>
+        <item>1</item>
+        <item>@color/om</item>
+        <item>11</item>
+        <item>@drawable/selector_edittext_bg</item>
+        <item>@dimen/n4</item>
+        <item>@dimen/l6</item>
+        <item>-2</item>
+        <item>@dimen/n3</item>
+        <item>true</item>
+        <item>6</item>
+    </style>
+    <style name="b1">
+        <item>@drawable/selector_gen_middle_corner</item>
+        <item>true</item>
+        <item>true</item>
+    </style>
+    <style name="b2">
+        <item>@drawable/selector_gensetting_item</item>
+        <item>@dimen/n3</item>
+        <item>@dimen/n3</item>
+        <item>-1</item>
+        <item>@dimen/lf</item>
+        <item>@dimen/n2</item>
+        <item>@dimen/n2</item>
+    </style>
+    <style name="b3">
+        <item>@drawable/fpv_view_bg</item>
+        <item>@dimen/n3</item>
+        <item>@dimen/n3</item>
+        <item>-1</item>
+        <item>@dimen/lf</item>
+    </style>
+    <style name="b4">
+        <item>@dimen/rq</item>
+        <item>1</item>
+        <item>@color/ov</item>
+        <item>10</item>
+        <item>@dimen/n1</item>
+        <item>@dimen/n4</item>
+        <item>@dimen/n1</item>
+        <item>@dimen/n4</item>
+        <item>-1</item>
+        <item>@dimen/n1</item>
+    </style>
+    <style name="b5">
+        <item>@dimen/n3</item>
+        <item>@dimen/n3</item>
+        <item>-1</item>
+        <item>@dimen/lf</item>
+    </style>
+    <style name="b6">
+        <item>true</item>
+        <item>true</item>
+    </style>
+    <style name="b7">
+        <item>@drawable/selector_gen_top_corner</item>
+        <item>@dimen/n3</item>
+    </style>
+    <style name="b8">
+        <item>11</item>
+        <item>@drawable/selector_edittext_bg2</item>
+        <item>true</item>
+        <item>60dp</item>
+        <item>@dimen/mz</item>
+        <item>@dimen/mz</item>
+    </style>
+    <style name="b9">
+        <item>@dimen/rq</item>
+        <item>@color/a6</item>
+    </style>
+    <style name="b_">
+        <item>-2</item>
+        <item>-2</item>
+        <item>@drawable/topbar_signal_level</item>
+        <item>7</item>
+        <item>true</item>
+        <item>@string/app_name</item>
+    </style>
+    <style name="ba">
+        <item>-1</item>
+        <item>@dimen/vr</item>
+    </style>
+    <style name="bb">
+        <item>@color/db</item>
+        <item>2px</item>
+        <item>-1</item>
+        <item>@string/app_name</item>
+    </style>
+    <style name="bc">
+        <item>-2</item>
+        <item>-2</item>
+        <item>@string/app_name</item>
+    </style>
+    <style name="bd">
+        <item>10</item>
+        <item>-2</item>
+        <item>-1</item>
+        <item>2dp</item>
+        <item>7</item>
+        <item>true</item>
+    </style>
+    <style name="be">
+        <item>@color/om</item>
+        <item>2</item>
+        <item>10</item>
+        <item>10</item>
+        <item>2dp</item>
+        <item>0dp</item>
+        <item>-1</item>
+        <item>true</item>
+    </style>
+    <style name="bf">
+        <item>10</item>
+        <item>-2</item>
+        <item>-1</item>
+        <item>7</item>
+        <item>true</item>
+    </style>
+    <style name="bg">
+        <item>@color/om</item>
+        <item>2</item>
+        <item>10</item>
+        <item>10</item>
+        <item>0dp</item>
+        <item>0dp</item>
+        <item>-1</item>
+        <item>true</item>
+    </style>
+    <style name="bh">
+        <item>@dimen/ro</item>
+    </style>
+    <style name="bi">
+        <item>@color/a_</item>
+        <item>true</item>
+    </style>
+    <style name="bj">
+        <item>?unknown_ref: 106000d</item>
+        <item>?unknown_ref: 0</item>
+        <item>true</item>
+        <item>true</item>
+        <item>true</item>
+        <item>true</item>
+    </style>
+    <style name="bk">
+        <item>11</item>
+    </style>
+    <style name="bl">
+        <item>0dp</item>
+    </style>
+    <style name="bm">
+        <item>-2</item>
+    </style>
+    <style name="bn">
+        <item>@color/p7</item>
+        <item>2</item>
+        <item>-2</item>
+        <item>true</item>
+    </style>
+    <style name="bo">
+        <item>10</item>
+    </style>
+    <style name="bp">
+        <item>0dp</item>
+    </style>
+    <style name="bq">
+        <item>-2</item>
+    </style>
+    <style name="br">
+        <item>-1</item>
+        <item>-2</item>
+        <item>?unknown_ref: 0</item>
+        <item>?unknown_attr_ref: 101021a</item>
+    </style>
+    <style name="bs">
+        <item>@dimen/rq</item>
+        <item>@color/oy</item>
+        <item>-1</item>
+        <item>@dimen/gq</item>
+    </style>
+    <style name="bt">
+        <item>-1</item>
+        <item>@dimen/gq</item>
+    </style>
+    <style name="bu">
+        <item>@color/fz</item>
+        <item>-1</item>
+        <item>@dimen/gw</item>
+    </style>
+    <style name="bv">
+        <item>@dimen/ro</item>
+        <item>@color/om</item>
+    </style>
+    <style name="bw">
+        <item>1.0</item>
+    </style>
+    <style name="bx">
+        <item>@color/db</item>
+        <item>-1</item>
+        <item>1px</item>
+        <item>@string/app_name</item>
+    </style>
+    <style name="by">
+        <item>@color/a</item>
+    </style>
+    <style name="bz">
+        <item>@dimen/pg</item>
+        <item>@dimen/pg</item>
+    </style>
+    <style name="c0">
+        <item>@drawable/selector_fpv_circle_bg</item>
+        <item>@dimen/pq</item>
+        <item>@dimen/pr</item>
+        <item>@dimen/pr</item>
+        <item>7</item>
+        <item>true</item>
+        <item>@string/app_name</item>
+    </style>
+    <style name="c1">
+        <item>@dimen/rq</item>
+        <item>1</item>
+        <item>@color/om</item>
+        <item>11</item>
+        <item>@drawable/selector_fpv_circle_bg</item>
+        <item>@dimen/pr</item>
+        <item>@dimen/pr</item>
+        <item>@dimen/pg</item>
+        <item>@dimen/pg</item>
+    </style>
+    <style name="c2">
+        <item>@drawable/selector_fpv_circle_bg</item>
+        <item>@dimen/pq</item>
+        <item>@dimen/pr</item>
+        <item>@dimen/pr</item>
+        <item>@dimen/pk</item>
+        <item>@dimen/pk</item>
+        <item>7</item>
+        <item>true</item>
+        <item>@string/app_name</item>
+    </style>
+    <style name="c3">
+        <item>@drawable/selector_fpv_circle_bg</item>
+    </style>
+    <style name="c4">
+        <item>@drawable/fpv_leftmenu_highlight_bg</item>
+        <item>@dimen/pq</item>
+        <item>@dimen/pr</item>
+        <item>@dimen/pr</item>
+        <item>7</item>
+        <item>true</item>
+        <item>@string/app_name</item>
+    </style>
+    <style name="c5">
+        <item>@drawable/selector_leftmenu_second_other_bg</item>
+    </style>
+    <style name="c6">
+        <item>?unknown_ref: 106000d</item>
+        <item>?unknown_ref: 0</item>
+        <item>true</item>
+        <item>true</item>
+        <item>true</item>
+        <item>true</item>
+    </style>
+    <style name="c7">
+        <item>?unknown_ref: 0</item>
+        <item>true</item>
+        <item>true</item>
+        <item>true</item>
+        <item>true</item>
+    </style>
+    <style name="c8">
+        <item>@dimen/rq</item>
+        <item>@color/oz</item>
+        <item>11</item>
+    </style>
+    <style name="c9">
+        <item>@dimen/rl</item>
+        <item>@color/oz</item>
+        <item>11</item>
+    </style>
+    <style name="c_">
+        <item>@drawable/longan_selector_camera_mode</item>
+        <item>@dimen/a0p</item>
+        <item>-1</item>
+    </style>
+    <style name="ca">
+        <item>@drawable/longan_selector_camera_mode_port</item>
+        <item>@dimen/a0q</item>
+        <item>@dimen/a0n</item>
+    </style>
+    <style name="cb">
+        <item>@dimen/rq</item>
+        <item>@color/po</item>
+    </style>
+    <style name="cc">
+        <item>@color/p7</item>
+        <item>2</item>
+        <item>11</item>
+        <item>-2</item>
+        <item>-2</item>
+        <item>true</item>
+    </style>
+    <style name="cd">
+        <item>@dimen/rq</item>
+        <item>@color/om</item>
+        <item>true</item>
+    </style>
+    <style name="ce">
+        <item>@dimen/rp</item>
+        <item>2</item>
+        <item>10</item>
+        <item>@drawable/radius_corner_bg_padding</item>
+        <item>-2</item>
+        <item>-2</item>
+        <item>true</item>
+        <item>@color/ds</item>
+        <item>3.0</item>
+        <item>3.0</item>
+        <item>@dimen/n4</item>
+    </style>
+    <style name="cf">
+        <item>-2</item>
+        <item>-2</item>
+    </style>
+    <style name="cg">
+        <item>@color/j5</item>
+        <item>?unknown_ref: 0</item>
+        <item>true</item>
+        <item>true</item>
+        <item>true</item>
+        <item>true</item>
+    </style>
+    <style name="ch">
+        <item>@color/j5</item>
+        <item>?unknown_ref: 0</item>
+        <item>true</item>
+        <item>true</item>
+        <item>true</item>
+        <item>true</item>
+    </style>
+    <style name="ci">
+        <item>@dimen/rl</item>
+        <item>@color/om</item>
+        <item>3</item>
+        <item>@dimen/n3</item>
+        <item>@dimen/n3</item>
+        <item>-1</item>
+        <item>-2</item>
+        <item>true</item>
+    </style>
+    <style name="cj">
+        <item>true</item>
+    </style>
+    <style name="ck">
+        <item>@drawable/messenger_button_blue_bg_selector</item>
+    </style>
+    <style name="cl">
+        <item>-1</item>
+        <item>44dp</item>
+        <item>16dp</item>
+        <item>16dp</item>
+    </style>
+    <style name="cm">
+        <item>158dp</item>
+        <item>36dp</item>
+    </style>
+    <style name="cn">
+        <item>@drawable/messenger_button_white_bg_selector</item>
+    </style>
+    <style name="co">
+        <item>-1</item>
+        <item>44dp</item>
+        <item>16dp</item>
+        <item>16dp</item>
+    </style>
+    <style name="cp">
+        <item>158dp</item>
+        <item>36dp</item>
+    </style>
+    <style name="cq">
+        <item>14sp</item>
+        <item>1</item>
+        <item>11</item>
+        <item>11</item>
+        <item>-2</item>
+        <item>-2</item>
+        <item>4dp</item>
+        <item>true</item>
+    </style>
+    <style name="cr">
+        <item>#ffffff</item>
+    </style>
+    <style name="cs">
+        <item>@drawable/messenger_bubble_large_white</item>
+    </style>
+    <style name="ct">
+        <item>@drawable/messenger_bubble_small_white</item>
+    </style>
+    <style name="cu">
+        <item>#0084ff</item>
+    </style>
+    <style name="cv">
+        <item>@drawable/messenger_bubble_large_blue</item>
+    </style>
+    <style name="cw">
+        <item>@drawable/messenger_bubble_small_blue</item>
+    </style>
+    <style name="cx">
+        <item>?unknown_ref: 106000d</item>
+        <item>?unknown_ref: 0</item>
+        <item>true</item>
+        <item>true</item>
+        <item>true</item>
+        <item>true</item>
+    </style>
+    <style name="cy">
+        <item>@dimen/rp</item>
+        <item>@color/a_</item>
+        <item>@color/an</item>
+        <item>13</item>
+        <item>@drawable/selector_edittext_bg_white</item>
+        <item>@dimen/n4</item>
+        <item>@dimen/q_</item>
+        <item>-2</item>
+        <item>@dimen/n3</item>
+        <item>true</item>
+        <item>1</item>
+        <item>6</item>
+    </style>
+    <style name="cz">
+        <item>@dimen/rq</item>
+        <item>@color/a_</item>
+        <item>@color/an</item>
+        <item>13</item>
+        <item>@drawable/selector_edittext_bg_white</item>
+        <item>@dimen/rp</item>
+        <item>-1</item>
+        <item>@dimen/qd</item>
+        <item>true</item>
+        <item>1</item>
+        <item>6</item>
+    </style>
+    <style name="d0">
+        <item>@dimen/rq</item>
+        <item>@color/a_</item>
+        <item>10</item>
+        <item>-2</item>
+        <item>-2</item>
+    </style>
+    <style name="d1">
+        <item>0.8</item>
+        <item>?unknown_ref: 106000d</item>
+        <item>?unknown_ref: 0</item>
+        <item>true</item>
+        <item>true</item>
+        <item>?unknown_ref: 0</item>
+        <item>?unknown_ref: 0</item>
+        <item>true</item>
+        <item>false</item>
+        <item>false</item>
+        <item>true</item>
+    </style>
+    <style name="d2">
+        <item>@drawable/button_text_color</item>
+        <item>11</item>
+        <item>5dp</item>
+        <item>5dp</item>
+        <item>?unknown_ref: 0</item>
+        <item>70dp</item>
+        <item>33dp</item>
+    </style>
+    <style name="d3">
+        <item>?unknown_ref: 106000d</item>
+        <item>?unknown_ref: 0</item>
+        <item>true</item>
+        <item>true</item>
+        <item>true</item>
+        <item>true</item>
+    </style>
+    <style name="d4">
+        <item>?unknown_ref: 106000d</item>
+        <item>?unknown_ref: 106000d</item>
+        <item>#1100ff00</item>
+        <item>10dp</item>
+        <item>@drawable/edittext_bg_normal_black</item>
+        <item>0dp</item>
+        <item>1</item>
+    </style>
+    <style name="d5">
+        <item>400dp</item>
+        <item>210dp</item>
+        <item>100dp</item>
+    </style>
+    <style name="d6">
+        <item>-2</item>
+        <item>-2</item>
+        <item>76dp</item>
+        <item>true</item>
+    </style>
+    <style name="d7">
+        <item>@dimen/rp</item>
+        <item>@color/a_</item>
+    </style>
+    <style name="d8">
+        <item>#ff000000</item>
+        <item>0.0</item>
+        <item>2.0</item>
+        <item>4.0</item>
+    </style>
+    <style name="d9">
+        <item>@color/a_</item>
+        <item>true</item>
+        <item>?unknown_ref: 1030003</item>
+    </style>
+    <style name="d_">
+        <item>@color/j5</item>
+        <item>@color/j5</item>
+        <item>true</item>
+        <item>@style/d</item>
+        <item>true</item>
+        <item>false</item>
+    </style>
+    <style name="da">
+        <item>@dimen/rp</item>
+        <item>1</item>
+        <item>@color/om</item>
+        <item>@drawable/radar_distance_bg</item>
+        <item>@dimen/gj</item>
+        <item>@dimen/ga</item>
+        <item>@dimen/gj</item>
+        <item>@dimen/ga</item>
+        <item>-2</item>
+        <item>@dimen/gl</item>
+    </style>
+    <style name="db">
+        <item>@dimen/rp</item>
+        <item>@color/ak</item>
+        <item>@dimen/fj</item>
+        <item>@dimen/fw</item>
+        <item>3</item>
+        <item>false</item>
+        <item>@color/a_</item>
+        <item>3.0</item>
+        <item>3.0</item>
+        <item>3.0</item>
+    </style>
+    <style name="dc">
+        <item>@dimen/rl</item>
+        <item>?unknown_ref: 106000b</item>
+        <item>@drawable/v2_activate_button_style</item>
+        <item>@dimen/fj</item>
+        <item>-1</item>
+        <item>-2</item>
+        <item>@dimen/g8</item>
+    </style>
+    <style name="dd">
+        <item>12sp</item>
+        <item>-2</item>
+        <item>-2</item>
+    </style>
+    <style name="de">
+        <item>@dimen/wx</item>
+        <item>@color/p</item>
+        <item>11</item>
+        <item>-1</item>
+        <item>-2</item>
+        <item>@dimen/gc</item>
+    </style>
+    <style name="df">
+        <item>@dimen/x1</item>
+        <item>@color/p</item>
+        <item>1</item>
+        <item>1</item>
+        <item>@dimen/x0</item>
+        <item>-2</item>
+        <item>@dimen/fj</item>
+    </style>
+    <style name="dg">
+        <item>@dimen/x1</item>
+        <item>@color/q</item>
+        <item>11</item>
+        <item>-1</item>
+        <item>-2</item>
+        <item>@dimen/gl</item>
+    </style>
+    <style name="dh">
+        <item>@dimen/x1</item>
+        <item>@color/p</item>
+        <item>11</item>
+        <item>-1</item>
+        <item>-2</item>
+        <item>@dimen/g1</item>
+    </style>
+    <style name="di">
+        <item>@color/o</item>
+        <item>-1</item>
+        <item>1dp</item>
+    </style>
+    <style name="dj">
+        <item>1</item>
+        <item>-1</item>
+        <item>-1</item>
+        <item>@dimen/wy</item>
+        <item>@dimen/wy</item>
+    </style>
+    <style name="dk">
+        <item>1</item>
+        <item>1</item>
+        <item>-1</item>
+        <item>-1</item>
+    </style>
+    <style name="dl">
+        <item>-1</item>
+        <item>-1</item>
+        <item>@dimen/wy</item>
+        <item>@dimen/wy</item>
+    </style>
+    <style name="dm">
+        <item>@drawable/v2_circle</item>
+        <item>@dimen/yb</item>
+        <item>@dimen/yb</item>
+        <item>@dimen/vo</item>
+    </style>
+    <style name="dn">
+        <item>@dimen/dn</item>
+        <item>@color/g</item>
+        <item>10</item>
+        <item>@dimen/pa</item>
+        <item>@dimen/pb</item>
+        <item>-2</item>
+        <item>@drawable/selector_active_radiobutton</item>
+        <item>true</item>
+    </style>
+    <style name="do">
+        <item>@drawable/active_track</item>
+    </style>
+    <style name="dp">
+        <item>@dimen/rp</item>
+        <item>@color/om</item>
+        <item>10</item>
+        <item>10</item>
+        <item>-2</item>
+        <item>-2</item>
+        <item>0.4</item>
+    </style>
+    <style name="dq">
+        <item>13sp</item>
+        <item>@color/om</item>
+        <item>10</item>
+        <item>10</item>
+        <item>-2</item>
+        <item>-2</item>
+        <item>0.8</item>
+    </style>
+    <style name="dr">
+        <item>?unknown_ref: 106000d</item>
+        <item>true</item>
+        <item>true</item>
+        <item>true</item>
+    </style>
+    <style name="ds">
+        <item>14dp</item>
+        <item>@color/p3</item>
+        <item>11</item>
+        <item>@drawable/com_facebook_button_background</item>
+        <item>8dp</item>
+        <item>5dp</item>
+        <item>8dp</item>
+        <item>5dp</item>
+        <item>6dp</item>
+    </style>
+    <style name="dt">
+        <item>@drawable/com_facebook_button_like_background</item>
+    </style>
+    <style name="du">
+        <item>@color/p4</item>
+        <item>@drawable/com_facebook_button_send_background</item>
+        <item>@string/com_facebook_send_button_text</item>
+        <item>@drawable/com_facebook_send_button_icon</item>
+    </style>
+    <style name="dv">
+        <item>@string/com_facebook_share_button_text</item>
+        <item>@drawable/com_facebook_button_icon</item>
+    </style>
+    <style name="dw">
+        <item>@drawable/com_facebook_button_icon</item>
+    </style>
+    <style name="dx">
+        <item>#4b5164</item>
+        <item>@drawable/com_facebook_button_login_silver_background</item>
+        <item>?unknown_ref: 0</item>
+    </style>
+    <style name="dy">
+        <item>@anim/a0</item>
+        <item>@anim/a1</item>
+    </style>
+    <style name="dz">
+        <item>@anim/y</item>
+        <item>@anim/z</item>
+    </style>
+    <style name="e0">
+        <item>@anim/a2</item>
+        <item>@anim/a3</item>
+    </style>
+    <style name="e1">
+        <item>@anim/b9</item>
+    </style>
+    <style name="e2">
+        <item>?unknown_ref: 106000d</item>
+        <item>?unknown_ref: 0</item>
+        <item>true</item>
+        <item>true</item>
+        <item>false</item>
+        <item>?unknown_ref: 106000d</item>
+        <item>false</item>
+    </style>
+    <style name="e3">
+        <item>true</item>
+        <item>true</item>
+    </style>
+    <style name="e4">
+        <item>@anim/be</item>
+        <item>@anim/bf</item>
+    </style>
+    <style name="e5">
+        <item>@anim/af</item>
+        <item>@anim/ag</item>
+    </style>
+    <style name="e6">
+        <item>11</item>
+        <item>@color/d7</item>
+        <item>@dimen/gl</item>
+        <item>@dimen/gl</item>
+        <item>7</item>
+    </style>
+    <style name="e7">
+        <item>2</item>
+        <item>13</item>
+        <item>-2</item>
+        <item>@dimen/ku</item>
+        <item>true</item>
+    </style>
+    <style name="e8">
+        <item>@dimen/rn</item>
+        <item>2</item>
+        <item>@color/ot</item>
+        <item>@dimen/kq</item>
+    </style>
+    <style name="e9">
+        <item>@dimen/rn</item>
+        <item>@color/ot</item>
+        <item>@dimen/kq</item>
+    </style>
+    <style name="e_">
+        <item>@dimen/rp</item>
+        <item>0</item>
+        <item>@color/pa</item>
+        <item>@dimen/kr</item>
+    </style>
+    <style name="ea">
+        <item>@dimen/rm</item>
+        <item>0</item>
+        <item>@color/pa</item>
+        <item>@dimen/gw</item>
+        <item>-2</item>
+    </style>
+    <style name="eb">
+        <item>14sp</item>
+        <item>1</item>
+        <item>@color/om</item>
+        <item>11</item>
+        <item>10dp</item>
+        <item>15dp</item>
+        <item>10dp</item>
+        <item>15dp</item>
+        <item>-1</item>
+        <item>-2</item>
+        <item>5</item>
+    </style>
+    <style name="ec">
+        <item>20dp</item>
+        <item>-2</item>
+        <item>-2</item>
+        <item>5dp</item>
+        <item>5dp</item>
+        <item>4dp</item>
+    </style>
+    <style name="ed">
+        <item>@drawable/fpv_topbar_view_bg</item>
+        <item>@dimen/h1</item>
+        <item>@dimen/h1</item>
+        <item>true</item>
+        <item>true</item>
+        <item>-1</item>
+        <item>false</item>
+    </style>
+    <style name="ee">
+        <item>@anim/a0</item>
+        <item>@anim/a1</item>
+    </style>
+    <style name="ef">
+        <item>@anim/y</item>
+        <item>@anim/z</item>
+    </style>
+    <style name="eg">
+        <item>@anim/a2</item>
+        <item>@anim/a3</item>
+    </style>
+    <style name="eh">
+        <item>14sp</item>
+        <item>1</item>
+        <item>@color/om</item>
+        <item>11</item>
+        <item>10dp</item>
+        <item>15dp</item>
+        <item>10dp</item>
+        <item>15dp</item>
+        <item>-1</item>
+        <item>-2</item>
+        <item>5</item>
+    </style>
+    <style name="ei">
+        <item>50dp</item>
+        <item>24dp</item>
+        <item></item>
+        <item></item>
+        <item>@drawable/setting_ui_cirsw_thumb</item>
+        <item>@drawable/setting_ui_cirsw_track</item>
+        <item>50dp</item>
+        <item>12dp</item>
+    </style>
+    <style name="ej">
+        <item>@color/om</item>
+        <item>-1</item>
+        <item>0.2dp</item>
+        <item>0.1</item>
+    </style>
+    <style name="ek">
+        <item>@dimen/ft</item>
+        <item>#a4a5a6</item>
+        <item>-1</item>
+        <item>-2</item>
+        <item>@dimen/ft</item>
+        <item>@dimen/g8</item>
+    </style>
+    <style name="el">
+        <item>@dimen/rl</item>
+        <item>@color/ov</item>
+        <item>50</item>
+        <item>-2</item>
+        <item>@dimen/a09</item>
+    </style>
+    <style name="em">
+        <item>@dimen/rp</item>
+        <item>11</item>
+        <item>@drawable/bg_edittext</item>
+        <item>1002</item>
+        <item>6</item>
+    </style>
+    <style name="en">
+        <item>10dp</item>
+        <item>@color/pa</item>
+        <item>-2</item>
+        <item>-2</item>
+        <item>#ff717171</item>
+        <item>3.0</item>
+        <item>3.0</item>
+    </style>
+    <style name="eo">
+        <item>true</item>
+        <item>@dimen/a1t</item>
+        <item>@dimen/a1t</item>
+        <item>5</item>
+    </style>
+    <style name="ep">
+        <item>-1</item>
+        <item>-1</item>
+    </style>
+    <style name="eq">
+        <item>@dimen/a1t</item>
+        <item>@dimen/a1t</item>
+    </style>
+    <style name="er">
+        <item>@color/j5</item>
+        <item>false</item>
+        <item>-1</item>
+        <item>0dp</item>
+    </style>
+    <style name="es">
+        <item>11</item>
+        <item>true</item>
+        <item>@dimen/a2a</item>
+        <item>@dimen/a2_</item>
+        <item>5</item>
+    </style>
+    <style name="et">
+        <item>@dimen/rl</item>
+        <item>@color/pn</item>
+        <item>11</item>
+        <item>@drawable/longan_selector_timelapse2_mode</item>
+    </style>
+    <style name="eu">
+        <item>@dimen/rl</item>
+        <item>@color/pn</item>
+        <item>11</item>
+        <item>@drawable/selector_timelapse2_mode_right</item>
+    </style>
+    <style name="ev">
+        <item>@dimen/rl</item>
+        <item>@color/pn</item>
+        <item>11</item>
+        <item>@drawable/longan_selector_timelapse_mode</item>
+    </style>
+    <style name="ew">
+        <item>@dimen/rq</item>
+        <item>@color/om</item>
+        <item>50</item>
+        <item>-2</item>
+        <item>@dimen/a6g</item>
+        <item>0.8</item>
+    </style>
+    <style name="ex">
+        <item>@dimen/a12</item>
+        <item>@dimen/a0z</item>
+        <item></item>
+        <item></item>
+        <item>@drawable/longan_cirsw_thumb</item>
+        <item>@drawable/longan_cirsw_track</item>
+        <item>@dimen/a12</item>
+        <item>@dimen/a11</item>
+    </style>
+    <style name="ey">
+        <item>@dimen/a3e</item>
+        <item>0dp</item>
+        <item>1.0</item>
+    </style>
+    <style name="ez">
+        <item>true</item>
+        <item>@drawable/lp_progress_medium</item>
+    </style>
+    <style name="f0">
+        <item>false</item>
+    </style>
+    <style name="f1">
+    </style>
+    <style name="f2">
+        <item>-2</item>
+        <item>@dimen/gl</item>
+    </style>
+    <style name="f3">
+        <item>@dimen/rq</item>
+        <item>@color/om</item>
+        <item>10</item>
+        <item>-2</item>
+        <item>@dimen/a67</item>
+        <item>@dimen/fj</item>
+        <item>0.8</item>
+    </style>
+    <style name="f4">
+        <item>@dimen/gl</item>
+        <item>@dimen/a3a</item>
+        <item></item>
+        <item></item>
+        <item>@drawable/lp_cirsw_thumb_normal</item>
+        <item>@drawable/lp_cirsw_track</item>
+        <item>@dimen/a3d</item>
+        <item>@dimen/a3c</item>
+    </style>
+    <style name="f5">
+        <item>true</item>
+        <item>-2</item>
+        <item>-2</item>
+        <item>25dp</item>
+        <item>5dp</item>
+    </style>
+    <style name="f6">
+        <item>21.6dp</item>
+        <item>@color/om</item>
+        <item>@color/al</item>
+        <item>2.0</item>
+        <item>2.0</item>
+        <item>1.2</item>
+    </style>
+    <style name="f7">
+        <item>55dp</item>
+        <item>55dp</item>
+        <item>18dp</item>
+        <item>29dp</item>
+    </style>
+    <style name="f8">
+        <item>@drawable/v2_library_mediaselector</item>
+    </style>
+    <style name="f9">
+        <item>true</item>
+        <item>@drawable/progress_medium</item>
+    </style>
+    <style name="f_">
+        <item>?unknown_ref: 0</item>
+        <item>?unknown_ref: 0</item>
+        <item>true</item>
+        <item>true</item>
+        <item>false</item>
+        <item>?unknown_ref: 0</item>
+        <item>false</item>
+    </style>
+    <style name="fa">
+        <item>#1100ff00</item>
+        <item>10dp</item>
+    </style>
+    <style name="fb">
+        <item>@dimen/a47</item>
+        <item>@color/om</item>
+        <item>11</item>
+        <item>@color/j5</item>
+        <item>@dimen/a45</item>
+        <item>@dimen/a45</item>
+        <item>@dimen/a45</item>
+        <item>@dimen/a45</item>
+        <item>-1</item>
+        <item>-1</item>
+    </style>
+    <style name="fc">
+        <item>#32ffffff</item>
+        <item>-1</item>
+        <item>1px</item>
+    </style>
+    <style name="fd">
+        <item>@dimen/a4f</item>
+        <item>@color/pc</item>
+        <item>@drawable/set_btn_bg</item>
+        <item>@dimen/a4e</item>
+        <item>@dimen/a4e</item>
+        <item>@dimen/a4c</item>
+        <item>@dimen/a4a</item>
+        <item>@dimen/a4h</item>
+    </style>
+    <style name="fe">
+        <item>@dimen/a51</item>
+        <item>@color/pe</item>
+        <item>11</item>
+        <item>@drawable/set_radio_bg</item>
+        <item>@dimen/a53</item>
+        <item>@dimen/a50</item>
+        <item>?unknown_ref: 0</item>
+        <item>@dimen/a54</item>
+    </style>
+    <style name="ff">
+        <item>@dimen/a4r</item>
+        <item>-1</item>
+        <item>-1</item>
+    </style>
+    <style name="fg">
+        <item>#8a8c8e</item>
+        <item>1dp</item>
+        <item>-1</item>
+    </style>
+    <style name="fh">
+        <item>1</item>
+        <item>@drawable/set_item_bg</item>
+        <item>-1</item>
+        <item>-2</item>
+    </style>
+    <style name="fi">
+        <item>@dimen/a4u</item>
+        <item>#a4a5a6</item>
+        <item>-1</item>
+        <item>-2</item>
+        <item>@dimen/a4l</item>
+        <item>@dimen/a4k</item>
+    </style>
+    <style name="fj">
+        <item>@dimen/a4s</item>
+        <item>#a4a5a6</item>
+        <item>13</item>
+        <item>-2</item>
+        <item>-2</item>
+        <item>@dimen/a5f</item>
+        <item>@dimen/a5e</item>
+    </style>
+    <style name="fk">
+        <item>@dimen/a4t</item>
+        <item>#a4a5a6</item>
+        <item>11</item>
+        <item>@dimen/a5j</item>
+        <item>@dimen/a4a</item>
+        <item>@dimen/a5f</item>
+        <item>@dimen/a5k</item>
+        <item>@dimen/a5e</item>
+    </style>
+    <style name="fl">
+        <item>@dimen/a4v</item>
+        <item>?unknown_ref: 106000b</item>
+        <item>10</item>
+        <item>-2</item>
+        <item>-2</item>
+        <item>@dimen/a4q</item>
+        <item>1.0</item>
+    </style>
+    <style name="fm">
+        <item>@dimen/a4w</item>
+        <item>?unknown_ref: 106000b</item>
+        <item>10</item>
+        <item>-2</item>
+        <item>@dimen/a4q</item>
+    </style>
+    <style name="fn">
+        <item>@dimen/a4f</item>
+        <item>@color/pc</item>
+        <item>@drawable/set_btn_adjust_bg</item>
+        <item>@dimen/a5a</item>
+        <item>@dimen/a5a</item>
+    </style>
+    <style name="fo">
+        <item>@dimen/a4f</item>
+        <item>@color/pc</item>
+        <item>@drawable/set_btn_bg</item>
+        <item>@dimen/a4e</item>
+        <item>@dimen/a4e</item>
+        <item>-2</item>
+        <item>@dimen/a4d</item>
+    </style>
+    <style name="fp">
+        <item>@dimen/a55</item>
+        <item>@color/pf</item>
+        <item>11</item>
+        <item>@drawable/set_radio_bg</item>
+        <item>-2</item>
+        <item>-1</item>
+        <item>?unknown_ref: 0</item>
+        <item>@dimen/a54</item>
+    </style>
+    <style name="fq">
+        <item>0</item>
+        <item>@drawable/set_radiogroup_bg</item>
+        <item>-2</item>
+        <item>@dimen/a56</item>
+    </style>
+    <style name="fr">
+        <item>@dimen/a5d</item>
+        <item>@dimen/a5d</item>
+        <item>-1</item>
+        <item>-2</item>
+        <item>@dimen/a5c</item>
+        <item>100</item>
+        <item>50</item>
+        <item>@drawable/set_seekbar_progress</item>
+        <item>@dimen/a5c</item>
+        <item>@drawable/set_seekbar_thumb</item>
+        <item>1.0</item>
+    </style>
+    <style name="fs">
+        <item>@dimen/f_</item>
+        <item>@dimen/f7</item>
+        <item></item>
+        <item></item>
+        <item>@drawable/set_cirsw_thumb</item>
+        <item>@drawable/set_cirsw_track</item>
+        <item>@dimen/f_</item>
+        <item>@dimen/f9</item>
+    </style>
+    <style name="ft">
+        <item>@dimen/tv</item>
+        <item>2</item>
+        <item>1</item>
+        <item>@color/om</item>
+        <item>11</item>
+        <item>true</item>
+        <item>6</item>
+    </style>
+    <style name="fu">
+        <item>@drawable/selector_setting_circle</item>
+        <item>@dimen/vo</item>
+        <item>@dimen/vo</item>
+        <item>@dimen/vd</item>
+    </style>
+    <style name="fv">
+        <item>?unknown_ref: 106000d</item>
+        <item>?unknown_ref: 0</item>
+        <item>true</item>
+        <item>true</item>
+        <item>true</item>
+        <item>true</item>
+    </style>
+    <style name="fw">
+        <item>@dimen/wm</item>
+        <item>?unknown_ref: 106000b</item>
+    </style>
+    <style name="fx">
+        <item>@dimen/wn</item>
+        <item>?unknown_ref: 106000b</item>
+    </style>
+    <style name="fy">
+        <item>?unknown_ref: 106000d</item>
+        <item>?unknown_ref: 0</item>
+        <item>true</item>
+        <item>true</item>
+        <item>true</item>
+        <item>true</item>
+    </style>
+    <style name="fz">
+        <item>#77979797</item>
+        <item>-1</item>
+        <item>1px</item>
+    </style>
+    <style name="g0">
+        <item>#77979797</item>
+        <item>1px</item>
+        <item>-1</item>
+    </style>
+    <style name="g1">
+        <item>@dimen/wm</item>
+        <item>?unknown_ref: 106000b</item>
+        <item>11</item>
+        <item>-1</item>
+        <item>-1</item>
+        <item>1.0</item>
+    </style>
+    <style name="g2">
+        <item>@dimen/w8</item>
+        <item>@dimen/w8</item>
+    </style>
+    <style name="g3">
+        <item>@dimen/w8</item>
+    </style>
+    <style name="g4">
+        <item>@dimen/wm</item>
+        <item>@color/pg</item>
+        <item>11</item>
+        <item>@drawable/setting_ui_item_btn</item>
+        <item>@dimen/vd</item>
+        <item>@dimen/vd</item>
+        <item>1dp</item>
+        <item>-2</item>
+        <item>-2</item>
+        <item>@dimen/vj</item>
+        <item>@dimen/us</item>
+    </style>
+    <style name="g5">
+        <item>@dimen/wm</item>
+        <item>@color/h8</item>
+        <item>11</item>
+        <item>@drawable/setting_ui_common_bg</item>
+        <item>1dp</item>
+        <item>-1</item>
+        <item>-2</item>
+        <item>@dimen/vg</item>
+    </style>
+    <style name="g6">
+        <item>@dimen/wn</item>
+        <item>@color/hf</item>
+        <item>10</item>
+        <item>-2</item>
+        <item>-2</item>
+        <item>@dimen/tv</item>
+    </style>
+    <style name="g7">
+        <item>#77979797</item>
+        <item>-1</item>
+        <item>1px</item>
+    </style>
+    <style name="g8">
+        <item>@dimen/wm</item>
+        <item>1</item>
+        <item>@color/hh</item>
+        <item>11</item>
+        <item>@drawable/setting_ui_item_edittext</item>
+        <item>@dimen/vj</item>
+        <item>@dimen/us</item>
+        <item>true</item>
+        <item>2002</item>
+        <item>6</item>
+    </style>
+    <style name="g9">
+        <item>10</item>
+        <item>@drawable/setting_ui_common_bg</item>
+        <item>-1</item>
+        <item>-2</item>
+        <item>@dimen/vg</item>
+    </style>
+    <style name="g_">
+        <item>@dimen/wn</item>
+        <item>@color/ph</item>
+        <item>13</item>
+        <item>@dimen/vh</item>
+        <item>-2</item>
+        <item>-1</item>
+        <item>@dimen/uj</item>
+        <item>@drawable/setting_ui_radiobutton</item>
+    </style>
+    <style name="ga">
+        <item>@dimen/wm</item>
+        <item>@color/he</item>
+        <item>11</item>
+        <item>@drawable/setting_ui_spinner_btn_bg</item>
+        <item>1dp</item>
+        <item>-2</item>
+        <item>-2</item>
+        <item>@dimen/uc</item>
+        <item>@dimen/us</item>
+        <item>@drawable/setting_ui_spinner_btn_empty</item>
+        <item>@drawable/setting_ui_spinner_btn_arrow</item>
+    </style>
+    <style name="gb">
+        <item>@dimen/wm</item>
+        <item>?unknown_ref: 106000b</item>
+        <item>10</item>
+        <item>@dimen/ts</item>
+        <item>-2</item>
+        <item>-1</item>
+    </style>
+    <style name="gc">
+        <item>@dimen/wm</item>
+        <item>@color/he</item>
+        <item>11</item>
+        <item>@drawable/setting_ui_spinner_btn_bg</item>
+        <item>1dp</item>
+        <item>-2</item>
+        <item>-2</item>
+        <item>@dimen/u0</item>
+        <item>@dimen/us</item>
+        <item>@drawable/setting_ui_spinner_btn_empty</item>
+        <item>@drawable/setting_ui_spinner_btn_arrow</item>
+    </style>
+    <style name="gd">
+        <item>0</item>
+        <item>-1</item>
+        <item>-2</item>
+        <item>@dimen/us</item>
+    </style>
+    <style name="ge">
+        <item>@dimen/wn</item>
+        <item>#72ffffff</item>
+        <item>10</item>
+        <item>-2</item>
+        <item>@dimen/us</item>
+    </style>
+    <style name="gf">
+        <item>@dimen/wn</item>
+        <item>@color/i2</item>
+        <item>50</item>
+        <item>-2</item>
+        <item>@dimen/uy</item>
+    </style>
+    <style name="gg">
+        <item>@dimen/vz</item>
+        <item>@dimen/vw</item>
+        <item></item>
+        <item></item>
+        <item>@drawable/setting_ui_cirsw_thumb</item>
+        <item>@drawable/setting_ui_cirsw_track</item>
+        <item>@dimen/vz</item>
+        <item>@dimen/vy</item>
+    </style>
+    <style name="gh">
+        <item>10</item>
+        <item>-1</item>
+        <item>-1</item>
+        <item>1.0</item>
+    </style>
+    <style name="gi">
+        <item>-2</item>
+        <item>-2</item>
+        <item>@dimen/w8</item>
+    </style>
+    <style name="gj">
+        <item>1</item>
+        <item>10dp</item>
+        <item>10dp</item>
+        <item>-1</item>
+        <item>-1</item>
+    </style>
+    <style name="gk">
+        <item>1</item>
+        <item>10dp</item>
+        <item>10dp</item>
+        <item>0</item>
+        <item>-1</item>
+        <item>-1</item>
+    </style>
+    <style name="gl">
+        <item>@dimen/vh</item>
+        <item>@dimen/vh</item>
+        <item>-1</item>
+        <item>@dimen/v4</item>
+        <item>@dimen/tz</item>
+        <item>@dimen/vh</item>
+        <item>@dimen/tz</item>
+        <item>@dimen/vh</item>
+    </style>
+    <style name="gm">
+        <item>@drawable/setting_ui_rc_stick_btn_normal</item>
+        <item>@dimen/wl</item>
+        <item>@dimen/uy</item>
+    </style>
+    <style name="gn">
+        <item>1</item>
+        <item>1</item>
+        <item>@dimen/wl</item>
+        <item>-2</item>
+        <item>1.0</item>
+    </style>
+    <style name="go">
+        <item>@dimen/wn</item>
+        <item>?unknown_ref: 106000b</item>
+        <item>11</item>
+        <item>-1</item>
+        <item>@dimen/us</item>
+    </style>
+    <style name="gp">
+        <item>@dimen/wn</item>
+        <item>?unknown_ref: 106000b</item>
+        <item>11</item>
+        <item>@drawable/setting_ui_item_edittext</item>
+        <item>@dimen/tt</item>
+        <item>@dimen/us</item>
+        <item>@dimen/vd</item>
+        <item>@dimen/vd</item>
+    </style>
+    <style name="gq">
+        <item>11</item>
+        <item>@drawable/setting_ui_common_bg</item>
+        <item>-1</item>
+        <item>0dp</item>
+        <item>?unknown_ref: 0</item>
+        <item>5</item>
+        <item>1.0</item>
+    </style>
+    <style name="gr">
+        <item>@dimen/wm</item>
+        <item>@color/i1</item>
+        <item>-2</item>
+        <item>-2</item>
+    </style>
+    <style name="gs">
+        <item>@dimen/wm</item>
+        <item>@color/i2</item>
+        <item>-2</item>
+        <item>-2</item>
+    </style>
+    <style name="gt">
+        <item>@dimen/wn</item>
+        <item>@color/i1</item>
+        <item>-2</item>
+        <item>-2</item>
+    </style>
+    <style name="gu">
+        <item>@dimen/wn</item>
+        <item>@color/i2</item>
+        <item>-2</item>
+        <item>-2</item>
+    </style>
+    <style name="gv">
+        <item>@dimen/wo</item>
+        <item>@color/i1</item>
+        <item>-2</item>
+        <item>-2</item>
+    </style>
+    <style name="gw">
+        <item>@dimen/wo</item>
+        <item>@color/i2</item>
+        <item>-2</item>
+        <item>-2</item>
+    </style>
+    <style name="gx">
+        <item>@dimen/wa</item>
+        <item>@dimen/wa</item>
+        <item>@dimen/ue</item>
+        <item>@drawable/setting_ui_progress</item>
+        <item>@dimen/ue</item>
+        <item>@drawable/setting_ui_progress_thumb</item>
+    </style>
+    <style name="gy">
+        <item>@dimen/n3</item>
+        <item>false</item>
+        <item>@dimen/a2j</item>
+        <item>@dimen/a2j</item>
+        <item>7</item>
+        <item>true</item>
+        <item>true</item>
+    </style>
+    <style name="gz">
+        <item>@drawable/selector_fn_item</item>
+        <item>@dimen/rp</item>
+        <item>@dimen/n3</item>
+        <item>true</item>
+        <item>-1</item>
+        <item>@dimen/a2j</item>
+    </style>
+    <style name="h0">
+        <item>@dimen/rq</item>
+        <item>false</item>
+        <item>@dimen/a2j</item>
+        <item>true</item>
+        <item>true</item>
+    </style>
+    <style name="h1">
+        <item>0</item>
+        <item>-1</item>
+        <item>@dimen/a2s</item>
+        <item>@dimen/a2o</item>
+        <item>@dimen/a2p</item>
+        <item>@dimen/a2o</item>
+    </style>
+    <style name="h2">
+        <item>0dp</item>
+        <item>-1</item>
+    </style>
+    <style name="h3">
+        <item>11</item>
+        <item>7</item>
+    </style>
+    <style name="h4">
+        <item>@color/om</item>
+        <item>11</item>
+    </style>
+    <style name="h5">
+        <item>-2</item>
+        <item>-1</item>
+        <item>5</item>
+    </style>
+    <style name="h6">
+        <item>@dimen/a2t</item>
+        <item>@color/om</item>
+        <item>10</item>
+        <item>@dimen/a2r</item>
+        <item>-1</item>
+        <item>@dimen/a2q</item>
+    </style>
+    <style name="h7">
+        <item>@dimen/a2t</item>
+        <item>@color/po</item>
+        <item>2</item>
+        <item>11</item>
+        <item>@drawable/set_radio_bg</item>
+        <item>0dp</item>
+        <item>@dimen/a2s</item>
+        <item>?unknown_ref: 0</item>
+        <item>true</item>
+        <item>1.0</item>
+    </style>
+    <style name="h8">
+        <item>8sp</item>
+    </style>
+    <style name="h9">
+        <item>@drawable/timelapse_button_bg</item>
+        <item>0dp</item>
+        <item>-1</item>
+    </style>
+    <style name="h_">
+        <item>#ffffffff</item>
+        <item>1dp</item>
+        <item>-1</item>
+    </style>
+    <style name="ha">
+        <item>0</item>
+        <item>@drawable/timelapse_set_title_bg</item>
+        <item>-2</item>
+        <item>@dimen/a7f</item>
+    </style>
+    <style name="hb">
+        <item>@dimen/a7e</item>
+        <item>@color/pp</item>
+        <item>11</item>
+        <item>-2</item>
+        <item>-1</item>
+        <item>?unknown_ref: 0</item>
+        <item>@dimen/a7d</item>
+    </style>
+    <style name="hc">
+        <item>@dimen/a7g</item>
+    </style>
+    <style name="hd">
+        <item>@color/a_</item>
+        <item>-2</item>
+        <item>-2</item>
+    </style>
+    <style name="he">
+        <item>10</item>
+        <item>-2</item>
+        <item>@dimen/a7g</item>
+    </style>
+    <style name="hf">
+        <item>?unknown_ref: 106000d</item>
+        <item>?unknown_ref: 0</item>
+        <item>true</item>
+        <item>true</item>
+        <item>true</item>
+        <item>true</item>
+    </style>
+    <style name="hg">
+        <item>@dimen/gl</item>
+        <item>@style/hh</item>
+    </style>
+    <style name="hh">
+        <item>@color/j3</item>
+    </style>
+    <style name="hi">
+        <item>12sp</item>
+        <item>?unknown_ref: 106000b</item>
+        <item>3</item>
+        <item>#40000000</item>
+        <item>-1.0</item>
+        <item>0.25</item>
+    </style>
+    <style name="hj">
+        <item>?unknown_ref: 106000d</item>
+        <item>true</item>
+        <item>true</item>
+        <item>?unknown_ref: 0</item>
+        <item>false</item>
+    </style>
+    <style name="hk">
+        <item>?unknown_ref: 106000d</item>
+    </style>
+    <style name="hl">
+        <item>18sp</item>
+        <item>#4a4a4a</item>
+        <item>48dp</item>
+    </style>
+    <style name="hm">
+        <item>25sp</item>
+        <item>#4a4a4a</item>
+        <item>48dp</item>
+    </style>
+    <style name="hn">
+        <item>18sp</item>
+        <item>1</item>
+        <item>#4a4a4a</item>
+    </style>
+    <style name="ho">
+        <item>25sp</item>
+        <item>1</item>
+        <item>#4a4a4a</item>
+    </style>
+    <style name="hp">
+        <item>#344892</item>
+    </style>
+    <style name="hq">
+        <item>#ff0000</item>
+    </style>
+    <style name="hr">
+        <item>@dimen/rl</item>
+        <item>@drawable/v2_explore_tab_text_background</item>
+    </style>
+    <style name="hs">
+        <item>@drawable/v2_explore_tab_new_background</item>
+        <item>@dimen/gj</item>
+        <item>@dimen/gj</item>
+        <item>@dimen/g1</item>
+        <item>@dimen/gj</item>
+    </style>
+    <style name="ht">
+        <item>@dimen/rq</item>
+        <item>@color/e7</item>
+        <item>3</item>
+        <item>3</item>
+        <item>10</item>
+        <item>@dimen/fj</item>
+        <item>1</item>
+    </style>
+    <style name="hu">
+        <item>?unknown_ref: 106000d</item>
+    </style>
+    <style name="hv">
+        <item>@color/om</item>
+        <item>0.2dp</item>
+        <item>-1</item>
+        <item>0.1</item>
+    </style>
+    <style name="hw">
+        <item>-2</item>
+        <item>-2</item>
+    </style>
+</resources>

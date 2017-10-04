@@ -1,0 +1,11 @@
+org/openscience/cdk/test/libio/md/MDMoleculeTest.java
+org/openscience/cdk/test/io/cml/CMLRoundTripTest.java
+org/openscience/cdk/test/io/cml/CML2WriterTest.java
+org/openscience/cdk/test/io/cml/CML2Test.java
+org/openscience/cdk/libio/cml/MDMoleculeCustomizer.java
+org/openscience/cdk/libio/cml/PDBAtomCustomizer.java
+org/openscience/cdk/libio/cml/QSARCustomizer.java
+org/openscience/cdk/libio/cml/Convertor.java
+org/openscience/cdk/applications/DescriptorCalculator.java
+org/openscience/cdk/io/RssWriter.java
+org/openscience/cdk/io/CMLWriter.java

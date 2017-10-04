@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" style="@style/g2"
+    <LinearLayout android:orientation="horizontal" android:layout_marginTop="@dimen/ts" android:minHeight="0dp" style="@style/g9">
+        <TextView android:id="@id/bqz" android:text="@string/setting_ui_rc_coach_desc" style="@style/gh" />
+        <Switch android:id="@id/br0" style="@style/gg" />
+    </LinearLayout>
+    <LinearLayout android:orientation="horizontal" android:layout_marginTop="@dimen/ts" android:minHeight="0dp" style="@style/g9">
+        <ImageView android:background="@drawable/setting_ui_vision_ghass_icon" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <TextView android:layout_marginLeft="@dimen/ts" android:text="@string/setting_ui_rc_coach_tip" style="@style/gu" />
+    </LinearLayout>
+</LinearLayout>

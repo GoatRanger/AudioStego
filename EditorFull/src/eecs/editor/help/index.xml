@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<!DOCTYPE index
+  PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp Index Version 1.0//EN"
+         "http://java.sun.com/products/javahelp/index_1_0.dtd">
+
+<index version="1.0">
+  <indexitem text="Programming">
+    <indexitem text="XHTML">
+    	<indexitem target="css_guide" text="CSS Reference"/>
+    </indexitem>
+    <indexitem text="Java">
+      <indexitem target="language" text="User Input/Output Commands"/>
+      <indexitem target="language_robot" text="Robot Commands" />
+    </indexitem>
+    <indexitem target="problemsets" text="Problem Set Manager"/>
+  </indexitem>
+  <indexitem text="Miscellaneous">
+    <indexitem target="overview" text="Overview"/>
+    <indexitem target="bugs" text="Bugs"/>
+  </indexitem>
+</index>

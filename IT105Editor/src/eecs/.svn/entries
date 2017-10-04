@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="53"
+   name=""
+   committed-date="2005-02-25T22:16:45.420625Z"
+   url="svn://192.168.2.2/IT105Editor/src/eecs"
+   last-author="karl"
+   kind="dir"
+   uuid="0daf4267-3229-f84b-9084-f3c94b025f38"
+   revision="55"/>
+<entry
+   name="syntax"
+   kind="dir"/>
+<entry
+   name="editor"
+   kind="dir"/>
+<entry
+   name="CVS"
+   kind="dir"/>
+</wc-entries>

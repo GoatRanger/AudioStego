@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:background="@color/at" android:layout_width="match_parent" android:layout_height="match_parent">
+    <dji.publics.DJIUI.DJIImageView android:layout_width="match_parent" android:layout_height="match_parent" android:src="@r$drawable/pic_quikstart_five_bg" android:scaleType="fitXY" />
+    <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="30dp" android:layout_marginBottom="30dp">
+        <dji.publics.DJIUI.DJIImageView android:layout_gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:layout_width="UNKNOWN_DATA_0x1" android:layout_height="match_parent" android:src="@r$drawable/pic_quikstart_five_plane" android:scaleType="fitCenter" android:layout_weight="1.0" />
+        <RelativeLayout android:paddingLeft="20dp" android:paddingRight="80dp" android:layout_width="UNKNOWN_DATA_0x1" android:layout_height="match_parent" android:layout_marginTop="120dp" android:layout_weight="1.0">
+            <dji.publics.DJIUI.DJITextView android:textSize="23sp" android:textColor="@color/om" android:id="@+id/v2_quickstart_five_1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/v2_quickstart_five_1" android:lines="2" />
+            <dji.publics.DJIUI.DJITextView android:textSize="14sp" android:textColor="@color/om" android:id="@+id/v2_quickstart_five_2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="20dp" android:text="@string/v2_quickstart_five_2" android:lines="2" android:layout_below="@+id/v2_quickstart_five_1" />
+            <dji.publics.DJIUI.DJITextView android:textColor="@color/om" android:id="@+id/v2_quickstart_five_3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="30dp" android:text="@string/v2_quickstart_five_3" android:drawableLeft="@r$drawable/pic_quikstart_five_pic1" android:drawablePadding="10dp" android:layout_below="@+id/v2_quickstart_five_2" />
+            <dji.publics.DJIUI.DJITextView android:textColor="@color/om" android:id="@+id/v2_quickstart_five_4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:text="@string/v2_quickstart_five_4" android:drawableLeft="@r$drawable/pic_quikstart_five_pic2" android:drawablePadding="10dp" android:layout_below="@+id/v2_quickstart_five_3" />
+        </RelativeLayout>
+    </LinearLayout>
+</RelativeLayout>

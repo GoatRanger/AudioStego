@@ -1,0 +1,2250 @@
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>How to Use Tables</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="tabbedpane.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#components" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="textarea.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Creating a GUI with JFC/Swing
+<br>
+<b>Lesson</b>: Using Swing Components
+</font>
+
+<h2>
+How to Use Tables
+</h2>
+<blockquote>
+With the
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTable.html"><font color="#8800bb"><code>JTable</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTable.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> class
+you can display tables of data,
+optionally allowing the user to edit the data.
+<code>JTable</code> doesn't contain or cache data;
+it's simply a view of your data.
+Here's a picture of a typical table
+displayed within a scroll pane:
+
+<p><center><IMG SRC="../../figures/uiswing/components/TableDemo.gif" WIDTH="528" HEIGHT="120" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="A snapshot of TableDemo, which displays a typical table."></center></p>
+[PENDING: 
+Update this snapshot.
+<pre>
+Label these parts:
+- each cell displays an item of data
+- each column header describes its column
+maybe also have these labels: 
+- each column contains one type of data
+- a table header displays the column headers]
+</pre>
+
+<p>
+The rest of this section tells you how to accomplish
+some common table-related tasks.
+Here are the topics this section covers:
+
+<ul>
+<li> <a href="#simple">Creating a Simple Table</a>
+<li> <a href="#show">Adding a Table to a Container</a>
+<li> <a href="#width">Setting and Changing Column Widths</a>
+<li> <a href="#selection">Detecting User Selections</a>
+<li> <a href="#data">Creating a Table Model</a>
+<li> <a href="#modelchange">Detecting Data Changes</a>
+<li> <a href="#editrender">Concepts: Editors and Renderers</a>
+<li> <a href="#combobox">Using a Combo Box as an Editor</a>
+<li> <a href="#validtext">Using an Editor to Validate User-Entered Text</a>
+<li> <a href="#editor">Using Other Editors</a>
+<li> <a href="#renderer">Using Custom Renderers</a>
+<li> <a href="#celltooltip">Specifying Tool Tips for Cells</a>
+<li> <a href="#headertooltip">Specifying Tool Tips for Column Headers</a>
+<li> <a href="#sorting">Sorting and Otherwise Manipulating Data</a>
+<li> <a href="#api">The Table API</a>
+<li> <a href="#eg">Examples that Use Tables</a>
+</ul>
+
+</blockquote>
+<h3>
+<a name="simple">Creating a Simple Table</a>
+</h3>
+<blockquote>
+
+<p><center><IMG SRC="../../figures/uiswing/components/SimpleTableDemo.gif" WIDTH="529" HEIGHT="116" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="A snapshot of SimpleTableDemo, which displays a simple table."></center></p>[PENDING: This figure will be updated.]
+
+
+<blockquote><hr><strong>Try this:</strong>&nbsp;
+<ol>
+<li> <a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/components/example-1dot4/SimpleTableDemo.jnlp">Run SimpleTableDemo</a> using
+<a target="_top" href="../../information/javawebstart.html">Java<sup><font size=-2>TM</font></sup> Web Start</a><a target="_top" href="../../information/javawebstart.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.    Or, to compile and run the example yourself,
+     consult the
+     <a href="example-1dot4/index.html#SimpleTableDemo">example index</a>.
+<li> Click the cell that contains "Snowboarding".
+     <br>
+     The entire first row is selected,
+     indicating that you have selected Mary Campione's data.
+     A special highlight indicates that the "Snowboarding" cell
+     is editable.
+     Generally, you begin editing a text cell by double-clicking it.
+
+<li> Position the cursor over "First Name".
+     Now press the mouse button
+     and drag to the right.
+     <br>
+     As you can see,
+     users can rearrange columns in tables.
+<li> Position the cursor just to the right
+     of a column header.
+     Now press the mouse button and drag to the right or left.
+     <br>
+     The column changes size,
+     and the other columns adjust to fill the remaining space.
+<li> Resize the window containing the table
+     so that it's bigger than necessary to display the whole table.
+     <br>
+     All the table cells become wider,
+     expanding to fill the extra horizontal space.
+</ol>
+<hr></blockquote>
+
+Here is the code that implements
+the table in
+
+<a target="_blank" href="example-1dot4/SimpleTableDemo.java"><font color="#bb000f"><code>SimpleTableDemo.java</code></font></a><a target="_blank" href="example-1dot4/SimpleTableDemo.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>:
+
+<blockquote><pre>
+String[] columnNames = {"First Name",
+                        "Last Name",
+                        "Sport",
+                        "# of Years",
+                        "Vegetarian"};
+
+Object[][] data = {
+    {"Mary", "Campione",
+     "Snowboarding", new Integer(5), new Boolean(false)},
+    {"Alison", "Huml",
+     "Rowing", new Integer(3), new Boolean(true)},
+    {"Kathy", "Walrath",
+     "Knitting", new Integer(2), new Boolean(false)},
+    {"Sharon", "Zakhour",
+     "Speed reading", new Integer(20), new Boolean(true)},
+    {"Philip", "Milne",
+     "Pool", new Integer(10), new Boolean(false)}
+};
+
+JTable table = new JTable(data, columnNames);
+</pre></blockquote>
+
+The <code>SimpleTableDemo</code> example uses one of two <code>JTable</code>
+constructors that directly accept data:
+
+<ul>
+<li> <code>JTable(Object[][] rowData, Object[] columnNames)</code>
+<li> <code>JTable(Vector rowData, Vector columnNames)</code>
+</ul>
+
+The advantage of these constructors
+is that they're easy to use.
+However, these constructors also have disadvantages:
+
+<ul>
+<li> They automatically make every cell editable.
+<li> They treat all data types the same (as strings).
+     For example, if a table column has <code>Boolean</code> data,
+     the table can display the data in a check box.
+     However, if you use one of the two
+     <code>JTable</code> constructors
+     listed previously,
+     your <code>Boolean</code> data will be displayed as a string.
+     You can see this difference
+     in the last column of the two previous pictures of tables.
+<li> They require that you put all of the table's data
+     in an array or vector,
+     which isn't appropriate for some data.
+     For example, if you're instantiating a set of objects
+     from a database,
+     you might want to query the objects directly
+     for their values,
+     rather than copying all their values
+     into an array or vector.
+</ul>
+
+If you want to get around these restrictions,
+you need to implement your own table model,
+as described in <a href="#data">Creating a Table Model</a>.
+
+</blockquote>
+<h3>
+<a name="show">
+Adding a Table to a Container
+</a>
+</h3>
+<blockquote>
+
+It's easy to put a table in a
+<a href="scrollpane.html">scroll pane</a>.
+You need just one or two lines of code:
+
+<blockquote><pre>
+JScrollPane scrollPane = new JScrollPane(table);
+table.setPreferredScrollableViewportSize(new Dimension(500, 70));
+</pre></blockquote>
+
+The scroll pane automatically gets the table's header,
+which displays the column names,
+and puts it on top of the table.
+Even when the user scrolls down,
+the column names remain visible at the top of the viewing area.
+The scroll pane also
+tries to make its viewing area
+the same as the table's
+preferred viewing size.
+The previous code snippet sets the table's preferred viewing size with the
+<code>setPreferredScrollableViewportSize</code> method.
+
+<p>
+If you're using a table without a scroll pane,
+then you must get the table header component
+and place it yourself.
+For example:
+
+<blockquote><pre>
+container.setLayout(new BorderLayout());
+container.add(table.getTableHeader(), BorderLayout.PAGE_START);
+container.add(table, BorderLayout.CENTER);
+</pre></blockquote>
+
+
+</blockquote>
+<h3>
+<a name="width">
+Setting and Changing Column Widths
+</a>
+</h3>
+<blockquote>
+
+By default, all columns in a table
+start out with equal width,
+and the columns automatically fill the entire width
+of the table.
+When the table becomes wider or narrower
+(which might happen when the user resizes the window containing the table),
+all the column widths change appropriately.
+
+<p>
+
+When the user resizes a column by dragging
+its right border,
+then either other columns must change size,
+or the table's size must change.
+By default, the table's size remains the same,
+and all columns to the right of the drag point
+resize to accommodate space added to or removed
+from the column to the left of the drag point.
+
+<p>
+
+The following figures illustrate the default resizing behavior.
+[PENDING: These will be updated.]
+
+<p>
+<IMG SRC="../../figures/uiswing/components/SimpleTableDemo.gif" WIDTH="529" HEIGHT="116" ALT="SimpleTableDemo"><br>
+<b>Initially, the columns have equal width.</b>
+</p>
+
+<p>
+
+<IMG SRC="../../figures/uiswing/components/SimpleTableDemo-resize-0.gif" WIDTH="529" HEIGHT="116" ALT="SimpleTableDemo during resizing">
+
+<BR>
+
+<b>When the user resizes a column,
+some of the other
+columns must adjust size for the table to stay the same size.</b>
+</p>
+
+<P>
+<IMG SRC="../../figures/uiswing/components/SimpleTableDemo-resize-1.gif" WIDTH="439" HEIGHT="114" ALT="SimpleTableDemo after the entire table is resized"><br>
+<b>When the entire table is resized,
+all the columns are resized.</b>
+</p>
+
+<p>
+
+To customize initial column widths,
+you can invoke <code>setPreferredWidth</code>
+on each of your table's columns.
+This sets both the preferred widths of the columns and
+their approximate relative widths.
+For example, adding the following code to <code>SimpleTableDemo</code>
+makes its third column bigger than the other columns:
+
+<blockquote><pre>
+TableColumn column = null;
+for (int i = 0; i < 5; i++) {
+    column = table.getColumnModel().getColumn(i);
+    if (i == 2) {
+        column.setPreferredWidth(100); //sport column is bigger
+    } else {
+        column.setPreferredWidth(50);
+    }
+}
+</pre></blockquote>
+
+<p>
+
+As the preceding code shows,
+each column in a table is represented by a
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/table/TableColumn.html"><font color="#8800bb"><code>TableColumn</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/table/TableColumn.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> object.
+<code>TableColumn</code> supplies getter and setter methods
+for the minimum, preferred, and maximum widths of a column,
+as well as a method for getting the current width.
+For an example of setting cell widths
+based on the actual amount of space
+needed to draw the cells' contents,
+see the <code>initColumnSizes</code> method in
+<a target="_blank" href="example-1dot4/TableRenderDemo.java"><font color="#bb000f"><code>TableRenderDemo.java</code></font></a><a target="_blank" href="example-1dot4/TableRenderDemo.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>.
+
+<p>
+
+When the user explicitly resizes columns,
+the columns' <em>preferred</em> widths are set such that
+the user-specified sizes become the columns' new <em>current</em> widths.
+However, when table itself is resized &#151;
+typically because the window has resized &#151; 
+the columns' preferred widths do not change.
+Instead, the existing preferred widths
+are used to calculate new column widths 
+to fill the available space.
+
+<p>
+
+You can change a table's resize behavior by invoking
+the <code>setAutoResizeMode</code> method.
+The method's argument
+should have one of these values
+(defined as constants in <code>JTable</code>):
+
+<dl>
+<dt> <code>AUTO_RESIZE_SUBSEQUENT_COLUMNS</code>
+<dd> The default.
+     In addition to resizing the column
+     to the left of the drag point,
+     adjusts the sizes of all columns to the right of the drag point.
+<dt> <code>AUTO_RESIZE_NEXT_COLUMN</code>
+<dd> Adjusts only the columns immediately to the left and right
+     of the drag point.
+<dt> <code>AUTO_RESIZE_OFF</code>
+<dd> Adjusts the table size instead.
+</dl>
+
+
+<p>
+
+
+</blockquote>
+<h3>
+<a name="selection">
+Detecting User Selections
+</a>
+</h3>
+<blockquote>
+
+The following code snippet
+shows how to detect when the user selects a table row.
+By default, a table allows the user to select multiple rows &#151;
+not columns or individual cells &#151;
+and the selected rows need not be next to each other.
+Using the
+<code>setSelectionMode</code> method,
+the following code specifies
+that only one row at a time can be selected.
+
+<blockquote><pre>
+table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+...
+//Ask to be notified of selection changes.
+ListSelectionModel rowSM = table.getSelectionModel();
+rowSM.addListSelectionListener(new ListSelectionListener() {
+    public void valueChanged(ListSelectionEvent e) {
+        //Ignore extra messages.
+        if (e.getValueIsAdjusting()) return;
+
+        ListSelectionModel lsm =
+            (ListSelectionModel)e.getSource();
+        if (lsm.isSelectionEmpty()) {
+            <em>...//no rows are selected</em>
+        } else {
+            int selectedRow = lsm.getMinSelectionIndex();
+            <em>...//selectedRow is selected</em>
+        }
+    }
+});
+</pre></blockquote>
+
+The code is from
+<a target="_blank" href="example-1dot4/SimpleTableSelectionDemo.java"><font color="#bb000f"><code>SimpleTableSelectionDemo.java</code></font></a><a target="_blank" href="example-1dot4/SimpleTableSelectionDemo.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>.
+SimpleTableSelectionDemo also has code
+(not included in the preceding snippet)
+that changes the table's selection orientation.
+By changing a couple of boolean values,
+you can make the table allow either column selections
+or individual cell selections,
+instead of row selections.
+
+<p>
+
+For more information and examples of
+implementing selection,
+see <a href="../events/listselectionlistener.html">
+How to Write a List Selection Listener</a>.
+
+
+</blockquote>
+<h3>
+<a name="data">
+Creating a Table Model
+</a>
+</h3>
+<blockquote>
+
+As the following figure shows,
+every table gets its data from an object
+that implements the
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/table/TableModel.html"><font color="#8800bb"><code>TableModel</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/table/TableModel.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> interface.
+
+
+<p><center><IMG SRC="../../figures/uiswing/components/8model.gif" WIDTH="380" HEIGHT="67" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="TableDemo"></center></p>[PENDING: This figure might be updated to look more modern.]
+
+<p>
+The <code>JTable</code> constructor
+used by <code>SimpleTableDemo</code>
+creates its table model with
+code like this:
+
+<blockquote><pre>
+new AbstractTableModel() {
+    public String getColumnName(int col) {
+        return columnNames[col].toString();
+    }
+    public int getRowCount() { return rowData.length; }
+    public int getColumnCount() { return columnNames.length; }
+    public Object getValueAt(int row, int col) {
+        return rowData[row][col];
+    }
+    public boolean isCellEditable(int row, int col)
+        { return true; }
+    public void setValueAt(Object value, int row, int col) {
+        rowData[row][col] = value;
+        fireTableCellUpdated(row, col);
+    }
+}
+</pre></blockquote>
+
+As the preceding code shows,
+implementing a table model can be simple.
+Generally, you implement your table model in a subclass of the
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/table/AbstractTableModel.html"><font color="#8800bb"><code>AbstractTableModel</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/table/AbstractTableModel.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> class.
+
+<p>
+
+Your model might hold its data
+in an array, vector, or hash map,
+or it might get the data from an outside source such as a database.
+It might even generate the data at execution time.
+
+<p>
+Here again is a picture of a table
+implemented by <code>TableDemo</code>
+(which you can
+<b><a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/components/example-1dot4/TableDemo.jnlp">run</a></b>
+using
+<a target="_top" href="../../information/javawebstart.html">Java Web Start</a><a target="_top" href="../../information/javawebstart.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>) that has a custom table model:
+
+<p><center><IMG SRC="../../figures/uiswing/components/TableDemo.gif" WIDTH="528" HEIGHT="120" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="A snapshot of TableDemo. Again."></center></p>[PENDING: This figure will be updated.]
+
+<p>
+This table is different from the <code>SimpleTableDemo</code> table
+in the following ways:
+
+<ul>
+<li> <code>TableDemo</code>'s custom table model,
+     even though it's simple,
+     can easily determine the data's type,
+     helping the <code>JTable</code> display the data in the best format.
+     <code>SimpleTableDemo</code>'s 
+     automatically created table model, on the other hand,
+     isn't smart enough to know that the <b># of Years</b> column
+     contains numbers (which should generally be right aligned
+     and have a particular format).
+     It also doesn't know that the <code>Vegetarian</code> column
+     contains boolean values,
+     which can be represented by check boxes.
+
+<li> In <code>TableDemo</code>,
+     we implemented the custom table model
+     so that it doesn't let you edit the name columns;
+     it does, however, let you edit the other columns.
+     In <code>SimpleTableDemo</code>, all cells are editable.
+</ul>
+
+<p>
+
+Below is the code from
+
+<a target="_blank" href="example-1dot4/TableDemo.java"><font color="#bb000f"><code>TableDemo.java</code></font></a><a target="_blank" href="example-1dot4/TableDemo.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>
+that is different from the code in
+
+<a target="_blank" href="example-1dot4/SimpleTableDemo.java"><font color="#bb000f"><code>SimpleTableDemo.java</code></font></a><a target="_blank" href="example-1dot4/SimpleTableDemo.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>.
+Bold font indicates the code that makes this table's model
+different from the table model defined automatically
+for <code>SimpleTableDemo</code>.
+
+<blockquote><pre>
+public TableDemo() {
+    ...
+    JTable table = new JTable(new MyTableModel());
+    ...
+}
+
+class MyTableModel extends AbstractTableModel {
+    private String[] columnNames = <em>...//same as before...</em>
+    private Object[][] data = <em>...//same as before...</em>
+
+    public int getColumnCount() {
+        return columnNames.length;
+    }
+
+    public int getRowCount() {
+        return data.length;
+    }
+
+    public String getColumnName(int col) {
+        return columnNames[col];
+    }
+
+    public Object getValueAt(int row, int col) {
+        return data[row][col];
+    }
+
+    <b>public Class getColumnClass(int c) {
+        return getValueAt(0, c).getClass();
+    }</b>
+
+    /*
+     * Don't need to implement this method unless your table's
+     * editable.
+     */
+    public boolean isCellEditable(int row, int col) {
+        //Note that the data/cell address is constant,
+        //no matter where the cell appears onscreen.
+        <b>if (col < 2) {
+            return false;
+        } else {
+            return true;
+        }</b>
+    }
+
+    /*
+     * Don't need to implement this method unless your table's
+     * data can change.
+     */
+    public void setValueAt(Object value, int row, int col) {
+        data[row][col] = value;
+        fireTableCellUpdated(row, col);
+    }
+    ...
+}
+</pre></blockquote>
+
+</blockquote>
+<h3>
+<a name="modelchange">
+Detecting Data Changes
+</a>
+</h3>
+<blockquote>
+
+A table and its model automatically detect
+whenever the user edits the table's data.
+However, if the data changes for another reason,
+you must take special steps to notify the table
+and its model of the data change.
+Also, if you don't implement a table model,
+as in <code>SimpleTableDemo</code>,
+then you must take special steps
+to find out when the user edits the table's data.
+
+<p>
+
+An example of updating a table's data
+without directly editing it
+is in the BINGO application.
+The BINGO application,
+which is presented in
+<a target="_top" href="../../together/bingo/index.html">BINGO!</a><a target="_top" href="../../together/bingo/index.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>, has a table that displays some information
+about each user who is signed up to play the game.
+When a new user signs up to play BINGO,
+the table needs to add a new row for that user.
+More precisely,
+the table model needs to get
+the data for the new user,
+and then the table model needs to tell the table
+to display the new data.
+
+<p>
+
+To notify the table model about a new user,
+the BINGO application
+invokes the table model's <code>updatePlayer</code> method.
+You can see the code for that method in
+<a target="_blank" href="../../together/bingo/example-swing/bingo/shared/PlayerInfoModel.java"><font color="#bb000f"><code>PlayerInfoModel</code></font></a><a target="_blank" href="../../together/bingo/example-swing/bingo/shared/PlayerInfoModel.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>, which contains the implementation of the table model.
+The <code>updatePlayer</code> method records the new user's data
+and fires a table-model event.
+Because every table listens for table-model events
+from its model,
+the user-information table automatically detects the change
+and displays the new data.
+
+<p>
+
+To fire the table-model event,
+the model invokes the <code>fireTableRowsInserted</code> method,
+which is defined by the <code>AbstractTableModel</code> class.
+Other <code>fire<em>Xxxx</em></code> methods that
+<code>AbstractTableModel</code> defines are
+<code>fireTableCellUpdated</code>,
+<code>fireTableChanged</code>,
+<code>fireTableDataChanged</code>,
+<code>fireTableRowsDeleted</code>,
+<code>fireTableRowsInserted</code>,
+<code>fireTableRowsUpdated</code>, and
+<code>fireTableStructureChanged</code>.
+
+<p>
+
+If you have a class such as <code>SimpleTableDemo</code>
+that isn't a table or table model,
+but needs to react to changes in a table model,
+then you need to do something special
+to find out when the user edits the table's data.
+Specifically, you need to register a
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/event/TableModelListener.html"><font color="#8800bb"><code>TableModelListener</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/event/TableModelListener.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> on the table model.
+Adding the bold code in the following snippet
+makes <code>SimpleTableDemo</code>
+react to table data changes.
+
+<blockquote><pre>
+<b>import javax.swing.event.*;
+import javax.swing.table.TableModel;</b>
+
+public class SimpleTableDemo ... <b>implements TableModelListener </b>{
+    ...
+    public SimpleTableDemo() {
+        ...
+        <b>table.getModel().addTableModelListener(this);</b>
+        ...
+    }
+
+    <b>public void tableChanged(TableModelEvent e) {
+        int row = e.getFirstRow();
+        int column = e.getColumn();
+        TableModel model = (TableModel)e.getSource();
+        String columnName = model.getColumnName(column);
+        Object data = model.getValueAt(row, column);
+
+        <em>...// Do something with the data...</em></b>
+    }
+    ...
+}
+</pre></blockquote>
+
+<p>
+
+</blockquote>
+<h3>
+<a name="editrender">
+Concepts: Editors and Renderers
+</a>
+</h3>
+<blockquote>
+
+Before you go on to the next few tasks,
+you need to understand how tables draw their cells.
+You might expect each cell in a table to be a component.
+However, for performance reasons,
+Swing tables aren't implemented that way.
+
+<p>
+
+Instead, a single
+<em>cell renderer</em>
+is generally used to draw all of the cells
+that contain the same type of data.
+You can think of the renderer as a
+configurable ink stamp
+that the table uses to
+stamp appropriately formatted data onto each cell.
+When the user starts to edit a cell's data,
+a <em>cell editor</em>
+takes over the cell,
+controlling the cell's editing behavior.
+
+<p>
+
+For example, each cell in the <b># of Years</b> column in <code>TableDemo</code>
+contains <code>Number</code> data  &#151;
+specifically, an <code>Integer</code> object.
+By default, the cell renderer for a <code>Number</code>-containing column
+uses a single <code>JLabel</code> instance
+to draw the appropriate numbers, right-aligned,
+on the column's cells.
+If the user begins editing one of the cells,
+the default cell editor
+uses a right-aligned <code>JTextField</code>
+to control the cell editing.
+
+<p>
+To choose the renderer that displays
+the cells in a column,
+a table first determines whether you specified
+a renderer for that particular column.
+(We'll tell you how to specify renderers a bit later.)
+If you didn't,
+then the table invokes the table model's <code>getColumnClass</code> method,
+which gets the data type of the column's cells.
+Next, the table compares the column's data type
+with a list of data types for which cell renderers are registered.
+This list is initialized by the table,
+but you can add to it or change it.
+Currently, tables put the following
+types of data in the list:
+
+<ul>
+<li> <code>Boolean</code> &#151; rendered with a check box.
+<li> <code>Number</code> &#151; rendered by a right-aligned label.
+<li> <code>Double</code>, <code>Float</code> &#151; same as
+      <code>Number</code>,
+      but the object-to-text translation is performed by a
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/text/NumberFormat.html"><font color="#8800bb"><code>NumberFormat</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/text/NumberFormat.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>      instance
+      (using the default number format for the current locale).
+<li> <code>Date</code> &#151; rendered by a label,
+      with the object-to-text translation performed by a
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/text/DateFormat.html"><font color="#8800bb"><code>DateFormat</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/text/DateFormat.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>      instance
+      (using a short style for the date and time).
+<li> <code>ImageIcon</code>, <code>Icon</code> &#151;
+     rendered by a centered label.
+<li> <code>Object</code> &#151; rendered by a label that displays the object's
+     string value.
+</ul>
+
+<blockquote><hr><strong>Version note:</strong>&nbsp;The default renderer associations for <code>Double</code>, <code>Float</code>,
+and <code>Icon</code> were added in 1.3.
+<hr></blockquote>
+
+<p>
+Cell editors are chosen using a similar algorithm.
+
+<p>
+Remember that if you let a table
+create its own model,
+it uses <code>Object</code>
+as the type of every column.
+To specify more precise column types, 
+the table model must define
+the <code>getColumnClass</code> method appropriately,
+as demonstrated by
+<a target="_blank" href="example-1dot4/TableDemo.java"><font color="#bb000f"><code>TableDemo.java</code></font></a><a target="_blank" href="example-1dot4/TableDemo.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>.
+
+<p>
+Keep in mind that
+although renderers determine how each cell or column header looks
+and can specify its tool tip text,
+renderers don't handle events.
+If you need to pick up the events that take place inside a table,
+the technique you use varies
+by the sort of event you're interested in:
+
+<p>
+<blockquote>
+<table summary="layout" cellspacing=2>
+<tr>
+<th align=left>
+Situation
+</th>
+<th align=left>
+How to Get Events
+</th>
+<tr valign=top>
+<td>
+To detect events from a cell that's being edited...
+</td>
+<td>
+Use the cell editor (or register a listener on the cell editor).
+</td>
+</tr>
+
+<tr valign=top>
+<td>
+To detect row/column/cell selections and deselections...
+</td>
+<td>
+Use a selection listener as described in
+<a href="#selection">Detecting User Selections</a>.
+</td>
+</tr>
+
+<tr valign=top>
+<td>
+To detect mouse events on a column header...
+</td>
+<td>
+Register the appropriate type of 
+<a target="_top" href="../events/mouselistener.html ">mouse listener </a><a target="_top" href="../events/mouselistener.html "><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a> on the table's <code>JTableHeader</code> object.
+(See
+<a target="_blank" href="example-1dot4/TableSorter.java"><font color="#bb000f"><code>TableSorter.java</code></font></a><a target="_blank" href="example-1dot4/TableSorter.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a> for an example.)
+</td>
+</tr>
+
+<tr valign=top>
+<td>
+To detect other events...
+</td>
+<td>
+Register the appropriate listener
+on the <code>JTable</code> object.
+</td>
+</tr>
+</table>
+</blockquote>
+
+<p>
+The next few sections tell you how
+to customize display and editing
+by specifying renderers and editors.
+You can specify cell renderers and editors
+either by column or by data type.
+
+
+
+</blockquote>
+<h3>
+<a name="combobox">
+Using a Combo Box as an Editor
+</a>
+</h3>
+<blockquote>
+
+Setting up a
+<a href="combobox.html">combo box</a> as an editor is simple,
+as the following example shows.
+The bold line of code
+sets up the combo box as the editor for a specific column.
+
+<blockquote><pre>
+TableColumn sportColumn = table.getColumnModel().getColumn(2);
+...
+JComboBox comboBox = new JComboBox();
+comboBox.addItem("Snowboarding");
+comboBox.addItem("Rowing");
+comboBox.addItem("Chasing toddlers");
+comboBox.addItem("Speed reading");
+comboBox.addItem("Teaching high school");
+comboBox.addItem("None");
+<b>sportColumn.setCellEditor(new DefaultCellEditor(comboBox));</b>
+</pre></blockquote>
+
+Here is a picture of the combo box editor in use:
+
+<p><center><IMG SRC="../../figures/uiswing/components/TableRenderDemo.gif" WIDTH="529" HEIGHT="159" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="A combo box cell editor in use"></center></p>[PENDING: This figure will be updated.
+It should probably include the cursor.]
+
+<p>
+The preceding code is from
+<a target="_blank" href="example-1dot4/TableRenderDemo.java"><font color="#bb000f"><code>TableRenderDemo.java</code></font></a><a target="_blank" href="example-1dot4/TableRenderDemo.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>.
+You can <b><a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/components/example-1dot4/TableRenderDemo.jnlp">run TableRenderDemo</a></b>
+using
+<a target="_top" href="../../information/javawebstart.html">Java Web Start</a><a target="_top" href="../../information/javawebstart.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.
+
+
+</blockquote>
+<h3>
+<a name="validtext">
+Using an Editor to Validate User-Entered Text
+</a>
+</h3>
+<blockquote>
+
+If a cell's default editor allows text entry,
+you get some error checking for free
+if the cell's type
+is specified as something other than <code>String</code>
+or <code>Object</code>.
+The error checking is a side effect
+of converting the entered text
+into an object of the proper type.
+
+<blockquote><hr><strong>Version note:</strong>&nbsp;Before 1.3, the default implementation
+did not in any way restrict the string that could be entered,
+and didn't convert it from a <code>String</code>.
+You needed to put some ugly code
+in the model's <code>setValueAt</code> method
+to parse the entered string
+and prevent the cell's value
+from becoming a <code>String</code>.
+<hr></blockquote>
+
+<p>
+The automatic checking of user-entered strings occurs
+when the default editor
+attempts to create a new instance of the class
+associated with the cell's column.
+The default editor creates this instance using a constructor
+that takes a <code>String</code> as an argument.
+For example,
+in a column whose cells have type <code>Integer</code>,
+when the user types in "123"
+the default editor creates the corresponding <code>Integer</code>
+using code equivalent to
+<code>new Integer("123")</code>.
+If the constructor throws an exception,
+the cell's outline turns red
+and refuses to let focus move out of the cell.
+If you implement a class used as a column data type,
+you can use the default editor
+if your class supplies a constructor that takes
+a single argument of type <code>String</code>.
+
+<p>
+If you like having a text field as the editor for a cell,
+but want to customize it &#151;
+perhaps to check user-entered text more strictly
+or to react differently when the text is invalid &#151;
+you can change the cell editor to use a
+<a href="formattedtextfield.html">formatted text field</a>.
+The formatted text field
+can check the value
+either continuously while the user is typing
+or after the user has indicated the end of typing
+(such as by pressing Enter).
+
+<p>
+The following code, taken from a demo named
+<a href="example-1dot4/index.html#TableFTFEditDemo">TableFTFEditDemo</a>,
+sets up a formatted text field as an editor
+that limits all integer values
+to be between 0 and 100.
+You can
+<b><a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/components/example-1dot4/TableFTFEditDemo.jnlp">run TableFTFEditDemo</a></b>
+using
+<a target="_top" href="../../information/javawebstart.html">Java Web Start</a><a target="_top" href="../../information/javawebstart.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.
+The following code makes the formatted text field
+the editor for all columns
+that contain data of type <code>Integer</code>.
+
+<blockquote><pre>
+table.setDefaultEditor(Integer.class,
+                       new IntegerEditor(0, 100));
+</pre></blockquote>
+
+The <code>IntegerEditor</code>
+ class is implemented as 
+a subclass of 
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/DefaultCellEditor.html"><font color="#8800bb"><code>DefaultCellEditor</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/DefaultCellEditor.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> that uses a 
+<code>JFormattedTextField</code>
+instead of the <code>JTextField</code>
+that <code>DefaultCellEditor</code> supports.
+It accomplishes this by first 
+setting up a formatted text field
+to use an integer format and have
+the specified minimum and maximum values,
+using the API described in 
+<a href="formattedtextfield.html">How to Use Formatted Text Fields</a>.
+It then overrides the <code>DefaultCellEditor</code>
+implementation of the
+<code>getTableCellEditorComponent</code>,
+<code>getCellEditorValue</code>,
+and <code>stopCellEditing</code> methods,
+adding the operations that are necessary for formatted text fields.
+
+<p>
+The override of <code>getTableCellEditorComponent</code>
+sets the formatted text field's <em>value</em> property
+(and not just the <em>text</em> property 
+it inherits from <code>JTextField</code>)
+before the editor is shown.
+The override of <code>getCellEditorValue</code>
+keeps the cell value as an <code>Integer</code>,
+rather than, say, the <code>Long</code> value 
+that the formatted text field's parser tends to return.
+Finally, overriding <code>stopCellEditing</code>
+lets us check whether the text is valid,
+possibly stopping the editor from being dismissed.
+If the text isn't valid,
+our implementation of <code>stopCellEditing</code>
+puts up a dialog that gives the user the option
+of continuing to edit or reverting to the last good value.
+The source code is 
+a bit too long to include here,
+but you can find it in
+<a target="_blank" href="example-1dot4/IntegerEditor.java"><font color="#bb000f"><code>IntegerEditor.java</code></font></a><a target="_blank" href="example-1dot4/IntegerEditor.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>.
+
+
+</blockquote>
+<h3>
+<a name="editor">
+Using Other Editors
+</a>
+</h3>
+<blockquote>
+
+Whether you're setting the editor for a single column of cells
+(using the <code>TableColumn</code> <code>setCellEditor</code> method)
+or for a specific type of data
+(using the <code>JTable</code>
+<code>setDefaultEditor</code> method),
+you specify the editor using
+an argument that adheres to the 
+<code>TableCellEditor</code>
+interface.
+Fortunately, the <code>DefaultCellEditor</code> class
+implements this interface and provides
+constructors to let you specify an editing component
+that's a <code>JTextField</code>,
+<code>JCheckBox</code>, or
+<code>JComboBox</code>.
+You usually don't have to explicitly specify a check box as an editor,
+since columns with <code>Boolean</code> data
+automatically use a check box renderer and editor.
+
+<p>
+What if you want to specify an editor
+that isn't a text field, check box, or combo box?
+Well, because <code>DefaultCellEditor</code>
+doesn't support other types of components,
+you must do a little more work.
+You need to create a class 
+that implements the
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/table/TableCellEditor.html"><font color="#8800bb"><code>TableCellEditor</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/table/TableCellEditor.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> interface.
+The 
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractCellEditor.html"><font color="#8800bb"><code>AbstractCellEditor</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractCellEditor.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> class is a good superclass to use.
+It implements <code>TableCellEditor</code>'s superinterface,
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/CellEditor.html"><font color="#8800bb"><code>CellEditor</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/CellEditor.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>, saving you the trouble of implementing
+the event firing code
+necessary for cell editors.
+
+<p>
+Your cell editor class needs to define 
+at least two methods &#151; 
+<code>getCellEditorValue</code> and
+<code>getTableCellEditorComponent</code>.
+The 
+<code>getCellEditorValue</code>
+method, required by <code>CellEditor</code>,
+returns the cell's current value.
+The 
+<code>getTableCellEditorComponent</code>
+method, required by <code>TableCellEditor</code>,
+should configure and return the component
+that you want to use as the editor.
+
+<blockquote><hr><strong>Version note:</strong>&nbsp;The <code>AbstractCellEditor</code> class was added in 1.3.
+Before then, implementing a cell editor for a
+new component type was much more difficult,
+since you had to implement all the <code>CellEditor</code>
+methods yourself.
+<hr></blockquote>
+
+<p>
+
+Here is a picture of a table with a dialog that
+serves, indirectly, as a cell editor.
+When the user begins editing a cell in the <b>Favorite Color</b> column,
+a button (the true cell editor) appears and
+brings up the dialog,
+with which the user can choose a different color.
+
+<a name="colorRenderer">
+<p><center><IMG SRC="../../figures/uiswing/components/TableDialogEditDemo.gif" WIDTH="646" HEIGHT="232" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="The cell editor brings up a dialog"></center></p></a>
+[PENDING: This figure will be updated.]
+
+<p>
+You can
+<b><a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/components/example-1dot4/TableDialogEditDemo.jnlp">run TableDialogEditDemo</a></b>
+using
+<a target="_top" href="../../information/javawebstart.html">Java Web Start</a><a target="_top" href="../../information/javawebstart.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>,
+or compile and run it yourself by consulting the 
+<a href="example-1dot4/index.html#TableDialogEditDemo">example index</a>.
+Here is the code,
+taken from 
+<a target="_blank" href="example-1dot4/ColorEditor.java"><font color="#bb000f"><code>ColorEditor.java</code></font></a><a target="_blank" href="example-1dot4/ColorEditor.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>,
+that implements the cell editor.
+
+<blockquote><pre>
+public class ColorEditor extends AbstractCellEditor
+                         implements TableCellEditor,
+                                    ActionListener {
+    Color currentColor;
+    JButton button;
+    JColorChooser colorChooser;
+    JDialog dialog;
+    protected static final String EDIT = "edit";
+
+    public ColorEditor() {
+        button = new JButton();
+        button.setActionCommand(EDIT);
+        button.addActionListener(this);
+        button.setBorderPainted(false);
+
+        //Set up the dialog that the button brings up.
+        colorChooser = new JColorChooser();
+        dialog = JColorChooser.createDialog(button,
+                                        "Pick a Color",
+                                        true,  //modal
+                                        colorChooser,
+                                        this,  //OK button handler
+                                        null); //no CANCEL button handler
+    }
+
+    public void actionPerformed(ActionEvent e) {
+        if (EDIT.equals(e.getActionCommand())) {
+            //The user has clicked the cell, so
+            //bring up the dialog.
+            button.setBackground(currentColor);
+            colorChooser.setColor(currentColor);
+            dialog.setVisible(true);
+
+            fireEditingStopped(); //Make the renderer reappear.
+
+        } else { //User pressed dialog's "OK" button.
+            currentColor = colorChooser.getColor();
+        }
+    }
+
+    //Implement the one CellEditor method that AbstractCellEditor doesn't.
+    public Object getCellEditorValue() {
+        return currentColor;
+    }
+
+    //Implement the one method defined by TableCellEditor.
+    public Component getTableCellEditorComponent(JTable table,
+                                                 Object value,
+                                                 boolean isSelected,
+                                                 int row,
+                                                 int column) {
+        currentColor = (Color)value;
+        return button;
+    }
+}
+</pre></blockquote>
+
+As you can see, the code is pretty simple.
+The only part that's a bit tricky
+is the call to <code>fireEditingStopped</code>
+at the end of the editor button's action handler.
+Without this call, the editor would remain active,
+even though the modal dialog is no longer visible.
+The call to <code>fireEditingStopped</code>
+lets the table know
+that it can deactivate the editor,
+letting the cell be handled by the renderer again.
+
+
+</blockquote>
+<h3>
+<a name="renderer">Using Custom Renderers</a>
+</h3>
+<blockquote>
+This section tells you how to create and specify
+a cell renderer.
+You can set a type-specific cell renderer using
+the <code>JTable</code> method <code>setDefaultRenderer</code>.
+To specify that cells in a particular column should use a renderer,
+you use the <code>TableColumn</code> method
+<code>setCellRenderer</code>.
+You can even specify a
+cell-specific renderer
+by creating a <code>JTable</code> subclass,
+as we'll show later.
+
+<p>
+It's easy to customize the text or image
+rendered by the default renderer,
+<code>DefaultTableCellRenderer</code>.
+You just create a subclass
+and implement the <code>setValue</code> method
+so that it invokes <code>setText</code> or <code>setIcon</code>
+with the appropriate string or image.
+For example, 
+here is how the default date renderer is implemented:
+
+<blockquote><pre>
+static class DateRenderer extends DefaultTableCellRenderer {
+    DateFormat formatter;
+    public DateRenderer() { super(); }
+
+    public void setValue(Object value) {
+        if (formatter==null) {
+            formatter = DateFormat.getDateInstance();
+        }
+        setText((value == null) ? "" : formatter.format(value));
+    }
+}
+</pre></blockquote>
+
+<p>
+If extending <code>DefaultTableCellRenderer</code>
+doesn't do the trick,
+you can build a renderer
+using another superclass.
+The easiest way is to
+create a subclass of an existing
+component,
+making your subclass implement the
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/table/TableCellRenderer.html"><font color="#8800bb"><code>TableCellRenderer</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/table/TableCellRenderer.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> interface.
+<code>TableCellRenderer</code> requires just one method:
+<code>getTableCellRendererComponent</code>.
+Your implementation of this method
+should set up the rendering component
+to reflect the passed-in state,
+and then return the component.
+
+<p>
+In the <a href="#colorRenderer">preceding snapshot</a>
+of TableDialogEditDemo, the renderer
+used for <b>Favorite Color</b> cells
+is a subclass of <code>JLabel</code>
+called <code>ColorRenderer</code>.
+Here are excerpts from
+<a target="_blank" href="example-1dot4/ColorRenderer.java"><font color="#bb000f"><code>ColorRenderer.java</code></font></a><a target="_blank" href="example-1dot4/ColorRenderer.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a> that show how it's implemented.
+
+<blockquote><pre>
+public class ColorRenderer extends JLabel
+                           implements TableCellRenderer {
+    ...
+    public ColorRenderer(boolean isBordered) {
+        this.isBordered = isBordered;
+        setOpaque(true); //MUST do this for background to show up.
+    }
+
+    public Component getTableCellRendererComponent(
+                            JTable table, Object color,
+                            boolean isSelected, boolean hasFocus,
+                            int row, int column) {
+        Color newColor = (Color)color;
+        setBackground(newColor);
+        if (isBordered) {
+            if (isSelected) {
+                ...
+                //selectedBorder is a solid border in the color
+                //table.getSelectionBackground().
+                setBorder(selectedBorder);
+            } else {
+                ...
+                //unselectedBorder is a solid border in the color
+                //table.getBackground().
+                setBorder(unselectedBorder);
+            }
+        }
+        
+        setToolTipText(...); <em>//Discussed in the following section</em>
+        return this;
+    }
+}
+</pre></blockquote>
+
+Here is the code from 
+<a target="_blank" href="example-1dot4/TableDialogEditDemo.java"><font color="#bb000f"><code>TableDialogEditDemo.java</code></font></a><a target="_blank" href="example-1dot4/TableDialogEditDemo.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a> that registers a <code>ColorRenderer</code> instance
+as the default renderer for all
+<code>Color</code> data:
+
+<blockquote><pre>
+table.setDefaultRenderer(Color.class, new ColorRenderer(true));
+</pre></blockquote>
+
+<p>
+The next section shows a couple of examples of using
+<code>TableColumn</code>'s <code>setCellRenderer</code> method,
+so we'll skip that for now and show you
+how to specify a renderer
+for a particular cell. 
+To specify a cell-specific renderer,
+you need to define a <code>JTable</code> subclass
+that overrides the
+<code>getCellRenderer</code> method.
+For example,
+the following code makes the first cell
+in the first column of the table
+use a custom renderer:
+
+<blockquote><pre>
+TableCellRenderer weirdRenderer = new WeirdRenderer();
+table = new JTable(...) {
+    public TableCellRenderer getCellRenderer(int row, int column) {
+        if ((row == 0) && (column == 0)) {
+            return weirdRenderer;
+        }
+        // else...
+        return super.getCellRenderer(row, column);
+    }
+};
+</pre></blockquote>
+
+
+</blockquote>
+<h3>
+<a name="celltooltip">Specifying Tool Tips for Cells</a>
+</h3>
+<blockquote>
+By default,
+the tool tip text displayed for a table cell
+is determined by the cell's renderer.
+However, sometimes it can be simpler 
+to specify tool tip text
+by overriding <code>JTable</code>'s implementation
+of the <code>getToolTipText(MouseEvent)</code> method.
+This section tells you how to use both techniques.
+
+<p>
+To add a tool tip to a cell using its renderer,
+you first need to get or create the cell renderer.
+Then,
+after making sure the rendering component is a <code>JComponent</code>,
+invoke the 
+<code>setToolTipText</code> method on it.
+
+<p>
+An example of setting tool tips for cells is in
+TableRenderDemo,
+which you can
+<b><a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/components/example-1dot4/TableRenderDemo.jnlp">run</a></b>
+using
+<a target="_top" href="../../information/javawebstart.html">Java Web Start</a><a target="_top" href="../../information/javawebstart.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.
+The source code is in
+<a target="_blank" href="example-1dot4/TableRenderDemo.java"><font color="#bb000f"><code>TableRenderDemo.java</code></font></a><a target="_blank" href="example-1dot4/TableRenderDemo.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>.  It adds tool tips
+to the cells of the <b>Sport</b> column
+with the following code:
+
+<blockquote><pre>
+//Set up tool tips for the sport cells.
+DefaultTableCellRenderer renderer =
+        new DefaultTableCellRenderer();
+<b>renderer.setToolTipText("Click for combo box");</b>
+sportColumn.setCellRenderer(renderer);
+</pre></blockquote>
+
+Here is a picture of the resulting tool tip:
+
+<p>
+[PENDING: We will put a picture here. It might be cropped to just
+include the relevant cell and its tool tip
+(along with whatever other cells are between them).]
+
+<p>
+Although the tool tip text in the previous example is static,
+you can also
+implement tool tips
+whose text changes
+depending on the state of the cell or program.
+Here are a couple ways to do so:
+
+<ul>
+<li> Add a bit of code
+to the renderer's implementation of the
+<code>getTableCellRendererComponent</code> method.
+<li> Override the <code>JTable</code> method <code>getToolTipText(MouseEvent)</code>.
+</ul>
+
+<p>
+An example of adding code to a cell renderer is in
+<a
+href="example-1dot4/index.html#TableDialogEditDemo">TableDialogEditDemo</a>
+(which you can
+<b><a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/components/example-1dot4/TableDialogEditDemo.jnlp">run</a></b>
+using
+<a target="_top" href="../../information/javawebstart.html">Java Web Start</a><a target="_top" href="../../information/javawebstart.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>).
+TableDialogEditDemo uses a renderer for colors,
+implemented in 
+<a target="_blank" href="example-1dot4/ColorRenderer.java"><font color="#bb000f"><code>ColorRenderer.java</code></font></a><a target="_blank" href="example-1dot4/ColorRenderer.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>,
+that sets the tool tip text using the boldface code
+in the following snippet:
+
+<blockquote><pre>
+public class ColorRenderer extends JLabel 
+                           implements TableCellRenderer {
+    ...
+    public Component getTableCellRendererComponent(
+                            JTable table, Object color,
+                            boolean isSelected, boolean hasFocus,
+                            int row, int column) {
+        Color newColor = (Color)color;
+        ...
+        <b>setToolTipText("RGB value: " + newColor.getRed() + ", "
+                                     + newColor.getGreen() + ", "
+                                     + newColor.getBlue());</b>
+        return this;
+    }
+}
+</pre></blockquote>
+
+Here is an example of what the tool tip looks like:
+
+<p><center><IMG SRC="../../figures/uiswing/components/TableDialogEditDemo-tooltip.gif" WIDTH="528" HEIGHT="122" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="TableDialogEditDemo with a tool tip describing the moused-over cell's RGB value"></center></p>[PENDING: this snapshot needs to be updated.
+It should probably be cropped, as well.]
+
+<p>
+As we mentioned before, you can specify tool tip text by overriding
+<code>JTable</code>'s <code>getToolTipText(MouseEvent)</code> method.
+The program
+<a href="example-1dot4/index.html#TableToolTipsDemo">TableToolTipsDemo</a>
+shows how.
+You can 
+<b><a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/components/example-1dot4/TableToolTipsDemo.jnlp">run TableToolTipsDemo</a></b>
+using
+<a target="_top" href="../../information/javawebstart.html">Java Web Start</a><a target="_top" href="../../information/javawebstart.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.
+The cells with tool tips are in the 
+<b>Sport</b>
+and <b>Vegetarian</b> columns.
+Here's are pictures of their tool tips:
+
+<p>
+[PENDING: put a picture here. It could be cropped to just
+include the relevant cell and its tool tip
+(along with whatever other cells are between them).]
+
+<p>
+<p><center><IMG SRC="../../figures/uiswing/components/TableToolTipsDemo-tooltip.gif" WIDTH="528" HEIGHT="122" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="TableToolTipsDemo with a tool tip for a cell in the Vegetarian column"></center></p>[PENDING: this snapshot needs to be updated and cropped.]
+
+<p>
+Here is the code from
+<a target="_blank" href="example-1dot4/TableToolTipsDemo.java"><font color="#bb000f"><code>TableToolTipsDemo.java</code></font></a><a target="_blank" href="example-1dot4/TableToolTipsDemo.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a> that implements tool tips for cells 
+in the <b>Sport</b> and <b>Vegetarian</b> columns:
+
+<blockquote><pre>
+JTable table = new JTable(new MyTableModel()) {    
+    //Implement table cell tool tips.
+    public String getToolTipText(MouseEvent e) {
+        String tip = null;
+        java.awt.Point p = e.getPoint();
+        int rowIndex = rowAtPoint(p);
+        int colIndex = columnAtPoint(p);
+        int realColumnIndex = convertColumnIndexToModel(colIndex);
+
+        if (realColumnIndex == 2) { //Sport column
+            tip = "This person's favorite sport to "
+                   + "participate in is: "
+                   + getValueAt(rowIndex, colIndex);
+
+        } else if (realColumnIndex == 4) { //Veggie column
+            TableModel model = getModel();
+            String firstName = (String)model.getValueAt(rowIndex,0);
+            String lastName = (String)model.getValueAt(rowIndex,1);
+            Boolean veggie = (Boolean)model.getValueAt(rowIndex,4);
+            if (Boolean.TRUE.equals(veggie)) {
+                tip = firstName + " " + lastName
+                      + " is a vegetarian";
+            } else {
+                tip = firstName + " " + lastName
+                      + " is not a vegetarian";
+            }
+
+        } else { //another column
+            //You can omit this part if you know you don't 
+            //have any renderers that supply their own tool 
+            //tips.
+            tip = super.getToolTipText(e);
+        }
+        return tip;
+    }
+    ...
+}
+</pre></blockquote>
+
+The code is fairly straightforward,
+except perhaps for the call to <code>convertColumnIndexToModel</code>.
+That call is necessary because if the user moves the columns around,
+the view's index for the column doesn't match the model's index
+for the column.
+For example, the user might drag the <b>Vegetarian</b> column
+(which the model considers to be at index 4)
+so it's displayed as the first column &#151; at view index 0.
+Since <code>prepareRenderer</code> gives us the view index,
+we need to translate the view index to a model index
+so we can be sure we're dealing with the intended column.
+
+
+</blockquote>
+<h3>
+<a name="headertooltip">Specifying Tool Tips for Column Headers</a>
+</h3>
+<blockquote>
+
+You can add a tool tip to a column header
+by setting the tool tip text for the table's <code>JTableHeader</code>.
+Often, different column headers require different tool tip text.
+You can change the text
+by overriding the table header's
+<code>getToolTipText(MouseEvent)</code> method.
+
+<p>
+An example of using the same tool tip text 
+for all column headers is in 
+<a href="example-1dot4/index.html#TableSorterDemo">TableSorterDemo</a>.
+Here is how it sets the tool tip text:
+
+<blockquote><pre>
+table.getTableHeader().setToolTipText(
+        "Click to sort; Shift-Click to sort in reverse order");
+</pre></blockquote>
+
+<p>
+<a href="example-1dot4/index.html#TableToolTipsDemo">TableToolTipsDemo</a>
+has an example of implementing column header tool tips
+that vary by column.
+If you
+<b><a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/components/example-1dot4/TableToolTipsDemo.jnlp">run TableToolTipsDemo</a></b>,
+which you can do using
+<a target="_top" href="../../information/javawebstart.html">Java Web Start</a><a target="_top" href="../../information/javawebstart.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>, you'll see the tool tips when you mouse over any column header
+except for the first two.
+We elected not to supply tool tips for the name columns
+since they seemed self explanatory.
+(Actually, we just wanted to show you that it could be done.)
+Here's a picture of one of the column header tool tips:
+
+<p><center><IMG SRC="../../figures/uiswing/components/TableToolTipsDemo-tooltip-ch.gif" WIDTH="528" HEIGHT="122" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="TableToolTipsDemo with a tool tip for a column header"></center></p>[PENDING: this snapshot needs to be updated.
+It should also be cropped.]
+
+<p>
+The following code implements the tool tips.
+Basically, it creates a subclass of 
+<code>JTableHeader</code>
+that overrides the 
+<code>getToolTipText(MouseEvent)</code> method
+so that it returns the text for the current column.
+To associate the revised table header with the table,
+the <code>JTable</code> method
+<code>createDefaultTableHeader</code> is overridden
+so that it returns an instance of the 
+<code>JTableHeader</code> subclass.
+
+<blockquote><pre>
+protected String[] columnToolTips = {
+    null,
+    null,
+    "The person's favorite sport to participate in",
+    "The number of years the person has played the sport",
+    "If checked, the person eats no meat"};
+...
+
+JTable table = new JTable(new MyTableModel()) {
+    ...
+
+    //Implement table header tool tips.
+    protected JTableHeader createDefaultTableHeader() {
+        return new JTableHeader(columnModel) {
+            public String getToolTipText(MouseEvent e) {
+                String tip = null;
+                java.awt.Point p = e.getPoint();
+                int index = columnModel.getColumnIndexAtX(p.x);
+                int realIndex = 
+                        columnModel.getColumn(index).getModelIndex();
+                return columnToolTips[realIndex];
+            }
+        };
+    }
+};
+</pre></blockquote>
+
+<a name="13defaultheaderrenderer"> <!-- --> </a>
+<blockquote><hr><strong>Version note:</strong>&nbsp;Before 1.3,
+each column had its own header renderer,
+and you could use 
+the value returned by 
+the <code>TableColumn</code> method <code>getHeaderRenderer</code>
+to set a tool tip for a specific column header.
+For performance reasons, 
+the default behavior is now to use a single renderer
+for all column headers,
+and <code>getHeaderRenderer</code> returns <code>null</code>.
+The default header renderer used for all columns is
+returned by the <code>TableHeader</code> method
+<code>getDefaultRenderer</code>,
+which was added in 1.3.
+<hr></blockquote>
+
+
+</blockquote>
+<h3>
+<a name="sorting">
+Sorting and Otherwise Manipulating Data
+</a>
+</h3>
+<blockquote>
+One way to perform data manipulation such as sorting
+is to use one or more specialized table models
+(<em>data manipulators</em>),
+in addition to the table model that provides the data
+(the data model).
+The data manipulators
+should sit between the table
+and the data model,
+as the following picture shows:
+
+<p><center><IMG SRC="../../figures/uiswing/components/9model.gif" WIDTH="474" HEIGHT="57" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="A data manipulator sits between a table and its model."></center></p>[PENDING: This figure will be updated.]
+
+<p>
+If you decide to implement a data manipulator,
+take a look at
+<a target="_blank" href="example-1dot4/TableMap.java"><font color="#bb000f"><code>TableMap.java</code></font></a><a target="_blank" href="example-1dot4/TableMap.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a> and
+<a target="_blank" href="example-1dot4/TableSorter.java"><font color="#bb000f"><code>TableSorter.java</code></font></a><a target="_blank" href="example-1dot4/TableSorter.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>.
+The <code>TableMap</code> class
+implements <code>TableModel</code>
+and serves as a superclass for data manipulators.
+<code>TableSorter</code> 
+is a data manipulator that sorts the data provided by another table model.
+It used to be implemented as a subclass of <code>TableMap</code>,
+but now is a direct subclass of <code>AbstractTableModel</code>.
+You can use <code>TableSorter</code> 
+as-is to provide sorting functionality,
+or you can use either <code>TableSorter</code>
+or <code>TableMap</code> 
+as a basis for writing your own data manipulator.
+
+<p>
+
+To implement sorting
+with <code>TableSorter</code>,
+you need just three lines of code.
+The following listing
+shows the differences between <code>TableDemo</code>
+and its sorting cousin,
+
+<a target="_blank" href="example-1dot4/TableSorterDemo.java"><font color="#bb000f"><code>TableSorterDemo.java</code></font></a><a target="_blank" href="example-1dot4/TableSorterDemo.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>.
+
+<blockquote><pre>
+<B>TableSorter sorter = new TableSorter(new MyTableModel()); //ADDED THIS</b>
+//JTable table = new JTable(new MyTableModel());          //OLD
+<b>JTable table = new JTable(sorter);             //NEW</b>
+<b>sorter.setTableHeader(table.getTableHeader()); //ADDED THIS</b>
+</pre></blockquote>
+
+<blockquote><hr><strong>Note:</strong>&nbsp;The <code>TableSorter</code> class was updated
+in February, 2004.  
+We recommend the newer version, as it has more features
+and fixes several bugs.
+If you currently use the old version,
+you can update to the new one by 
+deleting <code>TableMap.java</code>
+and making the following change
+in the code that sets up the sorter:
+
+<blockquote>
+<pre>
+//sorter.addMouseListenerToHeaderInTable(table); //OLD
+sorter.setTableHeader(table.getTableHeader());   //NEW
+</pre>
+</blockquote>
+<hr></blockquote>
+
+The <code>setTableHeader</code> method
+sets up the table's column headers
+to detect user clicks and update the UI appropriately.
+When the user clicks,
+the sorter sorts the rows based on the clicked column.
+As the following snapshot shows,
+when you click "Last Name",
+the rows are reordered so that the row with "Campione"
+becomes the first row.
+
+<p><center><IMG SRC="../../figures/uiswing/components/TableSorterDemo.gif" WIDTH="529" HEIGHT="120" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="TableSorterDemo after clicking Last Name"></center></p>[PENDING: This figure will be updated.]
+
+<p>
+You can add secondary sorting 
+by Control-clicking additional columns.
+For example, by clicking the Vegetarian column
+and then Control-clicking the Last Name column,
+you get an alphabetized listing of vegetarians 
+followed by an alphabetized listing of omnivores.
+
+
+<p>
+[PENDING: We will add a figure showing secondary sorting.]
+
+<p>
+You can change the clicking behavior by 
+reimplementing the <code>MouseHandler</code> class
+defined in <code>TableSorter.java</code>.
+
+</blockquote>
+<h3>
+<a name="api">The Table API</a>
+</h3>
+<blockquote>
+
+The tables in this section
+cover just part of the table API.
+For more information about the table API,
+see the API documentation for
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTable.html"><font color="#8800bb"><code>JTable</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTable.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> and for the various classes and interfaces in the
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/table/package-summary.html"><font color="#8800bb">table package</font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/table/package-summary.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>.
+Also see <a href="jcomponent.html">The JComponent Class</a>,
+which describes the API that <code>JTable</code> inherits
+from <code>JComponent</code>.
+The API for using tables falls into the following categories:
+
+<ul>
+<li><a href="#overviewapi">Table-Related Classes and Interfaces</a>
+<li><a href="#creatingapi">Creating and Setting Up a Table</a>
+<li><a href="#columnapi">Manipulating Columns</a>
+<li><a href="#editrenderapi">Using Editors and Renderers</a>
+<li><a href="#selectionapi">Implementing Selection</a>
+</ul>
+
+<p>
+<table border=1>
+<caption><a name="overviewapi">Table-Related Classes and Interfaces</a></caption>
+<tr>
+<th align=left>Class or Interface
+</th>
+<th align=left>Purpose
+
+</th>
+</tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTable.html"><font color="#8800bb"><font size=2><code>JTable</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTable.html"></a>    </td>
+    <td>The component that presents the table to the user.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/table/JTableHeader.html"><font color="#8800bb"><font size=2><code>JTableHeader</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/table/JTableHeader.html"></a>    </td>
+    <td>The component that presents the column names to the user.
+        By default, the table generates this component automatically.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/table/TableModel.html"><font color="#8800bb"><font size=2><code>TableModel</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/table/TableModel.html"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/table/AbstractTableModel.html"><font color="#8800bb"><font size=2><code>AbstractTableModel</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/table/AbstractTableModel.html"></a>    </td>
+    <td>Respectively, the interface that a table model must implement
+        and the usual superclass for table model implementations.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/table/TableCellRenderer.html"><font color="#8800bb"><font size=2><code>TableCellRenderer</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/table/TableCellRenderer.html"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/table/DefaultTableCellRenderer.html"><font color="#8800bb"><font size=2><code>DefaultTableCellRenderer</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/table/DefaultTableCellRenderer.html"></a>    </td>
+    <td>Respectively, the interface that a table cell renderer must implement
+        and the usual implementation used.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/table/TableCellEditor.html"><font color="#8800bb"><font size=2><code>TableCellEditor</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/table/TableCellEditor.html"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/DefaultCellEditor.html"><font color="#8800bb"><font size=2><code>DefaultCellEditor</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/DefaultCellEditor.html"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractCellEditor.html"><font color="#8800bb"><font size=2><code>AbstractCellEditor</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/AbstractCellEditor.html"></a>    </td>
+    <td>Respectively, the interface that a table cell editor must implement,
+        the usual implementation used,
+        and the usual superclass for table cell editor implementations.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/table/TableColumnModel.html"><font color="#8800bb"><font size=2><code>TableColumnModel</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/table/TableColumnModel.html"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/table/DefaultTableColumnModel.html"><font color="#8800bb"><font size=2><code>DefaultTableColumnModel</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/table/DefaultTableColumnModel.html"></a>    </td>
+    <td>Respectively, the interface that a table column model must implement
+        and the usual implementation used.
+        You don't usually need to deal with the table column model directly
+        unless you need to get the column selection model,
+        or get a column index or object.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/table/TableColumn.html"><font color="#8800bb"><font size=2><code>TableColumn</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/table/TableColumn.html"></a>    </td>
+    <td>Controls all the attributes of a table column,
+        including resizability;
+        minimum, preferred, current, and maximum widths;
+        and an optional column-specific renderer/editor.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/table/DefaultTableModel.html"><font color="#8800bb"><font size=2><code>DefaultTableModel</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/table/DefaultTableModel.html"></a>    </td>
+    <td>A <code>Vector</code>-based table model used by <code>JTable</code>
+        when you construct a table specifying no data model
+        and no data.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/event/TableModelListener.html"><font color="#8800bb"><font size=2><code><code>TableModelListener</code></code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/event/TableModelListener.html"></a>    </td>
+    <td>The interface that an object 
+        must implement
+        to be notified of changes to the <code>TableModel</code>.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/event/ListSelectionListener.html"><font color="#8800bb"><font size=2><code><code>ListSelectionListener</code></code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/event/ListSelectionListener.html"></a>    </td>
+    <td>The interface that an object 
+        must implement
+        to be notified of changes to the table's selection.
+
+    </td>
+  </tr>
+</table>
+
+<p>
+<table border=1>
+<caption><a name="creatingapi">Creating and Setting Up a Table</a></caption>
+<tr>
+<th align=left>Constructor or Method
+</th>
+<th align=left>Purpose
+
+</th>
+</tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTable.html#JTable(javax.swing.table.TableModel)"><font color="#8800bb"><font size=2><code>JTable(TableModel)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTable.html#JTable(javax.swing.table.TableModel)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTable.html#JTable(javax.swing.table.TableModel, javax.swing.table.TableColumnModel)"><font color="#8800bb"><font size=2><code>JTable(TableModel, TableColumnModel)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTable.html#JTable(javax.swing.table.TableModel, javax.swing.table.TableColumnModel)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTable.html#JTable(javax.swing.table.TableModel, javax.swing.table.TableColumnModel, javax.swing.ListSelectionModel)"><font color="#8800bb"><font size=2><code>JTable(TableModel, TableColumnModel, ListSelectionModel)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTable.html#JTable(javax.swing.table.TableModel, javax.swing.table.TableColumnModel, javax.swing.ListSelectionModel)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTable.html#JTable()"><font color="#8800bb"><font size=2><code>JTable()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTable.html#JTable()"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTable.html#JTable(int, int)"><font color="#8800bb"><font size=2><code>JTable(int, int)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTable.html#JTable(int, int)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTable.html#JTable(java.lang.Object[][], java.lang.Object[])"><font color="#8800bb"><font size=2><code>JTable(Object[][], Object[])</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTable.html#JTable(java.lang.Object[][], java.lang.Object[])"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTable.html#JTable(java.util.Vector, java.util.Vector)"><font color="#8800bb"><font size=2><code>JTable(Vector, Vector)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTable.html#JTable(java.util.Vector, java.util.Vector)"></a>    </td>
+    <td>Create a table.
+        The optional <code>TableModel</code> argument
+        specifies the model that provides the data to the table.
+        The optional <code>TableColumnModel</code> and
+        <code>ListSelectionModel</code> arguments
+        let you specify the table column model
+        and the row selection model.
+        As an alternative to specifying a table model,
+        you can supply data and column names,
+        using arrays or vectors.
+        Another option is to specify no data,
+        optionally specifying the number of rows and columns (both integers)
+        to be in the table.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTable.html#setPreferredScrollableViewportSize(java.awt.Dimension)"><font color="#8800bb"><font size=2><code>void setPreferredScrollableViewportSize(Dimension)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTable.html#setPreferredScrollableViewportSize(java.awt.Dimension)"></a>    </td>
+    <td>Set the size of the visible part of the table
+        when it's viewed within a scroll pane.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTable.html#getTableHeader()"><font color="#8800bb"><font size=2><code>JTableHeader getTableHeader()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTable.html#getTableHeader()"></a>    </td>
+    <td>Get the component that displays the column names.
+    </td>
+  </tr>
+</table>
+
+<p>
+<table border=1>
+<caption><a name="columnapi">Manipulating Columns</a></caption>
+<tr>
+<th align=left>Constructor or Method
+</th>
+<th align=left>Purpose
+
+</th>
+</tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTable.html#getColumnModel()"><font color="#8800bb"><font size=2><code>TableColumnModel getColumnModel()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTable.html#getColumnModel()"></a>    <br>
+    <em>(in <code>JTable</code>)
+    </td>
+    <td>Get the table's column model.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/table/TableColumnModel.html#getColumn(int)"><font color="#8800bb"><font size=2><code>TableColumn getColumn(int)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/table/TableColumnModel.html#getColumn(int)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/table/TableColumnModel.html#getColumns()"><font color="#8800bb"><font size=2><code>Enumeration getColumns()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/table/TableColumnModel.html#getColumns()"></a>    <br>
+    <em>(in <code>TableColumnModel</code>)
+    </td>
+    <td>Get one or all of the <code>TableColumn</code> objects for the table.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/table/TableColumn.html#setMinWidth(int)"><font color="#8800bb"><font size=2><code>void setMinWidth(int)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/table/TableColumn.html#setMinWidth(int)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/table/TableColumn.html#setPreferredWidth(int)"><font color="#8800bb"><font size=2><code>void setPreferredWidth(int)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/table/TableColumn.html#setPreferredWidth(int)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/table/TableColumn.html#setMaxWidth(int)"><font color="#8800bb"><font size=2><code>void setMaxWidth(int)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/table/TableColumn.html#setMaxWidth(int)"></a>    <br>
+    <em>(in <code>TableColumn</code>)
+    </td>
+    <td>Set the minimum, preferred, or maximum
+        width of the column.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/table/TableColumn.html#getMinWidth()"><font color="#8800bb"><font size=2><code>int getMinWidth()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/table/TableColumn.html#getMinWidth()"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/table/TableColumn.html#getPreferredWidth()"><font color="#8800bb"><font size=2><code>int getPreferredWidth()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/table/TableColumn.html#getPreferredWidth()"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/table/TableColumn.html#getMaxWidth()"><font color="#8800bb"><font size=2><code>int getMaxWidth()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/table/TableColumn.html#getMaxWidth()"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/table/TableColumn.html#getWidth()"><font color="#8800bb"><font size=2><code>int getWidth()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/table/TableColumn.html#getWidth()"></a>    <br>
+    <em>(in <code>TableColumn</code>)
+    </td>
+    <td>Get the minimum, preferred, maximum, or current
+        width of the column.
+    </td>
+  </tr>
+</table>
+
+<p>
+<table border=1>
+<caption><a name="editrenderapi">Using Editors and Renderers</a></caption>
+<tr>
+<th align=left>Method
+</th>
+<th align=left>Purpose
+</th>
+</tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTable.html#setDefaultRenderer(java.lang.Class, javax.swing.table.TableCellRenderer)"><font color="#8800bb"><font size=2><code>void setDefaultRenderer(Class, TableCellRenderer)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTable.html#setDefaultRenderer(java.lang.Class, javax.swing.table.TableCellRenderer)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTable.html#setDefaultEditor(java.lang.Class, javax.swing.table.TableCellEditor)"><font color="#8800bb"><font size=2><code>void setDefaultEditor(Class, TableCellEditor)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTable.html#setDefaultEditor(java.lang.Class, javax.swing.table.TableCellEditor)"></a>    <br>
+    <em>(in <code>JTable</code>)
+    </td>
+    <td>Set the renderer or editor
+        used, by default, for all cells in all columns
+        that return objects of the specified type.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/table/TableColumn.html#setCellRenderer(javax.swing.table.TableCellRenderer)"><font color="#8800bb"><font size=2><code>void setCellRenderer(TableCellRenderer)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/table/TableColumn.html#setCellRenderer(javax.swing.table.TableCellRenderer)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/table/TableColumn.html#setCellEditor(javax.swing.table.TableCellEditor)"><font color="#8800bb"><font size=2><code>void setCellEditor(TableCellEditor)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/table/TableColumn.html#setCellEditor(javax.swing.table.TableCellEditor)"></a>    <br>
+    <em>(in <code>TableColumn</code>)
+    </td>
+    <td>Set the renderer or editor
+        used for all cells in this column.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/table/TableColumn.html#getHeaderRenderer()"><font color="#8800bb"><font size=2><code>TableCellRenderer getHeaderRenderer()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/table/TableColumn.html#getHeaderRenderer()"></a>    <br>
+    <em>(in <code>TableColumn</code>)
+    </td>
+    <td>Get the header renderer for this column.
+
+<p>
+<strong>Version Note:</strong>&nbsp;        As of 1.3, this method returns <code>null</code>
+        if the column uses the default renderer.
+        You generally use
+        the <code>TableHeader</code> method
+        <code>getDefaultRenderer</code> instead.
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/table/JTableHeader.html#getDefaultRenderer()"><font color="#8800bb"><font size=2><code>TableCellRenderer getDefaultRenderer()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/table/JTableHeader.html#getDefaultRenderer()"></a>    <br>
+    <em>(in <code>JTableHeader</code>)
+    </td>
+    <td>Get the header renderer used
+        when none is defined by a table column.
+        Introduced in 1.3.
+    </td>
+  </tr>
+</table>
+<p>
+<table border=1>
+<caption><a name="selectionapi">Implementing Selection</a></caption>
+<tr>
+<th align=left>Method
+</th>
+<th align=left>Purpose
+
+</th>
+</tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTable.html#setSelectionMode(int)"><font color="#8800bb"><font size=2><code>void setSelectionMode(int)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTable.html#setSelectionMode(int)"></a>    </td>
+    <td>Set the selection intervals allowed in the table.
+        Valid values are defined in
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/ListSelectionModel.html"><font color="#8800bb">ListSelectionModel</font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/ListSelectionModel.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>        as <code>SINGLE_SELECTION</code>,
+        <code>SINGLE_INTERVAL_SELECTION</code>,
+        and <code>MULTIPLE_INTERVAL_SELECTION</code> (the default).
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTable.html#setSelectionModel(javax.swing.ListSelectionModel)"><font color="#8800bb"><font size=2><code>void setSelectionModel(ListSelectionModel)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTable.html#setSelectionModel(javax.swing.ListSelectionModel)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTable.html#getSelectionModel()"><font color="#8800bb"><font size=2><code>ListSelectionModel getSelectionModel()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTable.html#getSelectionModel()"></a>    </td>
+    <td>Set or get the model used to control row selections.
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTable.html#setRowSelectionAllowed(boolean)"><font color="#8800bb"><font size=2><code>void setRowSelectionAllowed(boolean)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTable.html#setRowSelectionAllowed(boolean)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTable.html#setColumnSelectionAllowed(boolean)"><font color="#8800bb"><font size=2><code>void setColumnSelectionAllowed(boolean)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTable.html#setColumnSelectionAllowed(boolean)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTable.html#setCellSelectionEnabled(boolean)"><font color="#8800bb"><font size=2><code>void setCellSelectionEnabled(boolean)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JTable.html#setCellSelectionEnabled(boolean)"></a>    </td>
+    <td>Set the table's selection orientation.
+        The boolean argument specifies whether
+        that particular type of selection is allowed.
+        By default, row selection is allowed,
+        and column and cell selection are not.
+    </td>
+  </tr>
+</table>
+
+<p>
+
+
+</blockquote>
+<h3>
+<a name="eg">Examples that Use Tables</a>
+</h3>
+<blockquote>
+This table lists examples that use <code>JTable</code>
+and where those examples are described.
+<p>
+<table>
+<tr>
+<th align=left> Example
+</th>
+<th align=left> Where Described
+</th>
+<th align=left> Notes
+
+</th>
+</tr>
+<tr>
+<td> <a href="example-1dot4/index.html#SimpleTableDemo"><code>SimpleTableDemo</code></a>
+</td>
+<td> <a href="#simple">Creating a Simple Table</a>
+</td>
+<td> A basic table with <em>no</em> custom model.
+     Does not include code to
+     <a href="#width">specify column widths</a> or
+     <a href="#modelchange">detect user editing</a>.
+
+</td>
+</tr>
+<tr>
+<td> <a href="example-1dot4/index.html#SimpleTableSelectionDemo"><code>SimpleTable-
+<br>
+SelectionDemo</code></a>
+</td>
+<td> <a href="#selection">Detecting User Selections</a>
+</td>
+<td> Adds single selection and selection detection to <code>SimpleTableDemo</code>.
+     By modifying the program's <code>ALLOW_COLUMN_SELECTION</code>
+     and <code>ALLOW_ROW_SELECTION</code> constants,
+     you can experiment with alternatives to the table default
+     of allowing only rows to be selected.
+
+</td>
+</tr>
+<tr>
+<td> <a href="example-1dot4/index.html#TableDemo"><code>TableDemo</code></a>
+</td>
+<td> <a href="#data">Creating a Table Model</a>
+</td>
+<td> A basic table with a custom model.
+
+</td>
+</tr>
+<tr>
+<td> <a href="example-1dot4/index.html#TableFTFEditDemo"><code>TableFTFEditDemo</code></a>
+
+</td>
+<td> <a href="#validtext">Using an Editor to Validate User-Entered Text</a>
+</td>
+<td> Modifies <code>TableDemo</code> to use a custom editor
+     (a formatted text field variant) for all <code>Integer</code> data.
+
+</td>
+</tr>
+<tr>
+<td> <a href="example-1dot4/index.html#TableRenderDemo"><code>TableRenderDemo</code></a>
+</td>
+<td> <a href="#combobox">Using a Combo Box as an Editor</a>
+</td>
+<td> Modifies <code>TableDemo</code> to use a custom editor
+     (a combo box) for all data in the <b>Sport</b> column.
+     Also intelligently picks column sizes.
+     Uses renderers to display tool tips for the sport cells.
+
+</td>
+</tr>
+<tr>
+<td> <a href="example-1dot4/index.html#TableDialogEditDemo"><code>TableDialogEditDemo</code></a>
+</td>
+<td> <a href="#editor">Using Other Editors</a>
+</td>
+<td> Modifies <code>TableDemo</code>
+     to have a cell renderer and editor that
+     display a color and let you choose a new one,
+     using a color chooser dialog.
+</td>
+</tr>
+
+<tr>
+<td> <a href="example-1dot4/index.html#TableToolTipsDemo"><code>TableToolTipsDemo</code></a>
+</td>
+<td> <a href="#celltooltip">Specifying Tool Tips for Cells</a>,
+     <a href="#headertooltip">Specifying Tool Tips for Column Headers</a>,
+</td>
+<td> Demonstrates how to use several techniques to set
+     tool tip text for cells and column headers.
+</td>
+</tr>
+
+<tr>
+<td> <a href="example-1dot4/index.html#TableSorterDemo"><code>TableSorterDemo</code></a>
+</td>
+<td> <a href="#sorting">Sorting and Otherwise Manipulating Data</a>
+</td>
+<td> Sorts column data by interposing a data manipulating table model
+     between the data model and the table.
+     Detects user clicks on column headers.
+</td>
+</tr>
+
+<tr>
+<td> <a href="../events/example-1dot4/index.html#ListSelectionDemo"><code>ListSelectionDemo</code></a>
+</td>
+<td> <a href="../events/listselectionlistener.html">
+     How to Write a List Selection Listener</a>
+</td>
+<td> Shows how to use all list selection modes,
+     using a list selection listener that's shared
+     between a table and list.
+
+</td>
+</tr>
+<tr>
+<td> <a href="example-1dot4/index.html#SharedModelDemo"><code>SharedModelDemo</code></a>
+</td>
+<td> Nowhere
+</td>
+<td> Builds on <code>ListSelectionDemo</code>
+     making the data model be shared between the table and list.
+     If you edit an item in the first column of the table,
+     the new value is reflected in the list.
+
+</td>
+</tr>
+<tr>
+<td> TreeTable, TreeTable II
+</td>
+<td> <a
+href="http://java.sun.com/products/jfc/tsc/articles/treetable1/index.html">Creating TreeTables in Swing</a>,
+     <a
+href="http://java.sun.com/products/jfc/tsc/articles/treetable2/index.html">Creating TreeTables: Part 2</a>
+</td>
+<td> Examples that combine a tree and table to show
+     detailed information about a hierarchy
+     such as a file system.
+     The tree is a renderer for the table.
+
+</td>
+</tr>
+</table>
+
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="tabbedpane.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#components" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="textarea.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

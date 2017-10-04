@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res-auto" phantom:orientation="vertical" phantom:layout_width="match_parent" phantom:layout_height="match_parent" phantom:baselineAligned="false">
+    <RelativeLayout phantom:id="@id/bp6" phantom:paddingLeft="@dimen/w8" phantom:paddingRight="@dimen/w8" phantom:layout_width="match_parent" phantom:layout_height="UNKNOWN_DATA_0x7f0b033c">
+        <TextView phantom:textSize="@dimen/wm" phantom:textColor="@color/om" phantom:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" phantom:id="@id/bp7" phantom:layout_width="wrap_content" phantom:layout_height="wrap_content" phantom:layout_centerVertical="true" />
+        <ImageView phantom:id="@id/bp8" phantom:layout_width="wrap_content" phantom:layout_height="wrap_content" phantom:src="@drawable/setting_ui_battery_pagedown" phantom:adjustViewBounds="true" phantom:layout_alignParentRight="true" phantom:layout_centerVertical="true" phantom:contentDescription="@string/app_name" />
+    </RelativeLayout>
+    <ViewStub phantom:id="@id/bp9" phantom:layout="@layout/setting_ui_battery_history_info_view" phantom:inflatedId="@id/bp_" phantom:layout_width="match_parent" phantom:layout_height="wrap_content" />
+</LinearLayout>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="53"
+   name=""
+   committed-date="2005-02-25T22:16:45.420625Z"
+   url="svn://192.168.2.2/IT105Editor/src"
+   last-author="karl"
+   kind="dir"
+   uuid="0daf4267-3229-f84b-9084-f3c94b025f38"
+   revision="55"/>
+<entry
+   name="eecs"
+   kind="dir"/>
+<entry
+   name="jedit"
+   kind="dir"/>
+<entry
+   committed-rev="10"
+   name="editordocs.jarContent"
+   text-time="2005-03-02T06:14:22.671875Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="cbcac6aaa8b0ac5391ecbd94bb21ca68"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:21.531250Z"/>
+<entry
+   committed-rev="10"
+   name="BugList"
+   text-time="2005-03-02T06:14:22.671875Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="0c69de63a895dd251d37cd9f68e16c36"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:21.546875Z"/>
+<entry
+   name="CVS"
+   kind="dir"/>
+<entry
+   committed-rev="10"
+   name="editor.jarContent"
+   text-time="2005-03-02T06:14:22.687500Z"
+   committed-date="2005-02-01T05:59:34.421875Z"
+   checksum="305e94b35e69638aa508559a15d2e7bf"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:14:21.625000Z"/>
+<entry
+   name="edu"
+   kind="dir"/>
+</wc-entries>

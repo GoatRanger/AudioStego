@@ -1,0 +1,6 @@
+<applet code="RaceApplet.class"
+        codebase="example-swing/"
+        archive="raceapplet.jar"
+        width="460" height="50">
+<param name="type" value="fair">
+</applet>

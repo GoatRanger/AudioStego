@@ -1,0 +1,176 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>The Anatomy of an Applet</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="../application/index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#applet" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="import.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+
+<br>
+<font size="-1">
+<b>Trail</b>: Getting Started
+</font>
+
+<h2>
+Lesson: The Anatomy of an Applet
+</h2>
+<blockquote>
+Now that you've seen a Java applet,
+you're probably wondering how it works.
+Remember that a <em>Java applet</em>
+is a program that adheres to a set of conventions
+that allows it to run within a Java-compatible browser.
+
+<p>
+
+Here again is the code for the "Hello World" applet.
+<blockquote><pre>
+import java.applet.Applet;
+import java.awt.Graphics;
+
+public class HelloWorld extends Applet {
+    public void paint(Graphics g) {
+        g.drawString(&quot;Hello world!&quot;, 50, 25);
+    }
+}
+</pre></blockquote>
+
+
+</blockquote>
+<h3>
+<a href=import.html>Importing Classes and Packages</a>
+</h3>
+<blockquote>
+The code above starts off with two <code>import</code> statements.
+By importing classes or packages,
+a class can more easily refer to classes in other packages.
+In the Java language, <em>packages</em> are used to group classes,
+similar to the way libraries are used to group C functions.
+<a href="import.html">Importing Classes and Packages</a>
+gives you more information about packages and the <code>import</code>
+statement.
+
+
+</blockquote>
+<h3>
+<a href=subclass.html>Defining an Applet Subclass</a>
+</h3>
+<blockquote>
+Every applet must define a subclass of the <code>Applet</code> class.
+In the "Hello World" applet, 
+this subclass is called HelloWorld.
+Applets inherit a great deal of functionality
+from the <code>Applet</code> class,
+ranging from communication with the browser
+to the ability to present a graphical user interface (GUI).
+<a href="subclass.html">Defining an <code>Applet</code> Subclass</a> tells
+you how.
+
+
+</blockquote>
+<h3>
+<a href=methods.html>Implementing Applet Methods</a>
+</h3>
+<blockquote>
+The HelloWorld applet implements just one method,
+the <code>paint</code> method.
+Every applet must implement at least one of the following methods:
+<code>init</code>, <code>start</code>, or <code>paint</code>.
+Unlike Java applications,
+applets do <em>not</em> need to implement a
+<code>main</code> method.
+<a href=methods.html>Implementing <code>Applet</code> Methods</a>
+talks about the <code>paint</code> method, how the "Hello World"
+applet implements it, and the other methods applets commonly implement.
+
+
+</blockquote>
+<h3>
+<a href=running.html>Running an Applet</a>
+</h3>
+<blockquote>
+Applets are meant to be included in HTML pages.
+Using the <code>&lt;APPLET&gt;</code> tag,
+you specify (at a minimum)
+the location of the <code>Applet</code> subclass 
+and the dimensions of the applet's onscreen display area.
+When a Java-capable browser encounters an <code>&lt;APPLET&gt;</code> tag,
+it reserves onscreen space for the applet,
+loads the <code>Applet</code> subclass onto the computer the browser is executing on,
+and creates an instance of the <code>Applet</code> subclass.
+<a href=running.html>Running an Applet</a> gives more details.
+
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="../application/index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#applet" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="import.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

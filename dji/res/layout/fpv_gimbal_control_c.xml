@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res-auto">
+    <dji.publics.DJIUI.DJIImageView phantom:id="@id/a1i" phantom:background="@drawable/fpv_gimbal_control_point" phantom:visibility="invisible" phantom:layout_width="wrap_content" phantom:layout_height="wrap_content" />
+    <dji.publics.DJIUI.DJIImageView phantom:id="@id/a1k" phantom:background="@drawable/fpv_gimbal_control_bg" phantom:visibility="invisible" phantom:layout_width="wrap_content" phantom:layout_height="wrap_content" />
+</merge>

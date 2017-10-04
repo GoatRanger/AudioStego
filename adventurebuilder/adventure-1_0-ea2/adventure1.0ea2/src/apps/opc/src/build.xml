@@ -1,0 +1,195 @@
+<?xml version="1.0"?>
+<!-- Copyright 2003 Sun Microsystems, Inc. All rights reserved.
+ 
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions
+ are met:
+ 
+ - Redistributions of source code must retain the above copyright
+   notice, this list of conditions and the following disclaimer.
+ 
+ - Redistribution in binary form must reproduce the above copyright
+   notice, this list of conditions and the following disclaimer in
+   the documentation and/or other materials provided with the
+   distribution.
+ 
+ Neither the name of Sun Microsystems, Inc. or the names of
+ contributors may be used to endorse or promote products derived
+ from this software without specific prior written permission.
+ 
+ This software is provided "AS IS," without a warranty of any
+ kind. ALL EXPRESS OR IMPLIED CONDITIONS, REPRESENTATIONS AND
+ WARRANTIES, INCLUDING ANY IMPLIED WARRANTY OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE OR NON-INFRINGEMENT, ARE HEREBY
+ EXCLUDED. SUN AND ITS LICENSORS SHALL NOT BE LIABLE FOR ANY DAMAGES
+ SUFFERED BY LICENSEE AS A RESULT OF USING, MODIFYING OR
+ DISTRIBUTING THE SOFTWARE OR ITS DERIVATIVES. IN NO EVENT WILL SUN
+ OR ITS LICENSORS BE LIABLE FOR ANY LOST REVENUE, PROFIT OR DATA, OR
+ FOR DIRECT, INDIRECT, SPECIAL, CONSEQUENTIAL, INCIDENTAL OR
+ PUNITIVE DAMAGES, HOWEVER CAUSED AND REGARDLESS OF THE THEORY OF
+ LIABILITY, ARISING OUT OF THE USE OF OR INABILITY TO USE SOFTWARE,
+ EVEN IF SUN HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+ 
+ You acknowledge that Software is not designed, licensed or intended
+ for use in the design, construction, operation or maintenance of
+ any nuclear facility.
+ $Id: build.xml,v 1.14 2003/03/11 20:36:03 brydon Exp $ -->
+
+<!DOCTYPE project [
+  <!ENTITY commonAntCommands SYSTEM "../../../config/common-ant.xml">
+  <!ENTITY appServerAntCommands SYSTEM "../../../config/app-server-ant.xml">
+]>
+
+<project name="OPCapp" default="core" basedir=".">
+
+  <!-- path to root -->
+  <property name="root.dir" value="../../.."/> 
+
+  <property name="OPCapp.home" value=".."/>
+
+  <!-- The destination directory for the build -->
+  <property name="build.dir" value="${OPCapp.home}/build"/>
+
+  &commonAntCommands; <!-- include common ant commands -->
+
+  <property name="OPCapp.src" value="${OPCapp.home}/src"/>
+  <property name="build.dirjardir" value="${build.dir}/jar"/>
+  <property name="OPCEJB.jar" value="${build.dir}/opcEJB.jar"/>
+
+  <property name="OPCapp.po.jaxrpc.wsdl" value="${build.dir}/classes/OpcPurchaseOrderService.wsdl"/>
+  <property name="OPCapp.po.jaxrpc.model" value="${build.dir}/OpcPurchaseOrderServiceModel.gz"/>
+
+  <property name="OPCapp.ot.jaxrpc.wsdl" value="${build.dir}/classes/OpcOrderTrackingService.wsdl"/>
+  <property name="OPCapp.ot.jaxrpc.model" value="${build.dir}/OpcOrderTrackingServiceModel.gz"/>
+
+  <property name="OPCapp.components.basedir" value="../../../components"/>
+
+  <!-- The UID Component -->
+  <property name="OPCapp.uid.home" value="${OPCapp.components.basedir}/uidgen"/>
+  <property name="OPCapp.uid.ejb.jar" value="${OPCapp.uid.home}/build/uidgen-ejb.jar"/>
+  <!-- UIDGen Ejb Client jar -->
+  <property name="OPCapp.uidgen.home" value="${OPCapp.components.basedir}/uidgen"/>
+  <property name="OPCapp.uidgenclient.jar" value="${OPCapp.uidgen.home}/build/uidgen-ejb-client.jar"/>
+
+  <!-- The ProcessManager Component -->
+  <property name="OPCapp.processmanager.home" value="${OPCapp.components.basedir}/processmanager"/>
+  <property name="OPCapp.processmanager.ejb.jar" value="${OPCapp.processmanager.home}/build/processmanager-ejb.jar"/>
+  <!-- ProcessManager Ejb Client jar -->
+  <property name="OPCapp.processmanagerclient.jar" value="${OPCapp.processmanager.home}/build/processmanager-ejb-client.jar"/>
+
+  <!-- The Service Locator Component -->
+  <property name="OPCapp.servloc.home" value="${OPCapp.components.basedir}/servicelocator"/>
+  <property name="OPCapp.servloc.jar" value="${OPCapp.servloc.home}/build/servicelocator.jar"/>
+
+  <path id="OPCapp.classpath">
+    <path refid="compile.classpath" />
+    <pathelement path="${OPCapp.servloc.jar}"/>
+    <pathelement path="${OPCapp.uid.ejb.jar}"/>
+    <pathelement path="${OPCapp.uidgenclient.jar}"/>
+    <pathelement path="${OPCapp.processmanager.ejb.jar}"/>
+    <pathelement path="${OPCapp.processmanagerclient.jar}"/>
+    <pathelement path="${OPCapp.poclient.jar}"/>
+  </path>
+
+  <!-- Application Module to be deployed -->
+  <property name="application.module" value="${build.dir}/opc.ear"/>
+   <!-- Banner Title for build -->
+  <property name="banner.title" value="OPC application"/>
+
+  <!-- various properties for Javadocs -->
+  <property name="javadocs.windowtitle" value="OPCapp Component API"/>
+  <property name="javadocs.doctitle" value="OPCapp Component"/>
+  <path id="javadocs.classpath">
+    <path refid="OPCapp.classpath"/>
+    <pathelement path="${OPCapp.uid.home}/build/classes"/>
+    <pathelement path="${OPCapp.processmanager.home}/build/classes"/>
+    <pathelement path="${OPCapp.servloc.home}/build/classes"/>
+  </path>
+  <path id="javadocs.sourcepath">
+    <pathelement path="${OPCapp.servloc.home}/src"/>
+    <pathelement path="${OPCapp.uid.home}/src"/>
+    <pathelement path="${OPCapp.processmanager.home}/src"/>
+    <pathelement path="${OPCapp.src}"/>
+  </path>
+
+  <target name="compile" depends="compile-core" />
+
+  <target name="compile-core" depends="tools">
+    <mkdir dir="${classes.dir}"/>
+    <javac srcdir="${OPCapp.src}"
+           debug="${javac.debug}"
+           destdir="${classes.dir}"
+	   includes="com/**">
+      <classpath refid="OPCapp.classpath"/>
+    </javac>
+
+    <echo message="Running wscompile for the OPC PURCHASE ORDER endpoint:"/>
+    <exec executable="${wscompile}">
+        <arg line="-classpath ${classes.dir}" />
+        <arg line="-gen:server" />
+        <arg line="-keep" />
+        <arg line="-model ${OPCapp.po.jaxrpc.model}" />
+        <arg line="-d ${classes.dir}" />
+        <arg line="po-jaxrpc-config.xml" />
+    </exec>
+
+    <echo message="Running wscompile for the OPC ORDER TRACKING endpoint:"/>
+    <exec executable="${wscompile}">
+        <arg line="-classpath ${classes.dir}" />
+        <arg line="-gen:server" />
+        <arg line="-keep" />
+        <arg line="-model ${OPCapp.ot.jaxrpc.model}" />
+        <arg line="-d ${classes.dir}" />
+        <arg line="ot-jaxrpc-config.xml" />
+    </exec>
+
+  </target>
+
+  <target name="ejbjar" depends="compile">
+    <delete dir="${build.dirjardir}" quiet="true"/>
+    <mkdir dir="${build.dirjardir}"/>
+    <mkdir dir="${build.dirjardir}/META-INF"/>
+    <copy todir="${build.dirjardir}">
+          <fileset dir="${classes.dir}" />
+    </copy>
+    <copy file="${OPCapp.src}/servicemapping_ejb.xml"  todir="${build.dirjardir}" />
+    <copy file="${OPCapp.po.jaxrpc.wsdl}"  todir="${build.dirjardir}" />
+    <copy file="${OPCapp.po.jaxrpc.model}"  todir="${build.dirjardir}" />
+    <copy file="${OPCapp.ot.jaxrpc.wsdl}"  todir="${build.dirjardir}" />
+    <copy file="${OPCapp.ot.jaxrpc.model}"  todir="${build.dirjardir}" />
+    <copy file="${OPCapp.src}/ejb-jar.xml"  todir="${build.dirjardir}/META-INF" />
+    <copy file="${OPCapp.src}/webservices.xml"  todir="${build.dirjardir}/META-INF" />
+    <jar jarfile="${OPCEJB.jar}" basedir="${build.dirjardir}" excludes="cvs">
+       <manifest>
+         <attribute name="Class-Path" value="servicelocator.jar uidgen-ejb-client.jar processmanager-ejb-client.jar"/>
+       </manifest>
+    </jar>
+  </target>
+
+  <target name="ear" depends="compile, ejbjar">
+      <delete dir="${build.dirjardir}" quiet="true"/>
+      <mkdir dir="${build.dirjardir}"/>
+      <mkdir dir="${build.dirjardir}/META-INF"/>
+      <copy file="${OPCapp.src}/application.xml" todir="${build.dirjardir}/META-INF" />
+      <copy file="${OPCapp.src}/sun-j2ee-ri.xml" todir="${build.dirjardir}/META-INF" />
+      <copy file="${OPCapp.servloc.jar}" todir="${build.dirjardir}" />
+      <copy file="${OPCapp.uid.ejb.jar}" todir="${build.dirjardir}" />
+      <copy file="${OPCapp.uidgenclient.jar}" todir="${build.dirjardir}" />
+      <copy file="${OPCapp.processmanager.ejb.jar}" todir="${build.dirjardir}" />
+      <copy file="${OPCapp.processmanagerclient.jar}" todir="${build.dirjardir}" />
+      <copy file="${OPCEJB.jar}" todir="${build.dirjardir}" />
+      <delete file="${application.module}" quiet="true"/>
+      <jar jarfile="${application.module}" basedir="${build.dirjardir}" />
+  </target>
+
+  <target name="opc-component">
+    <ant dir="${OPCapp.uid.home}/src" target="core" inheritAll="false" inheritRefs="false"/>
+    <ant dir="${OPCapp.processmanager.home}/src" target="core" inheritAll="false" inheritRefs="false"/>
+    <ant dir="${OPCapp.servloc.home}/src" target="core" inheritAll="false" inheritRefs="false"/>
+  </target>
+
+  <target name="core" depends="banner, opc-component, compile, ejbjar, ear" />
+  <target name="all" depends="core, javadocs" />
+
+</project>
+

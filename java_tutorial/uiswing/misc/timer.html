@@ -1,0 +1,385 @@
+
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>How to Use Swing Timers</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="threads.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#misc" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="problems.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Creating a GUI with JFC/Swing
+<br>
+<b>Lesson</b>: Using Other Swing Features
+</font>
+
+<h2>
+How to Use Swing Timers
+</h2>
+<blockquote>
+
+A Swing timer
+(an instance of
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/Timer.html"><font color="#8800bb"><code>javax.swing.Timer</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/Timer.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>) fires one or more action events
+after a specified delay.
+Don't confuse Swing timers with 
+the general-purpose timer facility that was added
+to the <code>java.util</code> package in release 1.3.
+This page describes only Swing timers;
+you can find information on 
+general-purpose timers in
+<a target="_top" href="../../essential/threads/timer.html">Using the Timer and TimerTask Classes</a><a target="_top" href="../../essential/threads/timer.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a> in the
+<a target="_top" href="../../essential/">Essential Java Classes </a><a target="_top" href="../../essential/"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a> trail. 
+<p>
+In general, we recommend using Swing timers
+rather than general-purpose timers
+for GUI-related tasks because Swing timers
+all share the same, pre-existing timer thread
+and the GUI-related task automatically
+executes on the event-dispatching thread.
+However, you might use a general-purpose timer if
+you don't plan on touching the GUI from the timer,
+or need to perform lengthy processing.
+
+<p>
+
+You can use Swing timers in two ways:
+
+<ul>
+<li> To perform a task once, after a delay.
+<br>
+     For example, the tool tip manager
+     uses Swing timers to determine when to show a tool tip
+     and when to hide it.
+<li> To perform a task repeatedly.
+<br>
+     For example, you might perform animation
+     or update a component that displays progress toward a goal.
+</ul>
+
+<p>
+Swing timers are very easy to use.
+When you create the timer, you specify an
+action listener to be notified when the
+timer "goes off".  The <code>actionPerformed</code>
+method in this listener should contain the code for
+whatever task you need to be performed.
+When you create the timer, you also specify the
+number of milliseconds between timer firings.
+If you want the timer to go off only once, you can
+invoke <code>setRepeats(false)</code> on the timer.
+To start the timer, call its <code>start</code> method.
+To suspend it, call <code>stop</code>.
+
+<p>
+Note that the Swing timer's task is performed 
+in the event-dispatching thread.
+This means that the task can safely
+manipulate components,
+but it also means that
+the task should execute quickly.
+If the task might take a while to execute,
+then consider using a <code>SwingWorker</code>
+instead of or in addition to the timer.
+See <a href="threads.html">How to Use Threads</a>
+for instructions about using the <code>SwingWorker</code> class
+and information on using Swing components in multi-threaded programs.
+
+<p>
+
+Let's look at an example of using a timer
+to periodically update a component 
+that displays progress toward a goal.
+Here's a picture of an application that
+uses a timer and a progress bar
+to display the progress of a long-running task.
+
+<p><center><IMG SRC="../../figures/uiswing/components/ProgressBarDemo.gif" WIDTH="275" HEIGHT="209" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="An application that uses a timer to periodically update a progress bar"></center></p>
+
+<blockquote><hr><strong>Try this:</strong>&nbsp;
+<ol>
+<li> <a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/components/example-1dot4/ProgressBarDemo.jnlp">Run
+     ProgressBarDemo</a> using
+     <a href=http://java.sun.com/products/javawebstart>
+     Java<sup><font size=-2>TM</font></sup> Web Start</a>.
+     Or, to compile and run the example yourself,
+     consult the
+     <a href="../components/example-1dot4/index.html#ProgressBarDemo">example
+     index for components</a>.
+
+<li> Push the Start button.
+     A timer updates the progress bar once per second as
+     the task executes.
+</ol>
+<hr></blockquote>
+
+Here's the code from
+
+<a target="_blank" href="../components/example-1dot4/ProgressBarDemo.java"><font color="#bb000f"><code>ProgressBarDemo.java</code></font></a><a target="_blank" href="../components/example-1dot4/ProgressBarDemo.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>
+that creates a timer set up to go off every second.
+Each time the timer goes off it receives an action event.
+The action listener contains
+the code that implements the timer's task.
+In this case, the handler for the action event has the
+job of finding out how close a thread is to completing
+its work and then updating the progress bar accordingly. 
+If the thread has completed its work, the action listener
+also stops the timer and updates the GUI to reflect that the
+thread is finished.
+
+<blockquote><pre>
+public final static int ONE_SECOND = 1000;
+...
+timer = new Timer(ONE_SECOND, new ActionListener() {
+    public void actionPerformed(ActionEvent evt) {
+	<em>//...Update the progress bar...</em>
+
+        if (<em>/* thread is done */</em>) {
+            timer.stop();
+            <em>//...Update the GUI...</em>
+        }
+    }    
+});
+</pre></blockquote>
+When the user presses the Start button,
+the program starts the timer:
+<blockquote><pre>
+timer.start();
+</pre></blockquote>
+
+
+</blockquote>
+<h3>
+<a name="api">The Timer API</a>
+</h3>
+<blockquote>
+The following tables list the commonly used
+<code>javax.swing.Timer</code> constructors and methods.
+The API for using Swing timers falls into two categories:
+
+<ul>
+<li><a href="#setupapi">Creating and Initializing the Timer</a>
+<li><a href="#runningapi">Running the Timer</a>
+</ul>
+
+<p>
+
+<table border=1>
+<caption><a name="setupapi">Creating and Initializing the Timer</a></caption>
+<tr>
+<th>Method or Constructor</th>
+<th>Purpose</th>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/Timer.html#Timer(int, java.awt.event.ActionListener)"><font color="#8800bb"><font size=2><code>Timer(int, ActionListener)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/Timer.html#Timer(int, java.awt.event.ActionListener)"></a></td>
+<td>Create a Swing timer.
+    The <code>int</code> argument specifies the number of
+    milliseconds to pause between action events.
+    Use <code>setDelay</code> to change the delay after construction.
+    The second argument is an action listener,
+    which the constructor registers with the timer.
+    You can also register action listeners with <code>addActionListener</code>
+    and remove them with <code>removeActionlistener</code>.
+    Note that all timers share the same thread so there is no risk
+    of Swing timers spawning more threads than the user's system
+    can handle.
+</td>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/Timer.html#setDelay(int)"><font color="#8800bb"><font size=2><code>void setDelay(int)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/Timer.html#setDelay(int)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/Timer.html#getDelay()"><font color="#8800bb"><font size=2><code>int getDelay()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/Timer.html#getDelay()"></a><td>Set or get the number of milliseconds between action events.</td>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/Timer.html#setInitialDelay(int)"><font color="#8800bb"><font size=2><code>void setInitialDelay(int)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/Timer.html#setInitialDelay(int)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/Timer.html#getInitialDelay()"><font color="#8800bb"><font size=2><code>int getInitialDelay()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/Timer.html#getInitialDelay()"></a></td>
+<td>Set or get the number of milliseconds to wait before
+    firing the first action event.
+    By default the initial delay is equal to the regular delay.</td>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/Timer.html#setRepeats(boolean)"><font color="#8800bb"><font size=2><code>void setRepeats(boolean)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/Timer.html#setRepeats(boolean)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/Timer.html#isRepeats()"><font color="#8800bb"><font size=2><code>boolean isRepeats()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/Timer.html#isRepeats()"></a></td>
+<td>Set or get whether the timer repeats.
+    By default this value is true.
+    Call <code>setRepeats(false)</code> to set up 
+    a timer that fires a single action event and then stops.</td>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/Timer.html#setCoalesce(boolean)"><font color="#8800bb"><font size=2><code>void setCoalesce(boolean)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/Timer.html#setCoalesce(boolean)"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/Timer.html#isCoalesce()"><font color="#8800bb"><font size=2><code>boolean isCoalesce()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/Timer.html#isCoalesce()"></a></td>
+<td>Set or get whether the timer coalesces multiple,
+    pending action events into a single action event.
+    By default this value is true.</td>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/Timer.html#addActionListener(java.awt.event.ActionListener)"><font color="#8800bb"><font size=2><code>addActionListener(listener)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/Timer.html#addActionListener(java.awt.event.ActionListener)"></a><br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/Timer.html#removeActionListener(java.awt.event.ActionListener)"><font color="#8800bb"><font size=2><code>removeActionListener(listener)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/Timer.html#removeActionListener(java.awt.event.ActionListener)"></a></td>
+<td>Add or remove an action listener.
+</td>
+</tr>
+
+</table>
+
+<p>
+
+<table border=1>
+<caption><a name="runningapi">Running the Timer</a></caption>
+<tr>
+<th>Method</th>
+<th>Purpose</th>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/Timer.html#start()"><font color="#8800bb"><font size=2><code>void start()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/Timer.html#start()"></a>    <br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/Timer.html#restart()"><font color="#8800bb"><font size=2><code>void restart()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/Timer.html#restart()"></a></td>
+<td>Turn the timer on.
+    <code>restart</code> also cancels any pending action events.</td>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/Timer.html#stop()"><font color="#8800bb"><font size=2><code>void stop()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/Timer.html#stop()"></a></td>
+<td>Turn the timer off.</td>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/Timer.html#isRunning()"><font color="#8800bb"><font size=2><code>boolean isRunning()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/Timer.html#isRunning()"></a><td>Get whether the timer is on.</td>
+</tr>
+
+</table>
+
+</blockquote>
+
+<h3>
+<a name="eg">Examples that Use Timer</a>
+</h3>
+<blockquote>
+This table shows the examples that use <code>javax.swing.Timer</code>
+and where those examples are described.
+<p>
+<table>
+<tr>
+<th align=left> Example</th>
+<th align=left> Where Described</th>
+<th align=left> Notes</th>
+</tr>
+
+<tr>
+<td> <a href="../components/example-1dot4/index.html#ProgressBarDemo">
+     <code>ProgressBarDemo</code></a></td>
+<td> This section and <br>
+     <a href="../components/progress.html">How to Monitor Progress</a></td>
+<td> Uses a Swing timer to show periodic progress.</td>
+</tr>
+
+<tr>
+<td> <a href="../components/example-1dot4/index.html#SliderDemo">
+     <code>SliderDemo</code></a></td>
+<td> <a href="../components/slider.html">How to Use Sliders</a></td>
+<td> Another animation program that uses a Swing timer.
+     Allows the user to change the timer's delay dynamically.
+     Also shows how to use the initial delay and <code>restart</code>
+     to create a longer pause in an animation between certain frames.</td>
+</tr>
+
+</table>
+
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="threads.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#misc" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="problems.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

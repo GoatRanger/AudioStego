@@ -1,0 +1,195 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Handling Java Errors from Native Methods</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="field.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#implementing" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="refs.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Java Native Interface
+<br>
+<b>Lesson</b>: Interacting with Java from the Native Side
+</font>
+
+<h2>
+Handling Java Errors from Native Methods
+</h2>
+<blockquote>
+<p>
+When an exception is thrown in Java, the Java Virtual Machine
+automatically looks for the nearest enclosing exception handler and
+unwinds the stack if necessary. This style of
+exception handling frees the programmer from caring about and handling unusual
+error cases at every operation in the program. Instead, the Java Virtual Machine propagates the error
+conditions automatically to a location (the <code>
+catch</code> clause in Java) that can handle the same class of error conditions
+in a centralized way.
+
+<p> While other languages such as C++ support a similar notion of
+exception handling, there is no uniform and general way to throw and
+catch exceptions in native languages. The JNI therefore requires you to check for possible exceptions after calling JNI
+functions. The JNI also provides functions that allow your native methods to throw Java exceptions.  These exceptions can then be handled either by other parts of your native code or by
+the Java Virtual Machine. After the native code catches and handles an
+exception, it can either clear the pending exception so that the
+computation may continue, or it can throw another exception for an outer
+exception handler.
+
+<p> Many JNI functions may cause an exception to be thrown. For
+example, the <code>GetFieldID</code> function described in the
+<a href=field.html>previous section</a> throws a <code>NoSuchFieldError</code> if the
+specified field does not exist. To simplify error checking, most JNI
+functions use a combination of error codes and Java exceptions to
+report error conditions. For example, you may check if the
+<code>jfieldID</code> returned from <code>GetFieldID</code> is zero (0)
+instead of calling the JNI function <code>ExceptionOccurred</code>.
+When the result of <code>GetFieldID</code> is not zero (0), you are guaranteed
+that there is no pending exception.
+
+
+<p> The remainder of this section illustrates how to catch and throw
+exceptions in native code. The example code is in 
+<a target="_blank" href="example-1dot1/CatchThrow.java"><font color="#bb000f"><code>CatchThrow.java</code></font></a><a target="_blank" href="example-1dot1/CatchThrow.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>.
+
+<p> The <code>CatchThrow.main</code> method calls the native method. The native
+method, defined in <a href=example-1dot1/CatchThrow.c><code>CatchThrow.c</code></a>, first invokes the Java method
+<code>CatchThrow.callback</code>, as follows:
+
+<blockquote><pre>
+...
+jclass cls = (*env)->GetObjectClass(env, obj);
+jmethodID mid = (*env)->GetMethodID(env, cls, "callback", "()V");
+jthrowable exc;
+if (mid == 0) {
+    return;
+}
+(*env)->CallVoidMethod(env, obj, mid);
+...
+</pre></blockquote>
+
+<p>
+
+<blockquote><hr><strong>Note:</strong>&nbsp; Because <code>CallVoidMethod</code> throws a
+<code>NullPointerException</code>, the native code can detect this exception after
+<code>CallVoidMethod</code> returns by calling the method <code>ExceptionOccurred</code>:
+
+<blockquote><pre>
+...
+exc = (*env)->ExceptionOccurred(env);
+if (exc) {
+...
+</pre></blockquote>
+
+<hr></blockquote>
+
+<p>You can see that it is a simple matter to catch and handle an exception. In our example, we do not do
+much about the exception in <code>CatchThrow.c</code> except to use the method
+<code>ExceptionDescribe</code> to output a debugging message.  The native method then throws an
+<code>IllegalArgumentException</code>.  It is this <code>IllegalArgumentException</code> that the Java code which invoked
+the native method will see.
+
+<blockquote><pre>
+...
+(*env)->ExceptionDescribe(env);
+(*env)->ExceptionClear(env);
+
+newExcCls = (*env)->FindClass(env, "java/lang/IllegalArgumentException");
+if (newExcCls == 0) { /* Unable to find the new exception class, give up. */
+    return;
+}
+(*env)->ThrowNew(env, newExcCls, "thrown from C code");
+...
+</pre></blockquote>
+
+<p>The <code>ThrowNew</code> function constructs an exception object from the given exception class and message string and posts the exception in the current
+thread.
+
+<p>
+
+<blockquote><hr><strong>Note:</strong>&nbsp; It is <em>extremely</em> important to check, handle, and
+clear the pending exception before calling subsequent JNI
+functions. <strong>Calling arbitrary JNI functions with a pending
+exception may lead to unexpected results.</strong>  You can safely call only a small number
+of JNI functions when there is a pending exception.
+These functions are <code>ExceptionOccurred</code>, <code>ExceptionDescribe</code>, and <code>ExceptionClear</code>.
+<hr></blockquote>
+
+
+</blockquote>
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="field.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#implementing" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="refs.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Finding and Loading Data Files</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#appletsonly" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="showStatus.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Writing Applets
+<br>
+<b>Lesson</b>: Taking Advantage of the Applet API
+</font>
+
+<h2>
+Finding and Loading Data Files
+</h2>
+<blockquote>
+Whenever an applet needs to load some data
+from a file that's specified with a relative URL
+(a URL that doesn't completely specify the file's location),
+the applet usually uses either the code base or the document base
+to form the complete URL.
+The code base, 
+returned by the <code>Applet</code> <code>getCodeBase</code> method,
+is a URL that specifies the directory
+from which the applet's classes were loaded.
+The document base, 
+returned by the <code>Applet</code> <code>getDocumentBase</code> method,
+specifies the directory of the HTML page that contains the applet.
+
+<p>
+
+Unless the <code>&lt;APPLET&gt;</code> tag specifies a code base,
+both the code base and document base refer
+to the same directory on the same server.
+For example, in the figure in 
+<a target="_top" href="../overview/test.html">Test Driving an Applet</a><a target="_top" href="../overview/test.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Writing Applets trail)"></a>,
+the code and document bases would both specify
+the <em>someDirectory</em> directory.
+
+<p>
+
+Data that the applet always needs,
+or needs to rely on as a backup,
+is usually specified relative to the code base.
+Data that the applet user specifies,
+often by using parameters,
+is usually specified relative to the document base.
+
+
+<blockquote><hr><strong>Note:</strong>&nbsp;
+For security reasons, browsers limit the URLs
+from which untrusted applets can read.
+For example, most browsers don't allow untrusted applets
+to use ".." to get to directories
+above the code base or document base.
+Also, since untrusted applets can't read files
+except those on the applet's originating host,
+the document base isn't generally useful
+if the document and the untrusted applet
+are on different servers. 
+<hr></blockquote>
+
+The <code>Applet</code> class defines convenient forms of
+image-loading and sound-loading methods
+that let you specify images and sounds relative to a base URL.
+For example, assume an applet is set up
+with one of the directory structures shown
+in the following figure.
+
+<p><center><IMG SRC="../../figures/applet/7pkg.gif" WIDTH="452" HEIGHT="150" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p><p>
+
+To create an <code>Image</code> object using
+the <code>a.gif</code> image file under <code>imgDir</code>,
+the applet can use the following code:
+
+<blockquote><pre>
+Image image = getImage(getCodeBase(), "imgDir/a.gif");
+</pre></blockquote>
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#appletsonly" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="showStatus.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

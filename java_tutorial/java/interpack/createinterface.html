@@ -1,0 +1,180 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Defining an Interface</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="interfaceDef.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#interpack" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="usinginterface.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Learning the Java Language
+<br>
+<b>Lesson</b>: Interfaces and Packages
+</font>
+
+<h2>
+Defining an Interface
+</h2>
+<blockquote>
+<P>The figure below shows that an interface definition has two components: 
+the interface declaration and the interface body. The interface 
+declaration declares various attributes about the interface, such 
+as its name and whether it extends other interfaces. The interface 
+body contains the constant and the method declarations for that 
+interface.
+<p><center><IMG SRC="../../figures/java/interpack1.gif" WIDTH="545" HEIGHT="124" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p><blockquote><font size=-1>The <CODE>StockWatcher</CODE> interface 
+and the structure of an interface definition.</font size>
+</BLOCKQUOTE>
+</P>
+
+<BLOCKQUOTE>
+<PRE>
+public interface StockWatcher {
+    final String
+    sunTicker = "SUNW";
+    final String oracleTicker = "ORCL";
+    final String ciscoTicker = "CSCO";
+    void valueChanged(String tickerSymbol, double newValue);
+}
+</pre>
+</BLOCKQUOTE>
+
+<P>The interface shown in the figure above is the <CODE>StockWatcher</CODE> 
+interface mentioned previously. This interface defines three constants, 
+which are the ticker symbols of watchable stocks. This interface 
+also declares, but does not implement, the <CODE>valueChanged</CODE> 
+method. Classes that implement this interface provide the implementation 
+for that method. 
+
+<H4><FONT FACE="AvantGarde">The Interface Declaration</FONT></H4>
+
+<P>The following figure shows all possible components of an interface 
+declaration. <BR>
+<p><center><IMG SRC="../../figures/java/interpack2.gif" WIDTH="447" HEIGHT="124" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p>
+<blockquote><font size=-1>The possible components of an interface 
+declaration and their purposes.</font size>
+</BLOCKQUOTE>
+
+Two elements are required in an interface declaration--the <CODE>interface</CODE> 
+keyword and the name of the interface. The <CODE>public</CODE> 
+access specifier indicates that the interface can be used by any 
+class in any package. If you do not specify that your interface 
+is public, your interface will be accessible only to classes that 
+are defined in the same package as the interface. 
+<P>
+An interface declaration can have one other component: a list 
+of superinterfaces. An interface can extend other interfaces, 
+just as a class can extend or subclass another class. However, 
+whereas a class can extend only one other class, an interface 
+can extend any number of interfaces. The list of superinterfaces 
+is a comma-separated list of all the interfaces extended by the 
+new interface. <BR>
+
+
+<H4><FONT FACE="AvantGarde">The Interface Body</FONT></H4>
+
+<P>The interface body contains method declarations for all the 
+methods included in the interface. A method declaration within 
+an interface is followed by a semicolon (<CODE>;</CODE>) because 
+ an interface does not provide implementations for the methods 
+declared within it. All methods declared in an interface are implicitly 
+<CODE>public</CODE> and <CODE>abstract</CODE>. 
+<P>
+An interface can contain constant declarations in addition to 
+method declarations. All constant values defined in an interface 
+are implicitly <CODE>public</CODE>, <CODE>static</CODE>, and <CODE>final</CODE>. 
+<P>
+Member declarations in an interface disallow the use of some declaration 
+modifiers; you cannot use <CODE>transient</CODE>, <CODE>volatile</CODE>, 
+or <CODE>synchronized</CODE> in a member declaration in an interface. 
+Also, you may not use the <CODE>private</CODE> and <CODE>protected</CODE> 
+specifiers when declaring members of an interface. <BR>
+</P>
+
+<blockquote><hr><strong>Note:</strong>&nbsp;  Previous releases of the 
+  Java platform allowed you to use the <CODE>abstract</CODE> modifier 
+  on interface declarations and on method declarations within interfaces.  
+  However, this is unnecessary, because interfaces and their methods  
+  are implicitly abstract. You should not use <CODE>abstract</CODE>  
+  in your interface declarations or in your method declarations  
+  within interfaces. 
+<hr></blockquote>
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="interfaceDef.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#interpack" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="usinginterface.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

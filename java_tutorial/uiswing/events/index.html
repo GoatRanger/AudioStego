@@ -1,0 +1,186 @@
+
+
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Writing Event Listeners</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="../layout/index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#events" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="intro.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+<br><a href="example-1dot4/index.html" target="_top">Examples Index (1.4)</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+
+<br>
+<font size="-1">
+<b>Trail</b>: Creating a GUI with JFC/Swing
+</font>
+
+<h2>
+Lesson: Writing Event Listeners
+</h2>
+<blockquote>
+This lesson gives you details about writing event listeners.
+It assumes you've already read the section 
+<a target="_top" href="../learn/example2.html#handlingEvents">Handling Events</a><a target="_top" href="../learn/example2.html#handlingEvents"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>,
+which gives an overview of the event model in the
+<a target="_top" href="../learn/index.html">Learning Swing by Example</a><a target="_top" href="../learn/index.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a> lesson.
+
+<p>
+
+You might not need to read this section, at all.
+Your first source of information for event information
+should be the how-to section for the component in question.
+You can find the appropriate section using the
+<a target="_top" href="../components/components.html">A Visual Index to the Swing Components</a><a target="_top" href="../components/components.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.
+Each component's section shows code
+for handling the events most commonly needed
+when implementing the component.
+For example, 
+<a target="_top" href="../components/button.html#checkbox">How to Use Check Boxes</a><a target="_top" href="../components/button.html#checkbox"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a> shows you how to handle mouse clicks on check boxes
+using an item listener.
+
+
+</blockquote>
+<h3>
+<a href="intro.html">Some Simple Event-Handling Examples</a>
+</h3>
+<blockquote>
+The programs in this section illustrate
+events and event handling.
+</blockquote>
+
+<h3>
+<a href="generalrules.html">
+General Information about Writing Event Listeners
+</a>
+</h3>
+<blockquote>
+This section provides information
+that's useful for handling all types of events.
+One of the topics 
+using adapters and inner classes to implement event handlers.
+</blockquote>
+
+<h3>
+<a href="eventsandcomponents.html">Listeners Supported by Swing Components</a>
+</h3>
+<blockquote>
+This is <em>the</em> place to find out which Swing components 
+can fire which kinds of events.
+You might want to bookmark this section 
+so you can easily find 
+its quick-reference table.
+</blockquote>
+
+<h3>
+<a href="handling.html">Implementing Listeners for Commonly Handled Events</a>
+</h3>
+<blockquote>
+This section has
+detailed information and examples
+of writing each common kind of event listener.
+</blockquote>
+
+<h3>
+<a href="api.html">Listener API Table</a>
+</h3>
+<blockquote>
+This section features
+a quick-reference table that
+shows each listener,
+its adapter class (if any),
+and its methods.
+</blockquote>
+
+<h3>
+<a href="problems.html">Solving Common Event-Handling Problems</a>
+</h3>
+<blockquote>
+If you're having some hard-to-debug problems related to
+handling events, you might find the solution here.
+</blockquote>
+
+<h3>
+<a target="_top" href="../QandE/questions-ch5.html">Questions and Exercises</a><a target="_top" href="../QandE/questions-ch5.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a></h3>  
+<blockquote>
+Try these questions and exercises to test what you've learned in this lesson.
+</blockquote> 
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="../layout/index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#events" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="intro.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+<br><a href="example-1dot4/index.html" target="_top">Examples Index (1.4)</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Language Basics</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="../concepts/index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#nutsandbolts" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="variables.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+
+<br>
+<font size="-1">
+<b>Trail</b>: Learning the Java Language
+</font>
+
+<h2>
+Lesson: Language Basics
+</h2>
+<blockquote>
+
+The
+<a target="_blank" href="example/BasicsDemo.java"><font color="#bb000f"><code>BasicsDemo</code></font></a><a target="_blank" href="example/BasicsDemo.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a> program that follows
+adds the numbers from 1 to 10 and displays the result. 
+
+<blockquote><pre>
+public class BasicsDemo {
+    public static void main(String[] args) {
+        int sum = 0;
+        for (int current = 1; current &lt;= 10; current++) {
+            sum += current;
+        }
+        System.out.println(&quot;Sum = &quot; + sum);
+    }
+}
+</pre></blockquote>
+
+<p>
+
+
+The output from this program is:
+
+<blockquote><pre>
+Sum = 55
+</pre></blockquote>
+
+Even a small program such as this uses many of the traditional 
+features of the Java programming language, including
+variables, operators, and control flow statements. 
+The code might look a little mysterious now. But this trail 
+teaches what you need to know about the nuts and bolts of the 
+Java programming language to understand this program.
+
+
+
+<H3>
+<a target="_top" href="variables.html">Variables</a><a target="_top" href="variables.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Learning the Java Language trail)"></a></H3>
+<blockquote>
+You use variables in your program to hold data. 
+This section 
+discusses data types, how to initialize variables, and how to
+refer to variables within blocks of code. 
+</blockquote>
+
+<h3>
+<a target="_top" href="operators.html">Operators</a><a target="_top" href="operators.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Learning the Java Language trail)"></a></h3>
+<blockquote>
+This section details how you perform various operations, 
+such as arithmetic and assignment operations.
+</blockquote>
+
+<h3>
+<a target="_top" href="expressions.html">Expressions, Statements, and Blocks</a><a target="_top" href="expressions.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Learning the Java Language trail)"></a></h3>
+<blockquote>
+This section discusses how to combine
+operators and variables into
+sequences known as expressions. 
+Expressions are the building blocks of your code. 
+You will also learn how to construct statements and statement blocks.
+</blockquote>
+
+<h3>
+<a target="_top" href="flow.html">Control Flow Statements</a><a target="_top" href="flow.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Learning the Java Language trail)"></a></h3>
+<blockquote>
+Programs use control flow statements to conditionally
+execute statements, to loop over statements, or to
+jump to another area in the program. This section 
+shows you how to control your program's flow
+with such statements as if-else and while.
+</blockquote>
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="../concepts/index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#nutsandbolts" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="variables.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

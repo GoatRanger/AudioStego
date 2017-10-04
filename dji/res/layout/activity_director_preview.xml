@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.publics.DJIUI.DJILinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:background="@color/ik" android:layout_width="match_parent" android:layout_height="match_parent" android:baselineAligned="false">
+    <dji.publics.DJIUI.DJIRelativeLayout android:background="0x106000d" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x7f0b02bc">
+        <dji.pilot.publics.widget.DJIStateImageView android:id="@+id/director_head_close_img" android:paddingLeft="@dimen/rp" android:paddingRight="@dimen/rp" android:layout_width="wrap_content" android:layout_height="match_parent" android:src="@r$drawable/osd_back_btn_normal" android:scaleType="centerInside" android:adjustViewBounds="true" android:layout_centerVertical="true" android:contentDescription="@string/app_name" />
+    </dji.publics.DJIUI.DJIRelativeLayout>
+    <dji.publics.DJIUI.DJIImageView style="@style/bx" />
+    <dji.publics.DJIUI.DJIRelativeLayout android:layout_width="match_parent" android:layout_height="match_parent">
+        <dji.publics.DJIUI.DJIImageView android:id="@+id/director_preview_comingsoon_img" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@r$drawable/director_comingsoon" android:layout_centerInParent="true" />
+    </dji.publics.DJIUI.DJIRelativeLayout>
+</dji.publics.DJIUI.DJILinearLayout>

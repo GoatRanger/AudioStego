@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="33"
+   name=""
+   committed-date="2005-02-01T06:11:53.421875Z"
+   url="svn://192.168.2.2/ImageProcessor/src/or/doc/drasys/or/graph"
+   last-author="Karl"
+   kind="dir"
+   uuid="0daf4267-3229-f84b-9084-f3c94b025f38"
+   revision="55"/>
+<entry
+   name="sp"
+   kind="dir"/>
+<entry
+   committed-rev="33"
+   name="SparseGraph.html"
+   text-time="2005-03-02T06:25:26.750000Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="a42a037fd320d27565470af46a7102c2"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:24.359375Z"/>
+<entry
+   committed-rev="33"
+   name="GraphException.html"
+   text-time="2005-03-02T06:25:26.750000Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="0b7081d9e561cb72fdade41a3d7c0d0b"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:24.640625Z"/>
+<entry
+   committed-rev="33"
+   name="InvalidGraphError.html"
+   text-time="2005-03-02T06:25:26.765625Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="c7ce10aabd16cf4596e6a7b37767b300"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:24.656250Z"/>
+<entry
+   committed-rev="33"
+   name="VertexValueI.html"
+   text-time="2005-03-02T06:25:26.781250Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="8d41428d040552589fa2f7a47d7a8882"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:24.656250Z"/>
+<entry
+   committed-rev="33"
+   name="VertexI.html"
+   text-time="2005-03-02T06:25:26.796875Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="5b23de9fdb10f2666632d00e1c70fc96"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:24.671875Z"/>
+<entry
+   committed-rev="33"
+   name="DuplicateVertexException.html"
+   text-time="2005-03-02T06:25:26.796875Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="cd2c6b5c7d88705bc78d5eab2b90eebd"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:24.687500Z"/>
+<entry
+   committed-rev="33"
+   name="package-tree.html"
+   text-time="2005-03-02T06:25:26.812500Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="ad6f84f50ba984c7225a598a238fcb28"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:24.687500Z"/>
+<entry
+   committed-rev="33"
+   name="BaseGraph.html"
+   text-time="2005-03-02T06:25:26.828125Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="1fab964cf8c755ba5cc5beb820ea3797"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:24.703125Z"/>
+<entry
+   committed-rev="33"
+   name="PropertiesAdapter.html"
+   text-time="2005-03-02T06:25:26.828125Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="1e907a5e60ec0d2d51a869196c6110f5"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:24.718750Z"/>
+<entry
+   committed-rev="33"
+   name="EdgeBase.html"
+   text-time="2005-03-02T06:25:26.859375Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="b50fccc6556e893313d36c4233648bd2"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:24.750000Z"/>
+<entry
+   committed-rev="33"
+   name="AddVertexI.html"
+   text-time="2005-03-02T06:25:26.843750Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="ebefacdd8f0a5577e83bfe9e3646d2dc"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:24.734375Z"/>
+<entry
+   committed-rev="33"
+   name="EdgeNotFoundException.html"
+   text-time="2005-03-02T06:25:26.875000Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="521ae396fc54664e683e91f5726cc651"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:24.796875Z"/>
+<entry
+   committed-rev="33"
+   name="ParallelEdgeException.html"
+   text-time="2005-03-02T06:25:26.859375Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="fbaad8df58f45a10ae08a4fa644569a5"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:24.781250Z"/>
+<entry
+   committed-rev="33"
+   name="EdgeValue.html"
+   text-time="2005-03-02T06:25:26.875000Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="0c589ce595abd3e4cff5583ef3236bf6"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:24.812500Z"/>
+<entry
+   committed-rev="33"
+   name="ElementI.html"
+   text-time="2005-03-02T06:25:26.890625Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="34673e37d1acc160109d684a3e28e9a9"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:24.812500Z"/>
+<entry
+   committed-rev="33"
+   name="VertexPropertiesI.html"
+   text-time="2005-03-02T06:25:26.890625Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="13d1697c040e3758f75464abc34c0914"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:24.828125Z"/>
+<entry
+   committed-rev="33"
+   name="RemoveVertexI.html"
+   text-time="2005-03-02T06:25:26.906250Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="987d989731514580ad33f3dd6a083759"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:24.843750Z"/>
+<entry
+   name="vrp"
+   kind="dir"/>
+<entry
+   committed-rev="33"
+   name="VertexBase.html"
+   text-time="2005-03-02T06:25:26.921875Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="c1f0d5c012304bb3476f55d74c6fcd1e"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:25.421875Z"/>
+<entry
+   committed-rev="33"
+   name="GraphI.html"
+   text-time="2005-03-02T06:25:26.921875Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="c142b9545aabb31ea6cfd66706521abd"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:25.421875Z"/>
+<entry
+   committed-rev="33"
+   name="PointGraph.html"
+   text-time="2005-03-02T06:25:26.937500Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="6ac55e231389b9951acfce9535a70b4d"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:25.453125Z"/>
+<entry
+   committed-rev="33"
+   name="GraphError.html"
+   text-time="2005-03-02T06:25:26.937500Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="f2fe82b9a52062a8339f26ed40e07248"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:25.437500Z"/>
+<entry
+   name="color"
+   kind="dir"/>
+<entry
+   committed-rev="33"
+   name="EdgeI.html"
+   text-time="2005-03-02T06:25:26.953125Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="226e34b8513b0893569d16eb67d3dee6"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:25.625000Z"/>
+<entry
+   committed-rev="33"
+   name="DuplicateEdgeException.html"
+   text-time="2005-03-02T06:25:26.953125Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="5d52eba5b95dcda59f85432a21264114"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:25.640625Z"/>
+<entry
+   committed-rev="33"
+   name="WS_FTP.LOG"
+   text-time="2005-03-02T06:25:26.968750Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="5a78a9c2926e8cc6efe1f24ffe5d637a"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:25.656250Z"/>
+<entry
+   committed-rev="33"
+   name="DenseGraph.html"
+   text-time="2005-03-02T06:25:26.984375Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="cf2f2925dfe0a44c89b1f2e97f9c4a88"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:25.671875Z"/>
+<entry
+   committed-rev="33"
+   name="Operations.html"
+   text-time="2005-03-02T06:25:26.984375Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="52af5ad51b0643c3b905c9e7c2c70bdf"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:25.671875Z"/>
+<entry
+   committed-rev="33"
+   name="package-frame.html"
+   text-time="2005-03-02T06:25:27.000000Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="ede2c1f2f0ea18065781c0c9cdb8b661"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:25.687500Z"/>
+<entry
+   committed-rev="33"
+   name="MatrixGraph.html"
+   text-time="2005-03-02T06:25:27.000000Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="7704a28d697807492e0ead8c4b59809f"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:25.703125Z"/>
+<entry
+   committed-rev="33"
+   name="package-summary.html"
+   text-time="2005-03-02T06:25:27.015625Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="6131f66a55144ea61ad1cbcbbf955b81"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:25.718750Z"/>
+<entry
+   committed-rev="33"
+   name="AddEdgeI.html"
+   text-time="2005-03-02T06:25:27.015625Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="2e9a261f0d4484517ff5835ae0f379ab"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:25.718750Z"/>
+<entry
+   name="tw"
+   kind="dir"/>
+<entry
+   committed-rev="33"
+   name="EdgePropertiesI.html"
+   text-time="2005-03-02T06:25:27.031250Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="40f0ccc1c86a481af9d304bf1cc7e8a3"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:25.953125Z"/>
+<entry
+   committed-rev="33"
+   name="RemoveEdgeI.html"
+   text-time="2005-03-02T06:25:27.031250Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="9627513555dcb54cd6fffddb128a2356"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:25.968750Z"/>
+<entry
+   committed-rev="33"
+   name="EditI.html"
+   text-time="2005-03-02T06:25:27.046875Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="4ab0bafe984df0ee8c8efa8a5bad4201"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:25.984375Z"/>
+<entry
+   committed-rev="33"
+   name="Graph.html"
+   text-time="2005-03-02T06:25:27.062500Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="48e43363aa60b97cd844a200fa6cb533"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:25.984375Z"/>
+<entry
+   committed-rev="33"
+   name="AddI.html"
+   text-time="2005-03-02T06:25:27.062500Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="9a82e2035ce3c1f6d550b116c78a15af"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:26.000000Z"/>
+<entry
+   name="tsp"
+   kind="dir"/>
+<entry
+   committed-rev="33"
+   name="PropertiesI.html"
+   text-time="2005-03-02T06:25:27.078125Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="fb1f0b3ab94ab0d657c997af7132f6fb"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:26.656250Z"/>
+<entry
+   committed-rev="33"
+   name="RemoveI.html"
+   text-time="2005-03-02T06:25:27.078125Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="57b4bb410a1a9783ca004b7293481a05"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:26.671875Z"/>
+<entry
+   committed-rev="33"
+   name="VertexNotFoundException.html"
+   text-time="2005-03-02T06:25:27.093750Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="3c399b62ecc53b6047bdfdf2aebb9564"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:26.671875Z"/>
+<entry
+   committed-rev="33"
+   name="VertexValue.html"
+   text-time="2005-03-02T06:25:27.093750Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="04b14e9e411efb2ce646280972fcf000"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:26.687500Z"/>
+<entry
+   committed-rev="33"
+   name="InvalidPropertyException.html"
+   text-time="2005-03-02T06:25:27.109375Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="69e68c1185dc26b1e0bf5bdeb333de75"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:26.703125Z"/>
+<entry
+   committed-rev="33"
+   name="EdgeValueI.html"
+   text-time="2005-03-02T06:25:27.125000Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="9ccd55facb2753e7455dd70bd8711ce9"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:26.718750Z"/>
+</wc-entries>

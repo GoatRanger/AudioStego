@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res-auto" app:layout_width="match_parent" app:layout_height="wrap_content">
+    <dji.pilot2.mine.view.FixRatioImageView app:id="@+id/v2_hg_childitem_img" app:layout_width="match_parent" app:layout_height="UNKNOWN_DATA_0x1" app:scaleType="centerCrop" app:width_weight="1.0" app:height_weight="1.0" />
+    <dji.publics.DJIUI.DJIImageView app:id="@+id/v2_hg_childitem_desc_img" app:layout_width="UNKNOWN_DATA_0x1401" app:layout_height="UNKNOWN_DATA_0x1401" app:layout_marginLeft="8dp" app:layout_marginBottom="10dp" app:scaleType="center" app:layout_alignBottom="@+id/v2_hg_childitem_img" />
+    <dji.publics.DJIUI.DJITextView app:textSize="12sp" app:textColor="#aeaeae" app:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" app:id="@+id/v2_hg_childitem_time" app:layout_width="wrap_content" app:layout_height="UNKNOWN_DATA_0x1401" app:layout_marginRight="8dp" app:layout_marginBottom="10dp" app:layout_alignBottom="@+id/v2_hg_childitem_img" app:layout_alignParentRight="true" />
+    <dji.publics.DJIUI.DJIImageView app:id="@+id/v2_hg_childitem_select" app:visibility="gone" app:layout_width="UNKNOWN_DATA_0x1e01" app:layout_height="UNKNOWN_DATA_0x1e01" app:layout_marginLeft="8dp" app:layout_marginBottom="10dp" app:src="@r$drawable/hg_select" app:scaleType="centerCrop" app:layout_alignBottom="@+id/v2_hg_childitem_img" app:layout_alignParentRight="true" />
+</RelativeLayout>

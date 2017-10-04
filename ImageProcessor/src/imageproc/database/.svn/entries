@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="33"
+   name=""
+   committed-date="2005-02-01T06:11:53.421875Z"
+   url="svn://192.168.2.2/ImageProcessor/src/imageproc/database"
+   last-author="Karl"
+   kind="dir"
+   uuid="0daf4267-3229-f84b-9084-f3c94b025f38"
+   revision="55"/>
+<entry
+   committed-rev="33"
+   name="Database.java"
+   text-time="2005-03-02T06:25:37.750000Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="423fa91e106b37c093b91fb98400f17b"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:37.687500Z"/>
+<entry
+   committed-rev="33"
+   name="ClassificationData.java"
+   text-time="2005-03-02T06:25:37.765625Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="71b28f44cbbc2196a2ed28328ab13943"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:37.687500Z"/>
+<entry
+   committed-rev="33"
+   name="filesystem.attributes"
+   text-time="2005-03-02T06:25:37.781250Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="eb80453a11aafb8e376b2955915c9164"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:37.703125Z"/>
+<entry
+   committed-rev="33"
+   name="CrystalData.java"
+   text-time="2005-03-02T06:25:37.796875Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="86dd82a4b437bbad69433b6a2494699c"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:37.734375Z"/>
+</wc-entries>

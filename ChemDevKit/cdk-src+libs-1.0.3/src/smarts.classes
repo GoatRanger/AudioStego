@@ -1,0 +1,11 @@
+org/openscience/cdk/isomorphism/matchers/smarts/RingIdentifierAtom*.class
+org/openscience/cdk/isomorphism/matchers/smarts/LogicalOperatorBond*.class
+org/openscience/cdk/isomorphism/matchers/smarts/SmallestRingAtom*.class
+org/openscience/cdk/isomorphism/matchers/smarts/AromaticSymbolAtom*.class
+org/openscience/cdk/isomorphism/matchers/smarts/StereoBond*.class
+org/openscience/cdk/isomorphism/matchers/smarts/AtomicNumberAtom*.class
+org/openscience/cdk/isomorphism/matchers/smarts/LogicalOperatorAtom*.class
+org/openscience/cdk/isomorphism/matchers/smarts/AliphaticSymbolAtom*.class
+org/openscience/cdk/isomorphism/matchers/smarts/ExplicitConnectionAtom*.class
+org/openscience/cdk/isomorphism/matchers/smarts/RingMembershipAtom*.class
+org/openscience/cdk/isomorphism/matchers/smarts/RingBond*.class

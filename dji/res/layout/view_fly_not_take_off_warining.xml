@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.publics.DJIUI.DJILinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent">
+    <dji.publics.DJIUI.DJIImageView android:id="@id/aje" android:paddingTop="20dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:src="@drawable/gs_warning_icon" android:scaleType="centerInside" android:contentDescription="@string/app_name" />
+    <dji.publics.DJIUI.DJITextView android:textSize="12dp" android:textColor="@color/eb" android:gravity="left|right|center_horizontal|fill_horizontal|center|fill|start|end" android:paddingLeft="20dp" android:paddingTop="20dp" android:paddingRight="20dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/gsnew_gs_not_take_off_warning_title" />
+    <dji.publics.DJIUI.DJITextView android:textSize="12dp" android:textColor="@color/om" android:gravity="left|right|center_horizontal|fill_horizontal|center|fill|start|end" android:paddingLeft="20dp" android:paddingTop="20dp" android:paddingRight="20dp" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x1" android:text="@string/gsnew_gs_not_take_off_warning_desc" android:layout_weight="1.0" />
+</dji.publics.DJIUI.DJILinearLayout>

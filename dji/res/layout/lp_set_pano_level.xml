@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res-auto" set:orientation="vertical" set:layout_width="match_parent" set:layout_height="match_parent">
+    <TextView set:text="@string/lp_set_pano_level_title" style="@style/fj" />
+    <View set:layout_width="match_parent" style="@style/fc" />
+    <LinearLayout set:gravity="top|bottom|center_vertical|fill_vertical|center|fill" set:orientation="horizontal" set:layout_marginTop="10dp" set:layout_marginBottom="10dp" style="@style/fh">
+        <RadioGroup set:id="@id/bcr" style="@style/fq">
+            <RadioButton set:id="@id/bcs" set:background="@drawable/set_radio_left_bg" set:text="@string/lp_tracking_fast" set:layout_weight="1.0" style="@style/fe" />
+            <View set:layout_width="UNKNOWN_DATA_0x19999a31" style="@style/fg" />
+            <RadioButton set:id="@id/bct" set:text="@string/lp_tracking_middle" set:layout_weight="1.0" style="@style/fe" />
+            <View set:layout_width="UNKNOWN_DATA_0x19999a31" style="@style/fg" />
+            <RadioButton set:id="@id/bcu" set:text="@string/lp_tracking_slow" set:layout_weight="1.0" style="@style/fe" />
+        </RadioGroup>
+    </LinearLayout>
+</LinearLayout>

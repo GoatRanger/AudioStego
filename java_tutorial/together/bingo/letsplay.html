@@ -1,0 +1,478 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Let's Play!</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="overview.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#bingo" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="theCode.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Putting It All Together
+<br>
+<b>Lesson</b>: BINGO!
+</font>
+
+<h2>
+Let's Play!
+</h2>
+<blockquote>
+To play BINGO by yourself,
+you need follow all of the steps outlined
+in this section to run both the Game application
+and the Player application.
+The Game application allows many Player applications,
+running anywhere on your network,
+to register for games.
+So, if you wish to play against other people,
+invite them to play using the Game application
+that you start.
+After you've completed steps 1 through 5,
+all players need to follow steps 6, 7, and 8.
+
+<p>
+Both the Game and the Player applications
+use Swing components.
+You can use either JDK 1.2 or JDK 1.1
+to compile and run these programs.
+This section includes instructions for both releases.
+Using JDK 1.2 is a bit simpler
+because it already includes the Swing components.
+If you are using JDK 1.1,
+you need to add the JFC/Swing release to your JDK release.
+To do so,
+follow the steps outlined in
+<a target="_top" href="../../uiswing/14start/index.html">Getting Started with Swing</a><a target="_top" href="../../uiswing/14start/index.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Putting It All Together trail)"></a> to download the Swing release and to set up your environment.
+
+<!--This is old and hsould be updated to 1.4
+Be sure to set the <code>JDK_HOME</code> and <code>SWING_HOME</code>
+environment variables as described in
+-->
+.
+The JDK 1.1 instructions in the following steps
+require these environment variables.
+Additionally,
+these instructions assume that your <code>PATH</code>
+environment variable includes the path to the <code>bin</code>
+directory of your JDK release.
+
+<p>
+Here are the steps required to build and play BINGO.
+
+<ul>
+<li> <a href="#download">Step 1: Download the Source</a>
+<li> <a href="#compile">Step 2: Compile the Source</a>
+<li> <a href="#runrmiregistry">Step 3: Run rmiregistry</a>
+<li> <a href="#rungame">Step 4: Run the Game</a>
+<li> <a href="#startgame">Step 5: Start the Games</a>
+<li> <a href="#runplayer">Step 6: Run the Player</a>
+<li> <a href="#joingame">Step 7: Join the Next Game</a>
+<li> <a href="#play">Step 8: Play</a>
+</ul>
+
+<a name="download">
+</blockquote>
+<h3>Step 1: Download the Source</h3>
+</a>
+<blockquote>
+More than 50 source files in three directories
+compose this example.
+For your convenience,
+we include a downloadable zip archive
+that contains all of the source files necessary
+to build the BINGO Game and Player applications.
+<p>
+
+<table border=1 cellpadding=5>
+<tr>
+<th> Compressed /<br>Uncompressed </th>
+<th> FTP Download </th>
+<th> HTTP Download </th>
+</tr>
+
+<tr>
+<td> 38 KB / 109 KB </td>
+<td> <a href="ftp://ftp.javasoft.com/docs/tut-bingo.zip">tut-bingo.zip</a></td>
+<td> <a href="../../download/tut-bingo.zip">tut-bingo.zip</a></td>
+</tr>
+</table>
+<p>
+
+After you download and unzip <code>tut-bingo.zip</code>,
+you should see a directory named <code>example-swing</code>
+whose structure is shown in the following figure:
+<blockquote><pre>
+             example-swing
+                   |
+       +-----------+-----------+--------------+---------------+
+       |                       |              |               |
+     bingo                bingo.policy     chit.gif     invisible.gif
+       |
++------+--------+
+|      |        |
+game  player  shared
+</pre></blockquote>
+<p>
+[PENDING: replace with real, non-ASCII, diagram]
+<p>
+The <code>game</code>,
+<code>player</code>,
+and <code>shared</code>
+directories each contain
+a number of <code>.java</code> files
+that have not been compiled.
+The <code>bingo.policy</code> file is a security-related
+file required only by JDK 1.2.
+The two <code>.gif</code> files are images
+that the Player application displays on BINGO cards.
+</blockquote>
+
+<a name="compile">
+<h3>Step 2: Compile the Source</h3>
+</a>
+<blockquote>
+First, compile the sources in the <code>bingo/game</code>
+and <code>bingo/player</code> directories using <code>javac</code>.
+<p>
+
+<dt><strong>JDK 1.2 on Solaris</strong>
+<dd>
+<blockquote><pre>
+javac bingo/game/*.java
+javac bingo/player/*.java
+</pre></blockquote>
+
+<dt><strong>JDK 1.2 on Win32</strong>
+<dd>
+<blockquote><pre>
+javac bingo\game\*.java
+javac bingo\player\*.java
+</pre></blockquote>
+
+<dt><strong>JDK 1.1 with Swing on Solaris</strong>
+<dd>
+<blockquote><pre>
+javac -classpath .:&#36;SWING_HOME/swing.jar:&#36;JAVA_HOME/lib/classes.zip bingo/game/*.java
+javac -classpath .:&#36;SWING_HOME/swing.jar:&#36;JAVA_HOME/lib/classes.zip bingo/player/*.java
+</pre></blockquote>
+
+<dt><strong>JDK 1.1 with Swing on Win32</strong>
+<dd>
+<blockquote><pre>
+javac -classpath .;%SWING_HOME%\swing.jar;%JAVA_HOME%\lib\classes.zip bingo\game\*.java
+javac -classpath .;%SWING_HOME%\swing.jar;%JAVA_HOME%\lib\classes.zip bingo\player\*.java
+</pre></blockquote>
+
+<p>
+The files in <code>bingo/shared</code> get compiled
+as a side effect of compiling the source files in the
+<code>bingo/game</code> and <code>bingo/player</code> directories.
+So you don't have to compile them explicitly.
+<p>
+Next,
+create the stubs files required by RMI
+using the <code>rmic</code> utility program,
+which lives in the same directory
+as <code>javac</code> in the JDK release.
+The command is the same for JDK 1.2 and JDK 1.1
+and for Solaris and Win32.
+<p>
+<blockquote><pre>
+rmic -d . bingo.game.RegistrarImpl
+</pre></blockquote>
+</blockquote>
+
+<a name="runrmiregistry">
+<h3>Step 3: Run rmiregistry</h3>
+</a>
+<blockquote>
+You need to run a utility program called
+<code>rmiregistry</code>,
+which creates, starts,
+and manages a registry of remote objects.
+The Game and the Player applications
+use remote objects to communicate.
+Before running <code>rmiregistry</code>,
+make sure your <code>CLASSPATH</code> environment
+variable is <b>not</b> set.
+Typically, <code>rmiregistry</code>
+is executed in the background.
+
+<p>
+<dt><strong>Any JDK on Solaris</strong>
+<dd>
+<blockquote><pre>
+unsetenv CLASSPATH
+rmiregistry &
+</pre></blockquote>
+
+<dt><strong>Any JDK on Win32</strong>
+<dd>
+<blockquote><pre>
+unset CLASSPATH
+start rmiregistry
+</pre></blockquote>
+
+If you already have <code>rmiregistry</code> running,
+you will get an error stating that port 1099 is busy.
+You can either kill the <code>rmiregistry</code> process and start a new one
+or, if no other Game applications are
+running on your machine,
+you can just start the game.
+</blockquote>
+
+<a name="rungame">
+<h3>Step 4: Run the Game</h3>
+</a>
+<blockquote>
+Now, run the Game application.
+
+<p>
+
+<dt><strong>JDK 1.2</strong>
+<dd>
+<blockquote><pre>
+java -Djava.security.policy=bingo.policy bingo.game.BINGO
+</pre></blockquote>
+
+<dt><strong>JDK 1.1 with Swing on Solaris</strong>
+<dd>
+<blockquote><pre>
+java -classpath .:&#36;SWING_HOME/swing.jar:&#36;JAVA_HOME/lib/classes.zip bingo.game.BINGO
+</pre></blockquote>
+
+<dt><strong>JDK 1.1 with Swing on Win32</strong>
+<dd>
+<blockquote><pre>
+java -classpath .;%SWING_HOME%\swing.jar;%JAVA_HOME%\lib\classes.zip bingo.game.BINGO
+</pre></blockquote>
+
+<p>
+The command for running the Game application under JDK 1.2
+specifies a security policy (implemented by a policy file)
+that grants permissions to the Game application.
+The policy file we provide,
+<a href="example-swing/bingo.policy">bingo.policy</a>,
+removes all security restrictions.
+Such a permissive policy is appropriate only for testing
+and not for real-world use.
+Refer to the
+<a target="_top" href="../../security1.2/index.html">Security in Java 2 SDK 1.2</a><a target="_top" href="../../security1.2/index.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Putting It All Together trail)"></a> for a complete tutorial on security in JDK 1.2
+and how to implement a more realistic security policy.
+<p>
+Here's a snapshot of the Game application when it first appears
+on the screen:
+
+<p><center><a href="../../figures/together/controlpanel.gif" target="_top"><IMG SRC="../../figures/together/controlpanel.gif" WIDTH="460" HEIGHT="456" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></a><br><em>This figure has been reduced to fit on the page. <br> Click the image to view it at its natural size.</em></center></p>
+[PENDING: take a new picture, why does the application
+look so scrunched when run in 1.2?]
+
+</blockquote>
+
+<a name="startgame">
+<h3>Step 5: Start the Games</h3>
+</a>
+<blockquote>
+To start the games rolling:
+<ol>
+<li>
+Enter the number of seconds the game should pause between calling balls.
+If you want a fast game with one card, 3 seconds works well. Add a couple
+of seconds for each additional card. If many players are playing consider
+using 10 - 20 seconds.
+<li>
+After the first player registers, the Game begins a count down.
+During the countdown period other players can register for this game.
+After the countdown period expires the game begins and registration closes for
+this game. Enter how long the countdown period should last.
+If you're playing alone, use 10 seconds so that there's enough time
+for your BINGO card to appear on screen.
+<li>
+Enter the maximum number of players allowed to play in a single game.
+<li>
+Enter the maximum number of cards
+each player is allowed to play in a single game.
+<li>
+Push the <strong>Let the Games Begin</strong> button.
+</ol>
+
+The Game will continually serve up games until you stop them
+by clicking the <strong>No More New Games</strong> button
+(or kill the Game process).
+The <strong>No More New Games</strong> button tells the Game
+not to start any more games after the current game is finished.
+Pushing this button will <strong>not</strong> stop the current game.
+</blockquote>
+
+<a name="runplayer">
+<h3>Step 6: Run the Player</h3>
+</a>
+<blockquote>
+Now run the Player and instruct your friends to run the Player as well.
+<p>
+<dt><strong>JDK 1.2</strong>
+<dd>
+<blockquote><pre>
+java bingo.player.Player
+</pre></blockquote>
+
+<dt><strong>JDK 1.1 with Swing on Solaris</strong>
+<dd>
+<blockquote><pre>
+java -classpath .:&#36;SWING_HOME/swing.jar:&#36;JAVA_HOME/lib/classes.zip bingo.player.Player
+</pre></blockquote>
+
+<dt><strong>JDK 1.1 with Swing on Win32</strong>
+<dd>
+<blockquote><pre>
+java -classpath .;%SWING_HOME%\swing.jar;%JAVA_HOME%\lib\classes.zip bingo.player.Player
+</pre></blockquote>
+
+<p>
+
+Here's a snapshot of the Player application when
+it first appears on screen:
+
+<p><center><IMG SRC="../../figures/together/player.gif" WIDTH="450" HEIGHT="352" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p>
+</blockquote>
+
+<a name="joingame">
+<h3>Step 7: Join the Next Game</h3>
+</a>
+<blockquote>
+
+To join the next game, follow these steps:
+<ol>
+<li>
+If you want, type in your name.
+<li>
+If you want, type in a different seed value. This is the value used
+to generate your BINGO cards.
+The default value is the value returned
+from <code>System.currentTimeMillis</code> when the window gets created.
+You will always play the same cards if you always use the same seed.
+<li>
+Type the name of the computer on your network on which the Game is running.
+The Player application figures out the name of the host on which the
+Player application is running and enters this name in the host name text field.
+If you are running your own Game then you can just leave this
+value as is. If you want to play with a Game running on another
+machine, type the name of that machine into the text field.
+<li>
+Choose the number of cards you'd like to play.
+<li>
+Click the <strong>Join the Next Game</strong> button.
+<p>
+If you're running a Game then you should see your name appear
+in the player list.
+<p>
+After a time, you will see one of these windows for each card
+you requested.
+
+<p><center><IMG SRC="../../figures/together/card.gif" WIDTH="417" HEIGHT="464" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p>
+</ol>
+</blockquote>
+
+<a name="play">
+<h3>Step 8: Play</h3>
+</a>
+<blockquote>
+Periodically, the Game announces a BINGO ball.
+The current ball is displayed on the left side of the
+player's light board.
+The right side shows all of the balls
+that have been called in this game thus far.
+
+<p><center><IMG SRC="../../figures/together/called.gif" WIDTH="430" HEIGHT="105" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT=""></center></p>
+Mark the numbers on your card as the balls are called.
+When you have 5 adjacent numbers marked horizontally,
+vertically or diagonally,
+push the <strong>Bingo! I Won! Bingo!</strong> button.
+<p>
+If you really won, the Game will stop the current game, and
+tell you that you've won. If not, the current game
+continues until somebody wins, or until the balls run out.
+<p>
+But wait! Don't push the <strong>Bingo! I Won! Bingo!</strong>
+button too often.
+If you "cry wolf" (push the <strong>Bingo! I Won! Bingo!</strong>
+button and don't have a winning card) three times,
+you're kicked out of the game.
+After all, that's very disruptive to the other players!
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="overview.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#bingo" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="theCode.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

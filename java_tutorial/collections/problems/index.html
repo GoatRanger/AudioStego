@@ -1,0 +1,202 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Solving Common Collections Problems</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="../interoperability/index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#problems" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="../end.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+
+<br>
+<font size="-1">
+<b>Trail</b>: Collections
+</font>
+
+<h2>
+Lesson: Solving Common Collections Problems
+</h2>
+<blockquote>
+<A NAME="1"></A>
+<strong>Problem:</strong>
+When I try to use <CODE>Arrays.sort()</CODE> or 
+<CODE>Collections.sort()</CODE> I get a <CODE>ClassCastException</CODE>.
+
+<ul>
+The problem is that you're using the 1.1 backport. 
+To sort objects without providing an explicit 
+comparator, the objects must be "mutually comparable." 
+In 1.2, <CODE>String</CODE> (and many other JDK classes) have been 
+retrofitted to implement <CODE>Comparable</CODE>. In 1.1, you have 
+to provide an explicit <CODE>String</CODE> comparator. Since this 
+is your lucky day, I'll provide you with one:
+
+<blockquote><pre>
+    static final Comparator stringCmp = new Comparator() {
+        public int compare(Object o1, Object o2) {
+            String s1 = (String)o1;
+            String s2 = (String)o2;
+            int len1 = s1.length();
+            int len2 = s2.length();
+                for (int i=0, n=Math.min(len1, len2); i&lt;n; i++) {
+                    char c1 = s1.charAt(i);
+                    char c2 = s2.charAt(i);
+                    if (c1 != c2)
+                        return c1 - c2;
+                }
+             return len1 - len2;
+        }
+    };  
+</pre></blockquote>
+With this in your program, merely replace the line:
+<blockquote><pre>
+        Collections.sort(l);
+</pre></blockquote>
+With:
+<blockquote><pre>
+        Collections.sort(l, stringCmp);
+</pre></blockquote>
+and you're in business!
+</ul>
+
+
+<blockquote><hr><strong>Note:</strong>&nbsp;A better solution might be to download the Java 2 Platform 
+(formerly known as JDK 1.2) to take advantage of the
+implementation of <CODE>Comparable</CODE>.
+<hr></blockquote>
+
+<BR>
+<A NAME="2"></A>
+<strong>Problem:</strong>
+What collection interface behaves like the legacy <CODE>Vector</CODE> 
+class? The feature I'm most interested in is a <CODE>Vector</CODE>'s 
+ability to grow dynamically in size.
+
+<ul>
+<li><B>All</B> of the new general-purpose collection implementations 
+have the ability to grow dynamically in size.  The new 
+interface that models <CODE>Vector</CODE>'s behavior is 
+<CODE>List</CODE>. The two general purpose implementations 
+of <CODE>List</CODE> are <CODE>ArrayList</CODE> and 
+<CODE>LinkedList</CODE>.  The one whose performance properties 
+are similar to <CODE>Vector</CODE>'s is <CODE>ArrayList</CODE>. 
+All other things being equal, <CODE>ArrayList</CODE> is the 
+preferred <CODE>List</CODE> implementation.  So, to recap, 
+the Java 2 replacement for the legacy:
+<blockquote><pre>
+    Vector a = new Vector();
+</pre></blockquote>
+is:
+<blockquote><pre>
+    List a = new ArrayList();
+</pre></blockquote>
+</LI>
+</UL>
+
+
+<BR>
+<A NAME="3"></A>
+<strong>Problem:</strong>
+Are <CODE>Hashtables</CODE> synchronized in Java 2 (formerly known as JDK 1.2)?
+<UL>
+<LI>
+Yes, <CODE>Hashtables</CODE> are still synchronized in Java 2. 
+The fact that the new implementations in Java 2 are unsynchronized represents a
+break with the past: <CODE>Vector</CODE> and <CODE>Hashtable</CODE> were synchronized in 
+versions of the JDK prior to 1.2. In other words, <I>legacy</I> collections 
+(like <CODE>Vector</CODE> and <CODE>Hashtable</CODE>) are synchronized, whereas new collections 
+(like <CODE>ArrayList</CODE> and <CODE>HashMap</CODE>) are unsynchronized, and must be "wrapped" 
+via <CODE>Collections.SynchronizedList</CODE> or <CODE>Collections.synchronizedMap</CODE> if 
+synchronization is desired.
+</LI>
+</UL>
+
+
+<BR>
+<A NAME="4"></A>
+<strong>Problem:</strong>
+How do the Java collections compare to STL in C++?
+<ul>
+<li> While the new Java collections is somewhat similar to STL, it's also
+markedly different: Iterators and iterator-pairs play a central role
+in STL which they do not play in our framework; collection interfaces play a 
+central role in our framework which they don't play in STL.
+<P>
+We designed Java collections from a "clean sheet of paper" and chose
+names for clarity, brevity, and similarity with preexisting Java APIs.
+Happily, most STL users have had little difficulty adapting to the framework's
+nomenclature.
+</ul>
+<p>
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="../interoperability/index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#problems" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="../end.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

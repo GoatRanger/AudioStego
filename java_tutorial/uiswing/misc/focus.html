@@ -1,0 +1,1402 @@
+
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>How to Use the Focus Subsystem</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="dnd.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#misc" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="icon.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Creating a GUI with JFC/Swing
+<br>
+<b>Lesson</b>: Using Other Swing Features
+</font>
+
+<h2>
+How to Use the Focus Subsystem
+</h2>
+<blockquote>
+
+Many components &#151; even those primarily operated
+with the mouse, such as buttons &#151; can be operated
+with the keyboard.
+For a key press to affect a component,
+the component must have the keyboard focus.
+<p>
+From the user's point of view,
+the component with the keyboard focus is generally
+prominent &#151; with a dotted or black border, for example &#151; 
+and the window containing the component is also more prominent
+than other windows onscreen.
+These visual cues let the user know
+to which component any typing will go.
+At most one component in the window
+system can have the keyboard focus.
+
+<p>
+Exactly how a window gains the focus
+depends on the windowing system.
+There is no foolproof way, across all platforms,
+to ensure that a window gains the focus.
+On some systems, such as Microsoft Windows,
+the frontmost window becomes the focused window;
+in these cases, the method <code>Window.toFront</code>
+moves the window to the front thereby giving it
+the focus.
+However, on some systems, such as Solaris,
+some window managers choose
+the focused window based on cursor position; in
+these cases <code>Window.toFront</code> does not
+result in the same behavior.
+
+<p>
+A component generally gains the focus by the user clicking it,
+tabbing between components, or otherwise
+interacting with a component.
+A component can also be given the focus programmatically,
+such as when its containing frame or dialog is made visible.
+This code snippet shows how to give a particular 
+component the focus every time the window is activated:
+
+<blockquote><pre>
+//Make textField get the focus whenever frame is activated.
+frame.addWindowListener(new WindowAdapter() {
+    public void windowActivated(WindowEvent e) {
+        textField.requestFocusInWindow();
+    }
+});
+</pre></blockquote>
+
+
+<p>
+If you want to ensure that a particular component gains
+the focus the first time window is activated, you can
+call <code>requestFocusInWindow</code> on the component
+after the component
+has been realized, but before the frame is displayed.
+Here is some sample code showing how this can be done:
+<blockquote><pre>
+    <em>//...Where initialization occurs...</em>
+    JFrame frame = new JFrame("Test");
+    JPanel = new JPanel(new BorderLayout());
+
+    <em>//...Create a variety of components here...</em>
+
+    //Create the component that will have the initial focus.
+    JButton button = new JButton("I'm first");
+    panel.add(button);
+    frame.getContentPane().add(panel);  //Add it to the panel
+
+    frame.pack();  //Realize the components.
+    <b>//This button will have the initial focus.
+    button.requestFocusInWindow();</b> 
+    frame.setVisible(true); //Display the window.
+</pre></blockquote>
+
+
+<blockquote><hr><strong>Version note:</strong>&nbsp;This section describes the focus architecture
+implemented in release 1.4.  Prior to 1.4,
+<code>JComponent</code> methods such as
+<code>setNextFocusableComponent</code>,
+<code>getNextFocusableComponent</code>,
+<code>requestDefaultFocus</code>, and
+<code>isManagingFocus</code> were used to
+manage the keyboard focus. 
+These methods are now deprecated.
+Another method, <code>requestFocus</code>, is discouraged
+because it tries to give the focus to the component's window,
+which is not always possible.  As of 1.4,
+you should instead use <code>requestFocusInWindow</code>
+which does not attempt to make the component's window 
+focused and which returns a boolean value indicating whether
+the method succeeded.
+<hr></blockquote>
+
+<p>The rest of this section covers the following topics:
+
+<ul>
+<li><a href=#intro>Introduction to the Focus Subsystem</a>
+<li><a href=#inputVerification>Validating Input</a>
+<li><a href=#focusable>Making a Custom Component Focusable</a>
+<li><a href=#customFocusTraversal>Customizing Focus Traversal</a>
+<li><a href=#trackingFocus>Tracking Focus Changes to Multiple Components</a>
+<li><a href=#transferTiming>Timing Focus Transfers</a>
+<li><a href=#api>The Focus API</a>
+<li><a href=#eg>Focus Examples</a>
+</ul>
+
+</blockquote>
+<a name=intro>
+<h2>Introduction to the Focus Subsystem</h2></a>
+<blockquote>
+
+<p>
+The focus subsystem is designed to do the right
+thing as invisibly as possible.  In most cases it
+behaves in a reasonable manner, and if it doesn't
+you can tweak its behavior in various ways.
+Some common scenarios might include:
+<ul>
+<li> The ordering is right but the first component
+     with the focus isn't. As shown in the preceding code
+     snippet, you can use <code>requestFocusInWindow</code>
+     to set the focused component when the window becomes
+     visible.
+<li> The ordering is wrong. To fix this,
+     you can change the containment hierarchy,
+     you can change the order that the components
+     are added to their containers, or you can create a custom
+     focus traversal policy.  For more details see
+     <a href=#customFocusTraversal>Customizing Focus Traversal</a>.
+<li> A component needs to be prevented from losing focus,
+     or you need to check a value in a component before it
+     loses focus.
+     <a href=#inputVerification>Input verification</a>
+     is a solution to this problem.
+<li> A custom component isn't getting the focus.
+     To fix this, you need to make sure that it
+     satisfies all the requirements outlined in
+     <a href=#focusable>Making a Custom Component Focusable</a>.
+</ul>
+
+<p>
+The <code>FocusConceptsDemo</code> example illustrates a few concepts.
+
+<p><center><IMG SRC="../../figures/uiswing/misc/FocusConceptsDemo.gif" WIDTH="396" HEIGHT="246" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="The FocusConceptsDemo example"></center></p>
+
+<blockquote><hr><strong>Try this:</strong>&nbsp;<ol>
+<li> <a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/misc/example-1dot4/FocusConceptsDemo.jnlp">Run
+     FocusConceptsDemo</a> using
+     <a href=http://java.sun.com/products/javawebstart>
+     Java<sup><font size=-2>TM</font></sup> Web Start</a>.
+     Or, to compile and run the example yourself,
+     consult the
+     <a href="example-1dot4/index.html#FocusConceptsDemo">example index</a>.
+<li> Click the window, if necessary, to give it the focus.
+<li> Move the focus from component to component using the Tab key.
+<br> You'll notice that when the focus moves into the text area,
+     it stays in the text area.
+<li> Move the focus out of the text area using Control-Tab.
+<li> Move the focus in the opposite direction using Shift-Tab.
+<li> Move the focus out of the text area in the opposite direction using
+     Control-Shift-Tab.
+</ol>
+<hr></blockquote>
+
+<p>
+At the heart of the focus subsystem is the
+<code>KeyboardFocusManager</code>,
+which manages state and initiates changes.
+The keyboard manager tracks the <i>focus owner</i> &#151;
+the component that receives typing from the keyboard.  
+The <i>focused window</i> is the window that contains
+the focus owner.
+
+<blockquote><hr><strong>JWindow and focus:</strong>&nbsp;If you happen to use a <code>JWindow</code> in your GUI,
+you should know that the <code>JWindow</code>'s owning frame must
+be visible for any components in the window to get the focus.
+By default, if you don't specify an owning frame for
+a <code>JWindow</code>, an invisible owning frame is
+created for it.  The result is that components in
+<code>JWindow</code>s might not be able to get the focus.
+The solution is to either specify a
+visible owning frame when creating the
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JWindow.html"><font color="#8800bb"><code>JWindow</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JWindow.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>, or to use an undecorated
+<a target="_top" href="../components/frame.html"><code>JFrame</code></a><a target="_top" href="../components/frame.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a> instead of <code>JWindow</code>.
+<hr></blockquote>
+
+<p>
+A <i>focus cycle</i> (or <i>focus traversal cycle</i>)
+is a set of components, typically
+the components that share a common ancestor in the
+containment hierarchy.
+The <i>focus cycle root</i> is the
+container that is the root for a particular
+focus traversal cycle.  By default, every
+<code>Window</code> and <code>JInternalFrame</code>
+is a focus cycle root.  Any <code>Container</code>
+(and remember that all Swing components are containers)
+can be a focus cycle root; a focus cycle root can itself 
+contain one or more focus cycle roots.
+The following Swing objects are focus cycle roots:
+<code>JApplet</code>, <code>JDesktopPane</code>, <code>JDialog</code>,
+<code>JEditorPane</code>, <code>JFrame</code>, <code>JInternalFrame</code>,
+and <code>JWindow</code>.
+While it might appear that <code>JTable</code>
+and <code>JTree</code> are focus cycle roots, they
+are not.
+<p>
+A <i>focus traversal policy</i> determines the order in which
+a group of components are navigated. Swing provides
+the
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/LayoutFocusTraversalPolicy.html"><font color="#bb000f"><code><code>LayoutFocusTraversalPolicy</code></code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/LayoutFocusTraversalPolicy.html"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a> class, which
+decides the order of navigation based on layout
+manager-dependent factors, such as size,
+location, and orientation of components.  Within a focus
+cycle, components can be navigated in a forwards or
+backwards direction.  In a hierarchy of focus cycle
+roots, upwards traversal takes the focus out of the 
+current cycle into the parent cycle.
+
+<a name=addreturn><p></a>
+In most look and feels,
+components are navigated using the
+Tab and Shift-Tab keys.  These are the default
+<i>focus traversal keys</i> and can be changed
+programmatically.  For example, you can add Enter
+as a forward focus traversal key with the following
+four lines of code:
+
+<blockquote><pre>
+Set forwardKeys = getFocusTraversalKeys(
+    KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS);
+Set newForwardKeys = new HashSet(forwardKeys);
+newForwardKeys.add(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0));
+setFocusTraversalKeys(KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS,
+    newForwardKeys);
+</pre></blockquote>
+
+ Tab shifts the focus in
+the forwards direction.  Shift-Tab moves the
+focus in the backwards direction.  
+For example, in FocusConceptsDemo the first
+button has the initial focus.  Tabbing moves
+the focus through the buttons into the text area.
+Additional tabbing moves the cursor within 
+the text area but not out of the text area 
+because, inside a text area, Tab is <em>not</em>
+a focus traversal key.
+However, Control-Tab moves the focus out of the
+text area and into the first text field.
+Likewise, Control-Shift-Tab moves
+the focus out of the text area and into the previous
+component.  The Control key is used by convention
+to move the focus out any component that treats Tab
+specially, such as <code>JTable</code>.
+
+<p>
+We've just given you a brief introduction to the focus architecture.
+If you want more details, see the specification for the
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/doc-files/FocusSpec.html"><font color="#009bbb">Focus Subsystem</font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/doc-files/FocusSpec.html"><img src="../../images/otherIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (outside of the tutorial)"></a>. 
+
+</blockquote>
+<a name=inputVerification>
+<h2>Validating Input</h2></a>
+<blockquote>
+<p>
+A common requirement of GUI design is a component
+that restricts the user's input &#151; for example, a text field
+that allows only numeric input in decimal format (money,
+for example) or a text field that allows only 5 digits
+for a zip code.
+Release 1.4 provides a handy, easy-to-use
+<a target="_top" href="../components/formattedtextfield.html">formatted text field</a><a target="_top" href="../components/formattedtextfield.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a> component that allows input to be restricted to a variety of
+localizable formats. You can also specify a
+<a target="_top" href="../components/formattedtextfield.html#customformatter">a custom formatter</a><a target="_top" href="../components/formattedtextfield.html#customformatter"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a> for the text field, which can perform special checking
+such as determining whether values are not just formatted
+correctly, but also reasonable.
+
+<p>
+When you have a component that isn't a text field,
+or as an alternative to a custom formatter, you can use an
+input verifier.  An input verifier allows you to
+reject specific values, such as a properly formatted but
+invalid zip code, or values outside of a desired range,
+for example a body temperature higher than 110&deg;F.
+To use an input verifier, you create a subclass of
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/InputVerifier.html"><font color="#bb000f"><code><code>InputVerifier</code></code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/InputVerifier.html"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a> (a class introduced in release 1.3), create an instance of
+your subclass, and set the instance as the input verifier
+for one or more components. 
+
+<p>
+A component's input verifier is consulted whenever the
+component is about to lose the focus. If the component's
+value is not acceptable, the input verifier can take
+appropriate action, such as refusing to yield the focus
+on the component or replacing the user's input with the
+last valid value and then allowing the focus to transfer
+to the next component.
+
+<p>
+The following two examples show
+mortgage calculators. One uses input verification with
+standard text fields and the other uses formatted
+text fields.
+
+<font color=red><p>[PENDING: When it is available, this will
+use the mortgage calculator implemented with a custom formatter.]
+</font>
+
+<p><center><IMG SRC="../../figures/uiswing/misc/InputVerificationDemo.gif" WIDTH="369" HEIGHT="170" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="The InputVerificationDemo example, which demonstrates"></center></p>
+<blockquote><hr><strong>Try this:</strong>&nbsp;
+<ol>
+<li> <a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/misc/example-1dot4/InputVerificationDemo.jnlp">Run
+     InputVerificationDemo</a> using
+     <a href=http://java.sun.com/products/javawebstart>Java Web Start</a>.
+     If you want to compile and run the example yourself,
+     consult the
+     <a href="example-1dot4/index.html#InputVerificationDemo">example index</a>.
+
+<li>Next, <a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/components/example-1dot4/FormattedTextFieldDemo.jnlp">run
+    FormattedTextFieldDemo</a> using
+    <a href=http://java.sun.com/products/javawebstart>Java Web Start</a>.
+    Or, to compile and run the example yourself, consult the
+    <a href="../components/example-1dot4/index.html#ScrollDemo">example
+    index for components</a>.
+
+<li>Compare the two mortgage calculators side by side. 
+    You'll see that the input verification demo
+    specifies valid input values
+    in the associated label for each editable text field. 
+    Try entering badly formatted values in both
+    examples to observe behavior.  Then try entering a properly
+    formatted, but unreasonable value.
+</ol>
+<hr></blockquote>
+
+<p>You can find the code in
+<a target="_blank" href="example-1dot4/InputVerificationDemo.java"><font color="#bb000f"><code>InputVerificationDemo.java</code></font></a><a target="_blank" href="example-1dot4/InputVerificationDemo.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>. Here is the code for the <code>InputVerifier</code>
+subclass, <code>MyVerifier</code>:
+
+<blockquote><pre>
+class MyVerifier extends InputVerifier
+                 implements ActionListener {
+    double MIN_AMOUNT = 10000.0;
+    double MAX_AMOUNT = 10000000.0;
+    double MIN_RATE = 0.0;
+    int MIN_PERIOD = 1;
+    int MAX_PERIOD = 40;
+
+   public boolean shouldYieldFocus(JComponent input) {
+        boolean inputOK = verify(input);
+        makeItPretty(input);
+        updatePayment();
+
+        if (inputOK) {
+            return true;
+        } else {
+            Toolkit.getDefaultToolkit().beep();
+            return false;
+        }
+    }
+
+    protected void updatePayment() {
+        double amount = DEFAULT_AMOUNT;
+        double rate = DEFAULT_RATE;
+        int numPeriods = DEFAULT_PERIOD;
+        double payment = 0.0;
+
+        //Parse the values.
+        try {
+            amount = moneyFormat.parse(amountField.getText()).
+                              doubleValue();
+        } catch (ParseException pe) {}
+        try {
+            rate = percentFormat.parse(rateField.getText()).
+                                 doubleValue();
+        } catch (ParseException pe) {}
+        try {
+            numPeriods = decimalFormat.parse(numPeriodsField.getText()).
+                              intValue();
+        } catch (ParseException pe) {}
+
+        //Calculate the result and update the GUI.
+        payment = computePayment(amount, rate, numPeriods);
+        paymentField.setText(paymentFormat.format(payment));
+    }
+
+    //This method checks input, but should cause no side effects.
+    public boolean verify(JComponent input) {
+        return checkField(input, false);
+    }
+
+    protected void makeItPretty(JComponent input) {
+        checkField(input, true);
+    }
+
+    protected boolean checkField(JComponent input, boolean changeIt) {
+        if (input == amountField) {
+            return checkAmountField(changeIt);
+        } else if (input == rateField) {
+            return checkRateField(changeIt);
+        } else if (input == numPeriodsField) {
+            return checkNumPeriodsField(changeIt);
+        } else {
+            return true; //shouldn't happen
+        }
+    }
+
+    //Checks that the amount field is valid.  If it is valid,
+    //it returns true; otherwise, returns false.  If the
+    //change argument is true, this method reigns in the
+    //value if necessary and (even if not) sets it to the
+    //parsed number so that it looks good -- no letters,
+    //for example.
+    protected boolean checkAmountField(boolean change) {
+        boolean wasValid = true;
+        double amount = DEFAULT_AMOUNT;
+
+        //Parse the value.
+        try {
+            amount = moneyFormat.parse(amountField.getText()).
+                              doubleValue();
+        } catch (ParseException pe) {
+            wasValid = false;
+        }
+
+        //Value was invalid.
+        if ((amount < MIN_AMOUNT) || (amount > MAX_AMOUNT)) {
+            wasValid = false;
+            if (change) {
+                if (amount < MIN_AMOUNT) {
+                    amount = MIN_AMOUNT;
+                } else { // amount is greater than MAX_AMOUNT
+                    amount = MAX_AMOUNT;
+                }
+            }
+        }
+
+        //Whether value was valid or not, format it nicely.
+        if (change) {
+            amountField.setText(moneyFormat.format(amount));
+            amountField.selectAll();
+        }
+
+        return wasValid;
+    }
+
+    //Checks that the rate field is valid.  If it is valid,
+    //it returns true; otherwise, returns false.  If the
+    //change argument is true, this method reigns in the
+    //value if necessary and (even if not) sets it to the
+    //parsed number so that it looks good -- no letters,
+    //for example.
+    protected boolean checkRateField(boolean change) {
+        <em>...//Similar to checkAmountField...</em>
+    }
+
+    //Checks that the numPeriods field is valid.  If it is valid,
+    //it returns true; otherwise, returns false.  If the
+    //change argument is true, this method reigns in the
+    //value if necessary and (even if not) sets it to the
+    //parsed number so that it looks good -- no letters,
+    //for example.
+    protected boolean checkNumPeriodsField(boolean change) {
+        <em>...//Similar to checkAmountField...</em>
+    }
+
+    public void actionPerformed(ActionEvent e) {
+        JTextField source = (JTextField)e.getSource();
+        shouldYieldFocus(source); //ignore return value
+        source.selectAll();
+    }
+}
+</pre></blockquote>
+
+<p>Note that the <code>verify</code> method is implemented to
+detect invalid values but does nothing else.
+The <code>verify</code> method exists only to determine
+whether the input is valid &#151; it should never bring
+up a dialog or cause any other side effects.
+The <code>shouldYieldFocus</code> method calls <code>verify</code>
+and, if the values are invalid, reigns them in.  The
+<code>shouldYieldFocus</code> method is allowed to cause side
+effects, in this case, it always formats the text field and
+may also change its value.  In our example,
+<code>shouldYieldFocus</code>
+always returns true so that the transfer
+of the focus is never actually prevented.  This is just one way
+verification can be implemented.  We have also provided a version
+of this demo called
+<a href="example-1dot4/index.html#InputVerificationDialogDemo">
+<code>InputVerificationDialogDemo</code></a>
+that puts up a dialog when user input is invalid and requires
+the user to enter a legal value.
+
+<p>The input verifier is installed using the 
+<code>JComponent</code> <code>setInputVerifier</code> method.
+For example, <code>InputVerificationDemo</code> has this code:
+
+<blockquote><pre>
+private MyVerifier verifier = new MyVerifier();
+...
+amountField.setInputVerifier(verifier);
+</pre></blockquote>
+
+</blockquote>
+<a name=focusable>
+<h2>Making a Custom Component Focusable</h2></a>
+<blockquote>
+<p>For a component to gain the focus,
+it must satisfy three requirements:  it must be visible, enabled,
+and focusable. It is also likely that you'll want to
+give it an input map. If you don't know what an input map is, please read
+<a target="_top" href="../misc/keybinding.html">How to Use Key Bindings</a><a target="_top" href="../misc/keybinding.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.
+
+<p>
+The <a href=#trackfocusdemo>TrackFocusDemo</a>
+example defines the simple component <code>Picture</code>.
+Here is its constructor:
+
+<blockquote><pre>
+public Picture(Image image) {
+    this.image = image;
+    setFocusable(true);
+    addMouseListener(this);
+    addFocusListener(this);
+}
+</pre></blockquote>
+
+<p>
+The call to <code>setFocusable(true)</code> makes the
+component focusable.  If you explicitly give your component
+key bindings in its <code>WHEN_FOCUSED</code> input map,
+you don't need to call <code>setFocusable</code>.
+
+<p> To visually show changes in the focus
+(by drawing a red border only when the component has
+the focus), <code>Picture</code> has a
+<a target="_top" href="../events/focuslistener.html">focus listener</a><a target="_top" href="../events/focuslistener.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>.
+
+<p>To gain the focus when the user clicks on the picture,
+the component has a 
+<a target="_top" href="../events/mouselistener.html">mouse listener</a><a target="_top" href="../events/mouselistener.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a>. The listener's <code>mouseClicked</code> method requests
+for the focus to be transferred to the picture. Here is the code:
+
+<blockquote><pre>
+public void mouseClicked(MouseEvent e) {
+    //Since the user clicked on us, let's get focus!
+    requestFocusInWindow();
+}
+</pre></blockquote>
+
+<p>
+See <a href=#trackingFocus>Tracking Focus Changes to Multiple
+Components</a> for more discussion of the TrackFocusDemo example.
+
+</blockquote>
+<a name=customFocusTraversal>
+<h2>Customizing Focus Traversal</h2></a>
+<blockquote>
+
+<p>
+The focus subsystem determines a default order that is
+used when using the focus traversal keys (such as Tab) to navigate.
+A Swing application has its policy determined by
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/LayoutFocusTraversalPolicy.html"><font color="#8800bb"><code>LayoutFocusTraversalPolicy</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/LayoutFocusTraversalPolicy.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> . You can set a focus traversal policy on any
+<code>Container</code>, though if the container is
+not a focus cycle root, it may have no apparent effect.
+
+<p>
+The <code>FocusTraversalDemo</code> example 
+demonstrates how to customize focus behavior.
+
+<font color=red>
+<p align=center>[PENDING: Screenshot forthcoming]
+</font>
+
+<a name=focustraversaldemo><p></a>
+<blockquote><hr><strong>Try this:</strong>&nbsp;
+<ol>
+<li> <a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/misc/example-1dot4/FocusTraversalDemo.jnlp">Run
+     FocusTraversalDemo</a> using
+     <a href=http://java.sun.com/products/javawebstart>Java Web Start</a>.
+     Or, to compile and run the example yourself,
+     consult the
+     <a href="example-1dot4/index.html#FocusTraversalDemo">example index</a>.
+
+<li> Click the window, if necessary, to give it the focus.
+<li> Note the focus order as you tab through
+     the components.  The focus order was determined by
+     the order that the components were added to the content pane.
+     Note also that the check box never gets the focus; we
+     removed it from the focus cycle.
+<li> To move the focus out of the table, use Control-Tab or
+     Control-Shift-Tab.
+<li> Click the <b>Custom FocusTraversalPolicy</b> check box.
+     This installs a custom focus traversal policy on the frame.
+<li> Try tabbing through the components again.  Note that
+     the focus order is now in numeric (left-to-right, top-down)
+     order.
+</ol>
+<hr></blockquote>
+
+<p>
+You can find the demo's code in 
+
+<a target="_blank" href="example-1dot4/FocusTraversalDemo.java"><font color="#bb000f"><code>FocusTraversalDemo.java</code></font></a><a target="_blank" href="example-1dot4/FocusTraversalDemo.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>.
+
+<p>
+The check box was removed from the focus cycle
+with this line of code:
+<blockquote><pre>
+togglePolicy.setFocusable(false);
+</pre></blockquote>
+
+Here is the application's custom <code>FocusTraversalPolicy</code>:
+
+<blockquote><pre>
+    ...
+    JTextField tf1, tf2, tf3, tf4, tf5, tf6;
+    JTable table;
+    ...
+    public class MyOwnFocusTraversalPolicy
+                 extends FocusTraversalPolicy {
+
+        public Component getComponentAfter(Container focusCycleRoot,
+                                           Component aComponent) {
+            if (aComponent.equals(tf1)) {
+                return tf2;
+            } else if (aComponent.equals(tf2)) {
+                return tf3;
+            } else if (aComponent.equals(tf3)) {
+                return tf4;
+            } else if (aComponent.equals(tf4)) {
+                return tf5;
+            } else if (aComponent.equals(tf5)) {
+                return tf6;
+            } else if (aComponent.equals(tf6)) {
+                return table;
+            } else if (aComponent.equals(table)) {
+                return tf1;
+            }
+            return tf1;
+        }
+
+        public Component getComponentBefore(Container focusCycleRoot,
+                                       Component aComponent) {
+            if (aComponent.equals(tf1)) {
+                return table;
+            } else if (aComponent.equals(tf2)) {
+                return tf1;
+            } else if (aComponent.equals(tf3)) {
+                return tf2;
+            } else if (aComponent.equals(tf4)) {
+                return tf3;
+            } else if (aComponent.equals(tf5)) {
+                return tf4;
+            } else if (aComponent.equals(tf6)) {
+                return tf5;
+            } else if (aComponent.equals(table)) {
+                return tf6;
+            }
+            return tf1;
+        }
+
+        public Component getDefaultComponent(Container focusCycleRoot) {
+            return tf1;
+        }
+
+        public Component getLastComponent(Container focusCycleRoot) {
+            return table;
+        }
+
+        public Component getFirstComponent(Container focusCycleRoot) {
+            return tf1;
+        }
+    }
+</pre></blockquote>
+
+<p>To use a custom <code>FocusTraversalPolicy</code>,
+use code like the following on any focus cycle root.
+
+<blockquote><pre>
+    MyOwnFocusTraversalPolicy newPolicy = new MyOwnFocusTraversalPolicy();
+    frame.setFocusTraversalPolicy(newPolicy);
+</pre></blockquote>
+
+<p>You can remove the custom focus traversal policy 
+by setting the <code>FocusTraversalPolicy</code> to 
+<code>null</code>. This restores the default policy.
+
+</blockquote>
+<a name=trackingFocus>
+<h2>Tracking Focus Changes to Multiple Components</h2></a>
+<blockquote>
+<p>
+In some situations an application may need to track which component has
+the focus. This information might be used to dynamically update menus
+or perhaps a status bar. If you need to track
+the focus only on specific components, it may make sense to implement a
+<a target="_top" href="../events/focuslistener.html">focus event listener</a><a target="_top" href="../events/focuslistener.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a> .
+
+<p>
+If a focus listener isn't appropriate, you can instead
+register a <code>PropertyChangeListener</code> on the
+<code>KeyboardFocusManager</code>. The property change
+listener is notified of every change
+involving the focus, including changes to the
+focus owner, the focused window, 
+and the default focus traversal policy.  See the
+<a href=#properties>KeyboardFocusManager
+Properties</a> table for a complete list.
+
+<p>
+The following example demonstrates tracking the focus owner
+by installing a property change listener on the 
+keyboard focus manager.
+
+<p><center><IMG SRC="../../figures/uiswing/misc/TrackFocusDemo.gif" WIDTH="421" HEIGHT="341" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="The TrackFocusDemo example, which demonstrates tracking the focus owner."></center></p>
+
+<blockquote><hr><strong>Try this:</strong>&nbsp;
+<ol>
+<li> <a href="http://java.sun.com/docs/books/tutorialJWS/uiswing/misc/example-1dot4/TrackFocusDemo.jnlp">Run
+     TrackFocusDemo</a> using
+     <a href=http://java.sun.com/products/javawebstart>Java Web Start</a>.
+     Or, to compile and run the example yourself,
+     consult the
+     <a href="example-1dot4/index.html#TrackFocusDemo">example index</a>.
+
+<li> Click the window, if necessary, to give it the focus.
+<li> The window shows six images, each are displayed by
+     a <code>Picture</code> component. The <code>Picture</code>
+     that has the focus is indicated with a red
+     border. A label at the bottom of the window
+     describes the <code>Picture</code> that has the focus.
+<li> Move the focus to another <code>Picture</code> by tabbing,
+     Shift-tabbing, or clicking an image.
+     Because a property change listener has been
+     registered on the keyboard focus manager,
+     the change in focus is detected and the label is
+     updated appropriately.
+</ol>
+<hr></blockquote>
+
+<p>You can view the demo's code in 
+<a target="_blank" href="example-1dot4/TrackFocusDemo.java"><font color="#bb000f"><code>TrackFocusDemo.java</code></font></a><a target="_blank" href="example-1dot4/TrackFocusDemo.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>. The custom component used for drawing the images is in
+<a target="_blank" href="example-1dot4/Picture.java"><font color="#bb000f"><code>Picture.java</code></font></a><a target="_blank" href="example-1dot4/Picture.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>.  Here is the code that defines and installs the
+property change listener:
+
+<blockquote><pre>
+KeyboardFocusManager focusManager =
+    KeyboardFocusManager.getCurrentKeyboardFocusManager();
+focusManager.addPropertyChangeListener(
+    new PropertyChangeListener() {
+        public void propertyChange(PropertyChangeEvent e) {
+            String prop = e.getPropertyName();
+            if (("focusOwner".equals(prop)) &&
+                  (e.getNewValue() != null) &&
+                  ((e.getNewValue()) instanceof Picture)) {
+                Component comp = (Component)e.getNewValue();
+                String name = comp.getName();
+                Integer num = new Integer(name);
+                int index = num.intValue();
+                if (index < 0 || index > comments.length) {
+                    index = 0;
+                }
+                info.setText(comments[index]);
+            }
+        }
+    }
+);
+</pre></blockquote>
+
+<p>The custom component, <code>Picture</code>,
+is responsible for drawing the image.  All six
+components are defined in this manner:
+
+<blockquote><pre>
+pic1 = new Picture(createImageIcon("images/" +
+            mayaString + ".gif", mayaString).getImage());
+pic1.setName("1");
+</pre></blockquote>
+
+</blockquote>
+<a name=transferTiming>
+<h2>Timing Focus Transfers</h2></a>
+<blockquote>
+<p>
+Focus transfers are asynchronous. This can lead to some odd
+timing-related problems and assumptions, especially during automatic
+transfers of the focus.  For example, imagine an
+application with a window containing a Start button,
+a Cancel button and a text field. 
+The components are added in this order:
+<ol>
+<li>Start button
+<li>Text field
+<li>Cancel button
+</ol>
+When an application is launched, the
+<code>LayoutFocusTraversalPolicy</code>
+determines the focus traversal policy &#151;
+in this case, it's the order that the components
+were added to their container.
+In this example, the desired behavior is that the 
+Start button has the initial focus, and when the
+Start button is clicked it is disabled and the Cancel
+button gets the focus.
+The correct way to
+implement this would be to add the components
+to the container in the desired order or to
+create a custom focus traversal policy.
+If, for some reason, that was not possible,
+the way to implement this would be
+with the following code snippet:
+
+<blockquote><pre>
+public void actionPerformed(ActionEvent e) {
+    //This works.
+    start.setEnabled(false);
+    cancel.requestFocusInWindow();
+}
+</pre></blockquote>
+
+<p>As desired, the focus goes from the Start button to the
+Cancel button, rather than to the text field.
+But a different result would occur if the same methods were
+called in the opposite order, like this:
+
+<blockquote><pre>
+public void actionPerformed(ActionEvent e) {
+    //This doesn't work.
+    cancel.requestFocusInWindow();
+    start.setEnabled(false);
+}
+</pre></blockquote>
+
+In this case, the focus is requested on the Cancel button before
+it has left the Start button.
+The call to <code>requestFocusInWindow</code>
+initiates the focus transfer, but it doesn't immediately move the focus
+to the Cancel button.
+When the Start button is disabled, the focus is
+transferred to the next component (so there is always a component
+with the focus) and, in this case, it would then move the focus to the
+text field, <em>not</em> the Cancel button.
+
+<p>The need to make focus requests after all other changes that
+might affect the focus applies to:
+
+<ul>
+<li>Hiding the focus owner.
+<li>Making the focus owner non-focusable.
+<li>Calling <code>removeNotify</code> on the focus owner.
+<li>Doing any of the above to the container of the focus owner,
+    or causing changes to the focus policy so the container no
+    longer accepts the component as the focus owner.
+<li>Disposing of the top-level window that contains the focus owner.
+</ul>
+
+</blockquote>
+<h3>
+<a name="api">The Focus API</a>
+</h3>
+<blockquote>
+The following tables list the commonly used
+constructors and methods related to focus.
+The focus API falls into four categories:
+
+<ul>
+<li><a href="#focusMethods">Useful Methods for Components</a>
+<li><a href="#focustraversal">Creating and Using a Custom
+     FocusTraversalPolicy</a>
+<li><a href="#inputverificationapi">Input Verification API</a>
+<li><a href="#properties">KeyboardFocusManager Properties</a>
+</ul>
+
+<p>For more detailed information about the focus architecture,
+see the specification for the
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/doc-files/FocusSpec.html"><font color="#009bbb">Focus Subsystem</font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/doc-files/FocusSpec.html"><img src="../../images/otherIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (outside of the tutorial)"></a>. You may also find
+<a target="_top" href="../events/focuslistener.html">How to Write a Focus Listener</a><a target="_top" href="../events/focuslistener.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a> useful.
+
+<p align=center><a name="focusMethods">Useful Methods for Components</a>
+<p><em>All of this API was introduced in release 1.4.</em>
+<table border=1>
+<tr>
+<th align=left>Method (in <code>Component</code>)</th>
+<th align=left>Purpose</th>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#isFocusOwner()"><font color="#8800bb"><font size=2><code>isFocusOwner()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#isFocusOwner()"></a></td>
+<td>Return <code>true</code> if the component is the focus
+    owner. This method, introduced in release 1.4,
+    obsoletes <code>hasFocus</code>.
+</td>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JComponent.html#setRequestFocusEnabled(boolean)"><font color="#8800bb"><font size=2><code>setRequestFocusEnabled(boolean)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JComponent.html#setRequestFocusEnabled(boolean)"></a><br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JComponent.html#isRequestFocusEnabled()"><font color="#8800bb"><font size=2><code>isRequestFocusEnabled()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JComponent.html#isRequestFocusEnabled()"></a><br>(<em>in <code>JComponent</code>)</em>
+</td>
+<td>
+Set or get the hint on whether this <code>JComponent</code> should
+get the focus. Setting <code>setRequestFocusEnabled(false)</code>
+typically prevents mouse clicks from giving the component the focus,
+while still allowing keyboard navigation to give the component the focus.
+This method applies only to components that
+receive mouse events. For example, you can use this method
+on a <code>JButton</code>, but not on a <code>JPanel</code>.
+If you write a custom component it is up to you to honor this property.
+We recommend this method over <code>setFocusable</code> so that
+your program works better for users employing <a href=access.html>
+assistive technologies</a>.
+</td>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#setFocusable(boolean)"><font color="#8800bb"><font size=2><code>setFocusable(boolean)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#setFocusable(boolean)"></a><br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#isFocusable()"><font color="#8800bb"><font size=2><code>isFocusable()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#isFocusable()"></a></td>
+<td>Set or get the focusable state of the component.
+A component must be focusable in order to gain the focus.
+When a component has been removed from the focus cycle with
+<code>setFocusable(false)</code>, it can no longer be navigated
+with the keyboard. We prefer <code>setRequestFocusEnabled</code>
+so that your program can be run by users employing
+<a href=access.html>assistive technologies</a>.
+</td>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#requestFocusInWindow()"><font color="#8800bb"><font size=2><code>requestFocusInWindow()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Component.html#requestFocusInWindow()"></a></td>
+<td>Request that this component gets the focus.
+    The component's window must be the current focused window.
+    A subclass of <code>JComponent</code> must be visible,
+    enabled, and focusable, and have an input map for this
+    request to be granted. Even so, it shouldn't be be
+    assumed that the component has focus until it
+    fires a <code>FOCUS_GAINED</code> event.
+    This method is preferred to <code>requestFocus</code>,
+    which is platform dependent.
+</td>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Container.html#setFocusTraversalKeys(int, java.util.Set)"><font color="#8800bb"><font size=2><code>setFocusTraversalKeys(int, Set)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Container.html#setFocusTraversalKeys(int, java.util.Set)"></a><br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Container.html#getFocusTraversalKeys(int)"><font color="#8800bb"><font size=2><code>getFocusTraversalKeys(int)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Container.html#getFocusTraversalKeys(int)"></a><br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Container.html#areFocusTraversalKeysSet(int)"><font color="#8800bb"><font size=2><code>areFocusTraversalKeysSet(int)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Container.html#areFocusTraversalKeysSet(int)"></a><br>(<em>in <code>java.awt.Container</code></em>)
+</td>
+<td>
+Set or get the focus traversal keys for a particular
+direction or determine whether any focus traversal keys have
+been explicitly set on this container.  If no focus traversal
+keys have been set, they are inherited from an ancestor or
+from the keyboard focus manager.  Focus traversal keys
+can be set for the following directions: 
+<code>KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS</code>,
+<code>KeyboardFocusManager.BACKWARD_TRAVERSAL_KEYS</code>
+<code>KeyboardFocusManager.UP_CYCLE_TRAVERSAL_KEYS</code>, or
+<code>KeyboardFocusManager.DOWN_CYCLE_TRAVERSAL_KEYS</code>.
+If you set the <code>UP_CYCLE_TRAVERSAL_KEYS</code> or the
+<code>DOWN_CYCLE_TRAVERSAL_KEYS</code>, you must also invoke 
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/SortingFocusTraversalPolicy.html#setImplicitDownCycleTraversal(boolean)"><font color="#8800bb"><code>setImplicitDownCycleTraversal(false)</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/SortingFocusTraversalPolicy.html#setImplicitDownCycleTraversal(boolean)"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> on the focus traversal policy.
+</td>
+</tr>
+
+</table>
+
+<p align=center><a name="focustraversal">Creating and Using a Custom
+          FocusTraversalPolicy</a>
+<p><em>All of this API was introduced in release 1.4. Unless
+   otherwise specified, each method is defined in the
+   <code>FocusTraversalPolicy</code> interface.</em>
+<table border=1>
+<tr>
+<th align=left>Class or Method</th>
+<th align=left>Purpose</th>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/LayoutFocusTraversalPolicy.html"><font color="#8800bb"><font size=2><code>LayoutFocusTraversalPolicy</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/LayoutFocusTraversalPolicy.html"></a></td>
+<td>The class that, by default, determines the focus traversal
+    policy for Swing components.
+</td>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/LayoutFocusTraversalPolicy.html#getComponentAfter(java.awt.Container, java.awt.Component)"><font color="#8800bb"><font size=2><code>getComponentAfter(Container, Component)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/LayoutFocusTraversalPolicy.html#getComponentAfter(java.awt.Container, java.awt.Component)"></a></td>
+<td>Given the component passed in,
+    return the component that should next have the focus.
+</td>
+</tr>
+    
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/LayoutFocusTraversalPolicy.html#getComponentBefore(java.awt.Container, java.awt.Component)"><font color="#8800bb"><font size=2><code>getComponentBefore(Container, Component)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/LayoutFocusTraversalPolicy.html#getComponentBefore(java.awt.Container, java.awt.Component)"></a></td>
+<td>Given the component passed in,
+    return the component that should have the focus before
+    this one. This is used for backwards tabbing.
+</td>
+</tr>
+    
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/SortingFocusTraversalPolicy.html#getDefaultComponent(java.awt.Container)"><font color="#8800bb"><font size=2><code>getDefaultComponent(Container)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/SortingFocusTraversalPolicy.html#getDefaultComponent(java.awt.Container)"></a><br>(<em>in <code>javax.swing.SortingFocusTraversalPolicy</code>)</em>
+</td>
+<td>Return the component that should have the default focus.
+</td>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/LayoutFocusTraversalPolicy.html#getFirstComponent(java.awt.Container)"><font color="#8800bb"><font size=2><code>getFirstComponent(Container)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/LayoutFocusTraversalPolicy.html#getFirstComponent(java.awt.Container)"></a></td>
+<td>Return the first component in the traversal cycle.
+</td>
+</tr>
+    
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/InternalFrameFocusTraversalPolicy.html#getInitialComponent(java.awt.Container)"><font color="#8800bb"><font size=2><code>getInitialComponent(Container)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/InternalFrameFocusTraversalPolicy.html#getInitialComponent(java.awt.Container)"></a></td>
+<td>Return the component that should
+    receive the focus when a window is made
+    visible for the first time.
+</td>
+</tr>
+    
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/LayoutFocusTraversalPolicy.html#getLastComponent(java.awt.Container)"><font color="#8800bb"><font size=2><code>getLastComponent(Container)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/LayoutFocusTraversalPolicy.html#getLastComponent(java.awt.Container)"></a></td>
+<td>Return the last component in the
+    traversal cycle.
+</td>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Container.html#setFocusTraversalPolicy(java.awt.FocusTraversalPolicy)"><font color="#8800bb"><font size=2><code>setFocusTraversalPolicy(FocusTraversalPolicy)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Container.html#setFocusTraversalPolicy(java.awt.FocusTraversalPolicy)"></a><br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Container.html#getFocusTraversalPolicy()"><font color="#8800bb"><font size=2><code>getFocusTraversalPolicy(FocusTraversalPolicy)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Container.html#getFocusTraversalPolicy()"></a><br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Container.html#isFocusTraversalPolicySet()"><font color="#8800bb"><font size=2><code>isFocusTraversalPolicySet()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Container.html#isFocusTraversalPolicySet()"></a><br>(<em>in <code>java.awt.Container</code></em>)
+</td>
+<td>Set or get the focus traversal policy or
+    determine if one has been set. Note that setting a focus
+    traversal policy on a container that is not the focus cycle
+    root may have no apparent effect.
+    A value of <code>null</code> means that a policy has
+    not been explicitly set. If no policy has been set
+    one is inherited from the parent focus cycle root.
+</td>
+</tr>
+</table>
+
+<p align=center><a name=inputverificationapi">Input Verification API</a>
+<p><em>All of this API was introduced in release 1.3.</em>
+<table border=1>
+<tr>
+<th align=left>Class or Method</th>
+<th align=left>Purpose</th>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/InputVerifier.html"><font color="#8800bb"><font size=2><code>InputVerifier</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/InputVerifier.html"></a></td>
+<td>Abstract class that allows input validation via the focus
+    mechanism. When an attempt is made to shift the focus from a component
+    containing an input verifier, the focus is not relinquished
+    until the verifier is satisfied.
+</td>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/InputVerifier.html#shouldYieldFocus(javax.swing.JComponent)"><font color="#8800bb"><font size=2><code>shouldYieldFocus(JComponent)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/InputVerifier.html#shouldYieldFocus(javax.swing.JComponent)"></a><br><em>(in <code>InputVerifier</code>)</em>
+</td>
+<td>When a component has an input verifier, this method is
+    called by the system to determine whether the focus can
+    leave this component.  This method may cause side effects, 
+    such as bringing up a dialog. If this method returns
+    false, the focus remains on the component passed in
+    to the method.
+</td>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/InputVerifier.html#verify(javax.swing.JComponent)"><font color="#8800bb"><font size=2><code>verify(JComponent)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/InputVerifier.html#verify(javax.swing.JComponent)"></a><br><em>(in <code>InputVerifier</code>)</em>
+</td>
+<td>You need to override this method to check that
+    the component's input is valid. It should return
+    true if valid, otherwise return false.
+    This method should not cause any side effects,
+    such as bringing up a dialog.  This method is
+    called by <code>shouldYieldFocus</code>.
+</td>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JComponent.html#setInputVerifier(javax.swing.InputVerifier)"><font color="#8800bb"><font size=2><code>setInputVerifier(inputVerifier)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JComponent.html#setInputVerifier(javax.swing.InputVerifier)"></a><br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JComponent.html#getInputVerifier()"><font color="#8800bb"><font size=2><code>getInputVerifier()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JComponent.html#getInputVerifier()"></a><br><em>(in <code>JComponent</code>)</em>
+</td>
+<td>Set or get the input verifier assigned to the
+    component. By default, components have no input
+verifier.
+</td>
+</tr>
+
+<tr>
+<td>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JComponent.html#setVerifyInputWhenFocusTarget(boolean)"><font color="#8800bb"><font size=2><code>setVerifyInputWhenFocusTarget(boolean)</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JComponent.html#setVerifyInputWhenFocusTarget(boolean)"></a><br>
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JComponent.html#getVerifyInputWhenFocusTarget()"><font color="#8800bb"><font size=2><code>getVerifyInputWhenFocusTarget()</code></font></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/JComponent.html#getVerifyInputWhenFocusTarget()"></a><br><em>(in <code>JComponent</code>)</em>
+</td>
+<td>Set or get whether the input verifier for the current focus owner
+    is called before this component requests the focus.
+    The default is true.  This should be set to false for 
+    components, such as a Cancel button or a scroll
+    bar, that should receive the focus even if input is invalid.
+</td>
+</tr>
+
+</table>
+
+
+<p align=center><a name="properties">KeyboardFocusManager Properties</a>
+<p>This table defines the bound properties for
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/KeyboardFocusManager.html"><font color="#8800bb"><code>KeyboardFocusManager</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/KeyboardFocusManager.html"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>. A listener can be registered for these properties by calling
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/KeyboardFocusManager.html#addPropertyChangeListener(java.beans.PropertyChangeListener)"><font color="#8800bb"><code>addPropertyChangeListener</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/KeyboardFocusManager.html#addPropertyChangeListener(java.beans.PropertyChangeListener)"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>.
+<p><em>All of this API was introduced in release 1.4.</em>
+<table border=1>
+<tr>
+<th align=left>Property</th>
+<th align=left>Purpose</th>
+</tr>
+
+<tr>
+<td>focusOwner</td>
+<td>The component that currently receives
+key events.</td>
+</tr>
+
+<tr>
+<td>permanentFocusOwner</td>
+<td>The component that most recently received a
+permanent <code>FOCUS_GAINED</code> event.
+Typically the same as <code>focusOwner</code>, unless
+a temporary focus change is currently in effect. </td>
+</tr>
+
+<tr>
+<td>focusedWindow</td>
+<td>The window that is or that contains the focus owner.</td>
+</tr>
+
+<tr>
+<td>activeWindow</td>
+<td>Must always be either a <code>Frame</code> or a
+<code>Dialog</code>.  The active window is either the
+focused window, or the first frame or dialog that is an
+owner of the focused window.</td>
+</tr>
+
+<tr>
+<td>defaultFocusTraversalPolicy</td>
+<td>The default focus traversal policy.  This can be
+set by the <code>Container</code>
+<code>setFocusTraversalPolicy</code> method.</td>
+</tr>
+
+<tr>
+<td>forwardDefaultFocusTraversalKeys</td>
+<td>The set of default focus keys for a forward traversal.
+For multi-line text components, this defaults to Control-Tab. 
+For all other components, this defaults to Tab
+and Control-Tab.
+</td>
+</tr>
+
+<tr>
+<td>backwardDefaultFocusTraversalKeys</td>
+<td>The set of default focus keys for a backwards traversal.
+For multi-line text components this defaults to Control-Shift-Tab.
+For all other components this defaults to Shift-Tab
+and Control-Shift-Tab.
+</td>
+</tr>
+
+<tr>
+<td>upCycleDefaultFocusTraversalKeys</td>
+<td>The set of default focus keys for an up cycle.
+    These are null, by default, for Swing components.
+    If you set these keys on the <code>KeyboardFocusManager</code>,
+    or if you set the <code>downCycleFocusTraversalKeys</code> on a focus
+    cycle root, you must also invoke
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/SortingFocusTraversalPolicy.html#setImplicitDownCycleTraversal(boolean)"><font color="#8800bb"><code>setImplicitDownCycleTraversal(false)</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/SortingFocusTraversalPolicy.html#setImplicitDownCycleTraversal(boolean)"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> on the focus traversal policy.
+</td>
+</tr>
+
+<tr>
+<td>downCycleDefaultFocusTraversalKeys</td>
+<td>The set of default focus keys for a down cycle.
+    These are null, by default, for Swing components.
+    If you set these keys on the <code>KeyboardFocusManager</code>,
+    or if you set the <code>upCycleFocusTraversalKeys</code> on a focus
+    cycle root, you must also invoke
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/SortingFocusTraversalPolicy.html#setImplicitDownCycleTraversal(boolean)"><font color="#8800bb"><code>setImplicitDownCycleTraversal(false)</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/javax/swing/SortingFocusTraversalPolicy.html#setImplicitDownCycleTraversal(boolean)"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a> on the focus traversal policy.
+</td>
+</tr>
+
+<tr>
+<td>currentFocusCycleRoot</td>
+<td>The container that is the current focus cycle root.</td>
+</tr>
+
+</tr>
+</table>
+
+</blockquote>
+
+<h3>
+<a name="eg">Examples that Use Focus</a>
+</h3>
+<blockquote>
+The following table lists examples that
+manipulate the focus:
+<p>
+<table>
+<tr valign = top>
+<th align=left> Example</th>
+<th align=left> Where Described</th>
+<th align=left> Notes</th>
+</tr>
+
+<tr valign = top>
+<td> <a href="example-1dot4/index.html#FocusConceptsDemo">
+     <code>FocusConceptsDemo</code></a>
+</td>
+<td> This section</td>
+<td> Demonstrates basic default focus behavior.
+</td>
+</tr>
+
+<tr valign = top>
+<td> <a href="example-1dot4/index.html#FocusTraversalDemo">
+     <code>FocusTraversalDemo</code></a>
+</td>
+<td> This section</td>
+<td> Demonstrates how to override the default focus order.
+</td>
+</tr>
+
+<tr valign = top>
+<td> <a href="example-1dot4/index.html#TrackFocusDemo">
+     <code>TrackFocusDemo</code></a>
+</td>
+<td> This section</td>
+<td> Demonstrates how to use a <code>PropertyChangeListener</code>
+     to track the focus owner. Also implements a custom focusable
+     component.
+</td>
+</tr>
+
+<tr valign = top>
+<td> <a href="example-1dot4/index.html#InputVerificationDemo">
+     <code>InputVerificationDemo</code></a>
+</td>
+<td> This section</td>
+<td> Demonstrates how to implement an <code>InputVerifier</code>
+     to validate user input.
+</td>
+</tr>
+
+<tr valign = top>
+<td> <a href="example-1dot4/index.html#InputVerificationDialogDemo">
+     <code>InputVerificationDialogDemo</code></a>
+</td>
+<td> This section</td>
+<td> Demonstrates how to implement an <code>InputVerifier</code>
+     that puts up a dialog when user input is invalid.
+</td>
+</tr>
+
+<tr valign = top>
+<td>
+<a target="_top" href="../events/example-1dot4/index.html#FocusEventDemo">FocusEventDemo</a><a target="_top" href="../events/example-1dot4/index.html#FocusEventDemo"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a><td>
+<a target="_top" href="../events/focuslistener.html">How to Write a Focus Listener</a><a target="_top" href="../events/focuslistener.html"><img src="../../images/tutorialIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the Creating a GUI with JFC/Swing trail)"></a></td>
+<td> Reports all focus events that occur on several components
+     to demonstrate the circumstances under which focus events are fired.
+</td>
+</tr>
+
+</table>
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="dnd.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#misc" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="icon.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

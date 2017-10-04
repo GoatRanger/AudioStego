@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res-auto" phantom:orientation="vertical" phantom:layout_width="match_parent" phantom:layout_height="match_parent">
+    <antistatic.spinnerwheel.WheelVerticalView phantom:layout_gravity="top|bottom|center_vertical|fill_vertical|center|fill" phantom:id="@id/bme" phantom:layout_width="match_parent" phantom:layout_height="match_parent" phantom:layout_weight="1.0" />
+    <LinearLayout phantom:orientation="horizontal" phantom:layout_width="match_parent" phantom:layout_height="UNKNOWN_DATA_0x3b01">
+        <Button phantom:textColor="#00dafc" phantom:id="@id/bmf" phantom:background="#ffffff" phantom:clickable="true" phantom:layout_width="match_parent" phantom:layout_height="match_parent" phantom:text="Cancel" phantom:layout_weight="1.0" />
+        <Button phantom:textColor="#00dafc" phantom:id="@id/bmg" phantom:background="#ffffff" phantom:clickable="true" phantom:layout_width="match_parent" phantom:layout_height="match_parent" phantom:text="Done" phantom:layout_weight="1.0" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="33"
+   name=""
+   committed-date="2005-02-01T06:11:53.421875Z"
+   url="svn://192.168.2.2/ImageProcessor/src/ai/subjlogic"
+   last-author="Karl"
+   kind="dir"
+   uuid="0daf4267-3229-f84b-9084-f3c94b025f38"
+   revision="55"/>
+<entry
+   committed-rev="33"
+   name="OpinionTest.java"
+   text-time="2005-03-02T06:25:39.031250Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="6a397355fd295ef8aad719b215f899a7"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:38.984375Z"/>
+<entry
+   committed-rev="33"
+   name="Opinion.java"
+   text-time="2005-03-02T06:25:39.031250Z"
+   committed-date="2005-02-01T06:11:53.421875Z"
+   checksum="1128275d8c976bfa6869f520c4e46009"
+   last-author="Karl"
+   kind="file"
+   prop-time="2005-03-02T06:25:39.000000Z"/>
+</wc-entries>

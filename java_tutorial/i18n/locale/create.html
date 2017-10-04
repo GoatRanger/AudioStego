@@ -1,0 +1,310 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Creating a Locale</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#locale" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="identify.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Internationalization
+<br>
+<b>Lesson</b>: Setting the Locale
+</font>
+
+<h2>
+Creating a Locale
+</h2>
+<blockquote>
+To create a <CODE>Locale</CODE> object, you typically specify the
+language code and the country code. For example, to specify the French
+language and the country of Canada, you would invoke the constructor as
+follows:
+<blockquote><pre>
+aLocale = new Locale(&quot;fr&quot;, &quot;CA&quot;);
+</pre></blockquote>
+The next example creates <CODE>Locale</CODE>
+objects for the English language in the United States and Great Britain: 
+<blockquote><pre>
+bLocale = new Locale(&quot;en&quot;, &quot;US&quot;);
+cLocale = new Locale(&quot;en&quot;, &quot;GB&quot;);
+</pre></blockquote>
+
+The first argument is the language code, a pair of lowercase letters
+that conform to ISO-639. You can find a full list of the ISO-639 codes
+at
+
+<a target="_blank" href="http://www.ics.uci.edu/pub/ietf/http/related/iso639.txt"><font color="#009bbb">http://www.ics.uci.edu/pub/ietf/http/related/iso639.txt</font></a><a target="_blank" href="http://www.ics.uci.edu/pub/ietf/http/related/iso639.txt"><img src="../../images/otherIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (outside of the tutorial)"></a>.
+<P>
+The following table lists just a few of the language codes.
+
+<p>
+<blockquote>
+<TABLE BORDER="1">
+<caption>
+</blockquote>
+<h3>Sample Language Codes</h3>
+</caption>
+<TR>
+<TH>
+Language Code
+</TH>
+<TH>
+Description
+</TH>
+</TR>
+<TR>
+<TD>
+<CODE>de</CODE>
+
+</TD>
+<TD>
+German
+</TD>
+</TR>
+<TR>
+<TD>
+<CODE>en</CODE>
+
+</TD>
+<TD>
+English
+</TD>
+</TR>
+<TR>
+<TD>
+<CODE>fr</CODE>
+
+</TD>
+<TD>
+French
+</TD>
+</TR>
+<TR>
+<TD>
+<CODE>ja</CODE>
+
+</TD>
+<TD>
+Japanese
+</TD>
+</TR>
+<TR>
+<TD>
+<CODE>jw</CODE>
+
+</TD>
+<TD>
+Javanese
+</TD>
+</TR>
+<TR>
+<TD>
+<CODE>ko</CODE>
+
+</TD>
+<TD>
+Korean
+</TD>
+</TR>
+<TR>
+<TD>
+<CODE>zh</CODE>
+
+</TD>
+<TD>
+Chinese
+</TD>
+</TR>
+</TABLE>
+</blockquote>
+<P>
+The second argument of the
+<CODE>Locale</CODE> constructor is the country code. It consists of two
+uppercase letters and conforms to ISO-3166. A copy of ISO-3166 can be
+found at
+
+<a target="_blank" href="http://www.chemie.fu-berlin.de/diverse/doc/ISO_3166.html"><font color="#009bbb">http://www.chemie.fu-berlin.de/diverse/doc/ISO_3166.html</font></a><a target="_blank" href="http://www.chemie.fu-berlin.de/diverse/doc/ISO_3166.html"><img src="../../images/otherIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (outside of the tutorial)"></a>.
+<P>
+The following table
+contains several sample country codes.
+<p>
+<blockquote>
+<TABLE BORDER="1">
+<caption>
+<h3>Sample Country Codes</h3>
+</caption>
+<TR>
+<TH>
+Country Code
+</TH>
+<TH>
+Description
+</TH>
+</TR>
+<TR>
+<TD>
+<CODE>CN</CODE>
+
+</TD>
+<TD>
+China
+</TD>
+</TR>
+<TR>
+<TD>
+<CODE>DE</CODE>
+
+</TD>
+<TD>
+Germany
+</TD>
+</TR>
+<TR>
+<TD>
+<CODE>FR</CODE>
+
+</TD>
+<TD>
+France
+</TD>
+</TR>
+<TR>
+<TD>
+<CODE> IN</CODE>
+
+</TD>
+<TD>
+India
+</TD>
+</TR>
+<TR>
+<TD>
+<CODE>US</CODE>
+
+</TD>
+<TD>
+United States
+</TD>
+</TR>
+</TABLE>
+</blockquote>
+<P>
+If you need to distinguish your <CODE>Locale</CODE> further, you can
+specify a third parameter, called the variant code. Usually you specify
+variant codes to identify differences caused by the computing platform.
+For example, font differences may force you to use different characters
+on Windows and UNIX. You could then define the <CODE>Locale</CODE>
+objects with the variant codes WINDOWS and UNIX as follows: 
+<blockquote><pre>
+xLocale = new Locale(&quot;de&quot;, &quot;DE&quot;, &quot;UNIX&quot;);
+yLocale = new Locale(&quot;de&quot;, &quot;DE&quot;, &quot;WINDOWS&quot;);
+</pre></blockquote>
+
+The variant codes conform to no standard. They are arbitrary and
+specific to your application. If you create <CODE>Locale</CODE> objects
+with variant codes only your application will know how to deal with
+them.
+<P>
+The country and variant codes are optional. When omitting the country
+code, you specify a null <CODE>String</CODE>. You may create a
+<CODE>Locale </CODE> for the English language as follows:
+<blockquote><pre>
+enLocale = new Locale(&quot;en&quot;, &quot;&quot;);
+</pre></blockquote>
+<P>
+For your convenience the <CODE>Locale</CODE> class provides constants
+for some languages and countries. For example, you can create
+<CODE>Locale</CODE> objects by specifying the <CODE>JAPANESE</CODE> or
+<CODE>JAPAN</CODE> constants. The <CODE>Locale</CODE> objects created
+by the following two statements are equivalent:
+<blockquote><pre>
+j1Locale = Locale.JAPAN;
+j2Locale = new Locale(&quot;ja&quot;, &quot;JP&quot;);
+</pre></blockquote>
+<P>
+When you specify a language constant, the country portion of the
+<CODE>Locale</CODE> is undefined. The next two statements create
+equivalent <CODE>Locale </CODE> objects:
+<blockquote><pre>
+j3Locale = Locale.JAPANESE;
+j4Locale = new Locale(&quot;ja&quot;, &quot;&quot;);
+</pre></blockquote>
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="index.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#locale" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="identify.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

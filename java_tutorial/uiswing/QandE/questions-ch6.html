@@ -1,0 +1,174 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Questions and Exercises: Performing Custom Painting</title>
+<script language="JavaScript">
+
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="../14painting/problems.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#14painting" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="answers-ch6.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="../14painting/index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Creating a GUI with JFC/Swing
+<br>
+<b>Lesson</b>: Performing Custom Painting
+</font>
+
+<!--END HEADER-->
+
+<H2>Questions and Exercises: Performing Custom Painting</H2>
+
+
+<H3>Questions</H3>
+
+<BLOCKQUOTE>
+  <P>1. What method defined by <CODE>JComponent</CODE> paints the
+  inside of a component?</P>
+  <P>2. Which of the following code snippets paint a rectangle
+  (filled or not) that is 100x100 pixels?</P>
+  <BLOCKQUOTE>
+    <P>a. <CODE>g.fillRect(x, y, 100, 100)</CODE><BR>
+    b. <CODE>g.fillRect(x, y, 99, 99)</CODE><BR>
+    c. <CODE>g.drawRect(x, y, 100, 100)</CODE><BR>
+    d. b and c<BR>
+    e. a and c</P>
+  </BLOCKQUOTE>
+  <P>3. What code would you use to make a component perform the
+  next painting operation using the background color at 50% transparency?</P>
+</BLOCKQUOTE>
+
+<H3>Exercises</H3>
+
+<BLOCKQUOTE>
+  <P>1. Using a standard border and custom component painting,
+  implement a component that has a preferred size of 250x100, is
+  opaque by default, has a 5-pixel black border, and paints an
+  &#147;X&#148; (using 5-pixel-thick lines) in the foreground color,
+  as shown in the following figure.</P>
+  <BLOCKQUOTE>
+    <IMG SRC="../../figures/uiswing/QandE/ComponentDisplayer-1.gif" WIDTH="260" HEIGHT="133"
+      ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="ComponentDisplayer-1.gif">
+  </BLOCKQUOTE>
+
+
+  <P>2. Implement an icon that&#146;s 10x10 pixels and paints a
+  solid rectangle that fills the 10x10 area. If the icon&#146;s
+  component is enabled, the rectangle should be red; if disabled,
+  gray. Make a copy of <CODE>ButtonDemo.java</CODE> that uses your
+  custom <CODE>Icon</CODE> for the middle button, instead of displaying
+  <CODE>middle.gif</CODE>. The following pictures show what the
+  icon should look like.<BR>
+  <BLOCKQUOTE>
+  <TABLE WIDTH="450" BORDER="0" CELLSPACING="2" CELLPADDING="0">
+    <TR>
+      <TD WIDTH="50%">
+    <IMG SRC="../../figures/uiswing/QandE/SquareIcon-1.gif" WIDTH="118" HEIGHT="46"
+      ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="SquareIcon-1.gif">
+      </TD> 
+      <TD WIDTH="50%">
+    <IMG SRC="../../figures/uiswing/QandE/SquareIcon-2.gif" WIDTH="118" HEIGHT="46"
+      ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="SquareIcon-2.gif">
+      </TD> 
+    </TR>
+  </TABLE></BLOCKQUOTE>
+
+  <P>3. Implement a border that paints a red 15-pixel-tall stripe
+  all the way across the top of its component. Test this border
+  by substituting it for the border on the component you created
+  in exercise 1. The result should look like the following figure.
+  <BLOCKQUOTE>
+    <IMG SRC="../../figures/uiswing/QandE/ComponentDisplayer-2.gif" WIDTH="260" HEIGHT="133"
+      ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="ComponentDisplayer-2.gif">
+  </BLOCKQUOTE>
+
+</BLOCKQUOTE>
+
+<P><A HREF="answers-ch6.html" TARGET="_top">Check your answers.<IMG 
+SRC="../../images/tutorialIcon.gif" WIDTH="11" HEIGHT="11" BORDER="0"
+ALIGN="ABSMIDDLE" ALT="(Check your answers.)"
+NATURALSIZEFLAG="0"></A>
+
+<P>
+<!--START FOOTER-->
+
+
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="../14painting/problems.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#14painting" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="answers-ch6.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="../14painting/index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>
+
+
+

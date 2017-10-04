@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:background="@color/om" android:fitsSystemWindows="@r$bool/is_fix_system" android:layout_width="match_parent" android:layout_height="match_parent">
+    <include layout="@layout/v2_academy_header" />
+    <RelativeLayout android:background="@r$color/v2_new_academy_bgcolor" android:layout_width="match_parent" android:layout_height="match_parent">
+        <dji.publics.DJIUI.DJITextView android:textSize="@dimen/rk" android:textColor="@r$color/v2_explore_comment_background_color_grey" android:id="@+id/v2_flight_book_black_background_tip" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/v2_new_academy_empty_tip" android:layout_centerInParent="true" />
+        <ListView android:id="@+id/v2_fight_book_list" android:scrollbars="UNKNOWN_DATA_0x0" android:layout_width="match_parent" android:layout_height="wrap_content" />
+        <include android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/v2_webview_errorly_roundpgb" />
+        <RelativeLayout android:id="@+id/v2_explore_comment_iamloading" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent">
+            <dji.publics.DJIUI.DJIImageView android:background="@r$anim/progress_animation_list" android:layout_width="UNKNOWN_DATA_0x7f0b0112" android:layout_height="UNKNOWN_DATA_0x7f0b0112" android:layout_centerInParent="true" />
+        </RelativeLayout>
+    </RelativeLayout>
+</LinearLayout>

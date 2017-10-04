@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.pilot.fpv.camera.newfn.DJICameraBaseListView xmlns:android="http://schemas.android.com/apk/res/android" android:scrollbars="vertical" android:layout_width="match_parent" android:layout_height="match_parent" android:baselineAligned="false">
+    <include layout="@layout/camera_newfn_listview_view" />
+</dji.pilot.fpv.camera.newfn.DJICameraBaseListView>

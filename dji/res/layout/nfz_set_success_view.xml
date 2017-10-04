@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.pilot.flyunlimit.view.NfzSuccessView xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent">
+    <LinearLayout android:gravity="left|right|center_horizontal|fill_horizontal|center|fill|start|end" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/gx" android:layout_centerHorizontal="true">
+        <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@r$drawable/geo_unlock_success_icon" />
+        <dji.publics.DJIUI.DJITextView android:gravity="left|right|center_horizontal|fill_horizontal|center|fill|start|end" android:autoLink="web|email|phone|map|all" android:linksClickable="false" android:id="@+id/nfz_set_success_txt" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/ft" android:text="@string/nfz_set_success_content" style="@style/GeoTitleTv" />
+        <dji.pilot.publics.widget.DJIStateTextView android:textColor="@color/lz" android:id="@+id/nfz_set_success_report_error_tv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/gc" android:text="@string/flight_forbid_report_error_txt" style="@style/FlightForbidTv" />
+    </LinearLayout>
+    <View android:layout_above="@+id/nfz_set_success_ok" style="@style/GeoDlgHorDivider" />
+    <dji.pilot.publics.widget.DJIStateTextView android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:layout_gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@+id/nfz_set_success_ok" android:text="@string/app_enter" android:layout_alignParentBottom="true" style="@style/GeoDlgBottomBtn" />
+</dji.pilot.flyunlimit.view.NfzSuccessView>

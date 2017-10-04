@@ -1,0 +1,140 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>The try Block</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="handling.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#exceptions" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="catch.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Essential Java Classes
+<br>
+<b>Lesson</b>: Handling Errors with Exceptions
+</font>
+
+<h2>
+The try Block
+</h2>
+<blockquote>
+The first step in constructing an exception handler is to enclose the
+statements that might throw an exception within a <code>try</code> block.
+
+In general, a <code>try</code> block looks like this:
+<blockquote><pre>
+try {
+    <em>Java statements</em>
+}
+</pre></blockquote>
+The segment of code labelled <em>Java statements</em> is composed of one
+or more legal Java statements that could throw an exception.
+<p>
+To construct an exception handler for the <code>writeList</code>
+method from the <code>ListOfNumbers</code> class, you need to enclose the exception-throwing
+statements of the <code>writeList</code> method within a <code>try</code> block.
+There is more than one way to accomplish this task. You could put each statement
+that might potentially throw an exception within its own <code>try</code> statement,
+and provide separate exception handlers for each <code>try</code>.
+Or you could put all of the <code>writeList</code> statements within a
+single <code>try</code> statement and associate multiple handlers with it.
+The following listing uses one <code>try</code> statement for the entire
+method because the code tends to be easier to read.
+<blockquote><pre>
+PrintWriter out = null;
+
+<strong>try {</strong>
+    System.out.println("Entering try statement");
+    out = new PrintWriter(
+              new FileWriter("OutFile.txt"));
+
+    for (int i = 0; i &lt; size; i++)
+        out.println("Value at: " + i + " = " + victor.elementAt(i));
+<strong>}</strong>
+</pre></blockquote>
+The <code>try</code> statement governs the statements
+enclosed within it and defines the scope of any exception handlers
+associated with it.
+In other words, if an exception occurs within the <code>try</code> statement,
+that exception is handled by the appropriate exception handler associated
+with this <code>try</code> statement.
+
+<p>
+A <code>try</code> statement <em>must</em> be accompanied by at least one
+<code>catch</code> block or one <code>finally</code> block.
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="handling.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#exceptions" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="catch.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

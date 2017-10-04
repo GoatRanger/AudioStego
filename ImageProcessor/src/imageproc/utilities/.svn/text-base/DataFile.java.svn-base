@@ -1,0 +1,104 @@
+/*
+ * DataFile.java
+ *
+ * Created on January 10, 2001, 4:10 PM
+ */
+
+package imageproc.utilities;
+
+/**
+ * 
+ * @author Karl A. Gossett
+ * @version
+ */
+import java.io.*;
+import java.util.*;
+
+import imageproc.utilities.Utility;
+
+public class DataFile extends java.lang.Object {
+
+	private List cases;
+
+	private String filename;
+
+	/** Creates new DataFile */
+	public DataFile() {
+		cases = new ArrayList();
+	}
+
+	public DataFile(String file) {
+		cases = new ArrayList();
+		filename = file;
+	}
+
+	public void addFeature(int caseNum, int featureNum, double featureValue) {
+		int index = cases.indexOf(new CaseData(caseNum));
+		if (index != -1) {
+			CaseData c = (CaseData) cases.get(index);
+			c.addFeature(featureNum, featureValue);
+			cases.set(index, c);
+		} else {
+			CaseData c = new CaseData(caseNum);
+			c.addFeature(featureValue);
+			cases.add(c);
+		}
+	}
+
+	public void addTarget(int caseNum, int targetNum, double targetValue) {
+		int index = cases.indexOf(new CaseData(caseNum));
+		if (index != -1) {
+			CaseData c = (CaseData) cases.get(index);
+			c.addTarget(targetNum, targetValue);
+			cases.set(index, c);
+		} else {
+			CaseData c = new CaseData(caseNum);
+			c.addTarget(targetValue);
+			cases.add(c);
+		}
+	}
+
+	public void writeFile() throws IOException {
+		FileOutputStream fos = null;
+		PrintWriter pw = null;
+
+		try {
+			fos = new FileOutputStream(filename);
+			pw = new PrintWriter(fos);
+		} catch (Exception E) {
+			Utility.reportCondition("Couldn't open output files");
+		}
+
+		if (pw != null) {
+			Iterator ci = cases.iterator();
+			while (ci.hasNext()) {
+				CaseData cd = (CaseData) ci.next();
+				while (cd.hasNextFeature()) {
+					double f = cd.nextFeature();
+					pw.print(f + ",");
+					System.out.print(f + ",");
+				}
+				while (cd.hasNextTarget()) {
+					double t = cd.nextTarget();
+					pw.print(t);
+					System.out.print(t);
+					if (cd.hasNextTarget()) {
+						pw.print(",");
+						System.out.print(",");
+					}
+				}
+				pw.println();
+				System.out.println();
+			}
+
+		}
+		Utility.reportCondition("Data File Written.");
+		pw.close();
+		fos.close();
+	}
+
+	public void clear() {
+		cases = new ArrayList();
+	}
+
+}

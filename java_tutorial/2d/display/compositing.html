@@ -1,0 +1,227 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Compositing Graphics</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="clipping.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#display" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="quality.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: 2D Graphics
+<br>
+<b>Lesson</b>: Displaying Graphics with Graphics2D
+</font>
+
+<h2>
+Compositing Graphics
+</h2>
+<blockquote>
+The <CODE>AlphaComposite</CODE> class encapsulates various compositing
+styles, which determine how overlapping objects are rendered. An
+<CODE>AlphaComposite</CODE> can also have an alpha value that specifies
+the degree of transparency: alpha&nbsp;=&nbsp;1.0 is totally opaque,
+alpha&nbsp;=&nbsp;0.0 totally transparent (clear).
+<CODE>AlphaComposite</CODE> supports most of the standard Porter-Duff
+compositing rules shown in the following table.
+<p>
+<TABLE BORDER="1">
+<TR>
+<TD>
+Source-over (<CODE>SRC_OVER</CODE>)<BR>
+<IMG SRC="../../figures/2d/2D-39.gif  " WIDTH="173" HEIGHT="72" ALT=""></TD>
+<TD>
+If pixels in the object being rendered (the source) have the same
+location as previously rendered pixels (the destination), the source
+pixels are rendered over the destination pixels.
+</TD>
+</TR>
+<TR>
+<TD>
+Source-in (<CODE>SRC_IN</CODE>)<BR>
+<IMG SRC="../../figures/2d/2D-40.gif   " WIDTH="65" HEIGHT="76" ALT=""></TD>
+<TD>
+If pixels in the source and the destination overlap, only the source
+pixels in the overlapping area are rendered.
+</TD>
+</TR>
+<TR>
+<TD>
+Source-out (<CODE>SRC_OUT</CODE>)<BR>
+<IMG SRC="../../figures/2d/2D-41.gif   " WIDTH="84" HEIGHT="93" ALT=""></TD>
+<TD>
+If pixels in the source and the destination overlap, only the source
+pixels outside of the overlapping area are rendered. The pixels in the
+overlapping area are cleared.
+</TD>
+</TR>
+<TR>
+<TD>
+Destination-over (<CODE>DST_OVER</CODE>)<BR>
+<IMG SRC="../../figures/2d/2D-42.gif   " WIDTH="92" HEIGHT="91" ALT=""></TD>
+<TD>
+If pixels in the source and the destination overlap, only the source
+pixels outside of the overlapping area are rendered. The pixels in the
+overlapping area are not changed.
+</TD>
+</TR>
+<TR>
+<TD>
+Destination-in (<CODE>DST_IN</CODE>)<BR>
+<IMG SRC="../../figures/2d/2D-43.gif   " WIDTH="80" HEIGHT="74" ALT=""></TD>
+<TD>
+If pixels in the source and the destination overlap, the alpha from the
+source is applied to the destination pixels in the overlapping area. If
+the alpha = 1.0, the pixels in the overlapping area are unchanged; if
+the alpha is 0.0, pixels in the overlapping area are cleared.
+</TD>
+</TR>
+<TR>
+<TD>
+Destination-out (<CODE>DST_OUT</CODE>)<BR>
+<IMG SRC="../../figures/2d/2D-44.gif   " WIDTH="87" HEIGHT="74" ALT=""></TD>
+<TD>
+If pixels in the source and the destination overlap, the alpha from the
+source is applied to the destination pixels in the overlapping area. If
+the alpha = 1.0, the pixels in the overlapping area are cleared; if the
+alpha is 0.0, the pixels in the overlapping area are unchanged.
+</TD>
+</TR>
+<TR>
+<TD>
+Clear (<CODE>CLEAR</CODE>)<BR>
+<IMG SRC="../../figures/2d/2D-45.gif   " WIDTH="90" HEIGHT="85" ALT=""></TD>
+<TD>
+If the pixels in the source and the destination overlap, the pixels in
+the overlapping area are cleared.
+</TD>
+</TR>
+</TABLE>
+<P>
+To change the compositing style used by <CODE>Graphics2D</CODE>, you
+create an <CODE>AlphaComposite</CODE> object and pass it into the
+<CODE>setComposite</CODE> method.
+
+</blockquote>
+<h3>Example: Composite</h3>
+<blockquote>
+This program illustrates the effects of various compositing style and
+alpha combinations.
+
+<p><center><a href="Composite.html" target="_blank"><IMG SRC="../../figures/2d/2D-46.gif   " WIDTH="300" HEIGHT="300" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="Click this figure to run the applet."></a><br><em>This is a picture of the applet's GUI.  To run the applet, click the picture.  The applet will appear in a new browser window.</em></center></p>
+<P>
+
+<a target="_blank" href="example-1dot2/Composite.java"><font color="#bb000f"><code>Composite.java</code></font></a><a target="_blank" href="example-1dot2/Composite.java"><img src="../../images/sourceIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in a .java source file)"></a>.
+contains the full code for this applet.
+<P>
+A new <CODE>AlphaComposite</CODE> object <EM CLASS="Emphasis">ac</EM>
+is constructed by calling <CODE>AlphaComposite</CODE>.<CODE>getInstance</CODE>
+and specifying the desired compositing rule. 
+<blockquote><pre>
+AlphaComposite ac =
+               AlphaComposite.getInstance(AlphaComposite.SRC);
+</pre></blockquote>
+<P>
+When a different compositing rule or alpha value is selected,
+<CODE>AlphaComposite.getInstance</CODE> is called again, and the new
+<CODE>AlphaComposite</CODE> is assigned to <EM
+CLASS="Emphasis">ac</EM>. The selected alpha is applied in addition to
+the per-pixel alpha value and is passed as a second parameter to
+<CODE>AlphaComposite</CODE>.<CODE>getInstance</CODE>.
+
+<blockquote><pre>
+ac = AlphaComposite.getInstance(getRule(rule), alpha);
+</pre></blockquote>
+<P>
+The composite attribute is modified by passing the
+<CODE>AlphaComposite</CODE> object to <CODE>Graphics 2D</CODE>
+<CODE>setComposite</CODE>. The objects are rendered into a
+<CODE>BufferedImage</CODE> and are later copied to the screen, so the
+composite attribute is set on the <CODE>Graphics2D</CODE> context for
+the <CODE>BufferedImage</CODE>:
+<blockquote><pre>
+BufferedImage buffImg = new BufferedImage(w, h,
+                            BufferedImage.TYPE_INT_ARGB);
+Graphics2D gbi = buffImg.createGraphics();
+...
+gbi.setComposite(ac);
+</pre></blockquote>
+
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="clipping.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#display" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="quality.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

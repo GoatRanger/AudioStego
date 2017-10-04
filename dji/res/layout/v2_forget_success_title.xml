@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:background="@r$color/v2_topbar_bg" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x7f0b0083">
+    <dji.pilot.publics.widget.DJIStateImageView android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@+id/account_cancel" android:paddingLeft="@dimen/c_" android:paddingRight="@dimen/c_" android:layout_width="wrap_content" android:layout_height="match_parent" android:src="@r$drawable/v2_explore_arrow_left_back" android:scaleType="center" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+    <View android:background="@r$color/v2_new_divider_line_color" android:layout_width="match_parent" android:layout_height="UNKNOWN_DATA_0x40000031" android:layout_alignParentBottom="true" />
+    <ImageView android:background="@r$drawable/v2_plantom_ji_icon" android:layout_width="UNKNOWN_DATA_0x7f0b00ab" android:layout_height="UNKNOWN_DATA_0x7f0b00ab" android:layout_marginLeft="@dimen/ct" android:scaleType="centerInside" android:layout_centerInParent="true" />
+</RelativeLayout>

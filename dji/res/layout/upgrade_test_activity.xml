@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent">
+    <Button android:layout_gravity="left|right|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@+id/create_upgrade_mgr_btn" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="UpgradeManger Create" />
+    <Button android:layout_gravity="left|right|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@+id/start_upgrade_btn" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="stardUpgrade" />
+    <Button android:layout_gravity="left|right|center_horizontal|fill_horizontal|center|fill|start|end" android:id="@+id/send_check_msg" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Send_Check_Msg" />
+</LinearLayout>

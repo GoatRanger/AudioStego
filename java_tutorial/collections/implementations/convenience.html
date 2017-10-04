@@ -1,0 +1,179 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Convenience Implementations</title>
+<script language="JavaScript">
+<!-- hide
+function openWin(term) {
+  url="../../information/glossary.html#" + term;
+  myWin= window.open(url, "Glossary",
+              "width=400,height=150,scrollbars=yes,status=no,toolbar=no,menubar=no");
+  myWin.focus();
+}
+//-->
+</script>
+</head>
+<body BGCOLOR="#ffffff" LINK="#000099">
+<B><FONT SIZE="-1">The Java</font><sup><font size="-2">TM</font></sup> <font size="-1">Tutorial</FONT></B>
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="wrapper.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#implementations" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="../algorithms/index.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+
+<font size="-1">
+<b>Trail</b>: Collections
+<br>
+<b>Lesson</b>: Implementations
+</font>
+
+<h2>
+Convenience Implementations
+</h2>
+<blockquote>
+This section describes several mini-implementations that can be more
+convenient and more efficient then the general purpose implementations
+when you don't need the full power of a general purpose implementation.
+All of the implementations in this section are made available via
+static factory methods or exported constants, rather than public classes.
+
+</blockquote>
+<h3>List-view of an Array</h3>
+<blockquote>
+The
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/Arrays.html#asList"><font color="#8800bb"><code>Arrays.asList</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/Arrays.html#asList"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>method returns a <code>List</code>-view of its array argument.  Changes to
+the <code>List</code> write through to the array and vice-versa.  The size of 
+the collection is that of the array, and cannot be changed.  If the
+<code>add</code> or <code>remove</code> method is called on the
+<code>List</code>, an <code>UnsupportedOperationException</code> will result.
+<p>
+The normal use of this implementation is as a bridge between array-based and
+collection-based APIs.  It allows you to pass an array to a method expecting a
+<code>Collection</code> or a <code>List</code>.  However, this implementation
+has another use.  If you need a fixed-size <code>List</code>, it's more
+efficient than any general-purpose <code>List</code> implementation.  Here's
+the idiom:
+<blockquote><pre>
+List l = Arrays.asList(new Object[size]);
+</pre></blockquote>
+Note that a reference to the backing array is not retained.
+</blockquote>
+
+<h3>Immutable Multiple-Copy List</h3>
+<blockquote>
+Occasionally you'll need an immutable <code>List</code> consisting of multiple
+copies of the same element.  The
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/Collections.html#nCopies"><font color="#8800bb"><code>Collections.nCopies</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/Collections.html#nCopies"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>method returns such a <code>List</code>.  This implementation has two
+main uses.  The first is to initialize a newly created <code>List</code>.  For
+example, suppose you want an <code>ArrayList</code> initially consisting of
+1000 null elements.  The following incantation does the trick:
+<blockquote><pre>
+List l = new ArrayList(Collections.nCopies(1000, null));
+</pre></blockquote>
+Of course, the initial value of each element needn't be null.
+The second main use is to grow an existing <code>List</code>.
+For example, suppose you want to add 69 copies of the string
+<code>fruit bat</code> to the end of a <code>List</code>.  It' not clear why you'd want
+to do such a thing, but let's just suppose you did.  Here's how you'd do it:
+<blockquote><pre>
+lovablePets.addAll(Collections.nCopies(69, "fruit bat"));
+</pre></blockquote>
+By using the form of <code>addAll</code> that takes an index as well as a
+<code>Collection</code>, you can add the new elements to the middle of a
+<code>List</code> instead of at the end.
+</blockquote>
+
+<h3>Immutable Singleton Set</h3>
+<blockquote>
+Sometimes you'll need an immutable <i>singleton</i> <code>Set</code>,
+which consists of a single, specified element.  The
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/Collections.html#singleton"><font color="#8800bb"><code>Collections.singleton</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/Collections.html#singleton"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>method returns such a <code>Set</code>.  One use of this implementation
+is this idiom to remove all occurrences of a specified element from
+a <code>Collection</code>:
+<blockquote><pre>
+c.removeAll(Collections.singleton(e));
+</pre></blockquote>
+There's a related idiom to remove from a <code>Map</code> all elements that
+map to a specified value.  For example, suppose you have a <code>Map</code>,
+<code>profession</code>, that maps people to their line of work.  Suppose you
+want to eliminate all of the lawyers.  This one-liner will do the deed:
+<blockquote><pre>
+profession.values().removeAll(Collections.singleton(LAWYER));
+</pre></blockquote>
+One more use of this implementation is to provide a single input value to a
+method that is written to accept a <code>Collection</code> of values.
+</blockquote>
+
+<h3>Empty Set and Empty List Constants</h3>
+<blockquote>
+The <code>Collections</code> class provides two constants, representing the
+empty <code>Set</code> and the empty <code>List</code>,
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/Collections.html#EMPTY_SET"><font color="#8800bb"><code>Collections.EMPTY_SET</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/Collections.html#EMPTY_SET"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>and
+<a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/Collections.html#EMPTY_LIST"><font color="#8800bb"><code>Collections.EMPTY_LIST</code></font></a><a target="_blank" href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/Collections.html#EMPTY_LIST"><img src="../../images/apiIcon.gif" width=11 height=11 border=0 align="ABSMIDDLE" alt=" (in the API reference documentation)"></a>.  It's not clear that these constants really qualify as implementations, but
+this lesson seemed like as good a place to mention them as any.  The main use
+of these constants is as input to methods that take a <code>Collection</code>
+of values, when you don't want to provide any values at all.
+
+
+</blockquote>
+
+<img src="../../images/blueline.gif" width="550" height="8" ALIGN="BOTTOM" NATURALSIZEFLAG="3" ALT="">
+<br>
+<table width="550" summary="layout">
+<tr>
+<td align="left" valign="center">
+<a href="wrapper.html" target="_top"><img src="../../images/PreviousArrow.gif" width="26" height="26" align="center" border="0" alt="Previous Page"></a>
+<a href="../TOC.html#implementations" target="_top"><img src="../../images/TOCIcon.gif" width="26" height="26" align="center" border="0" alt="Lesson Contents"></a>
+<a href="../algorithms/index.html" target="_top"><img src="../../images/NextArrow.gif" width="26" height="26" align="center" border="0" alt="Next Page"></a></td>
+
+<td align="center" valign="center">
+<font size="-1">
+<a href="../../index.html" target="_top">Start of Tutorial</a>
+&gt;
+<a href="../index.html" target="_top">Start of Trail</a>
+&gt;
+<a href="index.html" target="_top">Start of Lesson</a>
+</font>
+</td>
+
+<td align="right" valign="center">
+<font size="-1">
+<a href="../../search.html" target="_top">Search</a>
+<br><a href="../../forms/sendusmail.html">Feedback Form</a>
+</font>
+</td>
+
+</tr>
+</table>
+<p>
+<font size="-1">
+<a href="../../information/copyright.html">Copyright</a>
+1995-2004 Sun Microsystems, Inc.  All rights reserved.
+</font>
+</p>
+</body>
+</html>

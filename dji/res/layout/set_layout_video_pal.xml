@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res-auto" style="@style/ff">
+    <LinearLayout set:orientation="vertical" set:layout_width="match_parent" set:layout_height="wrap_content"
+        <LinearLayout set:orientation="vertical" set:layout_width="match_parent" set:layout_height="wrap_content">
+            <TextView set:text="@string/set_camera_module_title_video" style="@style/fj" />
+            <View style="@style/fc" />
+            <dji.pilot.set.view.VideoResolutionItemView style="@style/fh" />
+            <dji.pilot.set.view.VideoResolutionItemView style="@style/fh" />
+            <dji.pilot.set.view.VideoResolutionItemView style="@style/fh" />
+            <dji.pilot.set.view.VideoResolutionItemView style="@style/fh" />
+            <TextView set:text="@string/set_camera_module_title_photo" style="@style/fj" />
+            <View style="@style/fc" />
+            <dji.pilot.set.view.VideoResolutionItemView style="@style/fh" />
+            <dji.pilot.set.view.VideoResolutionItemView style="@style/fh" />
+            <TextView set:text="@string/set_camera_module_title_general" style="@style/fj" />
+            <View style="@style/fc" />
+            <dji.pilot.set.view.VideoResolutionItemView style="@style/fh" />
+            <dji.pilot.set.view.VideoResolutionItemView style="@style/fh" />
+            <dji.pilot.set.view.VideoResolutionItemView style="@style/fh" />
+            <dji.pilot.set.view.VideoResolutionItemView style="@style/fh" />
+            <dji.pilot.set.view.VideoResolutionItemView style="@style/fh" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

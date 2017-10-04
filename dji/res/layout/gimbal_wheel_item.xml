@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res-auto" phantom:layout_width="match_parent" phantom:layout_height="match_parent">
+    <TextView phantom:textSize="13sp" phantom:textColor="0x106000b" phantom:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" phantom:id="@id/aho" phantom:layout_width="match_parent" phantom:layout_height="UNKNOWN_DATA_0x2301" phantom:lines="1" />
+</FrameLayout>
